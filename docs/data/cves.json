@@ -1,13 +1,6 @@
 {
-  "totalResults": 4180,
+  "totalResults": 4207,
   "items": [
-    {
-      "id": "CVE-2026-73653",
-      "published": "2026-08-13T19:17:38.920",
-      "description": "Vitest is a testing framework powered by Vite. Prior to versions 3.2.7, 4.1.10, and 5.0.0-beta.6, Browser Mode provider commands including upload, takeScreenshot, screenshotMatcher, stopChunkTrace, deleteTracing, and annotateTraces accept browser-supplied file paths without enforcing the allowWrite permission gate or confining paths to the project root. A client that can reach the Browser Mode API can read arbitrary local files, create or overwrite image and trace files, or delete files accessible to the Vitest process even when allowWrite is false. This issue is fixed in versions 3.2.7, 4.1.10, and 5.0.0-beta.6.",
-      "severity": "CRITICAL",
-      "score": 9.4
-    },
     {
       "id": "CVE-2026-14525",
       "published": "2026-08-13T20:17:14.250",
@@ -23,44 +16,37 @@
       "score": 8.8
     },
     {
-      "id": "CVE-2026-72777",
-      "published": "2026-08-13T19:17:32.320",
-      "description": "Next AI Draw.io through 0.4.16 contains a server-side request forgery vulnerability in the POST /api/parse-url endpoint due to hostname validation that only checks string patterns without DNS resolution. Unauthenticated attackers can supply hostnames that bypass string validation but resolve to internal addresses, allowing them to reach arbitrary internal HTTP services and exfiltrate responses including cloud metadata.",
+      "id": "CVE-2026-16722",
+      "published": "2026-08-13T20:17:15.057",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to obtain unauthorized privileges due to improper privilege management.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-16815",
+      "published": "2026-08-13T20:17:15.187",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service and potentially obtain sensitive information due to a stack-based buffer overflow.",
       "severity": "HIGH",
       "score": 8.6
     },
     {
-      "id": "CVE-2026-17220",
-      "published": "2026-08-13T19:17:18.810",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service and modify authentication metadata due to a buffer overflow.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-73650",
-      "published": "2026-08-13T19:17:38.460",
-      "description": "SVGO, short for SVG Optimizer, is a Node.js library and command-line application for optimizing SVG files. From version 1.0.0 until versions 2.8.3, 3.3.4, and 4.0.2, the removeScripts plugin, named removeScriptElement in versions 1 through 3, can leave executable content in optimized SVGs because it does not remove namespaced or prefixed script elements such as <svg:script> and, in versions 3 and 4, matches JavaScript URIs case sensitively. Applications that process untrusted SVG input with this plugin enabled and serve the result can allow scripts to execute when another user opens the SVG, exposing local storage or cookies. This issue is fixed in versions 2.8.3, 3.3.4, and 4.0.2.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-17197",
-      "published": "2026-08-13T19:17:18.640",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to bypass security restrictions due to improper validation of client-asserted identity.",
+      "id": "CVE-2026-16867",
+      "published": "2026-08-13T20:17:15.723",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to access server resources with the privileges of an authenticated user due to improper authentication during NTLM session negotiation.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-73482",
-      "published": "2026-08-13T19:17:34.423",
-      "description": "phpList before 3.7.0-RC5 contains a cross-site request forgery (CSRF) vulnerability in lists/admin/admins.php. The administrator deletion action is triggered via an unauthenticated GET request (?page=admins&delete=N) that is not protected by a CSRF token (the central verifyCsrfGetToken check uses enforce=false and is bypassed when the token parameter is absent). A remote attacker can trick a logged-in super-administrator into loading a crafted URL (e.g., embedded as an image in an email) to delete any non-self administrator account.",
+      "id": "CVE-2026-16868",
+      "published": "2026-08-13T20:17:15.883",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service due to the use of uninitialized memory during ASN.1 length processing.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-18071",
-      "published": "2026-08-13T19:17:18.970",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local attacker to gain elevated privileges due to improper privilege management.",
+      "id": "CVE-2026-16898",
+      "published": "2026-08-13T20:17:16.533",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local authenticated attacker to change the ownership of arbitrary files due to improper validation of an attacker-controlled file path.",
       "severity": "HIGH",
       "score": 7.8
     },
@@ -68,6 +54,13 @@
       "id": "CVE-2026-13460",
       "published": "2026-08-13T20:17:14.010",
       "description": "IBM Storage Scale 5.2.3.0 through 5.2.3.8, and 6.0.0.0 through 6.0.1.0 GUI contains a hardcoded token in the source code, which was used for inter-node cluster communication and REST API authentication between GUI.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-16887",
+      "published": "2026-08-13T20:17:16.263",
+      "description": "IBM i 7.6 could allow a remote attacker to cause a denial of service due to an out-of-bounds write.",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -86,6 +79,13 @@
       "score": 7.1
     },
     {
+      "id": "CVE-2026-16896",
+      "published": "2026-08-13T20:17:16.400",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local authenticated attacker to obtain unauthorized access to files due to a time-of-check time-of-use (TOCTOU) race condition.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
       "id": "CVE-2026-16692",
       "published": "2026-08-13T20:17:14.663",
       "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to cause a denial of service due to a stack-based buffer overflow.",
@@ -93,25 +93,11 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-73037",
-      "published": "2026-08-13T19:17:33.960",
-      "description": "Next AI Draw.io 0.2.1 through 0.4.16 contains a reflected cross-site scripting vulnerability in the mcp query parameter that is interpolated without escaping into HTML and JavaScript. Attackers can craft malicious URLs to execute arbitrary JavaScript in the localhost origin, enabling exfiltration of diagram sessions and API data.",
+      "id": "CVE-2026-16853",
+      "published": "2026-08-13T20:17:15.320",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to obtain sensitive information due to an out-of-bounds read.",
       "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-73038",
-      "published": "2026-08-13T19:17:34.110",
-      "description": "NodeBB before 4.15.0 contains a stored cross-site scripting vulnerability in the renderEmoji function that fails to escape tag.icon.url and tag.name attributes. Attackers can deliver malicious ActivityPub Create/Note objects with crafted emoji tags to inject arbitrary HTML and JavaScript into stored post content, executing code in all viewers' browsers.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-73651",
-      "published": "2026-08-13T19:17:38.617",
-      "description": "TypeORM is a TypeScript and JavaScript ORM for Node.js that supports PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, Oracle, and other databases. Prior to versions 0.3.31 and 1.1.0, typeorm migration:generate embeds database schema metadata into JavaScript or TypeScript template literals in src/commands/MigrationGenerateCommand.ts, escaping backticks but not ${...} interpolation. An attacker with database schema write access can place a payload in column COMMENT or DEFAULT metadata, or another introspected schema string, and the JavaScript engine evaluates the payload when the generated migration is loaded through migration:run, import, or require. This issue is fixed in versions 0.3.31 and 1.1.0.",
-      "severity": "MEDIUM",
-      "score": 5.7
+      "score": 6.5
     },
     {
       "id": "CVE-2026-10571",
@@ -121,11 +107,25 @@
       "score": 5.7
     },
     {
-      "id": "CVE-2026-73481",
-      "published": "2026-08-13T19:17:34.267",
-      "description": "phpList before 3.7.0-RC5 fail to enforce CSRF token validation on the bounce rule deletion endpoint (bouncerules.php / bouncerule.php). The deletion is performed via a GET request (?page=bouncerules&del=N), and the central CSRF check (verifyCsrfGetToken) is invoked with enforce=false, so it only validates the token when a 'tk' parameter is present. A remote attacker can trick an authenticated administrator into loading a crafted URL (e.g., embedded in an image tag) to delete arbitrary bounce rules from the phplist_bounceregex table without a valid CSRF token.",
+      "id": "CVE-2026-16878",
+      "published": "2026-08-13T20:17:16.140",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to obtain sensitive information due to an out-of-bounds read.",
       "severity": "MEDIUM",
       "score": 5.4
+    },
+    {
+      "id": "CVE-2026-16859",
+      "published": "2026-08-13T20:17:15.450",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to obtain sensitive information due to an out-of-bounds read.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-16861",
+      "published": "2026-08-13T20:17:15.577",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service due to an out-of-bounds read.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
       "id": "CVE-2026-16713",
@@ -135,11 +135,11 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-73652",
-      "published": "2026-08-13T19:17:38.770",
-      "description": "vantage6 is an open-source infrastructure for privacy preserving analysis. In version 5.0.2 and earlier, the algorithm-store edit permission lacks an ownership check, allowing one algorithm developer to alter another developer's algorithm while it is pending or under review. The attacker can change metadata including the algorithm image or image tag, causing reviewers and nodes to trust a different image from the one originally submitted for approval. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-16871",
+      "published": "2026-08-13T20:17:16.013",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to obtain sensitive information due to a heap buffer overflow.",
+      "severity": "MEDIUM",
+      "score": 4.3
     }
   ]
 }
