@@ -1,0 +1,145 @@
+{
+  "totalResults": 4164,
+  "items": [
+    {
+      "id": "CVE-2026-73532",
+      "published": "2026-08-13T16:19:05.480",
+      "description": "Fluent Forms Pro 6.2.7 contains an embedded malicious code vulnerability introduced via a tampered plugin build served through a decommissioned update server. The tampered build introduced a rogue PHP file (libs/class-license-sync.php), loaded via a require_once directive added to fluentformpro.php, that established a backdoor REST API endpoint, dropped persistent PHP files in mu-plugins and uploads directories, installed a passwordless administrator account, and registered scheduled tasks that survived plugin removal.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-73533",
+      "published": "2026-08-13T16:19:05.620",
+      "description": "Ninja Tables Pro 5.2.11 contains an embedded malicious code vulnerability introduced via a tampered plugin build served through a decommissioned update server. The tampered build introduced a rogue PHP file (app/Library/updater/NinjaTableDataSync.php) that established a backdoor REST API endpoint, dropped persistent PHP files in mu-plugins and uploads directories, installed a passwordless administrator account, and registered scheduled tasks that survived plugin removal.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2022-4993",
+      "published": "2026-08-13T17:17:17.780",
+      "description": "HTML::FormHandler versions through 0.40068 for Perl allow attacker selected method dispatch and resource exhaustion because _apply_actions and add_error use error message text built from request data as a Locale::Maketext bracket notation template.\n\nadd_error hands its first argument to the language handle as the Locale::Maketext message key, and the default handle's lexicon sets `_AUTO`, so a string that is not a lexicon entry is compiled as a bracket notation template instead of being looked up. In a bracket group the first token names a method called on the language handle and the remaining tokens are its arguments.\n\nThree kinds of text the library did not author reach that position. _apply_actions installs a `$SIG{__WARN__}` handler that stores the warning text in `$error_message`, and a captured warning survives a successful action, so a field carrying a numeric transform turns `Argument \"[sprintf,%50000000d,0]\" isn't numeric` into the template; a warning quotes the submitted value verbatim, so the group is well formed and dispatches. `$error_message ||= $tobj->validate($new_value)` takes a type constraint's own failure message, which renders the rejected value through a partial dumper in bracket and comma form (Devel::PartialDump when Moose can load it, Type::Tiny's own dumper always), so a field with `apply => [ Str ]` given a parameter sent more than once, which arrives as an array, gets `Reference [\"a\",\"b\"] did not pass type constraint \"Str\"` as its template, from a request that carries no bracket character of its own. A coercion or transform exception reaches it the same way. Beyond those, a validator whose message contains the field value puts that value in the template directly, and add_error replaces the message list with the contents of an arrayref first argument (`@message = @{$message[0]} if ref $message[0] eq 'ARRAY'`), so a value arriving as an array fills the argument slots from the same request as well.\n\nA malformed group such as `[0]` makes the compile croak, and HTML::FormHandler::I18N::maketext and add_error each re-raise that as a die, so process() throws. A well formed group naming sprintf reaches CORE::sprintf with an attacker chosen field width. Any caller that applies a type constraint or a transform to an untrusted field, or whose validator passes an untrusted field value to add_error, can be made to throw an unhandled exception out of process(), or to allocate an arbitrary amount of memory in one request, and an application whose language handle subclass defines side effecting public methods makes those callable with attacker chosen arguments. The dumped type constraint message is bounded to the exception, because both dumpers quote non-numeric elements so the method slot is never an attacker chosen name. The built-in messages pass fixed templates with the value in an argument slot, where it stays inert, and the built-in field types attach explicit message callbacks, so neither is affected.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-73570",
+      "published": "2026-08-13T16:19:06.003",
+      "description": "A remote code execution vulnerability exists in Zimbra Collaboration (ZCS) before 10.1.20 when the optional zimbra-snmp package is installed and SNMP notifications are enabled. Due to improper sanitization of untrusted input during SNMP notification processing, an unauthenticated attacker can send specially crafted SMTP requests that may result in execution of arbitrary operating system commands as the Zimbra user.",
+      "severity": "HIGH",
+      "score": 8.9
+    },
+    {
+      "id": "CVE-2026-73514",
+      "published": "2026-08-13T16:19:05.190",
+      "description": "The address_standardizer extension for PostGIS through 3.7.0, fixed in commit 423570b, contains an out-of-bounds write vulnerability that allows a database user with the ability to supply caller-controlled relation names to standardize_address() to trigger memory corruption by providing a rules table with a classification Type value exceeding the fixed class range. Attackers can craft a malicious rules table entry with an oversized rule type value that is used without bounds checking as an index into an internal output-link table, resulting in an out-of-bounds write.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-73515",
+      "published": "2026-08-13T16:19:05.333",
+      "description": "PostGIS before 3.7.0beta2 contains an out-of-bounds read vulnerability that allows attackers to cause memory disclosure or a server crash by supplying a malformed FlatGeobuf buffer. The FlatGeobuf property metadata decoder verifies that a string length field is present but fails to verify that the subsequent string body is contained within the supplied buffer before materializing it into a SQL-visible value, enabling memory disclosure or denial of service.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-19710",
+      "published": "2026-08-13T16:17:59.560",
+      "description": "A vulnerability was found in SourceCodester Simple Student Information System. Affected by this vulnerability is an unknown functionality of the file app/admin/departments/view_department.php. Performing a manipulation of the argument ID results in sql injection. The attack is possible to be carried out remotely. The exploit has been made public and could be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-73670",
+      "published": "2026-08-13T16:19:07.400",
+      "description": "A CMS contains a SQL injection vulnerability in admin/db_data.php at line 509 that allows authenticated administrators to inject arbitrary SQL into a SHOW COLUMNS FROM statement by supplying unsanitized input through the table_name GET or POST parameter. Attackers can perform table traversal, time-based blind, boolean-based blind, and error-based injection techniques to enumerate full database schema, access system tables such as information_schema, and chain the disclosure with secondary injection points to extract credential data.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-73559",
+      "published": "2026-08-13T16:19:05.863",
+      "description": "vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-73576",
+      "published": "2026-08-13T16:19:06.923",
+      "description": "In Zimbra Collaboration (ZCS) before 10.1.17, weak cryptographic key generation vulnerability exists in the OnlyOffice integration. The zimbraDocumentEditingJwtSecret is generated using an insecure random number generator, resulting in insufficient entropy. An attacker who obtains a JWT signed with the generated secret may be able to recover the JWT signing secret through offline brute-force, potentially enabling JWT forgery.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-73572",
+      "published": "2026-08-13T16:19:06.287",
+      "description": "In Zimbra Collaboration (ZCS) before 10.1.17, a stored cross-site scripting (XSS) vulnerability exists in the Zimbra Classic Web Client due to insufficient sanitization of specific attachment content during inline preview. An attacker can send a crafted email containing a malicious attachment that, when previewed by a user, executes arbitrary JavaScript within the victim's browser session. Successful exploitation may allow an attacker to perform unauthorized actions on behalf of the victim user, potentially leading to data exfiltration or unauthorized access to sensitive information.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-73671",
+      "published": "2026-08-13T16:19:07.580",
+      "description": "Saurus CMS Community Edition contains an unauthenticated open redirect vulnerability in the logout handling code in classes/port.inc.php, where the url parameter supplied via GET or POST is passed directly to the Location header without domain allowlist, scheme validation, or relative path enforcement. Attackers can craft a malicious logout URL containing an arbitrary external domain or javascript: URI scheme to redirect authenticated users to attacker-controlled phishing pages after session destruction, enabling credential theft and OAuth redirect abuse.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-19487",
+      "published": "2026-08-13T16:17:59.440",
+      "description": "Perl versions from 5.9.4 before 5.41.9 produce incorrect regular expression match results when a stale failure flag ends the Aho-Corasick prescan early in S_find_byclass.\n\nThe prescan walks the subject for positions where the full pattern could match, and the engine tries it from the leftmost one recorded. A failing transition sets the failed flag, and a later successful transition does not clear it, so the prescan reads the stale flag as a failure and stops before it can record a candidate that starts earlier. It takes a subject where one candidate is recorded and a later character then forces a fallback through a fail link that succeeds.\n\nExample:\n\n  \"ABCDE\" =~ m/ABCF|BCDE|C/;    # matches C at offset 2, not BCDE\n  \"ABCDE\" =~ m/ABCF|BCDE|C(G)/; # no match, BCDE missed\n\nAn alternation like this can miss input it should match, or match it on the wrong branch, so an access or filtering decision made from the result can be wrong.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-73571",
+      "published": "2026-08-13T16:19:06.150",
+      "description": "An authorization bypass vulnerability exists in Zimbra Collaboration (ZCS) before 10.1.17 due to improper authorization validation in delegated email sending functionality. An authenticated attacker can send specially crafted SOAP requests to impersonate another user and send emails without possessing the required delegation or send-as permissions. This occurs in the SaveDraftRequest SOAP handler.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-73573",
+      "published": "2026-08-13T16:19:06.437",
+      "description": "In Zimbra Collaboration (ZCS) before 10.1.17, a path traversal vulnerability exists in the Zimbra Briefcase document editing functionality due to improper validation of the packages parameter. An authenticated attacker can exploit this vulnerability by supplying a crafted path traversal sequence, potentially allowing unauthorized disclosure of sensitive files within the web application directory.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-73574",
+      "published": "2026-08-13T16:19:06.593",
+      "description": "In Zimbra Collaboration before 10.1.17, a local file inclusion (LFI) vulnerability exists in the Zimbra Classic Web Client due to improper validation of the fu request parameter. An unauthenticated attacker can exploit this vulnerability by supplying a crafted path, potentially allowing unauthorized disclosure of protected files, such as WEB-INF/web.xml, within the web application directory. This occurs in the Forward servlet.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-73575",
+      "published": "2026-08-13T16:19:06.767",
+      "description": "In Zimbra Collaboration (ZCS) before 10.1.17, a Cross-Site Request Forgery (CSRF) vulnerability exists in the Exchange Web Services (EWS) endpoint of Zimbra Collaboration (ZCS) due to insufficient validation of request content types. An attacker can exploit this vulnerability by causing an authenticated user to submit a crafted request, potentially allowing unauthorized actions to be performed on behalf of the victim.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-19744",
+      "published": "2026-08-13T16:17:59.903",
+      "description": "Cross-site Scripting in the Markdown renderer in maalfer Pentestify before 2.3.2 allows authenticated users to execute arbitrary JavaScript in the application origin via a Markdown link whose URL contains a double quote, which closes the anchor's href attribute because the renderer's sanitization step does not escape quotes",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-55400",
+      "published": "2026-08-13T16:18:07.720",
+      "description": "CVE-2026-55400 is an integer underflow in Secure Access servers prior to\n version 14.57. Attackers with an authenticated session can send \nspecially crafted traffic to a server in a non-default configuration and\n cause a persistent denial of service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-55401",
+      "published": "2026-08-13T16:18:07.867",
+      "description": "CVE-2026-55401 is a null dereference vulnerability on the load-balancing\n sub-system of Secure Access servers prior to 14.57. Attackers can send \nan unauthenticated packet to a Secure Access server with load balancing \nenabled, which results in the internal load balancer crashing. After a \nsuccessful attack, the Secure Access server is still able to accept \nconnections and is still able to issue a failover to connected clients. ‍ https://www.first.org/cvss/calculator/4.0#CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:L",
+      "severity": "UNKNOWN",
+      "score": null
+    }
+  ]
+}
