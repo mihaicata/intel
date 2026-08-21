@@ -1,143 +1,143 @@
 {
-  "totalResults": 4212,
+  "totalResults": 4201,
   "items": [
     {
-      "id": "CVE-2026-16772",
-      "published": "2026-08-14T16:16:50.290",
-      "description": "In Akaunting versions <= 3.1.21, low‑privileged authenticated users can modify their own account to assign themselves the admin role ID, granting full administrator privileges. This vulnerability is caused by a flaw in the `UpdateUser` job, which processes user-supplied role assignments via an unconditional `roles()->sync()` call without verifying whether the caller is authorized to manage roles. Users only require the default `update-auth-profile` permission to access the self-update path and assign themselves as admins. The API endpoints are properly permission‑gated and are not affected by this issue.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-19626",
+      "published": "2026-08-14T17:17:30.940",
+      "description": "A remote code execution vulnerability exists in Tenable Security Center's report generation functionality. An authenticated, non-administrative user could exploit this issue by supplying specially crafted input that is later processed unsafely during server-side report rendering, resulting in arbitrary code execution with the privileges of the service account.",
+      "severity": "CRITICAL",
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-63700",
-      "published": "2026-08-14T16:16:58.553",
-      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Incorrect Default Permission vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
+      "id": "CVE-2026-19844",
+      "published": "2026-08-14T17:17:35.560",
+      "description": "A vulnerability was found in TOTOLINK A800R 4.1.2cu.5137_B20200730. The impacted element is the function setRadvdCfg of the file /cgi-bin/cstecgi.cgi of the component ipv6.so. Performing a manipulation of the argument radvdinterfacename results in stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit has been made public and could be used.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-19845",
+      "published": "2026-08-14T17:17:35.753",
+      "description": "A vulnerability was determined in TOTOLINK A800R 4.1.2cu.5137_B20200730. This affects the function setStaticDhcpConfig of the file /cgi-bin/cstecgi.cgi of the component lan.so. Executing a manipulation of the argument Comment can lead to stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been publicly disclosed and may be utilized.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-46439",
+      "published": "2026-08-14T17:18:14.853",
+      "description": "compliance-trestle is a tooling platform for managing compliance as code. Versions prior to 3.12.2 and 4.0.3 have a Server-Side Template Injection (SSTI) vulnerability exists in the `trestle author jinja` command. The command recursively evaluates rendered templates, allowing an attacker to achieve arbitrary command execution with privileges of the running process by injecting malicious payloads into data fields (such as SSP documents or Lookup Tables). The vulnerability does not require attacker control of the template itself. Only attacker-controlled input data rendered into a trusted template is required. This distinction is critical: the template author may only intend to render plain text (e.g., `Title: {{ ssp.metadata.title }}`), but because of the recursive parsing, the data field itself becomes executable. The vulnerability is caused by recursive re-compilation and re-rendering of already-rendered output. Versions 3.12.3 and 4.0.3 patch the issue.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-53970",
-      "published": "2026-08-14T16:16:57.073",
-      "description": "ZeroBrew version 0.3.1 and prior contains a missing integrity verification vulnerability in the Ruby compatibility shim that allows network attackers to execute arbitrary code by substituting malicious content at formula resource or URL-based patch URLs without checksum validation. Attackers can intercept or replace downloads for secondary resource and patch paths in shim.rb, injecting attacker-controlled build steps or source tree modifications that execute during source builds via 'zb install --build-from-source' without any integrity warning.",
+      "id": "CVE-2026-46603",
+      "published": "2026-08-14T17:18:15.307",
+      "description": "VP8L decoding in golang.org/x/image/vp8l can allocate an excessive amount of memory when processing a crafted VP8L image containing many unused Huffman tree groups. This allows a remote attacker to cause a denial of service via memory exhaustion.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-66270",
-      "published": "2026-08-14T16:16:58.913",
-      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Unrestricted Upload of File with Dangerous Type vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote Code Execution.",
+      "id": "CVE-2026-19628",
+      "published": "2026-08-14T17:17:31.110",
+      "description": "A command injection vulnerability exists in Tenable Security Center. An authenticated administrator could modify application configuration values to achieve arbitrary command execution on the underlying operating system when specific backend operations are triggered.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-66271",
-      "published": "2026-08-14T16:16:59.030",
-      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Unrestricted Upload of File with Dangerous Type vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote Code Execution.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-63701",
-      "published": "2026-08-14T16:16:58.683",
-      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Improper Deserialization of Untrusted Data vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
+      "id": "CVE-2026-46380",
+      "published": "2026-08-14T17:18:14.710",
+      "description": "compliance-trestle is a tooling platform for managing compliance as code. Prior to versions 3.12.2 and 4.0.3, the HTTPSFetcher._do_fetch() method passes a user-supplied URL directly to requests.get() without validation. This allows an attacker to perform Server-Side Request Forgery, targeting internal services or cloud metadata endpoints. Versions 3.12.2 and 4.0.3 fix the issue.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.7
     },
     {
-      "id": "CVE-2026-63702",
-      "published": "2026-08-14T16:16:58.800",
-      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Use of Hard-coded Credentials vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Unauthorized access.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-66272",
-      "published": "2026-08-14T16:16:59.143",
-      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-73845",
+      "published": "2026-08-14T17:20:36.820",
+      "description": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, the ckan_get_mqa_quality and ckan_get_mqa_quality_details tools in src/tools/quality.ts use isValidMqaServer to validate the server_url parameter with a prefix-only regular expression for dati.gov.it, allowing suffix-host and URL-userinfo values to target an attacker-controlled host and return a spoofed response. This issue is fixed in version 0.4.112.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-19834",
-      "published": "2026-08-14T16:16:54.437",
-      "description": "A vulnerability was determined in Webkul Bagisto up to 2.4.4. Affected is an unknown function of the file /admin/customers/login-as-customer/ of the component Admin Customer Impersonation Feature. This manipulation of the argument ID causes authorization bypass. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
+      "id": "CVE-2026-19839",
+      "published": "2026-08-14T17:17:34.803",
+      "description": "A vulnerability was detected in SourceCodester Simple Doctors Appointment System 1.0. This issue affects the function save_doctor of the file /save_file.php. The manipulation results in unrestricted upload. The attack can be executed remotely. The exploit is now public and may be used.",
       "severity": "MEDIUM",
       "score": 4.7
     },
     {
-      "id": "CVE-2026-13002",
-      "published": "2026-08-14T16:16:49.267",
-      "description": "A flow has been identified into dnssec.c library, causing an infinite loop to dnsmasq service. An attacker who controls any DNSSEC-signed zone can hang the dnsmasq process with a single crafted response, killing all DNS resolution for its clients.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-19836",
-      "published": "2026-08-14T16:16:54.743",
-      "description": "A security flaw has been discovered in Webkul Bagisto up to 2.4.4. Affected by this issue is some unknown functionality of the file /admin/customers/view of the component Backend Customer Detail Feature. Performing a manipulation of the argument ID results in authorization bypass. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
+      "id": "CVE-2026-19838",
+      "published": "2026-08-14T17:17:34.267",
+      "description": "A security vulnerability has been detected in Webkul Bagisto up to 2.4.4. This vulnerability affects unknown code of the file /admin/reporting/sales/ of the component Backend Reporting Endpoint. The manipulation leads to authorization bypass. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-19835",
-      "published": "2026-08-14T16:16:54.593",
-      "description": "A vulnerability was identified in Webkul Bagisto up to 2.4.4. Affected by this vulnerability is an unknown functionality of the component Customer Item Deletion Endpoint. Such manipulation leads to improper access controls. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
+      "id": "CVE-2026-73844",
+      "published": "2026-08-14T17:20:36.683",
+      "description": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, error paths reflect raw upstream response bodies and internal exception messages back to the caller instead of a sanitized, generic message. When the server is pointed at (or redirected/SSRF'd to) a host that returns a non-CKAN response, or when an internal exception occurs, the caller receives verbatim upstream content and internal detail (hostnames, internal IPs, DB errors, stack fragments). This vulnerability is fixed in 0.4.112.",
       "severity": "LOW",
-      "score": 3.8
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-19837",
-      "published": "2026-08-14T16:16:54.900",
-      "description": "A weakness has been identified in Webkul Bagisto up to 2.4.4. This affects an unknown part of the file /admin/customers/search of the component Customer Search. Executing a manipulation of the argument Query can lead to information disclosure. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
+      "id": "CVE-2026-19841",
+      "published": "2026-08-14T17:17:34.993",
+      "description": "A flaw has been found in TRENDNET TEW-813DRU 1.01b01. Impacted is an unknown function of the file /etc/vsftpd.conf of the component vsftpd. This manipulation causes incorrect default permissions. The attack is possible to be carried out remotely. A high degree of complexity is needed for the attack. The exploitability is considered difficult. This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "LOW",
-      "score": 2.7
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-13196",
-      "published": "2026-08-14T16:16:49.397",
-      "description": "Nozomi Networks Labs identified a CWE-787: Out-of-bounds Write vulnerability in the process-image management functionality of KUNBUS piControl in version 2.6.2 that allows a local authenticated attacker with device configuration access to write attacker-controlled data outside the bounds of the process-image buffer and corrupt adjacent kernel memory, resulting in kernel memory corruption and denial of service, by supplying crafted device configuration data and crafted input through the piControl character device.",
+      "id": "CVE-2023-7347",
+      "published": "2026-08-14T17:17:09.550",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-13197",
-      "published": "2026-08-14T16:16:49.523",
-      "description": "Nozomi Networks Labs identified a CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') vulnerability in the configuration and process-image management functionality of KUNBUS piControl in version 2.6.2 that allows a local authenticated attacker to trigger use-after-free and invalid pointer dereferences on kernel configuration objects, resulting in kernel memory corruption and denial of service, by issuing concurrent crafted requests through the piControl character device.",
+      "id": "CVE-2026-47191",
+      "published": "2026-08-14T17:18:15.410",
+      "description": "kas is a setup tool for bitbake based projects. Prior to version 5.3, when relying solely on a git commit ID (SHA-1 or SHA-256) to qualify if a checkout of a repository is equivalent to the state validated while adding its commit ID to a kas configuration, users may be tricked to check out a branch of the same name from this repository. This implies that the referenced repository has been taken over by an attacker and modified to carry such a branch. SHA-1 commits may also be replaced by creating hash collisions, so the primary impact of this issue is on SHA-256 commit IDs. Version 5.3 fixes the issue. As a workaround, avoid relying solely on the commit ID for integrity validation of a repository that might become under control of a malicious 3rd party. If available, additional validate cryptographically signed commits or tags. Alternatively, mirror the repository to a save place, validate its integrity, and use this instead of the original one.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-13198",
-      "published": "2026-08-14T16:16:49.713",
-      "description": "Nozomi Networks Labs identified a CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') vulnerability in the event notification functionality of KUNBUS piControl in version 2.6.2 that allows a local authenticated attacker to corrupt kernel heap and event-list state and disclose a small amount of adjacent kernel memory, resulting in kernel memory corruption and denial of service, by issuing concurrent crafted requests from multiple threads through the piControl character device.",
+      "id": "CVE-2026-47192",
+      "published": "2026-08-14T17:18:15.563",
+      "description": "kas is a setup tool for bitbake based projects. Starting in version 4.8 and prior to version 5.3, kas checks out and processes repositories regarding configuration includes prior to validating signatures of those repositories. This may allow to replace on original repository with one under the control of an attacker under very specific conditions. First of all, the attacker must have gained control of a repository that a kas file of the victim is referencing. Furthermore, the following conditions must be fulfilled: the victim's kas configuration must include a configuration file from the attacked repository; the repository state is referenced by tag, and no commit ID is specified (this is triggering a warning, though); the key used for validating the tag or commit signature is stored as file in a repository; no fingerprint for the key is specified; and the  `_source_dir` key must not be set by the victim when calling kas (e.g. by avoiding a local `.config.yaml`). Given these conditions, the attacker could modify the included kas configuration in way that the key used to validate the tag signature of the attacker's repository could be replaced by an attacker-chosen key. No other exploit possibilities have been identified so far, but this does not rule out that those may exist. All patches have been released along with kas version 5.3. As a workaround, pin the expected signature key via its fingerprint, also when storing it as file in a repository.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-19884",
-      "published": "2026-08-14T16:16:55.073",
-      "description": "In Eclipse Theia versions up to and including 1.69.0, opening a folder starts source control integration without requiring the user to trust the folder first. This affects applications built on Theia that include the git integration, such as the Theia IDE. Both Theia's own `@theia/git` extension and the builtin VS Code `git` extension run git commands such as `git status` as soon as a repository is detected. Since git honors repository-local configuration, a folder containing an attacker-controlled `.git/config` with `core.fsmonitor` (or a comparable hook-like setting) causes the configured command to be executed. The configuration can be delivered by burying a bare repository inside a regular repository (OVE-20210718-0001), so cloning an attacker-supplied repository and opening it in a Theia-based application is sufficient to execute arbitrary commands with the privileges of the user, without any confirmation prompt.\n\n\n\nAs of 1.70.0, plugins that declare `capabilities.untrustedWorkspaces.supported: false`, which includes the builtin git extension, are no longer loaded or activated in an untrusted workspace, and the deprecated `@theia/git` extension has been removed, so no git command is executed against an untrusted folder.",
+      "id": "CVE-2026-47766",
+      "published": "2026-08-14T17:18:18.723",
+      "description": "crun is an open source OCI Container Runtime fully written in C. Prior to version 1.28, crun's default device setup opens the container rootfs `/dev` directory without `O_NOFOLLOW`. If an OCI bundle contains `rootfs/dev` as a symlink and the bundle configuration does not mount `/dev`, crun follows that symlink and creates the default device nodes and stdio symlinks at the symlink target outside the container rootfs. In a local rootful crun replay, this created fixed device nodes and symlinks outside the rootfs before crun returned failure. A pre-existing file named `ptmx` in the target directory was also replaced by crun's forced `ptmx -> pts/ptmx` symlink. Version 1.28 fixes the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-57469",
-      "published": "2026-08-14T16:16:58.043",
-      "description": "Nozomi Networks Labs identified a CWE-352: Cross-Site Request Forgery (CSRF) vulnerability in the web-based configuration backend of KUNBUS PiCtory in version 2.16.0 that allows a remote unauthenticated attacker to perform state-changing operations in the context of an authenticated operator, including deletion of project and configuration files and reset of the control runtime, by inducing the victim's browser to submit crafted requests.",
+      "id": "CVE-2026-49826",
+      "published": "2026-08-14T17:18:27.007",
+      "description": "Concourse is a container-based automation system written in Go. Prior to version 8.2.3, an attacker is able to craft and send a user a URL that will redirect the user from the Concourse web server to any other site. This could be used in a phishing attack to steal user's credentials. This has been fixed in 8.2.3. No known workarounds are available.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-57471",
-      "published": "2026-08-14T16:16:58.177",
-      "description": "Nozomi Networks Labs identified a CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in the file management functionality of the XML-RPC management interface of KUNBUS RevPiPyLoad in version 0.11.0 that allows a local unauthenticated attacker to read arbitrary files with the privileges of the RevPiPyLoad daemon, including sensitive configuration and credential material, by sending crafted requests to the local management service.",
+      "id": "CVE-2026-49986",
+      "published": "2026-08-14T17:18:27.147",
+      "description": "The Cortex MCP server (`neuro-cortex-memory`), a cross-platform persistent memory MCP, prior to version 3.17.1 treats the `CLAUDE_PROJECT_DIR` environment variable — automatically set by Claude Code to the currently open project directory — as a trusted Cortex developer checkout. When the `open_visualization` tool is invoked, `_find_dev_source()` resolves the user's active project directory as a candidate Cortex source root. The only validation performed by `_is_cortex_root()` is a check for the presence of an `mcp_server/` subdirectory and a `ui/unified-viz.html` file. An attacker who places these two marker files in a malicious repository can cause Cortex to execute an arbitrary `mcp_server/server/visualize_bootstrap.py` from that directory via `subprocess.run([sys.executable, ...])`, achieving code execution with the privileges of the victim's local user process. Version 3.17.1 fixes the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-57472",
-      "published": "2026-08-14T16:16:58.293",
-      "description": "Nozomi Networks Labs identified a CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in the file management functionality of the XML-RPC management interface of KUNBUS RevPiPyLoad in version 0.11.0 that allows a local unauthenticated attacker to delete arbitrary files with the privileges of the RevPiPyLoad daemon, resulting in loss of configuration integrity and denial of service, by sending crafted requests to the local management service.",
+      "id": "CVE-2026-49989",
+      "published": "2026-08-14T17:18:27.290",
+      "description": "CrateDB is a distributed SQL database. Prior to versions 6.2.8 and 6.3.2, any authenticated user can read or delete any blob whose SHA-1 digest they know, and can plant new blobs unconditionally, in any blob table, regardless of `GRANT`s. CrateDB has two ways to access blob storage: SQL (`SELECT ... FROM blob.<table>` and friends) and the blob HTTP API (`GET|PUT|DELETE /_blobs/{table}/{digest}`). The SQL path goes through `AccessControl`, which is what enforces privilege grants; that's why `SELECT digest FROM blob.secret_blobs` fails for a user who has no grants on the table. The HTTP path authenticates the request but never asks `AccessControl` whether the authenticated user is allowed to touch the table. So a user with no grants gets `MissingPrivilegeException` from SQL and `200 OK` plus the blob bytes from `GET /_blobs/secret_blobs/<digest>`. Deployments that don't use `BLOB TABLE` are unaffected. Authentication itself still works; the bug is strictly that being authenticated as anyone is treated as sufficient for any blob op. Versions 6.2.8 and 6.3.2 fix the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-73107",
+      "published": "2026-08-14T17:20:32.280",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     }
