@@ -1,5 +1,5 @@
 {
-  "totalResults": 4175,
+  "totalResults": 4179,
   "items": [
     {
       "id": "CVE-2026-72811",
@@ -9,18 +9,11 @@
       "score": 10
     },
     {
-      "id": "CVE-2026-12949",
-      "published": "2026-08-14T06:16:53.237",
-      "description": "The Wishlist Member plugin for WordPress is vulnerable to Account Takeover via Insufficient Verification of Data Authenticity in versions up to and including 3.34.1. This is due to the wpm_register() function validating the registration cookie only against the GET reg parameter while accepting the POST mergewith and POST wpm_id parameters without verifying that the mergewith user ID references a temporary or incomplete registrant that is bound to the current registration transaction. This makes it possible for unauthenticated attackers to take over any existing WordPress account — including administrator accounts — by supplying an arbitrary user's numeric ID as the mergewith value, which causes wp_update_user() to overwrite the target account's username (additionally written via a direct $wpdb UPDATE), password, email address, first name, and last name with attacker-controlled values, while WordPress password and email change notification emails are explicitly suppressed. When wpm_id references a non-existent membership level, no role key is added to the update payload, causing wp_update_user() to preserve the target user's existing role — including administrator — making full privilege escalation a direct consequence of the takeover.",
+      "id": "CVE-2026-72822",
+      "published": "2026-08-14T12:16:45.267",
+      "description": "The getgrav/grav-plugin-api Composer package before 1.0.13 (affected <= 1.0.12) fails to enforce API key scope caps on the disable2fa endpoint. Unlike the sibling generate2fa endpoint, disable2fa authorizes the admin (non-self) path solely via ACL reads (isSuperAdmin/hasPermission) and never invokes requirePermission(), so the api_key_scopes cap is never applied. As a result, a holder of a narrow-scope API key on a super account, or a non-super account whose ACL includes api.users.write, can force-disable two-factor authentication on any non-super target account via POST /api/v1/users/{user}/2fa/disable without providing a TOTP code, facilitating account takeover.",
       "severity": "CRITICAL",
       "score": 9.8
-    },
-    {
-      "id": "CVE-2026-19811",
-      "published": "2026-08-14T07:16:52.627",
-      "description": "A security flaw has been discovered in TOTOLINK A800R 4.1.2cu.5137_B20200730. The impacted element is the function setIpQosRules of the file /cgi-bin/cstecgi.cgi of the component firewall.so. The manipulation of the argument Comment results in stack-based buffer overflow. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks.",
-      "severity": "HIGH",
-      "score": 8.8
     },
     {
       "id": "CVE-2026-19812",
@@ -65,11 +58,11 @@
       "score": 8.8
     },
     {
-      "id": "CVE-2026-15205",
-      "published": "2026-08-14T06:16:59.727",
-      "description": "The Paymob for WooCommerce WordPress plugin before 4.1.9 does not properly sanitise a client-supplied identifier before using it in a SQL query within its public, unauthenticated payment callback, and performs this query before verifying the payment provider's HMAC signature. This allows unauthenticated attackers to perform SQL injection and read arbitrary data from the database — including user credentials and other secrets — through both in-band (reflected) and time-based blind extraction.",
+      "id": "CVE-2026-72819",
+      "published": "2026-08-14T12:16:44.873",
+      "description": "Grav CMS before 2.0.13 contains a remote code execution vulnerability in the Flex Objects plugin settings validation that allows authenticated users to execute arbitrary code by uploading a ZIP file containing PHP code. Attackers can bypass routine name validation by using array notation instead of string notation, call the unZip routine with a malicious archive, and write PHP files to the web root for execution.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 8.8
     },
     {
       "id": "CVE-2026-72810",
@@ -79,32 +72,11 @@
       "score": 8.6
     },
     {
-      "id": "CVE-2026-18039",
-      "published": "2026-08-14T06:17:09.077",
-      "description": "The Essential Addons for Elementor  WordPress plugin before 6.7.2 does not prevent user-supplied registration fields from overwriting reserved account attributes, allowing unauthenticated attackers to register an account with an arbitrary role, including administrator, on sites where a custom profile field with a particular label has been configured.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
       "id": "CVE-2026-19794",
       "published": "2026-08-14T08:17:38.130",
       "description": "The WP-Stats plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 2.56 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "HIGH",
       "score": 7.2
-    },
-    {
-      "id": "CVE-2026-14290",
-      "published": "2026-08-14T06:16:59.627",
-      "description": "The Embed Google Photos album WordPress plugin through 2.2.1 does not escape a shortcode attribute value before outputting it inside an HTML attribute, allowing users with the Contributor role or above to inject arbitrary JavaScript that executes in the browser of any user, including administrators, who views the affected post.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-16810",
-      "published": "2026-08-14T06:17:03.253",
-      "description": "The Bit Form – Contact Form, Payment Forms, Multi Step Forms, Calculator & Custom Form Builder plugin for WordPress is vulnerable to generic SQL Injection via the 'data[queryCondition]' parameter in all versions up to, and including, 3.2.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 6.5
     },
     {
       "id": "CVE-2026-72812",
@@ -114,23 +86,30 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-16739",
-      "published": "2026-08-14T06:17:03.153",
-      "description": "The Epeken All Kurir for Woocommerce WordPress plugin through 2.1.2 does not verify that a payment-confirmation request originates from the owner of the targeted order, nor that any payment actually occurred, allowing unauthenticated attackers to mark arbitrary orders as confirmed and, in a non-default configuration, paid.",
+      "id": "CVE-2026-72816",
+      "published": "2026-08-14T12:16:44.620",
+      "description": "go-chi/chi through 5.2.1 contains an IP spoofing vulnerability in the RealIP middleware (middleware/realip.go). The realIP() function reads client-controlled headers (True-Client-IP, X-Real-IP, and X-Forwarded-For) and overwrites r.RemoteAddr without verifying that the request originated from a trusted proxy. Attackers can supply arbitrary IP addresses in these headers to bypass IP-based access controls, evade rate limiting and geo-IP restrictions, and pollute audit logs. Fixed in 5.3.0.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-19617",
-      "published": "2026-08-14T06:17:14.410",
-      "description": "A flaw was found in libdm. A local attacker could craft a malicious Logical Volume Manager (LVM) metadata configuration with deeply nested structures. This could lead to uncontrolled recursion in the libdm configuration file parser, exhausting the stack and causing any LVM command reading the metadata to crash. This vulnerability results in a Denial of Service (DoS) for affected systems.",
+      "id": "CVE-2026-72817",
+      "published": "2026-08-14T12:16:44.747",
+      "description": "go-chi/chi versions 0.9.0 before 5.3.0 contains an IP spoofing vulnerability in the RealIP middleware, which resolves the request source IP (Request.RemoteAddr) using the first IP in the X-Forwarded-For header without validating trusted proxies. A malicious client can prepend a forged IP as the first value of the X-Forwarded-For header to spoof the request source IP, potentially bypassing access controls or falsifying request logs.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-12743",
-      "published": "2026-08-14T06:16:40.573",
-      "description": "The affiliate-toolkit – Multi-Network Affiliate & Amazon Product Display plugin for WordPress is vulnerable to time-based SQL Injection via the 'orderby' parameter in all versions up to, and including, 3.8.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-72821",
+      "published": "2026-08-14T12:16:45.140",
+      "description": "Grav Form plugin versions before 9.1.15 contain a stored cross-site scripting vulnerability in radio and toggle field option labels rendered with the Twig |raw filter. Attackers with form authoring permissions can inject HTML and script payloads in option labels that execute in the browsers of visitors and administrators viewing the form.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-72820",
+      "published": "2026-08-14T12:16:45.003",
+      "description": "Grav versions before 2.0.13 fail to properly validate backup profile root paths, allowing attackers to archive directories outside GRAV_ROOT when not in the hard-coded deny-list. Attackers with profile editor access can configure backup profiles with traversal paths to expose sensitive files from locations like /opt, /mnt, or /srv.",
       "severity": "MEDIUM",
       "score": 4.9
     },
@@ -138,6 +117,27 @@
       "id": "CVE-2025-71405",
       "published": "2026-08-14T12:16:43.297",
       "description": "chi versions before v5.2.2 contain an open redirect vulnerability in the RedirectSlashes middleware function that uses the Host header to construct redirect URLs. Attackers can manipulate the Host header to redirect users to arbitrary hosts, enabling phishing attacks and credential theft.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-72813",
+      "published": "2026-08-14T12:16:44.260",
+      "description": "actix-files before 0.6.10 contains a denial of service vulnerability triggered by an empty Range header in GET requests for static files. When panic is set to abort, remote attackers can crash the process on-demand by sending a GET request with an empty Range header.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-72814",
+      "published": "2026-08-14T12:16:44.387",
+      "description": "The actix-files crate (actix_files) before version 0.6.10 contains an information exposure vulnerability. When a non-existing folder is passed as the serve_from argument to Files::new(), the mount path defaults to an empty path; the service then joins the request path with this empty path and canonicalizes it, causing Rust to resolve it as a relative path. As a result, an attacker can request paths that resolve relative to the application's working directory and access unintended files.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-72815",
+      "published": "2026-08-14T12:16:44.507",
+      "description": "go-chi chi versions >= 5.2.1 and before 5.3.0 contain an IP spoofing vulnerability in the RealIP middleware, which blindly trusts the first (leftmost) value of the X-Forwarded-For HTTP header. A remote attacker can bypass IP-based access control lists and rate-limiting mechanisms, and forge log entries, by supplying a spoofed IP address in the X-Forwarded-For header. The issue is fixed in version 5.3.0.",
       "severity": "UNKNOWN",
       "score": null
     }
