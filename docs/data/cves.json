@@ -1,5 +1,5 @@
 {
-  "totalResults": 4208,
+  "totalResults": 4218,
   "items": [
     {
       "id": "CVE-2026-72811",
@@ -28,13 +28,6 @@
       "description": "The getgrav/grav-plugin-api plugin before 1.0.13 fails to validate that the scopes of a newly created API key are a subset of the caller's scopes in createApiKey. The self-target path of requireApiKeyPermission() requires only the baseline api.access scope, and the new key's scopes are read directly from the request body with no subset check. An attacker holding a minimal-scope API key on a super account can submit an empty scopes array to mint an unscoped, full-access super key, bypassing scope restrictions (and enabling further chains such as configuration write to RCE).",
       "severity": "CRITICAL",
       "score": 9.8
-    },
-    {
-      "id": "CVE-2026-19821",
-      "published": "2026-08-14T11:16:57.573",
-      "description": "A vulnerability was determined in Tenda AC12 15.03.06.23_multi_TD01. This vulnerability affects the function formSetRebootTimer of the file /goform/SetSysAutoRebbotCfg of the component httpd web management interface. This manipulation of the argument rebootTime causes buffer overflow. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "HIGH",
-      "score": 8.8
     },
     {
       "id": "CVE-2026-19822",
@@ -70,6 +63,13 @@
       "description": "The getgrav/grav-plugin-api plugin before 1.0.13 contains an API-key scope cap bypass in the POST /reports/twig-content/allowlist endpoint (ReportsController). The endpoint enforces requirePermission('api.config.write') followed by a bare isSuperAdmin() check instead of requireSuper(). Because isSuperAdmin() reads access.api.super directly and never consults api_key_scopes, a least-privilege API key scoped to api.config.write minted on a super account passes the gate, allowing an attacker to append attacker-chosen tokens to the security.twig_sandbox allowlist (persisted to user/config/security.yaml). Widening the allowlist turns any subsequent Twig-in-content render into an SSTI/RCE sink.",
       "severity": "HIGH",
       "score": 7.6
+    },
+    {
+      "id": "CVE-2026-72828",
+      "published": "2026-08-14T12:16:46.030",
+      "description": "Grav Plugin API (getgrav/grav-plugin-api) before 1.0.13 fails to enforce API-key scope caps in InvitationsController. The strip-super and accept-groups decisions are gated on a bare isSuperAdmin() check rather than a scope-aware permission check, so a least-privilege API key (scoped to api.users.write) minted on a super account can create an invitation record containing super-admin access flags. When the invitation is accepted, those flags are written verbatim to the new account, resulting in privilege escalation to a fully controlled super account.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
       "id": "CVE-2026-72812",
