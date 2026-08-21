@@ -1,19 +1,19 @@
 {
-  "totalResults": 4198,
+  "totalResults": 4192,
   "items": [
-    {
-      "id": "CVE-2026-19768",
-      "published": "2026-08-14T14:16:50.473",
-      "description": "Improper control of generation of code ('Code Injection') in the settings feature in Devolutions PowerShell Universal 2026.2.3 and earlier allows an authenticated user with settings management permission to execute arbitrary PowerShell code via a crafted setting value that is not properly escaped when written to the settings configuration file.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
     {
       "id": "CVE-2026-16772",
       "published": "2026-08-14T16:16:50.290",
       "description": "In Akaunting versions <= 3.1.21, low‑privileged authenticated users can modify their own account to assign themselves the admin role ID, granting full administrator privileges. This vulnerability is caused by a flaw in the `UpdateUser` job, which processes user-supplied role assignments via an unconditional `roles()->sync()` call without verifying whether the caller is authorized to manage roles. Users only require the default `update-auth-profile` permission to access the self-update path and assign themselves as admins. The API endpoints are properly permission‑gated and are not affected by this issue.",
       "severity": "HIGH",
       "score": 8.1
+    },
+    {
+      "id": "CVE-2026-63700",
+      "published": "2026-08-14T16:16:58.553",
+      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Incorrect Default Permission vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
       "id": "CVE-2026-69101",
@@ -23,9 +23,9 @@
       "score": 7.7
     },
     {
-      "id": "CVE-2026-73633",
-      "published": "2026-08-14T14:16:51.997",
-      "description": "Uncontrolled resource consumption vulnerability in the JSON plugin of Apache Struts. When an application is configured to populate actions from a JSON request body, the plugin reads that body into memory without bounding how much it will accept, so a single request can exhaust the heap and deny service to other users. The plugin's configurable JSON input length limit does not bound this read. The JSON plugin is an optional component; applications that do not use it, or use it without enabling JSON request-body handling, are not affected.\n\nThis issue affects Apache Struts: from 2.1.8 through 2.3.37, from 2.5.0 through 2.5.33, from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
+      "id": "CVE-2026-53970",
+      "published": "2026-08-14T16:16:57.073",
+      "description": "ZeroBrew version 0.3.1 and prior contains a missing integrity verification vulnerability in the Ruby compatibility shim that allows network attackers to execute arbitrary code by substituting malicious content at formula resource or URL-based patch URLs without checksum validation. Attackers can intercept or replace downloads for secondary resource and patch paths in shim.rb, injecting attacker-controlled build steps or source tree modifications that execute during source builds via 'zb install --build-from-source' without any integrity warning.",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -37,39 +37,11 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-19828",
-      "published": "2026-08-14T14:16:50.880",
-      "description": "A vulnerability was identified in 648540858 wvp-GB28181-pro 2.7.4-20260107. This affects an unknown part of the file PlayController.java of the component Snapshot Endpoint. The manipulation of the argument deviceId/channelId leads to path traversal. The attack may be initiated remotely. The exploit is publicly available and might be used.",
+      "id": "CVE-2026-63701",
+      "published": "2026-08-14T16:16:58.683",
+      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Improper Deserialization of Untrusted Data vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
       "severity": "MEDIUM",
       "score": 6.3
-    },
-    {
-      "id": "CVE-2026-53472",
-      "published": "2026-08-14T14:16:51.753",
-      "description": "A flaw was found in migration-planner. Insufficient validation of the `AgentStatusUpdate.CredentialUrl` field allows an authenticated attacker to store a malicious `javascript:` URL. When a victim views this URL in the Hybrid Cloud Console, it can lead to Cross-Site Scripting (XSS), enabling script execution in the victim's session and potentially disclosing sensitive information.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19827",
-      "published": "2026-08-14T14:16:50.723",
-      "description": "A flaw has been found in alldatacenter alldata up to 0.6.8. This impacts the function FileInputStream of the file /admin/controller/JobLogController.java of the component logDetailCat Endpoint. This manipulation of the argument executorAddress causes path traversal. It is possible to initiate the attack remotely. The exploit has been published and may be used. The project closed the issue report as \"not planned\" without any further explanation.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-19830",
-      "published": "2026-08-14T14:16:51.317",
-      "description": "A vulnerability was found in TRENDnet TEW-816DRM GURNC4.OT182B-C-TN-R1B028-US.EN. This impacts an unknown function of the file /etc/bftpd.conf of the component bftpd. The manipulation of the argument USERLIMIT_GLOBAL results in allocation of resources. It is possible to launch the attack remotely. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-1621",
-      "published": "2026-08-14T14:16:51.610",
-      "description": "Authentication bypass by primary weakness vulnerability in Universal Software Inc. E-Municipality allows Exploitation of Trusted Identifiers.\n\nThis issue affects E-Municipality: from 20251127 before 20260204.",
-      "severity": "MEDIUM",
-      "score": 5.3
     },
     {
       "id": "CVE-2026-19879",
@@ -93,9 +65,9 @@
       "score": 4.4
     },
     {
-      "id": "CVE-2026-19829",
-      "published": "2026-08-14T14:16:51.153",
-      "description": "A security flaw has been discovered in 648540858 wvp-GB28181-pro 2.7.4-20260107. This vulnerability affects unknown code of the file LogController.java of the component Log File Download Endpoint. The manipulation of the argument fileName results in path traversal. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-19836",
+      "published": "2026-08-14T16:16:54.743",
+      "description": "A security flaw has been discovered in Webkul Bagisto up to 2.4.4. Affected by this issue is some unknown functionality of the file /admin/customers/view of the component Backend Customer Detail Feature. Performing a manipulation of the argument ID results in authorization bypass. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
       "severity": "MEDIUM",
       "score": 4.3
     },
@@ -107,11 +79,11 @@
       "score": 3.8
     },
     {
-      "id": "CVE-2026-19871",
-      "published": "2026-08-14T14:16:51.493",
-      "description": "Use of Hard-coded Credentials in the human resources component in Roskus Prospero Flow CRM before 5.15.9 allows unauthenticated remote attackers to authenticate as any employee onboarded through the standard flow, knowing only their email address, because the employee save controller falls back to the literal password \"changeme\" and the onboarding form provides no password field.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19837",
+      "published": "2026-08-14T16:16:54.900",
+      "description": "A weakness has been identified in Webkul Bagisto up to 2.4.4. This affects an unknown part of the file /admin/customers/search of the component Customer Search. Executing a manipulation of the argument Query can lead to information disclosure. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
       "id": "CVE-2026-19880",
@@ -138,6 +110,34 @@
       "id": "CVE-2026-13198",
       "published": "2026-08-14T16:16:49.713",
       "description": "Nozomi Networks Labs identified a CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') vulnerability in the event notification functionality of KUNBUS piControl in version 2.6.2 that allows a local authenticated attacker to corrupt kernel heap and event-list state and disclose a small amount of adjacent kernel memory, resulting in kernel memory corruption and denial of service, by issuing concurrent crafted requests from multiple threads through the piControl character device.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19884",
+      "published": "2026-08-14T16:16:55.073",
+      "description": "In Eclipse Theia versions up to and including 1.69.0, opening a folder starts source control integration without requiring the user to trust the folder first. This affects applications built on Theia that include the git integration, such as the Theia IDE. Both Theia's own `@theia/git` extension and the builtin VS Code `git` extension run git commands such as `git status` as soon as a repository is detected. Since git honors repository-local configuration, a folder containing an attacker-controlled `.git/config` with `core.fsmonitor` (or a comparable hook-like setting) causes the configured command to be executed. The configuration can be delivered by burying a bare repository inside a regular repository (OVE-20210718-0001), so cloning an attacker-supplied repository and opening it in a Theia-based application is sufficient to execute arbitrary commands with the privileges of the user, without any confirmation prompt.\n\n\n\nAs of 1.70.0, plugins that declare `capabilities.untrustedWorkspaces.supported: false`, which includes the builtin git extension, are no longer loaded or activated in an untrusted workspace, and the deprecated `@theia/git` extension has been removed, so no git command is executed against an untrusted folder.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57469",
+      "published": "2026-08-14T16:16:58.043",
+      "description": "Nozomi Networks Labs identified a CWE-352: Cross-Site Request Forgery (CSRF) vulnerability in the web-based configuration backend of KUNBUS PiCtory in version 2.16.0 that allows a remote unauthenticated attacker to perform state-changing operations in the context of an authenticated operator, including deletion of project and configuration files and reset of the control runtime, by inducing the victim's browser to submit crafted requests.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57471",
+      "published": "2026-08-14T16:16:58.177",
+      "description": "Nozomi Networks Labs identified a CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in the file management functionality of the XML-RPC management interface of KUNBUS RevPiPyLoad in version 0.11.0 that allows a local unauthenticated attacker to read arbitrary files with the privileges of the RevPiPyLoad daemon, including sensitive configuration and credential material, by sending crafted requests to the local management service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57472",
+      "published": "2026-08-14T16:16:58.293",
+      "description": "Nozomi Networks Labs identified a CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in the file management functionality of the XML-RPC management interface of KUNBUS RevPiPyLoad in version 0.11.0 that allows a local unauthenticated attacker to delete arbitrary files with the privileges of the RevPiPyLoad daemon, resulting in loss of configuration integrity and denial of service, by sending crafted requests to the local management service.",
       "severity": "UNKNOWN",
       "score": null
     }
