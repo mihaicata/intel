@@ -1,5 +1,5 @@
 {
-  "totalResults": 4192,
+  "totalResults": 4212,
   "items": [
     {
       "id": "CVE-2026-16772",
@@ -16,13 +16,6 @@
       "score": 7.8
     },
     {
-      "id": "CVE-2026-69101",
-      "published": "2026-08-14T15:17:10.053",
-      "description": "Datavane TIS v5.0.0 contains an XML external entity (XXE) injection vulnerability that allows authenticated attackers to perform server-side request forgery and out-of-band file exfiltration by supplying a crafted taskScript payload to the doEditWorkflow endpoint, which processes XML through an unhardened DocumentBuilderFactory with external entities and DTD loading enabled. Attackers can send a malicious XML document containing an external DTD reference to the edit_workflow action, causing the server to issue outbound HTTP requests to attacker-controlled infrastructure and exfiltrate local files readable by the TIS process user, including configuration files and Derby database credentials.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
       "id": "CVE-2026-53970",
       "published": "2026-08-14T16:16:57.073",
       "description": "ZeroBrew version 0.3.1 and prior contains a missing integrity verification vulnerability in the Ruby compatibility shim that allows network attackers to execute arbitrary code by substituting malicious content at formula resource or URL-based patch URLs without checksum validation. Attackers can intercept or replace downloads for secondary resource and patch paths in shim.rb, injecting attacker-controlled build steps or source tree modifications that execute during source builds via 'zb install --build-from-source' without any integrity warning.",
@@ -30,11 +23,18 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-58224",
-      "published": "2026-08-14T15:17:09.870",
-      "description": "A flaw was found in Samba's CTDB, the clustered database service used by Samba. Insufficient integrity validation of received CTDB protocol packets allows malformed packets containing invalid field lengths, improperly terminated strings, or inconsistent packet sizes to be processed without adequate bounds checking. A remote attacker with access to the CTDB private network may trigger a denial of service through process crashes or excessive memory consumption and, in limited cases, disclose adjacent memory contents.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-66270",
+      "published": "2026-08-14T16:16:58.913",
+      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Unrestricted Upload of File with Dangerous Type vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote Code Execution.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-66271",
+      "published": "2026-08-14T16:16:59.030",
+      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Unrestricted Upload of File with Dangerous Type vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote Code Execution.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
       "id": "CVE-2026-63701",
@@ -44,9 +44,16 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-19879",
-      "published": "2026-08-14T15:17:09.310",
-      "description": "A flaw was found in Undertow, an HTTP server, within its HTTP response header writing path. The `writeString()` method performs a silent narrowing cast from 16-bit Unicode characters to 8-bit bytes when writing HTTP response header values. A remote attacker can exploit this by supplying specific Unicode characters in user-controlled input that an application places into response headers. This can lead to the truncation of these characters into ASCII control characters or special symbols, potentially resulting in limited integrity impact or information disclosure if the application does not properly sanitize user input.",
+      "id": "CVE-2026-63702",
+      "published": "2026-08-14T16:16:58.800",
+      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Use of Hard-coded Credentials vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Unauthorized access.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-66272",
+      "published": "2026-08-14T16:16:59.143",
+      "description": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
       "severity": "MEDIUM",
       "score": 5.3
     },
@@ -84,13 +91,6 @@
       "description": "A weakness has been identified in Webkul Bagisto up to 2.4.4. This affects an unknown part of the file /admin/customers/search of the component Customer Search. Executing a manipulation of the argument Query can lead to information disclosure. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
       "severity": "LOW",
       "score": 2.7
-    },
-    {
-      "id": "CVE-2026-19880",
-      "published": "2026-08-14T15:17:09.507",
-      "description": "Path-traversal vulnerability in QOS.CH Sarl Logback-classic on Java (logback-classic module) allows path-traversal vulnerability. More specifically, an \nMDC-based discriminator value flows unsanitized into a nested \nFileAppender path, letting an attacker who influences that MDC value \n(e.g. via an HTTP header)\n create and append log files outside the intended directory. \n\n\nThis issue affects Logback-classic: from 0.9.14 through 1.6.2.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-13196",
