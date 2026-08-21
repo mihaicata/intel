@@ -1,6 +1,34 @@
 {
-  "totalResults": 4197,
+  "totalResults": 4238,
   "items": [
+    {
+      "id": "CVE-2026-15303",
+      "published": "2026-08-15T03:16:47.670",
+      "description": "The 6Storage Rentals plugin for WordPress is vulnerable to authentication bypass in versions up to, and including, 2.27.0. This is due to the six_storage_create_wp_user() AJAX handler being registered on wp_ajax_nopriv_six_storage_create_wp_user without any nonce, capability, credential, or ownership verification, while calling wp_set_current_user() and wp_set_auth_cookie() for any WordPress user resolved by the attacker-supplied email address. This makes it possible for unauthenticated attackers to log in as any existing WordPress user, including administrators, by submitting that user's email address.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-14484",
+      "published": "2026-08-15T03:16:47.263",
+      "description": "The RapiSafe – Secure Multi File Upload for Contact Form 7 plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the handleAjaxRemoveUpload function in all versions up to, and including, 1.0.4. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The nonce required to invoke the removal handler is exposed in public-facing JavaScript as RSMFCF7Vars.nonce on every Contact Form 7 page rendering a RapiSafe upload field, making it obtainable by any unauthenticated visitor.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-15001",
+      "published": "2026-08-15T03:16:47.393",
+      "description": "The bLoyal: Loyalty & Promotions by bLoyal plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.1.611.78. This is due to the AJAX actions `save_bloyal_configuration_data` and `save_bloyal_accesskeyverification_data` being registered without any capability or nonce checks, and the `bloyal_customer_auto_login` function unconditionally trusting the `Customer.ExternalId` value returned by whichever API URL is stored in the plugin's options. This makes it possible for authenticated attackers, with Subscriber-level access and above, to overwrite the plugin's bLoyal Loyalty Engine API URL (`bloyal_custom_loyaltyengine_api_url`) and the `is_bloyal_custom_api_url` flag via the unprotected AJAX actions, then trigger the unauthenticated `/cart` REST route to cause `bloyal_customer_auto_login` to fetch customer data from an attacker-controlled endpoint and call `wp_set_auth_cookie()` with an attacker-supplied `Customer.ExternalId`, thereby authenticating as any WordPress user including the site Administrator.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-15312",
+      "published": "2026-08-15T03:16:47.817",
+      "description": "The Propovoice: All-in-One Client Management System plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.7.8. This is due to the `create()` function's REST endpoint failing to validate the user-supplied `role` parameter against an allowlist of permitted WordPress roles and omitting any `promote_users` capability check before passing the sanitized value directly to `WP_User::set_role()`. This makes it possible for authenticated attackers with `ndpv_manager`-level access and above to create a new WordPress user account with the `administrator` role assigned, achieving full vertical privilege escalation. The `ndpv_manager` capability is a sub-administrator CRM team role granted by Propovoice itself, meaning the attack surface extends beyond site administrators to any user the plugin has elevated to a manager position.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
     {
       "id": "CVE-2026-73683",
       "published": "2026-08-14T22:17:11.550",
@@ -9,18 +37,18 @@
       "score": 8.1
     },
     {
-      "id": "CVE-2026-50523",
-      "published": "2026-08-14T21:17:18.920",
-      "description": "Improper neutralization of special elements used in a command ('command injection') in Microsoft PowerShell allows an authorized attacker to execute code locally.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
       "id": "CVE-2026-69414",
       "published": "2026-08-14T22:17:06.810",
       "description": "Microsoft is aware of an elevation of privilege in the Microsoft Malware Protection Engine in Microsoft Defender publicly referred to as &quot;ShieldBreak &quot;.\nWe are working to provide a high quality security update that addresses this vulnerability. We will provide information in this CVE when the update is available.",
       "severity": "HIGH",
       "score": 7.8
+    },
+    {
+      "id": "CVE-2026-15162",
+      "published": "2026-08-15T03:16:47.523",
+      "description": "The Object Sync for Salesforce plugin is vulnerable to unauthenticated SQL Injection via the wordpress_object_type parameter of its /wp-json/object-sync-for-salesforce/push/ REST route. The route's permission callback (can_process()) checks only the HTTP method for the push class — no capability or nonce — so it is reachable by unauthenticated users. The wordpress_object_type value is concatenated directly into a SQL query (post_type = \"$object_type\", class-object-sync-sf-wordpress.php:328) and executed via $wpdb->get_results() with no $wpdb->prepare() (:578). Because REST body parameters are not magic-quoted, an attacker can break out of the quoted string and inject arbitrary SQL. This makes it possible for unauthenticated attackers to append additional SQL queries (time-based blind), enabling extraction of sensitive information such as password hashes from the database. Only a valid wordpress_id (e.g. 1) is required — no authentication or Salesforce connection.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
       "id": "CVE-2026-14433",
@@ -86,39 +114,11 @@
       "score": 4.8
     },
     {
-      "id": "CVE-2026-74248",
-      "published": "2026-08-14T21:17:58.173",
-      "description": "OpenStack Octavia through 18.0.0 mishandles quality of service (QoS) policy authorization. By associating another project's QoS policy with an amphora, an authenticated user may prevent deletion of that policy. All Octavia deployments are affected.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
       "id": "CVE-2026-74247",
       "published": "2026-08-14T23:16:34.730",
       "description": "A flaw was found in Red Hat Quay. A user with FEATURE_BUILD_SUPPORT enabled and repository write access can exploit a Server-Side Request Forgery (SSRF) vulnerability within the build API. This allows the user to provide a malicious URL, causing the Quay builder to make requests to internal network addresses. Such an action could lead to the disclosure of sensitive internal information.",
       "severity": "MEDIUM",
       "score": 4.2
-    },
-    {
-      "id": "CVE-2026-67366",
-      "published": "2026-08-14T21:17:51.040",
-      "description": "Joomla Extension - icagenda.com - CSRF on frontend registration actions in iCagenda < 2.0.0-4.0.11 - Multiple state changing operations in the frontend are callable without a CSRF token check.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-71570",
-      "published": "2026-08-14T21:17:56.807",
-      "description": "Joomla Extension - icagenda.com - ACL bypass allowing arbitrary user enumeration < 2.0.0-4.0.11 - A backend operator granted access scoped to `com_icagenda` only could enumerate Joomla user profiles.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-73682",
-      "published": "2026-08-14T21:17:58.033",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority. CVE-2026-73294 published by GitHub",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-18932",
