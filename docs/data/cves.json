@@ -1,5 +1,5 @@
 {
-  "totalResults": 4179,
+  "totalResults": 4180,
   "items": [
     {
       "id": "CVE-2026-72811",
@@ -16,18 +16,11 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-19812",
-      "published": "2026-08-14T08:17:38.263",
-      "description": "A weakness has been identified in TOTOLINK A800R 4.1.2cu.5137_B20200730. This affects the function UploadCustomModule of the file /cgi-bin/cstecgi.cgi of the component product.so. This manipulation of the argument File causes stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-19813",
-      "published": "2026-08-14T08:17:38.427",
-      "description": "A security vulnerability has been detected in TOTOLINK A800R 4.1.2cu.5137_B20200730. This impacts the function setMacFilterRules of the file /cgi-bin/cstecgi.cgi of the component firewall.so. Such manipulation of the argument Comment leads to stack-based buffer overflow. The attack may be performed from remote. The exploit has been disclosed publicly and may be used.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-72824",
+      "published": "2026-08-14T12:16:45.520",
+      "description": "The Grav API plugin (getgrav/grav-plugin-api) before 1.0.13 contains an API key scope-cap bypass in PagesController::guardTwigContent(). The Twig-toggle check uses a bare isSuperAdmin() gate that does not consult api_key_scopes, so a least-privilege API key scoped only to api.pages.write and minted on a super account can enable process.twig on a page save even though admin.pages_twig is intentionally outside the api.pages scope. When security.twig_content.process_enabled=true and editor_enabled=false, this allows Twig-in-content to execute server-side, resulting in server-side template injection (SSTI) and remote code execution.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
       "id": "CVE-2026-19814",
@@ -72,11 +65,11 @@
       "score": 8.6
     },
     {
-      "id": "CVE-2026-19794",
-      "published": "2026-08-14T08:17:38.130",
-      "description": "The WP-Stats plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 2.56 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-72825",
+      "published": "2026-08-14T12:16:45.650",
+      "description": "The getgrav/grav-plugin-api plugin before 1.0.13 contains an API-key scope cap bypass in the POST /reports/twig-content/allowlist endpoint (ReportsController). The endpoint enforces requirePermission('api.config.write') followed by a bare isSuperAdmin() check instead of requireSuper(). Because isSuperAdmin() reads access.api.super directly and never consults api_key_scopes, a least-privilege API key scoped to api.config.write minted on a super account passes the gate, allowing an attacker to append attacker-chosen tokens to the security.twig_sandbox allowlist (persisted to user/config/security.yaml). Widening the allowlist turns any subsequent Twig-in-content render into an SSTI/RCE sink.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.6
     },
     {
       "id": "CVE-2026-72812",
@@ -103,6 +96,13 @@
       "id": "CVE-2026-72821",
       "published": "2026-08-14T12:16:45.140",
       "description": "Grav Form plugin versions before 9.1.15 contain a stored cross-site scripting vulnerability in radio and toggle field option labels rendered with the Twig |raw filter. Attackers with form authoring permissions can inject HTML and script payloads in option labels that execute in the browsers of visitors and administrators viewing the form.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-72823",
+      "published": "2026-08-14T12:16:45.397",
+      "description": "The Grav API plugin (getgrav/grav-plugin-api) before 1.0.13 contains an API-key scope cap bypass in DemoController. Its private requireSuper() method checks isSuperAdmin() and returns early before invoking requirePermission(), so the api_key_scopes cap (enforced only in requirePermission()) is skipped. As a result, any scoped API key minted on a super account can bypass its scope restrictions when calling the baseline() and reset() operations (e.g. POST /api/v1/demo/reset), allowing it to capture the demo baseline or force a demo reset. Impact is bounded to demo-engine control and is conditional on demo mode being configured with writable resources.",
       "severity": "MEDIUM",
       "score": 5.4
     },
