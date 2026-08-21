@@ -1,5 +1,5 @@
 {
-  "totalResults": 4180,
+  "totalResults": 4200,
   "items": [
     {
       "id": "CVE-2026-72811",
@@ -23,18 +23,11 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-19814",
-      "published": "2026-08-14T09:16:47.883",
-      "description": "A vulnerability was detected in TOTOLINK A800R 4.1.2cu.5137_B20200730. Affected is the function setMacQos of the file /cgi-bin/cstecgi.cgi of the component firewall.so. Performing a manipulation of the argument macAddress results in stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit is now public and may be used.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-19815",
-      "published": "2026-08-14T09:16:48.880",
-      "description": "A flaw has been found in TOTOLINK A800R 4.1.2cu.5137_B20200730. Affected by this vulnerability is the function setParentalRules of the file /cgi-bin/cstecgi.cgi of the component firewall.so. Executing a manipulation of the argument urlKeyword can lead to stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been published and may be used.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-72826",
+      "published": "2026-08-14T12:16:45.780",
+      "description": "The getgrav/grav-plugin-api plugin before 1.0.13 fails to validate that the scopes of a newly created API key are a subset of the caller's scopes in createApiKey. The self-target path of requireApiKeyPermission() requires only the baseline api.access scope, and the new key's scopes are read directly from the request body with no subset check. An attacker holding a minimal-scope API key on a super account can submit an empty scopes array to mint an unscoped, full-access super key, bypassing scope restrictions (and enabling further chains such as configuration write to RCE).",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
       "id": "CVE-2026-19821",
@@ -54,6 +47,13 @@
       "id": "CVE-2026-72819",
       "published": "2026-08-14T12:16:44.873",
       "description": "Grav CMS before 2.0.13 contains a remote code execution vulnerability in the Flex Objects plugin settings validation that allows authenticated users to execute arbitrary code by uploading a ZIP file containing PHP code. Attackers can bypass routine name validation by using array notation instead of string notation, call the unZip routine with a malicious archive, and write PHP files to the web root for execution.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-72827",
+      "published": "2026-08-14T12:16:45.907",
+      "description": "Grav CMS before 2.0.13 contains a server-side template injection vulnerability in email-action parameters that allows low-privileged page editors to execute arbitrary operating-system commands. Attackers can inject Twig payloads using the unsandboxed find filter in email subject, body, to, or from fields to achieve remote code execution when forms are submitted.",
       "severity": "HIGH",
       "score": 8.8
     },
