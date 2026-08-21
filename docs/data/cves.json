@@ -1,26 +1,19 @@
 {
-  "totalResults": 4178,
+  "totalResults": 4175,
   "items": [
+    {
+      "id": "CVE-2026-72811",
+      "published": "2026-08-14T12:16:43.903",
+      "description": "SiYuan versions <= v3.7.2 contain a SQL injection vulnerability in the backlink/mention search query (kernel/model/backlink.go), which concatenates stored block metadata (title, name, alias, anchor text) and the client-supplied keyword into a SQL MATCH/search statement while escaping only the double-quote character and not the single quote. A single quote in the client keyword (first-order, reachable by an anonymous or RoleReader user on the publish surface) or in stored document metadata (second-order) breaks out of the string literal. Because the query runs on the main read-write siyuan.db handle via a statement-stacking-capable driver, an attacker can execute arbitrary SQL, enabling cross-notebook read and write. Fixed in v3.7.4.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
     {
       "id": "CVE-2026-12949",
       "published": "2026-08-14T06:16:53.237",
       "description": "The Wishlist Member plugin for WordPress is vulnerable to Account Takeover via Insufficient Verification of Data Authenticity in versions up to and including 3.34.1. This is due to the wpm_register() function validating the registration cookie only against the GET reg parameter while accepting the POST mergewith and POST wpm_id parameters without verifying that the mergewith user ID references a temporary or incomplete registrant that is bound to the current registration transaction. This makes it possible for unauthenticated attackers to take over any existing WordPress account — including administrator accounts — by supplying an arbitrary user's numeric ID as the mergewith value, which causes wp_update_user() to overwrite the target account's username (additionally written via a direct $wpdb UPDATE), password, email address, first name, and last name with attacker-controlled values, while WordPress password and email change notification emails are explicitly suppressed. When wpm_id references a non-existent membership level, no role key is added to the update payload, causing wp_update_user() to preserve the target user's existing role — including administrator — making full privilege escalation a direct consequence of the takeover.",
       "severity": "CRITICAL",
       "score": 9.8
-    },
-    {
-      "id": "CVE-2026-19791",
-      "published": "2026-08-14T05:16:58.857",
-      "description": "A weakness has been identified in Tenda G0 up to 20260625. The affected element is the function addStaticRoute of the file /goform/module of the component httpd web management interface. Executing a manipulation of the argument staticRouteNet can lead to stack-based buffer overflow. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-19792",
-      "published": "2026-08-14T05:16:59.030",
-      "description": "A security flaw has been discovered in Tenda G0 up to 20260625. Impacted is the function setPortMapping of the file /goform/module of the component httpd web management interface. Performing a manipulation of the argument portMappingServer/porMappingtInternal/portMappingExternal results in buffer overflow. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
-      "severity": "HIGH",
-      "score": 8.8
     },
     {
       "id": "CVE-2026-19811",
@@ -79,6 +72,13 @@
       "score": 8.6
     },
     {
+      "id": "CVE-2026-72810",
+      "published": "2026-08-14T12:16:43.760",
+      "description": "SiYuan versions before v3.7.4 contain a publish-boundary bypass vulnerability in WebSocket broadcast sessions that allows anonymous readers to receive unfiltered edits. Attackers can establish a WebSocket connection to the publish surface and passively receive real-time content events including password-protected and forbidden documents without authentication.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
       "id": "CVE-2026-18039",
       "published": "2026-08-14T06:17:09.077",
       "description": "The Essential Addons for Elementor  WordPress plugin before 6.7.2 does not prevent user-supplied registration fields from overwriting reserved account attributes, allowing unauthenticated attackers to register an account with an arbitrary role, including administrator, on sites where a custom profile field with a particular label has been configured.",
@@ -107,6 +107,13 @@
       "score": 6.5
     },
     {
+      "id": "CVE-2026-72812",
+      "published": "2026-08-14T12:16:44.063",
+      "description": "SiYuan versions before v3.7.4 contain a missing authorization vulnerability in the /api/ref/refreshBacklink endpoint that allows anonymous readers to trigger persistent server-side writes. Attackers can invoke the endpoint with an attacker-controlled block ID to flush transaction queues, scan all references globally, and enqueue database writes, bypassing read-only protections and enabling resource amplification attacks.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-16739",
       "published": "2026-08-14T06:17:03.153",
       "description": "The Epeken All Kurir for Woocommerce WordPress plugin through 2.1.2 does not verify that a payment-confirmation request originates from the owner of the targeted order, nor that any payment actually occurred, allowing unauthenticated attackers to mark arbitrary orders as confirmed and, in a non-default configuration, paid.",
@@ -126,13 +133,6 @@
       "description": "The affiliate-toolkit – Multi-Network Affiliate & Amazon Product Display plugin for WordPress is vulnerable to time-based SQL Injection via the 'orderby' parameter in all versions up to, and including, 3.8.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "severity": "MEDIUM",
       "score": 4.9
-    },
-    {
-      "id": "CVE-2025-10308",
-      "published": "2026-08-14T05:16:56.113",
-      "description": "The Astro Booking Engine plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.4.0. This is due to missing nonce validation on the options deletion functionality. This makes it possible for unauthenticated attackers to delete all plugin settings via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "severity": "MEDIUM",
-      "score": 4.3
     },
     {
       "id": "CVE-2025-71405",
