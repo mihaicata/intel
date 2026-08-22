@@ -1,5 +1,5 @@
 {
-  "totalResults": 3591,
+  "totalResults": 3588,
   "items": [
     {
       "id": "CVE-2026-73046",
@@ -7,13 +7,6 @@
       "description": "SiYuan before v3.7.4 improperly restricts excessive authentication attempts in the CheckAuth() middleware. The HTTP Basic Authentication branch, which guards nearly the entire /api/* surface, accepts the workspace access code (Conf.AccessAuthCode) as the Basic Auth password but never consults the CAPTCHA/lockout gate or increments the failure counter used by the cookie/session login path. This allows unauthenticated remote attackers to brute-force the admin access code with unlimited automated requests and obtain full RoleAdministrator access to the kernel. A secondary weakness exists because the access code is compared using a non-constant-time string comparison.",
       "severity": "CRITICAL",
       "score": 9.8
-    },
-    {
-      "id": "CVE-2026-18855",
-      "published": "2026-08-15T19:16:32.160",
-      "description": "The Link Library plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the ll_delete_link_fields function in all versions up to, and including, 7.9.4 This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Exploitation requires the administrator to have enabled the 'Delete local file on link deletion' plugin option (disabled by default) and to subsequently permanently delete the attacker-submitted link, which is a routine moderation action.",
-      "severity": "CRITICAL",
-      "score": 9.1
     },
     {
       "id": "CVE-2026-73041",
@@ -79,9 +72,9 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-19905",
-      "published": "2026-08-15T19:16:32.300",
-      "description": "A weakness has been identified in Jinher OA 1.0. Impacted is an unknown function of the file /C6/JHSoft.Web.HrmAttendance/attendance_out_approve.aspx. This manipulation of the argument httpOID causes sql injection. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-19919",
+      "published": "2026-08-16T00:16:50.360",
+      "description": "A vulnerability was found in code-projects Online Shopping System 1.0. This impacts an unknown function of the file /login.php of the component Login. The manipulation of the argument email results in sql injection. The attack may be performed from remote. The exploit has been made public and could be used.",
       "severity": "HIGH",
       "score": 7.3
     },
@@ -100,6 +93,20 @@
       "score": 6.3
     },
     {
+      "id": "CVE-2026-19920",
+      "published": "2026-08-16T00:16:50.530",
+      "description": "A vulnerability was determined in code-projects Online Shopping System 1.0. Affected is an unknown function of the file /action.php. This manipulation of the argument proId causes sql injection. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-19921",
+      "published": "2026-08-16T00:16:50.687",
+      "description": "A vulnerability was identified in code-projects Online Shopping System 1.0. Affected by this vulnerability is an unknown functionality of the file /homeaction.php. Such manipulation of the argument cat_id leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
       "id": "CVE-2026-73047",
       "published": "2026-08-15T22:16:54.737",
       "description": "siyuan versions <= 3.7.3 (fixed in v3.7.4) contain a server-side template injection vulnerability in the attribute-view Template calculation feature (introduced in v3.7.0-beta.1). The feature's template engine uses Sprig's unmodified function map, which still exposes the env, expandenv, and getHostByName functions that were removed elsewhere for CVE-2024-55660. A local, unauthenticated attacker (the kernel binds to 127.0.0.1 by default with no per-UID access control) can inject a malicious Template calculation formula to read environment variables belonging to the account running siyuan — including from a separate, unprivileged OS account — and to perform DNS lookups from the server's network position.",
@@ -112,13 +119,6 @@
       "description": "Shescape before 2.1.15 (and 3.0.0 before 3.0.2) fails to properly escape tilde (~) characters in assignment contexts on Unix systems where the shell is explicitly configured to \"sh\" or true and /bin/sh points to BusyBox. Using the escape and escapeAll APIs with untrusted input in an assignment prefixed to a command, an attacker can inject a tilde payload to disclose the user's home directory location and, depending on usage, alter the location on which a command operates.",
       "severity": "MEDIUM",
       "score": 4.8
-    },
-    {
-      "id": "CVE-2026-19906",
-      "published": "2026-08-15T19:16:32.470",
-      "description": "A weakness has been identified in pkp pkp-lib 3.3.0/3.4.0/3.5.0. This vulnerability affects the function setData of the file classes/user/form/APIProfileForm.php of the component API Key Generation. Executing a manipulation of the argument apiKey can lead to insufficient entropy. The attack may be performed from remote. This attack is characterized by high complexity. It is stated that the exploitability is difficult. This patch is called 529b5df878e571ccc727647f7748eafc1466b041. It is best practice to apply a patch to resolve this issue.",
-      "severity": "LOW",
-      "score": 3.7
     },
     {
       "id": "CVE-2026-19916",
