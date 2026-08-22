@@ -1,5 +1,5 @@
 {
-  "totalResults": 4251,
+  "totalResults": 4244,
   "items": [
     {
       "id": "CVE-2026-68457",
@@ -9,46 +9,46 @@
       "score": 9.1
     },
     {
+      "id": "CVE-2026-68466",
+      "published": "2026-08-15T06:19:34.530",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: rawnand: lpc32xx_slc: fail DMA transfer on completion timeout\n\nlpc32xx_xmit_dma() waits for the DMA completion callback but ignores\nwait_for_completion_timeout(). A timed out DMA transfer is therefore\nunmapped and reported as successful to the NAND read/write path.\n\nReturn -ETIMEDOUT when the completion wait expires. Terminate the DMA\nchannel before unmapping the scatterlist so the timed out transfer cannot\ncontinue to access the buffer after the error is returned.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-68458",
+      "published": "2026-08-15T06:18:15.350",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbinder: cache secctx size before release zeroes it\n\nbinder_transaction() bounds the scatter-gather buffer area with\nsg_buf_end_offset and subtracts the aligned LSM context size because\nthe secctx is written at the tail of that area.  The subtraction reads\nlsmctx.len, but that field has already been cleared by the time the\nline runs:\n\n    security_secid_to_secctx(secid, &lsmctx)   /* lsmctx.len set */\n    lsmctx_aligned_size = ALIGN(lsmctx.len, sizeof(u64))\n    extra_buffers_size += lsmctx_aligned_size\n    ...\n    security_release_secctx(&lsmctx)            /* memset zeroes len */\n    ...\n    sg_buf_end_offset = sg_buf_offset + extra_buffers_size\n                        - ALIGN(lsmctx.len, sizeof(u64)) /* ALIGN(0,8) */\n\nsecurity_release_secctx() does memset(cp, 0, sizeof(*cp)), so lsmctx.len\nreads back as 0 and the subtraction contributes nothing, leaving\nsg_buf_end_offset too large by the aligned secctx size on every\ntransaction to a txn_security_ctx node.\n\nEach BINDER_TYPE_PTR object then derives buf_left = sg_buf_end_offset -\nsg_buf_offset as the sole upper bound on its copy, so the inflated end\noffset lets the copy run into the bytes that already hold the secctx.\n\nThe aligned size must therefore be cached before release rather than\nre-read from the now-cleared field.  Fix by caching it in\nlsmctx_aligned_size at function scope when it is first computed and\nsubtracting lsmctx_aligned_size instead of re-reading lsmctx.len after\nrelease.  Reuse the same value for the earlier buf_offset computation.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-68461",
+      "published": "2026-08-15T06:18:34.113",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndevice property: initialize the remaining fields of fwnode_handle in fwnode_init()\n\nIf a firmware node is allocated on the stack (for instance: temporary\nsoftware node whose life-time we control) or on the heap - but using a\nnon-zeroing allocation function - and initialized using fwnode_init(),\nits secondary pointer will contain uninitialized memory which likely\nwill be neither NULL nor IS_ERR() and so may end up being dereferenced\n(for example: in dev_to_swnode()). Set fwnode->secondary to NULL on\ninitialization. While at it: initialize the remaining fields of struct\nfwnode_handle too just to be sure.\n\n[ Fix typo in commit message. - Danilo ]",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-68462",
+      "published": "2026-08-15T06:18:39.803",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Reject negative const offsets for buffer pointers\n\nThe verifier rejects variable offsets for PTR_TO_TP_BUFFER and PTR_TO_BUF\naccesses, but it currently accepts a constant negative offset produced by\npointer arithmetic.\n\nCommit 022ac0750883 (\"bpf: use reg->var_off instead of reg->off for\npointers\") moved constant pointer offsets from reg->off to reg->var_off.\nHowever, __check_buffer_access() continued to check only the instruction\noffset. An access with reg->var_off equal to -8 and an instruction offset\nof zero therefore passes verification.\n\nFor writable raw tracepoints, the access end is also calculated from the\nunsigned reg->var_off.value. An eight-byte access starting at -8 wraps\nthe calculated end to zero, allowing the program to load and attach\nwithout increasing max_tp_access.\n\nAfter ensuring that reg->var_off is constant, calculate the effective\naccess start using signed arithmetic and reject it when it is negative.\nUse the validated start to calculate the access end for both\nPTR_TO_TP_BUFFER and PTR_TO_BUF.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-68467",
+      "published": "2026-08-15T06:19:46.527",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: mchp23k256: use SPI match data for chip caps\n\nThe driver stores chip capacity information in both the OF match table\nand the SPI id table. Probe currently uses of_device_get_match_data(),\nso a non-OF SPI modalias match falls back to mchp23k256_caps even when\nthe SPI id table selected a different part.\n\nUse spi_get_device_match_data() so SPI id-table driver_data is consumed\nwhen OF match data is absent. This keeps the existing default fallback\nwhile avoiding the wrong MTD geometry for id-table-only matches.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
       "id": "CVE-2026-16611",
       "published": "2026-08-15T06:17:08.380",
       "description": "The Product Feed PRO for WooCommerce by AdTribes  WordPress plugin before 13.5.7 does not perform an authorization check on one of its REST read routes, allowing unauthenticated users to disclose a store's feed configuration (rules, filters and field mapping) and to enumerate the full product category taxonomy.",
       "severity": "HIGH",
       "score": 7.5
-    },
-    {
-      "id": "CVE-2026-13360",
-      "published": "2026-08-15T04:18:01.957",
-      "description": "The Cookie Banner for GDPR / CCPA – WPLP Cookie Consent plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'regionArray' parameter in all versions up to, and including, 4.3.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires that the site administrator has enabled the 'Support Google Consent Mode (GCM)' setting, which is disabled by default. Additionally, the AJAX handler performs no nonce or capability check, allowing any authenticated user including those with Subscriber-level access to overwrite the affected plugin setting.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-16145",
-      "published": "2026-08-15T04:18:10.233",
-      "description": "The Invisible Anti-Spam & CAPTCHA — reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'action' parameter in all versions up to, and including, 5.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The stored payload is written by any unauthenticated admin-ajax.php request whose action value matches an entry in the plugin's explicit-actions list, which is auto-populated for common form builders at activation and requires no authentication gate to reach the save path.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-15453",
-      "published": "2026-08-15T04:18:07.300",
-      "description": "The KiviCare – Clinic & Patient Management System (EHR) plugin for WordPress is vulnerable to generic SQL Injection via the 'searchTerm' parameter in all versions up to, and including, 4.5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Exploitation requires a KiviCare custom role with the 'settings_view' permission (e.g., Doctor or Receptionist), meaning standard WordPress subscribers cannot exploit this without a KiviCare-assigned role.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-16586",
-      "published": "2026-08-15T04:18:10.607",
-      "description": "The Contest Gallery – Upload & Vote Photos, Media, Sell with PayPal & Stripe plugin for WordPress is vulnerable to Second-Order SQL Injection via MultipleFiles Second-Order Payload via 'cg_multiple_files_for_post' -> 'cgRealId' in all versions up to, and including, 30.0.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-18387",
-      "published": "2026-08-15T04:18:17.773",
-      "description": "The Groundhogg — CRM, Newsletters, and Marketing Automation plugin for WordPress is vulnerable to generic SQL Injection via the 'tag_query' parameter in all versions up to, and including, 4.5.14 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with vendor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Exploitation requires the attacker to trigger the vulnerable Legacy_Contact_Query code path by submitting an unknown filter type (e.g. filters[0][0][type]=force_fallback), which causes a FilterException that dispatches execution away from the modern query handler.",
-      "severity": "MEDIUM",
-      "score": 6.5
     },
     {
       "id": "CVE-2026-16541",
@@ -65,20 +65,6 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-15948",
-      "published": "2026-08-15T04:18:08.773",
-      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'first_name' parameter in all versions up to, and including, 1.2.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with host-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The tfhb_host role required to exploit this vulnerability can be self-assigned by any visitor via the plugin's public Signup shortcode, making this effectively exploitable by unauthenticated users who complete the registration flow.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-17090",
-      "published": "2026-08-15T04:18:15.940",
-      "description": "The Beaver Builder Page Builder – Drag and Drop Website Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Button Module 'button' (Button Code) Setting in all versions up to, and including, 2.10.2.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Beaver Builder grants editor access to any WordPress role holding the edit_posts capability by default, meaning Author-level users and above can exploit this vulnerability.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
       "id": "CVE-2026-14230",
       "published": "2026-08-15T06:16:55.960",
       "description": "The ECS  WordPress plugin before 4.3.8 does not perform capability or object-ownership checks on its Dynamic Repeater AJAX handlers (gated only by a capability-agnostic nonce that any edit_posts user obtains from the Elementor editor), so a Contributor can write a data-source binding into any post — including admin-authored pages — whose attacker-controlled values are rendered into a widget's repeater output without sanitization, executing JavaScript in the session of any visitor or administrator who views the page.",
@@ -86,32 +72,11 @@
       "score": 5.4
     },
     {
-      "id": "CVE-2026-15993",
-      "published": "2026-08-15T04:18:09.727",
-      "description": "The Form Maker by 10Web – Mobile-Friendly Drag & Drop Contact Form Builder plugin for WordPress is vulnerable to blind SQL Injection via '{username}' Placeholder in Dynamic-Choice Field WHERE Clause in all versions up to, and including, 1.15.44 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This requires that a form is configured with a DB-backed dynamic choice field whose WHERE template references the {username} placeholder, and the attacker must first set their own display_name to a SQL payload via the standard WordPress profile edit screen before triggering the fm_reload_input AJAX endpoint.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
       "id": "CVE-2026-14229",
       "published": "2026-08-15T06:16:49.917",
       "description": "The ECS  WordPress plugin before 4.3.8 does not check the post status or any capability when rendering an Elementor document requested through one of its AJAX actions, allowing unauthenticated users to retrieve the rendered content of unpublished (private, draft, pending) documents by supplying their identifier.",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-16094",
-      "published": "2026-08-15T04:18:09.987",
-      "description": "The Invisible Anti-Spam & CAPTCHA — reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to generic SQL Injection via the 'key' parameter in all versions up to, and including, 5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-16146",
-      "published": "2026-08-15T04:18:10.440",
-      "description": "The Invisible Anti-Spam & CAPTCHA — reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to generic SQL Injection via Pattern JSON Keys/Values in all versions up to, and including, 5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 4.9
     },
     {
       "id": "CVE-2026-18807",
@@ -138,6 +103,41 @@
       "id": "CVE-2026-68456",
       "published": "2026-08-15T06:17:32.713",
       "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: atm: ueagle-atm: wait for pre-firmware load in .disconnect()\n\nueagle-atm uses the asynchronous request_firmware_nowait() in .probe(),\nbut does not wait for its completion, not even in .disconnect(); so, if the\ndevice is unplugged meanwhile, its teardown runs concurrently with that.\n\nEven though this inconsistency is worth addressing on its own, it has also\ntriggered several bug reports in syzbot over the years (some auto-closed)\nwhere the firmware sysfs fallback mechanism (CONFIG_FW_LOADER_USER_HELPER)\ncreates a firmware subdirectory in the device directory during its removal,\nwhich might hit unexpected conditions in kernfs, apparently, depending at\nwhich point the add and remove operations raced. (See links.)\n\nThe pattern is:\n\nusb ?-?: Direct firmware load for ueagle-atm/eagle?.fw failed with error -2\nusb ?-?: Falling back to sysfs fallback for: ueagle-atm/eagle?.fw\n<ERROR>\nCall trace:\n ...\n kernfs_create_dir_ns\n sysfs_create_dir_ns\n create_dir\n kobject_add_internal\n kobject_add_varg\n kobject_add\n class_dir_create_and_add\n get_device_parent\n device_add\n fw_load_sysfs_fallback\n fw_load_from_user_helper\n firmware_fallback_sysfs\n _request_firmware\n request_firmware_work_func\n ...\n\n(Some variations are observed, after fw_load_sysfs_fallback(), e.g., [1].)\n\nWhile the kernfs side is being looked at, the ueagle-atm side can be fixed\nby waiting for the pre-firmware load in the .disconnect() handler.\n\nThis change has a similar approach to previous work by Andrey Tsygunka [2]\n(wait_for_completion() in .disconnect()), but it is relatively different in\ndesign/implementation; using the Originally-by tag for credit assignment.\n\nThis has been tested with:\n- synthetic reproducer to check the error path;\n- USB gadget (virtual device) to check the firmware upload path;\n- QEMU device emulator to check the device ID re-enumeration path;\n(The latter two were written by Claude; no other code/text in this commit.)\n\nLinks (year first reported):\n 2025 https://syzbot.org/bug?extid=ce1e5a1b4e086b43e56d\n 2025 https://syzbot.org/bug?extid=9af8471255ac36e34fd4\n 2024 https://syzbot.org/bug?extid=306212936b13e520679d\n 2023 https://syzkaller.appspot.com/bug?extid=457452d30bcdda75ead2\n 2022 https://syzbot.org/bug?extid=782984d6f1701b526edb\n 2021 https://syzbot.org/bug?id=f3f221579f4ef7e9691281f3c6f56c05f83e8490\n 2021 https://syzbot.org/bug?id=84d86f0d71394829df6fc53daf6642c045983881\n 2021 https://syzbot.org/bug?id=3302dc1c0e2b9c94f2e8edb404eabc9267bc6f90\n\n[1] https://syzkaller.appspot.com/bug?extid=457452d30bcdda75ead2\n[2] https://lore.kernel.org/lkml/20250410093146.3776801-2-aitsygunka@yandex.ru/",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68459",
+      "published": "2026-08-15T06:18:15.460",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix potential deadlock in gc_merge path of f2fs_balance_fs()\n\nWhen we mount device w/ gc_merge mount option, we may suffer below\npotential deadlock:\n\nKworker\t\t\t\t\tGC trehad\t\t\tTruncator\n- f2fs_write_cache_pages\n - f2fs_write_single_data_page\n  - f2fs_do_write_data_page\n   - folio_start_writeback  --- set writeback flag on folio\n   - f2fs_outplace_write_data\n   : cached folio in internal bio cache\n  - f2fs_balance_fs\n   - wake_up(gc_thread)\n   : wake up gc thread to run foreground GC\n   - finish_wait(fggc_wq)\n   : wait on the waitqueue --- wait on GC thread to finish the work\n\t\t\t\t\t\t\t\t\t- truncate_inode_pages_range\n\t\t\t\t\t\t\t\t\t - __filemap_get_folio(, FGP_LOCK)  --- lock folio\n\t\t\t\t\t\t\t\t\t - truncate_inode_partial_folio\n\t\t\t\t\t\t\t\t\t  - folio_wait_writeback            --- wait on writeback being cleared\n\t\t\t\t\t- do_garbage_collect\n\t\t\t\t\t - move_data_page\n\t\t\t\t\t  - f2fs_get_lock_data_folio\n\t\t\t\t\t   - lock on folio  --- blocked on folio's lock\n\nIn order to avoid such deadlock, let's call below functions to commit\ncached bios in GC_MERGE path of f2fs_balance_fs() as the same as we did\nin NOGC_MERGE path.\n- f2fs_submit_merged_write(sbi, DATA);\n- f2fs_submit_all_merged_ipu_writes(sbi);",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68460",
+      "published": "2026-08-15T06:18:22.117",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix potential deadlock in f2fs_balance_fs()\n\nWhen the f2fs filesystem space is nearly exhausted, we encounter deadlock\nissues as below:\n\nINFO: task A:1890 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:A    state:D stack:0     pid:1890  tgid:1626  ppid:1153   flags:0x00000204\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n schedule+0x3c/0x118\n io_schedule+0x44/0x68\n folio_wait_bit_common+0x174/0x370\n folio_wait_bit+0x20/0x38\n folio_wait_writeback+0x54/0xc8\n truncate_inode_partial_folio+0x70/0x1e0\n truncate_inode_pages_range+0x1b0/0x450\n truncate_pagecache+0x54/0x88\n f2fs_file_write_iter+0x3e8/0xb80\n do_iter_readv_writev+0xf0/0x1e0\n vfs_writev+0x138/0x2c8\n do_writev+0x88/0x130\n __arm64_sys_writev+0x28/0x40\n invoke_syscall+0x50/0x120\n el0_svc_common.constprop.0+0xc8/0xf0\n do_el0_svc+0x24/0x38\n el0_svc+0x30/0xf8\n el0t_64_sync_handler+0x120/0x130\n el0t_64_sync+0x190/0x198\n\nINFO: task kworker/u8:11:2680853 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:kworker/u8:11   state:D stack:0     pid:2680853 tgid:2680853 ppid:2      flags:0x00000208\nWorkqueue: writeback wb_workfn (flush-254:0)\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n schedule+0x3c/0x118\n io_schedule+0x44/0x68\n folio_wait_bit_common+0x174/0x370\n __filemap_get_folio+0x214/0x348\n pagecache_get_page+0x20/0x70\n f2fs_get_read_data_page+0x150/0x3e8\n f2fs_get_lock_data_page+0x2c/0x160\n move_data_page+0x50/0x478\n do_garbage_collect+0xd38/0x1528\n f2fs_gc+0x240/0x7e0\n f2fs_balance_fs+0x1a0/0x208\n f2fs_write_single_data_page+0x6e4/0x730\n f2fs_write_cache_pages+0x378/0x9b0\n f2fs_write_data_pages+0x2e4/0x388\n do_writepages+0x8c/0x2c8\n __writeback_single_inode+0x4c/0x498\n writeback_sb_inodes+0x234/0x4a8\n __writeback_inodes_wb+0x58/0x118\n wb_writeback+0x2f8/0x3c0\n wb_workfn+0x2c4/0x508\n process_one_work+0x180/0x408\n worker_thread+0x258/0x368\n kthread+0x118/0x128\n ret_from_fork+0x10/0x200\n\nINFO: task kworker/u8:8:2641297 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:kworker/u8:8    state:D stack:0     pid:2641297 tgid:2641297 ppid:2      flags:0x00000208\nWorkqueue: writeback wb_workfn (flush-254:0)\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n rt_mutex_schedule+0x30/0x60\n __rt_mutex_slowlock_locked.constprop.0+0x460/0x8a8\n rwbase_write_lock+0x24c/0x378\n down_write+0x1c/0x30\n f2fs_balance_fs+0x184/0x208\n f2fs_write_inode+0xf4/0x328\n __writeback_single_inode+0x370/0x498\n writeback_sb_inodes+0x234/0x4a8\n __writeback_inodes_wb+0x58/0x118\n wb_writeback+0x2f8/0x3c0\n wb_workfn+0x2c4/0x508\n process_one_work+0x180/0x408\n worker_thread+0x258/0x368\n kthread+0x118/0x128\n ret_from_fork+0x10/0x20\n\nINFO: task B:1902 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:B     state:D stack:0     pid:1902  tgid:1626  ppid:1153   flags:0x0000020c\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n rt_mutex_schedule+0x30/0x60\n __rt_mutex_slowlock_locked.constprop.0+0x460/0x8a8\n rwbase_write_lock+0x24c/0x378\n down_write+0x1c/0x30\n f2fs_balance_fs+0x184/0x208\n f2fs_map_blocks+0x94c/0x1110\n f2fs_file_write_iter+0x228/0xb80\n do_iter_readv_writev+0xf0/0x1e0\n vfs_writev+0x138/0x2c8\n do_writev+0x88/0x130\n __arm64_sys_writev+0x28/0x40\n invoke_syscall+0x50/0x120\n el0_svc_common.constprop.0+0xc8/0xf0\n do_el0_svc+0x24/0x38\n el0_svc+0x30/0xf8\n el0t_64_sync_handler+0x120/0x130\n el0t_64_sync+0x190/0x198\n\nINFO: task sync:2769849 blocked for more than 120 seconds.\n      Tainted: G     \n---truncated---",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68463",
+      "published": "2026-08-15T06:18:39.910",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmmc: sdhci-esdhc-imx: use pm_runtime_resume_and_get() in suspend\n\nReplace pm_runtime_get_sync() with pm_runtime_resume_and_get() to\nsimplify error handling. pm_runtime_resume_and_get() automatically\ndrops the usage counter on failure, avoiding the need for a separate\npm_runtime_put_noidle() call. If it fails, the device is unclocked and\naccessing hardware registers would cause a kernel panic, so return the\nerror immediately.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68464",
+      "published": "2026-08-15T06:19:25.430",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmmc: sdhci-esdhc-imx: disable irq during suspend to fix unhandled interrupt\n\nWhen using WIFI out-of-band wakeup, an \"irq xxx: nobody cared\" warning\noccurs. This happens because the usdhc interrupt is not disabled during\nsystem suspend when device_may_wakeup() returns false.\n\nThe sequence of events leading to this issue:\n1. System enters suspend without disabling usdhc interrupt\n(because device_may_wakeup() returns false for usdhc device)\n2. WIFI out-of-band wakeup triggers system resume via GPIO interrupt\n3. WIFI sends a Card interrupt before usdhc has fully resumed\n4. usdhc is still in runtime suspend state and cannot handle the\ninterrupt properly\n5. The unhandled interrupt triggers \"nobody cared\" warning\n\nFix this by unconditionally disabling the usdhc interrupt during suspend\nand re-enabling it during resume, regardless of the wakeup capability.\nThis ensures no interrupts are processed during the suspend/resume\ntransition.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68465",
+      "published": "2026-08-15T06:19:34.433",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmmc: sdhci-esdhc-imx: fix esdhc_change_pinstate() to allow default state restore\n\nesdhc_change_pinstate() checks for pins_100mhz and pins_200mhz at the\ntop of the function and returns -EINVAL if either is not defined. This\nprevents the default case from ever being reached, which means devices\nwith a sleep pinctrl state but without high-speed pin states (100mhz/\n200mhz) can never restore their default pin configuration.\n\nMove the IS_ERR checks for pins_100mhz and pins_200mhz into their\nrespective switch cases.",
       "severity": "UNKNOWN",
       "score": null
     }
