@@ -1,5 +1,5 @@
 {
-  "totalResults": 3534,
+  "totalResults": 3537,
   "items": [
     {
       "id": "CVE-2026-73193",
@@ -93,11 +93,11 @@
       "score": 7.8
     },
     {
-      "id": "CVE-2026-12248",
-      "published": "2026-08-15T12:16:31.713",
-      "description": "The WPML Multilingual CMS plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in all versions up to, and including, 4.9.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with translator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-74456",
+      "published": "2026-08-15T13:17:50.227",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncan: peak_usb: peak_usb_start(): fix double free of transfer buffer on URB submit error\n\nIn peak_usb_start(), each RX URB transfer buffer is allocated with kmalloc()\nand the URB is flagged URB_FREE_BUFFER so that the final usb_free_urb() also\nfrees the transfer buffer.\n\nIf usb_submit_urb() fails, the error path frees the buffer explicitly with\nkfree(buf) and then calls usb_free_urb(urb). Because URB_FREE_BUFFER is set,\nusb_free_urb() -> urb_destroy() frees the same buffer a second time, a double\nfree of the transfer buffer.\n\n  BUG: KASAN: double-free in usb_free_urb.part.0+0x91/0xb0\n  Free of addr ffff8881069ccb80 by task trigger.sh/285\n\n  Call Trace:\n   kfree+0x113/0x3c0\n   usb_free_urb.part.0+0x91/0xb0\n\nDrop the redundant kfree(buf); usb_free_urb() already releases the transfer\nbuffer. This mirrors commit 03819abbeb11 (\"net: usb: lan78xx: Fix double free\nissue with interrupt buffer allocation\").",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
       "id": "CVE-2026-19894",
@@ -105,13 +105,6 @@
       "description": "A security flaw has been discovered in itsourcecode Hospital Management System 1.0. Affected is an unknown function of the file /viewmedicine.php. Performing a manipulation of the argument delid results in sql injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
       "severity": "MEDIUM",
       "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19893",
-      "published": "2026-08-15T12:16:32.543",
-      "description": "A vulnerability was identified in D-Link DIR-842 2.01.B04. This impacts an unknown function of the file /etc/vsftpd.conf of the component vsftpd. Such manipulation leads to incorrect default permissions. It is possible to launch the attack remotely. A high complexity level is associated with this attack. The exploitability is said to be difficult.",
-      "severity": "LOW",
-      "score": 3.1
     },
     {
       "id": "CVE-2026-74441",
@@ -138,6 +131,13 @@
       "id": "CVE-2026-74448",
       "published": "2026-08-15T13:17:49.390",
       "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: fix QID bit leak in pqm_create_queue()\n\nWhen MES is enabled and amdgpu_amdkfd_alloc_kernel_mem() fails during\nthe first queue creation for a process, pqm_create_queue() returns\nearly via 'return retval' without going through the err_create_queue\ncleanup label.\n\nThis means clear_bit(*qid, pqm->queue_slot_bitmap) is never called,\nleaving the reserved QID bit permanently set in queue_slot_bitmap.\nOver time this leaks QID slots, potentially exhausting all available\nqueue slots.\n\nFix this by replacing 'return retval' with 'goto err_allocate_pqn'\nso that clear_bit() is always called on the error path without\ntouching the uninitialized pqn pointer.\n\nAILIKFD-813\n\n(cherry picked from commit a107f74c38edbb80d6ab64dcaeeb292c14e9779f)",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-74455",
+      "published": "2026-08-15T13:17:50.120",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncan: peak_usb: validate uCAN receive record lengths\n\npcan_usb_fd_decode_buf() walks uCAN records packed in one USB\nreceive buffer.\n\nRequire each record to contain the fixed header for its type, and verify\nCAN payload bytes before copying them into the skb.",
       "severity": "UNKNOWN",
       "score": null
     }
