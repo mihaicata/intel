@@ -1,61 +1,19 @@
 {
-  "totalResults": 4261,
+  "totalResults": 4251,
   "items": [
     {
-      "id": "CVE-2026-15303",
-      "published": "2026-08-15T03:16:47.670",
-      "description": "The 6Storage Rentals plugin for WordPress is vulnerable to authentication bypass in versions up to, and including, 2.27.0. This is due to the six_storage_create_wp_user() AJAX handler being registered on wp_ajax_nopriv_six_storage_create_wp_user without any nonce, capability, credential, or ownership verification, while calling wp_set_current_user() and wp_set_auth_cookie() for any WordPress user resolved by the attacker-supplied email address. This makes it possible for unauthenticated attackers to log in as any existing WordPress user, including administrators, by submitting that user's email address.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-15341",
-      "published": "2026-08-15T03:16:47.943",
-      "description": "The User Session Synchronizer plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in all versions up to, and including, 1.4.0. The `synchronize_session()` function, hooked on `init` and therefore executed on every request, performs no nonce, capability, or shared-secret validation against the attacker-supplied `ussync-key`, `ussync-token`, and `ussync-ref` parameters; when `ussync-key` references an unregistered slot, `get_option()` returns `false` for both the secret key and the domain list, causing the AES-256-CBC encryption key to degrade to the fully predictable `md5('')` and the referer allowlist to collapse to an empty-string match, while the AES IV is unconditionally hard-coded as `md5('another-secret')`. This makes it possible for unauthenticated attackers to supply a crafted request encrypting any known or guessable user email address in the `ussync-ref` parameter, causing the handler to call `wp_set_auth_cookie()` for the matched user and granting full authentication as that user — including administrators — with no prior knowledge of site secrets.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-14484",
-      "published": "2026-08-15T03:16:47.263",
-      "description": "The RapiSafe – Secure Multi File Upload for Contact Form 7 plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the handleAjaxRemoveUpload function in all versions up to, and including, 1.0.4. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The nonce required to invoke the removal handler is exposed in public-facing JavaScript as RSMFCF7Vars.nonce on every Contact Form 7 page rendering a RapiSafe upload field, making it obtainable by any unauthenticated visitor.",
+      "id": "CVE-2026-68457",
+      "published": "2026-08-15T06:17:48.460",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: use opener credentials for FSCTL mutations\n\nSET_SPARSE, SET_ZERO_DATA and SET_COMPRESSION operate on an open SMB\nhandle but call VFS xattr, fallocate or fileattr helpers with the current\nksmbd worker credentials. Those helpers can revalidate inode permissions,\nownership and LSM policy independently of the SMB handle access mask.\n\nRun each operation with the credentials captured in the target file when\nthe handle was opened. Keep credential handling local to these single-file\nFSCTLs rather than applying session credentials to the complete IOCTL\nhandler, which also contains handle-less and multi-handle operations.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-15001",
-      "published": "2026-08-15T03:16:47.393",
-      "description": "The bLoyal: Loyalty & Promotions by bLoyal plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.1.611.78. This is due to the AJAX actions `save_bloyal_configuration_data` and `save_bloyal_accesskeyverification_data` being registered without any capability or nonce checks, and the `bloyal_customer_auto_login` function unconditionally trusting the `Customer.ExternalId` value returned by whichever API URL is stored in the plugin's options. This makes it possible for authenticated attackers, with Subscriber-level access and above, to overwrite the plugin's bLoyal Loyalty Engine API URL (`bloyal_custom_loyaltyengine_api_url`) and the `is_bloyal_custom_api_url` flag via the unprotected AJAX actions, then trigger the unauthenticated `/cart` REST route to cause `bloyal_customer_auto_login` to fetch customer data from an attacker-controlled endpoint and call `wp_set_auth_cookie()` with an attacker-supplied `Customer.ExternalId`, thereby authenticating as any WordPress user including the site Administrator.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-15312",
-      "published": "2026-08-15T03:16:47.817",
-      "description": "The Propovoice: All-in-One Client Management System plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.7.8. This is due to the `create()` function's REST endpoint failing to validate the user-supplied `role` parameter against an allowlist of permitted WordPress roles and omitting any `promote_users` capability check before passing the sanitized value directly to `WP_User::set_role()`. This makes it possible for authenticated attackers with `ndpv_manager`-level access and above to create a new WordPress user account with the `administrator` role assigned, achieving full vertical privilege escalation. The `ndpv_manager` capability is a sub-administrator CRM team role granted by Propovoice itself, meaning the attack surface extends beyond site administrators to any user the plugin has elevated to a manager position.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-15965",
-      "published": "2026-08-15T03:16:48.077",
-      "description": "The MaxUpload – Big File Uploads – Increase Maximum File Upload Size plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.4.0 via the handle_upload function. This is due to a filename-validation mismatch in the handle_upload function where extension and MIME checks are applied to the uploaded chunk's filename but not to the final assembled filename derived from the resumableFilename parameter. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-15162",
-      "published": "2026-08-15T03:16:47.523",
-      "description": "The Object Sync for Salesforce plugin is vulnerable to unauthenticated SQL Injection via the wordpress_object_type parameter of its /wp-json/object-sync-for-salesforce/push/ REST route. The route's permission callback (can_process()) checks only the HTTP method for the push class — no capability or nonce — so it is reachable by unauthenticated users. The wordpress_object_type value is concatenated directly into a SQL query (post_type = \"$object_type\", class-object-sync-sf-wordpress.php:328) and executed via $wpdb->get_results() with no $wpdb->prepare() (:578). Because REST body parameters are not magic-quoted, an attacker can break out of the quoted string and inject arbitrary SQL. This makes it possible for unauthenticated attackers to append additional SQL queries (time-based blind), enabling extraction of sensitive information such as password hashes from the database. Only a valid wordpress_id (e.g. 1) is required — no authentication or Salesforce connection.",
+      "id": "CVE-2026-16611",
+      "published": "2026-08-15T06:17:08.380",
+      "description": "The Product Feed PRO for WooCommerce by AdTribes  WordPress plugin before 13.5.7 does not perform an authorization check on one of its REST read routes, allowing unauthenticated users to disclose a store's feed configuration (rules, filters and field mapping) and to enumerate the full product category taxonomy.",
       "severity": "HIGH",
       "score": 7.5
-    },
-    {
-      "id": "CVE-2026-14433",
-      "published": "2026-08-15T03:16:47.130",
-      "description": "The Online Booking & Scheduling Calendar for WordPress by vcita plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'business_id' parameter in all versions up to, and including, 4.6.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "HIGH",
-      "score": 7.2
     },
     {
       "id": "CVE-2026-13360",
@@ -72,13 +30,6 @@
       "score": 7.2
     },
     {
-      "id": "CVE-2026-16080",
-      "published": "2026-08-15T03:16:48.207",
-      "description": "The Image Uploader for Welcart plugin for WordPress is vulnerable to generic SQL Injection via the 'post_title' parameter in all versions up to, and including, 1.4.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
       "id": "CVE-2026-15453",
       "published": "2026-08-15T04:18:07.300",
       "description": "The KiviCare – Clinic & Patient Management System (EHR) plugin for WordPress is vulnerable to generic SQL Injection via the 'searchTerm' parameter in all versions up to, and including, 4.5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Exploitation requires a KiviCare custom role with the 'settings_view' permission (e.g., Doctor or Receptionist), meaning standard WordPress subscribers cannot exploit this without a KiviCare-assigned role.",
@@ -89,6 +40,27 @@
       "id": "CVE-2026-16586",
       "published": "2026-08-15T04:18:10.607",
       "description": "The Contest Gallery – Upload & Vote Photos, Media, Sell with PayPal & Stripe plugin for WordPress is vulnerable to Second-Order SQL Injection via MultipleFiles Second-Order Payload via 'cg_multiple_files_for_post' -> 'cgRealId' in all versions up to, and including, 30.0.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-18387",
+      "published": "2026-08-15T04:18:17.773",
+      "description": "The Groundhogg — CRM, Newsletters, and Marketing Automation plugin for WordPress is vulnerable to generic SQL Injection via the 'tag_query' parameter in all versions up to, and including, 4.5.14 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with vendor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Exploitation requires the attacker to trigger the vulnerable Legacy_Contact_Query code path by submitting an unknown filter type (e.g. filters[0][0][type]=force_fallback), which causes a FilterException that dispatches execution away from the modern query handler.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-16541",
+      "published": "2026-08-15T06:17:08.280",
+      "description": "The Simply Schedule Appointments WordPress plugin before 1.6.12.17 does not restrict the user records returned by some of its REST endpoints to those the requester is entitled to see, allowing users with a low-privileged staff role to disclose the names and email addresses of arbitrary registered users.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-18216",
+      "published": "2026-08-15T06:17:08.487",
+      "description": "The Backup Migration WordPress plugin before 2.1.7 does not properly restrict a post-restore automatic login mechanism, allowing a user who administers one site of a multisite network to obtain a long-lived authenticated session as an administrator of another site in the same network, without credentials and bypassing two-factor authentication.",
       "severity": "MEDIUM",
       "score": 6.5
     },
@@ -107,23 +79,23 @@
       "score": 6.4
     },
     {
-      "id": "CVE-2026-12128",
-      "published": "2026-08-15T03:16:46.970",
-      "description": "The Pinpoint Booking System – Version 2 plugin for WordPress is vulnerable to Price Manipulation via the `cart_data` parameter in all versions up to, and including, 2.9.9.6.8. This is due to the `dopbsp_woocommerce_add_to_cart` AJAX action being registered via `wp_ajax_nopriv_*` with no authentication, no nonce verification, and no server-side recalculation of pricing — the `update` handler reads `price_total` directly from the attacker-controlled `cart_data` POST parameter and persists it to the database via `$wpdb->insert()` without validating it against the calendar's configured pricing. The `woocommerce_before_calculate_totals` callback subsequently reads the stored attacker-supplied value back from the database and passes it directly to `$product->set_price()` without recomputing from calendar settings. This makes it possible for unauthenticated attackers to override the WooCommerce checkout price of any bookable product tied to a booking calendar to an arbitrary value, effectively enabling the purchase of any such product at a self-chosen price.",
+      "id": "CVE-2026-14230",
+      "published": "2026-08-15T06:16:55.960",
+      "description": "The ECS  WordPress plugin before 4.3.8 does not perform capability or object-ownership checks on its Dynamic Repeater AJAX handlers (gated only by a capability-agnostic nonce that any edit_posts user obtains from the Elementor editor), so a Contributor can write a data-source binding into any post — including admin-authored pages — whose attacker-controlled values are rendered into a widget's repeater output without sanitization, executing JavaScript in the session of any visitor or administrator who views the page.",
       "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-8840",
-      "published": "2026-08-15T03:16:48.357",
-      "description": "The Booking calendar, Appointment Booking System plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.2.36. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to mark arbitrary reservations as paid or completed, cancel legitimate payments, auto-approve reservations, and trigger transactional booking emails by writing attacker-supplied payment status and transaction data directly into the payments table. The auto-approval of reservations is only triggered when the 'enable_psuccess_approval' site option is enabled, but payment status manipulation and email dispatch are exploitable regardless of that setting.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
       "id": "CVE-2026-15993",
       "published": "2026-08-15T04:18:09.727",
       "description": "The Form Maker by 10Web – Mobile-Friendly Drag & Drop Contact Form Builder plugin for WordPress is vulnerable to blind SQL Injection via '{username}' Placeholder in Dynamic-Choice Field WHERE Clause in all versions up to, and including, 1.15.44 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This requires that a form is configured with a DB-backed dynamic choice field whose WHERE template references the {username} placeholder, and the attacker must first set their own display_name to a SQL payload via the standard WordPress profile edit screen before triggering the fm_reload_input AJAX endpoint.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-14229",
+      "published": "2026-08-15T06:16:49.917",
+      "description": "The ECS  WordPress plugin before 4.3.8 does not check the post status or any capability when rendering an Elementor document requested through one of its AJAX actions, allowing unauthenticated users to retrieve the rendered content of unpublished (private, draft, pending) documents by supplying their identifier.",
       "severity": "MEDIUM",
       "score": 5.3
     },
@@ -140,6 +112,34 @@
       "description": "The Invisible Anti-Spam & CAPTCHA — reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to generic SQL Injection via Pattern JSON Keys/Values in all versions up to, and including, 5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "severity": "MEDIUM",
       "score": 4.9
+    },
+    {
+      "id": "CVE-2026-18807",
+      "published": "2026-08-15T06:17:17.050",
+      "description": "The ECS  WordPress plugin before 4.3.8 does not have capability or ownership checks on its dynamic repeater actions, relying only on a nonce available to any user who can open the page builder, allowing users with a contributor-level account or above to read, alter and delete the binding configuration of posts they do not own and to change the ECS  WordPress plugin before 4.3.8's site-wide presets.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-16007",
+      "published": "2026-08-15T06:16:56.063",
+      "description": "AppFlowy's qcuiknote feature is affected by a SQL injection vulnerability. Authenticated users with access to the feature can inject arbitrary SQL to exfiltrate data in the underlying SQL database.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68455",
+      "published": "2026-08-15T06:17:17.160",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nliveupdate: validate session type before performing operation\n\nThe sessions ioctls are not applicable to all session types. PRESERVE_FD\nis only applicable to outgoing sessions. RETRIEVE_FD and FINISH are only\nvalid for incoming session. Calling a incoming ioctl on an outgoing\nsession is invalid and can cause file handlers to run into unexpected\nerrors.\n\nFor example, a user can create a (outgoing) session, preserve a memfd,\nand then immediately do a retrieve without doing a kexec in between.\nThis would result in memfd's retrieve handler to run. The handlers\nexpects to be called from a post-kexec context, and will try to do a\nkho_restore_vmalloc() or kho_restore_folio() to try and restore memory.\n\nKHO catches this (thanks to KHO_PAGE_MAGIC) and returns an error, but\nsince this is considered an internal error and KHO throws out a bunch of\nWARN()s.\n\nAssociate a type with each ioctl op and validate the type in\nluo_session_ioctl() before dispatching the ioctl handler to make sure\nthe op is being called for the right session type.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68456",
+      "published": "2026-08-15T06:17:32.713",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: atm: ueagle-atm: wait for pre-firmware load in .disconnect()\n\nueagle-atm uses the asynchronous request_firmware_nowait() in .probe(),\nbut does not wait for its completion, not even in .disconnect(); so, if the\ndevice is unplugged meanwhile, its teardown runs concurrently with that.\n\nEven though this inconsistency is worth addressing on its own, it has also\ntriggered several bug reports in syzbot over the years (some auto-closed)\nwhere the firmware sysfs fallback mechanism (CONFIG_FW_LOADER_USER_HELPER)\ncreates a firmware subdirectory in the device directory during its removal,\nwhich might hit unexpected conditions in kernfs, apparently, depending at\nwhich point the add and remove operations raced. (See links.)\n\nThe pattern is:\n\nusb ?-?: Direct firmware load for ueagle-atm/eagle?.fw failed with error -2\nusb ?-?: Falling back to sysfs fallback for: ueagle-atm/eagle?.fw\n<ERROR>\nCall trace:\n ...\n kernfs_create_dir_ns\n sysfs_create_dir_ns\n create_dir\n kobject_add_internal\n kobject_add_varg\n kobject_add\n class_dir_create_and_add\n get_device_parent\n device_add\n fw_load_sysfs_fallback\n fw_load_from_user_helper\n firmware_fallback_sysfs\n _request_firmware\n request_firmware_work_func\n ...\n\n(Some variations are observed, after fw_load_sysfs_fallback(), e.g., [1].)\n\nWhile the kernfs side is being looked at, the ueagle-atm side can be fixed\nby waiting for the pre-firmware load in the .disconnect() handler.\n\nThis change has a similar approach to previous work by Andrey Tsygunka [2]\n(wait_for_completion() in .disconnect()), but it is relatively different in\ndesign/implementation; using the Originally-by tag for credit assignment.\n\nThis has been tested with:\n- synthetic reproducer to check the error path;\n- USB gadget (virtual device) to check the firmware upload path;\n- QEMU device emulator to check the device ID re-enumeration path;\n(The latter two were written by Claude; no other code/text in this commit.)\n\nLinks (year first reported):\n 2025 https://syzbot.org/bug?extid=ce1e5a1b4e086b43e56d\n 2025 https://syzbot.org/bug?extid=9af8471255ac36e34fd4\n 2024 https://syzbot.org/bug?extid=306212936b13e520679d\n 2023 https://syzkaller.appspot.com/bug?extid=457452d30bcdda75ead2\n 2022 https://syzbot.org/bug?extid=782984d6f1701b526edb\n 2021 https://syzbot.org/bug?id=f3f221579f4ef7e9691281f3c6f56c05f83e8490\n 2021 https://syzbot.org/bug?id=84d86f0d71394829df6fc53daf6642c045983881\n 2021 https://syzbot.org/bug?id=3302dc1c0e2b9c94f2e8edb404eabc9267bc6f90\n\n[1] https://syzkaller.appspot.com/bug?extid=457452d30bcdda75ead2\n[2] https://lore.kernel.org/lkml/20250410093146.3776801-2-aitsygunka@yandex.ru/",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
