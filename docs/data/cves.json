@@ -1,5 +1,5 @@
 {
-  "totalResults": 3537,
+  "totalResults": 3534,
   "items": [
     {
       "id": "CVE-2026-73193",
@@ -58,18 +58,39 @@
       "score": 7.8
     },
     {
-      "id": "CVE-2026-73634",
-      "published": "2026-08-15T11:16:27.427",
-      "description": "Uncontrolled resource consumption vulnerability in Apache Struts. An application that exposes an endpoint collecting Content Security Policy violation reports reads the submitted report into memory without bounding how much it will accept, so a single request can exhaust the heap and deny service to other users. Such endpoints are ordinarily reachable without authentication. The core distribution maps no such endpoint by default; applications that do not collect violation reports are not affected.\n\nThis issue affects Apache Struts: from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
+      "id": "CVE-2026-74450",
+      "published": "2026-08-15T13:17:49.593",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/pm: fix pptable use-after-free\n\namdgpu_dpm_get_pp_table() returns a pointer to a driver-owned power table\nafter dropping adev->pm.mutex. The sysfs path then copies from that pointer.\nA concurrent pp_table write can replace and free the allocation during the\ncopy, causing a use-after-free.\n\nChange the DPM interface to copy into caller-provided storage while the mutex\nis held. Keep the size-only query for attribute discovery without exposing\nthe driver-owned pointer.\n\n(cherry picked from commit f6eed7acfd30099ef7baeb6ba45bb59daad80631)",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-73635",
-      "published": "2026-08-15T11:16:27.540",
-      "description": "Allocation of resources without limits or throttling vulnerability in Apache Struts. When no fixed locale is configured, the locale used for localized-text lookups is taken from the incoming request, allowing an unauthenticated remote client to cause the framework's internal localized-text caches to grow without bound and exhaust the Java heap, denying service to other users. Applications that configure a fixed locale are not affected.\n\nThis issue affects Apache Struts: from 2.0.0 through 2.3.37, from 2.5.0 through 2.5.33, from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
+      "id": "CVE-2026-74451",
+      "published": "2026-08-15T13:17:49.697",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/panthor: validate firmware interface structure sizes\n\niface_fw_to_cpu_addr() only checks that the firmware-provided MCU virtual\naddress points inside the shared section. The returned pointer is later\nused as a full firmware interface structure, so accepting an address near\nthe end of the shared section can still lead to out-of-bounds accesses.\n\nPass the expected object size to iface_fw_to_cpu_addr() and reject ranges\nthat do not fit entirely in the shared section.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-74452",
+      "published": "2026-08-15T13:17:49.790",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/panthor: reject firmware sections with oversized data\n\nIn panthor_fw_load_section_entry(), the data size to copy is calculated\nwithout validating it against the allocated section_size:\n\n    section->data.size = hdr.data.end - hdr.data.start;\n\nIf a crafted firmware sets data.size larger than the allocated memory,\nthis could cause a heap buffer overflow in panthor_fw_init_section_mem()\n\n    memcpy(section->mem->kmap, section->data.buf, section->data.size);\n\nAdditionally, if the section->data.size exceeds the BO size, could this\nmemset underflow the size calculation, leading to a massive out-of-bounds\nzeroing of kernel memory?\n\n    memset(section->mem->kmap + section->data.size, 0,\n           panthor_kernel_bo_size(section->mem) - section->data.size);\n\nReject section entries whose initial data is larger than the section size.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-74453",
+      "published": "2026-08-15T13:17:49.893",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vc4: Zero the tile state data array before each BIN job\n\nThe binner BO is a single 16MB buffer split into 512KB slots that are\nhanded out to jobs at submission time and recycled as jobs complete,\nwithout ever being cleared. Each slot holds the job's Tile State Data\nArray (TSDA) at its start, followed by the tile allocation pool.\n\nWhile the tile allocation pool is only walked by the render thread\nthrough branches the binner generated during the current job, the\nTSDA is the PTB's own per-tile bookkeeping and is consumed by the\nhardware itself. Although the kernel sets the \"Auto-initialise Tile\nState Data Array\" flag in the tile binning mode configuration, the\nPTB demonstrably still acts on stale tile state left by the slot's\nprevious user: the binner ends up creating invalid command streams\nwith invalid primitive streams and branches, which can cause GPU hangs\nas observed in [1][2].\n\nZero the TSDA when the job's binning slot is configured. This clears\n48 bytes per tile (~24KB for a 1080p frame) in the submission path, and\nguarantees the PTB never sees another job's tile state.\n\nThe tile count is only checked for being non-zero today, so the 8-bit\nfields it comes from can describe a tile state array almost six times\nlarger than the slot it has to live in. Bound it before the slot is\nhanded out, since such size decides how much of the slot is left for\nthe tile alloc pool.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-74454",
+      "published": "2026-08-15T13:17:50.003",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vc4: Supply the overflow slot size in BPOS, not the whole bin BO size\n\nvc4_overflow_mem_work() points BPOA at a 512KB slot inside the 16MB\nbinner BO, but writes the size of the whole BO to BPOS. On every binner\nout-of-memory event the PTB is therefore authorized to write tile lists\nacross all the other slots (which may hold the tile state, tile alloc and\noverflow memory of in-flight jobs) and, for any slot but the first, past\nthe end of the binner BO into unrelated CMA memory.\n\nSince CMA pages are recycled into page cache and user allocations, this\nis arbitrary memory corruption by GPU DMA. In practice it shows up as GPU\nhangs with corrupted control list pointers, userspace heap corruption, a\nGPU that stays permanently wedged after the first hang, and occasional\nfull system crashes, whenever a job overflows the initial binner slot.\n\nThe bug dates back to the conversion from a dedicated overflow BO (where\nwriting the full BO size was correct) to the slotted binner BO.",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
       "id": "CVE-2026-12248",
@@ -84,27 +105,6 @@
       "description": "A security flaw has been discovered in itsourcecode Hospital Management System 1.0. Affected is an unknown function of the file /viewmedicine.php. Performing a manipulation of the argument delid results in sql injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
       "severity": "MEDIUM",
       "score": 6.3
-    },
-    {
-      "id": "CVE-2026-73631",
-      "published": "2026-08-15T11:16:27.227",
-      "description": "Exposure of data element to wrong session vulnerability in the JSON plugin of Apache Struts. Per-request parsing state could be shared across concurrent requests, allowing data associated with one request to become observable in another, and configured parsing limits not to be enforced as intended. Populating actions from a JSON request body is not enabled by default; applications that do not use the JSON plugin are not affected.\n\nThis issue affects Apache Struts: 7.2.1.\n\nUsers are recommended to upgrade to version 7.3.0, which fixes the issue.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-73632",
-      "published": "2026-08-15T11:16:27.330",
-      "description": "Exposure of data element to wrong session vulnerability in the JSON plugin of Apache Struts. Per-response serialization state could be shared across concurrent requests, allowing response content associated with one request to become observable in another. Only the SMD / JSON-RPC handling of the JSON interceptor is affected, which is not enabled by default; applications using the json result type are not affected.\n\nThis issue affects Apache Struts: 7.2.1.\n\nUsers are recommended to upgrade to version 7.3.0, which fixes the issue.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-19891",
-      "published": "2026-08-15T11:16:26.340",
-      "description": "A vulnerability was determined in TRENDnet TEW-WLC100 2.05b02. This affects an unknown function of the file /etc/racoon.conf of the component IKE Phase 1 Aggressive Mode. This manipulation of the argument exchange_mode causes missing encryption of sensitive data. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is reported as difficult. The vendor was contacted early about this disclosure.",
-      "severity": "LOW",
-      "score": 3.7
     },
     {
       "id": "CVE-2026-19893",
