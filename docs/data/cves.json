@@ -1,13 +1,6 @@
 {
-  "totalResults": 3595,
+  "totalResults": 3591,
   "items": [
-    {
-      "id": "CVE-2026-19598",
-      "published": "2026-08-15T18:16:23.860",
-      "description": "The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-73046",
       "published": "2026-08-15T22:16:54.600",
@@ -72,13 +65,6 @@
       "score": 9
     },
     {
-      "id": "CVE-2026-19901",
-      "published": "2026-08-15T18:16:24.830",
-      "description": "A security flaw has been discovered in LB-LINK X-PRO 1.0.22-20231206. This affects an unknown function of the file /etc/config/easycwmp. The manipulation results in hard-coded credentials. It is possible to launch the attack remotely. Attacks of this nature are highly complex. The exploitability is reported as difficult. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
       "id": "CVE-2026-73045",
       "published": "2026-08-15T22:16:54.463",
       "description": "SiYuan before 3.7.4 contains an improper restriction of excessive authentication attempts vulnerability in the authFilePublishAccess endpoint that allows unauthenticated attackers to brute-force per-notebook publish passwords. Attackers can submit unbounded password guesses without rate limiting or CAPTCHA to gain access to password-protected published notebooks.",
@@ -100,18 +86,25 @@
       "score": 7.3
     },
     {
+      "id": "CVE-2026-19917",
+      "published": "2026-08-15T23:16:20.913",
+      "description": "A flaw has been found in code-projects Online Food Order System 1.0. The impacted element is an unknown function of the file delete_food_items1.php. Executing a manipulation of the argument checkbox can lead to sql injection. The attack can be executed remotely. The exploit has been published and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-19918",
+      "published": "2026-08-16T00:16:50.180",
+      "description": "A vulnerability has been found in SpaceX Starlink Router Gen 3 2025.11.14.mr64708.3. This affects the function get_status of the component gRPC Management Interface. The manipulation leads to improper access controls. The attack can only be initiated within the local network. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
       "id": "CVE-2026-73047",
       "published": "2026-08-15T22:16:54.737",
       "description": "siyuan versions <= 3.7.3 (fixed in v3.7.4) contain a server-side template injection vulnerability in the attribute-view Template calculation feature (introduced in v3.7.0-beta.1). The feature's template engine uses Sprig's unmodified function map, which still exposes the env, expandenv, and getHostByName functions that were removed elsewhere for CVE-2024-55660. A local, unauthenticated attacker (the kernel binds to 127.0.0.1 by default with no per-UID access control) can inject a malicious Template calculation formula to read environment variables belonging to the account running siyuan — including from a separate, unprivileged OS account — and to perform DNS lookups from the server's network position.",
       "severity": "MEDIUM",
       "score": 6.2
-    },
-    {
-      "id": "CVE-2026-19903",
-      "published": "2026-08-15T18:16:25.000",
-      "description": "A vulnerability has been found in SourceCodester Online Clothing Store 1.0. This affects an unknown part of the file /db/shopping.sql of the component SQL Database Backup. The manipulation leads to files or directories accessible. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "severity": "MEDIUM",
-      "score": 5.3
     },
     {
       "id": "CVE-2026-73055",
@@ -135,11 +128,18 @@
       "score": 3.5
     },
     {
-      "id": "CVE-2026-19904",
-      "published": "2026-08-15T18:16:25.183",
-      "description": "A vulnerability was found in SourceCodester Online Book Store System 1.0. This vulnerability affects unknown code of the file /admin/index.php?page=site_settings of the component System Settings Module. The manipulation results in cross site scripting. The attack can be executed remotely. The exploit has been made public and could be used.",
-      "severity": "LOW",
-      "score": 2.4
+      "id": "CVE-2026-74764",
+      "published": "2026-08-15T22:16:55.563",
+      "description": "Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted TAR archive, the extractor passed archive member names directly to Python's tarfile.TarFile.extract() without applying an extraction filter.\n\n\nAn attacker able to submit a specially crafted TAR archive containing malicious member paths, such as paths using ../ sequences or absolute paths, could cause extracted files to be written outside the intended extraction directory. This may allow the attacker to overwrite files accessible to the Pandora worker process and could potentially result in application compromise, arbitrary code execution, or denial of service depending on the files targeted and the privileges of the Pandora process.\n\n\nThe vulnerability is corrected by using Python's filter='data' extraction filter, which rejects or sanitizes dangerous TAR members, including paths that escape the destination directory and unsafe link targets. \n\n\nThe weakness corresponds to MITRE's general path traversal category, which includes archive extraction cases where attacker-controlled filenames cause files to be written outside the intended directory.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-74767",
+      "published": "2026-08-15T22:16:55.697",
+      "description": "Pandora contains a denial-of-service vulnerability in its handling of DAA (Direct Access Archive) files. When extracting the internal ISO image from a DAA archive, compressed chunks were decompressed using zlib.decompress() without enforcing a limit on the resulting uncompressed data.\n\n\nAn attacker able to submit a crafted DAA file containing highly compressed data could cause Pandora to decompress a relatively small input into a very large amount of data in memory. Because the decompressed chunks are accumulated to construct the internal ISO image, this could result in excessive memory consumption and potentially CPU exhaustion, causing the extraction worker to become unresponsive, terminate, or affect the availability of the Pandora service.\n\n\nThe patch introduces bounded decompression using decompressobj().decompress() with max_extracted_filesize, verifies the cumulative size of decompressed chunks, and raises a dedicated ZipBomb exception when the configured limit is exceeded. Pandora then aborts extraction and reports the file as too large.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
