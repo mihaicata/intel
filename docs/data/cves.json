@@ -1,5 +1,5 @@
 {
-  "totalResults": 3575,
+  "totalResults": 3577,
   "items": [
     {
       "id": "CVE-2026-19924",
@@ -23,18 +23,18 @@
       "score": 7.3
     },
     {
+      "id": "CVE-2026-13358",
+      "published": "2026-08-16T05:16:46.213",
+      "description": "The Appointment Booking Calendar — Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 1.6.12.10 via the ssa_past_appointments due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with contributor-level access and above, to access appointment records belonging to arbitrary users and harvest the per-appointment ownership tokens (32-character hashes) embedded in the rendered HTML, which can then be used without any authentication to read or modify those appointments including full customer PII such as name, email, phone number, and private notes. The /wp-json/ssa/v1/render-shortcode REST endpoint is registered unconditionally on rest_api_init regardless of whether the Divi theme is installed, and its permission callback only requires current_user_can('edit_posts'), meaning any Contributor-level account is sufficient to trigger this entire exploit chain.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-11780",
       "published": "2026-08-16T05:16:45.643",
       "description": "The Quiz and Survey Master (QSM) – Easy Quiz and Survey Maker plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'question_title' parameter in all versions up to, and including, 11.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 6.4
-    },
-    {
-      "id": "CVE-2026-19917",
-      "published": "2026-08-15T23:16:20.913",
-      "description": "A flaw has been found in code-projects Online Food Order System 1.0. The impacted element is an unknown function of the file delete_food_items1.php. Executing a manipulation of the argument checkbox can lead to sql injection. The attack can be executed remotely. The exploit has been published and may be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
     },
     {
       "id": "CVE-2026-19918",
