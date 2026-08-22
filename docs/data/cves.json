@@ -1,17 +1,17 @@
 {
-  "totalResults": 3415,
+  "totalResults": 3418,
   "items": [
-    {
-      "id": "CVE-2026-15689",
-      "published": "2026-08-15T14:17:06.480",
-      "description": "Dancer2::Plugin::Auth::Extensible versions through 0.713 for Perl allow password reset link poisoning via the request Host header in _default_email_password_reset and _default_welcome_send.\n\nBoth default emails emit a link of the form `$base/login/$code`, whose authority comes from the request Host header, or from X-Forwarded-Host under behind_proxy (obtained from Dancer2's request->base function). A POST to /login carrying submit_reset and a username needs no authentication: it stores a fresh reset code against that account and mails the account holder a link to a host of the sender's choosing. The welcome mail takes the same path when the application calls create_user with email_welcome set.\n\nThrough 0.711 the handlers read `request->uri_base` and `request->base` directly; Versions 0.712 and later provide an uri_base configuration key that defaults to the untrusted `request->uri_base` when unset.\n\nThe default configuration with reset_password_handler enabled and the default message text, a recipient who follows the link hands a working reset code to the sender's host, which is enough to take over the account.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-19598",
       "published": "2026-08-15T18:16:23.860",
       "description": "The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-73046",
+      "published": "2026-08-15T22:16:54.600",
+      "description": "SiYuan before v3.7.4 improperly restricts excessive authentication attempts in the CheckAuth() middleware. The HTTP Basic Authentication branch, which guards nearly the entire /api/* surface, accepts the workspace access code (Conf.AccessAuthCode) as the Basic Auth password but never consults the CAPTCHA/lockout gate or increments the failure counter used by the cookie/session login path. This allows unauthenticated remote attackers to brute-force the admin access code with unlimited automated requests and obtain full RoleAdministrator access to the kernel. A secondary weakness exists because the access code is compared using a non-constant-time string comparison.",
       "severity": "CRITICAL",
       "score": 9.8
     },
@@ -30,11 +30,25 @@
       "score": 9
     },
     {
-      "id": "CVE-2026-18500",
-      "published": "2026-08-15T14:17:07.473",
-      "description": "@fastify/jwt is a JSON Web Token plugin for Fastify. In versions before 10.2.2, a per-request verification key passed to request.jwtVerify({ key }) is silently overridden by the plugin's globally configured secret, because the option merge applies the global key last. Applications that use different keys for different authorization domains, for example separate user and admin keys, therefore accept a token signed with the global key on a route that explicitly requires another key. This lets an ordinary authenticated user cross a key-based trust boundary without knowing either secret. The issue is fixed in @fastify/jwt 10.2.2, where an explicit per-call key takes precedence over the global secret. Users should upgrade to 10.2.2.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-73042",
+      "published": "2026-08-15T22:16:54.030",
+      "description": "SiYuan before v3.7.4 fails to properly escape database menu metadata in HTML interpolation, allowing stored values to execute script when users open group, view, or field-edit menus. Attackers can inject markup through field descriptions or names that close containing elements and execute arbitrary code via event handlers, reaching Node built-ins due to Electron's insecure configuration.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-73043",
+      "published": "2026-08-15T22:16:54.200",
+      "description": "SiYuan versions before v3.7.4 contain a remote code execution vulnerability in the Template calculation operator, which renders user-authored Go templates and stores output verbatim without sanitization. Attackers can inject malicious HTML and JavaScript into template calculations that execute in the desktop client renderer with Node integration enabled, allowing arbitrary code execution when the database is opened.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-73044",
+      "published": "2026-08-15T22:16:54.330",
+      "description": "SiYuan versions before v3.7.4 fail to validate or escape table column width values, allowing stored cross-site scripting injection into style attributes. Attackers can inject malicious payloads through the setAttrViewColWidth API that break out of style attributes and inject event handlers on every table cell, executing arbitrary code in the Electron renderer with Node integration enabled.",
+      "severity": "CRITICAL",
+      "score": 9
     },
     {
       "id": "CVE-2026-19900",
@@ -51,16 +65,9 @@
       "score": 8.1
     },
     {
-      "id": "CVE-2026-18549",
-      "published": "2026-08-15T14:17:07.590",
-      "description": "@fastify/multipart is a multipart form-data parser for Fastify. In versions from 5.3.0 up to but not including 10.1.1, when the busboy fileSize limit truncates a file part, the plugin clears its internal current-file reference while the underlying stream is still open. If the client then aborts the connection before sending the terminating boundary, the abort cleanup finds no stream to destroy, so saveRequestFiles() never settles, the request handler hangs, and the temporary file already written to disk is never cleaned up. An unauthenticated client can repeat this to permanently leak temporary files and suspended handler executions, leading to disk and event-loop exhaustion. The issue is fixed in @fastify/multipart 10.1.1. Users should upgrade to 10.1.1.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-19474",
-      "published": "2026-08-15T14:17:07.710",
-      "description": "@fastify/multipart is a multipart form-data parser for Fastify. In versions from 3.0.0 up to but not including 10.1.1, request.saveRequestFiles() can leave completed temporary files on disk when a client disconnects while the parser is advancing between multipart parts. The iterator rejection that occurs between parts falls outside the per-file cleanup path, so an earlier completed file is never removed. An unauthenticated client can repeat this to cause persistent, linear disk consumption, leading to denial of service. This is an incomplete-fix variant of CVE-2025-24033. The issue is fixed in @fastify/multipart 10.1.1. Users should upgrade to 10.1.1.",
+      "id": "CVE-2026-73045",
+      "published": "2026-08-15T22:16:54.463",
+      "description": "SiYuan before 3.7.4 contains an improper restriction of excessive authentication attempts vulnerability in the authFilePublishAccess endpoint that allows unauthenticated attackers to brute-force per-notebook publish passwords. Attackers can submit unbounded password guesses without rate limiting or CAPTCHA to gain access to password-protected published notebooks.",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -79,25 +86,18 @@
       "score": 7.3
     },
     {
+      "id": "CVE-2026-73047",
+      "published": "2026-08-15T22:16:54.737",
+      "description": "siyuan versions <= 3.7.3 (fixed in v3.7.4) contain a server-side template injection vulnerability in the attribute-view Template calculation feature (introduced in v3.7.0-beta.1). The feature's template engine uses Sprig's unmodified function map, which still exposes the env, expandenv, and getHostByName functions that were removed elsewhere for CVE-2024-55660. A local, unauthenticated attacker (the kernel binds to 127.0.0.1 by default with no per-UID access control) can inject a malicious Template calculation formula to read environment variables belonging to the account running siyuan — including from a separate, unprivileged OS account — and to perform DNS lookups from the server's network position.",
+      "severity": "MEDIUM",
+      "score": 6.2
+    },
+    {
       "id": "CVE-2026-19903",
       "published": "2026-08-15T18:16:25.000",
       "description": "A vulnerability has been found in SourceCodester Online Clothing Store 1.0. This affects an unknown part of the file /db/shopping.sql of the component SQL Database Backup. The manipulation leads to files or directories accessible. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-18165",
-      "published": "2026-08-15T14:17:07.290",
-      "description": "@fastify/oauth2 is an OAuth 2.0 plugin for Fastify. In versions from 7.2.0 up to but not including 8.3.0, the plugin validates the OAuth state, and with PKCE the code verifier, by comparing the callback query parameter against an unprefixed, predictable cookie, with no server-side binding to the browser that began the flow. Any party able to write a cookie for the application's host, such as a sibling subdomain under the same registrable domain, can plant matching state and verifier cookies and complete an attacker-owned OAuth flow inside a victim's browser, silently signing the victim in to the attacker's account (login CSRF). It does not expose the victim's own account, credentials, or tokens. The issue is fixed in @fastify/oauth2 8.3.0, which adds an opt-in hostPrefixedCookies option. Users should upgrade to 8.3.0 and enable it, or bind state to a server-side session.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2026-19895",
-      "published": "2026-08-15T14:17:07.840",
-      "description": "A vulnerability was detected in opensourcepos Open Source Point of Sale up to 3.4.2. This affects the function Login::index of the file app/Config/Filters.php of the component Login Endpoint. The manipulation results in improper restriction of excessive authentication attempts. The attack may be launched remotely. The attack requires a high level of complexity. It is indicated that the exploitability is difficult. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "LOW",
-      "score": 3.7
     },
     {
       "id": "CVE-2026-19896",
