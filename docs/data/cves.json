@@ -1,143 +1,143 @@
 {
-  "totalResults": 4244,
+  "totalResults": 3540,
   "items": [
     {
-      "id": "CVE-2026-68457",
-      "published": "2026-08-15T06:17:48.460",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: use opener credentials for FSCTL mutations\n\nSET_SPARSE, SET_ZERO_DATA and SET_COMPRESSION operate on an open SMB\nhandle but call VFS xattr, fallocate or fileattr helpers with the current\nksmbd worker credentials. Those helpers can revalidate inode permissions,\nownership and LSM policy independently of the SMB handle access mask.\n\nRun each operation with the credentials captured in the target file when\nthe handle was opened. Keep credential handling local to these single-file\nFSCTLs rather than applying session credentials to the complete IOCTL\nhandler, which also contains handle-less and multi-handle operations.",
+      "id": "CVE-2026-15826",
+      "published": "2026-08-15T07:16:19.280",
+      "description": "The User Profile Builder plugin for WordPress is vulnerable to Authentication Bypass via Type Confusion in versions up to, and including, 3.16.4. This is due to the wppb_log_in_user() function calling absint() on the return value of wp_insert_user() before performing an is_wp_error() check — when a registration is submitted with a 61–70 character username, WordPress core rejects it with a WP_Error object, but absint() coerces that object to the integer 1 before the error check can short-circuit execution, causing the plugin to bind and return a transient-backed autologin nonce tied to user ID 1. This makes it possible for unauthenticated attackers to log in as the site's Administrator account (user ID 1), resulting in full administrative takeover of the site.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-16142",
+      "published": "2026-08-15T09:16:29.560",
+      "description": "The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This is due to the add_front_user_update() AJAX handler being registered for unauthenticated users and accepting an arbitrary truebooker_wp_user_id value, which is passed directly to wp_update_user() without verifying authentication or ownership. This makes it possible for unauthenticated attackers to change any WordPress user account email address, including an administrator, by submitting the target user ID and an attacker-controlled email address. An attacker can then use the native WordPress password reset flow to receive the reset link at the attacker-controlled email address and take over the account.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-73193",
+      "published": "2026-08-15T13:17:48.327",
+      "description": "DBI versions before 1.652 for Perl allow a heap out-of-bounds write on 32-bit perl via an integer wraparound in the output buffer size computed by preparse.\n\npreparse reserves its output buffer with `newSV(strlen(statement) * 7 + 16)`, budgeting seven output bytes per input byte for the longest ':p99999' expansion. The product is computed in STRLEN, which is 32 bits wide on a 32-bit perl build, so a statement of 613,566,757 bytes multiplies to 4,294,967,299, wraps modulo 2^32 to 3, and reserves 19 bytes. The parser then copies the statement out through a raw pointer with no capacity check, writing the whole 585 MB input past the end of the allocation. The 99,999 placeholder limit does not bound this path, which is reached by ordinary non-placeholder content.\n\nAny caller that passes an untrusted statement of that length to preparse on a 32-bit perl gets a heap out-of-bounds write of attacker controlled bytes. Builds with a 64-bit STRLEN are not affected, since the wrap there needs a statement of about 2.3 exabytes.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-73194",
+      "published": "2026-08-15T13:17:48.433",
+      "description": "DBI versions before 1.652 for Perl allow a heap out-of-bounds write via an unvalidated numeric placeholder that sets the binder counter in preparse.\n\npreparse reserves seven output bytes per input byte, the width of the longest ':p99999' expansion. The ':N' branch parses the number with `atoi(src)` and assigns it to the binder counter with no range check, so a statement containing ':2147483648' leaves the counter negative (-2147483648 with glibc, where atoi wraps). Each following '?' then expands through `sprintf(start, \":p%d\", idx++)` to ':p-2147483648', 14 bytes with the terminating NUL where the buffer budgets 7. The placeholder limit added in 1.650 tests the counter against 99,999, which a negative counter passes.\n\nAny caller that preparses an untrusted statement into ':pN' style placeholders gets a heap out-of-bounds write that grows with the number of '?' marks following the poisoned placeholder. The '?' and '%s' return styles compare the parsed number against the expected sequence and error out, and are unaffected.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-68466",
-      "published": "2026-08-15T06:19:34.530",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: rawnand: lpc32xx_slc: fail DMA transfer on completion timeout\n\nlpc32xx_xmit_dma() waits for the DMA completion callback but ignores\nwait_for_completion_timeout(). A timed out DMA transfer is therefore\nunmapped and reported as successful to the NAND read/write path.\n\nReturn -ETIMEDOUT when the completion wait expires. Terminate the DMA\nchannel before unmapping the scatterlist so the timed out transfer cannot\ncontinue to access the buffer after the error is returned.",
+      "id": "CVE-2026-14279",
+      "published": "2026-08-15T07:16:19.120",
+      "description": "The Wholesale Market plugin for WordPress is vulnerable to privilege escalation in versions up to, and including, 2.2.2 via the ced_wholesale_request_send AJAX action. The ced_wholesale_request_send_callback() handler only verifies a nonce (which is exposed to any authenticated user through wp_localize_script on the frontend) and that the caller has a positive user ID, then calls WP_User::add_role() with the client-supplied role_required POST parameter without restricting the value to an allowlist of wholesale roles. This makes it possible for authenticated attackers, with Subscriber-level access and above, to elevate their privileges to Administrator when the site administrator has enabled the 'Assigning requested role directly' option.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-68458",
-      "published": "2026-08-15T06:18:15.350",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbinder: cache secctx size before release zeroes it\n\nbinder_transaction() bounds the scatter-gather buffer area with\nsg_buf_end_offset and subtracts the aligned LSM context size because\nthe secctx is written at the tail of that area.  The subtraction reads\nlsmctx.len, but that field has already been cleared by the time the\nline runs:\n\n    security_secid_to_secctx(secid, &lsmctx)   /* lsmctx.len set */\n    lsmctx_aligned_size = ALIGN(lsmctx.len, sizeof(u64))\n    extra_buffers_size += lsmctx_aligned_size\n    ...\n    security_release_secctx(&lsmctx)            /* memset zeroes len */\n    ...\n    sg_buf_end_offset = sg_buf_offset + extra_buffers_size\n                        - ALIGN(lsmctx.len, sizeof(u64)) /* ALIGN(0,8) */\n\nsecurity_release_secctx() does memset(cp, 0, sizeof(*cp)), so lsmctx.len\nreads back as 0 and the subtraction contributes nothing, leaving\nsg_buf_end_offset too large by the aligned secctx size on every\ntransaction to a txn_security_ctx node.\n\nEach BINDER_TYPE_PTR object then derives buf_left = sg_buf_end_offset -\nsg_buf_offset as the sole upper bound on its copy, so the inflated end\noffset lets the copy run into the bytes that already hold the secctx.\n\nThe aligned size must therefore be cached before release rather than\nre-read from the now-cleared field.  Fix by caching it in\nlsmctx_aligned_size at function scope when it is first computed and\nsubtracting lsmctx_aligned_size instead of re-reading lsmctx.len after\nrelease.  Reuse the same value for the earlier buf_offset computation.",
+      "id": "CVE-2026-18438",
+      "published": "2026-08-15T10:16:29.413",
+      "description": "The Templately – Elementor & Gutenberg Template Library: 6500+ Free & Pro Ready Templates And Cloud! plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 3.7.1 via the fetch_remote_file function. This is due to a filename validation/destination mismatch in fetch_remote_file, where file type validation is performed against the attacker-controlled Content-Disposition filename rather than the URL-path-derived destination filename. This makes it possible for authenticated attackers, with contributor-level access and above, to execute code on the server. A GIF+PHP polyglot file passes wp_check_filetype_and_ext validation as image/gif via the Content-Disposition filename, while the actual destination path is written with a .php extension derived from the URL path, bypassing the unfiltered_upload capability gate entirely. The affected endpoints are reachable at this privilege level because Templately's entire REST API — including the cloud import endpoints used in this attack (/templately/v1/clouds/upload and /templately/v1/insert) — is authorized only by a current_user_can('delete_posts') check, with no administrator or manage_options capability requirement. The same permission gate also allows a contributor to overwrite the site's global Templately cloud connection via the /templately/v1/login endpoint with global_signin set to true. A complete remediation should both correct fetch_remote_file to validate the file type against the actual destination filename rather than the Content-Disposition header (and avoid deriving the write path from the request URL), and restrict state-changing Templately REST routes to an appropriate administrator-level capability.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-74443",
+      "published": "2026-08-15T13:17:48.863",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: bound DMA command body size against suffix pointer\n\nvmw_cmd_dma() locates the DMA suffix at\n\n\t(unsigned long) &cmd->body + header->size - sizeof(*suffix)\n\nwithout checking that header->size is large enough to contain both\ncmd->body and the suffix.  An undersized header makes the suffix\npointer underflow back into the previous command in the bounce\nbuffer.  The verifier later writes suffix->maximumOffset, clobbering\nverified fields of an already-relocated earlier command -- a TOCTOU\non the device-visible command stream that lets one command rewrite\nanother's GMR id, surface id, or other authenticated fields.\n\nReject the command if the body is too small for the suffix to fit.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-74440",
+      "published": "2026-08-15T13:17:48.540",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/xe: Wait on external BO kernel fences in exec IOCTL\n\nBefore arming a user job, xe_exec_ioctl() only added the VM's\ndma-resv KERNEL slot as a dependency. That slot covers rebinds and\nthe kernel operations of the VM's private BOs, but not external BOs\n(bo->vm == NULL), which carry their kernel operations (evictions,\nmoves, ...) in their own dma-resv KERNEL slot.\n\nThe DMA_RESV_USAGE_KERNEL slot is the cross-driver contract for\nmemory management operations that must complete before the BO or its\nbacking store may be used: any accessor is required to wait on the\nKERNEL fences before touching the resv. By skipping the external BOs'\nKERNEL slots, the exec path violated that contract and could schedule\na user job while a kernel operation on an external BO mapped by the VM\nwas still in flight, racing against it and potentially reading or\nwriting memory that was being moved.\n\nReplace the VM-only dependency with an iteration over every object\nlocked by the exec, adding each object's KERNEL slot as a job\ndependency. This covers the VM resv (rebinds and private BOs) as well\nas every external BO, mirroring the drm_gpuvm_resv_add_fence() call\nthat later publishes the job fence to the same set of objects.\nLong-running mode continues to skip this, as before.\n\n(cherry picked from commit a6b842acf3ddd1efc53a56de9260cfa718fb35e7)",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-68461",
-      "published": "2026-08-15T06:18:34.113",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndevice property: initialize the remaining fields of fwnode_handle in fwnode_init()\n\nIf a firmware node is allocated on the stack (for instance: temporary\nsoftware node whose life-time we control) or on the heap - but using a\nnon-zeroing allocation function - and initialized using fwnode_init(),\nits secondary pointer will contain uninitialized memory which likely\nwill be neither NULL nor IS_ERR() and so may end up being dereferenced\n(for example: in dev_to_swnode()). Set fwnode->secondary to NULL on\ninitialization. While at it: initialize the remaining fields of struct\nfwnode_handle too just to be sure.\n\n[ Fix typo in commit message. - Danilo ]",
+      "id": "CVE-2026-74444",
+      "published": "2026-08-15T13:17:48.963",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: validate DRAW_PRIMITIVES header size before division\n\nvmw_cmd_draw() computes\n\n\tmaxnum = (header->size - sizeof(cmd->body)) / sizeof(*decl);\n\nwhere header->size is u32 and is taken straight from the user-supplied\ncommand stream.  When header->size is less than sizeof(cmd->body) the\nunsigned subtraction wraps to nearly 4 GiB, producing a huge maxnum.\nAny user-controlled cmd->body.numVertexDecls then passes the bound and\nthe loop dereferences decl[i] far past the end of the kernel command\nbounce buffer, producing an out-of-bounds read of kernel memory.\n\nReject undersized headers up front.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-68462",
-      "published": "2026-08-15T06:18:39.803",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Reject negative const offsets for buffer pointers\n\nThe verifier rejects variable offsets for PTR_TO_TP_BUFFER and PTR_TO_BUF\naccesses, but it currently accepts a constant negative offset produced by\npointer arithmetic.\n\nCommit 022ac0750883 (\"bpf: use reg->var_off instead of reg->off for\npointers\") moved constant pointer offsets from reg->off to reg->var_off.\nHowever, __check_buffer_access() continued to check only the instruction\noffset. An access with reg->var_off equal to -8 and an instruction offset\nof zero therefore passes verification.\n\nFor writable raw tracepoints, the access end is also calculated from the\nunsigned reg->var_off.value. An eight-byte access starting at -8 wraps\nthe calculated end to zero, allowing the program to load and attach\nwithout increasing max_tp_access.\n\nAfter ensuring that reg->var_off is constant, calculate the effective\naccess start using signed arithmetic and reject it when it is negative.\nUse the validated start to calculate the access end for both\nPTR_TO_TP_BUFFER and PTR_TO_BUF.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-68467",
-      "published": "2026-08-15T06:19:46.527",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: mchp23k256: use SPI match data for chip caps\n\nThe driver stores chip capacity information in both the OF match table\nand the SPI id table. Probe currently uses of_device_get_match_data(),\nso a non-OF SPI modalias match falls back to mchp23k256_caps even when\nthe SPI id table selected a different part.\n\nUse spi_get_device_match_data() so SPI id-table driver_data is consumed\nwhen OF match data is absent. This keeps the existing default fallback\nwhile avoiding the wrong MTD geometry for id-table-only matches.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-16611",
-      "published": "2026-08-15T06:17:08.380",
-      "description": "The Product Feed PRO for WooCommerce by AdTribes  WordPress plugin before 13.5.7 does not perform an authorization check on one of its REST read routes, allowing unauthenticated users to disclose a store's feed configuration (rules, filters and field mapping) and to enumerate the full product category taxonomy.",
+      "id": "CVE-2026-15142",
+      "published": "2026-08-15T09:16:28.557",
+      "description": "The Real Estate Manager Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 12.8.6. This is due to improper capability handling in the allow_attachment_actions() function, which can treat a target user ID as a media attachment ID during user capability checks. This makes it possible for authenticated attackers, with Subscriber-level access and above, to edit an administrator account and escalate their privileges to Administrator when the targeted user ID matches the ID of an existing media attachment.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-16541",
-      "published": "2026-08-15T06:17:08.280",
-      "description": "The Simply Schedule Appointments WordPress plugin before 1.6.12.17 does not restrict the user records returned by some of its REST endpoints to those the requester is entitled to see, allowing users with a low-privileged staff role to disclose the names and email addresses of arbitrary registered users.",
+      "id": "CVE-2026-73634",
+      "published": "2026-08-15T11:16:27.427",
+      "description": "Uncontrolled resource consumption vulnerability in Apache Struts. An application that exposes an endpoint collecting Content Security Policy violation reports reads the submitted report into memory without bounding how much it will accept, so a single request can exhaust the heap and deny service to other users. Such endpoints are ordinarily reachable without authentication. The core distribution maps no such endpoint by default; applications that do not collect violation reports are not affected.\n\nThis issue affects Apache Struts: from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-73635",
+      "published": "2026-08-15T11:16:27.540",
+      "description": "Allocation of resources without limits or throttling vulnerability in Apache Struts. When no fixed locale is configured, the locale used for localized-text lookups is taken from the incoming request, allowing an unauthenticated remote client to cause the framework's internal localized-text caches to grow without bound and exhaust the Java heap, denying service to other users. Applications that configure a fixed locale are not affected.\n\nThis issue affects Apache Struts: from 2.0.0 through 2.3.37, from 2.5.0 through 2.5.33, from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-12248",
+      "published": "2026-08-15T12:16:31.713",
+      "description": "The WPML Multilingual CMS plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in all versions up to, and including, 4.9.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with translator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-18216",
-      "published": "2026-08-15T06:17:08.487",
-      "description": "The Backup Migration WordPress plugin before 2.1.7 does not properly restrict a post-restore automatic login mechanism, allowing a user who administers one site of a multisite network to obtain a long-lived authenticated session as an administrator of another site in the same network, without credentials and bypassing two-factor authentication.",
+      "id": "CVE-2026-19894",
+      "published": "2026-08-15T13:17:48.153",
+      "description": "A security flaw has been discovered in itsourcecode Hospital Management System 1.0. Affected is an unknown function of the file /viewmedicine.php. Performing a manipulation of the argument delid results in sql injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-14230",
-      "published": "2026-08-15T06:16:55.960",
-      "description": "The ECS  WordPress plugin before 4.3.8 does not perform capability or object-ownership checks on its Dynamic Repeater AJAX handlers (gated only by a capability-agnostic nonce that any edit_posts user obtains from the Elementor editor), so a Contributor can write a data-source binding into any post — including admin-authored pages — whose attacker-controlled values are rendered into a widget's repeater output without sanitization, executing JavaScript in the session of any visitor or administrator who views the page.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-14229",
-      "published": "2026-08-15T06:16:49.917",
-      "description": "The ECS  WordPress plugin before 4.3.8 does not check the post status or any capability when rendering an Elementor document requested through one of its AJAX actions, allowing unauthenticated users to retrieve the rendered content of unpublished (private, draft, pending) documents by supplying their identifier.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-18807",
-      "published": "2026-08-15T06:17:17.050",
-      "description": "The ECS  WordPress plugin before 4.3.8 does not have capability or ownership checks on its dynamic repeater actions, relying only on a nonce available to any user who can open the page builder, allowing users with a contributor-level account or above to read, alter and delete the binding configuration of posts they do not own and to change the ECS  WordPress plugin before 4.3.8's site-wide presets.",
+      "id": "CVE-2026-73631",
+      "published": "2026-08-15T11:16:27.227",
+      "description": "Exposure of data element to wrong session vulnerability in the JSON plugin of Apache Struts. Per-request parsing state could be shared across concurrent requests, allowing data associated with one request to become observable in another, and configured parsing limits not to be enforced as intended. Populating actions from a JSON request body is not enabled by default; applications that do not use the JSON plugin are not affected.\n\nThis issue affects Apache Struts: 7.2.1.\n\nUsers are recommended to upgrade to version 7.3.0, which fixes the issue.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-16007",
-      "published": "2026-08-15T06:16:56.063",
-      "description": "AppFlowy's qcuiknote feature is affected by a SQL injection vulnerability. Authenticated users with access to the feature can inject arbitrary SQL to exfiltrate data in the underlying SQL database.",
+      "id": "CVE-2026-73632",
+      "published": "2026-08-15T11:16:27.330",
+      "description": "Exposure of data element to wrong session vulnerability in the JSON plugin of Apache Struts. Per-response serialization state could be shared across concurrent requests, allowing response content associated with one request to become observable in another. Only the SMD / JSON-RPC handling of the JSON interceptor is affected, which is not enabled by default; applications using the json result type are not affected.\n\nThis issue affects Apache Struts: 7.2.1.\n\nUsers are recommended to upgrade to version 7.3.0, which fixes the issue.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-19891",
+      "published": "2026-08-15T11:16:26.340",
+      "description": "A vulnerability was determined in TRENDnet TEW-WLC100 2.05b02. This affects an unknown function of the file /etc/racoon.conf of the component IKE Phase 1 Aggressive Mode. This manipulation of the argument exchange_mode causes missing encryption of sensitive data. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is reported as difficult. The vendor was contacted early about this disclosure.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-19893",
+      "published": "2026-08-15T12:16:32.543",
+      "description": "A vulnerability was identified in D-Link DIR-842 2.01.B04. This impacts an unknown function of the file /etc/vsftpd.conf of the component vsftpd. Such manipulation leads to incorrect default permissions. It is possible to launch the attack remotely. A high complexity level is associated with this attack. The exploitability is said to be difficult.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-74441",
+      "published": "2026-08-15T13:17:48.643",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: typec: ucsi: Fix race condition and ordering in port unregistration\n\nA synchronization issue exists during port unregistration where pending\npartner work items can race against workqueue destruction, leading to\nuse-after-free conditions:\n\n  cros_ec_ucsi cros_ec_ucsi.3.auto: error -ETIMEDOUT: PPM init failed\n  BUG: kernel NULL pointer dereference, address: 0000000000000000\n  RIP: 0010:__queue_work+0x83/0x4a0\n  Call Trace:\n    <IRQ>\n    __cfi_delayed_work_timer_fn+0x10/0x10\n    run_timer_softirq+0x3b6/0xbd0\n    sched_clock_cpu+0xc/0x110\n    irq_exit_rcu+0x18d/0x330\n    fred_sysvec_apic_timer_interrupt+0x5e/0x80\n\nFix this by ensuring strict ordering and proper serialization during\nteardown:\n\n1. Move ucsi_unregister_partner() to the beginning of the teardown\nsequence and protect it under the connector mutex lock.\n2. Ensure all pending partner tasks are explicitly flushed and finished\nbefore the workqueue is destroyed.\n3. Switch from mod_delayed_work() to a cancel_delayed_work() and\nqueue_delayed_work() sequence. This guarantees that items currently marked\nas pending won't be scheduled an additional time, preventing a double\nrelease of resources which leads to the following crash:\n\n  Oops: general protection fault, probably for non-canonical address\n    0xdead000000000122: 0000 [#1] SMP NOPTI\n  Workqueue: cros_ec_ucsi.3.auto-con2 ucsi_poll_worker\n  RIP: 0010:ucsi_poll_worker+0x65/0x1e0\n  Call Trace:\n  <TASK>\n    process_scheduled_works+0x218/0x6d0\n    worker_thread+0x188/0x3f0\n    __cfi_worker_thread+0x10/0x10\n    kthread+0x226/0x2a0\n\nTo ensure these rules are applied identically across both the normal\nteardown and the ucsi_init() error paths, consolidate the cleanup logic\ninto a new helper, ucsi_unregister_port().",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-68455",
-      "published": "2026-08-15T06:17:17.160",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nliveupdate: validate session type before performing operation\n\nThe sessions ioctls are not applicable to all session types. PRESERVE_FD\nis only applicable to outgoing sessions. RETRIEVE_FD and FINISH are only\nvalid for incoming session. Calling a incoming ioctl on an outgoing\nsession is invalid and can cause file handlers to run into unexpected\nerrors.\n\nFor example, a user can create a (outgoing) session, preserve a memfd,\nand then immediately do a retrieve without doing a kexec in between.\nThis would result in memfd's retrieve handler to run. The handlers\nexpects to be called from a post-kexec context, and will try to do a\nkho_restore_vmalloc() or kho_restore_folio() to try and restore memory.\n\nKHO catches this (thanks to KHO_PAGE_MAGIC) and returns an error, but\nsince this is considered an internal error and KHO throws out a bunch of\nWARN()s.\n\nAssociate a type with each ioctl op and validate the type in\nluo_session_ioctl() before dispatching the ioctl handler to make sure\nthe op is being called for the right session type.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68456",
-      "published": "2026-08-15T06:17:32.713",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: atm: ueagle-atm: wait for pre-firmware load in .disconnect()\n\nueagle-atm uses the asynchronous request_firmware_nowait() in .probe(),\nbut does not wait for its completion, not even in .disconnect(); so, if the\ndevice is unplugged meanwhile, its teardown runs concurrently with that.\n\nEven though this inconsistency is worth addressing on its own, it has also\ntriggered several bug reports in syzbot over the years (some auto-closed)\nwhere the firmware sysfs fallback mechanism (CONFIG_FW_LOADER_USER_HELPER)\ncreates a firmware subdirectory in the device directory during its removal,\nwhich might hit unexpected conditions in kernfs, apparently, depending at\nwhich point the add and remove operations raced. (See links.)\n\nThe pattern is:\n\nusb ?-?: Direct firmware load for ueagle-atm/eagle?.fw failed with error -2\nusb ?-?: Falling back to sysfs fallback for: ueagle-atm/eagle?.fw\n<ERROR>\nCall trace:\n ...\n kernfs_create_dir_ns\n sysfs_create_dir_ns\n create_dir\n kobject_add_internal\n kobject_add_varg\n kobject_add\n class_dir_create_and_add\n get_device_parent\n device_add\n fw_load_sysfs_fallback\n fw_load_from_user_helper\n firmware_fallback_sysfs\n _request_firmware\n request_firmware_work_func\n ...\n\n(Some variations are observed, after fw_load_sysfs_fallback(), e.g., [1].)\n\nWhile the kernfs side is being looked at, the ueagle-atm side can be fixed\nby waiting for the pre-firmware load in the .disconnect() handler.\n\nThis change has a similar approach to previous work by Andrey Tsygunka [2]\n(wait_for_completion() in .disconnect()), but it is relatively different in\ndesign/implementation; using the Originally-by tag for credit assignment.\n\nThis has been tested with:\n- synthetic reproducer to check the error path;\n- USB gadget (virtual device) to check the firmware upload path;\n- QEMU device emulator to check the device ID re-enumeration path;\n(The latter two were written by Claude; no other code/text in this commit.)\n\nLinks (year first reported):\n 2025 https://syzbot.org/bug?extid=ce1e5a1b4e086b43e56d\n 2025 https://syzbot.org/bug?extid=9af8471255ac36e34fd4\n 2024 https://syzbot.org/bug?extid=306212936b13e520679d\n 2023 https://syzkaller.appspot.com/bug?extid=457452d30bcdda75ead2\n 2022 https://syzbot.org/bug?extid=782984d6f1701b526edb\n 2021 https://syzbot.org/bug?id=f3f221579f4ef7e9691281f3c6f56c05f83e8490\n 2021 https://syzbot.org/bug?id=84d86f0d71394829df6fc53daf6642c045983881\n 2021 https://syzbot.org/bug?id=3302dc1c0e2b9c94f2e8edb404eabc9267bc6f90\n\n[1] https://syzkaller.appspot.com/bug?extid=457452d30bcdda75ead2\n[2] https://lore.kernel.org/lkml/20250410093146.3776801-2-aitsygunka@yandex.ru/",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68459",
-      "published": "2026-08-15T06:18:15.460",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix potential deadlock in gc_merge path of f2fs_balance_fs()\n\nWhen we mount device w/ gc_merge mount option, we may suffer below\npotential deadlock:\n\nKworker\t\t\t\t\tGC trehad\t\t\tTruncator\n- f2fs_write_cache_pages\n - f2fs_write_single_data_page\n  - f2fs_do_write_data_page\n   - folio_start_writeback  --- set writeback flag on folio\n   - f2fs_outplace_write_data\n   : cached folio in internal bio cache\n  - f2fs_balance_fs\n   - wake_up(gc_thread)\n   : wake up gc thread to run foreground GC\n   - finish_wait(fggc_wq)\n   : wait on the waitqueue --- wait on GC thread to finish the work\n\t\t\t\t\t\t\t\t\t- truncate_inode_pages_range\n\t\t\t\t\t\t\t\t\t - __filemap_get_folio(, FGP_LOCK)  --- lock folio\n\t\t\t\t\t\t\t\t\t - truncate_inode_partial_folio\n\t\t\t\t\t\t\t\t\t  - folio_wait_writeback            --- wait on writeback being cleared\n\t\t\t\t\t- do_garbage_collect\n\t\t\t\t\t - move_data_page\n\t\t\t\t\t  - f2fs_get_lock_data_folio\n\t\t\t\t\t   - lock on folio  --- blocked on folio's lock\n\nIn order to avoid such deadlock, let's call below functions to commit\ncached bios in GC_MERGE path of f2fs_balance_fs() as the same as we did\nin NOGC_MERGE path.\n- f2fs_submit_merged_write(sbi, DATA);\n- f2fs_submit_all_merged_ipu_writes(sbi);",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68460",
-      "published": "2026-08-15T06:18:22.117",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix potential deadlock in f2fs_balance_fs()\n\nWhen the f2fs filesystem space is nearly exhausted, we encounter deadlock\nissues as below:\n\nINFO: task A:1890 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:A    state:D stack:0     pid:1890  tgid:1626  ppid:1153   flags:0x00000204\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n schedule+0x3c/0x118\n io_schedule+0x44/0x68\n folio_wait_bit_common+0x174/0x370\n folio_wait_bit+0x20/0x38\n folio_wait_writeback+0x54/0xc8\n truncate_inode_partial_folio+0x70/0x1e0\n truncate_inode_pages_range+0x1b0/0x450\n truncate_pagecache+0x54/0x88\n f2fs_file_write_iter+0x3e8/0xb80\n do_iter_readv_writev+0xf0/0x1e0\n vfs_writev+0x138/0x2c8\n do_writev+0x88/0x130\n __arm64_sys_writev+0x28/0x40\n invoke_syscall+0x50/0x120\n el0_svc_common.constprop.0+0xc8/0xf0\n do_el0_svc+0x24/0x38\n el0_svc+0x30/0xf8\n el0t_64_sync_handler+0x120/0x130\n el0t_64_sync+0x190/0x198\n\nINFO: task kworker/u8:11:2680853 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:kworker/u8:11   state:D stack:0     pid:2680853 tgid:2680853 ppid:2      flags:0x00000208\nWorkqueue: writeback wb_workfn (flush-254:0)\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n schedule+0x3c/0x118\n io_schedule+0x44/0x68\n folio_wait_bit_common+0x174/0x370\n __filemap_get_folio+0x214/0x348\n pagecache_get_page+0x20/0x70\n f2fs_get_read_data_page+0x150/0x3e8\n f2fs_get_lock_data_page+0x2c/0x160\n move_data_page+0x50/0x478\n do_garbage_collect+0xd38/0x1528\n f2fs_gc+0x240/0x7e0\n f2fs_balance_fs+0x1a0/0x208\n f2fs_write_single_data_page+0x6e4/0x730\n f2fs_write_cache_pages+0x378/0x9b0\n f2fs_write_data_pages+0x2e4/0x388\n do_writepages+0x8c/0x2c8\n __writeback_single_inode+0x4c/0x498\n writeback_sb_inodes+0x234/0x4a8\n __writeback_inodes_wb+0x58/0x118\n wb_writeback+0x2f8/0x3c0\n wb_workfn+0x2c4/0x508\n process_one_work+0x180/0x408\n worker_thread+0x258/0x368\n kthread+0x118/0x128\n ret_from_fork+0x10/0x200\n\nINFO: task kworker/u8:8:2641297 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:kworker/u8:8    state:D stack:0     pid:2641297 tgid:2641297 ppid:2      flags:0x00000208\nWorkqueue: writeback wb_workfn (flush-254:0)\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n rt_mutex_schedule+0x30/0x60\n __rt_mutex_slowlock_locked.constprop.0+0x460/0x8a8\n rwbase_write_lock+0x24c/0x378\n down_write+0x1c/0x30\n f2fs_balance_fs+0x184/0x208\n f2fs_write_inode+0xf4/0x328\n __writeback_single_inode+0x370/0x498\n writeback_sb_inodes+0x234/0x4a8\n __writeback_inodes_wb+0x58/0x118\n wb_writeback+0x2f8/0x3c0\n wb_workfn+0x2c4/0x508\n process_one_work+0x180/0x408\n worker_thread+0x258/0x368\n kthread+0x118/0x128\n ret_from_fork+0x10/0x20\n\nINFO: task B:1902 blocked for more than 120 seconds.\n      Tainted: G           O       6.12.41-g3fe07ddf05ab #1\n\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\" disables this message.\ntask:B     state:D stack:0     pid:1902  tgid:1626  ppid:1153   flags:0x0000020c\nCall trace:\n __switch_to+0xf4/0x158\n __schedule+0x27c/0x908\n rt_mutex_schedule+0x30/0x60\n __rt_mutex_slowlock_locked.constprop.0+0x460/0x8a8\n rwbase_write_lock+0x24c/0x378\n down_write+0x1c/0x30\n f2fs_balance_fs+0x184/0x208\n f2fs_map_blocks+0x94c/0x1110\n f2fs_file_write_iter+0x228/0xb80\n do_iter_readv_writev+0xf0/0x1e0\n vfs_writev+0x138/0x2c8\n do_writev+0x88/0x130\n __arm64_sys_writev+0x28/0x40\n invoke_syscall+0x50/0x120\n el0_svc_common.constprop.0+0xc8/0xf0\n do_el0_svc+0x24/0x38\n el0_svc+0x30/0xf8\n el0t_64_sync_handler+0x120/0x130\n el0t_64_sync+0x190/0x198\n\nINFO: task sync:2769849 blocked for more than 120 seconds.\n      Tainted: G     \n---truncated---",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68463",
-      "published": "2026-08-15T06:18:39.910",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmmc: sdhci-esdhc-imx: use pm_runtime_resume_and_get() in suspend\n\nReplace pm_runtime_get_sync() with pm_runtime_resume_and_get() to\nsimplify error handling. pm_runtime_resume_and_get() automatically\ndrops the usage counter on failure, avoiding the need for a separate\npm_runtime_put_noidle() call. If it fails, the device is unclocked and\naccessing hardware registers would cause a kernel panic, so return the\nerror immediately.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68464",
-      "published": "2026-08-15T06:19:25.430",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmmc: sdhci-esdhc-imx: disable irq during suspend to fix unhandled interrupt\n\nWhen using WIFI out-of-band wakeup, an \"irq xxx: nobody cared\" warning\noccurs. This happens because the usdhc interrupt is not disabled during\nsystem suspend when device_may_wakeup() returns false.\n\nThe sequence of events leading to this issue:\n1. System enters suspend without disabling usdhc interrupt\n(because device_may_wakeup() returns false for usdhc device)\n2. WIFI out-of-band wakeup triggers system resume via GPIO interrupt\n3. WIFI sends a Card interrupt before usdhc has fully resumed\n4. usdhc is still in runtime suspend state and cannot handle the\ninterrupt properly\n5. The unhandled interrupt triggers \"nobody cared\" warning\n\nFix this by unconditionally disabling the usdhc interrupt during suspend\nand re-enabling it during resume, regardless of the wakeup capability.\nThis ensures no interrupts are processed during the suspend/resume\ntransition.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68465",
-      "published": "2026-08-15T06:19:34.433",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmmc: sdhci-esdhc-imx: fix esdhc_change_pinstate() to allow default state restore\n\nesdhc_change_pinstate() checks for pins_100mhz and pins_200mhz at the\ntop of the function and returns -EINVAL if either is not defined. This\nprevents the default case from ever being reached, which means devices\nwith a sleep pinctrl state but without high-speed pin states (100mhz/\n200mhz) can never restore their default pin configuration.\n\nMove the IS_ERR checks for pins_100mhz and pins_200mhz into their\nrespective switch cases.",
+      "id": "CVE-2026-74442",
+      "published": "2026-08-15T13:17:48.760",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: avoid destroy_workqueue(NULL) on vkms init failure\n\nTwo paths through vmw_vkms_init() can leave vmw->crc_workq NULL while\nstill leaving the rest of the driver in a state that calls\nvmw_vkms_cleanup() at module unload:\n\n  1. vmw_host_get_guestinfo(GUESTINFO_VBLANK, ...) failing or\n     returning an oversized buffer -- the common case on hosts\n     without a VBLANK guestinfo entry -- early-returned before the\n     workqueue allocation.\n  2. alloc_ordered_workqueue() returning NULL on memory pressure.\n\nvmw_vkms_cleanup() then calls destroy_workqueue(NULL), which\ndereferences wq->name and panics.\n\nFix the first case by removing the early return: vmw->vkms_enabled\nis already false on the rpci-failure path so no work will ever be\nqueued, and allocating the workqueue unconditionally keeps the\ncontrol flow simple.  Fix the second case by guarding the cleanup\nwith a NULL check, since alloc_ordered_workqueue() can still fail\nunder low memory.",
       "severity": "UNKNOWN",
       "score": null
     }
