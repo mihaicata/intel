@@ -1,13 +1,6 @@
 {
-  "totalResults": 3540,
+  "totalResults": 3538,
   "items": [
-    {
-      "id": "CVE-2026-15826",
-      "published": "2026-08-15T07:16:19.280",
-      "description": "The User Profile Builder plugin for WordPress is vulnerable to Authentication Bypass via Type Confusion in versions up to, and including, 3.16.4. This is due to the wppb_log_in_user() function calling absint() on the return value of wp_insert_user() before performing an is_wp_error() check — when a registration is submitted with a 61–70 character username, WordPress core rejects it with a WP_Error object, but absint() coerces that object to the integer 1 before the error check can short-circuit execution, causing the plugin to bind and return a transient-backed autologin nonce tied to user ID 1. This makes it possible for unauthenticated attackers to log in as the site's Administrator account (user ID 1), resulting in full administrative takeover of the site.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-16142",
       "published": "2026-08-15T09:16:29.560",
@@ -28,13 +21,6 @@
       "description": "DBI versions before 1.652 for Perl allow a heap out-of-bounds write via an unvalidated numeric placeholder that sets the binder counter in preparse.\n\npreparse reserves seven output bytes per input byte, the width of the longest ':p99999' expansion. The ':N' branch parses the number with `atoi(src)` and assigns it to the binder counter with no range check, so a statement containing ':2147483648' leaves the counter negative (-2147483648 with glibc, where atoi wraps). Each following '?' then expands through `sprintf(start, \":p%d\", idx++)` to ':p-2147483648', 14 bytes with the terminating NUL where the buffer budgets 7. The placeholder limit added in 1.650 tests the counter against 99,999, which a negative counter passes.\n\nAny caller that preparses an untrusted statement into ':pN' style placeholders gets a heap out-of-bounds write that grows with the number of '?' marks following the poisoned placeholder. The '?' and '%s' return styles compare the parsed number against the expected sequence and error out, and are unaffected.",
       "severity": "CRITICAL",
       "score": 9.1
-    },
-    {
-      "id": "CVE-2026-14279",
-      "published": "2026-08-15T07:16:19.120",
-      "description": "The Wholesale Market plugin for WordPress is vulnerable to privilege escalation in versions up to, and including, 2.2.2 via the ced_wholesale_request_send AJAX action. The ced_wholesale_request_send_callback() handler only verifies a nonce (which is exposed to any authenticated user through wp_localize_script on the frontend) and that the caller has a positive user ID, then calls WP_User::add_role() with the client-supplied role_required POST parameter without restricting the value to an allowlist of wholesale roles. This makes it possible for authenticated attackers, with Subscriber-level access and above, to elevate their privileges to Administrator when the site administrator has enabled the 'Assigning requested role directly' option.",
-      "severity": "HIGH",
-      "score": 8.8
     },
     {
       "id": "CVE-2026-18438",
@@ -61,6 +47,13 @@
       "id": "CVE-2026-74444",
       "published": "2026-08-15T13:17:48.963",
       "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: validate DRAW_PRIMITIVES header size before division\n\nvmw_cmd_draw() computes\n\n\tmaxnum = (header->size - sizeof(cmd->body)) / sizeof(*decl);\n\nwhere header->size is u32 and is taken straight from the user-supplied\ncommand stream.  When header->size is less than sizeof(cmd->body) the\nunsigned subtraction wraps to nearly 4 GiB, producing a huge maxnum.\nAny user-controlled cmd->body.numVertexDecls then passes the bound and\nthe loop dereferences decl[i] far past the end of the kernel command\nbounce buffer, producing an out-of-bounds read of kernel memory.\n\nReject undersized headers up front.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-74446",
+      "published": "2026-08-15T13:17:49.180",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: hold event_mutex while checkpointing CRIU events\n\nkfd_criu_checkpoint_events() counts the entries in p->event_idr via\nkfd_get_num_events(), allocates an array sized to that count, and then\nwalks the same IDR to fill it. Neither the count nor the walk holds\np->event_mutex.\n\nThe CRIU checkpoint caller holds only p->mutex. Event create and destroy\n(kfd_event_create()/kfd_event_destroy()) take p->event_mutex and do not\ntake p->mutex, so a second thread in the same process can insert or remove\nevents between the count and the walk. If an event is inserted, the walk\niterates more entries than were counted and writes past the end of the\nev_privs allocation; if an event is removed, the walk dereferences an\nentry that is being freed.\n\nHold p->event_mutex across the count and the walk so both observe a\nconsistent view of p->event_idr. The lock is released before\ncopy_to_user(), which only touches the local buffer. The caller already\nholds p->mutex and the create/destroy paths never take p->mutex, so the\np->mutex -> p->event_mutex order is not inverted and no deadlock is\nintroduced.\n\n(cherry picked from commit ff57e223ab105795b05d3ef3f3c35a5a441bcbaa)",
       "severity": "HIGH",
       "score": 7.8
     },
@@ -138,6 +131,13 @@
       "id": "CVE-2026-74442",
       "published": "2026-08-15T13:17:48.760",
       "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: avoid destroy_workqueue(NULL) on vkms init failure\n\nTwo paths through vmw_vkms_init() can leave vmw->crc_workq NULL while\nstill leaving the rest of the driver in a state that calls\nvmw_vkms_cleanup() at module unload:\n\n  1. vmw_host_get_guestinfo(GUESTINFO_VBLANK, ...) failing or\n     returning an oversized buffer -- the common case on hosts\n     without a VBLANK guestinfo entry -- early-returned before the\n     workqueue allocation.\n  2. alloc_ordered_workqueue() returning NULL on memory pressure.\n\nvmw_vkms_cleanup() then calls destroy_workqueue(NULL), which\ndereferences wq->name and panics.\n\nFix the first case by removing the early return: vmw->vkms_enabled\nis already false on the rpci-failure path so no work will ever be\nqueued, and allocating the workqueue unconditionally keeps the\ncontrol flow simple.  Fix the second case by guarding the cleanup\nwith a NULL check, since alloc_ordered_workqueue() can still fail\nunder low memory.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-74445",
+      "published": "2026-08-15T13:17:49.067",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: reject DX_BIND_QUERY without a DX context\n\nvmw_cmd_dx_bind_query() unconditionally dereferences\nsw_context->dx_ctx_node->ctx.  Userspace can trigger a NULL pointer\ndereference from any render-node fd by submitting an execbuf with\ndx_context_handle == SVGA3D_INVALID_ID and a SVGA_3D_CMD_DX_BIND_QUERY\nopcode in the command stream: dx_ctx_node is left NULL and the kernel\noopses on the assignment.  The same NULL is then re-read in\nvmw_resources_reserve() via vmw_context_get_dx_query_mob().\n\nAll sibling DX handlers fail-close on a missing dx_ctx_node using\nVMW_GET_CTX_NODE().  Use the same pattern here, returning -EINVAL up\nfront before any relocation state is published.",
       "severity": "UNKNOWN",
       "score": null
     }
