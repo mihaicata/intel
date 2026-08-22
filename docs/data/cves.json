@@ -1,145 +1,145 @@
 {
-  "totalResults": 3537,
+  "totalResults": 3415,
   "items": [
     {
-      "id": "CVE-2026-73193",
-      "published": "2026-08-15T13:17:48.327",
-      "description": "DBI versions before 1.652 for Perl allow a heap out-of-bounds write on 32-bit perl via an integer wraparound in the output buffer size computed by preparse.\n\npreparse reserves its output buffer with `newSV(strlen(statement) * 7 + 16)`, budgeting seven output bytes per input byte for the longest ':p99999' expansion. The product is computed in STRLEN, which is 32 bits wide on a 32-bit perl build, so a statement of 613,566,757 bytes multiplies to 4,294,967,299, wraps modulo 2^32 to 3, and reserves 19 bytes. The parser then copies the statement out through a raw pointer with no capacity check, writing the whole 585 MB input past the end of the allocation. The 99,999 placeholder limit does not bound this path, which is reached by ordinary non-placeholder content.\n\nAny caller that passes an untrusted statement of that length to preparse on a 32-bit perl gets a heap out-of-bounds write of attacker controlled bytes. Builds with a 64-bit STRLEN are not affected, since the wrap there needs a statement of about 2.3 exabytes.",
+      "id": "CVE-2026-15689",
+      "published": "2026-08-15T14:17:06.480",
+      "description": "Dancer2::Plugin::Auth::Extensible versions through 0.713 for Perl allow password reset link poisoning via the request Host header in _default_email_password_reset and _default_welcome_send.\n\nBoth default emails emit a link of the form `$base/login/$code`, whose authority comes from the request Host header, or from X-Forwarded-Host under behind_proxy (obtained from Dancer2's request->base function). A POST to /login carrying submit_reset and a username needs no authentication: it stores a fresh reset code against that account and mails the account holder a link to a host of the sender's choosing. The welcome mail takes the same path when the application calls create_user with email_welcome set.\n\nThrough 0.711 the handlers read `request->uri_base` and `request->base` directly; Versions 0.712 and later provide an uri_base configuration key that defaults to the untrusted `request->uri_base` when unset.\n\nThe default configuration with reset_password_handler enabled and the default message text, a recipient who follows the link hands a working reset code to the sender's host, which is enough to take over the account.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-73194",
-      "published": "2026-08-15T13:17:48.433",
-      "description": "DBI versions before 1.652 for Perl allow a heap out-of-bounds write via an unvalidated numeric placeholder that sets the binder counter in preparse.\n\npreparse reserves seven output bytes per input byte, the width of the longest ':p99999' expansion. The ':N' branch parses the number with `atoi(src)` and assigns it to the binder counter with no range check, so a statement containing ':2147483648' leaves the counter negative (-2147483648 with glibc, where atoi wraps). Each following '?' then expands through `sprintf(start, \":p%d\", idx++)` to ':p-2147483648', 14 bytes with the terminating NUL where the buffer budgets 7. The placeholder limit added in 1.650 tests the counter against 99,999, which a negative counter passes.\n\nAny caller that preparses an untrusted statement into ':pN' style placeholders gets a heap out-of-bounds write that grows with the number of '?' marks following the poisoned placeholder. The '?' and '%s' return styles compare the parsed number against the expected sequence and error out, and are unaffected.",
+      "id": "CVE-2026-19598",
+      "published": "2026-08-15T18:16:23.860",
+      "description": "The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-18855",
+      "published": "2026-08-15T19:16:32.160",
+      "description": "The Link Library plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the ll_delete_link_fields function in all versions up to, and including, 7.9.4 This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Exploitation requires the administrator to have enabled the 'Delete local file on link deletion' plugin option (disabled by default) and to subsequently permanently delete the attacker-submitted link, which is a routine moderation action.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-74443",
-      "published": "2026-08-15T13:17:48.863",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: bound DMA command body size against suffix pointer\n\nvmw_cmd_dma() locates the DMA suffix at\n\n\t(unsigned long) &cmd->body + header->size - sizeof(*suffix)\n\nwithout checking that header->size is large enough to contain both\ncmd->body and the suffix.  An undersized header makes the suffix\npointer underflow back into the previous command in the bounce\nbuffer.  The verifier later writes suffix->maximumOffset, clobbering\nverified fields of an already-relocated earlier command -- a TOCTOU\non the device-visible command stream that lets one command rewrite\nanother's GMR id, surface id, or other authenticated fields.\n\nReject the command if the body is too small for the suffix to fit.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-73041",
+      "published": "2026-08-15T22:16:53.883",
+      "description": "SiYuan versions before v3.7.4 fail to validate or escape annotation fields written to disk by the setFileAnnotation endpoint. Attackers can inject malicious markup into annotation fields that execute as script in the PDF renderer with full Node.js access when a user opens an annotated PDF.",
+      "severity": "CRITICAL",
+      "score": 9
     },
     {
-      "id": "CVE-2026-74440",
-      "published": "2026-08-15T13:17:48.540",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/xe: Wait on external BO kernel fences in exec IOCTL\n\nBefore arming a user job, xe_exec_ioctl() only added the VM's\ndma-resv KERNEL slot as a dependency. That slot covers rebinds and\nthe kernel operations of the VM's private BOs, but not external BOs\n(bo->vm == NULL), which carry their kernel operations (evictions,\nmoves, ...) in their own dma-resv KERNEL slot.\n\nThe DMA_RESV_USAGE_KERNEL slot is the cross-driver contract for\nmemory management operations that must complete before the BO or its\nbacking store may be used: any accessor is required to wait on the\nKERNEL fences before touching the resv. By skipping the external BOs'\nKERNEL slots, the exec path violated that contract and could schedule\na user job while a kernel operation on an external BO mapped by the VM\nwas still in flight, racing against it and potentially reading or\nwriting memory that was being moved.\n\nReplace the VM-only dependency with an iteration over every object\nlocked by the exec, adding each object's KERNEL slot as a job\ndependency. This covers the VM resv (rebinds and private BOs) as well\nas every external BO, mirroring the drm_gpuvm_resv_add_fence() call\nthat later publishes the job fence to the same set of objects.\nLong-running mode continues to skip this, as before.\n\n(cherry picked from commit a6b842acf3ddd1efc53a56de9260cfa718fb35e7)",
+      "id": "CVE-2026-18500",
+      "published": "2026-08-15T14:17:07.473",
+      "description": "@fastify/jwt is a JSON Web Token plugin for Fastify. In versions before 10.2.2, a per-request verification key passed to request.jwtVerify({ key }) is silently overridden by the plugin's globally configured secret, because the option merge applies the global key last. Applications that use different keys for different authorization domains, for example separate user and admin keys, therefore accept a token signed with the global key on a route that explicitly requires another key. This lets an ordinary authenticated user cross a key-based trust boundary without knowing either secret. The issue is fixed in @fastify/jwt 10.2.2, where an explicit per-call key takes precedence over the global secret. Users should upgrade to 10.2.2.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-74444",
-      "published": "2026-08-15T13:17:48.963",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: validate DRAW_PRIMITIVES header size before division\n\nvmw_cmd_draw() computes\n\n\tmaxnum = (header->size - sizeof(cmd->body)) / sizeof(*decl);\n\nwhere header->size is u32 and is taken straight from the user-supplied\ncommand stream.  When header->size is less than sizeof(cmd->body) the\nunsigned subtraction wraps to nearly 4 GiB, producing a huge maxnum.\nAny user-controlled cmd->body.numVertexDecls then passes the bound and\nthe loop dereferences decl[i] far past the end of the kernel command\nbounce buffer, producing an out-of-bounds read of kernel memory.\n\nReject undersized headers up front.",
+      "id": "CVE-2026-19900",
+      "published": "2026-08-15T17:16:24.730",
+      "description": "A vulnerability was identified in LB-LINK X-PRO 1.0.22-20231206. The impacted element is an unknown function of the file /etc/shadow. The manipulation leads to hard-coded credentials. It is possible to initiate the attack remotely. A high degree of complexity is needed for the attack. The exploitability is regarded as difficult. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-74446",
-      "published": "2026-08-15T13:17:49.180",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: hold event_mutex while checkpointing CRIU events\n\nkfd_criu_checkpoint_events() counts the entries in p->event_idr via\nkfd_get_num_events(), allocates an array sized to that count, and then\nwalks the same IDR to fill it. Neither the count nor the walk holds\np->event_mutex.\n\nThe CRIU checkpoint caller holds only p->mutex. Event create and destroy\n(kfd_event_create()/kfd_event_destroy()) take p->event_mutex and do not\ntake p->mutex, so a second thread in the same process can insert or remove\nevents between the count and the walk. If an event is inserted, the walk\niterates more entries than were counted and writes past the end of the\nev_privs allocation; if an event is removed, the walk dereferences an\nentry that is being freed.\n\nHold p->event_mutex across the count and the walk so both observe a\nconsistent view of p->event_idr. The lock is released before\ncopy_to_user(), which only touches the local buffer. The caller already\nholds p->mutex and the create/destroy paths never take p->mutex, so the\np->mutex -> p->event_mutex order is not inverted and no deadlock is\nintroduced.\n\n(cherry picked from commit ff57e223ab105795b05d3ef3f3c35a5a441bcbaa)",
+      "id": "CVE-2026-19901",
+      "published": "2026-08-15T18:16:24.830",
+      "description": "A security flaw has been discovered in LB-LINK X-PRO 1.0.22-20231206. This affects an unknown function of the file /etc/config/easycwmp. The manipulation results in hard-coded credentials. It is possible to launch the attack remotely. Attacks of this nature are highly complex. The exploitability is reported as difficult. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-74447",
-      "published": "2026-08-15T13:17:49.287",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: fix uint32_t overflow in EOP ring buffer size alignment\n\neop_ring_buffer_size in struct queue_properties is a u32. In\nkfd_queue_acquire_buffers() the expected EOP buffer size is computed as\nALIGN(eop_ring_buffer_size, PAGE_SIZE); ALIGN uses typeof(x), so the\naddition is done in 32-bit. A user-supplied size of 0xFFFFF001 wraps to\n0, causing kfd_queue_buffer_get() to skip its exact-size check (gated on\nsize != 0) and accept any BO mapped at the address. On GFX8/GFX9 the MQD\ncp_hqd_eop_control is then programmed for an 8KB EOP ring backed by a 4KB\nBO, so CP EOP writes can land past the buffer and fault the GPU.\n\nCast the operand to u64 so the alignment is computed in 64-bit; the size\ncheck in kfd_queue_buffer_get() then rejects the oversized request.\n\n(cherry picked from commit ae443117b742c357bfef3a7bddabf76fcf86e9ef)",
+      "id": "CVE-2026-18549",
+      "published": "2026-08-15T14:17:07.590",
+      "description": "@fastify/multipart is a multipart form-data parser for Fastify. In versions from 5.3.0 up to but not including 10.1.1, when the busboy fileSize limit truncates a file part, the plugin clears its internal current-file reference while the underlying stream is still open. If the client then aborts the connection before sending the terminating boundary, the abort cleanup finds no stream to destroy, so saveRequestFiles() never settles, the request handler hangs, and the temporary file already written to disk is never cleaned up. An unauthenticated client can repeat this to permanently leak temporary files and suspended handler executions, leading to disk and event-loop exhaustion. The issue is fixed in @fastify/multipart 10.1.1. Users should upgrade to 10.1.1.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-74449",
-      "published": "2026-08-15T13:17:49.500",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/display: Fix divide-by-zero in calculate_mcache_setting on zero viewport\n\nIf a plane reaches calculate_mcache_setting with a zero-area viewport,\ncalculate_mcache_setting exits early with num_mcaches == 0 and\nmvmpg_width/height == 0. This will cause a divide-by-zero panic and can\nalso cause an underflow on num_mcaches.\n\nFix this by changing calculate_mcache_setting to bool and adding guards\nafter each calculate_mcache_row_bytes call. If num_mcaches or\nmvmpg_width/height is zero, return a false. Callers will propagate the\nfailure as a rejected mode, which prevents the panic.\n\n(cherry picked from commit 29c0f7c655f47bcbd575ff75e58480df6ec3c9da)",
+      "id": "CVE-2026-19474",
+      "published": "2026-08-15T14:17:07.710",
+      "description": "@fastify/multipart is a multipart form-data parser for Fastify. In versions from 3.0.0 up to but not including 10.1.1, request.saveRequestFiles() can leave completed temporary files on disk when a client disconnects while the parser is advancing between multipart parts. The iterator rejection that occurs between parts falls outside the per-file cleanup path, so an earlier completed file is never removed. An unauthenticated client can repeat this to cause persistent, linear disk consumption, leading to denial of service. This is an incomplete-fix variant of CVE-2025-24033. The issue is fixed in @fastify/multipart 10.1.1. Users should upgrade to 10.1.1.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-74450",
-      "published": "2026-08-15T13:17:49.593",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/pm: fix pptable use-after-free\n\namdgpu_dpm_get_pp_table() returns a pointer to a driver-owned power table\nafter dropping adev->pm.mutex. The sysfs path then copies from that pointer.\nA concurrent pp_table write can replace and free the allocation during the\ncopy, causing a use-after-free.\n\nChange the DPM interface to copy into caller-provided storage while the mutex\nis held. Keep the size-only query for attribute discovery without exposing\nthe driver-owned pointer.\n\n(cherry picked from commit f6eed7acfd30099ef7baeb6ba45bb59daad80631)",
+      "id": "CVE-2026-19899",
+      "published": "2026-08-15T17:16:23.977",
+      "description": "A vulnerability was determined in SourceCodester Class and Exam Timetabling System 1.0. The affected element is an unknown function of the file /edit_teacher.php. Executing a manipulation of the argument ID can lead to sql injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-74451",
-      "published": "2026-08-15T13:17:49.697",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/panthor: validate firmware interface structure sizes\n\niface_fw_to_cpu_addr() only checks that the firmware-provided MCU virtual\naddress points inside the shared section. The returned pointer is later\nused as a full firmware interface structure, so accepting an address near\nthe end of the shared section can still lead to out-of-bounds accesses.\n\nPass the expected object size to iface_fw_to_cpu_addr() and reject ranges\nthat do not fit entirely in the shared section.",
+      "id": "CVE-2026-19905",
+      "published": "2026-08-15T19:16:32.300",
+      "description": "A weakness has been identified in Jinher OA 1.0. Impacted is an unknown function of the file /C6/JHSoft.Web.HrmAttendance/attendance_out_approve.aspx. This manipulation of the argument httpOID causes sql injection. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-74452",
-      "published": "2026-08-15T13:17:49.790",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/panthor: reject firmware sections with oversized data\n\nIn panthor_fw_load_section_entry(), the data size to copy is calculated\nwithout validating it against the allocated section_size:\n\n    section->data.size = hdr.data.end - hdr.data.start;\n\nIf a crafted firmware sets data.size larger than the allocated memory,\nthis could cause a heap buffer overflow in panthor_fw_init_section_mem()\n\n    memcpy(section->mem->kmap, section->data.buf, section->data.size);\n\nAdditionally, if the section->data.size exceeds the BO size, could this\nmemset underflow the size calculation, leading to a massive out-of-bounds\nzeroing of kernel memory?\n\n    memset(section->mem->kmap + section->data.size, 0,\n           panthor_kernel_bo_size(section->mem) - section->data.size);\n\nReject section entries whose initial data is larger than the section size.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-74453",
-      "published": "2026-08-15T13:17:49.893",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vc4: Zero the tile state data array before each BIN job\n\nThe binner BO is a single 16MB buffer split into 512KB slots that are\nhanded out to jobs at submission time and recycled as jobs complete,\nwithout ever being cleared. Each slot holds the job's Tile State Data\nArray (TSDA) at its start, followed by the tile allocation pool.\n\nWhile the tile allocation pool is only walked by the render thread\nthrough branches the binner generated during the current job, the\nTSDA is the PTB's own per-tile bookkeeping and is consumed by the\nhardware itself. Although the kernel sets the \"Auto-initialise Tile\nState Data Array\" flag in the tile binning mode configuration, the\nPTB demonstrably still acts on stale tile state left by the slot's\nprevious user: the binner ends up creating invalid command streams\nwith invalid primitive streams and branches, which can cause GPU hangs\nas observed in [1][2].\n\nZero the TSDA when the job's binning slot is configured. This clears\n48 bytes per tile (~24KB for a 1080p frame) in the submission path, and\nguarantees the PTB never sees another job's tile state.\n\nThe tile count is only checked for being non-zero today, so the 8-bit\nfields it comes from can describe a tile state array almost six times\nlarger than the slot it has to live in. Bound it before the slot is\nhanded out, since such size decides how much of the slot is left for\nthe tile alloc pool.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-74454",
-      "published": "2026-08-15T13:17:50.003",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vc4: Supply the overflow slot size in BPOS, not the whole bin BO size\n\nvc4_overflow_mem_work() points BPOA at a 512KB slot inside the 16MB\nbinner BO, but writes the size of the whole BO to BPOS. On every binner\nout-of-memory event the PTB is therefore authorized to write tile lists\nacross all the other slots (which may hold the tile state, tile alloc and\noverflow memory of in-flight jobs) and, for any slot but the first, past\nthe end of the binner BO into unrelated CMA memory.\n\nSince CMA pages are recycled into page cache and user allocations, this\nis arbitrary memory corruption by GPU DMA. In practice it shows up as GPU\nhangs with corrupted control list pointers, userspace heap corruption, a\nGPU that stays permanently wedged after the first hang, and occasional\nfull system crashes, whenever a job overflows the initial binner slot.\n\nThe bug dates back to the conversion from a dedicated overflow BO (where\nwriting the full BO size was correct) to the slotted binner BO.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-74456",
-      "published": "2026-08-15T13:17:50.227",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncan: peak_usb: peak_usb_start(): fix double free of transfer buffer on URB submit error\n\nIn peak_usb_start(), each RX URB transfer buffer is allocated with kmalloc()\nand the URB is flagged URB_FREE_BUFFER so that the final usb_free_urb() also\nfrees the transfer buffer.\n\nIf usb_submit_urb() fails, the error path frees the buffer explicitly with\nkfree(buf) and then calls usb_free_urb(urb). Because URB_FREE_BUFFER is set,\nusb_free_urb() -> urb_destroy() frees the same buffer a second time, a double\nfree of the transfer buffer.\n\n  BUG: KASAN: double-free in usb_free_urb.part.0+0x91/0xb0\n  Free of addr ffff8881069ccb80 by task trigger.sh/285\n\n  Call Trace:\n   kfree+0x113/0x3c0\n   usb_free_urb.part.0+0x91/0xb0\n\nDrop the redundant kfree(buf); usb_free_urb() already releases the transfer\nbuffer. This mirrors commit 03819abbeb11 (\"net: usb: lan78xx: Fix double free\nissue with interrupt buffer allocation\").",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-19894",
-      "published": "2026-08-15T13:17:48.153",
-      "description": "A security flaw has been discovered in itsourcecode Hospital Management System 1.0. Affected is an unknown function of the file /viewmedicine.php. Performing a manipulation of the argument delid results in sql injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-19903",
+      "published": "2026-08-15T18:16:25.000",
+      "description": "A vulnerability has been found in SourceCodester Online Clothing Store 1.0. This affects an unknown part of the file /db/shopping.sql of the component SQL Database Backup. The manipulation leads to files or directories accessible. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-74441",
-      "published": "2026-08-15T13:17:48.643",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: typec: ucsi: Fix race condition and ordering in port unregistration\n\nA synchronization issue exists during port unregistration where pending\npartner work items can race against workqueue destruction, leading to\nuse-after-free conditions:\n\n  cros_ec_ucsi cros_ec_ucsi.3.auto: error -ETIMEDOUT: PPM init failed\n  BUG: kernel NULL pointer dereference, address: 0000000000000000\n  RIP: 0010:__queue_work+0x83/0x4a0\n  Call Trace:\n    <IRQ>\n    __cfi_delayed_work_timer_fn+0x10/0x10\n    run_timer_softirq+0x3b6/0xbd0\n    sched_clock_cpu+0xc/0x110\n    irq_exit_rcu+0x18d/0x330\n    fred_sysvec_apic_timer_interrupt+0x5e/0x80\n\nFix this by ensuring strict ordering and proper serialization during\nteardown:\n\n1. Move ucsi_unregister_partner() to the beginning of the teardown\nsequence and protect it under the connector mutex lock.\n2. Ensure all pending partner tasks are explicitly flushed and finished\nbefore the workqueue is destroyed.\n3. Switch from mod_delayed_work() to a cancel_delayed_work() and\nqueue_delayed_work() sequence. This guarantees that items currently marked\nas pending won't be scheduled an additional time, preventing a double\nrelease of resources which leads to the following crash:\n\n  Oops: general protection fault, probably for non-canonical address\n    0xdead000000000122: 0000 [#1] SMP NOPTI\n  Workqueue: cros_ec_ucsi.3.auto-con2 ucsi_poll_worker\n  RIP: 0010:ucsi_poll_worker+0x65/0x1e0\n  Call Trace:\n  <TASK>\n    process_scheduled_works+0x218/0x6d0\n    worker_thread+0x188/0x3f0\n    __cfi_worker_thread+0x10/0x10\n    kthread+0x226/0x2a0\n\nTo ensure these rules are applied identically across both the normal\nteardown and the ucsi_init() error paths, consolidate the cleanup logic\ninto a new helper, ucsi_unregister_port().",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-18165",
+      "published": "2026-08-15T14:17:07.290",
+      "description": "@fastify/oauth2 is an OAuth 2.0 plugin for Fastify. In versions from 7.2.0 up to but not including 8.3.0, the plugin validates the OAuth state, and with PKCE the code verifier, by comparing the callback query parameter against an unprefixed, predictable cookie, with no server-side binding to the browser that began the flow. Any party able to write a cookie for the application's host, such as a sibling subdomain under the same registrable domain, can plant matching state and verifier cookies and complete an attacker-owned OAuth flow inside a victim's browser, silently signing the victim in to the attacker's account (login CSRF). It does not expose the victim's own account, credentials, or tokens. The issue is fixed in @fastify/oauth2 8.3.0, which adds an opt-in hostPrefixedCookies option. Users should upgrade to 8.3.0 and enable it, or bind state to a server-side session.",
+      "severity": "MEDIUM",
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-74442",
-      "published": "2026-08-15T13:17:48.760",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: avoid destroy_workqueue(NULL) on vkms init failure\n\nTwo paths through vmw_vkms_init() can leave vmw->crc_workq NULL while\nstill leaving the rest of the driver in a state that calls\nvmw_vkms_cleanup() at module unload:\n\n  1. vmw_host_get_guestinfo(GUESTINFO_VBLANK, ...) failing or\n     returning an oversized buffer -- the common case on hosts\n     without a VBLANK guestinfo entry -- early-returned before the\n     workqueue allocation.\n  2. alloc_ordered_workqueue() returning NULL on memory pressure.\n\nvmw_vkms_cleanup() then calls destroy_workqueue(NULL), which\ndereferences wq->name and panics.\n\nFix the first case by removing the early return: vmw->vkms_enabled\nis already false on the rpci-failure path so no work will ever be\nqueued, and allocating the workqueue unconditionally keeps the\ncontrol flow simple.  Fix the second case by guarding the cleanup\nwith a NULL check, since alloc_ordered_workqueue() can still fail\nunder low memory.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19895",
+      "published": "2026-08-15T14:17:07.840",
+      "description": "A vulnerability was detected in opensourcepos Open Source Point of Sale up to 3.4.2. This affects the function Login::index of the file app/Config/Filters.php of the component Login Endpoint. The manipulation results in improper restriction of excessive authentication attempts. The attack may be launched remotely. The attack requires a high level of complexity. It is indicated that the exploitability is difficult. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-74445",
-      "published": "2026-08-15T13:17:49.067",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: reject DX_BIND_QUERY without a DX context\n\nvmw_cmd_dx_bind_query() unconditionally dereferences\nsw_context->dx_ctx_node->ctx.  Userspace can trigger a NULL pointer\ndereference from any render-node fd by submitting an execbuf with\ndx_context_handle == SVGA3D_INVALID_ID and a SVGA_3D_CMD_DX_BIND_QUERY\nopcode in the command stream: dx_ctx_node is left NULL and the kernel\noopses on the assignment.  The same NULL is then re-read in\nvmw_resources_reserve() via vmw_context_get_dx_query_mob().\n\nAll sibling DX handlers fail-close on a missing dx_ctx_node using\nVMW_GET_CTX_NODE().  Use the same pattern here, returning -EINVAL up\nfront before any relocation state is published.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19896",
+      "published": "2026-08-15T15:16:37.507",
+      "description": "A flaw has been found in mangroup dtale up to 3.22.0. This vulnerability affects the function build_secret_key of the file dtale/app.py of the component Flask Session Cookie. This manipulation causes insufficiently random values. Remote exploitation of the attack is possible. The attack's complexity is rated as high. It is stated that the exploitability is difficult. The exploit has been published and may be used. The pull request to fix this issue awaits acceptance.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-74448",
-      "published": "2026-08-15T13:17:49.390",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: fix QID bit leak in pqm_create_queue()\n\nWhen MES is enabled and amdgpu_amdkfd_alloc_kernel_mem() fails during\nthe first queue creation for a process, pqm_create_queue() returns\nearly via 'return retval' without going through the err_create_queue\ncleanup label.\n\nThis means clear_bit(*qid, pqm->queue_slot_bitmap) is never called,\nleaving the reserved QID bit permanently set in queue_slot_bitmap.\nOver time this leaks QID slots, potentially exhausting all available\nqueue slots.\n\nFix this by replacing 'return retval' with 'goto err_allocate_pqn'\nso that clear_bit() is always called on the error path without\ntouching the uninitialized pqn pointer.\n\nAILIKFD-813\n\n(cherry picked from commit a107f74c38edbb80d6ab64dcaeeb292c14e9779f)",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19897",
+      "published": "2026-08-15T16:16:38.680",
+      "description": "A vulnerability has been found in mangroup dtale up to 3.22.0. This issue affects the function Login of the file dtale/auth.py of the component Login Endpoint. Such manipulation leads to improper restriction of excessive authentication attempts. The attack can be executed remotely. This attack is characterized by high complexity. The exploitability is assessed as difficult. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-74455",
-      "published": "2026-08-15T13:17:50.120",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncan: peak_usb: validate uCAN receive record lengths\n\npcan_usb_fd_decode_buf() walks uCAN records packed in one USB\nreceive buffer.\n\nRequire each record to contain the fixed header for its type, and verify\nCAN payload bytes before copying them into the skb.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19898",
+      "published": "2026-08-15T16:16:39.230",
+      "description": "A vulnerability was found in VictoriaMetrics up to 1.146.0. Impacted is the function requestHandler of the file app/vmauth/main.go of the component VMAuth Authentication Endpoint. Performing a manipulation results in improper restriction of excessive authentication attempts. The attack is possible to be carried out remotely. The complexity of an attack is rather high. The exploitability is considered difficult. The exploit has been made public and could be used. Upgrading to version 1.147.0 is recommended to address this issue. The patch is named 119ba0fb5be8024d50c5ba946599b2e69e8803ea. Upgrading the affected component is recommended.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-19906",
+      "published": "2026-08-15T19:16:32.470",
+      "description": "A weakness has been identified in pkp pkp-lib 3.3.0/3.4.0/3.5.0. This vulnerability affects the function setData of the file classes/user/form/APIProfileForm.php of the component API Key Generation. Executing a manipulation of the argument apiKey can lead to insufficient entropy. The attack may be performed from remote. This attack is characterized by high complexity. It is stated that the exploitability is difficult. This patch is called 529b5df878e571ccc727647f7748eafc1466b041. It is best practice to apply a patch to resolve this issue.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-19916",
+      "published": "2026-08-15T22:16:52.850",
+      "description": "A vulnerability was detected in code-projects Online Food Order System 1.0. The affected element is an unknown function of the file edit_food_items.php. Performing a manipulation of the argument dname results in cross site scripting. Remote exploitation of the attack is possible. The exploit is now public and may be used.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-19904",
+      "published": "2026-08-15T18:16:25.183",
+      "description": "A vulnerability was found in SourceCodester Online Book Store System 1.0. This vulnerability affects unknown code of the file /admin/index.php?page=site_settings of the component System Settings Module. The manipulation results in cross site scripting. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "severity": "LOW",
+      "score": 2.4
     }
   ]
 }
