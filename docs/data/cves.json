@@ -2,13 +2,6 @@
   "totalResults": 3538,
   "items": [
     {
-      "id": "CVE-2026-16142",
-      "published": "2026-08-15T09:16:29.560",
-      "description": "The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This is due to the add_front_user_update() AJAX handler being registered for unauthenticated users and accepting an arbitrary truebooker_wp_user_id value, which is passed directly to wp_update_user() without verifying authentication or ownership. This makes it possible for unauthenticated attackers to change any WordPress user account email address, including an administrator, by submitting the target user ID and an attacker-controlled email address. An attacker can then use the native WordPress password reset flow to receive the reset link at the attacker-controlled email address and take over the account.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
       "id": "CVE-2026-73193",
       "published": "2026-08-15T13:17:48.327",
       "description": "DBI versions before 1.652 for Perl allow a heap out-of-bounds write on 32-bit perl via an integer wraparound in the output buffer size computed by preparse.\n\npreparse reserves its output buffer with `newSV(strlen(statement) * 7 + 16)`, budgeting seven output bytes per input byte for the longest ':p99999' expansion. The product is computed in STRLEN, which is 32 bits wide on a 32-bit perl build, so a statement of 613,566,757 bytes multiplies to 4,294,967,299, wraps modulo 2^32 to 3, and reserves 19 bytes. The parser then copies the statement out through a raw pointer with no capacity check, writing the whole 585 MB input past the end of the allocation. The 99,999 placeholder limit does not bound this path, which is reached by ordinary non-placeholder content.\n\nAny caller that passes an untrusted statement of that length to preparse on a 32-bit perl gets a heap out-of-bounds write of attacker controlled bytes. Builds with a 64-bit STRLEN are not affected, since the wrap there needs a statement of about 2.3 exabytes.",
@@ -58,11 +51,11 @@
       "score": 7.8
     },
     {
-      "id": "CVE-2026-15142",
-      "published": "2026-08-15T09:16:28.557",
-      "description": "The Real Estate Manager Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 12.8.6. This is due to improper capability handling in the allow_attachment_actions() function, which can treat a target user ID as a media attachment ID during user capability checks. This makes it possible for authenticated attackers, with Subscriber-level access and above, to edit an administrator account and escalate their privileges to Administrator when the targeted user ID matches the ID of an existing media attachment.",
+      "id": "CVE-2026-74447",
+      "published": "2026-08-15T13:17:49.287",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: fix uint32_t overflow in EOP ring buffer size alignment\n\neop_ring_buffer_size in struct queue_properties is a u32. In\nkfd_queue_acquire_buffers() the expected EOP buffer size is computed as\nALIGN(eop_ring_buffer_size, PAGE_SIZE); ALIGN uses typeof(x), so the\naddition is done in 32-bit. A user-supplied size of 0xFFFFF001 wraps to\n0, causing kfd_queue_buffer_get() to skip its exact-size check (gated on\nsize != 0) and accept any BO mapped at the address. On GFX8/GFX9 the MQD\ncp_hqd_eop_control is then programmed for an 8KB EOP ring backed by a 4KB\nBO, so CP EOP writes can land past the buffer and fault the GPU.\n\nCast the operand to u64 so the alignment is computed in 64-bit; the size\ncheck in kfd_queue_buffer_get() then rejects the oversized request.\n\n(cherry picked from commit ae443117b742c357bfef3a7bddabf76fcf86e9ef)",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
       "id": "CVE-2026-73634",
@@ -138,6 +131,13 @@
       "id": "CVE-2026-74445",
       "published": "2026-08-15T13:17:49.067",
       "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: reject DX_BIND_QUERY without a DX context\n\nvmw_cmd_dx_bind_query() unconditionally dereferences\nsw_context->dx_ctx_node->ctx.  Userspace can trigger a NULL pointer\ndereference from any render-node fd by submitting an execbuf with\ndx_context_handle == SVGA3D_INVALID_ID and a SVGA_3D_CMD_DX_BIND_QUERY\nopcode in the command stream: dx_ctx_node is left NULL and the kernel\noopses on the assignment.  The same NULL is then re-read in\nvmw_resources_reserve() via vmw_context_get_dx_query_mob().\n\nAll sibling DX handlers fail-close on a missing dx_ctx_node using\nVMW_GET_CTX_NODE().  Use the same pattern here, returning -EINVAL up\nfront before any relocation state is published.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-74448",
+      "published": "2026-08-15T13:17:49.390",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: fix QID bit leak in pqm_create_queue()\n\nWhen MES is enabled and amdgpu_amdkfd_alloc_kernel_mem() fails during\nthe first queue creation for a process, pqm_create_queue() returns\nearly via 'return retval' without going through the err_create_queue\ncleanup label.\n\nThis means clear_bit(*qid, pqm->queue_slot_bitmap) is never called,\nleaving the reserved QID bit permanently set in queue_slot_bitmap.\nOver time this leaks QID slots, potentially exhausting all available\nqueue slots.\n\nFix this by replacing 'return retval' with 'goto err_allocate_pqn'\nso that clear_bit() is always called on the error path without\ntouching the uninitialized pqn pointer.\n\nAILIKFD-813\n\n(cherry picked from commit a107f74c38edbb80d6ab64dcaeeb292c14e9779f)",
       "severity": "UNKNOWN",
       "score": null
     }
