@@ -1,13 +1,6 @@
 {
-  "totalResults": 3579,
+  "totalResults": 3577,
   "items": [
-    {
-      "id": "CVE-2026-19924",
-      "published": "2026-08-16T02:16:47.247",
-      "description": "A security vulnerability has been detected in Tenda AC10 16.03.10.09_multi_TDE01. This vulnerability affects the function R7WebsSecurityHandler of the component httpd. The manipulation leads to improper authentication. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-14524",
       "published": "2026-08-16T05:16:46.493",
@@ -21,13 +14,6 @@
       "description": "The Query Wrangler plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.5.57 via the 'options' parameter parameter. This is due to missing capability check and nonce verification on the wp_ajax_qw_form_ajax handler, combined with unsanitized attacker-controlled options fully replacing saved query options and being passed directly to call_user_func_array() guarded only by function_exists(). This makes it possible for authenticated attackers, with subscriber-level access and above, to execute code on the server. Exploitation requires only that at least one query row exists in the database, as the query_id is a small enumerable integer with no further access control.",
       "severity": "HIGH",
       "score": 8.8
-    },
-    {
-      "id": "CVE-2026-19926",
-      "published": "2026-08-16T02:16:48.790",
-      "description": "A vulnerability has been found in Evergreen up to 3.14.11/3.15.11/3.16.5/3.17-beta1. The affected element is an unknown function of the file /osrf-gateway-v1 of the component open-ils.fielder OpenSRF Service. Such manipulation leads to sql injection. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 3.14.12, 3.15.12, 3.16.6 and 3.17-beta2 is sufficient to fix this issue. The affected component should be upgraded.",
-      "severity": "HIGH",
-      "score": 7.3
     },
     {
       "id": "CVE-2026-15002",
@@ -44,6 +30,13 @@
       "score": 6.5
     },
     {
+      "id": "CVE-2026-15963",
+      "published": "2026-08-16T05:16:47.407",
+      "description": "The Quiz and Survey Master (QSM) – Easy Quiz and Survey Maker plugin for WordPress is vulnerable to generic SQL Injection via 'randon_category' Quiz Option in all versions up to, and including, 11.2.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-11780",
       "published": "2026-08-16T05:16:45.643",
       "description": "The Quiz and Survey Master (QSM) – Easy Quiz and Survey Maker plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'question_title' parameter in all versions up to, and including, 11.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
@@ -54,6 +47,13 @@
       "id": "CVE-2026-15066",
       "published": "2026-08-16T05:16:46.880",
       "description": "The Loco Translate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via PO File Extracted Comments in all versions up to, and including, 2.8.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with translator-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-15726",
+      "published": "2026-08-16T05:16:47.270",
+      "description": "The Serious Slider plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'theme' Shortcode Attribute in all versions up to, and including, 1.4.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 6.4
     },
@@ -100,11 +100,11 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-19925",
-      "published": "2026-08-16T02:16:48.633",
-      "description": "A vulnerability was detected in SourceCodester Stock Management System 1.0. This issue affects some unknown processing of the file /classes/Master.php?f=delete_supplier. The manipulation of the argument ID results in sql injection. The attack may be launched remotely. The exploit is now public and may be used.",
+      "id": "CVE-2026-15602",
+      "published": "2026-08-16T05:16:47.140",
+      "description": "The NEX-Forms – Ultimate Forms Plugin for WordPress plugin for WordPress is vulnerable to generic SQL Injection via the 'additional_params' parameter in all versions up to, and including, 9.2.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with admin-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This is a second-order vulnerability; the payload is stored via the submission_report2 AJAX handler (which lacks a nonce check and relies solely on a capability that can be configured down to subscriber-level) and triggered when a CSV export is generated.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 4.9
     },
     {
       "id": "CVE-2026-2487",
