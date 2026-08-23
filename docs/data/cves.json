@@ -1,5 +1,5 @@
 {
-  "totalResults": 3576,
+  "totalResults": 3577,
   "items": [
     {
       "id": "CVE-2026-16098",
@@ -26,6 +26,13 @@
       "id": "CVE-2026-16099",
       "published": "2026-08-16T05:16:47.780",
       "description": "The Podlove Podcast Publisher plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the create_link_item function in all versions up to, and including, 4.5.3. This makes it possible for authenticated attackers, with contributor-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). A viable POP chain exists within the plugin itself via Podlove\\ImageCache\\GenerationGuard, whose __destruct() method invokes wp_delete_file() with an attacker-controlled file path populated through unserialization.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-17123",
+      "published": "2026-08-16T05:16:48.033",
+      "description": "The Royal Elementor Addons plugin for WordPress is vulnerable to Server-Side Request Forgery in versions up to, and including, 1.7.1064 via the Form Builder widget's 'webhook_url' setting. The widget's render() method persists the attacker-controlled URL into the wpr_webhook_url_{widget_id} option on every render (including a Contributor previewing their own draft), and the wpr_form_builder_webhook AJAX handler — registered for both authenticated and unauthenticated callers — reads that option and dispatches the outbound request via the non-safe wp_remote_post(), with no host allowlist, no scheme restriction, and no private/loopback IP filter (the plugin's existing wpr_is_blocked_remote_host / wpr_is_private_or_local_ip helpers are not called on this path). This makes it possible for authenticated attackers, with Contributor-level access and above, to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -79,13 +86,6 @@
       "score": 6.4
     },
     {
-      "id": "CVE-2026-19930",
-      "published": "2026-08-16T04:16:26.747",
-      "description": "A security flaw has been discovered in Dolibarr up to 23.0.3. Affected is an unknown function of the file htdocs/user/card.php of the component User Cloning. The manipulation of the argument ID results in ldap injection. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The patch is identified as 798e65356ede03c2812ab1a728f23fae34de5592. It is advisable to implement a patch to correct this issue.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
       "id": "CVE-2026-15009",
       "published": "2026-08-16T05:16:46.753",
       "description": "The Advanced File Manager – Ultimate File Manager for WordPress And Document Library Solution plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'soundFile' parameter in all versions up to, and including, 5.4.12 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacker to control a domain whose origin string is a leading prefix of the target site's backend URL (e.g. https://example.co against https://example.com), and the victim must be an authenticated WordPress administrator who visits the attacker-controlled page while the File Manager admin screen is open.",
@@ -105,13 +105,6 @@
       "description": "The NEX-Forms – Ultimate Forms Plugin for WordPress plugin for WordPress is vulnerable to generic SQL Injection via the 'additional_params' parameter in all versions up to, and including, 9.2.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with admin-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This is a second-order vulnerability; the payload is stored via the submission_report2 AJAX handler (which lacks a nonce check and relies solely on a capability that can be configured down to subscriber-level) and triggered when a CSV export is generated.",
       "severity": "MEDIUM",
       "score": 4.9
-    },
-    {
-      "id": "CVE-2026-2487",
-      "published": "2026-08-16T04:16:27.943",
-      "description": "The Admin Custom Login plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 3.6.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
-      "severity": "MEDIUM",
-      "score": 4.4
     },
     {
       "id": "CVE-2026-12477",
@@ -138,6 +131,13 @@
       "id": "CVE-2026-13167",
       "published": "2026-08-16T05:16:46.077",
       "description": "The Everest Forms – Contact Form, Payment Form, Quiz, Survey & Custom Form Builder with AI plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.5.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with delegated form management access and above, to activate arbitrary already-installed WordPress plugins — including previously deactivated or vulnerable plugins — without holding the core activate_plugins capability. Exploitation requires the target user to hold a delegated Everest Forms capability (manage_everest_forms, everest_forms_create_forms, or everest_forms_view_forms), which the plugin's own roles and permissions tool allows administrators to assign to non-administrator roles such as Author; the nonces required to exploit the AJAX handlers are emitted on EVF admin pages accessible to any such delegated user.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-16779",
+      "published": "2026-08-16T05:16:47.910",
+      "description": "The Kubio AI Page Builder plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.8.5. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to overwrite front-page configuration options (show_on_front, page_on_front, and page_for_posts), rewrite primary navigation menu items, replace template parts, and overwrite the Kubio global-data post. Although a nonce check via check_ajax_referer() is present, the nonce is unconditionally emitted into window.kubioUtilsData for every user who can load the block editor, making it harvestable by any Contributor and therefore an ineffective authorization barrier.",
       "severity": "MEDIUM",
       "score": 4.3
     }
