@@ -1,6 +1,13 @@
 {
-  "totalResults": 3577,
+  "totalResults": 3576,
   "items": [
+    {
+      "id": "CVE-2026-16098",
+      "published": "2026-08-16T05:16:47.667",
+      "description": "The ProSolution WP Client plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.0.10 via the proSol_handleFileUpload function. This is due to missing validation of the attacker-controlled Content-Disposition header filename, which overrides the allow-listed multipart filename before the file is saved, and a post-save extension check that fails to delete the already-written file. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible. The nonce required to reach the upload handler is publicly exposed via wp_localize_script on any front-end page rendering the job portal shortcode, allowing unauthenticated visitors to obtain a valid nonce and bypass that gating check entirely.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
     {
       "id": "CVE-2026-14524",
       "published": "2026-08-16T05:16:46.493",
@@ -12,6 +19,13 @@
       "id": "CVE-2026-14498",
       "published": "2026-08-16T05:16:46.360",
       "description": "The Query Wrangler plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.5.57 via the 'options' parameter parameter. This is due to missing capability check and nonce verification on the wp_ajax_qw_form_ajax handler, combined with unsanitized attacker-controlled options fully replacing saved query options and being passed directly to call_user_func_array() guarded only by function_exists(). This makes it possible for authenticated attackers, with subscriber-level access and above, to execute code on the server. Exploitation requires only that at least one query row exists in the database, as the query_id is a small enumerable integer with no further access control.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-16099",
+      "published": "2026-08-16T05:16:47.780",
+      "description": "The Podlove Podcast Publisher plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the create_link_item function in all versions up to, and including, 4.5.3. This makes it possible for authenticated attackers, with contributor-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). A viable POP chain exists within the plugin itself via Podlove\\ImageCache\\GenerationGuard, whose __destruct() method invokes wp_delete_file() with an attacker-controlled file path populated through unserialization.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -37,6 +51,13 @@
       "score": 6.5
     },
     {
+      "id": "CVE-2026-16079",
+      "published": "2026-08-16T05:16:47.537",
+      "description": "The Fullscreen Galleria plugin for WordPress is vulnerable to generic SQL Injection via 'href' Attribute in Post Content in all versions up to, and including, 1.6.12 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-11780",
       "published": "2026-08-16T05:16:45.643",
       "description": "The Quiz and Survey Master (QSM) – Easy Quiz and Survey Maker plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'question_title' parameter in all versions up to, and including, 11.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
@@ -56,27 +77,6 @@
       "description": "The Serious Slider plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'theme' Shortcode Attribute in all versions up to, and including, 1.4.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 6.4
-    },
-    {
-      "id": "CVE-2026-19927",
-      "published": "2026-08-16T03:16:49.333",
-      "description": "A vulnerability was found in OpenBoxes up to 0.9.7. The impacted element is the function Upload of the file grails-app/controllers/org/pih/warehouse/product/ProductController.groovy of the component Product Upload Endpoint. Performing a manipulation of the argument params.url results in server-side request forgery. The attack is possible to be carried out remotely. The exploit has been made public and could be used. Upgrading to version 0.9.8-hotfix1 and 0.9.8 is sufficient to resolve this issue. The patch is named a599007325efe780a21b3537ecce3ca25635c926. It is suggested to upgrade the affected component.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19928",
-      "published": "2026-08-16T03:16:50.143",
-      "description": "A vulnerability was determined in OpenBoxes up to 0.9.7. This affects the function needManager of the file grails-app/controllers/org/pih/warehouse/RoleInterceptor.groovy of the component Role Interceptor. Executing a manipulation can lead to improper privilege management. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. Upgrading to version 0.9.8-hotfix1 and 0.9.8 mitigates this issue. This patch is called 788cace0af816aa972a713a4631c57f16f895e6b. Upgrading the affected component is recommended.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19929",
-      "published": "2026-08-16T03:16:50.300",
-      "description": "A vulnerability was identified in OpenBoxes up to 0.9.6. This impacts the function buildZebraTemplate of the file grails-app/controllers/org/pih/warehouse/core/DocumentController.groovy of the component Template Processing. The manipulation leads to improper neutralization of special elements used in a template engine. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. Upgrading to version 0.9.8-hotfix1 and 0.9.8 will fix this issue. The identifier of the patch is deeac6a4a7aba86ce99c4bda37142e41d209293e. It is recommended to upgrade the affected component.",
-      "severity": "MEDIUM",
-      "score": 6.3
     },
     {
       "id": "CVE-2026-19930",
