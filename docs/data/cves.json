@@ -9,25 +9,11 @@
       "score": 10
     },
     {
-      "id": "CVE-2026-19959",
-      "published": "2026-08-16T23:16:24.710",
-      "description": "A weakness has been identified in Edimax EW-7478APC 1.04. This affects the function formWanTcpipSetup of the file /goform/formWanTcpipSetup. This manipulation of the argument pppUserName causes stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-19961",
-      "published": "2026-08-16T23:16:25.050",
-      "description": "A vulnerability was detected in Edimax EW-7478APC 1.04. Affected is the function formWlSiteSurvey of the file /goform/formWlSiteSurvey. Performing a manipulation of the argument selSSID results in buffer overflow. The attack is possible to be carried out remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-19960",
-      "published": "2026-08-16T23:16:24.870",
-      "description": "A security vulnerability has been detected in Edimax EW-7478APC 1.04. This impacts the function formWlbasic of the file /goform/formWlbasic. Such manipulation of the argument rootAPmac leads to command injection. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-19979",
+      "published": "2026-08-17T04:16:55.693",
+      "description": "A vulnerability was identified in GL.iNet A1300, AX1800, AXT1800, BE1400, BE3600, BE6500, BE9300, BE10000, E5800, MT2500, MT3000, MT3600BE, MT5000, MT6000, X2000, X3000 and XE3000 up to 4.8.x. Affected by this vulnerability is the function COPY/MOVE of the component WebDAV Service. Such manipulation leads to authorization bypass. It is possible to launch the attack remotely. The vendor explains: \"After our investigation, we have confirmed that the vulnerability described (...) does indeed exist.\"",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.3
     },
     {
       "id": "CVE-2026-19962",
@@ -49,13 +35,6 @@
       "description": "A security vulnerability has been detected in COMFAST CF-N1-S 2.6.0.1. Impacted is the function sub_44A968 of the file /cgi-bin/mbox-config?method=SET&section=ptest_macaddress. Such manipulation of the argument macaddress leads to command injection. The attack may be launched remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 6.6
-    },
-    {
-      "id": "CVE-2026-19958",
-      "published": "2026-08-16T23:16:24.530",
-      "description": "A security flaw has been discovered in iatsiuk pptr-mcp up to 0.2.7. The impacted element is the function executeCode of the file src/vm-executor.ts of the component execute Tool. The manipulation results in code injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 6.3
     },
     {
       "id": "CVE-2026-19967",
@@ -114,6 +93,13 @@
       "score": 5.4
     },
     {
+      "id": "CVE-2026-19978",
+      "published": "2026-08-17T04:16:54.783",
+      "description": "A flaw has been found in jiantao88 android-mcp-server up to cfb872b2446794193b58edd63f4dbf6af48a6292. The impacted element is the function child_process.exec of the file build/index.js of the component Command Execution. Executing a manipulation of the argument deviceId/packageName/permission/extras[].key/extras[].value can lead to os command injection. It is possible to launch the attack on the local host. The exploit has been published and may be used. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. This patch is called 14e2bf27c88ba137e35cbb0c2a75f72b595bb98a. It is advisable to implement a patch to correct this issue.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
       "id": "CVE-2026-19971",
       "published": "2026-08-17T02:16:41.203",
       "description": "A flaw has been found in LB-Link WR1210M 1.0.3. This impacts the function main of the file /www/cgi-bin/backup.cgi of the component Backup Endpoint. This manipulation causes missing authentication. The attack is only possible within the local network. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -140,6 +126,20 @@
       "description": "A weakness has been identified in Azuriom CMS up to 1.2.12. This issue affects the function transferMoney of the file app/Http/Controllers/ProfileController.php of the component Money Transfer Handler. This manipulation causes time-of-check time-of-use. The attack may be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is assessed as difficult. Upgrading to version 1.2.13 is capable of addressing this issue. Patch name: ae5596a9548e010a8a79838806eff60ef9554539. Upgrading the affected component is advised. The vendor was contacted early about this disclosure.",
       "severity": "LOW",
       "score": 3.1
+    },
+    {
+      "id": "CVE-2026-50601",
+      "published": "2026-08-17T03:16:50.703",
+      "description": "A security vulnerability has been identified in the Planet9 desktop application where a hardcoded read-only API key permitted unauthorized access to internal repositories. An attacker could exploit this access to extract embedded administrative keys and secrets, potentially allowing them to gain administrative access to repository infrastructure and modify software source code. To mitigate this security risk, Acer has released an update to resolve the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-50602",
+      "published": "2026-08-17T03:16:50.840",
+      "description": "A security vulnerability has been identified in Planet9 due to incorrect file permissions assigned to an application executable used by the Planet9 background service. The service runs with SYSTEM privileges, while the affected executable grants excessive permissions to non-administrative users. As a result, an authenticated local user could potentially modify or replace the executable and execute arbitrary code with SYSTEM privileges when the service starts or the system is restarted.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
