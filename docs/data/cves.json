@@ -1,5 +1,5 @@
 {
-  "totalResults": 3577,
+  "totalResults": 3579,
   "items": [
     {
       "id": "CVE-2026-19924",
@@ -9,11 +9,18 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-19919",
-      "published": "2026-08-16T00:16:50.360",
-      "description": "A vulnerability was found in code-projects Online Shopping System 1.0. This impacts an unknown function of the file /login.php of the component Login. The manipulation of the argument email results in sql injection. The attack may be performed from remote. The exploit has been made public and could be used.",
+      "id": "CVE-2026-14524",
+      "published": "2026-08-16T05:16:46.493",
+      "description": "The ProSolution WP Client plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the proSol_fileDeleteProcess function in all versions up to, and including, 2.0.8. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). An attacker must first call the proSol_fileUploadModalProcess handler to poison their own session with a path-traversal key, then call proSol_fileDeleteProcess with that key as the filename parameter; both steps require only the publicly exposed frontend nonce.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-14498",
+      "published": "2026-08-16T05:16:46.360",
+      "description": "The Query Wrangler plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.5.57 via the 'options' parameter parameter. This is due to missing capability check and nonce verification on the wp_ajax_qw_form_ajax handler, combined with unsanitized attacker-controlled options fully replacing saved query options and being passed directly to call_user_func_array() guarded only by function_exists(). This makes it possible for authenticated attackers, with subscriber-level access and above, to execute code on the server. Exploitation requires only that at least one query row exists in the database, as the query_id is a small enumerable integer with no further access control.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.8
     },
     {
       "id": "CVE-2026-19926",
@@ -21,6 +28,13 @@
       "description": "A vulnerability has been found in Evergreen up to 3.14.11/3.15.11/3.16.5/3.17-beta1. The affected element is an unknown function of the file /osrf-gateway-v1 of the component open-ils.fielder OpenSRF Service. Such manipulation leads to sql injection. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 3.14.12, 3.15.12, 3.16.6 and 3.17-beta2 is sufficient to fix this issue. The affected component should be upgraded.",
       "severity": "HIGH",
       "score": 7.3
+    },
+    {
+      "id": "CVE-2026-15002",
+      "published": "2026-08-16T05:16:46.620",
+      "description": "The Platnosci Online Blue Media (Autopay) plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 5.0.0 via the 'bm_woocommerce_css_editor_content' POST parameter. This is due to the Css_Editor::handle_save() method being wired to the WordPress 'init' hook by Settings_Manager::init_once() with no capability check, no nonce verification, and no sanitization on the input — the raw $_POST value is written to the 'woocommerce_bluemedia_settings' option via update_option(), then later echoed directly inside a <style> block on the WooCommerce checkout page by Css_Frontend::print_to_wp_head() with no output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page (the checkout page).",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
       "id": "CVE-2026-13358",
@@ -37,32 +51,11 @@
       "score": 6.4
     },
     {
-      "id": "CVE-2026-19918",
-      "published": "2026-08-16T00:16:50.180",
-      "description": "A vulnerability has been found in SpaceX Starlink Router Gen 3 2025.11.14.mr64708.3. This affects the function get_status of the component gRPC Management Interface. The manipulation leads to improper access controls. The attack can only be initiated within the local network. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-15066",
+      "published": "2026-08-16T05:16:46.880",
+      "description": "The Loco Translate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via PO File Extracted Comments in all versions up to, and including, 2.8.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with translator-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19920",
-      "published": "2026-08-16T00:16:50.530",
-      "description": "A vulnerability was determined in code-projects Online Shopping System 1.0. Affected is an unknown function of the file /action.php. This manipulation of the argument proId causes sql injection. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19921",
-      "published": "2026-08-16T00:16:50.687",
-      "description": "A vulnerability was identified in code-projects Online Shopping System 1.0. Affected by this vulnerability is an unknown functionality of the file /homeaction.php. Such manipulation of the argument cat_id leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-19923",
-      "published": "2026-08-16T01:17:08.080",
-      "description": "A weakness has been identified in code-projects Online Shopping System 1.0. This affects an unknown part of the file /checkout_process.php. Executing a manipulation of the argument total_count can lead to sql injection. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.4
     },
     {
       "id": "CVE-2026-19927",
@@ -91,6 +84,20 @@
       "description": "A security flaw has been discovered in Dolibarr up to 23.0.3. Affected is an unknown function of the file htdocs/user/card.php of the component User Cloning. The manipulation of the argument ID results in ldap injection. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The patch is identified as 798e65356ede03c2812ab1a728f23fae34de5592. It is advisable to implement a patch to correct this issue.",
       "severity": "MEDIUM",
       "score": 6.3
+    },
+    {
+      "id": "CVE-2026-15009",
+      "published": "2026-08-16T05:16:46.753",
+      "description": "The Advanced File Manager – Ultimate File Manager for WordPress And Document Library Solution plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'soundFile' parameter in all versions up to, and including, 5.4.12 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacker to control a domain whose origin string is a leading prefix of the target site's backend URL (e.g. https://example.co against https://example.com), and the victim must be an authenticated WordPress administrator who visits the attacker-controlled page while the File Manager admin screen is open.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-15441",
+      "published": "2026-08-16T05:16:47.010",
+      "description": "The WC Product Table Lite plugin for WordPress is vulnerable to CSS Injection in versions up to, and including, 5.6.0 via the 'laptop_scroll_offset' shortcode attribute exposed through the unauthenticated wcpt_ajax() AJAX handler. The handler is registered for wp_ajax_nopriv_wcpt_ajax, JSON-decodes attacker-supplied attributes, only allowlists key names (not values), applies a preg_replace that strips only [ ] < >, and passes the value through do_shortcode into wcpt_style__sticky_sidebar(), where it is interpolated verbatim into inline CSS ('top: {$top}px;' and 'max-height: calc(100vh - {$top}px);') with no numeric casting or CSS escaping. This makes it possible for unauthenticated attackers to inject arbitrary CSS declarations and rules on pages rendering a product table with sticky sidebar enabled, which can be leveraged for data exfiltration (via attribute-selector + background-image URLs), UI redressing, and phishing that bypasses CSPs permitting inline styles.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
       "id": "CVE-2026-19925",
@@ -133,13 +140,6 @@
       "description": "The Everest Forms – Contact Form, Payment Form, Quiz, Survey & Custom Form Builder with AI plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.5.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with delegated form management access and above, to activate arbitrary already-installed WordPress plugins — including previously deactivated or vulnerable plugins — without holding the core activate_plugins capability. Exploitation requires the target user to hold a delegated Everest Forms capability (manage_everest_forms, everest_forms_create_forms, or everest_forms_view_forms), which the plugin's own roles and permissions tool allows administrators to assign to non-administrator roles such as Author; the nonces required to exploit the AJAX handlers are emitted on EVF admin pages accessible to any such delegated user.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-19922",
-      "published": "2026-08-16T01:17:07.840",
-      "description": "A security flaw has been discovered in code-projects Online Shopping System 1.0. Affected by this issue is some unknown functionality of the file /checkout.php. Performing a manipulation of the argument amount_1 results in cross site scripting. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
-      "severity": "LOW",
-      "score": 3.5
     }
   ]
 }
