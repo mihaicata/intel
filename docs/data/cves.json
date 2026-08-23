@@ -1,5 +1,5 @@
 {
-  "totalResults": 3526,
+  "totalResults": 3525,
   "items": [
     {
       "id": "CVE-2026-19349",
@@ -35,6 +35,13 @@
       "description": "Scriban before 7.0.0 caches TypedObjectAccessor by Type only without considering MemberFilter changes, allowing reused TemplateContext instances to expose members that should be hidden. Attackers can access filtered properties and fields by reusing a TemplateContext after tightening its MemberFilter, bypassing sandbox policies across requests or tenants.",
       "severity": "CRITICAL",
       "score": 9.1
+    },
+    {
+      "id": "CVE-2026-74791",
+      "published": "2026-08-16T14:16:57.183",
+      "description": "Scriban before 7.0.0 fails to clear the CachedTemplates dictionary when TemplateContext.Reset() is called, allowing cached templates to persist across reused contexts. Attackers can exploit request-dependent ITemplateLoader implementations to access previously authorized template content from earlier renders without triggering TemplateLoader.Load() again.",
+      "severity": "HIGH",
+      "score": 8.6
     },
     {
       "id": "CVE-2024-58375",
@@ -126,13 +133,6 @@
       "description": "stoatchat versions before 0.15.0 fail to block the IPv6 unspecified address (::) in the SSRF blocklist, allowing unauthenticated attackers to bypass protections via the /proxy and /embed endpoints. Attackers can craft requests using IPv6 literal syntax to access services on the loopback interface and retrieve sensitive internal content.",
       "severity": "MEDIUM",
       "score": 5.8
-    },
-    {
-      "id": "CVE-2026-74251",
-      "published": "2026-08-16T13:16:57.147",
-      "description": "Joomla Extension - phoca.cz -  Unauthenticated SQL injection via attribute filter in Phoca Cart 5.0.0-6.1.6 - The a[] (attribute) and s[] (specification) GET array parameters on Phoca Cart's public shop items page are concatenated raw into SQL WHERE clauses without parameterization or escaping. An unauthenticated attacker can inject arbitrary SQL through these parameters, enabling full database extraction via time-based blind techniques.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-74784",
