@@ -1,6 +1,34 @@
 {
-  "totalResults": 3519,
+  "totalResults": 3511,
   "items": [
+    {
+      "id": "CVE-2026-74872",
+      "published": "2026-08-17T11:16:41.560",
+      "description": "openssl_encrypt versions before 1.4.0 contain an arbitrary code execution vulnerability in the Whirlpool hash implementation that uses broad glob patterns to load .so modules without integrity verification. Attackers can place malicious .so files matching the whirlpool*py313*.so pattern in site-packages directories to achieve native code execution when the module is loaded.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-74875",
+      "published": "2026-08-17T11:16:41.943",
+      "description": "openssl_encrypt versions before 1.4.0 silently skip JSON schema validation when the jsonschema library is not installed, allowing malformed metadata to be accepted. Attackers can remove the jsonschema package or supply unknown metadata format versions to bypass all schema checks and process malicious data.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-74876",
+      "published": "2026-08-17T11:16:42.073",
+      "description": "openssl_encrypt versions before 1.4.0 contain a vulnerability in PublicKeyBundle.from_dict() that creates key bundles from untrusted data without verifying signatures. Attackers can call from_dict() followed by to_identity() without signature verification to encrypt data using attacker-controlled public keys, leaking secrets.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-74878",
+      "published": "2026-08-17T11:16:42.330",
+      "description": "openssl_encrypt versions before 1.4.0 use an in-memory rate limiter for TOTP brute-force protection that is not shared across workers and is lost on server restart. Attackers can distribute authentication attempts across multiple server instances or retry immediately after a restart to bypass rate limiting protections.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
     {
       "id": "CVE-2026-74799",
       "published": "2026-08-17T11:16:40.017",
@@ -19,6 +47,13 @@
       "id": "CVE-2026-74845",
       "published": "2026-08-17T10:16:42.403",
       "description": "Official Document Management System developed by 2100 Technology has an Arbitrary File Upload vulnerability, allowing authenticated remote attackers to upload and execute web shell backdoors, thereby enabling arbitrary code execution on the server.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-74877",
+      "published": "2026-08-17T11:16:42.203",
+      "description": "openssl_encrypt versions before 1.4.0 contain a missing ownership verification vulnerability in the revoke_key method that allows authenticated clients to revoke any other client's key. Attackers can revoke arbitrary keys by providing a valid ML-DSA signature, bypassing the intended ownership restriction.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -58,6 +93,20 @@
       "score": 7.5
     },
     {
+      "id": "CVE-2026-74874",
+      "published": "2026-08-17T11:16:41.813",
+      "description": "openssl_encrypt versions before 1.4.0 use Python's non-cryptographic random module for steganographic pixel selection in the generate_pseudorandom_sequence function. Attackers who know the password can recover the Mersenne Twister state from approximately 624 outputs and predict pixel locations containing hidden data for extraction.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-74879",
+      "published": "2026-08-17T11:16:42.460",
+      "description": "openssl_encrypt versions before 1.4.0 contain an information disclosure vulnerability in the /ready endpoint that returns full database exception strings to unauthenticated callers. Attackers can trigger database errors to extract sensitive information including hostnames, IP addresses, connection parameters, and potentially credentials from exception messages.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
       "id": "CVE-2026-74842",
       "published": "2026-08-17T11:16:40.597",
       "description": "A vulnerability was found in Kira-Pgr PromptShopMCP up to 5bc0cd17358e19a5415d11a531088170d7b81452. Affected is the function download_image of the file server.py of the component Image-Toolkit-MCP-Server. Performing a manipulation of the argument image_url results in server-side request forgery. The attack may be initiated remotely. The exploit has been made public and could be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -65,53 +114,18 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-49301",
-      "published": "2026-08-17T09:17:29.970",
-      "description": "Permission control vulnerability in the Gallery module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
+      "id": "CVE-2026-74871",
+      "published": "2026-08-17T11:16:41.427",
+      "description": "openssl_encrypt versions before 1.4.6 contain a key derivation flaw in sequential XOR composition mode where the last stage cancels out during key generation. When configured with a single KDF and no prior hashing stage, attackers can bypass memory-hard key derivation and perform offline password cracking at SHA-256 speed instead of the configured KDF cost.",
       "severity": "MEDIUM",
       "score": 6.2
     },
     {
-      "id": "CVE-2026-49302",
-      "published": "2026-08-17T09:17:30.130",
-      "description": "Permission control vulnerability in the notification service module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-49304",
-      "published": "2026-08-17T09:17:30.433",
-      "description": "Permission control vulnerability in the device key management module. Impact: Successful exploitation of this vulnerability may affect availability.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-49305",
-      "published": "2026-08-17T09:17:30.580",
-      "description": "Permission control vulnerability in the Wi-Fi enhancement module. Impact: Successful exploitation of this vulnerability may affect availability.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-49307",
-      "published": "2026-08-17T09:17:30.867",
-      "description": "Permission control vulnerability in the multi-mode input module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-49308",
-      "published": "2026-08-17T09:17:31.010",
-      "description": "Permission control vulnerability in the clipboard module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
+      "id": "CVE-2026-74873",
+      "published": "2026-08-17T11:16:41.690",
+      "description": "openssl_encrypt versions before 1.4.0 expose passwords passed via the --password CLI argument in process listings accessible to all system users. Attackers can read process arguments through ps aux or /proc/[pid]/cmdline to retrieve plaintext passwords and keystore passwords.",
       "severity": "MEDIUM",
       "score": 5.5
-    },
-    {
-      "id": "CVE-2026-49303",
-      "published": "2026-08-17T09:17:30.270",
-      "description": "Permission control vulnerability in the notification module. Impact: Successful exploitation of this vulnerability may affect availability.",
-      "severity": "MEDIUM",
-      "score": 5.1
     },
     {
       "id": "CVE-2026-74867",
@@ -121,23 +135,9 @@
       "score": 4.2
     },
     {
-      "id": "CVE-2026-58560",
-      "published": "2026-08-17T09:17:31.140",
-      "description": "Null pointer dereference issue in the image codec module. Impact: Successful exploitation of this vulnerability may affect availability.",
-      "severity": "MEDIUM",
-      "score": 4
-    },
-    {
-      "id": "CVE-2026-58561",
-      "published": "2026-08-17T09:17:31.290",
-      "description": "Null pointer dereference issue in the image codec module. Impact: Successful exploitation of this vulnerability may affect availability.",
-      "severity": "MEDIUM",
-      "score": 4
-    },
-    {
-      "id": "CVE-2026-49306",
-      "published": "2026-08-17T09:17:30.730",
-      "description": "UAF vulnerability in the time and time zone module. Impact: Successful exploitation of this vulnerability may affect availability.",
+      "id": "CVE-2026-74870",
+      "published": "2026-08-17T11:16:41.293",
+      "description": "openssl_encrypt (pip) versions <= 1.4.7 contain an information exposure vulnerability where the 'hsm fido2-test' and 'hsm onlykey-test' diagnostic commands unconditionally print the full derived hardware pepper as hex to stdout/stderr (crypt_cli.py, handle_hsm_command). The printed value can persist in terminal scrollback, session recordings, or CI logs. Impact is limited because the pepper is derived from a random per-invocation test salt and is salt-bound, so the leaked value cannot be used to decrypt real files. A related plugin issue logged raw prf_data outside the secret-redaction path. Fixed in 1.4.8 (and 1.5.0) by removing the hex dumps and routing plugin debug output through the redaction layer.",
       "severity": "LOW",
       "score": 3.3
     }
