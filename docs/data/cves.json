@@ -1,24 +1,17 @@
 {
-  "totalResults": 3549,
+  "totalResults": 3555,
   "items": [
     {
-      "id": "CVE-2026-66792",
-      "published": "2026-08-17T19:16:34.237",
-      "description": "A flaw was found in the multicloud-operators-subscription component. This vulnerability allows a user on a managed cluster to escalate their privileges by creating a Subscription with specific, crafted annotations. Successful exploitation grants the attacker the ability to deploy resources into any namespace with the elevated permissions of the controller's Service Account, potentially leading to unauthorized access and control over cluster resources.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-50774",
-      "published": "2026-08-17T19:16:31.767",
-      "description": "An issue in GAPTEQ Designer v.3.5 allows a remote attacker to escalate privileges via the Company Manger role.",
+      "id": "CVE-2026-67678",
+      "published": "2026-08-17T20:16:45.137",
+      "description": "File Upload vulnerability in RainyGao-Hithub DocSys v.2.02.80 allows a remote attacker to execute arbitrary code",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-50775",
-      "published": "2026-08-17T19:16:31.873",
-      "description": "A blind SSRF attack in DataHub v.1.5.0.1 allows a remote attacker to execute arbitrary code via the server retrieving an image from a crafted URL, and it fails to return the content or any errors directly.",
+      "id": "CVE-2026-68004",
+      "published": "2026-08-17T20:16:45.240",
+      "description": "An issue in OSSRS SRS (Simple Realtime Server) <v5.0.213 allows a remote attacker to execute arbitrary code via RTMP publish authorization, vhost-level security configuration (security.enabled), SrsSecurity::check(), trunk/src/app/srs_app_security.cpp, and SRS RTMP listener components",
       "severity": "CRITICAL",
       "score": 9.8
     },
@@ -28,6 +21,20 @@
       "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 18.11.11, 19.0 before 19.0.8, 19.1 before 19.1.6, and 19.2 before 19.2.4 that under certain conditions could allow an unauthenticated user to remotely modify or delete public projects and user data via a GraphQL directive.",
       "severity": "CRITICAL",
       "score": 9.4
+    },
+    {
+      "id": "CVE-2026-71472",
+      "published": "2026-08-17T20:16:45.777",
+      "description": "A flaw was found in acm-search-v2-rhel9. This vulnerability allows an authenticated attacker, such as a hub administrator or a Search Custom Resource (CR) editor, to inject malicious shell commands or SQL statements. This occurs because the WORK_MEM string provided in the Search CR is not properly validated before being used in a bash script and an SQL query. Successful exploitation could lead to arbitrary code execution within the privileged postgres pod, potentially compromising the system.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-70495",
+      "published": "2026-08-17T20:16:45.653",
+      "description": "A flaw was found in search-v2-operator. This component's `search-serviceaccount` has overly broad permissions, allowing it to impersonate users and groups across the entire cluster. If an attacker gains access to any of the pods running under this service account, they could exploit this to achieve `system:masters` access, granting them full control over the cluster.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
       "id": "CVE-2026-57485",
@@ -44,13 +51,6 @@
       "score": 8.1
     },
     {
-      "id": "CVE-2026-50773",
-      "published": "2026-08-17T19:16:31.663",
-      "description": "An issue in CGM Germany - CompuGroup Medical CGM ISIS MED 2510.1.0.20 allows a remote attacker to execute arbtirary code via a crafted .dll file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
       "id": "CVE-2026-54758",
       "published": "2026-08-17T20:16:44.323",
       "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, the expandNppEnvironmentStrs function in PowerEditor/src/WinControls/StaticDialog/RunDlg/RunDlg.cpp copies a Notepad++ variable name between $( and ) into the fixed-size wchar_t str[MAX_PATH] stack buffer without bounding the m loop index, allowing a name of 260 or more characters to corrupt adjacent stack data, terminate the process through __report_gsfailure, and potentially execute code. This issue is fixed in version 8.9.7.",
@@ -58,23 +58,16 @@
       "score": 7.8
     },
     {
-      "id": "CVE-2026-45698",
-      "published": "2026-08-17T19:16:30.703",
-      "description": "Netatalk is a Free and Open Source file server suite for Unix-like operating systems. In versions 3.1.19 through 4.4.2, a stack-based buffer overflow exists in the deletedir() function of Netatalk's afpd daemon due to an integer underflow in the calculation of the remaining buffer size used for path construction. deletedir() is a utility function called when a file operation crosses a device boundary inside an AFP shared volume, which the standard library's renameat() cannot handle. The function attempts to prevent buffer overflows by tracking available space in a size_t remain variable. However, the arithmetic used to compute remain results in an unsigned integer underflow, causing the variable to become SIZE_MAX. Because of this, the subsequent boundary check always evaluates as safe, allowing an unbounded strcpy() operation to copy attacker-controlled filenames into a nearly full stack buffer. Version 4.4.3 patches the issue.",
+      "id": "CVE-2026-74234",
+      "published": "2026-08-17T20:16:46.813",
+      "description": "Legora before 2026-08-14 contains a cross-site scripting vulnerability that allows attackers to achieve arbitrary JavaScript execution in a victim's browser by embedding a Mermaid block prefixed with a gray-matter JavaScript front-matter directive, causing the front-matter parser to invoke eval() before any SVG sanitization occurs. Attackers can exploit this flaw through influenced Mermaid diagram content to execute arbitrary JavaScript in the user's browser context, with elevated impact on Word and Outlook add-in surfaces where bearer session tokens are persisted in localStorage.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-50776",
-      "published": "2026-08-17T19:16:31.980",
-      "description": "Directory Traversal vulnerability in Pronis Loisirs Billetterie CSE - < 04/2026 allows a remote attacker to obtain sensitive information and execute arbitrary code.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-74238",
-      "published": "2026-08-17T19:16:42.713",
-      "description": "TIER IV Nebula through 1.2.0 contains an out-of-bounds read vulnerability in the Vlp32Decoder::unpack() function that allows unauthenticated remote attackers to cause the decoder to read past the end of a received UDP buffer into adjacent heap memory by sending a short UDP datagram. Attackers can send a malformed datagram to the Velodyne UDP sensor port, which lacks sender-address restrictions present in other drivers, causing fabricated points derived from heap memory contents to be silently published into downstream PointCloud2 messages consumed by Autoware nodes.",
+      "id": "CVE-2026-68005",
+      "published": "2026-08-17T20:16:45.347",
+      "description": "An issue in ACME mini_httpd 1.30 and prior allows a remote attacker to cause a denial of service via the HTTP request header parser in the handle_request() function",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -93,51 +86,58 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-75011",
-      "published": "2026-08-17T19:16:42.910",
-      "description": "A flaw has been found in kylecui NetForensicMCP 2.1.0. Impacted is the function execAsync of the file index.js. Executing a manipulation of the argument interface/protocol can lead to command injection. The attack may be launched remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-63669",
+      "published": "2026-08-17T20:16:44.870",
+      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.32.0, the page module's move() operation fails to enforce the destination parent's _create permission because its oldParent archive condition disables the check for ordinary moves, allowing an authenticated editor or contributor to use _targetId and _position through the page REST update endpoint to move a controlled page into a restricted subtree and make nudgeNewPeers() updateMany re-rank protected sibling pages. This issue is fixed in version 4.32.0.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-12553",
-      "published": "2026-08-17T19:16:24.560",
-      "description": "HP has identified a potential vulnerability in HP Web Jetadmin (WJA) that may allow an unauthenticated actor to read from or write to arbitrary files through a DLL hijacking mechanism.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-75012",
+      "published": "2026-08-17T20:16:47.317",
+      "description": "A security vulnerability has been detected in TOTOLINK EX1200L 9.3.5u.6146_B20201023. Affected by this issue is the function setPasswordCfg of the file /cgi-bin/cstecgi.cgi of the component Password Configuration Handler. The manipulation leads to null pointer dereference. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-17639",
-      "published": "2026-08-17T19:16:29.367",
-      "description": "Certain HP Smart Tank All-in-One printers may be potentially vulnerable to a denial of service condition that allows an unauthenticated attacker to cause the device to become unavailable by sending multiple concurrent HTTP requests.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-75013",
+      "published": "2026-08-17T20:16:47.483",
+      "description": "A vulnerability was detected in TOTOLINK EX1200L 9.3.5u.6146_B20201023. This affects the function setWizardCfg of the file /cgi-bin/cstecgi.cgi. The manipulation results in null pointer dereference. The attack can be launched remotely. The exploit is now public and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-60106",
-      "published": "2026-08-17T19:16:33.300",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-63670",
+      "published": "2026-08-17T20:16:45.000",
+      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 2.17.6, sanitizeHtml() can pass disallowed executable markup through packages/sanitize-html/index.js when textarea or xmp is included in allowedTags because a literal solidus after the raw-text end-tag name is treated as text by htmlparser2 and the ontext handler emits that content without escaping, while a browser parses the following img onerror markup as active HTML. This issue is fixed in version 2.17.6.",
+      "severity": "MEDIUM",
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-60107",
-      "published": "2026-08-17T19:16:33.373",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-71693",
-      "published": "2026-08-17T19:16:35.913",
-      "description": "Rejected reason: DO NOT USE THIS CVE RECORD. ConsultIDs: none. Reason: This record was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: none.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-71486",
+      "published": "2026-08-17T20:16:45.927",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the /v1/completions/derender and /v1/chat/completions/derender endpoints accept caller-supplied GenerateResponse objects whose generate_responses, choices, token_ids, prompt_logprobs, logprobs.content, top_logprobs, and routed_experts structures are processed by OnlineDerenderer and tokenizer.decode before max_model_len, max_tokens, max_num_seqs, or response-size limits are enforced, allowing an authenticated API client to consume excessive CPU and memory and produce oversized responses. This issue is fixed in version 0.26.0.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
       "id": "CVE-2026-52886",
       "published": "2026-08-17T20:16:44.077",
       "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, Notepad++ validates the backupFilePath attribute from session.xml with std::wstring::starts_with against the expected backup directory without path normalization, allowing parent-directory sequences during snapshot-mode restoration to read an arbitrary user-readable file outside the backup directory into an editor tab. This issue is fixed in version 8.9.7.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-71553",
+      "published": "2026-08-17T20:16:46.073",
+      "description": "ApostropheCMS is an open-source Node.js content management system. In 4.32.0 and earlier, PATCH /api/v1/article/:id accepts the inherited path toString.call and passes it through the utility module to apos.util.set() and apos.util.get(), allowing an authenticated editor to overwrite the shared Object.prototype.toString function's call property and cause a persistent process-wide denial of service until restart.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-71858",
+      "published": "2026-08-17T20:16:46.207",
+      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, macros loaded from an attacker-controlled shortcuts.xml bypass the HMAC validation applied to UserDefinedCommands and can invoke Scintilla actions and the internal Open in Default Viewer command in an elevated Notepad++ process, allowing protected file modification and conditional elevated command execution when a local attacker influences settingsDir and a user triggers the macro. This issue is fixed in version 8.9.7.",
       "severity": "UNKNOWN",
       "score": null
     }
