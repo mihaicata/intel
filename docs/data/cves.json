@@ -1,82 +1,26 @@
 {
-  "totalResults": 3514,
+  "totalResults": 3532,
   "items": [
     {
-      "id": "CVE-2026-19693",
-      "published": "2026-08-17T14:20:20.737",
-      "description": "extract-zip through 2.0.1 containment-checks only the parent directory of each archive entry and never the entry's own final path component, so an archive containing two entries with identical names - a symlink whose target is outside the destination, followed by a regular file - writes through the planted symlink and yields an arbitrary file write outside the destination directory.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-71566",
+      "published": "2026-08-17T15:16:57.610",
+      "description": "FakeFish handles incoming credentials by passing them down\n to scripts. This works for real hardware because in the end it's up to \nthe BMC to validate them. However, KubeVirt relies on a KUBECONFIG file \nmounted to the container and completely ignores the credentials. This allows any user of the cluster to control VMs of the \nuser that created fakefish, power them on and off, and mount arbitrary CD\n images to them.",
+      "severity": "CRITICAL",
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-16138",
-      "published": "2026-08-17T14:20:19.797",
-      "description": "In Progress ShareFile Storage Zones Controller v5.12.5 and below versions, unsafe deserialization of untrusted file metadata can allow a user with write access to a Network share to execute arbitrary code on the Storage Zones Controller host.",
-      "severity": "HIGH",
-      "score": 8
+      "id": "CVE-2026-55674",
+      "published": "2026-08-17T16:16:58.917",
+      "description": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, an unauthenticated attacker could send a single request with a crafted color_scheme_id (or dark_scheme_id) cookie to inject arbitrary HTML into a Discourse page. Because the cookie value was rendered into a color scheme tag without escaping, the attacker could break out of the attribute and inject a tag that bypassed Discourse's nonce-based Content Security Policy, resulting in arbitrary JavaScript execution in visitors' browsers. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "severity": "CRITICAL",
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-15218",
-      "published": "2026-08-17T14:20:19.357",
-      "description": "A flaw was found in the maas-api and maas-controller ServiceAccounts within Red Hat OpenShift AI. These ServiceAccounts are granted cluster-wide permissions that exceed their operational requirements. An attacker who compromises the identity of these ServiceAccounts, either through a remote code execution vulnerability or by creating a malicious pod in the same namespace, could exploit these excessive permissions. This could lead to full cluster administrator privileges through the creation of new ClusterRoleBindings or the disclosure of sensitive information by accessing all secrets across the cluster.",
+      "id": "CVE-2026-71567",
+      "published": "2026-08-17T15:16:57.730",
+      "description": "In openshift-metal3/fakefish there is a repeated pattern in some of the scripts where shell variables\n are injected without quoting them either into command lines or into \nmanifests. This mostly applies to the Image URL and BMC credentials \n(which are not verified by FakeFish).",
       "severity": "HIGH",
-      "score": 7.9
-    },
-    {
-      "id": "CVE-2026-56686",
-      "published": "2026-08-17T14:20:21.333",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-59910",
-      "published": "2026-08-17T14:20:21.623",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-16471",
-      "published": "2026-08-17T14:20:20.147",
-      "description": "Missing Authorization vulnerability in Dolusoft Software Technologies Sonlogger allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Sonlogger: from v6.6.6 before 6.7.4.8.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-56090",
-      "published": "2026-08-17T14:20:21.077",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) an Uncontrolled Search Path Element vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-56685",
-      "published": "2026-08-17T14:20:21.193",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Command execution.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-16137",
-      "published": "2026-08-17T14:20:19.670",
-      "description": "In Progress ShareFile Storage Zones Controller v5.12.5 and below, a party with valid zone credentials can perform path traversal using resumable upload initiation endpoint, allowing the party to write arbitrary content to any location writable by the application's service account. This may result in the execution of attacker-supplied code.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-16139",
-      "published": "2026-08-17T14:20:19.913",
-      "description": "In Progress ShareFile Storage Zones Controller versions <= 5.12.5 and <= 6.0.2, an authenticated zone administrator can exploit improper validation in the download preparation flow, enabling attacker-controlled files to be written outside the intended preparation directory. This can lead to remote code execution in v5 versions. Remote code execution is not confirmed on v6 versions.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-59909",
-      "published": "2026-08-17T14:20:21.487",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) a Path Traversal vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Information tampering.",
-      "severity": "HIGH",
-      "score": 7.1
+      "score": 7.7
     },
     {
       "id": "CVE-2026-10527",
@@ -86,11 +30,11 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-59911",
-      "published": "2026-08-17T14:20:21.770",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) an Insertion of Sensitive Information into Log File vulnerability in the svc_tools. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-16048",
+      "published": "2026-08-17T15:16:54.310",
+      "description": "Mattermost versions 11.8.x <= 11.8.2, 11.7.x <= 11.7.6, 10.11.x <= 10.11.21 fail to restrict channel member role assignment to channel-scoped roles which allows a channel administrator to gain additional channel permissions via the channel member roles API.. Mattermost Advisory ID: MMSA-2026-00697",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.3
     },
     {
       "id": "CVE-2026-16044",
@@ -98,6 +42,13 @@
       "description": "Mattermost versions 11.7.x <= 11.7.6, 10.11.x <= 10.11.21 fail to prevent guest users from receiving Board Admin privileges during board archive import which allows a board member to escalate a guest user to Board Admin via importing a crafted .boardarchive file. Mattermost Advisory ID: MMSA-2026-00672",
       "severity": "MEDIUM",
       "score": 5.4
+    },
+    {
+      "id": "CVE-2026-53960",
+      "published": "2026-08-17T16:16:58.423",
+      "description": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, hidden or otherwise unviewable first-post content was leaked as an excerpt in the publicly-served Q&A (QAPage) JSON-LD structured data, exposing it to any unauthenticated visitor and to search-engine crawlers. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
       "id": "CVE-2026-16045",
@@ -121,6 +72,20 @@
       "score": 4.3
     },
     {
+      "id": "CVE-2026-16049",
+      "published": "2026-08-17T15:16:54.420",
+      "description": "Mattermost Plugins versions <=11.8 10.20.11 11.5.7.0 _The Mattermost GitLab plugin fails to verify channel permissions when processing API requests with a caller-supplied_ {{post_id}}_, and fails to validate the_ {{web_url}} _parameter against the configured GitLab instance, which allows an authenticated attacker to inject bot-authored messages containing arbitrary URLs into channels they do not have access to via the_ {{createIssue}} _and_ {{attachCommentToIssue}} _API endpoints._ Mattermost Advisory ID: MMSA-2026-00673",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-55704",
+      "published": "2026-08-17T16:16:59.057",
+      "description": "Discourse is an open-source discussion platform. Prior o 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, users who were allowed to view a group’s activity, but were not permitted to see shared drafts, could still receive shared-draft entries through the group posts and group mentions endpoints. This could disclose shared-draft topic titles and post excerpt/content, resulting in an information disclosure of unpublished draft material. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
       "id": "CVE-2026-15754",
       "published": "2026-08-17T15:16:53.743",
       "description": "Mattermost versions 11.7.x <= 11.7.6, 11.8.x <= 11.8.3 The access control policy unassign endpoint fails to re-validate that each target channel still belongs to the requesting admin's team, which allows an authenticated team administrator to remove ABAC (attribute-based access control) policy assignments from channels outside their team via the policy unassign API after a channel has been moved to another team.. Mattermost Advisory ID: MMSA-2026-00718",
@@ -128,16 +93,51 @@
       "score": 4.2
     },
     {
-      "id": "CVE-2026-56089",
-      "published": "2026-08-17T14:20:20.920",
-      "description": "Dell ObjectScale, versions prior to 4.3.0.1, contain(s) a Path Traversal vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Information disclosure.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
       "id": "CVE-2026-13202",
       "published": "2026-08-17T15:16:53.513",
       "description": "A vulnerability in OpenText Opentext Directory Services allows Input Data Manipulation.\n\nThis issue affects Opentext Directory Services: through 22.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-73851",
+      "published": "2026-08-17T15:16:57.980",
+      "description": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.29.1 and 1.34.0, an attacker who controls or tampers with the OpenAPI description consumed by Kiota can supply a file reference that resolves outside the manifest package (e.g. ../../../../etc/passwd, an absolute path, or a file:// / http(s):// URI). When the generated manifest is deployed and consumed by an AI host, this can lead to inclusion or disclosure of files outside the intended package boundary. This vulnerability is fixed in 1.29.1 and 1.34.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-27621",
+      "published": "2026-08-17T16:16:46.290",
+      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the UpTrain backend creates a new default user with a static username, where the username is also used as the default API key. The UpTrain backend also has an open CORS policy. Using these two primitives, any website can make a authenticated cross-origin request to the UpTrain instance by providing the default API key in the header `uptrain-access-token`. This issue may allow arbitrary websites to perform privileged operations on the UpTrain instance, as if they were the default logged in user. As of time of publication, no known patches are available.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-27770",
+      "published": "2026-08-17T16:16:46.447",
+      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the `/create_project` endpoint is vulnerable to remote code execution via the `checks` and `metadata` parameters. Any user that has access to UpTrain and a valid authentication method may be able to execute arbitrary code in the context of the host running UpTrain, which in most cases will be the docker container as suggested by the documentation. As of time of publication, no known patch is available.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-27771",
+      "published": "2026-08-17T16:16:46.580",
+      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the `/add_prompts` endpoint is vulnerable to remote code execution via the `checks` and `metadata` parameters. Any user that has access to UpTrain and a valid authentication method may be able to execute arbitrary code in the context of the host running UpTrain, which in most cases will be the docker container as suggested by the documentation. As of time of publication, no known patch is available.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-27772",
+      "published": "2026-08-17T16:16:46.710",
+      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the `/new_run` endpoint is vulnerable to remote code execution via the `checks` and `metadata` parameters. Any user that has access to UpTrain and a valid authentication method may be able to execute arbitrary code in the context of the host running UpTrain, which in most cases will be the docker container as suggested by the documentation. As of time of publication, no known patch is available.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-40144",
+      "published": "2026-08-17T16:16:56.203",
+      "description": "A memory-corruption vulnerability exists in a kernel-mode component of BeyondTrust Endpoint Privilege Management (Windows deployments) prior to version 26.1.2. Insufficient validation of input processed by the component may result in memory being accessed outside its intended bounds.",
       "severity": "UNKNOWN",
       "score": null
     }
