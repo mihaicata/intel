@@ -2,142 +2,142 @@
   "totalResults": 3555,
   "items": [
     {
-      "id": "CVE-2026-67678",
-      "published": "2026-08-17T20:16:45.137",
-      "description": "File Upload vulnerability in RainyGao-Hithub DocSys v.2.02.80 allows a remote attacker to execute arbitrary code",
+      "id": "CVE-2026-47686",
+      "published": "2026-08-17T21:16:45.507",
+      "description": "vm2 is an open source vm/sandbox for Node.js. Prior to 3.11.6, handleException() in lib/setup-sandbox.js sanitizes SuppressedError.error, SuppressedError.suppressed, and AggregateError.errors but does not sanitize Error.cause, allowing sandbox code to obtain a powerful host object such as process from an embedder-exposed host function that throws an error with that object as its cause and then execute arbitrary host commands. This issue is fixed in version 3.11.6.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-39254",
+      "published": "2026-08-17T21:16:44.710",
+      "description": "Buffer Overflow vulnerability in SteelSeries GG (macOS) v.107.0.0 allows a remote attacker to execute arbitrary code via the libSSEdevice.dylib, CxAudioHidDevice::DeviceGetDescriptionString components",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-68004",
-      "published": "2026-08-17T20:16:45.240",
-      "description": "An issue in OSSRS SRS (Simple Realtime Server) <v5.0.213 allows a remote attacker to execute arbitrary code via RTMP publish authorization, vhost-level security configuration (security.enabled), SrsSecurity::check(), trunk/src/app/srs_app_security.cpp, and SRS RTMP listener components",
+      "id": "CVE-2026-39255",
+      "published": "2026-08-17T21:16:44.823",
+      "description": "Buffer Overflow vulnerability in SteelSeries GG (macOS) v.107.0.0 allows a remote attacker to execute arbitrary code via the libSSEdevice.dylib, dup_wcs components",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-19478",
-      "published": "2026-08-17T20:16:41.777",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 18.11.11, 19.0 before 19.0.8, 19.1 before 19.1.6, and 19.2 before 19.2.4 that under certain conditions could allow an unauthenticated user to remotely modify or delete public projects and user data via a GraphQL directive.",
+      "id": "CVE-2026-47698",
+      "published": "2026-08-17T21:16:45.640",
+      "description": "vm2 is an open source vm/sandbox for Node.js. Prior to 3.11.6, lib/bridge.js and lib/setup-sandbox.js fail to block stacked indirection through Function.prototype.call around dangerous host prototype getter and setter mutators, allowing sandbox code to sever a host intrinsic's prototype chain and reach e.constructor.constructor for arbitrary host command execution. This issue is fixed in version 3.11.6.",
       "severity": "CRITICAL",
-      "score": 9.4
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-71472",
-      "published": "2026-08-17T20:16:45.777",
-      "description": "A flaw was found in acm-search-v2-rhel9. This vulnerability allows an authenticated attacker, such as a hub administrator or a Search Custom Resource (CR) editor, to inject malicious shell commands or SQL statements. This occurs because the WORK_MEM string provided in the Search CR is not properly validated before being used in a bash script and an SQL query. Successful exploitation could lead to arbitrary code execution within the privileged postgres pod, potentially compromising the system.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-70495",
-      "published": "2026-08-17T20:16:45.653",
-      "description": "A flaw was found in search-v2-operator. This component's `search-serviceaccount` has overly broad permissions, allowing it to impersonate users and groups across the entire cluster. If an attacker gains access to any of the pods running under this service account, they could exploit this to achieve `system:masters` access, granting them full control over the cluster.",
+      "id": "CVE-2026-65640",
+      "published": "2026-08-17T21:16:46.470",
+      "description": "WordPress is vulnerable to a remote code execution vulnerability via malicious Postscript file upload by an Author level user or higher.\n\nPrerequisites:\n* Imagick and Ghostscript in use on the server\n* A malicious user with the `upload_files` capability\n\nThis issue affects all versions of WordPress. Version 7.0.4 has been released, containing a fix for the vulnerability, and as a courtesy to users on older branches the fix has been backported to all branches back to 4.7.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-57485",
-      "published": "2026-08-17T20:16:44.587",
-      "description": "Stirling-PDF is a locally hosted web application that facilitates various operations on PDF files. Prior to 2.9.0, the /api/v1/pipeline/handleData endpoint in app/core/src/main/java/stirling/software/SPDF/controller/api/pipeline/PipelineProcessor.java injects the STIRLING-PDF-BACKEND-API-USER API key into pipeline subrequests, allowing an authenticated ROLE_USER to retrieve the key through /api/v1/user/get-api-key, impersonate the internal service account, bypass normal rate limits, and access internal endpoints including /api/v1/info/requests/all and /api/v1/info/load/all. This issue is fixed in version 2.9.0.",
+      "id": "CVE-2026-64657",
+      "published": "2026-08-17T21:16:46.340",
+      "description": "Budibase is an open-source low-code platform. Prior to 3.39.19, the PostgreSQL datasource connector in packages/server/src/integrations/postgres.ts interpolates the user-controlled schema configuration field into a SET search_path statement without escaping embedded double quotes, allowing an authenticated administrator who saves or tests the datasource to execute arbitrary SQL through the simple query protocol. This issue is fixed in version 3.39.19.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-57233",
-      "published": "2026-08-17T20:16:44.453",
-      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, the WinGup decompress function joins untrusted ZIP entry names to unzipDestTo without canonical containment validation, allowing an entry such as ../mimeTools/mimeTools.dll to overwrite a DLL in a sibling plugin directory and execute attacker-controlled code when Notepad++ next loads that plugin. This issue is fixed in version 8.9.7.",
+      "id": "CVE-2026-63409",
+      "published": "2026-08-17T21:16:46.200",
+      "description": "Deskflow is a keyboard and mouse sharing app. From 1.17.0 until continuous build 1.26.0.296, a malicious Deskflow server can send an odd-length DSOP vector to ServerProxy::setOptions() in src/lib/client/ServerProxy.cpp, causing the missing value after the final option key to be read beyond the vector during the PacketStreamFilter::filterEvent to ServerProxy::handleData() to ServerProxy::parseHandshakeMessage() call chain and crash the connected client. This issue is fixed in continuous build 1.26.0.296.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-54758",
-      "published": "2026-08-17T20:16:44.323",
-      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, the expandNppEnvironmentStrs function in PowerEditor/src/WinControls/StaticDialog/RunDlg/RunDlg.cpp copies a Notepad++ variable name between $( and ) into the fixed-size wchar_t str[MAX_PATH] stack buffer without bounding the m loop index, allowing a name of 260 or more characters to corrupt adjacent stack data, terminate the process through __report_gsfailure, and potentially execute code. This issue is fixed in version 8.9.7.",
+      "id": "CVE-2026-65832",
+      "published": "2026-08-17T21:16:46.750",
+      "description": "Deskflow is a keyboard and mouse sharing app. Prior to continuous build 1.26.0.299, a remote unauthenticated Deskflow server can send kMsgDSetOptions (DSOP) values to ServerProxy::setOptions() in src/lib/client/ServerProxy.cpp so that the value following a modifier option poisons m_modifierTranslationTable, after which ServerProxy::translateKey() or ServerProxy::translateModifierMask() indexes the seven-row s_translationTable or s_masks arrays out of bounds, disclosing four bytes at an attacker-selected relative offset or crashing the connected client; an odd option count also causes an out-of-bounds OptionsList read. This issue is fixed in continuous build 1.26.0.299.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-34398",
+      "published": "2026-08-17T21:16:44.130",
+      "description": "FreeCAD is a free and open-source multiplatform 3D parametric modeler. From 0.19 until 1.1.1, src/Mod/BIM/bimcommands/BimProjectManager.py in the BIM Project Manager Load Template flow passes attacker-controlled FCStd Meta property values for wpposition, wpu, wpv, and wpaxis directly to eval(), allowing arbitrary Python code execution when a user loads a malicious BIM project template. This issue is fixed in version 1.1.1.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-74234",
-      "published": "2026-08-17T20:16:46.813",
-      "description": "Legora before 2026-08-14 contains a cross-site scripting vulnerability that allows attackers to achieve arbitrary JavaScript execution in a victim's browser by embedding a Mermaid block prefixed with a gray-matter JavaScript front-matter directive, causing the front-matter parser to invoke eval() before any SVG sanitization occurs. Attackers can exploit this flaw through influenced Mermaid diagram content to execute arbitrary JavaScript in the user's browser context, with elevated impact on Word and Outlook add-in surfaces where bearer session tokens are persisted in localStorage.",
+      "id": "CVE-2026-34399",
+      "published": "2026-08-17T21:16:44.277",
+      "description": "FreeCAD is a free and open-source multiplatform 3D parametric modeler. From 0.19 until 1.1.1, FreeCAD's BIM Workbench contains an eval() call on untrusted data from SVG template files. When a user creates a TechDraw page from a malicious SVG template, arbitrary Python code executes. The vulnerable code is in src/Mod/BIM/bimcommands/BimTDPage.py (line 87). This issue is fixed in version 1.1.1.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-68005",
-      "published": "2026-08-17T20:16:45.347",
-      "description": "An issue in ACME mini_httpd 1.30 and prior allows a remote attacker to cause a denial of service via the HTTP request header parser in the handle_request() function",
+      "id": "CVE-2026-65822",
+      "published": "2026-08-17T21:16:46.610",
+      "description": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.116.0 and 16.23.0, erpnext/selling/report/inactive_customers/inactive_customers.py accepts an unvalidated doctype filter and interpolates it into raw SQL in get_sales_details and get_last_sales_amt, allowing an authenticated user to extract sensitive information and manipulate database queries. This issue is fixed in versions 15.116.0 and 16.23.0.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-19650",
-      "published": "2026-08-17T20:16:41.910",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 18.11.11, 19.0 before 19.0.8, 19.1 before 19.1.6, and 19.2 before 19.2.4 that under certain conditions could have allowed an unauthenticated user to execute mutations via GET requests due to improper request validation in GraphQL multiplex query handling.",
+      "id": "CVE-2026-19589",
+      "published": "2026-08-17T21:16:43.593",
+      "description": "Packer up to 1.15.4 is vulnerable to an issue in the third-party plugin installer that may allow unintended file system modification and could lead to code execution. A user who installs a plugin from a malicious or compromised source may be affected. This vulnerability (CVE-2026-19589) is fixed in Packer 1.16.0.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-63667",
-      "published": "2026-08-17T20:16:44.720",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 3.6.2, the import-export module in packages/import-export/lib/formats/gzip.js constructs an attachment source path from the attacker-controlled _id, name, and extension fields in aposAttachments.json without ensuring that the resolved path remains under the extracted attachments directory, allowing an authenticated contributor to import a crafted archive, read a host file with an allowed extension, and publish the copied file at an unauthenticated uploads URL. This issue is fixed in version 3.6.2.",
+      "id": "CVE-2026-54356",
+      "published": "2026-08-17T21:16:46.063",
+      "description": "Budibase is an open-source low-code platform. Prior to 3.41.3, POST /api/attachments/:datasourceId/url in packages/server/src/api/routes/static.ts and packages/server/src/api/controllers/static/index.ts allows an authenticated published-app user with the BASIC role to supply attacker-controlled bucket and key values and obtain signedUrl and publicUrl values backed by stored S3 datasource credentials. This issue is fixed in version 3.41.3.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-34789",
+      "published": "2026-08-17T21:16:44.403",
+      "description": "FreeCAD is a free and open-source multiplatform 3D parametric modeler. Prior to 1.1.2, src/App/PropertyPythonObject.cpp in PropertyPythonObject::Restore() passes the attacker-controlled module attribute from serialized PropertyPythonObject XML directly to PyImport_ImportModule() while restoring a crafted FCStd document, which executes module-level Python code, and the legacy pickle branch also imports an attacker-controlled module and invokes its class constructor through PyObject_CallObject(). This issue is fixed in version 1.1.2.",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-44845",
+      "published": "2026-08-17T21:16:45.083",
+      "description": "JumpServer is an open source bastion host and an operation and maintenance security audit system. Prior to 4.10.17, an authenticated administrator with Applet Host management and deployment permissions can inject Jinja2 expressions into the IP/Host field or Core Service Address field, causing Ansible to evaluate ansible_host inventory data or playbook variables during Applet Host deployment and execute arbitrary commands on the JumpServer control node. This issue is fixed in version 4.10.17.",
+      "severity": "MEDIUM",
+      "score": 6.7
+    },
+    {
+      "id": "CVE-2026-40506",
+      "published": "2026-08-17T21:16:44.930",
+      "description": "OpenEMR before 8.2.0 contains a path traversal vulnerability in the standard_tables_manage.php interface where the db GET parameter is passed without validation to temp_dir_cleanup(), which joins the value to the PHP temporary directory path and recursively deletes the resulting directory. Attackers can supply a traversal sequence in the db parameter to resolve outside the intended temporary directory, and by chaining this with an open redirect in dicom_frame.php, an unauthenticated attacker can deliver a crafted URL that triggers arbitrary recursive directory deletion within an authenticated Superuser's session.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-63669",
-      "published": "2026-08-17T20:16:44.870",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.32.0, the page module's move() operation fails to enforce the destination parent's _create permission because its oldParent archive condition disables the check for ordinary moves, allowing an authenticated editor or contributor to use _targetId and _position through the page REST update endpoint to move a controlled page into a restricted subtree and make nudgeNewPeers() updateMany re-rank protected sibling pages. This issue is fixed in version 4.32.0.",
+      "id": "CVE-2026-44846",
+      "published": "2026-08-17T21:16:45.227",
+      "description": "JumpServer is an open source bastion host and an operation and maintenance security audit system. Prior to 4.10.17, a user with the users.invite_user permission can submit an existing member to POST /api/v1/users/users/invite/, causing the organization invitation logic in apps/users/api/user.py to execute user.org_roles.set(org_roles) and replace the member's existing organization roles, which can escalate privileges or downgrade administrators. This issue is fixed in version 4.10.17.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-75012",
-      "published": "2026-08-17T20:16:47.317",
-      "description": "A security vulnerability has been detected in TOTOLINK EX1200L 9.3.5u.6146_B20201023. Affected by this issue is the function setPasswordCfg of the file /cgi-bin/cstecgi.cgi of the component Password Configuration Handler. The manipulation leads to null pointer dereference. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "id": "CVE-2026-54336",
+      "published": "2026-08-17T21:16:45.930",
+      "description": "JumpServer is an open source bastion host and an operation and maintenance security audit system. From 4.8.0 until 4.10.17, an authenticated user with SFTP permission to an authorized asset can submit crafted traversal paths through the KoKo Web Terminal SFTP feature, causing AssetDir.GetRealPath() in pkg/srvconn/sftp_asset.go to resolve paths outside the intended SFTP root and permit read, list, write, rename, or delete operations under the configured backend account on that asset. This issue is fixed in version 4.10.17.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-75013",
-      "published": "2026-08-17T20:16:47.483",
-      "description": "A vulnerability was detected in TOTOLINK EX1200L 9.3.5u.6146_B20201023. This affects the function setWizardCfg of the file /cgi-bin/cstecgi.cgi. The manipulation results in null pointer dereference. The attack can be launched remotely. The exploit is now public and may be used.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-63670",
-      "published": "2026-08-17T20:16:45.000",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 2.17.6, sanitizeHtml() can pass disallowed executable markup through packages/sanitize-html/index.js when textarea or xmp is included in allowedTags because a literal solidus after the raw-text end-tag name is treated as text by htmlparser2 and the ontext handler emits that content without escaping, while a browser parses the following img onerror markup as active HTML. This issue is fixed in version 2.17.6.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-71486",
-      "published": "2026-08-17T20:16:45.927",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the /v1/completions/derender and /v1/chat/completions/derender endpoints accept caller-supplied GenerateResponse objects whose generate_responses, choices, token_ids, prompt_logprobs, logprobs.content, top_logprobs, and routed_experts structures are processed by OnlineDerenderer and tokenizer.decode before max_model_len, max_tokens, max_num_seqs, or response-size limits are enforced, allowing an authenticated API client to consume excessive CPU and memory and produce oversized responses. This issue is fixed in version 0.26.0.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-52886",
-      "published": "2026-08-17T20:16:44.077",
-      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, Notepad++ validates the backupFilePath attribute from session.xml with std::wstring::starts_with against the expected backup directory without path normalization, allowing parent-directory sequences during snapshot-mode restoration to read an arbitrary user-readable file outside the backup directory into an editor tab. This issue is fixed in version 8.9.7.",
+      "id": "CVE-2026-35219",
+      "published": "2026-08-17T21:16:44.550",
+      "description": "Budibase is an open-source low-code platform. Prior to 3.41.3, automation steps in packages/server/src/automations/steps/outgoingWebhook.ts, packages/server/src/automations/steps/zapier.ts, packages/server/src/automations/steps/n8n.ts, packages/server/src/automations/steps/slack.ts, and packages/server/src/automations/steps/discord.ts use node-fetch on user-provided URLs without the BLACKLIST_IPS enforcement used by the REST integration, allowing an authenticated user to make server-side requests to cloud metadata and internal services. This issue is fixed in version 3.41.3.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-71553",
-      "published": "2026-08-17T20:16:46.073",
-      "description": "ApostropheCMS is an open-source Node.js content management system. In 4.32.0 and earlier, PATCH /api/v1/article/:id accepts the inherited path toString.call and passes it through the utility module to apos.util.set() and apos.util.get(), allowing an authenticated editor to overwrite the shared Object.prototype.toString function's call property and cause a persistent process-wide denial of service until restart.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-71858",
-      "published": "2026-08-17T20:16:46.207",
-      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, macros loaded from an attacker-controlled shortcuts.xml bypass the HMAC validation applied to UserDefinedCommands and can invoke Scintilla actions and the internal Open in Default Viewer command in an elevated Notepad++ process, allowing protected file modification and conditional elevated command execution when a local attacker influences settingsDir and a user triggers the macro. This issue is fixed in version 8.9.7.",
+      "id": "CVE-2026-47683",
+      "published": "2026-08-17T21:16:45.363",
+      "description": "vm2 is an open source vm/sandbox for Node.js. Prior to 3.11.6, the bufferAllocLimit enforcement in lib/setup-sandbox.js does not cover Buffer.concat(list, totalLength) or Buffer.from(arrayLike) with an attacker-controlled length, allowing sandbox code to perform large synchronous host external-memory allocations that bypass the configured cap and can exhaust the host process. This issue is fixed in version 3.11.6.",
       "severity": "UNKNOWN",
       "score": null
     }
