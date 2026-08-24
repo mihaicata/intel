@@ -1,143 +1,143 @@
 {
-  "totalResults": 3531,
+  "totalResults": 3510,
   "items": [
     {
-      "id": "CVE-2026-55674",
-      "published": "2026-08-17T16:16:58.917",
-      "description": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, an unauthenticated attacker could send a single request with a crafted color_scheme_id (or dark_scheme_id) cookie to inject arbitrary HTML into a Discourse page. Because the cookie value was rendered into a color scheme tag without escaping, the attacker could break out of the attribute and inject a tag that bypassed Discourse's nonce-based Content Security Policy, resulting in arbitrary JavaScript execution in visitors' browsers. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "id": "CVE-2026-50768",
+      "published": "2026-08-17T18:17:08.760",
+      "description": "File Upload vulnerability in T-Systems International GmbH ImageMaster Version: 9.14.2.8.1 allows a remote attacker to execute arbitrary code via the add attachments feature in the create new document function.",
       "severity": "CRITICAL",
-      "score": 9.3
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-64859",
-      "published": "2026-08-17T16:17:22.280",
-      "description": "New API is a large language mode (LLM) gateway and artificial intelligence (AI) asset management system. Prior to 1.0.0-rc.7, the admin user list and user lookup APIs, including GET /api/user/, return User.AccessToken as access_token because User model objects are serialized after queries use Omit(\"password\"), allowing an authenticated administrator to obtain the root user's bearer token and access root-only system configuration APIs. This issue is fixed in version 1.0.0-rc.7.",
+      "id": "CVE-2026-50769",
+      "published": "2026-08-17T18:17:08.880",
+      "description": "The CRM+ application before and including version 2025.6 from Brainformatik is vulnerable to SQL Injection (time-based) vulnerability. The check conflict endpoint index.php?module=Appointments&action=CheckConflictOfDates&ajaxSkipHeader=true which is used to check any conflicts for user calendar is vulnerable to SQL injection allowing an attacker to execute arbitrary code.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-50770",
+      "published": "2026-08-17T18:17:08.990",
+      "description": "An issue in Squirro Cognitive Search before v.3.14.2 allows a remote attacker to escalate privileges via a crafted request.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-50772",
+      "published": "2026-08-17T18:17:09.207",
+      "description": "An issue in Squirro Cognitive Search < 3.14.2 allows a remote attacker to execute arbitrary code via a crafted payload to the password reset function.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-51346",
+      "published": "2026-08-17T18:17:09.320",
+      "description": "SQL Injection vulnerability in StudIP 6.0.x before 6.0.3 and 5.4.x before 5.4.12 allows a remote attacker to execute arbitrary code and obtain sensitive information via the store() functions.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-71479",
-      "published": "2026-08-17T16:17:44.307",
-      "description": "New API is a large language mode (LLM) gateway and artificial intelligence (AI) asset management system. Prior to 1.0.0-rc.18, user-controlled image n, video seconds and duration, max_tokens, max_completion_tokens, maxOutputTokens, audio duration, and billing-expression quantities can overflow conversions in common/quota_math.go and related settlement paths, allowing a low-privileged account with positive balance or an active subscription to turn a negative charge into account credit and potentially drain upstream funds. This issue is fixed in version 1.0.0-rc.18.",
-      "severity": "CRITICAL",
-      "score": 9.1
+      "id": "CVE-2026-9771",
+      "published": "2026-08-17T17:16:57.720",
+      "description": "The flash_copy() system call is verified by z_vrfy_flash_copy() in drivers/flash/flash_util.c. On builds with CONFIG_USERSPACE enabled, this handler is the kernel-side trust boundary for a user-mode caller. Prior to the fix it validated only the output buffer (K_SYSCALL_MEMORY_WRITE) and passed the two struct device * arguments, src_dev and dst_dev, directly into the implementation without any object validation — unlike every sibling flash syscall, which guards its device pointer with K_SYSCALL_DRIVER_FLASH.\n\nA user-mode thread fully controls the values of src_dev/dst_dev and the contents of its own address space. The implementation z_impl_flash_copy() dereferences these pointers and calls through their driver-API function tables (e.g. api->get_parameters(dst_dev), flash_read(src_dev, ...), flash_write(dst_dev, ...)). By supplying a pointer to a forged struct device whose api table contains attacker-chosen function pointers, an unprivileged thread can cause the kernel to call arbitrary code in supervisor mode; passing any arbitrary or invalid address otherwise yields a kernel crash or out-of-bounds read.\n\nThe result is a local privilege escalation out of the userspace sandbox (with kernel denial-of-service and information disclosure as lesser outcomes). The fix adds K_SYSCALL_DRIVER_FLASH(src_dev, read) and K_SYSCALL_DRIVER_FLASH(dst_dev, write) to z_vrfy_flash_copy(), which verify each device is a registered flash-driver kernel object the calling thread is permitted to use before any dereference, closing the path completely.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-75045",
-      "published": "2026-08-17T16:17:51.530",
-      "description": "In JetBrains YouTrack before 2025.3.156085, \n2026.1.13913, \n2026.2.18112 an unauthenticated attacker could download database backups via shared draft signature",
-      "severity": "CRITICAL",
-      "score": 9.1
+      "id": "CVE-2026-46345",
+      "published": "2026-08-17T18:16:38.393",
+      "description": "compliance-trestle is a tooling platform for managing compliance as code. Prior to versions 3.12.2 and 4.0.3, the `-o/--output` argument in `trestle author jinja` allows writing files outside the intended workspace. The application does not properly validate, `../`,  `..\\`, or absolute paths. This allows arbitrary file write to attacker-controlled locations. Versions 3.12.3 and 4.0.3 patch the issue.",
+      "severity": "HIGH",
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-75044",
-      "published": "2026-08-17T16:17:51.410",
-      "description": "In JetBrains YouTrack before 2025.3.156085, \n2026.1.13914, \n2026.2.18095 missing authorisation allowed an authenticated user to delete arbitrary entities via the mailbox endpoint",
+      "id": "CVE-2026-33437",
+      "published": "2026-08-17T18:16:35.650",
+      "description": "Stirling-PDF is a locally hosted web application that facilitates various operations on PDF files. Prior to 2.0.0, the Get Info workflow in app/core/src/main/resources/templates/security/get-info-on-pdf.html inserts untrusted PDF Title and Author metadata into the summary-text element with innerHTML, allowing a malicious PDF to execute stored cross-site scripting when a user clicks Get Info and to access browser-session data or modify page content. This issue is fixed in version 2.0.0.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-64868",
-      "published": "2026-08-17T16:17:22.713",
-      "description": "New API is a large language mode (LLM) gateway and artificial intelligence (AI) asset management system. Prior to 1.0.0-rc.11, POST /api/stripe/webhook, POST /api/creem/webhook, and POST /api/waffo/webhook read and log full request bodies before signature validation in router/api-router.go and the payment controllers, allowing an unauthenticated attacker to cause memory pressure, container restarts, or disk exhaustion without forging a successful payment. This issue is fixed in version 1.0.0-rc.11.",
+      "id": "CVE-2026-59893",
+      "published": "2026-08-17T18:17:35.730",
+      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, SQL_REGEX in sqlparse/keywords.py and the per-position loop in sqlparse/lexer.py repeatedly scan unmatched dollar-quoted literal and multiline-comment delimiters, causing quadratic CPU consumption through sqlparse.parse(), sqlparse.format(), and sqlparse.split(). This issue is fixed in version 0.6.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-73646",
-      "published": "2026-08-17T16:17:47.257",
-      "description": "PostCSS takes a CSS file and provides an API to analyze and modify its rules by transforming the rules into an Abstract Syntax Tree. Prior to 8.5.18, lib/previous-map.js loadMap() passes attacker-controlled sourceMappingURL values to join(dirname(opts.from), annotation), and loadFile() permits traversed or absolute .map paths, allowing untrusted CSS processed without map: false to disclose sourcesContent from arbitrary reachable .map files through result.map. This issue is fixed in version 8.5.18.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-74858",
-      "published": "2026-08-17T16:17:49.307",
-      "description": "A vulnerability has been found in jae-jae fetcher-mcp up to 0.3.9. Impacted is the function fetch_url/fetch_urls of the file /latest/meta-data/iam/security-credentials/ of the component URL Validation. Such manipulation leads to server-side request forgery. It is possible to launch the attack remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-68517",
+      "published": "2026-08-17T17:16:40.173",
+      "description": "Glances is an open-source system cross-platform monitoring tool. Prior to 4.5.6, the cors_origins guard in glances/outputs/glances_restful_api.py uses exact list equality instead of wildcard membership, allowing a multi-origin list containing the wildcard to retain cors_credentials and expose authenticated REST API data to an untrusted website visited by a previously authenticated user. This issue is fixed in 4.5.6.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-68762",
-      "published": "2026-08-17T16:17:30.237",
-      "description": "In JetBrains Ktor before 3.4.1 potential DoS attack via WebSocket decompression was possible",
+      "id": "CVE-2026-50771",
+      "published": "2026-08-17T18:17:09.100",
+      "description": "Cross Site Scripting vulnerability in Squirro Cognitive Search < 3.14.2 allows a remote attacker to execute arbtirary code via the Email Notification, Create Evaluation Sets and HTML Editor functions.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-53960",
-      "published": "2026-08-17T16:16:58.423",
-      "description": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, hidden or otherwise unviewable first-post content was leaked as an excerpt in the publicly-served Q&A (QAPage) JSON-LD structured data, exposing it to any unauthenticated visitor and to search-engine crawlers. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "id": "CVE-2026-48053",
+      "published": "2026-08-17T18:16:39.660",
+      "description": "Kolibri is an offline-first education platform. Prior to version 0.19.4, several Kolibri API endpoints accept an unvalidated `baseurl` parameter and fetch attacker-controlled URLs from the Kolibri server, reflecting the response body back to the caller. The original report identified two endpoints on the `RemoteFacilityUser*` viewsets; remediation review found two further reflection points on the same pattern. The GET endpoint was unauthenticated. Version 0.19.4 fixes the vulnerability.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-55704",
-      "published": "2026-08-17T16:16:59.057",
-      "description": "Discourse is an open-source discussion platform. Prior o 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, users who were allowed to view a group’s activity, but were not permitted to see shared drafts, could still receive shared-draft entries through the group posts and group mentions endpoints. This could disclose shared-draft topic titles and post excerpt/content, resulting in an information disclosure of unpublished draft material. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "id": "CVE-2026-12519",
+      "published": "2026-08-17T17:16:38.867",
+      "description": "The WNC-M14A2A LTE-M modem driver mishandles unsolicited %NOTIFYEV: events in on_cmd_socknotifyev() (drivers/modem/vendor_standalone/wncm14a2a.c). The response line is linearized into a fixed 40-byte stack buffer via net_buf_linearize(), which caps the copy at 39 bytes and returns out_len <= 39. The two quote-delimiter scanning loops, however, were bounded by len — the full CR/LF-delimited frame length returned by net_buf_findcrlf() — rather than by out_len.\n\nWhen a %NOTIFYEV: line longer than 39 bytes contains no \" within the linearized region, the loop indices p1/p2 walk past value[39] and read adjacent stack memory until a stray quote byte is found or the index reaches len. The over-read string is then passed to strncmp()/atoi()/LOG_*, and if a quote byte is found out of bounds the subsequent value[p2] = '\\0' performs a single-NUL out-of-bounds stack write at an attacker-influenced offset.\n\nThe %NOTIFYEV: payload carries network-derived content (LTIME network time, SIB1 base-station system information, CSPS/RRCSTATE), so a rogue cellular base station, a malicious or compromised modem module, or RF manipulation that induces an over-long notify line reaches the defect without any application interaction; the handler runs automatically on the unsolicited event in the modem RX thread.\n\nThe impact is out-of-bounds stack disclosure (into logs and parsing) and stack corruption that can crash the modem RX thread (denial of service). The write offset is only weakly controlled, so memory-safe code execution is not demonstrated. The fix bounds both scanning loops by out_len, keeping all accesses within the linearized buffer.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5
     },
     {
-      "id": "CVE-2026-59829",
-      "published": "2026-08-17T16:17:01.687",
-      "description": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.1, on sites with category group moderation enabled, the review queue could include an excerpt (and permalink) of the private message attached to a flag, even when the reviewing category moderator was not a participant in that message. These notify_moderators flag messages are addressed only to moderators and, for core flags, to a category's moderation groups as they existed when the flag was raised, so a category group moderator could read flag-discussion content they were not authorized to see. This affects official plugins that create such messages and core flags raised before a moderator's group was granted moderation of the category. Only the confidentiality of a limited excerpt of these flag-related private messages is affected; no content can be modified or deleted. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.1.",
+      "id": "CVE-2026-12629",
+      "published": "2026-08-17T17:16:39.010",
+      "description": "The ARM PL011 UART driver in drivers/serial/uart_pl011.c fails to acknowledge receive error interrupts. On the PL011, the framing, parity, break, and overrun error interrupts (PL011_IMSC_ERROR_MASK) are cleared only by writing the interrupt-clear register UARTICR; reading the data register clears the RX interrupt and the per-byte RSR status but not the error interrupt status in MIS. The interrupt service routine pl011_isr() acknowledged only the CTS modem-status interrupt and never wrote icr for the error bits, so an asserted error interrupt remains pending after the ISR returns.\n\nWhen an application enables error-interrupt reporting via the public uart_irq_err_enable() API, an attacker who controls the serial peer can deterministically assert these error bits by injecting line errors on the RX line — a baud/stop-bit mismatch or mid-character break (framing/break error), a flipped parity bit (parity error), or FIFO flooding (overrun error). Because the error interrupt is never cleared, the interrupt line stays asserted and the CPU re-enters pl011_isr() immediately and indefinitely, producing an interrupt-storm livelock from which the core makes no forward progress.\n\nThe impact is an availability-only denial of service (permanent hang), reachable from an external or removable UART peer. Exploitation is gated by configuration: the error interrupt is off by default and no in-tree subsystem enables it, so only applications that explicitly call uart_irq_err_enable() on a PL011-based, interrupt-driven port are affected. The fix makes pl011_isr() acknowledge the pending error bits via uart->icr, breaking the loop, and additionally clears the latched RSR status in pl011_err_check().",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.6
     },
     {
-      "id": "CVE-2026-75046",
-      "published": "2026-08-17T16:17:51.647",
-      "description": "In JetBrains YouTrack before 2026.2.18112 an authenticated user could enumerate accounts via the users search endpoint",
+      "id": "CVE-2026-12630",
+      "published": "2026-08-17T17:16:39.130",
+      "description": "Zephyr's 6LoWPAN IP Header Compression (IPHC) uncompression code contains an out-of-bounds read in get_ihpc_inlined_size() (subsys/net/ip/6lo.c). The destination inline size is looked up in da_inline_size_table, which has 13 entries, using an index built from the M, DAC and DAM bits of the received IPHC dispatch word (iphc & NET_6LO_IPHC_DA_MASK, a 4-bit value of 0-15). The reserved combinations 13, 14 and 15 are not bounds-checked and read past the end of the table.\n\nThe iphc word is taken directly from the received frame, and get_ihpc_inlined_size() is reached on every inbound 6LoWPAN frame via net_6lo_uncompress() from the 802.15.4 receive path (subsys/net/l2/ieee802154/ieee802154_6lo.c and ieee802154_6lo_fragment.c). An unauthenticated attacker on the radio/adjacent link can therefore craft a frame whose destination addressing-mode nibble selects an out-of-range index, with no privileges or user interaction.\n\nThe out-of-bounds value becomes the computed inline_size, which then drives header reconstruction before the buffer-length check: it is used to dereference *(pkt->buffer->data + sizeof(iphc) + inline_size) and to compute a size_t diff that can underflow, leading to a further out-of-bounds read of the packet buffer and malformed uncompression. The practical impact is a radio-triggerable out-of-bounds read / denial-of-service on the receiver; the leaked byte is not returned to the attacker. The fix rejects any destination index beyond the table, aborting processing of the malformed frame.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2025-27621",
-      "published": "2026-08-17T16:16:46.290",
-      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the UpTrain backend creates a new default user with a static username, where the username is also used as the default API key. The UpTrain backend also has an open CORS policy. Using these two primitives, any website can make a authenticated cross-origin request to the UpTrain instance by providing the default API key in the header `uptrain-access-token`. This issue may allow arbitrary websites to perform privileged operations on the UpTrain instance, as if they were the default logged in user. As of time of publication, no known patches are available.",
+      "id": "CVE-2026-40145",
+      "published": "2026-08-17T17:16:39.787",
+      "description": "A vulnerability exists in the interaction between a Endpoint Privilege Management (Windows Deployment) support utility and the agent's tamper protection controls. Under certain conditions, the protections applied to the utility process may not be enforced as intended.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-27770",
-      "published": "2026-08-17T16:16:46.447",
-      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the `/create_project` endpoint is vulnerable to remote code execution via the `checks` and `metadata` parameters. Any user that has access to UpTrain and a valid authentication method may be able to execute arbitrary code in the context of the host running UpTrain, which in most cases will be the docker container as suggested by the documentation. As of time of publication, no known patch is available.",
+      "id": "CVE-2026-61666",
+      "published": "2026-08-17T17:16:39.917",
+      "description": "websocket-driver is a WebSocket protocol handler with pluggable I/O. Prior to 0.8.2, WebSocket::Driver.server() passes a malformed Host header to URI.parse in lib/websocket/http/request.rb without catching URI::InvalidURIError, allowing a remote client to crash a TCP-backed WebSocket server when the application does not catch the error from parse(). This issue is fixed in version 0.8.2.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-27771",
-      "published": "2026-08-17T16:16:46.580",
-      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the `/add_prompts` endpoint is vulnerable to remote code execution via the `checks` and `metadata` parameters. Any user that has access to UpTrain and a valid authentication method may be able to execute arbitrary code in the context of the host running UpTrain, which in most cases will be the docker container as suggested by the documentation. As of time of publication, no known patch is available.",
+      "id": "CVE-2026-68518",
+      "published": "2026-08-17T17:16:40.353",
+      "description": "Glances is an open-source system cross-platform monitoring tool. Prior to 4.5.6, _sanitize_mustache_dict() in glances/actions.py sanitizes individual Mustache values before chevron.render(), allowing adjacent unescaped Mustache variables to reconstruct shell operators that secure_popen() executes when attacker-controlled process or container fields are rendered by an administrator-configured action template. This issue is fixed in 4.5.6.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-27772",
-      "published": "2026-08-17T16:16:46.710",
-      "description": "UpTrain is an open-source platform to evaluate and improve generative AI applications. In version 0.7.1 and prior, the `/new_run` endpoint is vulnerable to remote code execution via the `checks` and `metadata` parameters. Any user that has access to UpTrain and a valid authentication method may be able to execute arbitrary code in the context of the host running UpTrain, which in most cases will be the docker container as suggested by the documentation. As of time of publication, no known patch is available.",
+      "id": "CVE-2026-54284",
+      "published": "2026-08-17T18:17:11.400",
+      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, TokenList construction and string conversion in sqlparse/sql.py repeatedly flatten nested token subtrees constructed by group_parenthesis and group_case, causing quadratic CPU consumption through sqlparse.parse(), sqlparse.format(), and sqlparse.split() before depth and token limits terminate processing. This issue is fixed in version 0.6.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-40144",
-      "published": "2026-08-17T16:16:56.203",
-      "description": "A memory-corruption vulnerability exists in a kernel-mode component of BeyondTrust Endpoint Privilege Management (Windows deployments) prior to version 26.1.2. Insufficient validation of input processed by the component may result in memory being accessed outside its intended bounds.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-64865",
-      "published": "2026-08-17T16:17:22.427",
-      "description": "New API is a large language mode (LLM) gateway and artificial intelligence (AI) asset management system. Prior to 1.0.0-rc.16, repeated PUT /api/user/self requests that update language or sidebar_modules can race relay billing because controller/user.go calls User.Update and updateUserCache performs a full RedisHSetObj write to user:.Quota, overwriting concurrent HINCRBY deductions and allowing an authenticated user to keep cached quota artificially high. This issue is fixed in version 1.0.0-rc.16.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-64866",
-      "published": "2026-08-17T16:17:22.570",
-      "description": "New API is a large language mode (LLM) gateway and artificial intelligence (AI) asset management system. From 0.9.1.3 until 1.0.0-rc.7, AdminResetPasskey in controller/passkey.go lacks the canManageTargetRole authorization check for DELETE /api/user/:id/reset_passkey, allowing a lower-privileged administrator to remove a passkey from a same-level or higher-privileged account, including a root account. This issue is fixed in version 1.0.0-rc.7.",
+      "id": "CVE-2026-59894",
+      "published": "2026-08-17T18:17:35.913",
+      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, sqlparse/filters/output.py fails to escape existing backslashes before quotes in sqlparse.format output_format='python' and output_format='php' and the corresponding sqlformat -l modes, allowing crafted SQL to terminate the generated string and inject Python or PHP code when a downstream consumer executes or imports the generated source. This issue is fixed in version 0.6.0.",
       "severity": "UNKNOWN",
       "score": null
     }
