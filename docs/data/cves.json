@@ -1,143 +1,143 @@
 {
-  "totalResults": 3522,
+  "totalResults": 3549,
   "items": [
     {
-      "id": "CVE-2026-50768",
-      "published": "2026-08-17T18:17:08.760",
-      "description": "File Upload vulnerability in T-Systems International GmbH ImageMaster Version: 9.14.2.8.1 allows a remote attacker to execute arbitrary code via the add attachments feature in the create new document function.",
+      "id": "CVE-2026-66792",
+      "published": "2026-08-17T19:16:34.237",
+      "description": "A flaw was found in the multicloud-operators-subscription component. This vulnerability allows a user on a managed cluster to escalate their privileges by creating a Subscription with specific, crafted annotations. Successful exploitation grants the attacker the ability to deploy resources into any namespace with the elevated permissions of the controller's Service Account, potentially leading to unauthorized access and control over cluster resources.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-50774",
+      "published": "2026-08-17T19:16:31.767",
+      "description": "An issue in GAPTEQ Designer v.3.5 allows a remote attacker to escalate privileges via the Company Manger role.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-50769",
-      "published": "2026-08-17T18:17:08.880",
-      "description": "The CRM+ application before and including version 2025.6 from Brainformatik is vulnerable to SQL Injection (time-based) vulnerability. The check conflict endpoint index.php?module=Appointments&action=CheckConflictOfDates&ajaxSkipHeader=true which is used to check any conflicts for user calendar is vulnerable to SQL injection allowing an attacker to execute arbitrary code.",
+      "id": "CVE-2026-50775",
+      "published": "2026-08-17T19:16:31.873",
+      "description": "A blind SSRF attack in DataHub v.1.5.0.1 allows a remote attacker to execute arbitrary code via the server retrieving an image from a crafted URL, and it fails to return the content or any errors directly.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-50770",
-      "published": "2026-08-17T18:17:08.990",
-      "description": "An issue in Squirro Cognitive Search before v.3.14.2 allows a remote attacker to escalate privileges via a crafted request.",
+      "id": "CVE-2026-19478",
+      "published": "2026-08-17T20:16:41.777",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 18.11.11, 19.0 before 19.0.8, 19.1 before 19.1.6, and 19.2 before 19.2.4 that under certain conditions could allow an unauthenticated user to remotely modify or delete public projects and user data via a GraphQL directive.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.4
     },
     {
-      "id": "CVE-2026-50772",
-      "published": "2026-08-17T18:17:09.207",
-      "description": "An issue in Squirro Cognitive Search < 3.14.2 allows a remote attacker to execute arbitrary code via a crafted payload to the password reset function.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-51346",
-      "published": "2026-08-17T18:17:09.320",
-      "description": "SQL Injection vulnerability in StudIP 6.0.x before 6.0.3 and 5.4.x before 5.4.12 allows a remote attacker to execute arbitrary code and obtain sensitive information via the store() functions.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-62982",
-      "published": "2026-08-17T18:17:56.740",
-      "description": "Glances is an open-source system cross-platform monitoring tool. From 4.5.2 until 4.5.6, _sanitize_mustache_dict() in glances/actions.py skips nested list and dictionary strings such as process cmdline values, allowing pipe characters to survive chevron.render() and be executed by secure_popen() through administrator-configured action templates. This issue is fixed in 4.5.6.",
+      "id": "CVE-2026-57485",
+      "published": "2026-08-17T20:16:44.587",
+      "description": "Stirling-PDF is a locally hosted web application that facilitates various operations on PDF files. Prior to 2.9.0, the /api/v1/pipeline/handleData endpoint in app/core/src/main/java/stirling/software/SPDF/controller/api/pipeline/PipelineProcessor.java injects the STIRLING-PDF-BACKEND-API-USER API key into pipeline subrequests, allowing an authenticated ROLE_USER to retrieve the key through /api/v1/user/get-api-key, impersonate the internal service account, bypass normal rate limits, and access internal endpoints including /api/v1/info/requests/all and /api/v1/info/load/all. This issue is fixed in version 2.9.0.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-46345",
-      "published": "2026-08-17T18:16:38.393",
-      "description": "compliance-trestle is a tooling platform for managing compliance as code. Prior to versions 3.12.2 and 4.0.3, the `-o/--output` argument in `trestle author jinja` allows writing files outside the intended workspace. The application does not properly validate, `../`,  `..\\`, or absolute paths. This allows arbitrary file write to attacker-controlled locations. Versions 3.12.3 and 4.0.3 patch the issue.",
-      "severity": "HIGH",
-      "score": 8.4
-    },
-    {
-      "id": "CVE-2026-33437",
-      "published": "2026-08-17T18:16:35.650",
-      "description": "Stirling-PDF is a locally hosted web application that facilitates various operations on PDF files. Prior to 2.0.0, the Get Info workflow in app/core/src/main/resources/templates/security/get-info-on-pdf.html inserts untrusted PDF Title and Author metadata into the summary-text element with innerHTML, allowing a malicious PDF to execute stored cross-site scripting when a user clicks Get Info and to access browser-session data or modify page content. This issue is fixed in version 2.0.0.",
+      "id": "CVE-2026-57233",
+      "published": "2026-08-17T20:16:44.453",
+      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, the WinGup decompress function joins untrusted ZIP entry names to unzipDestTo without canonical containment validation, allowing an entry such as ../mimeTools/mimeTools.dll to overwrite a DLL in a sibling plugin directory and execute attacker-controlled code when Notepad++ next loads that plugin. This issue is fixed in version 8.9.7.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-59893",
-      "published": "2026-08-17T18:17:35.730",
-      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, SQL_REGEX in sqlparse/keywords.py and the per-position loop in sqlparse/lexer.py repeatedly scan unmatched dollar-quoted literal and multiline-comment delimiters, causing quadratic CPU consumption through sqlparse.parse(), sqlparse.format(), and sqlparse.split(). This issue is fixed in version 0.6.0.",
+      "id": "CVE-2026-50773",
+      "published": "2026-08-17T19:16:31.663",
+      "description": "An issue in CGM Germany - CompuGroup Medical CGM ISIS MED 2510.1.0.20 allows a remote attacker to execute arbtirary code via a crafted .dll file.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-54758",
+      "published": "2026-08-17T20:16:44.323",
+      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, the expandNppEnvironmentStrs function in PowerEditor/src/WinControls/StaticDialog/RunDlg/RunDlg.cpp copies a Notepad++ variable name between $( and ) into the fixed-size wchar_t str[MAX_PATH] stack buffer without bounding the m loop index, allowing a name of 260 or more characters to corrupt adjacent stack data, terminate the process through __report_gsfailure, and potentially execute code. This issue is fixed in version 8.9.7.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-45698",
+      "published": "2026-08-17T19:16:30.703",
+      "description": "Netatalk is a Free and Open Source file server suite for Unix-like operating systems. In versions 3.1.19 through 4.4.2, a stack-based buffer overflow exists in the deletedir() function of Netatalk's afpd daemon due to an integer underflow in the calculation of the remaining buffer size used for path construction. deletedir() is a utility function called when a file operation crosses a device boundary inside an AFP shared volume, which the standard library's renameat() cannot handle. The function attempts to prevent buffer overflows by tracking available space in a size_t remain variable. However, the arithmetic used to compute remain results in an unsigned integer underflow, causing the variable to become SIZE_MAX. Because of this, the subsequent boundary check always evaluates as safe, allowing an unbounded strcpy() operation to copy attacker-controlled filenames into a nearly full stack buffer. Version 4.4.3 patches the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-59902",
-      "published": "2026-08-17T18:17:36.087",
-      "description": "Netty is an asynchronous, event-driven network application framework. Prior to 4.1.137.Final and 4.2.17.Final, io.netty.handler.codec.sctp.SctpMessageCompletionHandler limits incomplete messages and fragment counts but not maxBufferedBytes, allowing unauthenticated peers to exhaust memory with large SCTP fragments. This issue is fixed in versions 4.1.137.Final and 4.2.17.Final.",
+      "id": "CVE-2026-50776",
+      "published": "2026-08-17T19:16:31.980",
+      "description": "Directory Traversal vulnerability in Pronis Loisirs Billetterie CSE - < 04/2026 allows a remote attacker to obtain sensitive information and execute arbitrary code.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-71979",
-      "published": "2026-08-17T18:18:12.370",
-      "description": "INDI (Instrument Neutral Distributed Interface) indiserver through 2.2.4.2, fixed in commit 96bbd7f, contains a stack buffer overflow vulnerability that allows unauthenticated remote attackers to crash the daemon by sending malformed XML with mismatched tags whose names exceed 1024 bytes. Attackers can send a single TCP packet on port 7624 with mismatched XML tags to trigger an unbounded sprintf() write into a fixed 1024-byte stack buffer in MsgQueue.cpp, terminating the daemon and disrupting all active client and driver sessions.",
+      "id": "CVE-2026-74238",
+      "published": "2026-08-17T19:16:42.713",
+      "description": "TIER IV Nebula through 1.2.0 contains an out-of-bounds read vulnerability in the Vlp32Decoder::unpack() function that allows unauthenticated remote attackers to cause the decoder to read past the end of a received UDP buffer into adjacent heap memory by sending a short UDP datagram. Attackers can send a malformed datagram to the Velodyne UDP sensor port, which lacks sender-address restrictions present in other drivers, causing fabricated points derived from heap memory contents to be silently published into downstream PointCloud2 messages consumed by Autoware nodes.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-71980",
-      "published": "2026-08-17T18:18:12.510",
-      "description": "Belledonne Communications bcg729 through 1.1.2 contains an out-of-bounds read vulnerability in the decodeSIDframe() function in src/cng.c that allows unauthenticated network-adjacent attackers to trigger a heap read beyond buffer boundaries by sending a zero-length comfort-noise RTP payload. A zero-length payload causes an integer underflow in the uint8_t filter order calculation, which wraps to 255 and is clamped to 10, causing the function to unconditionally read 11 bytes from a zero-byte buffer, resulting in media process termination or silent consumption of adjacent heap memory as reflection coefficients.",
+      "id": "CVE-2026-19650",
+      "published": "2026-08-17T20:16:41.910",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 18.11.11, 19.0 before 19.0.8, 19.1 before 19.1.6, and 19.2 before 19.2.4 that under certain conditions could have allowed an unauthenticated user to execute mutations via GET requests due to improper request validation in GraphQL multiplex query handling.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-59903",
-      "published": "2026-08-17T18:17:36.250",
-      "description": "Netty is an asynchronous, event-driven network application framework. Prior to 4.1.137.Final and 4.2.17.Final, io.netty.handler.codec.http.cors.CorsHandler setVaryHeader replaces application Vary headers such as Authorization or Cookie with Origin, allowing a caching proxy or CDN to reuse authenticated responses across users and disclose sensitive information. This issue is fixed in versions 4.1.137.Final and 4.2.17.Final.",
+      "id": "CVE-2026-63667",
+      "published": "2026-08-17T20:16:44.720",
+      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 3.6.2, the import-export module in packages/import-export/lib/formats/gzip.js constructs an attachment source path from the attacker-controlled _id, name, and extension fields in aposAttachments.json without ensuring that the resolved path remains under the extracted attachments directory, allowing an authenticated contributor to import a crafted archive, read a host file with an allowed extension, and publish the copied file at an unauthenticated uploads URL. This issue is fixed in version 3.6.2.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-50771",
-      "published": "2026-08-17T18:17:09.100",
-      "description": "Cross Site Scripting vulnerability in Squirro Cognitive Search < 3.14.2 allows a remote attacker to execute arbtirary code via the Email Notification, Create Evaluation Sets and HTML Editor functions.",
+      "id": "CVE-2026-75011",
+      "published": "2026-08-17T19:16:42.910",
+      "description": "A flaw has been found in kylecui NetForensicMCP 2.1.0. Impacted is the function execAsync of the file index.js. Executing a manipulation of the argument interface/protocol can lead to command injection. The attack may be launched remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-48053",
-      "published": "2026-08-17T18:16:39.660",
-      "description": "Kolibri is an offline-first education platform. Prior to version 0.19.4, several Kolibri API endpoints accept an unvalidated `baseurl` parameter and fetch attacker-controlled URLs from the Kolibri server, reflecting the response body back to the caller. The original report identified two endpoints on the `RemoteFacilityUser*` viewsets; remediation review found two further reflection points on the same pattern. The GET endpoint was unauthenticated. Version 0.19.4 fixes the vulnerability.",
-      "severity": "MEDIUM",
-      "score": 5.8
-    },
-    {
-      "id": "CVE-2026-68520",
-      "published": "2026-08-17T18:18:06.753",
-      "description": "Glances is an open-source system cross-platform monitoring tool. Prior to 4.5.6, as_dict_secure() in glances/config.py checks only option names and exposes public_username and credentials embedded in public_api values through unauthenticated GET /api/4/config and GET /api/4/config/ip requests. This issue is fixed in 4.5.6.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-54284",
-      "published": "2026-08-17T18:17:11.400",
-      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, TokenList construction and string conversion in sqlparse/sql.py repeatedly flatten nested token subtrees constructed by group_parenthesis and group_case, causing quadratic CPU consumption through sqlparse.parse(), sqlparse.format(), and sqlparse.split() before depth and token limits terminate processing. This issue is fixed in version 0.6.0.",
+      "id": "CVE-2026-12553",
+      "published": "2026-08-17T19:16:24.560",
+      "description": "HP has identified a potential vulnerability in HP Web Jetadmin (WJA) that may allow an unauthenticated actor to read from or write to arbitrary files through a DLL hijacking mechanism.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-59894",
-      "published": "2026-08-17T18:17:35.913",
-      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, sqlparse/filters/output.py fails to escape existing backslashes before quotes in sqlparse.format output_format='python' and output_format='php' and the corresponding sqlformat -l modes, allowing crafted SQL to terminate the generated string and inject Python or PHP code when a downstream consumer executes or imports the generated source. This issue is fixed in version 0.6.0.",
+      "id": "CVE-2026-17639",
+      "published": "2026-08-17T19:16:29.367",
+      "description": "Certain HP Smart Tank All-in-One printers may be potentially vulnerable to a denial of service condition that allows an unauthenticated attacker to cause the device to become unavailable by sending multiple concurrent HTTP requests.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-68519",
-      "published": "2026-08-17T18:18:06.610",
-      "description": "Glances is an open-source system cross-platform monitoring tool. Prior to 4.5.6, GlancesActions.run() in glances/actions.py ignores --disable-config-exec for on-alert action commands and invokes secure_popen() with shell operators enabled, allowing configured redirection, command chaining, or pipes to execute when an alert triggers. This issue is fixed in 4.5.6.",
+      "id": "CVE-2026-60106",
+      "published": "2026-08-17T19:16:33.300",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-71491",
-      "published": "2026-08-17T18:18:12.120",
-      "description": "sqlparse is a non-validating SQL parser module for Python. Prior to 0.6.0, group_comments in sqlparse/engine/grouping.py repeatedly rescans comment-only statements before the MAX_GROUPING_TOKENS guard, causing quadratic CPU consumption through sqlparse.parse() and sqlparse.format(sql, strip_comments=True). This issue is fixed in version 0.6.0.",
+      "id": "CVE-2026-60107",
+      "published": "2026-08-17T19:16:33.373",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-71693",
+      "published": "2026-08-17T19:16:35.913",
+      "description": "Rejected reason: DO NOT USE THIS CVE RECORD. ConsultIDs: none. Reason: This record was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: none.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-52886",
+      "published": "2026-08-17T20:16:44.077",
+      "description": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, Notepad++ validates the backupFilePath attribute from session.xml with std::wstring::starts_with against the expected backup directory without path normalization, allowing parent-directory sequences during snapshot-mode restoration to read an arbitrary user-readable file outside the backup directory into an editor tab. This issue is fixed in version 8.9.7.",
       "severity": "UNKNOWN",
       "score": null
     }
