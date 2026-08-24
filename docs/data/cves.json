@@ -1,145 +1,145 @@
 {
-  "totalResults": 3519,
+  "totalResults": 3487,
   "items": [
     {
-      "id": "CVE-2026-74872",
-      "published": "2026-08-17T11:16:41.560",
-      "description": "openssl_encrypt versions before 1.4.0 contain an arbitrary code execution vulnerability in the Whirlpool hash implementation that uses broad glob patterns to load .so modules without integrity verification. Attackers can place malicious .so files matching the whirlpool*py313*.so pattern in site-packages directories to achieve native code execution when the module is loaded.",
+      "id": "CVE-2026-74843",
+      "published": "2026-08-17T12:18:58.180",
+      "description": "A vulnerability was determined in Wavlink WN531P3 and WN535M1 V250922. Affected by this vulnerability is the function strcpy of the file /etc/lighttpd/www/cgi-bin/export_pingortrace.cgi of the component Export Pingortrace CGI. Executing a manipulation of the argument HTTP_COOKIE can lead to stack-based buffer overflow. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-74875",
-      "published": "2026-08-17T11:16:41.943",
-      "description": "openssl_encrypt versions before 1.4.0 silently skip JSON schema validation when the jsonschema library is not installed, allowing malformed metadata to be accepted. Attackers can remove the jsonschema package or supply unknown metadata format versions to bypass all schema checks and process malicious data.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-74876",
-      "published": "2026-08-17T11:16:42.073",
-      "description": "openssl_encrypt versions before 1.4.0 contain a vulnerability in PublicKeyBundle.from_dict() that creates key bundles from untrusted data without verifying signatures. Attackers can call from_dict() followed by to_identity() without signature verification to encrypt data using attacker-controlled public keys, leaking secrets.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-74878",
-      "published": "2026-08-17T11:16:42.330",
-      "description": "openssl_encrypt versions before 1.4.0 use an in-memory rate limiter for TOTP brute-force protection that is not shared across workers and is lost on server restart. Attackers can distribute authentication attempts across multiple server instances or retry immediately after a restart to bypass rate limiting protections.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-74880",
-      "published": "2026-08-17T11:16:42.593",
-      "description": "openssl_encrypt versions before 1.4.0 accept refresh tokens as URL query parameters in keyserver and telemetry server routes. Attackers can extract tokens from server logs, proxy logs, browser history, and HTTP Referer headers to gain unauthorized access.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-74799",
-      "published": "2026-08-17T11:16:40.017",
-      "description": "SiYuan before 3.7.4 registers Go net/http/pprof debug endpoints including heap and goroutine dumps without authentication when --mode flag is not set to exactly prod. Attackers can access /debug/pprof/heap and related endpoints to extract in-memory secrets including AccessAuthCode and AI provider API keys.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-74800",
-      "published": "2026-08-17T11:16:40.187",
-      "description": "SiYuan before v3.7.4 fails to set Content-Disposition and X-Content-Type-Options headers when serving arbitrary file assets, allowing stored cross-site scripting attacks. Authenticated attackers can upload HTML files as assets and execute scripts with full kernel API access when the workspace owner opens the asset link.",
+      "id": "CVE-2026-14564",
+      "published": "2026-08-17T13:16:50.797",
+      "description": "Insufficiently Protected Credentials vulnerability in Innotim Software Telecommunications and Consulting Trade Ltd. Co. Logsign SIEM allows Retrieve Embedded Sensitive Data.\n\nThis issue affects Logsign SIEM: from 6.4.97 before 6.4.114.",
       "severity": "CRITICAL",
       "score": 9
     },
     {
-      "id": "CVE-2026-74877",
-      "published": "2026-08-17T11:16:42.203",
-      "description": "openssl_encrypt versions before 1.4.0 contain a missing ownership verification vulnerability in the revoke_key method that allows authenticated clients to revoke any other client's key. Attackers can revoke arbitrary keys by providing a valid ML-DSA signature, bypassing the intended ownership restriction.",
+      "id": "CVE-2026-74997",
+      "published": "2026-08-17T13:16:54.100",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, the cmd_learn driver of the markasjunk plugin is subject to remote code execution via crafted placeholder replacement values. This issue only affects Roundcube instances using the markasjunk plugin with its cmd_learn driver.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-74798",
-      "published": "2026-08-17T11:16:39.873",
-      "description": "SiYuan kernel before v3.7.4 contains a path traversal vulnerability in the database_clean MCP tool. The tool performs only an empty-string check on the id parameter before passing it to RemoveUnusedAttributeView (kernel/model/attribute_view.go), which builds a filesystem path via filepath.Join without validating that id matches SiYuan's node-ID format. An authenticated MCP client can supply path traversal sequences in id to cause the kernel to copy an arbitrary file readable by the process into SiYuan's history directory (arbitrary file read) and then delete the original file (arbitrary file deletion). The corresponding HTTP API handler was hardened in GHSA-7hm9-v7vf-7g4w, but this MCP caller was not.",
+      "id": "CVE-2026-16138",
+      "published": "2026-08-17T14:20:19.797",
+      "description": "In Progress ShareFile Storage Zones Controller v5.12.5 and below versions, unsafe deserialization of untrusted file metadata can allow a user with write access to a Network share to execute arbitrary code on the Storage Zones Controller host.",
       "severity": "HIGH",
-      "score": 8.7
+      "score": 8
     },
     {
-      "id": "CVE-2026-74801",
-      "published": "2026-08-17T11:16:40.323",
-      "description": "SiYuan before 3.7.4 fails to properly escape workspace directory paths when constructing command-line arguments for the elevated elevator.exe helper process. Attackers can create a malicious workspace directory with command metacharacters in its path and trigger the Microsoft Defender exclusion flow to execute arbitrary commands with administrator privileges after UAC approval.",
+      "id": "CVE-2026-15218",
+      "published": "2026-08-17T14:20:19.357",
+      "description": "A flaw was found in the maas-api and maas-controller ServiceAccounts within Red Hat OpenShift AI. These ServiceAccounts are granted cluster-wide permissions that exceed their operational requirements. An attacker who compromises the identity of these ServiceAccounts, either through a remote code execution vulnerability or by creating a malicious pod in the same namespace, could exploit these excessive permissions. This could lead to full cluster administrator privileges through the creation of new ClusterRoleBindings or the disclosure of sensitive information by accessing all secrets across the cluster.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 7.9
     },
     {
-      "id": "CVE-2026-74802",
-      "published": "2026-08-17T11:16:40.453",
-      "description": "SiYuan versions before 3.7.4 contain a cross-site WebSocket hijacking vulnerability in the admin-only /ws/network/proxy endpoint that explicitly disables origin validation by setting CheckOrigin to unconditionally return true. Attackers can craft malicious webpages that establish WebSocket connections to this endpoint and direct the SiYuan kernel process to proxy arbitrary network traffic to attacker-chosen targets, enabling authenticated network pivoting through the victim's machine.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-74869",
-      "published": "2026-08-17T11:16:41.163",
-      "description": "stoatchat before 0.15.0 contains a missing authorization vulnerability in the Subscribe message handler that allows authenticated attackers to enumerate members and monitor profile updates of private servers without membership. Attackers can subscribe to any server's member-update topic by sending a Subscribe message with an arbitrary server ID, receiving live UserUpdate events including display names, avatars, and status changes for members they should not have access to.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-74868",
-      "published": "2026-08-17T11:16:41.030",
-      "description": "SiYuan versions before 3.7.4 contain an unthrottled brute-force vulnerability in the Publish Service Basic Auth implementation (PublishServiceTransport.RoundTrip() in kernel/server/proxy/publish.go). The Publish Service runs on a separate, unauthenticated-by-default listener (default TCP port 6808) and gates named publish-viewer accounts (Conf.Publish.Auth.Accounts) with Basic Auth that has no rate limiting, per-account lockout, or backoff. Unauthenticated remote attackers can submit unlimited password guesses against named accounts to gain access to published notes/notebooks.",
+      "id": "CVE-2026-16467",
+      "published": "2026-08-17T13:16:50.963",
+      "description": "Missing Authorization vulnerability in Dolusoft Software Technologies Fortilogger allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Fortilogger: before 6.1.5.9.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-74874",
-      "published": "2026-08-17T11:16:41.813",
-      "description": "openssl_encrypt versions before 1.4.0 use Python's non-cryptographic random module for steganographic pixel selection in the generate_pseudorandom_sequence function. Attackers who know the password can recover the Mersenne Twister state from approximately 624 outputs and predict pixel locations containing hidden data for extraction.",
+      "id": "CVE-2026-74998",
+      "published": "2026-08-17T13:16:54.270",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, responses from the CSS (Cascading Style Sheets) proxy were not validated, which may result in information disclosure or XSS (cross-site scripting) via MIME sniffing.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-74879",
-      "published": "2026-08-17T11:16:42.460",
-      "description": "openssl_encrypt versions before 1.4.0 contain an information disclosure vulnerability in the /ready endpoint that returns full database exception strings to unauthenticated callers. Attackers can trigger database errors to extract sensitive information including hostnames, IP addresses, connection parameters, and potentially credentials from exception messages.",
+      "id": "CVE-2026-16137",
+      "published": "2026-08-17T14:20:19.670",
+      "description": "In Progress ShareFile Storage Zones Controller v5.12.5 and below, a party with valid zone credentials can perform path traversal using resumable upload initiation endpoint, allowing the party to write arbitrary content to any location writable by the application's service account. This may result in the execution of attacker-supplied code.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-74842",
-      "published": "2026-08-17T11:16:40.597",
-      "description": "A vulnerability was found in Kira-Pgr PromptShopMCP up to 5bc0cd17358e19a5415d11a531088170d7b81452. Affected is the function download_image of the file server.py of the component Image-Toolkit-MCP-Server. Performing a manipulation of the argument image_url results in server-side request forgery. The attack may be initiated remotely. The exploit has been made public and could be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-16139",
+      "published": "2026-08-17T14:20:19.913",
+      "description": "In Progress ShareFile Storage Zones Controller versions <= 5.12.5 and <= 6.0.2, an authenticated zone administrator can exploit improper validation in the download preparation flow, enabling attacker-controlled files to be written outside the intended preparation directory. This can lead to remote code execution in v5 versions. Remote code execution is not confirmed on v6 versions.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-75002",
+      "published": "2026-08-17T13:16:54.747",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, mail search and LITERAL+ byte-count desynchronization could lead to information disclosure or privilege escalation via IMAP command injection.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-75010",
+      "published": "2026-08-17T13:16:55.563",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, the modoboa driver of the password plugin could leak a Modoboa API authentication token to a user-controlled host via crafted session data. This issue only affects Roundcube instances using the password plugin with its modoboa driver.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-74871",
-      "published": "2026-08-17T11:16:41.427",
-      "description": "openssl_encrypt versions before 1.4.6 contain a key derivation flaw in sequential XOR composition mode where the last stage cancels out during key generation. When configured with a single KDF and no prior hashing stage, attackers can bypass memory-hard key derivation and perform offline password cracking at SHA-256 speed instead of the configured KDF cost.",
+      "id": "CVE-2026-75000",
+      "published": "2026-08-17T13:16:54.580",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, improper HTML/CSS sanitization of the SVG animate \"by\" attribute may lead to remote image blocking bypass, which in turn may lead to information disclosure or privilege escalation.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-74873",
-      "published": "2026-08-17T11:16:41.690",
-      "description": "openssl_encrypt versions before 1.4.0 expose passwords passed via the --password CLI argument in process listings accessible to all system users. Attackers can read process arguments through ps aux or /proc/[pid]/cmdline to retrieve plaintext passwords and keystore passwords.",
+      "id": "CVE-2026-75003",
+      "published": "2026-08-17T13:16:54.900",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, an unclosed url() in a FuncIRI attribute of an SVG image could evade the remote image blocking, which may lead to information disclosure or privilege escalation.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-74867",
-      "published": "2026-08-17T11:16:40.897",
-      "description": "SiYuan versions before 3.7.4 contain a cross-site request forgery vulnerability in the session-cookie authentication branch of CheckAuth() that lacks Origin/Referer validation and sets no explicit SameSite attribute on session cookies. Attackers can craft malicious web pages that perform unauthorized actions on behalf of authenticated users by submitting requests with valid session cookies, relying on browser default SameSite policies rather than server-enforced protections.",
+      "id": "CVE-2026-75006",
+      "published": "2026-08-17T13:16:55.240",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, insufficient Cascading Style Sheets (CSS) sanitization in HTML e-mail messages may lead to SSRF or Information Disclosure, e.g., if stylesheet links point to local network hosts. This issue exists because of insufficient fixes for CVE-2026-35540, CVE-2026-48843 and CVE-2026-62643.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-74870",
-      "published": "2026-08-17T11:16:41.293",
-      "description": "openssl_encrypt (pip) versions <= 1.4.7 contain an information exposure vulnerability where the 'hsm fido2-test' and 'hsm onlykey-test' diagnostic commands unconditionally print the full derived hardware pepper as hex to stdout/stderr (crypt_cli.py, handle_hsm_command). The printed value can persist in terminal scrollback, session recordings, or CI logs. Impact is limited because the pepper is derived from a random per-invocation test salt and is salt-bound, so the leaked value cannot be used to decrypt real files. A related plugin issue logged raw prf_data outside the secret-redaction path. Fixed in 1.4.8 (and 1.5.0) by removing the hex dumps and routing plugin debug output through the redaction layer.",
+      "id": "CVE-2026-74999",
+      "published": "2026-08-17T13:16:54.423",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, the \"Add to address book\" action was subject to stored XSS.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-75007",
+      "published": "2026-08-17T13:16:55.410",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, the LDAP search filter was subject to injection via unescaped %u/%fu/%d substitution, which may lead to information disclosure or privilege escalation.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-75004",
+      "published": "2026-08-17T13:16:55.070",
+      "description": "In Roundcube Webmail before 1.6.18 and 1.7.x before 1.7.3, improper rule name quoting could lead to managesieve_disabled_actions setting bypass via a crafted rule name in a Sieve script. This issue only affects Roundcube instances using the managesieve plugin.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-70412",
+      "published": "2026-08-17T13:16:52.737",
+      "description": "Dell iDRAC9, versions prior to 7.20.30.50, and Dell iDRAC10, version prior to 1.20.60.50, contain a Remanent Data Readable after Memory Erase vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
       "severity": "LOW",
-      "score": 3.3
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-40126",
+      "published": "2026-08-17T12:18:25.000",
+      "description": "OutSystems Service Center is vulnerable to a DOM-based Cross-Site Scripting (XSS) attack that can be exploited by a low-privileged attacker via the upload of a file with a malicious filename containing JavaScript code. The vulnerability exists in all locations where a file can be attached and prepared for upload to the server.\n\nThis issue was fixed in OutSystems Service Center version 11.41.2",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-18674",
+      "published": "2026-08-17T13:16:51.820",
+      "description": "On a Kong Mesh global control plane, resources received over the zone-to-global KDS sync are attributed using the in-band, sender-controlled ControlPlane.Identifier rather than the authenticated zone identity derived from the connection. Authenticated zones can have the global control plane store and re-distribute those resources as belonging to another zone.\n\n\n\nThe result is a cross-zone isolation bypass: the holder of a single enrolled zone's credential can inject, attribute, and overwrite resources in another zone's namespace mesh-wide.\n\n\n\n\nThe root cause lives in Kuma's open-source KDS sync code, which Kong Mesh's control plane is built on.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
