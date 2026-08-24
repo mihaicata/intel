@@ -1,12 +1,47 @@
 {
-  "totalResults": 3526,
+  "totalResults": 3519,
   "items": [
     {
-      "id": "CVE-2026-19994",
-      "published": "2026-08-17T07:17:15.150",
-      "description": "A vulnerability was found in Webkul Bagisto up to 2.4.4. Affected by this issue is some unknown functionality of the file /admin/configuration/cache-management/execute of the component Configuration Management. The manipulation of the argument action results in authorization bypass. The attack may be launched remotely. The exploit has been made public and could be used. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
-      "severity": "MEDIUM",
-      "score": 6.3
+      "id": "CVE-2026-74799",
+      "published": "2026-08-17T11:16:40.017",
+      "description": "SiYuan before 3.7.4 registers Go net/http/pprof debug endpoints including heap and goroutine dumps without authentication when --mode flag is not set to exactly prod. Attackers can access /debug/pprof/heap and related endpoints to extract in-memory secrets including AccessAuthCode and AI provider API keys.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-74800",
+      "published": "2026-08-17T11:16:40.187",
+      "description": "SiYuan before v3.7.4 fails to set Content-Disposition and X-Content-Type-Options headers when serving arbitrary file assets, allowing stored cross-site scripting attacks. Authenticated attackers can upload HTML files as assets and execute scripts with full kernel API access when the workspace owner opens the asset link.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-74845",
+      "published": "2026-08-17T10:16:42.403",
+      "description": "Official Document Management System developed by 2100 Technology has an Arbitrary File Upload vulnerability, allowing authenticated remote attackers to upload and execute web shell backdoors, thereby enabling arbitrary code execution on the server.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-74798",
+      "published": "2026-08-17T11:16:39.873",
+      "description": "SiYuan kernel before v3.7.4 contains a path traversal vulnerability in the database_clean MCP tool. The tool performs only an empty-string check on the id parameter before passing it to RemoveUnusedAttributeView (kernel/model/attribute_view.go), which builds a filesystem path via filepath.Join without validating that id matches SiYuan's node-ID format. An authenticated MCP client can supply path traversal sequences in id to cause the kernel to copy an arbitrary file readable by the process into SiYuan's history directory (arbitrary file read) and then delete the original file (arbitrary file deletion). The corresponding HTTP API handler was hardened in GHSA-7hm9-v7vf-7g4w, but this MCP caller was not.",
+      "severity": "HIGH",
+      "score": 8.7
+    },
+    {
+      "id": "CVE-2026-74801",
+      "published": "2026-08-17T11:16:40.323",
+      "description": "SiYuan before 3.7.4 fails to properly escape workspace directory paths when constructing command-line arguments for the elevated elevator.exe helper process. Attackers can create a malicious workspace directory with command metacharacters in its path and trigger the Microsoft Defender exclusion flow to execute arbitrary commands with administrator privileges after UAC approval.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-74802",
+      "published": "2026-08-17T11:16:40.453",
+      "description": "SiYuan versions before 3.7.4 contain a cross-site WebSocket hijacking vulnerability in the admin-only /ws/network/proxy endpoint that explicitly disables origin validation by setting CheckOrigin to unconditionally return true. Attackers can craft malicious webpages that establish WebSocket connections to this endpoint and direct the SiYuan kernel process to proxy arbitrary network traffic to attacker-chosen targets, enabling authenticated network pivoting through the victim's machine.",
+      "severity": "HIGH",
+      "score": 8.2
     },
     {
       "id": "CVE-2026-19999",
@@ -19,6 +54,13 @@
       "id": "CVE-2026-20000",
       "published": "2026-08-17T08:16:59.890",
       "description": "A vulnerability was detected in itsourcecode Hospital Management System 1.0. The impacted element is an unknown function of the file /viewprescriptionrecord.php. The manipulation of the argument delid results in sql injection. It is possible to launch the attack remotely. The exploit is now public and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-74842",
+      "published": "2026-08-17T11:16:40.597",
+      "description": "A vulnerability was found in Kira-Pgr PromptShopMCP up to 5bc0cd17358e19a5415d11a531088170d7b81452. Affected is the function download_image of the file server.py of the component Image-Toolkit-MCP-Server. Performing a manipulation of the argument image_url results in server-side request forgery. The attack may be initiated remotely. The exploit has been made public and could be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 6.3
     },
@@ -44,25 +86,25 @@
       "score": 6.2
     },
     {
-      "id": "CVE-2026-13700",
-      "published": "2026-08-17T06:17:31.120",
-      "description": "The WooMS WordPress plugin through 9.14 does not validate a user-supplied URL before using it in a server-side request and attaches stored third-party integration credentials to every such request, allowing unauthenticated attackers to perform Server-Side Request Forgery and to disclose the configured integration credentials when the relevant data-sync feature is enabled.",
+      "id": "CVE-2026-49305",
+      "published": "2026-08-17T09:17:30.580",
+      "description": "Permission control vulnerability in the Wi-Fi enhancement module. Impact: Successful exploitation of this vulnerability may affect availability.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-14832",
-      "published": "2026-08-17T06:17:31.657",
-      "description": "The ShopSmart Loyalty for WooCommerce WordPress plugin through 1.0.0 does not perform any authorization or ownership check on a phone-number lookup exposed to unauthenticated users, allowing anyone who knows a customer's phone number to retrieve that customer's loyalty profile, including name, email, and account balance.",
+      "id": "CVE-2026-49307",
+      "published": "2026-08-17T09:17:30.867",
+      "description": "Permission control vulnerability in the multi-mode input module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-19987",
-      "published": "2026-08-17T06:17:39.333",
-      "description": "A security vulnerability has been detected in SourceCodester Best Employee Management System 1.0. This affects an unknown function of the file /assets/uploadImage/Profile/. Such manipulation leads to exposure of information through directory listing. It is possible to launch the attack remotely.",
+      "id": "CVE-2026-49308",
+      "published": "2026-08-17T09:17:31.010",
+      "description": "Permission control vulnerability in the clipboard module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
       "id": "CVE-2026-49303",
@@ -72,34 +114,6 @@
       "score": 5.1
     },
     {
-      "id": "CVE-2026-19997",
-      "published": "2026-08-17T07:17:15.643",
-      "description": "A security flaw has been discovered in Webkul Bagisto up to 2.4.4. This issue affects some unknown processing of the file /admin/sales/rma/requests of the component Backend Sales RMA Endpoint. Performing a manipulation results in authorization bypass. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-19988",
-      "published": "2026-08-17T06:17:39.583",
-      "description": "A vulnerability was detected in Alaev SEO Tools Extension up to 1.0.10 on Chrome. This impacts the function addDiv of the file src/popup.html of the component Popup UI. Performing a manipulation results in basic cross site scripting. The attack can be initiated remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-19993",
-      "published": "2026-08-17T06:17:39.957",
-      "description": "A vulnerability has been found in Webkul Bagisto up to 2.4.4. Affected by this vulnerability is an unknown functionality of the file /customer/account/rma/update-status of the component RMA State Validation. The manipulation leads to enforcement of behavioral workflow. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-19996",
-      "published": "2026-08-17T07:17:15.483",
-      "description": "A vulnerability was identified in Webkul Bagisto up to 2.4.4. This vulnerability affects unknown code of the file /admin/customers of the component Backend Customer Behavior Data Endpoint. Such manipulation of the argument ID leads to improper privilege management. The attack can be executed remotely. The exploit is publicly available and might be used. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
       "id": "CVE-2026-19998",
       "published": "2026-08-17T08:16:59.580",
       "description": "A weakness has been identified in code-projects Online Shopping System 1.0. Impacted is an unknown function of the file offersmail.php. Executing a manipulation of the argument email can lead to cross site scripting. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
@@ -107,39 +121,25 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-19995",
-      "published": "2026-08-17T07:17:15.323",
-      "description": "A vulnerability was determined in Webkul Bagisto up to 2.4.4. This affects an unknown part of the file /customer/account/rma/send-message of the component RMA Message Handler. This manipulation of the argument Message causes cross site scripting. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. The vendor confirms: \"The reported issues were already identified through our internal security assessment process prior to this notification and are being handled through our established internal security and development lifecycle. Some of these items have already been addressed, while the remaining items are planned for resolution in upcoming product releases.\"",
+      "id": "CVE-2026-58560",
+      "published": "2026-08-17T09:17:31.140",
+      "description": "Null pointer dereference issue in the image codec module. Impact: Successful exploitation of this vulnerability may affect availability.",
+      "severity": "MEDIUM",
+      "score": 4
+    },
+    {
+      "id": "CVE-2026-58561",
+      "published": "2026-08-17T09:17:31.290",
+      "description": "Null pointer dereference issue in the image codec module. Impact: Successful exploitation of this vulnerability may affect availability.",
+      "severity": "MEDIUM",
+      "score": 4
+    },
+    {
+      "id": "CVE-2026-49306",
+      "published": "2026-08-17T09:17:30.730",
+      "description": "UAF vulnerability in the time and time zone module. Impact: Successful exploitation of this vulnerability may affect availability.",
       "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-19992",
-      "published": "2026-08-17T06:17:39.770",
-      "description": "A flaw has been found in Orange View Limited DualSafe Password Manager & Digital Vault Extension up to 1.4.35 on Chrome. Affected is an unknown function of the component postMessage-based Bridge. Executing a manipulation can lead to information disclosure. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is told to be difficult. The exploit has been published and may be used. The vendor was contacted early about this disclosure.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-74579",
-      "published": "2026-08-17T06:19:56.417",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nft_payload: fix mask build for partial field offload\n\nnft_payload_offload_mask() builds the offload match mask for a payload\nexpression that covers only part of a header field.  For a partial IPv6\naddress match (field_len = 16, priv_len = 1) that shift is 1 << 120, which\nis undefined on the 32-bit int operand.  It also trims only one word, so\nthe remaining words stay 0xffffffff (and when priv_len is a multiple of 4\nthe trim is skipped entirely), leaving the mask covering more bytes than\nthe rule matches.\n\n  UBSAN: shift-out-of-bounds in net/netfilter/nft_payload.c:278:20\n  shift exponent 120 is too large for 32-bit type 'int'\n  ...\n\nThe match is byte-granular and struct nft_data is zero-initialised, so the\ncorrect mask is simply the first priv_len bytes set to 0xff. Set those\nbytes directly and drop the word/shift trimming; this removes the undefined\nshift and no longer over-masks the trailing bytes.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-15623",
-      "published": "2026-08-17T07:17:12.020",
-      "description": "A SQL Injection vulnerability in a legacy dashboard widget API in Google Cloud Google SecOps (Chronicle SOAR) versions prior to 6.3.85 on Google Cloud Platform allows an authenticated attacker to execute blind SQL queries using a crafted request parameter.\n\n\nThis vulnerability was patched in version 6.3.85, and no customer action is needed.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-22072",
-      "published": "2026-08-17T07:17:15.797",
-      "description": "Loading arbitrary external URLs through WebView components introduces malicious JS code that can steal arbitrary user tokens.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 3.3
     }
   ]
 }
