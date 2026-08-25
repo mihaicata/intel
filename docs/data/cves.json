@@ -1,5 +1,5 @@
 {
-  "totalResults": 3489,
+  "totalResults": 3524,
   "items": [
     {
       "id": "CVE-2026-15748",
@@ -30,11 +30,11 @@
       "score": 9.3
     },
     {
-      "id": "CVE-2026-75094",
-      "published": "2026-08-18T02:17:30.757",
-      "description": "A flaw has been found in COMFAST CF-N1-S 2.6.0.1. This impacts the function sub_44B438 of the file /cgi-bin/mbox-config?method=SET&section=ptest_ssid of the component CGI Interface. This manipulation of the argument ssid causes os command injection. Remote exploitation of the attack is possible. The exploit has been published and may be used.",
-      "severity": "CRITICAL",
-      "score": 9.1
+      "id": "CVE-2026-74902",
+      "published": "2026-08-18T12:19:30.370",
+      "description": "SiYuan before v3.7.4 contains a cross-site scripting vulnerability in the file upload validation flow that fails to escape filenames before inserting them into HTML via insertAdjacentHTML. Attackers can craft a malicious filename containing script payloads that execute with full OS command access when a user drags, drops, or pastes the file into the editor.",
+      "severity": "HIGH",
+      "score": 8.6
     },
     {
       "id": "CVE-2026-15371",
@@ -54,6 +54,13 @@
       "id": "CVE-2026-15585",
       "published": "2026-08-18T12:17:23.110",
       "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in AKIN Software Computer Import Export Industry and Trade Ltd. AKINSOFT Wolvox9 ERP / KontrolPanel.exe allows Path Traversal.\n\nThis issue affects AKINSOFT Wolvox9 ERP / KontrolPanel.exe: from s26.02.17 before 26.02.22.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-74904",
+      "published": "2026-08-18T12:19:30.643",
+      "description": "SiYuan before v3.7.4 is missing authorization checks in 17 block metadata/content endpoints in kernel/api/block.go (including getRefText, checkBlockExist, and getBlockBreadcrumb). These handlers are gated only by basic authentication (model.CheckAuth) and lack publish-access filtering, allowing anonymous publish-mode readers to disclose private block content-derived text, structural metadata, and existence information for arbitrary block IDs across the workspace.",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -100,23 +107,16 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-75090",
-      "published": "2026-08-18T02:17:30.333",
-      "description": "A vulnerability was detected in EricLBuehler Mistral.rs up to 0.8.22. Affected by this issue is the function convert_gguf_to_hf_tokenizer of the file mistralrs-core/src/gguf/gguf_tokenizer.rs of the component GGUF Tokenizer. The manipulation of the argument eos_token_id/bos_token_id/unknown_token_id results in out-of-bounds read. The attack can be executed remotely. The exploit is now public and may be used. Upgrading to version 0.8.23 can resolve this issue. The patch is identified as cd5297e2ea5cb27c790bdcf2f3c2f1064a81d55e. Upgrading the affected component is recommended.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-75093",
-      "published": "2026-08-18T02:17:30.540",
-      "description": "A security vulnerability has been detected in sonos tract up to 0.23.4. This impacts the function Tensor::from_raw_dt_align of the file data/src/tensor.rs of the component ONNX Initializer Loader. Such manipulation leads to incorrect calculation of buffer size. The attack may be launched remotely. The exploit has been disclosed publicly and may be used. The name of the patch is 66b10bda8895f4bfaf8c205361f0125cdf51f99b. It is best practice to apply a patch to resolve this issue.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
       "id": "CVE-2026-75151",
       "published": "2026-08-18T03:16:40.923",
       "description": "A vulnerability has been found in SourceCodester Onlne Examination & Learning Management System 1.0. Affected by this vulnerability is an unknown functionality. The manipulation leads to cross-site request forgery. The attack can be initiated remotely.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-74903",
+      "published": "2026-08-18T12:19:30.507",
+      "description": "SiYuan before v3.7.4 contains an insufficient access control vulnerability in the /api/lute/spinBlockDOM endpoint, which is guarded only by CheckAuth middleware instead of CheckAdminRole like its sibling endpoint. Authenticated users with RoleEditor or RoleReader roles can invoke the endpoint to transform arbitrary DOM input, and large payloads cause endpoint starvation through per-path mutex serialization.",
       "severity": "MEDIUM",
       "score": 4.3
     },
