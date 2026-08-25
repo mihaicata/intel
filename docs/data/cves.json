@@ -1,5 +1,5 @@
 {
-  "totalResults": 3588,
+  "totalResults": 3596,
   "items": [
     {
       "id": "CVE-2026-75627",
@@ -35,6 +35,13 @@
       "description": "SiYuan before v3.7.4 contains a cross-site scripting vulnerability in the file upload validation flow that fails to escape filenames before inserting them into HTML via insertAdjacentHTML. Attackers can craft a malicious filename containing script payloads that execute with full OS command access when a user drags, drops, or pastes the file into the editor.",
       "severity": "HIGH",
       "score": 8.6
+    },
+    {
+      "id": "CVE-2026-75829",
+      "published": "2026-08-18T12:19:32.827",
+      "description": "grav-plugin-api versions before 1.0.15 fail to validate Twig content in the translate() endpoint, allowing attackers with api.pages.write permission to persist pages with process.twig enabled. Attackers can submit crafted header and content parameters to execute server-side template injection payloads that are evaluated at render time.",
+      "severity": "HIGH",
+      "score": 8.1
     },
     {
       "id": "CVE-2026-15585",
@@ -133,13 +140,6 @@
       "description": "A vulnerability was determined in karakeep-app karakeep up to 0.32.0. The impacted element is an unknown function of the file apps/web/server/auth.ts of the component OAuth Sign-In. This manipulation causes improper authentication. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is regarded as difficult. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
       "score": 3.7
-    },
-    {
-      "id": "CVE-2026-18929",
-      "published": "2026-08-18T10:16:46.023",
-      "description": "Carbone is vulnerable to Denial of Service due to lack of protection against zip bombs when processing .docx files. The library uses yazl for zip decompression without validating entry sizes, allowing an attacker to supply a malicious .docx file containing a zip bomb that decompresses to a significantly larger size, causing excessive memory consumption and crashing the application server.\n\n\n\n\nThe issue was fixed in versions: 3.8.2, 4.26.3 and 5.4.4.  The fix is available across all distribution types.",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
