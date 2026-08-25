@@ -1,143 +1,143 @@
 {
-  "totalResults": 3416,
+  "totalResults": 3420,
   "items": [
     {
-      "id": "CVE-2021-43716",
-      "published": "2026-08-18T18:17:25.047",
-      "description": "Verification Bypass vulnerability exists in EPSON 150075647YWWV110 EasyMP Network Updater Ver.1.20. The Epson projector can be updated by encrypted firmware through USB.",
+      "id": "CVE-2026-55166",
+      "published": "2026-08-18T19:16:58.783",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, authenticated users could influence an ACME authority acme_url without an effective server-side destination restriction and trigger AcmeHandler.setup_acme_client to make backend requests. An attacker could target cloud instance metadata or internal services from Lemur network context, potentially obtaining credentials available to the host. The advisory also identifies creator-equality authorization behavior that could preserve access to certificate key material after ownership or role changes, with insufficient export_private_key audit context to distinguish that access path. Together, the acme_url server-side request forgery and authorization weakness could expose cloud credentials and long-lived PKI private-key access. The fix adds ACME_DIRECTORY_HOST_ALLOWLIST validation and enriches key-export audit events with creator and current-owner context. This issue is fixed in version 1.9.2.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-47627",
+      "published": "2026-08-18T19:16:51.290",
+      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A successful exploit might lead to denial of service.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2021-43717",
-      "published": "2026-08-18T18:17:26.013",
-      "description": "An issue exists in pson EH-TW5350 Epson iProjection.apk v3.2.6. If you identify a projector equipped with an iProjection function, you can access the projector using hard-coded authentication information and control the projector maliciously.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-52608",
-      "published": "2026-08-18T18:18:20.020",
-      "description": "An incorrect access control vulnerability in reportico-web <= 8.1.0 allows an unauthenticated attacker to inject arbitrary php code into the PreExecuteCode attribute of any report regardless of the safe_mode setting leading to remote code execution.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-52610",
-      "published": "2026-08-18T18:18:20.263",
-      "description": "An arbitrary file write/directory traversal vulnerability in reportico-web <= 8.1.0 allows remote attackers to create or overwrite files anywhere on the filesystem subject to the permissions of the web user by specifying a filename in the \"saveTemplate\" parameter in conjuction with \"execute_mode=PREPARE\" parameter in the \"run.php\" endpoint.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-48508",
-      "published": "2026-08-18T18:17:41.073",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.1, StrictRolePermission and AuthorityCreatorPermission in lemur/auth/permissions.py call flask_principal.Permission.__init__() with zero Need objects when ADMIN_ONLY_AUTHORITY_CREATION and LEMUR_STRICT_ROLE_ENFORCEMENT are unset because both flags default to False. Flask-Principal Permission.allows() returns True when self.needs is empty, so the .can() authorization gate permits every authenticated identity, including the read-only role. A read-only user can access POST /api/1/authorities, POST /api/1/certificates/upload, POST /api/1/pending_certificates//upload, POST /api/1/notifications, PUT or DELETE /api/1/notifications/, and POST /api/1/domains to create root Certificate Authorities, upload arbitrary certificates, create or edit notifications that reach an SSRF sink, and create domain entries. Explicitly setting either flag to False continues to opt into the permissive behavior. This issue is fixed in version 1.9.1.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-44472",
-      "published": "2026-08-18T18:17:33.573",
-      "description": "Saleor is an e-commerce platform. From 2.10.0rc1 until 3.21.67, 3.22.63, and 3.23.22, the account activation flow treats email verification as sufficient proof of account ownership and automatically associates anonymous commerce data with the newly activated account. An attacker can use accountRegister to create an account with a victim's email address before the victim registers. If the victim follows the activation link sent to that mailbox, Saleor activates the attacker-created account and saleor/graphql/account/mutations/account/confirm_account.py can merge anonymous orders and gift-card data for the same email address without requiring the account password or another authentication factor. The attacker can then access the merged order history and personal data, including names, addresses, and phone numbers. The patched supported lines disable automatic merging by default, while the redesigned 3.24.0 flow requires password confirmation before anonymous objects are linked. This issue is fixed in versions 3.21.67, 3.22.63, and 3.23.22.",
+      "id": "CVE-2025-9210",
+      "published": "2026-08-18T19:16:43.650",
+      "description": "Missing signature validation in JSON Web Tokens in Otalio Ship Property Management System versions before 2.22.0 allows authenticated attackers to escalate privileges via tampering with JWTs",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-50143",
-      "published": "2026-08-18T18:17:53.227",
-      "description": "The Apify MCP server enables AI agents to extract data from websites using ready-made scrapers, crawlers, and automation tools available on the Apify Store. Prior to 0.10.11, getActorMCPServerURL in src/mcp/actors.ts concatenates the trusted Actor standby URL with the attacker-controlled webServerMcpPath from an Actor definition without verifying the resulting origin, allowing a malicious Actor publisher to use a userinfo-style authority value to redirect connectMCPClient to a third-party host. The call-actor, fetch-actor-details, and actor-mcp tool-loading paths pass this URL to transports in src/mcp/client.ts that attach the victim Authorization bearer token, exposing the Apify API token and enabling access to Actors, stored data, and billable compute. A victim must invoke or inspect the attacker-controlled Actor. This issue is fixed in version 0.10.11.",
+      "id": "CVE-2026-24183",
+      "published": "2026-08-18T19:16:45.520",
+      "description": "NVIDIA Cumulus Linux contains a vulnerability in the user management component, where an unprivileged user could use improper privilege management on the system. A successful exploit of this vulnerability might lead to escalation of privileges.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-54552",
-      "published": "2026-08-18T18:18:23.147",
-      "description": "sh provides Python process launching. Prior to 2.2.4, the _uid option in sh.py performs an incomplete privilege drop on Linux and Unix-like systems. When sh runs from an elevated process and launches a command with _uid set to an unprivileged user, the child changes its UID but can retain the parent process's supplementary groups because the privilege-drop sequence does not fully establish the target user's UID, primary GID, and supplementary groups. The child can therefore retain access to files or resources granted to privileged groups such as root, docker, disk, shadow, or sudo, violating the expected _uid privilege boundary. This issue is fixed in version 2.2.4.",
+      "id": "CVE-2026-24184",
+      "published": "2026-08-18T19:16:45.980",
+      "description": "NVIDIA Cumulus Linux contains a vulnerability in the Link Layer Discovery Protocol (LLDP) daemon component, where an unauthenticated attacker on an adjacent network could cause buffer overflow by sending crafted LLDP frames. A successful exploit of this vulnerability might lead to code execution.",
       "severity": "HIGH",
-      "score": 7.9
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-32657",
-      "published": "2026-08-18T18:17:28.573",
-      "description": "Dell AppSync Version 4.6.0.0, Dell Metro Node Version 8.0.0, Dell UCC Edge Version 3.0.1, Dell VxRail Version 8.0.322, Dell PowerMax Version 10.3.0, Dell Unity Version 5.4, Dell PowerFlex Manager Version 4.5.4, Dell PowerFlex Intelligent Catalog Versions 46.377.00 and 46.382.00 and Dell PowerFlex Rack version 4.5.4 and prior versions, contain(s) an UNIX Symbolic Link (Symlink) Following vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "id": "CVE-2026-47628",
+      "published": "2026-08-18T19:16:51.740",
+      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an allocation of resources without limits. A successful exploit might lead to denial of service.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-54570",
-      "published": "2026-08-18T18:18:23.310",
-      "description": "AngleSharp is a .NET library for parsing angle bracket based hyper-texts. Prior to 1.5.0, MathAnnotationXmlElement in AngleSharp/Mathml/Dom/Internal/MathAnnotationXmlElement.cs is not treated as an HTML integration point when its encoding attribute is text/html or application/xhtml+xml, causing Consume in AngleSharp/Html/Parser/HtmlDomBuilder.cs to route tokens through foreign-content parsing instead of HTML parsing. A sanitizer can therefore observe a different DOM from the browser that reparses the serialized output. An attacker can combine this namespace differential with markup-breaking characters in an attribute value so that an element hidden from the sanitizer becomes active script-capable HTML after browser reparse, resulting in mutation cross-site scripting. This issue is fixed in version 1.5.0.",
+      "id": "CVE-2026-47629",
+      "published": "2026-08-18T19:16:52.217",
+      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause improper input validation. A successful exploit might lead to denial of service.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-24185",
+      "published": "2026-08-18T19:16:46.410",
+      "description": "NVIDIA NVOS for network switches contains a vulnerability in the secure shell (SSH) server configuration component while PKA-only mode is enabled, where an administrator could inadvertently enable an alternative authentication path. If best practices for replacing the default password as recommended by NVIDIA are not followed, this alternative authentication path might lead to unauthorized access. A successful exploit of this vulnerability might lead to escalation of privileges.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2025-9211",
+      "published": "2026-08-18T19:16:44.103",
+      "description": "Unescaped stored values in application security page in Otalio Ship Property Management System versions before 2.22.0 allows authenticated attackers to escalate privileges via persistent cross-site scripting",
       "severity": "MEDIUM",
-      "score": 6.9
+      "score": 6.7
     },
     {
-      "id": "CVE-2026-49452",
-      "published": "2026-08-18T18:17:49.147",
-      "description": "WeasyPrint helps web developers to create PDF documents. Prior to 69.0, WeasyPrint embeds unescaped HTML presentational-hint attribute values into CSS in weasyprint/css/__init__.py when presentational_hints=True. The background attribute is inserted into a background-image:url() declaration and parsed by tinycss2.parse_blocks_contents(), allowing untrusted HTML to inject additional CSS declarations. Applications that render untrusted HTML with presentational hints enabled can be affected by CSS injection and server-side requests through injected url() values. This issue is fixed in version 69.0.",
+      "id": "CVE-2026-47606",
+      "published": "2026-08-18T19:16:50.840",
+      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution and information disclosure.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-52607",
-      "published": "2026-08-18T18:18:19.883",
-      "description": "A directory traversal vulnerability in reportico-web <= 8.1.0 allows remote attackers to expose or execute arbitrary php files on the web server by specifying the filename in the target_format parameter in conjunction with the execute_mode=EXECUTE parameter of the run.php endpoint.",
+      "id": "CVE-2026-12520",
+      "published": "2026-08-18T20:17:11.660",
+      "description": "The Sierra Wireless HL7800 cellular modem driver (drivers/modem/vendor_standalone/hl7800.c, located at drivers/modem/hl7800.c in v4.4.0 and earlier) parses AT responses with roughly twenty handlers that call net_buf_linearize(value, sizeof(value), *buf, 0, len) into a 128-byte stack buffer and then write value[out_len] = 0. Because net_buf_linearize() (lib/net_buf/buf.c) can return a count equal to its destination-length argument, a field that exactly fills the buffer makes the terminating NUL land one byte past the end, a single-byte out-of-bounds write into adjacent stack memory.\n\nThe +KCELLMEAS cell-measurement handler on_cmd_atcmdinfo_rssi() is worse: it passed the wire length len as the destination size (net_buf_linearize(value, len, *buf, 0, len)), so a response line longer than 128 bytes overflows the value stack buffer with attacker-influenceable content. The line length comes from net_buf_findcrlf(), which accumulates bytes across the whole net_buf fragment chain and is not bounded to 128, so an over-long line reaches the defect.\n\nThe data originates from the cellular modem over UART, driven by the network: operator-scan results, +CGCONTRDP IP/DNS info, socket indications, and +KCELLMEAS neighbour-cell reports. An attacker able to shape what the modem emits — a rogue base station, a compromised modem baseband, or a remote peer feeding oversized response framing — can drive a line past 128 bytes. The handlers run in the driver's RX thread in kernel context, so the corruption is kernel-side.\n\nThe +KCELLMEAS path is a full stack buffer overflow whose worst case is code execution in kernel context and whose floor is a reliable crash; the remaining sites are single-byte NUL out-of-bounds writes. Exploitation requires the modem to emit an over-long AT response line, giving high attack complexity over an adjacent (cellular radio) vector. The fix passes sizeof(dst) - 1 (and correct explicit bounds for the IMSI and +KCELLMEAS sites) so the terminator always stays in bounds.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-61696",
-      "published": "2026-08-18T18:18:52.497",
-      "description": "Forem is open source software for building communities. In versions before commit 92eacd16a82cf9007ba8e16a2258b42e3b53ca9c, a malicious value submitted through feedback_message[message] is stored without sanitization and rendered in app/views/admin/feedback_messages/_feedback_message.html.erb through raw(feedback_message.message) when offender_id is present. Viewing the abuse report executes arbitrary JavaScript in an administrator's browser and may expose sensitive in-page data, abuse CSRF tokens, or perform administrative actions in the victim's session. The public FeedbackMessagesController accepts the report without authorization and previously permitted a submitted offender_id, making the vulnerable rendering path reachable by an unauthenticated attacker. This issue is fixed in commit 92eacd16a82cf9007ba8e16a2258b42e3b53ca9c",
+      "id": "CVE-2026-55162",
+      "published": "2026-08-18T19:16:58.217",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, lemur/certificates/verify.py accepted CRL Distribution Point and OCSP responder URLs from uploaded certificate extensions and used them in crl_verify and ocsp_verify without adequate destination validation. An authenticated operator could submit a certificate through POST /api/1/certificates/upload and cause verify_string to reach loopback, RFC1918, link-local, or instance-metadata destinations such as 169.254.169.254. The requests could probe internal services and create side effects from the Lemur host network position. The CRL path also used an unbounded cache, allowing attacker-controlled entries to persist and consume memory. The fix validates destinations, supports explicit trusted-host allowlists, and bounds the CRL cache. This issue is fixed in version 1.9.2.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-52609",
-      "published": "2026-08-18T18:18:20.143",
-      "description": "A reflected cross-site scripting (XSS) vulnerability in reportico-web <= 8.1.0 allows remote attackers to execute arbitrary JavaScript in the web browser of a user by including a malicious payload in the reportico_criteria parameter in conjunction with the execute_mode=CRITERIA parameter of run.php.",
+      "id": "CVE-2026-55163",
+      "published": "2026-08-18T19:16:58.357",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, PUT /api/1/roles/ in lemur/roles/views.py:298 authorized updates with RoleMemberPermission(role_id), which allowed either an administrator or any existing member of the target role. The handler passed data[\"users\"] and data[\"name\"] to service.update, allowing a non-admin member to add or remove other users and rename the role. This enabled lateral privilege grants within roles that control certificate and authority access and could deny access by removing legitimate members. The DELETE handler already required admin_permission, confirming that the weaker PUT authorization was inconsistent. The fix applies the same administrator-only requirement to the PUT handler. This issue is fixed in version 1.9.2.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-63640",
-      "published": "2026-08-18T18:19:11.800",
-      "description": "MagicMirror² is an open source modular smart mirror platform. Prior to 2.37.0, when hideConfigSecrets is enabled, the catch-all socket dispatcher in js/node_helper.js passes every inbound object payload through replaceSecretPlaceholder in js/server_functions.js before invoking socketNotificationReceived. A client connected to a loaded module namespace can submit a SECRET_API_KEY placeholder, causing the server to replace it with the corresponding process environment value. The default weather helper accepts INIT_WEATHER, copies the attacker-controlled instanceId, and returns it in WEATHER_ERROR, providing an echo path for the expanded secret. This reverses the intended one-way redaction boundary and can disclose API tokens, credentials, or service keys stored in SECRET_ variables. This issue is fixed in version 2.37.0.",
+      "id": "CVE-2026-70667",
+      "published": "2026-08-18T19:17:03.293",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.3, _validate_revocation_url in lemur/certificates/verify.py checked the original CRL or OCSP URL but the later request could reach a different destination. The CRL requests.get call followed HTTP redirects without validating each Location target, so a public attacker-controlled URL could redirect to loopback, RFC1918, link-local, or instance-metadata addresses. Validation and connection also performed separate DNS resolutions, creating a time-of-check time-of-use window for DNS rebinding on both CRL and OCSP paths. An operator uploading a certificate through POST /api/1/certificates/upload could therefore induce blind internal requests despite the earlier mitigation. The fix disables redirects and pins validated addresses while preserving the correct Host value. This issue is fixed in version 1.9.3.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-18392",
-      "published": "2026-08-18T18:17:26.950",
-      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. Reason: This candidate was issued in error. Notes: All references and descriptions in this candidate have been removed to prevent accidental usage.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-47630",
+      "published": "2026-08-18T19:16:52.650",
+      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution.",
+      "severity": "MEDIUM",
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-50161",
-      "published": "2026-08-18T18:17:53.380",
-      "description": "libre is a generic library for real-time communications with asynchronous input and output support. Prior to 4.8.1, the websock_decode() function in src/websock/websock.c contains an integer overflow when validating a masked WebSocket frame that uses the 64-bit extended length encoding. The expression 4 + hdr->len can wrap when hdr->len is close to UINT64_MAX, causing the mbuf_get_left() bounds check to pass. The subsequent XOR unmasking loop then writes beyond the heap buffer. Applications using websock_accept() or websock_accept_proto() to implement a WebSocket server are affected, and exploitation can cause attacker-controlled heap corruption or denial of service after the HTTP WebSocket upgrade handshake. This issue is fixed in version 4.8.1.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2021-43718",
+      "published": "2026-08-18T19:16:42.503",
+      "description": "An Authentication Bypass vulnerability exists in EPSON EH-TW5350 EPSON 150075647YWWV110, which could let a remote malicious user cause a Denial of Service via specially crafted series of HTTP..",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-50167",
-      "published": "2026-08-18T18:17:53.533",
-      "description": "Kurrier is a modern, self-hosted workspace for email, calendar, contacts, and storage. Prior to 1.2.4, Kurrier API endpoints for listing and retrieving webhook and identity resources did not enforce ownership checks for authenticated API requests. An attacker with a valid API key could use another account's identifiers to read and enumerate webhook and identity resources belonging to that account through apps/worker/server/routes/api/kurrier/webhooks/[id].get.ts, apps/worker/server/routes/api/kurrier/webhooks/index.get.ts, apps/worker/server/routes/api/kurrier/identities/[id].get.ts, and apps/worker/server/routes/api/kurrier/identities/index.get.ts. Anonymous requests and invalid API keys were rejected, and cross-user modification operations were blocked, but affected GET and list operations could expose another user's resource metadata. This issue is fixed in version 1.2.4.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-65959",
+      "published": "2026-08-18T19:17:00.223",
+      "description": "Vitess is a database clustering system for horizontal scaling of MySQL. In 24.0.2 and earlier, the /debug/vrlog endpoint registered by addHttpEndpoint() in go/vt/vttablet/tabletmanager/vreplication/vrlog.go invokes vrlogStatsHandler() without acl.CheckAccessHTTP(r, acl.DEBUGGING), unlike comparable debug endpoints. A remote caller who can reach the vttablet debug HTTP port can bypass the configured security policy and stream VrLogStats data produced from NewVrLogStats().Send(), including literal SQL statements and bound application values from MoveTables, Reshard, Materialize, and vitess-strategy Online DDL workflows",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-53533",
-      "published": "2026-08-18T18:18:20.513",
-      "description": "aiosmtplib is an asynchronous SMTP client for use with asyncio. Prior to 5.1.1, SMTP.mail(), SMTP.rcpt(), SMTP.vrfy(), and SMTP.expn() send caller-supplied addresses without rejecting embedded CR or LF bytes. Data after the line break is framed as additional standalone SMTP command lines, allowing an attacker who influences an envelope sender or recipient to inject commands such as MAIL FROM, RCPT TO, RSET, DATA, or AUTH. SMTP.sendmail() and SMTP.send() without a Message object pass addresses through the affected methods, while SMTP.send_message() is not affected. Successful injection can desynchronize the command-response pipeline, hang the SMTP instance, or send an arbitrary message without requiring attacker control of the SMTP server. This issue is fixed in version 5.1.1.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-55164",
+      "published": "2026-08-18T19:16:58.493",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, lemur.users.service.update assigned a replacement password directly to users.password, while lemur/users/models.py registered User.hash_password only for the before_insert event. Because no before_update listener ran, administrator-initiated password changes through PUT /api/1/users/ were committed as plaintext. The affected user could no longer authenticate normally because bcrypt verification received an unhashed value. A database, backup, replica, query-log, or administrative read compromise exposed immediately usable credentials without offline cracking. The fix registers hashing for before_update and avoids rehashing values that already have a bcrypt prefix. This issue is fixed in version 1.9.2.",
+      "severity": "MEDIUM",
+      "score": 4.9
     },
     {
-      "id": "CVE-2026-63641",
-      "published": "2026-08-18T18:19:11.963",
-      "description": "MagicMirror² is an open source modular smart mirror platform. Prior to 2.37.0, MagicMirror applies ipWhitelist only as Express middleware, while the Socket.IO server in js/server.js is attached directly to the HTTP server without equivalent IP allowlist, origin, or namespace authentication checks. In a documented non-loopback deployment that relies on ipWhitelist, an unauthenticated adjacent-network client can connect directly to module Socket.IO namespaces, and js/node_helper.js dispatches arbitrary events and payloads to socketNotificationReceived. The default newsfeed and calendar helpers can make server-side requests to attacker-selected URLs, while the default updatenotification helper can reach child_process.exec when a third-party module update is pending and the attacker supplies an update command through the socket CONFIG path. This can expose internal services, manipulate module-helper state, and conditionally execute commands. This issue is fixed in version 2.37.0.",
+      "id": "CVE-2026-55165",
+      "published": "2026-08-18T19:16:58.647",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, the JWT verifier in lemur/auth/service.py:130-137 used fetch_token_header to read header_data[\"alg\"] from an unverified token and passed that attacker-controlled value to decode_with_multiple_secrets. PyJWT 2.x rejects alg=none with the configured key, so the flaw is a defense-in-depth gap rather than a direct authentication bypass in the shipped configuration. The unpinned algorithm can become exploitable after an asymmetric-signing migration through algorithm confusion, and it weakens algorithm-based anomaly detection because the token chooses the recorded value. A separate disclosure of LEMUR_TOKEN_SECRET would also permit forged HS256 tokens, although that disclosure is an independent prerequisite. The fix introduces the server-controlled LEMUR_TOKEN_ALGORITHMS allowlist and defaults it to HS256. This issue is fixed in version 1.9.2.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-17106",
+      "published": "2026-08-18T19:16:45.030",
+      "description": "The tar extraction routines in moby/go-archive (Unpack, UnpackLayer, Untar/UntarUncompressed, and the ApplyLayer helpers) do not confine filesystem operations to the destination directory. The extractor decides where each archive entry lands using lexical string checks and then performs the filesystem operation on a path that is resolved by the OS, so links introduced by the archive can be followed out of the destination directory. An attacker who controls the contents of an archive can create or overwrite files at arbitrary paths writable by the extracting process.",
       "severity": "UNKNOWN",
       "score": null
     }
