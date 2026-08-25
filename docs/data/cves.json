@@ -1,143 +1,143 @@
 {
-  "totalResults": 3418,
+  "totalResults": 3416,
   "items": [
     {
-      "id": "CVE-2026-18963",
-      "published": "2026-08-18T17:16:57.083",
-      "description": "A flaw was found in the reset-credentials flow of the keycloak-services component, which is the core engine for identity and access management in Red Hat Build of Keycloak. The issue allows an unauthenticated attacker to force the password reset process for any user without needing to click the required email verification link. This can result in the attacker gaining full control over target user accounts by directly setting new credentials.",
+      "id": "CVE-2021-43716",
+      "published": "2026-08-18T18:17:25.047",
+      "description": "Verification Bypass vulnerability exists in EPSON 150075647YWWV110 EasyMP Network Updater Ver.1.20. The Epson projector can be updated by encrypted firmware through USB.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2021-43717",
+      "published": "2026-08-18T18:17:26.013",
+      "description": "An issue exists in pson EH-TW5350 Epson iProjection.apk v3.2.6. If you identify a projector equipped with an iProjection function, you can access the projector using hard-coded authentication information and control the projector maliciously.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-52608",
+      "published": "2026-08-18T18:18:20.020",
+      "description": "An incorrect access control vulnerability in reportico-web <= 8.1.0 allows an unauthenticated attacker to inject arbitrary php code into the PreExecuteCode attribute of any report regardless of the safe_mode setting leading to remote code execution.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-52610",
+      "published": "2026-08-18T18:18:20.263",
+      "description": "An arbitrary file write/directory traversal vulnerability in reportico-web <= 8.1.0 allows remote attackers to create or overwrite files anywhere on the filesystem subject to the permissions of the web user by specifying a filename in the \"saveTemplate\" parameter in conjuction with \"execute_mode=PREPARE\" parameter in the \"run.php\" endpoint.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-52723",
-      "published": "2026-08-18T17:16:59.200",
-      "description": "ePA 3.x Integration implements the authorization workflow and writes Medical Information Objects to Germany's electronic patient record. Prior to 1.3.0, ePA 3.x Integration performs VAU server certificate validation in app/vau/VAUProtokoll.py without anchoring the signed_vau_server_pub_keys and AUT_VAU_CertData certificate path to independent trusted material. A network-positioned attacker between the DiGA backend and the ePA system can intercept the VAU handshake, supply attacker-controlled certificate and key material, and satisfy the circular trust relationship. Because TLS certificate verification is also disabled in affected versions, no independent server-authentication layer prevents the attack. The attacker can impersonate the VAU server, control the negotiated session keys, and read or modify all encrypted VAU traffic. This issue is fixed in version 1.3.0.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-49228",
-      "published": "2026-08-18T17:16:58.263",
-      "description": "Vvveb is a powerful and easy to use CMS with page builder to build websites, blogs or ecommerce stores. Prior to 1.0.8.4, Vvveb backend product operations allow a low-privileged Vendor to access products owned by another Vendor. The admin/controller/product/products.php controller accepts a caller-controlled product_id for duplicate and delete actions, and admin/sql/sqlite/product.sql loads and mutates products without consistently applying the current admin_id when view_other_products or edit_other_products is absent. An attacker can read product details, duplicate products, or delete products and related catalog data, exposing commercial information and causing unauthorized copies, catalog pollution, data loss, or business disruption. This issue is fixed in version 1.0.8.4.",
+      "id": "CVE-2026-48508",
+      "published": "2026-08-18T18:17:41.073",
+      "description": "Lemur manages TLS certificate creation. Prior to 1.9.1, StrictRolePermission and AuthorityCreatorPermission in lemur/auth/permissions.py call flask_principal.Permission.__init__() with zero Need objects when ADMIN_ONLY_AUTHORITY_CREATION and LEMUR_STRICT_ROLE_ENFORCEMENT are unset because both flags default to False. Flask-Principal Permission.allows() returns True when self.needs is empty, so the .can() authorization gate permits every authenticated identity, including the read-only role. A read-only user can access POST /api/1/authorities, POST /api/1/certificates/upload, POST /api/1/pending_certificates//upload, POST /api/1/notifications, PUT or DELETE /api/1/notifications/, and POST /api/1/domains to create root Certificate Authorities, upload arbitrary certificates, create or edit notifications that reach an SSRF sink, and create domain entries. Explicitly setting either flag to False continues to opt into the permissive behavior. This issue is fixed in version 1.9.1.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-61574",
-      "published": "2026-08-18T17:16:59.813",
-      "description": "authentik is an open-source identity provider. Prior to 2026.2.6 and 2026.5.5, the Remote Access Control endpoint list returns every configured endpoint to any authenticated user regardless of which applications the user may access, and the response includes connection settings that can contain stored credentials. The endpoint listing does not apply the access controls governing the endpoints, and the connection flow does not confirm that an endpoint belongs to the Remote Access Control application through which it was launched. Any authenticated user can therefore read every endpoint together with its host and stored credentials and can open a connection to an endpoint belonging to another application. This exposes stored credentials for managed RDP, SSH, and VNC targets and grants interactive access to systems the user was never authorized to reach. Deployments that do not use the enterprise Remote Access Control provider are not affected. This issue is fixed in versions 2026.2.6 and 2026.5.5.",
+      "id": "CVE-2026-44472",
+      "published": "2026-08-18T18:17:33.573",
+      "description": "Saleor is an e-commerce platform. From 2.10.0rc1 until 3.21.67, 3.22.63, and 3.23.22, the account activation flow treats email verification as sufficient proof of account ownership and automatically associates anonymous commerce data with the newly activated account. An attacker can use accountRegister to create an account with a victim's email address before the victim registers. If the victim follows the activation link sent to that mailbox, Saleor activates the attacker-created account and saleor/graphql/account/mutations/account/confirm_account.py can merge anonymous orders and gift-card data for the same email address without requiring the account password or another authentication factor. The attacker can then access the merged order history and personal data, including names, addresses, and phone numbers. The patched supported lines disable automatic merging by default, while the redesigned 3.24.0 flow requires password confirmation before anonymous objects are linked. This issue is fixed in versions 3.21.67, 3.22.63, and 3.23.22.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-49224",
-      "published": "2026-08-18T17:16:57.977",
-      "description": "Vvveb is a powerful and easy to use CMS with page builder to build websites, blogs or ecommerce stores. Prior to 1.0.8.4, Vvveb backend post revision operations allow a low-privileged Author to access revisions for posts owned by another Author. The admin/controller/content/revisions.php controller and admin/sql/sqlite/post_content_revision.sql queries trust caller-controlled post_id, language_id, and created_at values without consistently applying the current admin_id to revision lists, reads, restores, and deletes. An attacker can read historic post content, restore a revision over another Author's live post content, or delete revision records, exposing drafts, corrupting published content, and removing audit history. This issue is fixed in version 1.0.8.4.",
+      "id": "CVE-2026-50143",
+      "published": "2026-08-18T18:17:53.227",
+      "description": "The Apify MCP server enables AI agents to extract data from websites using ready-made scrapers, crawlers, and automation tools available on the Apify Store. Prior to 0.10.11, getActorMCPServerURL in src/mcp/actors.ts concatenates the trusted Actor standby URL with the attacker-controlled webServerMcpPath from an Actor definition without verifying the resulting origin, allowing a malicious Actor publisher to use a userinfo-style authority value to redirect connectMCPClient to a third-party host. The call-actor, fetch-actor-details, and actor-mcp tool-loading paths pass this URL to transports in src/mcp/client.ts that attach the victim Authorization bearer token, exposing the Apify API token and enabling access to Actors, stored data, and billable compute. A victim must invoke or inspect the attacker-controlled Actor. This issue is fixed in version 0.10.11.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-49225",
-      "published": "2026-08-18T17:16:58.117",
-      "description": "Vvveb is a powerful and easy to use CMS with page builder to build websites, blogs or ecommerce stores. Prior to 1.0.8.4, Vvveb backend product revision operations allow a low-privileged Vendor to access revisions for products owned by another Vendor. The admin/controller/product/revisions.php route reuses admin/controller/content/revisions.php, while admin/sql/sqlite/product_content_revision.sql trusts caller-controlled product_id, language_id, and created_at values without applying the current admin_id to revision reads, restores, and deletes. An attacker can read historic product content, restore a revision over another Vendor's live product content, or delete revision records, exposing private copy, corrupting product pages, and removing audit history. This issue is fixed in version 1.0.8.4.",
+      "id": "CVE-2026-54552",
+      "published": "2026-08-18T18:18:23.147",
+      "description": "sh provides Python process launching. Prior to 2.2.4, the _uid option in sh.py performs an incomplete privilege drop on Linux and Unix-like systems. When sh runs from an elevated process and launches a command with _uid set to an unprivileged user, the child changes its UID but can retain the parent process's supplementary groups because the privilege-drop sequence does not fully establish the target user's UID, primary GID, and supplementary groups. The child can therefore retain access to files or resources granted to privileged groups such as root, docker, disk, shadow, or sudo, violating the expected _uid privilege boundary. This issue is fixed in version 2.2.4.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 7.9
     },
     {
-      "id": "CVE-2026-49222",
-      "published": "2026-08-18T17:16:57.687",
-      "description": "Vvveb is a powerful and easy to use CMS with page builder to build websites, blogs or ecommerce stores. Prior to 1.0.8.4, Vvveb backend product question operations allow a low-privileged Vendor to manage questions under another Vendor's products. The admin/sql/sqlite/product_question.sql queries accept a caller-controlled product_question_id and do not verify product_question.product_id against product.admin_id for the current admin_id. An attacker can read pending question content and moderation data, change question status, edit question content, or delete questions, manipulating product Q&A visibility and integrity. This issue is fixed in version 1.0.8.4.",
+      "id": "CVE-2026-32657",
+      "published": "2026-08-18T18:17:28.573",
+      "description": "Dell AppSync Version 4.6.0.0, Dell Metro Node Version 8.0.0, Dell UCC Edge Version 3.0.1, Dell VxRail Version 8.0.322, Dell PowerMax Version 10.3.0, Dell Unity Version 5.4, Dell PowerFlex Manager Version 4.5.4, Dell PowerFlex Intelligent Catalog Versions 46.377.00 and 46.382.00 and Dell PowerFlex Rack version 4.5.4 and prior versions, contain(s) an UNIX Symbolic Link (Symlink) Following vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-49223",
-      "published": "2026-08-18T17:16:57.830",
-      "description": "Vvveb is a powerful and easy to use CMS with page builder to build websites, blogs or ecommerce stores. Prior to 1.0.8.4, Vvveb backend product review operations allow a low-privileged Vendor to manage reviews under another Vendor's products. The admin/sql/sqlite/product_review.sql queries accept a caller-controlled product_review_id and do not verify product_review.product_id against product.admin_id for the current admin_id. An attacker can read pending review content, ratings, author information, and moderation state, change review status, edit review content, or delete reviews, manipulating product review visibility and integrity. This issue is fixed in version 1.0.8.4.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2026-50578",
-      "published": "2026-08-18T17:16:58.933",
-      "description": "ePA 3.x Integration implements the authorization workflow and writes Medical Information Objects to Germany's electronic patient record. Prior to 1.3.0, ePA 3.x Integration disables TLS certificate verification for both ePA connections in app/vau/VAUProtokoll.py and Konnektor connections in app/konnektor/Konnektor.py. A network-positioned attacker can present an arbitrary certificate, terminate the TLS connection, and intercept ePA traffic. The VAU protocol does not provide an effective fallback because its application-layer certificate validation is also broken in affected versions. The Konnektor session uses self.session.verify set to False while the client authenticates with self.session.cert, so an attacker impersonating the Konnektor can receive the client's mutual TLS certificate exchange and observe smartcard operations. This issue is fixed in version 1.3.0.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-50577",
-      "published": "2026-08-18T17:16:58.790",
-      "description": "ePA 3.x Integration implements the authorization workflow and writes Medical Information Objects to Germany's electronic patient record. Prior to 1.3.0, ePA 3.x Integration leaves request_counter unchanged in app/vau/VAUProtokoll.py while constructing VAU messages. The frozen client request counter causes the server side to reuse AES-GCM nonce and key combinations across responses. A network attacker who collects repeated ciphertexts can recover the XOR of plaintexts and use predictable inner HTTP headers and JSON fields to recover sensitive data, including patient health records. Repeated nonces can also enable recovery of the GHASH authentication key through the Joux forbidden attack, allowing forged AES-GCM messages and injection of malicious responses. The response-counter check also fails to maintain last_response_counter, weakening replay and ordering validation. This issue is fixed in version 1.3.0.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-50576",
-      "published": "2026-08-18T17:16:58.633",
-      "description": "ePA 3.x Integration implements the authorization workflow and writes Medical Information Objects to Germany's electronic patient record. Prior to 1.3.0, ePA 3.x Integration does not neutralize CRLF characters in values used by app/vau/VAUProtokoll.py to construct VAU inner HTTP requests. The build_inner_header function interpolates the uri, host, accept_type, content_type, content_length, USER_AGENT, and insurant_id values into request lines and headers, including x-useragent and x-insurantid. An authenticated attacker who controls a value can inject additional headers into the inner request. Depending on ePA server handling, an injected x-insurantid header can expose another patient's records, and injected Authorization headers can bypass the intended authentication or authorization context. Session-derived USER_AGENT input can also poison requests across the session. This issue is fixed in version 1.3.0.",
+      "id": "CVE-2026-54570",
+      "published": "2026-08-18T18:18:23.310",
+      "description": "AngleSharp is a .NET library for parsing angle bracket based hyper-texts. Prior to 1.5.0, MathAnnotationXmlElement in AngleSharp/Mathml/Dom/Internal/MathAnnotationXmlElement.cs is not treated as an HTML integration point when its encoding attribute is text/html or application/xhtml+xml, causing Consume in AngleSharp/Html/Parser/HtmlDomBuilder.cs to route tokens through foreign-content parsing instead of HTML parsing. A sanitizer can therefore observe a different DOM from the browser that reparses the serialized output. An attacker can combine this namespace differential with markup-breaking characters in an attribute value so that an element hidden from the sanitizer becomes active script-capable HTML after browser reparse, resulting in mutation cross-site scripting. This issue is fixed in version 1.5.0.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.9
     },
     {
-      "id": "CVE-2026-48744",
-      "published": "2026-08-18T17:16:57.533",
-      "description": "Saleor is an e-commerce platform. From 3.14.67 until 3.21.67, 3.22.63, and 3.23.22, a broken authorization check in saleor/permission/utils.py can incorrectly authorize unauthenticated GraphQL requests. The flaw permits anonymous callers to use the channelUpdate() mutation to change channel order settings such as allowUnpaidOrders even when the response reports PermissionDenied. The same permission utility can expose hidden objects through the pageType() and translation() queries, including attributes whose visibleInStorefront field is false and that should be visible only to users with management permissions. This issue is fixed in versions 3.21.67, 3.22.63, and 3.23.22.",
+      "id": "CVE-2026-49452",
+      "published": "2026-08-18T18:17:49.147",
+      "description": "WeasyPrint helps web developers to create PDF documents. Prior to 69.0, WeasyPrint embeds unescaped HTML presentational-hint attribute values into CSS in weasyprint/css/__init__.py when presentational_hints=True. The background attribute is inserted into a background-image:url() declaration and parsed by tinycss2.parse_blocks_contents(), allowing untrusted HTML to inject additional CSS declarations. Applications that render untrusted HTML with presentational hints enabled can be affected by CSS injection and server-side requests through injected url() values. This issue is fixed in version 69.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-30250",
-      "published": "2026-08-18T17:16:57.397",
-      "description": "Cross-site scripting vulnerability in the user documentation field in Beta Systems Software AG ANOW! Automate v.3.3.1.90 allows a remote attacker to execute arbitrary code",
+      "id": "CVE-2026-52607",
+      "published": "2026-08-18T18:18:19.883",
+      "description": "A directory traversal vulnerability in reportico-web <= 8.1.0 allows remote attackers to expose or execute arbitrary php files on the web server by specifying the filename in the target_format parameter in conjunction with the execute_mode=EXECUTE parameter of the run.php endpoint.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-61696",
+      "published": "2026-08-18T18:18:52.497",
+      "description": "Forem is open source software for building communities. In versions before commit 92eacd16a82cf9007ba8e16a2258b42e3b53ca9c, a malicious value submitted through feedback_message[message] is stored without sanitization and rendered in app/views/admin/feedback_messages/_feedback_message.html.erb through raw(feedback_message.message) when offender_id is present. Viewing the abuse report executes arbitrary JavaScript in an administrator's browser and may expose sensitive in-page data, abuse CSRF tokens, or perform administrative actions in the victim's session. The public FeedbackMessagesController accepts the report without authorization and previously permitted a submitted offender_id, making the vulnerable rendering path reachable by an unauthenticated attacker. This issue is fixed in commit 92eacd16a82cf9007ba8e16a2258b42e3b53ca9c",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-52609",
+      "published": "2026-08-18T18:18:20.143",
+      "description": "A reflected cross-site scripting (XSS) vulnerability in reportico-web <= 8.1.0 allows remote attackers to execute arbitrary JavaScript in the web browser of a user by including a malicious payload in the reportico_criteria parameter in conjunction with the execute_mode=CRITERIA parameter of run.php.",
       "severity": "MEDIUM",
       "score": 6.1
     },
     {
-      "id": "CVE-2026-52606",
-      "published": "2026-08-18T17:16:59.080",
-      "description": "A reflected cross-site scripting (XSS) vulnerability in reportico-web <= 8.1.0 allows remote attackers to execute arbitrary JavaScript in the web browser of a user by including a malicious payload in the loadTemplate parameter in conjunction with the execute_mode=PREPARE parameter of run.php.",
+      "id": "CVE-2026-63640",
+      "published": "2026-08-18T18:19:11.800",
+      "description": "MagicMirror² is an open source modular smart mirror platform. Prior to 2.37.0, when hideConfigSecrets is enabled, the catch-all socket dispatcher in js/node_helper.js passes every inbound object payload through replaceSecretPlaceholder in js/server_functions.js before invoking socketNotificationReceived. A client connected to a loaded module namespace can submit a SECRET_API_KEY placeholder, causing the server to replace it with the corresponding process environment value. The default weather helper accepts INIT_WEATHER, copies the attacker-controlled instanceId, and returns it in WEATHER_ERROR, providing an echo path for the expanded secret. This reverses the intended one-way redaction boundary and can disclose API tokens, credentials, or service keys stored in SECRET_ variables. This issue is fixed in version 2.37.0.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-55106",
-      "published": "2026-08-18T17:16:59.500",
-      "description": "authentik is an open-source identity provider. Prior to 2026.2.6 and 2026.5.5, a diagnostic action on the LDAP Source API does not enforce the object-level read-authorization filter used by the rest of the API. Any party able to reach the API, including an unauthenticated client, can invoke the diagnostic action against a configured LDAP Source. The server then connects to the upstream directory using the source's configured bind credentials and returns a bounded set of directory entries. The response exposes the distinguished names of those entries and the names of the attributes present on them, revealing directory structure, naming conventions, and the existence of specific accounts and groups, but not attribute values. Deployments without a configured LDAP Source are not affected. This issue is fixed in versions 2026.2.6 and 2026.5.5.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-50126",
-      "published": "2026-08-18T17:16:58.410",
-      "description": "Adaguc-server is an open source geographical information system to visualize, combine, compare and share real-time meteorological, climatological and remote sensing data via OGC standards. Versions prior to 7.2.2 crash with a memory-safety fault when it parses a GeoJSON document whose geometry contains a malformed coordinate. The coordinate parser in `adagucserverEC/CConvertGeoJSON.cpp` indexes `pt.u.array.values[0]` and `pt.u.array.values[1]` and uses `polygon.u.array.length` as a loop bound without first validating the JSON node type or the coordinate length. A coordinate that is an empty array, a one-element array, a scalar, or `null` leads to an out-of-bounds heap read or a NULL pointer dereference. The same unchecked pattern is present in four geometry branches: `Polygon`, `LineString`, `MultiLineString` and `MultiPolygon`. The vulnerable parser runs whenever the server processes a local GeoJSON file, either a configured GeoJSON dataset or a GeoJSON file exposed through the `AutoResource` feature and requested by an unauthenticated WMS request. A crafted GeoJSON file reliably crashes the backend process that handles that request. Version 7.2.2 patches the vulnerability.",
-      "severity": "MEDIUM",
-      "score": 4
-    },
-    {
-      "id": "CVE-2026-19869",
-      "published": "2026-08-18T17:16:57.227",
-      "description": "@neo4j/graphql from 5.2.0 until the patched versions fails to enforce field-level @authentication rules on root custom-resolver fields when a type-level @authentication rule is also present on the same operation type. When both a type-level @authentication (on Query/Mutation) and a field-level @authentication (on a root custom-resolver field within that type) are declared, only the type-level rule is evaluated and the field-level rule is silently discarded. As a result a stricter per-field requirement — such as an admin-role JWT claim (jwt: { roles_INCLUDES: \"admin\" }) — is never checked, and any client that satisfies the coarser type-level requirement can invoke the more-restricted field. No token forgery is involved: a legitimately issued, correctly signed non-admin token (e.g. roles: [\"user\"]) is sufficient.",
+      "id": "CVE-2026-18392",
+      "published": "2026-08-18T18:17:26.950",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. Reason: This candidate was issued in error. Notes: All references and descriptions in this candidate have been removed to prevent accidental usage.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54730",
-      "published": "2026-08-18T17:16:59.350",
-      "description": "authentik is an open-source identity provider. Prior to 2026.2.6 and 2026.5.5, the enterprise Google Chrome device-trust stages advance the flow without confirming that the out-of-band device attestation actually ran. Affected enterprise deployments place either a Google Chrome Endpoint stage with mode set to REQUIRED or the deprecated Google Chrome Device Trust Connector stage in an authentication flow. The device attestation occurs in a verification iframe that calls the Google Verified Access API and records the verified device on success, but the vulnerable stages treat the flow as passed as soon as the stage is submitted. An attacker who can reach such a stage, including after primary username and password authentication, can skip the verification iframe and authenticate from a device that was never verified. Where device trust is the only additional factor, that protection is fully bypassed, while other configured factors remain in force. This issue is fixed in versions 2026.2.6 and 2026.5.5.",
+      "id": "CVE-2026-50161",
+      "published": "2026-08-18T18:17:53.380",
+      "description": "libre is a generic library for real-time communications with asynchronous input and output support. Prior to 4.8.1, the websock_decode() function in src/websock/websock.c contains an integer overflow when validating a masked WebSocket frame that uses the 64-bit extended length encoding. The expression 4 + hdr->len can wrap when hdr->len is close to UINT64_MAX, causing the mbuf_get_left() bounds check to pass. The subsequent XOR unmasking loop then writes beyond the heap buffer. Applications using websock_accept() or websock_accept_proto() to implement a WebSocket server are affected, and exploitation can cause attacker-controlled heap corruption or denial of service after the HTTP WebSocket upgrade handshake. This issue is fixed in version 4.8.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-57580",
-      "published": "2026-08-18T17:16:59.667",
-      "description": "authentik is an open-source identity provider. Prior to 2026.2.6 and 2026.5.5, an inbound SAML Source configured with the non-default USERNAME_LINK or EMAIL_LINK user-matching mode interprets an XML comment in a NameID differently from the identity provider's signed assertion. An attacker with an account on the source identity provider who can set the account's NameID can inject an XML comment that truncates the value used by authentik to the text before the comment while the signed assertion remains valid. A crafted NameID can therefore truncate to a victim's username or email and bind the attacker's external identity to the victim's existing account. This grants full takeover without the victim's password or the identity provider's private key, and the malicious link persists so later logins succeed without the comment. Sources using the default unique-identifier matching mode and authentik's outbound SAML Provider role are not affected. This issue is fixed in versions 2026.2.6 and 2026.5.5.",
+      "id": "CVE-2026-50167",
+      "published": "2026-08-18T18:17:53.533",
+      "description": "Kurrier is a modern, self-hosted workspace for email, calendar, contacts, and storage. Prior to 1.2.4, Kurrier API endpoints for listing and retrieving webhook and identity resources did not enforce ownership checks for authenticated API requests. An attacker with a valid API key could use another account's identifiers to read and enumerate webhook and identity resources belonging to that account through apps/worker/server/routes/api/kurrier/webhooks/[id].get.ts, apps/worker/server/routes/api/kurrier/webhooks/index.get.ts, apps/worker/server/routes/api/kurrier/identities/[id].get.ts, and apps/worker/server/routes/api/kurrier/identities/index.get.ts. Anonymous requests and invalid API keys were rejected, and cross-user modification operations were blocked, but affected GET and list operations could expose another user's resource metadata. This issue is fixed in version 1.2.4.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-61634",
-      "published": "2026-08-18T17:16:59.960",
-      "description": "The RabbitMQ Java client library allows Java and JVM-based applications to connect to and interact with RabbitMQ nodes. Prior to 5.33.0, the AMQP connection tuning path records the negotiated AMQP frame_max value, but src/main/java/com/rabbitmq/client/impl/SocketFrameHandler.java and NettyFrameHandlerFactory continue to validate broker-controlled frame payload lengths against maxInboundMessageBodySize because the negotiated limit is not applied consistently through setMaxInboundFramePayloadSize. A malicious or compromised broker can send a method frame larger than the negotiated frame_max during or after connection establishment, causing the client to allocate and decode a protocol-invalid frame instead of rejecting it with MalformedFrameException. The protocol violation can disrupt the affected connection and cause client-side denial of service. This issue is fixed in version 5.33.0.",
+      "id": "CVE-2026-53533",
+      "published": "2026-08-18T18:18:20.513",
+      "description": "aiosmtplib is an asynchronous SMTP client for use with asyncio. Prior to 5.1.1, SMTP.mail(), SMTP.rcpt(), SMTP.vrfy(), and SMTP.expn() send caller-supplied addresses without rejecting embedded CR or LF bytes. Data after the line break is framed as additional standalone SMTP command lines, allowing an attacker who influences an envelope sender or recipient to inject commands such as MAIL FROM, RCPT TO, RSET, DATA, or AUTH. SMTP.sendmail() and SMTP.send() without a Message object pass addresses through the affected methods, while SMTP.send_message() is not affected. Successful injection can desynchronize the command-response pipeline, hang the SMTP instance, or send an arbitrary message without requiring attacker control of the SMTP server. This issue is fixed in version 5.1.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-63641",
+      "published": "2026-08-18T18:19:11.963",
+      "description": "MagicMirror² is an open source modular smart mirror platform. Prior to 2.37.0, MagicMirror applies ipWhitelist only as Express middleware, while the Socket.IO server in js/server.js is attached directly to the HTTP server without equivalent IP allowlist, origin, or namespace authentication checks. In a documented non-loopback deployment that relies on ipWhitelist, an unauthenticated adjacent-network client can connect directly to module Socket.IO namespaces, and js/node_helper.js dispatches arbitrary events and payloads to socketNotificationReceived. The default newsfeed and calendar helpers can make server-side requests to attacker-selected URLs, while the default updatenotification helper can reach child_process.exec when a third-party module update is pending and the attacker supplies an update command through the socket CONFIG path. This can expose internal services, manipulate module-helper state, and conditionally execute commands. This issue is fixed in version 2.37.0.",
       "severity": "UNKNOWN",
       "score": null
     }
