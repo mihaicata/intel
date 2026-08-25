@@ -1,145 +1,145 @@
 {
-  "totalResults": 3519,
+  "totalResults": 3427,
   "items": [
     {
-      "id": "CVE-2026-32474",
-      "published": "2026-08-18T15:16:53.083",
-      "description": "Contributor Arbitrary File Upload in Templatiq <= 0.2.5 versions.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-32470",
-      "published": "2026-08-18T15:16:52.690",
-      "description": "Unauthenticated PHP Object Injection in FundEngine <= 1.7.9 versions.",
+      "id": "CVE-2026-45117",
+      "published": "2026-08-18T16:17:06.493",
+      "description": "MyBB is free and open source forum software. From 1.8.13 until 1.8.40, the installer module does not properly escape user-supplied database configuration values written to the configuration file, resulting in PHP code injection and remote code execution when the installer is available. install/index.php processes the values with addcslashes(), but the $characters argument added in MyBB 1.8.13 does not include the backslash character, allowing crafted input to escape the generated PHP string. The uniquely identifying implementation details include introduced in MyBB 1.8.13. This issue is fixed in version 1.8.40.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-59940",
-      "published": "2026-08-18T15:16:56.007",
-      "description": "Seroval facilitates JS value stringification, including complex structures beyond JSON.stringify capabilities. Prior to 1.5.3, seroval.fromJSON() allows attacker-controlled JSON Promise control nodes to operate on values from the general deserialization reference table without verifying genuine internal Promise resolver records, causing deserialization side effects with plugins enabled and potentially unintended server-side invocation or remote code execution when downstream frameworks register callable wrappers. This issue is fixed in version 1.5.3.",
+      "id": "CVE-2026-12564",
+      "published": "2026-08-18T16:17:01.917",
+      "description": "A flaw was found in the AAP Controller's HashiCorp Vault credential plugin. The kubernetes_auth() function in awx_plugins/credentials/hashivault.py reads the controller pod's Kubernetes service account token and sends it to an attacker-controlled URL when a HashiCorp Vault Secret Lookup credential with kubernetes_role authentication is tested. An authenticated attacker with credential-creation privileges can exfiltrate the service account token, gaining Kubernetes API access to the control plane namespaces with full pod CRUD and secret read permissions, including database credentials and the Django SECRET_KEY.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-50187",
-      "published": "2026-08-18T15:16:54.870",
-      "description": "Oh My Zsh is a community-driven framework for managing Zsh configuration. Prior to 2026-05-28, the dotenv plugin in plugins/dotenv/dotenv.plugin.zsh passes ZSH_DOTENV_FILE to source after a directory change into a folder containing a .env file, allowing syntactically valid shell commands in the file to execute with the current account's privileges, including without a prompt when ZSH_DOTENV_PROMPT=false or after the default prompt accepts an empty Enter response. This issue is fixed in versions released after 2026-05-28.",
+      "id": "CVE-2026-45118",
+      "published": "2026-08-18T16:17:06.633",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Contact module does not validate a redirect URL or protocol correctly, resulting in an open redirect and reflected JavaScript code injection. contact.php accepts the redirect target from the from HTTP parameter in $mybb->input['from'] or the Referer HTTP header in $_SERVER['HTTP_REFERER'] and passes it to redirect() without sufficient verification. A javascript: URI becomes the target of the `Click here if you don't want to wait any longer` link because $force_redirect is true, allowing script execution when a victim selects the link. This issue is fixed in version 1.8.40.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-19501",
+      "published": "2026-08-18T16:17:02.780",
+      "description": "CSV export functionality in Brainstorm Force SureForms version, <= 2.12.1, fails to neutralize spreadsheet formula characters in user-controlled form field names before generating CSV exports, which allows a remote attacker to execute spreadsheet formulas on an administrator's workstation when the exported CSV file is opened in a vulnerable spreadsheet application.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-61407",
-      "published": "2026-08-18T15:16:56.310",
-      "description": "Dell Watchdog Timer Driver versions prior to 2.0.0.1 contain an Exposed IOCTL with Insufficient Access Control vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
+      "id": "CVE-2026-45115",
+      "published": "2026-08-18T16:17:06.180",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Buddy/Ignore component does not sanitize usernames correctly, allowing attackers to perform JavaScript code injection through a specially crafted username. The User CP Buddy/Ignore list and the Select Buddies list in Private Messages pass usernames through htmlspecialchars_uni(), which may leave single quotes unescaped. The payload is triggered when a victim chooses Yes in Please Confirm while removing the username in usercp.php, or selects the username through the onclick handler in the xmlhttp.php Select Buddies popup. The uniquely identifying implementation details include Private Messages Select Buddies list, and unescaped single quotes. This issue is fixed in version 1.8.40.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-45733",
-      "published": "2026-08-18T15:16:54.270",
-      "description": "Trilium Notes is a cross-platform, hierarchical note taking application focused on building large personal knowledge bases. Prior to 0.103.0, the #iconClass label value is returned raw by getNoteIcon() and inserted without HTML attribute encoding into class attributes in apps/client/src/widgets/quick_search.ts and apps/client/src/services/note_autocomplete.ts, allowing a stored payload to execute automatically when a victim opens a new tab or uses Ctrl+J and, because Electron enables nodeIntegration and disables contextIsolation, run operating-system commands as the victim. This issue is fixed in version 0.103.0.",
+      "id": "CVE-2026-45116",
+      "published": "2026-08-18T16:17:06.347",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the user datahandler does not properly validate checkbox and multiselect profile field types, resulting in stored JavaScript code injection. UserDataHandler::verify_profile_fields() only performs the specialized validation when is_array($profile_fields[$field]) is true. A non-array profile_fields[fidX] value instead of the expected profile_fields[fidX][] shape falls through to generic text handling and is stored without verification. The affected value is then rendered directly by member.php and inc/functions_post.php rather than processed by the MyCode parser. The uniquely identifying implementation details include inc/datahandlers/user.php. This issue is fixed in version 1.8.40.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-50138",
-      "published": "2026-08-18T15:16:54.580",
-      "description": "goshs is a SimpleHTTPServer written in Go. Prior to version 2.1.0, when `goshs` is launched with WebDAV enabled (`-w`), the mode-restriction flags `--read-only`, `--upload-only`, and `--no-delete` are enforced only on the primary HTTP port. The WebDAV port is wired straight to `golang.org/x/net/webdav.Handler` with no equivalent guard, so an authenticated WebDAV client can `PUT`, `DELETE`, `MKCOL`, `MOVE`, and `COPY` despite the operator's stated intent. Version 2.1.0 patches the issue.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-32472",
-      "published": "2026-08-18T15:16:52.817",
-      "description": "Unauthenticated Broken Access Control in Online Contact Widget <= 1.3.0 versions.",
+      "id": "CVE-2026-19500",
+      "published": "2026-08-18T16:17:02.647",
+      "description": "The Entries component in Brainstorm Force SureForms version, less than 2.12.3, does not enforce adequate limits on user-controlled form fields or submitted content during processing and rendering, which allows a remote attacker to exhaust server resources, prevent administrators from accessing the Entries interface, and trigger HTTP 500 errors via crafted form submissions.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-32481",
-      "published": "2026-08-18T15:16:53.210",
-      "description": "Unauthenticated Broken Authentication in Ezoic <= 2.22.11 versions.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-32549",
-      "published": "2026-08-18T15:16:53.487",
-      "description": "Unauthenticated Broken Access Control in ThumbPress < 6.5 versions.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-56684",
-      "published": "2026-08-18T15:16:55.463",
-      "description": "Valkey is a distributed key-value database. Prior to 7.2.14, 8.0.10, 8.1.9, 9.0.5, and 9.1.1, Valkey's tlsProcessPendingData function iterates pending_list while an authenticated client can trigger CLIENT KILL, causing connTLSClose to delete the iterator's cached next node and producing a use-after-free that can crash the server or potentially allow remote code execution when TLS is enabled. This issue is fixed in versions 7.2.14, 8.0.10, 8.1.9, 9.0.5, and 9.1.1.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-18534",
-      "published": "2026-08-18T15:16:49.667",
-      "description": "ArcSearch for iOS versions prior to 1.48.0 could keep the address bar hidden after a page-initiated scroll, allowing attacker-controlled content to imitate browser interface elements and increasing spoofing risk.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-59825",
-      "published": "2026-08-18T15:16:55.623",
-      "description": "Mastodon is a free, open-source social network server based on ActivityPub. Prior to 4.4.19 and from 4.5.0 until 4.5.12, Mastodon's app/models/concerns/user/ldap_authenticable.rb mutates OpenSSL::SSL::SSLContext::DEFAULT_PARAMS when LDAP authentication uses LDAP_TLS_NO_VERIFY=true, disabling SSL and TLS certificate verification globally for requests made by puma web processes while sidekiq background jobs remain unaffected. This issue is fixed in versions 4.4.19 and 4.5.12.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-32473",
-      "published": "2026-08-18T15:16:52.953",
-      "description": "Unauthenticated Server Side Request Forgery (SSRF) in PDF Smart Viewer for Elementor <= 1.0.4 versions.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-32553",
-      "published": "2026-08-18T15:16:53.623",
-      "description": "Unauthenticated Server Side Request Forgery (SSRF) in OttoKit <= 1.1.35 versions.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-32547",
-      "published": "2026-08-18T15:16:53.347",
-      "description": "Unauthenticated Cross Site Scripting (XSS) in BP Better Messages <= 2.15.22 versions.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-48798",
-      "published": "2026-08-18T15:16:54.427",
-      "description": "SSH.NET is a Secure Shell (SSH) library for .NET. In 2025.1.0 and earlier, ScpClient.Download(string directoryName, DirectoryInfo directoryInfo) trusts file and directory names returned by a remote SCP server and combines them with the requested local directory without containment validation, allowing a malicious, compromised, or man-in-the-middle server to use ../ sequences or absolute paths to create or overwrite files anywhere writable by the client process. This issue is fixed in version 2026.0.0.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-59949",
-      "published": "2026-08-18T15:16:56.160",
-      "description": "yawkat LZ4 Java provides LZ4 compression for Java. Prior to 1.11.1, JNI-backed XXHash implementations fail to validate the byte array object and the off and len arguments in XXHashFactory.nativeInstance().hash32().hash(), XXHashFactory.nativeInstance().hash64().hash(), XXHashFactory.nativeInstance().newStreamingHash32().update(), and XXHashFactory.nativeInstance().newStreamingHash64().update(), allowing null arrays or oversized ranges to reach native code, read outside the Java array, and fatally terminate the JVM. This issue is fixed in version 1.11.1.",
+      "id": "CVE-2026-45120",
+      "published": "2026-08-18T16:17:06.937",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the calendar module does not verify private event status consistently, allowing users with viewing and moderation permissions to access and moderate private events. The private-event check used by get_events() in inc/functions_calendar.php and the event action is missing from the remaining calendar.php actions, despite the limited-access behavior described in inc/languages/english/calendar.lang.php. This issue is fixed in version 1.8.40.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-50139",
-      "published": "2026-08-18T15:16:54.733",
-      "description": "goshs is a SimpleHTTPServer written in Go. Prior to version 2.1.0, `ShareHandler` reads the share token's `DownloadLimit` under `RLock`, releases the lock, serves the file, then re-acquires the lock to increment the counter. Concurrent requests all read the same `Downloaded`/`DownloadLimit` snapshot, all pass the check, and all are served — exceeding the operator's intended cap. Version 2.1.0 patches the issue.",
+      "id": "CVE-2026-45125",
+      "published": "2026-08-18T16:17:07.667",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Email User controller does not sanitize sender names correctly, resulting in mail header injection. member.php?action=do_emailuser accepts the fromname HTTP parameter for guests or the stored username for authenticated users when the cansendemail group permission is enabled. When mail_handler is set to the default PHP mail value, the sender name is used without sanitization in Return-Path and Reply-To headers, allowing arbitrary headers to be injected with CRLF sequences. This issue is fixed in version 1.8.40.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-63632",
-      "published": "2026-08-18T15:16:56.463",
-      "description": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+      "id": "CVE-2026-45734",
+      "published": "2026-08-18T16:17:08.980",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the built-in CAPTCHA does not consistently enforce single-use semantics, allowing remote attackers to bypass CAPTCHA controls through challenge replay. The successful validation paths in contact.php, member.php?action=do_resendactivation, member.php?action=do_lostpw, member.php?action=do_emailuser, and sendthread.php?action=do_sendtofriend do not call captcha::invalidate_captcha() for the MyBB Default CAPTCHA selected by the captchaimage setting. A valid response can therefore be reused until a non-vulnerable endpoint invalidates it, an incorrect response is submitted, or the challenge expires. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-45119",
+      "published": "2026-08-18T16:17:06.773",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Admin CP UTF-8 Conversion module does not validate certain requests correctly, allowing same-site attackers to alter table encoding and deny service with a specially crafted URL. The do=all control flow in admin/modules/tools/system_health.php performs ALTER TABLE operations, column rewrite phases, and fulltext index rebuilds on GET requests for the database table named by the table parameter without request verification. The uniquely identifying implementation details include GET requests without request verification. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 4.6
+    },
+    {
+      "id": "CVE-2026-45129",
+      "published": "2026-08-18T16:17:08.223",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Admin CP Recovery Codes module does not validate requests correctly, allowing same-site attackers to rotate a victim administrator's recovery codes with a specially crafted URL. The Admin CP Home, Preferences, Recovery Codes action=recovery_codes page regenerates Two-Factor Authentication recovery codes in mybb_adminoptions.recovery_codes on GET requests without request forgery protection. The uniquely identifying implementation details include admin/modules/home/preferences.php. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 4.6
+    },
+    {
+      "id": "CVE-2026-45121",
+      "published": "2026-08-18T16:17:07.093",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the calendar module does not check permissions consistently when listing calendars, allowing authenticated users to access titles of calendars that are otherwise inaccessible. The affected calendar-selection paths in calendar.php perform permission checks against an invalid calendar context before returning calendar titles. The uniquely identifying implementation details include titles of inaccessible calendars, and invalid calendar permission context. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-45122",
+      "published": "2026-08-18T16:17:07.243",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the calendar module does not validate moderation permissions for the destination calendar when moving events. A user with moderation permission for the source calendar can move an event to a calendar where the user has only viewing permission because the do_move action in calendar.php does not check canmoderateevents for the target calendar. The uniquely identifying implementation details include calendar event move, source calendar moderation permission, and destination calendar viewing permission. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-45123",
+      "published": "2026-08-18T16:17:07.383",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the remote requests feature does not correctly handle IPv6 addresses, resulting in a server-side request forgery vulnerability. The default disallowed remote hosts list does not include IPv6 addresses. Verification in fetch_remote_file() fails open when get_ip_by_hostname() returns no result because that function does not return IPv6 results, allowing a crafted remote target to bypass the host restriction. The uniquely identifying implementation details include fail-open verification, and inc/functions.php. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-45124",
+      "published": "2026-08-18T16:17:07.527",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Mod CP Report Center does not check permissions consistently, allowing moderators without report-management permission to mark reports as resolved. The modcp.php?action=do_reports Mark Selected as Read handler is reachable with canmodcp even without canmanagereportedcontent or canmanagereportedposts. When no forums are in scope, $flist_reports is empty and the UPDATE mybb_reportedcontent query executes without the expected permission-based limitation. This issue is fixed in version 1.8.40.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-45126",
+      "published": "2026-08-18T16:17:07.803",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the Admin CP Security Questions module does not validate the anti-CSRF token correctly, allowing same-site attackers to enable or disable registration challenge questions with a specially crafted URL. The controller processes GET requests for the disable and enable actions to modify mybb_questions.active without verifying the my_post_key token attached by the user interface. The uniquely identifying implementation details include admin/modules/config/questions.php. This issue is fixed in version 1.8.40.",
       "severity": "LOW",
-      "score": 3.3
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-45127",
+      "published": "2026-08-18T16:17:07.947",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the ACP Mass Mail module does not validate certain requests correctly, allowing same-site attackers to create draft entries from archived entries by embedding a specially crafted URL. The Resend route in Admin CP, Users & Groups, Mass Mail, Mass Mailing Archive duplicates archived mailing entries into new drafts with mybb_massemails.status set to 0 on GET requests without request forgery protection. The uniquely identifying implementation details include Users & Groups → Mass Mail → Mass Mailing Archive, mybb_massemails.status = 0, and admin/modules/user/mass_mail.php. This issue is fixed in version 1.8.40.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-45128",
+      "published": "2026-08-18T16:17:08.087",
+      "description": "MyBB is free and open source forum software. Prior to 1.8.40, the ACP Users View Manager module does not validate requests correctly, allowing same-site attackers to change a victim administrator's default user list view by embedding a specially crafted URL. The Set as Default control named set_default in Admin CP, Users & Groups, Users, View Manager changes the administrator's default view on GET requests without request forgery protection. The uniquely identifying implementation details include Users & Groups → Users → View Manager, and admin/inc/functions_view_manager.php. This issue is fixed in version 1.8.40.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-15806",
+      "published": "2026-08-18T16:17:02.220",
+      "description": "The HTTPPasswordMgr class in the urllib.request module, along with its subclasses HTTPPasswordMgrWithDefaultRealm and HTTPPasswordMgrWithPriorAuth, did not take the URL scheme into account when matching stored credentials against a requested URL. Credentials added for an https:// URL were also used for requests to the same host over http://, so an attacker able to redirect or downgrade a client to plain HTTP (for example, via an HTTPS-to-HTTP redirect or an on-path position) could capture credentials in cleartext. Credentials added for http:// URLs could likewise be sent over https://.\n\nCredential matching is now scoped by URL scheme. Credentials registered with a URL that includes a scheme are only used for requests with the same scheme. Credentials registered with a bare authority (such as example.com or example.com:8080) continue to match any scheme, preserving compatibility with existing code, including proxy authentication.\n\nUsers who cannot upgrade immediately can mitigate by ensuring that applications never make plain http:// requests to hosts for which credentials are registered, for example by not following redirects to http:// URLs.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
