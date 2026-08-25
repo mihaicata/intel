@@ -1,13 +1,6 @@
 {
-  "totalResults": 3537,
+  "totalResults": 3543,
   "items": [
-    {
-      "id": "CVE-2026-15748",
-      "published": "2026-08-18T06:16:40.670",
-      "description": "The Forminator Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.56.1 via the handle_file_upload function. This is due to insufficient file type validation in handle_file_upload, where the dangerous-extension blocklist performs exact-key matching that is bypassed by pipe-alternative MIME type keys, combined with a public submission handler that trusts attacker-controlled upload field configuration injected via a forged Select field value. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-34884",
       "published": "2026-08-18T08:16:42.470",
@@ -65,13 +58,6 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-75091",
-      "published": "2026-08-18T06:16:44.227",
-      "description": "The Quill Forms | Conversational Multi Step Forms, Surveys & quizzes plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 5.7.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
       "id": "CVE-2026-74905",
       "published": "2026-08-18T12:19:30.780",
       "description": "SiYuan before v3.7.4 contains a server-side request forgery (SSRF) vulnerability in the isPrivateIP function in kernel/util/net.go, used by SSRFSafeDialer to enforce SSRF protection in SafeMode. The function only checks for loopback, link-local unicast, private, and unspecified addresses and does not recognize IPv6 transition addresses (NAT64 64:ff9b::/96, 6to4 2002::/16, Teredo 2001::/32) that embed private IPv4 destinations. When SafeMode is enabled, an authenticated attacker can bypass the SSRF guard via the network forward proxy, WebSocket proxy, or SSE proxy endpoints by supplying a URL whose hostname resolves to such a transition address, reaching internal services and cloud metadata endpoints (e.g., 169.254.169.254). Because the forward proxy returns the full response body, this is a full-read SSRF that can be used to steal instance credentials, reach internal services, and port-scan internal infrastructure.",
@@ -93,6 +79,13 @@
       "score": 6.3
     },
     {
+      "id": "CVE-2026-74907",
+      "published": "2026-08-18T12:19:31.047",
+      "description": "Grav before 2.0.15 contains a path traversal vulnerability in the static asset server within index.php that uses string prefix matching instead of directory-boundary validation. Unauthenticated attackers can access files in sibling directories by exploiting directory names that extend the base path string, such as requesting assets-secret when assets is the configured base.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
       "id": "CVE-2026-5224",
       "published": "2026-08-18T12:19:28.170",
       "description": "Cleartext storage of sensitive information vulnerability in Kriptok Crypto and Information Technologies Industry Trade Inc. Cryptosim allows Retrieve Embedded Sensitive Data.\n\nThis issue affects Cryptosim: before 3.1.0.229.",
@@ -112,6 +105,13 @@
       "description": "A flaw was found in the group policy provider of Keycloak authorization services, which is used to manage fine-grained access control to resources. The issue occurs when the system evaluates group-based policies using tokens that only contain group names rather than full paths. If two groups in different parts of the organization share the same name, a user in the unauthorized group can be mistaken for a member of the authorized group. This can allow a user to gain unauthorized access to protected resources they should not be able to reach.",
       "severity": "MEDIUM",
       "score": 5.3
+    },
+    {
+      "id": "CVE-2026-74908",
+      "published": "2026-08-18T12:19:31.190",
+      "description": "Grav plugin-api before 1.0.15 contains a script injection vulnerability where the SVG sanitizer only checks for the exact extension 'svg', allowing .svgz and .xhtml files to bypass sanitization and be stored unsanitized. Attackers with api.media.write permission can upload files containing executable script payloads that execute in the site origin when accessed by administrators or visitors.",
+      "severity": "MEDIUM",
+      "score": 4.6
     },
     {
       "id": "CVE-2026-74903",
