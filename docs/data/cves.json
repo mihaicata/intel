@@ -1,73 +1,59 @@
 {
-  "totalResults": 3420,
+  "totalResults": 3416,
   "items": [
     {
-      "id": "CVE-2026-55166",
-      "published": "2026-08-18T19:16:58.783",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, authenticated users could influence an ACME authority acme_url without an effective server-side destination restriction and trigger AcmeHandler.setup_acme_client to make backend requests. An attacker could target cloud instance metadata or internal services from Lemur network context, potentially obtaining credentials available to the host. The advisory also identifies creator-equality authorization behavior that could preserve access to certificate key material after ownership or role changes, with insufficient export_private_key audit context to distinguish that access path. Together, the acme_url server-side request forgery and authorization weakness could expose cloud credentials and long-lived PKI private-key access. The fix adds ACME_DIRECTORY_HOST_ALLOWLIST validation and enriches key-export audit events with creator and current-owner context. This issue is fixed in version 1.9.2.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-47627",
-      "published": "2026-08-18T19:16:51.290",
-      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A successful exploit might lead to denial of service.",
+      "id": "CVE-2026-57826",
+      "published": "2026-08-18T20:17:19.193",
+      "description": "An issue was discovered in openHiTLS 0.2.0 through 0.3.2. In the X.509 certificate chain verification, the basic constraints extension and CA flag processing of intermediate CAs are only verified for v3 certificates, and v1/v2 certificates are ignored.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2025-9210",
-      "published": "2026-08-18T19:16:43.650",
-      "description": "Missing signature validation in JSON Web Tokens in Otalio Ship Property Management System versions before 2.22.0 allows authenticated attackers to escalate privileges via tampering with JWTs",
+      "id": "CVE-2026-47719",
+      "published": "2026-08-18T20:17:15.103",
+      "description": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. Prior to 1.3.2, the DEVICE_WEBAPI_REQUEST and DEVICE_PROPERTY Socket.IO handlers in server/runtime/index.js omit isSocketWriteAuthorized and accept attacker-controlled property.address or endpoint connection data. A remote unauthenticated attacker can make server/runtime/devices/httprequest/index.js call axios.get against arbitrary HTTP or HTTPS destinations, connect to reachable OPC UA or ODBC services, and receive results through the corresponding Socket.IO event. This read SSRF oracle can expose cloud instance metadata, internal administrative services, industrial endpoints, and ODBC data reachable from the FUXA host, including when secureEnabled is true. This issue is fixed in version 1.3.2.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-24183",
-      "published": "2026-08-18T19:16:45.520",
-      "description": "NVIDIA Cumulus Linux contains a vulnerability in the user management component, where an unprivileged user could use improper privilege management on the system. A successful exploit of this vulnerability might lead to escalation of privileges.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-24184",
-      "published": "2026-08-18T19:16:45.980",
-      "description": "NVIDIA Cumulus Linux contains a vulnerability in the Link Layer Discovery Protocol (LLDP) daemon component, where an unauthenticated attacker on an adjacent network could cause buffer overflow by sending crafted LLDP frames. A successful exploit of this vulnerability might lead to code execution.",
+      "id": "CVE-2026-52481",
+      "published": "2026-08-18T20:17:16.383",
+      "description": "An issue in SJRC F11 SJ-GPS-PRO firmware build 2019-09-17 allows a remote attacker to obtain sensitive information via the tcp_actions() function",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-47628",
-      "published": "2026-08-18T19:16:51.740",
-      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an allocation of resources without limits. A successful exploit might lead to denial of service.",
+      "id": "CVE-2026-52829",
+      "published": "2026-08-18T20:17:18.330",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, an unauthenticated IPv4 peer can deterministically terminate a synced Zebra node using the default Linux dual-stack listener configuration. The handshake path canonicalized an IPv4-mapped IPv6 PeerSocketAddr such as ::ffff:127.0.0.1 to plain IPv4 before storing it through MetaAddr::new_connected, but the mempool misbehavior path forwarded the raw transient address to MetaAddrChange::UpdateMisbehavior. In zebra-network/src/meta_addr.rs, apply_to_meta_addr then compared the canonical address-book entry with the raw update address and reached its unexpected address mismatch assertion. After the misbehavior batch flush, panic equals abort terminated zebrad; the peer only needed to complete a P2P handshake and advertise an invalid mempool transaction. This issue is fixed in version 4.5.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-47629",
-      "published": "2026-08-18T19:16:52.217",
-      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause improper input validation. A successful exploit might lead to denial of service.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-24185",
-      "published": "2026-08-18T19:16:46.410",
-      "description": "NVIDIA NVOS for network switches contains a vulnerability in the secure shell (SSH) server configuration component while PKA-only mode is enabled, where an administrator could inadvertently enable an alternative authentication path. If best practices for replacing the default password as recommended by NVIDIA are not followed, this alternative authentication path might lead to unauthorized access. A successful exploit of this vulnerability might lead to escalation of privileges.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2025-9211",
-      "published": "2026-08-18T19:16:44.103",
-      "description": "Unescaped stored values in application security page in Otalio Ship Property Management System versions before 2.22.0 allows authenticated attackers to escalate privileges via persistent cross-site scripting",
+      "id": "CVE-2026-19671",
+      "published": "2026-08-18T20:17:13.660",
+      "description": "Malcolm's upload-processing pipeline (scripts/safe-extract.py) enforces entry-count, nesting-depth, and total-uncompressed-byte limits when extracting container archives (zip/tar/rar/7z via libarchive), but those limits are not applied when the uploaded file is a single-stream compressed format (.gz, .bz2, .xz, .lzma, .lz) that isn't a .tar.*-style archive. Any authenticated user permitted to upload PCAP/log files can upload a small, highly compressible file (e.g. a gzip bomb) that decompresses to an effectively unbounded size on disk, exhausting the shared Docker volume used by OpenSearch, Logstash, Arkime, and Zeek, and disrupting the platform for all users.",
       "severity": "MEDIUM",
-      "score": 6.7
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-47606",
-      "published": "2026-08-18T19:16:50.840",
-      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution and information disclosure.",
+      "id": "CVE-2026-52480",
+      "published": "2026-08-18T20:17:16.267",
+      "description": "An issue in SJRC F11 SJ-GPS-PRO firmware build 2019-09-17 allows a remote attacker to obtain sensitive information via the inetd service",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-52731",
+      "published": "2026-08-18T20:17:16.510",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, an attacker authenticated to an enabled Zebra RPC endpoint can terminate zebrad by supplying a getblocktemplate LongPollId containing multi-byte UTF-8 characters. In zebra-rpc/src/methods/types/long_poll.rs, LongPollId::from_str originally checked the input byte length and then sliced fixed byte ranges to parse encoded fields. A slice boundary can land inside a multi-byte character and trigger Rust's byte index is not a char boundary panic. Zebra release builds use panic equals abort, so one malformed authenticated RPC request terminates the entire node process and can be repeated after restart. This issue is fixed in version 4.5.0.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-52733",
+      "published": "2026-08-18T20:17:16.920",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a natural or attacker-influenced chain fork can leave stale Sapling and Orchard note-commitment subtree roots in Zebra state. In zebra-state/src/service/non_finalized_state/chain.rs, Chain::pop_tip removed a reverted tip block but did not remove subtree entries whose end_height belonged to that block, unlike the cleanup performed by pop_root. When the winning fork later finalized, the abandoned branch's stale subtree data could be written to RocksDB and survive node restarts. The corrupted history can cause z_getsubtreesbyindex consumers such as lightwalletd and light wallets to receive incorrect subtree roots, producing wallet synchronization failures or incorrect wallet state and requiring a full state rebuild for recovery. This issue is fixed in version 4.5.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
@@ -79,65 +65,79 @@
       "score": 6.4
     },
     {
-      "id": "CVE-2026-55162",
-      "published": "2026-08-18T19:16:58.217",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, lemur/certificates/verify.py accepted CRL Distribution Point and OCSP responder URLs from uploaded certificate extensions and used them in crl_verify and ocsp_verify without adequate destination validation. An authenticated operator could submit a certificate through POST /api/1/certificates/upload and cause verify_string to reach loopback, RFC1918, link-local, or instance-metadata destinations such as 169.254.169.254. The requests could probe internal services and create side effects from the Lemur host network position. The CRL path also used an unbounded cache, allowing attacker-controlled entries to persist and consume memory. The fix validates destinations, supports explicit trusted-host allowlists, and bounds the CRL cache. This issue is fixed in version 1.9.2.",
+      "id": "CVE-2026-47721",
+      "published": "2026-08-18T20:17:15.383",
+      "description": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. Prior to 1.3.2, POST /api/scheduler and DELETE /api/scheduler in server/api/scheduler/index.js do not consistently enforce authJwt.haveAdminPermission for scheduler settings. An authenticated non-admin operator can create or alter deviceActions that invoke onSetValue or onRunScript, or delete schedules, gaining access to device-value changes and server-side project script execution normally reserved for administrators. Scheduled and repeating actions can continue changing PLC setpoints, safety interlocks, device state, or project data after the operator's session ends. This issue is fixed in version 1.3.2.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-55163",
-      "published": "2026-08-18T19:16:58.357",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, PUT /api/1/roles/ in lemur/roles/views.py:298 authorized updates with RoleMemberPermission(role_id), which allowed either an administrator or any existing member of the target role. The handler passed data[\"users\"] and data[\"name\"] to service.update, allowing a non-admin member to add or remove other users and rename the role. This enabled lateral privilege grants within roles that control certificate and authority access and could deny access by removing legitimate members. The DELETE handler already required admin_permission, confirming that the weaker PUT authorization was inconsistent. The fix applies the same administrator-only requirement to the PUT handler. This issue is fixed in version 1.9.2.",
+      "id": "CVE-2026-49500",
+      "published": "2026-08-18T20:17:15.890",
+      "description": "Dell Alienware Command Center (AWCC), versions prior to 6.14.20.0, contain an Improper Link Resolution Before File Access ('Link Following') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Denial of Service and Elevation of Privileges.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6
     },
     {
-      "id": "CVE-2026-70667",
-      "published": "2026-08-18T19:17:03.293",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.3, _validate_revocation_url in lemur/certificates/verify.py checked the original CRL or OCSP URL but the later request could reach a different destination. The CRL requests.get call followed HTTP redirects without validating each Location target, so a public attacker-controlled URL could redirect to loopback, RFC1918, link-local, or instance-metadata addresses. Validation and connection also performed separate DNS resolutions, creating a time-of-check time-of-use window for DNS rebinding on both CRL and OCSP paths. An operator uploading a certificate through POST /api/1/certificates/upload could therefore induce blind internal requests despite the earlier mitigation. The fix disables redirects and pins validated addresses while preserving the correct Host value. This issue is fixed in version 1.9.3.",
+      "id": "CVE-2026-52739",
+      "published": "2026-08-18T20:17:18.127",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a malicious block producer can terminate zebrad by placing the same shielded transaction in a non-finalized parent block and its child. In zebra-state/src/service/non_finalized_state/chain.rs, Chain::push originally inserted the transaction hash into tx_loc_by_hash and asserted uniqueness before updating shielded data and running the duplicate Sprout, Sapling, or Orchard nullifier checks. The repeated transaction therefore reached the transactions must be unique within a single chain assertion before contextual validation could reject it cleanly. Zebra release builds use panic equals abort, so the reachable assertion terminates the entire process; exploitation requires either two consecutive attacker-mined blocks or an attacker-mined child immediately after an honest block includes the attacker's shielded transaction. This issue is fixed in version 4.5.0.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-47630",
-      "published": "2026-08-18T19:16:52.650",
-      "description": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution.",
+      "id": "CVE-2026-19670",
+      "published": "2026-08-18T20:17:13.473",
+      "description": "Malcolm's nginx Lua role-based access control (RBAC) layer decides whether an authenticated user may reach a role-restricted path (e.g. /htadmin, /auth, /admin_login, /arkime/api/esadmin, NetBox, upload endpoints) by pattern-matching the raw, percent-encoded request URI. Nginx itself, however, selects which location block actually serves the request using the percent-decoded, normalized URI. Because the RBAC check never percent-decodes its input, an authenticated low-privilege user can request an admin-only path using percent-encoding (e.g. /%68tadmin.php) and have nginx route it to the restricted location while the Lua RBAC gate evaluating the un-decoded raw string finds no matching restriction and grants access.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2021-43718",
-      "published": "2026-08-18T19:16:42.503",
-      "description": "An Authentication Bypass vulnerability exists in EPSON EH-TW5350 EPSON 150075647YWWV110, which could let a remote malicious user cause a Denial of Service via specially crafted series of HTTP..",
+      "id": "CVE-2026-47720",
+      "published": "2026-08-18T20:17:15.250",
+      "description": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. Prior to 1.3.2, the TDengine DAQ storage connector's escapeTdString function in server/runtime/storage/tdengine/index.js doubles single quotes but does not escape backslashes. A remote unauthenticated attacker can submit a crafted sids tag identifier through GET /api/daq or the Socket.IO DAQ_QUERY event so TDengine interprets the backslash and quote sequence as SQL syntax. The injected query can return every row from fuxa.meters, exposing historical PLC tag values, device identifiers, and device names even when FUXA authentication is enabled. This issue is fixed in version 1.3.2.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-65959",
-      "published": "2026-08-18T19:17:00.223",
-      "description": "Vitess is a database clustering system for horizontal scaling of MySQL. In 24.0.2 and earlier, the /debug/vrlog endpoint registered by addHttpEndpoint() in go/vt/vttablet/tabletmanager/vreplication/vrlog.go invokes vrlogStatsHandler() without acl.CheckAccessHTTP(r, acl.DEBUGGING), unlike comparable debug endpoints. A remote caller who can reach the vttablet debug HTTP port can bypass the configured security policy and stream VrLogStats data produced from NewVrLogStats().Send(), including literal SQL statements and bound application values from MoveTables, Reshard, Materialize, and vitess-strategy Online DDL workflows",
+      "id": "CVE-2026-52732",
+      "published": "2026-08-18T20:17:16.710",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, one unauthenticated P2P peer can monopolize all 25 MAX_INBOUND_CONCURRENCY slots in Zebra's inbound mempool download and verification pipeline. In zebrad/src/components/mempool/downloads.rs, the bounded queue was shared globally without per-peer accounting, while peer identity was not carried through Gossip and FullQueue responses were mapped to Response::Nil instead of reaching overload disconnection handling. An attacker can advertise fake transaction identifiers and remain silent so each task holds a slot until TRANSACTION_DOWNLOAD_TIMEOUT, then periodically refill the queue as slots expire. While saturated, honest peer transactions and local sendrawtransaction requests are rejected with MempoolError::FullQueue, although block validation and synchronization continue. This issue is fixed in version 4.5.0.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-55164",
-      "published": "2026-08-18T19:16:58.493",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, lemur.users.service.update assigned a replacement password directly to users.password, while lemur/users/models.py registered User.hash_password only for the before_insert event. Because no before_update listener ran, administrator-initiated password changes through PUT /api/1/users/ were committed as plaintext. The affected user could no longer authenticate normally because bcrypt verification received an unhashed value. A database, backup, replica, query-log, or administrative read compromise exposed immediately usable credentials without offline cracking. The fix registers hashing for before_update and avoids rehashing values that already have a bcrypt prefix. This issue is fixed in version 1.9.2.",
+      "id": "CVE-2026-52734",
+      "published": "2026-08-18T20:17:17.080",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, an unauthenticated P2P peer can cause the mempool download pipeline to retain transactions after verification reaches the outer RATE_LIMIT_DELAY timeout. In zebrad/src/components/mempool/downloads.rs, Downloads::poll_next removed cancel_handles entries after success and ordinary verification errors, but tokio::time::error::Elapsed did not carry the UnminedTxId needed to remove the timed-out entry. Each retained cancel_handles entry could hold a full Gossip::Tx(UnminedTx), while normal mined-transaction cleanup could not match attacker transactions and no periodic garbage collection or count cap existed. Sustained traffic therefore caused monotonic memory growth until swap pressure degraded the node or the operating system terminated the zebrad process for exhausting memory. This issue is fixed in version 4.5.0.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-55165",
-      "published": "2026-08-18T19:16:58.647",
-      "description": "Lemur manages TLS certificate creation. Prior to 1.9.2, the JWT verifier in lemur/auth/service.py:130-137 used fetch_token_header to read header_data[\"alg\"] from an unverified token and passed that attacker-controlled value to decode_with_multiple_secrets. PyJWT 2.x rejects alg=none with the configured key, so the flaw is a defense-in-depth gap rather than a direct authentication bypass in the shipped configuration. The unpinned algorithm can become exploitable after an asymmetric-signing migration through algorithm confusion, and it weakens algorithm-based anomaly detection because the token chooses the recorded value. A separate disclosure of LEMUR_TOKEN_SECRET would also permit forged HS256 tokens, although that disclosure is an independent prerequisite. The fix introduces the server-controlled LEMUR_TOKEN_ALGORITHMS allowlist and defaults it to HS256. This issue is fixed in version 1.9.2.",
+      "id": "CVE-2026-52737",
+      "published": "2026-08-18T20:17:17.750",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a malicious unauthenticated P2P peer can answer Zebra's outbound getblocks or FindBlocks request with a small two-hash inventory and then serve a syntactically valid block whose coinbase height is far above the local chain tip. In zebrad/src/components/sync/downloads.rs, BlockDownloadVerifyError::AboveLookaheadHeightLimit originally carried only the block height and hash, so handle_block_response could not attribute the failure to the advertising peer. The error then reached the restart-worthy default path in zebrad/src/components/sync.rs, cancelling all in-flight downloads from honest peers and imposing a 67-second sync restart delay on mainnet. Because the peer was neither scored nor disconnected, the peer could repeat the cycle indefinitely with minimal bandwidth and significantly degrade synchronization without corrupting state. This issue is fixed in version 4.5.0.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-17106",
-      "published": "2026-08-18T19:16:45.030",
-      "description": "The tar extraction routines in moby/go-archive (Unpack, UnpackLayer, Untar/UntarUncompressed, and the ApplyLayer helpers) do not confine filesystem operations to the destination directory. The extractor decides where each archive entry lands using lexical string checks and then performs the filesystem operation on a path that is resolved by the OS, so links introduced by the archive can be followed out of the destination directory. An attacker who controls the contents of an archive can create or overwrite files at arbitrary paths writable by the extracting process.",
+      "id": "CVE-2026-52735",
+      "published": "2026-08-18T20:17:17.227",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, Zebra can accept a block that zcashd rejects because the P2SH signature-operation counter undercounts redeem scripts containing a disabled opcode followed by signature opcodes. In zebra-script/src/lib.rs, p2sh_input_sigop_count used the pure-Rust script::Code::sig_op_count path, whose try_fold parser stops at disabled opcodes such as OP_CODESEPARATOR and returns only the partial count accumulated before the error. The zcashd reference implementation continues static signature-operation counting through disabled opcodes, so an attacker can broadcast P2SH spends that Zebra counts below MAX_BLOCK_SIGOPS while zcashd counts above the 20,000-operation limit. If a Zebra miner includes those transactions, Zebra validators accept the block while zcashd validators reject it, creating a consensus chain split that affects network integrity and availability without requiring the attacker to produce a block. This issue is fixed in version 4.5.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-52736",
+      "published": "2026-08-18T20:17:17.400",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a remote unauthenticated P2P peer can stall a Zebra node by racing an invalid block body against the valid canonical body for the same block header hash. ZIP-244 permits the attacker to mutate coinbase scriptSig authentication data while retaining the transaction identifiers, merkle root, and block header hash, so the poisoned body fails later commitment validation but shares the canonical hash. In zebra-state/src/service.rs, queue_and_commit_to_non_finalized_state recorded the hash in non_finalized_block_write_sent_hashes before contextual validation completed and did not remove it when the write task rejected the body. When the honest body later arrived, the cached hash caused KnownBlock::WriteChannel duplicate handling to suppress it, leaving the node stuck one height behind until restart or reorganization. This issue is fixed in version 4.5.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-52738",
+      "published": "2026-08-18T20:17:17.953",
+      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a consensus-valid block containing a long chain of transparent self-spends to one address can permanently halt Zebra nodes. In zebra-state/src/service/finalized_state/zebra_db/transparent.rs, the finalized-state writer originally applied every newly created output as a credit before applying any spent-output debit from the same block. That credit-first ordering can make the intermediate per-address balance exceed MAX_MONEY even though the final net balance is valid, causing an expect-based panic under the panic equals abort release profile. Because zcashd accepts the triggering block and Zebra encounters it again after every restart, the halt persists until patched software is deployed; exploitation requires mining the specially constructed block and temporarily committing sufficient ZEC to the self-spend chain. This issue is fixed in version 4.5.0.",
       "severity": "UNKNOWN",
       "score": null
     }
