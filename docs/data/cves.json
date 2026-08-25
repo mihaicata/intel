@@ -1,145 +1,145 @@
 {
-  "totalResults": 3600,
+  "totalResults": 3592,
   "items": [
     {
-      "id": "CVE-2026-75827",
-      "published": "2026-08-18T12:19:32.553",
-      "description": "Grav before 2.0.15 contains an arbitrary file write vulnerability in the Blueprint dynamic-data bare-function validation that uses an incomplete denylist instead of a positive allowlist. Attackers with page-edit or blueprint-config access can invoke the error_log function through a data directive to append PHP payloads to web-accessible files, achieving remote code execution.",
+      "id": "CVE-2026-74936",
+      "published": "2026-08-18T13:17:29.850",
+      "description": "Use-after-free in the JavaScript: WebAssembly component. This vulnerability was fixed in Firefox 154, Firefox ESR 140.14, Firefox ESR 153.1, Thunderbird 154, Thunderbird 140.14, and Thunderbird 153.1.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-74938",
+      "published": "2026-08-18T13:17:30.103",
+      "description": "Mitigation bypass in the JavaScript: GC component. This vulnerability was fixed in Firefox 154, Firefox ESR 153.1, Thunderbird 154, and Thunderbird 153.1.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-74935",
+      "published": "2026-08-18T13:17:29.737",
+      "description": "Privilege escalation in the DOM: Networking component. This vulnerability was fixed in Firefox 154, Firefox ESR 115.39, Firefox ESR 140.14, Firefox ESR 153.1, Thunderbird 154, Thunderbird 140.14, and Thunderbird 153.1.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-75828",
-      "published": "2026-08-18T12:19:32.690",
-      "description": "Grav before 2.0.15 contains a stored cross-site scripting vulnerability in the detectXss() function where unpaired quotes in unquoted attribute values bypass event-handler detection. Authenticated editors can inject event handlers like onerror= that pass validation and execute in visitor browsers when page content is rendered.",
+      "id": "CVE-2026-74937",
+      "published": "2026-08-18T13:17:29.950",
+      "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 154, Firefox ESR 153.1, Thunderbird 154, and Thunderbird 153.1.",
       "severity": "HIGH",
-      "score": 8.7
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-74902",
-      "published": "2026-08-18T12:19:30.370",
-      "description": "SiYuan before v3.7.4 contains a cross-site scripting vulnerability in the file upload validation flow that fails to escape filenames before inserting them into HTML via insertAdjacentHTML. Attackers can craft a malicious filename containing script payloads that execute with full OS command access when a user drags, drops, or pastes the file into the editor.",
+      "id": "CVE-2026-74939",
+      "published": "2026-08-18T13:17:30.233",
+      "description": "Privilege escalation in the DOM: Navigation component. This vulnerability was fixed in Firefox 154, Firefox ESR 115.39, Firefox ESR 140.14, Firefox ESR 153.1, Thunderbird 154, Thunderbird 140.14, and Thunderbird 153.1.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-75829",
-      "published": "2026-08-18T12:19:32.827",
-      "description": "grav-plugin-api versions before 1.0.15 fail to validate Twig content in the translate() endpoint, allowing attackers with api.pages.write permission to persist pages with process.twig enabled. Attackers can submit crafted header and content parameters to execute server-side template injection payloads that are evaluated at render time.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-75831",
-      "published": "2026-08-18T12:19:33.100",
-      "description": "Grav before 2.0.15 contains a stored cross-site scripting vulnerability in the audio and video media rendering through the sourceParsedownElement method. The media URL fragment is concatenated unescaped into rawHtml source elements, allowing attackers to inject arbitrary HTML and JavaScript that executes in viewers' sessions.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2026-15585",
-      "published": "2026-08-18T12:17:23.110",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in AKIN Software Computer Import Export Industry and Trade Ltd. AKINSOFT Wolvox9 ERP / KontrolPanel.exe allows Path Traversal.\n\nThis issue affects AKINSOFT Wolvox9 ERP / KontrolPanel.exe: from s26.02.17 before 26.02.22.",
+      "id": "CVE-2026-74934",
+      "published": "2026-08-18T13:17:29.620",
+      "description": "Site isolation issue in the Graphics: CanvasWebGL component. This vulnerability was fixed in Firefox 154, Firefox ESR 115.39, Firefox ESR 140.14, Firefox ESR 153.1, Thunderbird 154, Thunderbird 140.14, and Thunderbird 153.1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-74904",
-      "published": "2026-08-18T12:19:30.643",
-      "description": "SiYuan before v3.7.4 is missing authorization checks in 17 block metadata/content endpoints in kernel/api/block.go (including getRefText, checkBlockExist, and getBlockBreadcrumb). These handlers are gated only by basic authentication (model.CheckAuth) and lack publish-access filtering, allowing anonymous publish-mode readers to disclose private block content-derived text, structural metadata, and existence information for arbitrary block IDs across the workspace.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-74906",
-      "published": "2026-08-18T12:19:30.913",
-      "description": "SiYuan before v3.7.4 contains an incorrect authorization vulnerability in eight publish-mode reader-facing endpoints that filter results using the visibility list instead of the disabled list. Anonymous visitors can discover and read content from documents explicitly marked as forbidden from publishing by accessing search, backlink, asset content, saved criteria, recent documents, graph, and tag endpoints.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-74905",
-      "published": "2026-08-18T12:19:30.780",
-      "description": "SiYuan before v3.7.4 contains a server-side request forgery (SSRF) vulnerability in the isPrivateIP function in kernel/util/net.go, used by SSRFSafeDialer to enforce SSRF protection in SafeMode. The function only checks for loopback, link-local unicast, private, and unspecified addresses and does not recognize IPv6 transition addresses (NAT64 64:ff9b::/96, 6to4 2002::/16, Teredo 2001::/32) that embed private IPv4 destinations. When SafeMode is enabled, an authenticated attacker can bypass the SSRF guard via the network forward proxy, WebSocket proxy, or SSE proxy endpoints by supplying a URL whose hostname resolves to such a transition address, reaching internal services and cloud metadata endpoints (e.g., 169.254.169.254). Because the forward proxy returns the full response body, this is a full-read SSRF that can be used to steal instance credentials, reach internal services, and port-scan internal infrastructure.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-75830",
-      "published": "2026-08-18T12:19:32.960",
-      "description": "grav-plugin-api (getgrav/grav-plugin-api) versions >= 1.0.0-beta.10 and <= 1.0.14 contain a path traversal vulnerability in the PagesController::batchCopy() method. An incomplete fix for GHSA-qjq4-jp55-4mx2 left the user-controlled 'suffix' parameter (via POST /api/v1/pages/batch) unvalidated. An authenticated user with the api.pages.write permission (editor-level, not super-admin) can supply path traversal sequences (e.g. /../../../) in the suffix parameter to escape the intended user/pages/ directory and write attacker-controlled page content and page media to arbitrary filesystem locations writable by the web server process. The vulnerability is fixed in 1.0.15.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-74907",
-      "published": "2026-08-18T12:19:31.047",
-      "description": "Grav before 2.0.15 contains a path traversal vulnerability in the static asset server within index.php that uses string prefix matching instead of directory-boundary validation. Unauthenticated attackers can access files in sibling directories by exploiting directory names that extend the base path string, such as requesting assets-secret when assets is the configured base.",
+      "id": "CVE-2026-16309",
+      "published": "2026-08-18T13:17:20.140",
+      "description": "Authorization bypass through User-Controlled key vulnerability in Netiket Information Technologies EdoWEB allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects EdoWEB: before 780-g7.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-5224",
-      "published": "2026-08-18T12:19:28.170",
-      "description": "Cleartext storage of sensitive information vulnerability in Kriptok Crypto and Information Technologies Industry Trade Inc. Cryptosim allows Retrieve Embedded Sensitive Data.\n\nThis issue affects Cryptosim: before 3.1.0.229.",
-      "severity": "MEDIUM",
-      "score": 5.7
+      "id": "CVE-2026-18751",
+      "published": "2026-08-18T13:17:20.730",
+      "description": "External control of file name or path vulnerability in Citrix WorkSpace App on MacOS.\n\nThis issue affects WorkSpace App: 2607.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-75107",
-      "published": "2026-08-18T12:19:31.593",
-      "description": "Grav Form Plugin before 9.1.19 fails to escape field-definition properties including prepend, append, spacer text, section text, and select option labels in form templates. Attackers with form authoring privileges can inject arbitrary HTML and JavaScript that executes for all form visitors through unescaped |raw filters and unquoted attributes.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-1199",
+      "published": "2026-08-18T13:17:20.900",
+      "description": "Zabbix API and Frontend login lockout mechanism has a flaw where several unsuccessful login requests are not properly counted towards the block counter if sent simultaneously, potentially allowing for more password guesses than intended.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-75834",
-      "published": "2026-08-18T12:19:33.513",
-      "description": "Grav before 2.0.14 contains a stored cross-site scripting vulnerability in the Security::detectXss() function (system/src/Grav/Common/Security.php). All XSS detection patterns use the PCRE /u (UTF-8) modifier, so a single invalid UTF-8 byte anywhere in page content causes preg_match() to return false for every pattern, silently bypassing the save-time XSS safety gate (Validation::checkSafety()). An authenticated attacker with page-edit permissions (without the security.xss_whitelist privilege) can store malicious JavaScript that executes in the browser of a visitor who views the affected page.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-23922",
+      "published": "2026-08-18T13:17:21.040",
+      "description": "The email media OAuth field 'Client secret' cannot be read after saving, but a Super Admin can leak it by setting a malicious 'Token endpoint'. Changes were made to reset the client secret upon changing the token endpoint.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-74908",
-      "published": "2026-08-18T12:19:31.190",
-      "description": "Grav plugin-api before 1.0.15 contains a script injection vulnerability where the SVG sanitizer only checks for the exact extension 'svg', allowing .svgz and .xhtml files to bypass sanitization and be stored unsanitized. Attackers with api.media.write permission can upload files containing executable script payloads that execute in the site origin when accessed by administrators or visitors.",
-      "severity": "MEDIUM",
-      "score": 4.6
+      "id": "CVE-2026-23929",
+      "published": "2026-08-18T13:17:21.170",
+      "description": "Prototype pollution vulnerability in searchParamsToObject() is leading to a persistent XSS in Maps. URL parameter processing was not filtering dangerous properties like __proto__, combined with jQuery's unsafe element creation that traversed the prototype chain.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-74903",
-      "published": "2026-08-18T12:19:30.507",
-      "description": "SiYuan before v3.7.4 contains an insufficient access control vulnerability in the /api/lute/spinBlockDOM endpoint, which is guarded only by CheckAuth middleware instead of CheckAdminRole like its sibling endpoint. Authenticated users with RoleEditor or RoleReader roles can invoke the endpoint to transform arbitrary DOM input, and large payloads cause endpoint starvation through per-path mutex serialization.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-23930",
+      "published": "2026-08-18T13:17:21.303",
+      "description": "An unauthenticated user is able to cause disproportionate CPU load on the Frontend webserver by sending specifically crafted requests to the Frontend popup.testtriggerexpr action, leading to potential denial of service.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-75832",
-      "published": "2026-08-18T12:19:33.230",
-      "description": "The Grav API plugin (getgrav/grav-plugin-api, bundled with Grav 2.0) before version 1.0.14 (fixed in 1.0.15) contains a missing authorization vulnerability in BlueprintPathResolver::resolveUserScope(). The method gates the users/<name> scope on the account's raw super-admin ACL flag (access.api.super) instead of validating the presented API key's actual scope. An attacker holding an API key scoped only to api.media.write minted on a super-admin account can bypass the authorization check and, via POST /blueprint-upload or GET /blueprint-files, write a file into another user's scope (in the shared user/accounts/ directory, constrained to image extensions by assertSafeExtension()) and browse that scope's file listing, despite the key not being granted api.users.write.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-23931",
+      "published": "2026-08-18T13:17:21.433",
+      "description": "The frontend validatate.api.exists action can be exploited by authenticated users to extract plaintext user macro values leading to potential loss of confidentiality.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-75835",
-      "published": "2026-08-18T12:19:33.647",
-      "description": "Grav API plugin (getgrav/grav-plugin-api) before 1.0.14 contains a missing authorization vulnerability in userPassesAuthorize() (AbstractApiController.php). The function fails to consult the calling request's API key scopes, relying instead on the account's raw super-admin flag and ACL grants. As a result, an authenticated attacker holding a scoped API key minted on a privileged account can bypass their declared scope restrictions to access authorize-gated UI metadata and item definitions (sidebar/menubar/widget items and users-list columns/row-actions/filter-tabs) that their key scope should deny, resulting in information disclosure.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-23933",
+      "published": "2026-08-18T13:17:21.567",
+      "description": "In Zabbix 7.4 the cryptographic key used for signing Frontend sessions has been erroneously written to the database seed. Currently the only known exploitation scenario is for deployments that utilize both - SAML authentication and guest users. In such cases the key can be used to forge valid session cookies, potentially leading to unauthorized access. For other Zabbix deployments this does not have a known impact.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-75833",
-      "published": "2026-08-18T12:19:33.370",
-      "description": "The Grav API plugin (getgrav/grav-plugin-api, bundled with Grav 2.0's admin-next/API stack) before version 1.0.14 contains an open redirect weakness in SsoController::sanitizeReturnTo(). The function rejects a literal '//' prefix but does not account for browsers normalizing backslashes to slashes in special (http/https) schemes, so a returnTo value such as '/\\evil.com' passes the guard and is later resolved by the browser as the protocol-relative URL '//evil.com'. Following a legitimate OAuth login flow, an attacker-supplied returnTo parameter could redirect an authenticated victim to an attacker-controlled site for post-login phishing. Full browser-side exploitability depends on the admin-next SPA's client-side oauth-callback handler and was not independently verified by the reporter.",
-      "severity": "MEDIUM",
-      "score": 4.2
+      "id": "CVE-2026-23934",
+      "published": "2026-08-18T13:17:21.717",
+      "description": "An authenticated user is able to cause disproportionate CPU load on the Frontend webserver by sending specifically crafted requests to the Frontend validate.api.exists action, leading to potential denial of service.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-75774",
-      "published": "2026-08-18T12:19:32.380",
-      "description": "A vulnerability was determined in karakeep-app karakeep up to 0.32.0. The impacted element is an unknown function of the file apps/web/server/auth.ts of the component OAuth Sign-In. This manipulation causes improper authentication. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is regarded as difficult. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-23935",
+      "published": "2026-08-18T13:17:21.843",
+      "description": "A Zabbix administrator is able to read out of bounds memory by utilizing a flaw in script item/preprocessing (JavaScript) HttpRequest logic, leading to potential confidentiality loss.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-23937",
+      "published": "2026-08-18T13:17:21.973",
+      "description": "The Zabbix API host.get action can be exploited by authenticated users to extract a host's PSK key leading to potential loss of data integrity.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-23938",
+      "published": "2026-08-18T13:17:22.103",
+      "description": "An authenticated administrator is able to crash Zabbix server or proxy by creating specifically crafted preprocessing/script item JavaScript scripts, leading to potential denial of service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-45532",
+      "published": "2026-08-18T13:17:24.610",
+      "description": "DataEase is an open source data visualization and analysis tool. Versions prior to 2.10.23 have a path traversal vulnerability. The root cause is that on Windows, the `FILE_SEPARATOR` is `\\`, while the server only filters the `/` character during string truncation. The vulnerability has been fixed in v2.10.23. No known workarounds are available.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-59781",
+      "published": "2026-08-18T13:17:25.340",
+      "description": "When Zabbix Agent was installed on Windows into a custom installation directory, the installer did not verify whether the selected directory had secure access permissions. If the target directory allowed unauthorized users to modify its contents, an attacker could place a malicious DLL that could later be loaded by the application, resulting in DLL sideloading. The installer has been hardened to detect potentially unsafe installation directories and now requires explicit user confirmation before proceeding with installation in such locations. This reduces the risk of accidental installation into directories with inappropriate permissions while preserving compatibility with existing deployment scenarios.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
