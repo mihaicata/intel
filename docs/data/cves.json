@@ -1,143 +1,143 @@
 {
-  "totalResults": 3416,
+  "totalResults": 3385,
   "items": [
     {
-      "id": "CVE-2026-57826",
-      "published": "2026-08-18T20:17:19.193",
-      "description": "An issue was discovered in openHiTLS 0.2.0 through 0.3.2. In the X.509 certificate chain verification, the basic constraints extension and CA flag processing of intermediate CAs are only verified for v3 certificates, and v1/v2 certificates are ignored.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-47719",
-      "published": "2026-08-18T20:17:15.103",
-      "description": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. Prior to 1.3.2, the DEVICE_WEBAPI_REQUEST and DEVICE_PROPERTY Socket.IO handlers in server/runtime/index.js omit isSocketWriteAuthorized and accept attacker-controlled property.address or endpoint connection data. A remote unauthenticated attacker can make server/runtime/devices/httprequest/index.js call axios.get against arbitrary HTTP or HTTPS destinations, connect to reachable OPC UA or ODBC services, and receive results through the corresponding Socket.IO event. This read SSRF oracle can expose cloud instance metadata, internal administrative services, industrial endpoints, and ODBC data reachable from the FUXA host, including when secureEnabled is true. This issue is fixed in version 1.3.2.",
+      "id": "CVE-2026-54347",
+      "published": "2026-08-18T21:16:36.027",
+      "description": "Froxlor is open source server administration software. Prior to 2.3.8, DNS TXT record content accepted by lib/Froxlor/Api/Commands/DomainZones.php can contain HTML special characters, lib/Froxlor/UI/Callbacks/Text.php returns the content from Text::wordwrap without HTML escaping, and templates/Froxlor/table/table.html.twig renders the callback result with the raw filter. An authenticated customer with DNS editor access can store JavaScript-bearing content in a TXT record. When an administrator views the affected domain's DNS configuration, the payload executes automatically in the administrator's browser session, which can expose session data or perform privileged panel actions. This issue is fixed in version 2.3.8.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-52481",
-      "published": "2026-08-18T20:17:16.383",
-      "description": "An issue in SJRC F11 SJ-GPS-PRO firmware build 2019-09-17 allows a remote attacker to obtain sensitive information via the tcp_actions() function",
+      "id": "CVE-2026-52793",
+      "published": "2026-08-18T21:16:34.650",
+      "description": "Froxlor is open source server administration software. Prior to 2.3.7, the API authentication path in lib/Froxlor/Api/FroxlorRPC.php and FroxlorRPC::validateAuth accepts an API key and secret for an administrator or customer account without checking type_2fa, validating a TOTP code, or invoking FroxlorTwoFactorAuth. The web interface requires a second factor for accounts with two-factor authentication enabled, but the API grants access after validating only the API credentials, expiration, API permission, and account status. An attacker who obtains an API key and secret for a protected account can call the available API functions without supplying the configured second factor, which can expose or modify customer data, domains, email and FTP accounts, databases, DNS records, and certificate material. This issue is fixed in version 2.3.7.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-52829",
-      "published": "2026-08-18T20:17:18.330",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, an unauthenticated IPv4 peer can deterministically terminate a synced Zebra node using the default Linux dual-stack listener configuration. The handshake path canonicalized an IPv4-mapped IPv6 PeerSocketAddr such as ::ffff:127.0.0.1 to plain IPv4 before storing it through MetaAddr::new_connected, but the mempool misbehavior path forwarded the raw transient address to MetaAddrChange::UpdateMisbehavior. In zebra-network/src/meta_addr.rs, apply_to_meta_addr then compared the canonical address-book entry with the raw update address and reached its unexpected address mismatch assertion. After the misbehavior batch flush, panic equals abort terminated zebrad; the peer only needed to complete a P2P handshake and advertise an invalid mempool transaction. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-55426",
+      "published": "2026-08-18T21:16:36.460",
+      "description": "linuxfabrik-lib provides Python modules for database access, caching, shell execution, and API integrations, and Linuxfabrik Monitoring Plugins uses those modules to run external monitoring commands. From the earliest affected releases until linuxfabrik-lib 5.0.0 and Linuxfabrik Monitoring Plugins 6.0.0, check plugins embedded user-controlled values in command strings passed to lib.shell.shell_exec(), which split strings at pipe characters and executed the resulting commands. In check-plugins/restic-check/restic-check, the --repo parameter could inject a pipe-delimited command into a constructed restic invocation, and sudo-authorized execution allowed a compromised nagios or icinga account to run that command as root. The shared library also accepted command strings and a shell parameter, while numerous plugins constructed external commands from attacker-influenced arguments. The fixes require argv lists, always use shell=False, remove pipe splitting, and reject option-like positional values through lib.shell.safe_cli_value(). These issues are fixed in linuxfabrik-lib 5.0.0 and Linuxfabrik Monitoring Plugins 6.0.0.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-19671",
-      "published": "2026-08-18T20:17:13.660",
-      "description": "Malcolm's upload-processing pipeline (scripts/safe-extract.py) enforces entry-count, nesting-depth, and total-uncompressed-byte limits when extracting container archives (zip/tar/rar/7z via libarchive), but those limits are not applied when the uploaded file is a single-stream compressed format (.gz, .bz2, .xz, .lzma, .lz) that isn't a .tar.*-style archive. Any authenticated user permitted to upload PCAP/log files can upload a small, highly compressible file (e.g. a gzip bomb) that decompresses to an effectively unbounded size on disk, exhausting the shared Docker volume used by OpenSearch, Logstash, Arkime, and Zeek, and disrupting the platform for all users.",
+      "id": "CVE-2026-15571",
+      "published": "2026-08-18T21:16:33.910",
+      "description": "A flaw was found in the legacy client-initiated account-linking endpoint of Keycloak, a widely used open-source identity and access management solution. The mechanism used to protect the account-linking process from unauthorized requests relies on a hash that can be predicted by a malicious OIDC client. By tricking a user into authenticating, an attacker-controlled client can forge a valid linking URL to connect the victim's account to an attacker's external identity. This results in a full account takeover, allowing the attacker to log in as the victim.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-54348",
+      "published": "2026-08-18T21:16:36.170",
+      "description": "Froxlor is open source server administration software. Prior to 2.3.8, the Admins.add and Admins.update endpoints in lib/Froxlor/Api/Commands/Admins.php accept an attacker-controlled ipaddress array and store it as JSON in panel_admins.ip without enforcing numeric element types. When the poisoned account later calls IpsAndPorts.listing, lib/Froxlor/Api/Commands/IpsAndPorts.php decodes the array and concatenates its elements into a SQL IN clause without casting or parameterization; the same unsafe pattern is present in lib/Froxlor/Api/Commands/Domains.php. An authenticated administrator with change_serversettings permission can store a UNION-based payload and trigger it through the poisoned account to retrieve arbitrary database data, including administrator login names and bcrypt password hashes, with potential privilege escalation and broader database impact. This issue is fixed in version 2.3.8.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-12631",
+      "published": "2026-08-18T21:16:33.647",
+      "description": "The Zephyr kernel validates the k_thread_join() and k_thread_abort() system calls (declared __syscall in include/zephyr/kernel.h) through thread_obj_validate() in kernel/thread.c. Its default switch branch is the access-denied path, taken when k_object_validate() returns -EPERM (the calling user thread was never granted access to the target thread object) or -EBADF (the supplied pointer is not a registered kernel object of the right type). That branch invoked K_OOPS(K_SYSCALL_VERIFY_MSG(ret, \"access denied\")), but K_SYSCALL_VERIFY_MSG treats a true expression as success; the non-zero error code ret therefore read as \"verified OK\", the kernel oops was never raised, and control fell through to CODE_UNREACHABLE.\n\nBecause k_thread_join() and k_thread_abort() are system calls, an unprivileged user-mode thread (under CONFIG_USERSPACE) can reach this denial path directly by calling either syscall on a thread object it does not own. Instead of the offending thread being cleanly terminated, execution reaches __builtin_unreachable() while running in supervisor mode inside the syscall handler.\n\nOn Clang builds CODE_UNREACHABLE emits an illegal-instruction trap, so a user thread can deterministically crash the kernel — a locally triggerable denial of service that escapes the userspace sandbox. On GCC builds the path is undefined behavior: the compiler may drop the return-value handling for thread_obj_validate(), so it can return an undefined bool; if that is false, the caller proceeds into the real k_thread_join()/k_thread_abort() implementation for a thread the user was never authorized to access, an access-control bypass.\n\nThe fix changes the verification expression to ret == 0, so a denied (non-zero) result now correctly raises K_OOPS and terminates the offending caller.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-52480",
-      "published": "2026-08-18T20:17:16.267",
-      "description": "An issue in SJRC F11 SJ-GPS-PRO firmware build 2019-09-17 allows a remote attacker to obtain sensitive information via the inetd service",
+      "id": "CVE-2026-12632",
+      "published": "2026-08-18T21:16:33.783",
+      "description": "Zephyr's Precision Time Protocol receive handler ptp_msg_post_recv() in subsys/net/lib/ptp/msg.c takes the 4-bit message type straight off the wire via ptp_msg_type() (msg->header.type_major_sdo_id & 0xF, range 0-15) and uses it to index the msg_size[] table. That table only defines entries up to PTP_MSG_MANAGEMENT (0xD), giving it ARRAY_SIZE == 14. Before the fix there was no upper-bound check, so the undefined types 0xE and 0xF indexed one or two int slots past the end of the array — an out-of-bounds read of adjacent read-only data.\n\nThe out-of-bounds value is then reused as a length: it gates msg_size[type] > cnt, and when it is small or negative it makes cnt - msg_size[type] a large positive budget passed to msg_tlv_post_recv(), whose TLV loop then walks the message suffix past the received bytes, performing further out-of-bounds reads and in-place byte-swap writes on memory beyond the message slab.\n\nThe defect is reached directly from the network: ptp_port_event_gen() in subsys/net/lib/ptp/port.c reads a PTP frame with ptp_transport_recv() and calls ptp_msg_post_recv() with the attacker-chosen type. PTP uses UDP multicast or raw Ethernet (0x88F7) and is unauthenticated, so any host on the same link can trigger the indexing on a CONFIG_PTP-enabled node with no preconditions.\n\nThe reliably reproducible impact is a denial of service (fault/crash); a limited memory-corruption path exists but depends on the build-specific value adjacent to msg_size[], which the attacker cannot tune. The fix rejects type >= ARRAY_SIZE(msg_size) with -EBADMSG before any indexing.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-52731",
-      "published": "2026-08-18T20:17:16.510",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, an attacker authenticated to an enabled Zebra RPC endpoint can terminate zebrad by supplying a getblocktemplate LongPollId containing multi-byte UTF-8 characters. In zebra-rpc/src/methods/types/long_poll.rs, LongPollId::from_str originally checked the input byte length and then sliced fixed byte ranges to parse encoded fields. A slice boundary can land inside a multi-byte character and trigger Rust's byte index is not a char boundary panic. Zebra release builds use panic equals abort, so one malformed authenticated RPC request terminates the entire node process and can be repeated after restart. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-55593",
+      "published": "2026-08-18T21:16:36.603",
+      "description": "Froxlor is open source server administration software. Prior to 2.3.8, the standalone lib/ajax.php entry point bypasses the centralized request validation in lib/init.php, and Ajax::handle in lib/Froxlor/Ajax/Ajax.php checks only for a valid session before routing state-changing requests. The editapikey action in Ajax::editApiKey updates allowed_from and valid_until without validating a CSRF token, while templates/Froxlor/assets/js/jquery/apikeys.js sends no token because the endpoint does not require one. An unauthenticated attacker can induce an authenticated administrator's browser to submit a forged request that adds an attacker-controlled address to an API key's allowed_from list or removes its expiration, weakening the key's security restrictions. This issue is fixed in version 2.3.8.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-52733",
-      "published": "2026-08-18T20:17:16.920",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a natural or attacker-influenced chain fork can leave stale Sapling and Orchard note-commitment subtree roots in Zebra state. In zebra-state/src/service/non_finalized_state/chain.rs, Chain::pop_tip removed a reverted tip block but did not remove subtree entries whose end_height belonged to that block, unlike the cleanup performed by pop_root. When the winning fork later finalized, the abandoned branch's stale subtree data could be written to RocksDB and survive node restarts. The corrupted history can cause z_getsubtreesbyindex consumers such as lightwalletd and light wallets to receive incorrect subtree roots, producing wallet synchronization failures or incorrect wallet state and requiring a full state rebuild for recovery. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-16732",
+      "published": "2026-08-18T21:16:34.063",
+      "description": "fastify is a fast and low overhead web framework for Node.js. Impact: the fix for CVE-2026-3635 added a guard on the forwarded-header reads used to derive the request host, protocol, hostname, ip, and ips values, checking the connecting address. That guard closes the IP, CIDR, and custom-function forms of trustProxy correctly, because those forms compile to predicates that inspect the connecting address. The hop-count form, where trustProxy is set to a number, compiles to a predicate that structurally ignores the address, so the guard is always satisfied for any hop count of one or more. Applications configured with a numeric trustProxy value, such as trustProxy set to 1 for a single reverse proxy, remain vulnerable: an attacker who can reach the Fastify origin directly, bypassing the front-facing proxy, can spoof the forwarded request fields exactly as in the unpatched version. The impact class matches the parent CVE-2026-3635, including host injection in generated URLs, HTTPS-enforcement bypass, secure-cookie and CSRF-origin bypass, and host-based routing and cache poisoning. Affected versions are fastify from 5.8.3 up to but not including 5.12.1. Patches: patched in fastify 5.12.1, where the numeric form of trustProxy is disabled at runtime and removed from the TypeScript type union. Workarounds: migrate to an IP, CIDR, or custom-function trustProxy value that validates the connecting address, and ensure the Fastify origin is only reachable through the trusted proxy chain.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-12520",
-      "published": "2026-08-18T20:17:11.660",
-      "description": "The Sierra Wireless HL7800 cellular modem driver (drivers/modem/vendor_standalone/hl7800.c, located at drivers/modem/hl7800.c in v4.4.0 and earlier) parses AT responses with roughly twenty handlers that call net_buf_linearize(value, sizeof(value), *buf, 0, len) into a 128-byte stack buffer and then write value[out_len] = 0. Because net_buf_linearize() (lib/net_buf/buf.c) can return a count equal to its destination-length argument, a field that exactly fills the buffer makes the terminating NUL land one byte past the end, a single-byte out-of-bounds write into adjacent stack memory.\n\nThe +KCELLMEAS cell-measurement handler on_cmd_atcmdinfo_rssi() is worse: it passed the wire length len as the destination size (net_buf_linearize(value, len, *buf, 0, len)), so a response line longer than 128 bytes overflows the value stack buffer with attacker-influenceable content. The line length comes from net_buf_findcrlf(), which accumulates bytes across the whole net_buf fragment chain and is not bounded to 128, so an over-long line reaches the defect.\n\nThe data originates from the cellular modem over UART, driven by the network: operator-scan results, +CGCONTRDP IP/DNS info, socket indications, and +KCELLMEAS neighbour-cell reports. An attacker able to shape what the modem emits — a rogue base station, a compromised modem baseband, or a remote peer feeding oversized response framing — can drive a line past 128 bytes. The handlers run in the driver's RX thread in kernel context, so the corruption is kernel-side.\n\nThe +KCELLMEAS path is a full stack buffer overflow whose worst case is code execution in kernel context and whose floor is a reliable crash; the remaining sites are single-byte NUL out-of-bounds writes. Exploitation requires the modem to emit an over-long AT response line, giving high attack complexity over an adjacent (cellular radio) vector. The fix passes sizeof(dst) - 1 (and correct explicit bounds for the IMSI and +KCELLMEAS sites) so the terminator always stays in bounds.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-47721",
-      "published": "2026-08-18T20:17:15.383",
-      "description": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. Prior to 1.3.2, POST /api/scheduler and DELETE /api/scheduler in server/api/scheduler/index.js do not consistently enforce authJwt.haveAdminPermission for scheduler settings. An authenticated non-admin operator can create or alter deviceActions that invoke onSetValue or onRunScript, or delete schedules, gaining access to device-value changes and server-side project script execution normally reserved for administrators. Scheduled and repeating actions can continue changing PLC setpoints, safety interlocks, device state, or project data after the operator's session ends. This issue is fixed in version 1.3.2.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-49500",
-      "published": "2026-08-18T20:17:15.890",
-      "description": "Dell Alienware Command Center (AWCC), versions prior to 6.14.20.0, contain an Improper Link Resolution Before File Access ('Link Following') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Denial of Service and Elevation of Privileges.",
-      "severity": "MEDIUM",
-      "score": 6
-    },
-    {
-      "id": "CVE-2026-52739",
-      "published": "2026-08-18T20:17:18.127",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a malicious block producer can terminate zebrad by placing the same shielded transaction in a non-finalized parent block and its child. In zebra-state/src/service/non_finalized_state/chain.rs, Chain::push originally inserted the transaction hash into tx_loc_by_hash and asserted uniqueness before updating shielded data and running the duplicate Sprout, Sapling, or Orchard nullifier checks. The repeated transaction therefore reached the transactions must be unique within a single chain assertion before contextual validation could reject it cleanly. Zebra release builds use panic equals abort, so the reachable assertion terminates the entire process; exploitation requires either two consecutive attacker-mined blocks or an attacker-mined child immediately after an honest block includes the attacker's shielded transaction. This issue is fixed in version 4.5.0.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-19670",
-      "published": "2026-08-18T20:17:13.473",
-      "description": "Malcolm's nginx Lua role-based access control (RBAC) layer decides whether an authenticated user may reach a role-restricted path (e.g. /htadmin, /auth, /admin_login, /arkime/api/esadmin, NetBox, upload endpoints) by pattern-matching the raw, percent-encoded request URI. Nginx itself, however, selects which location block actually serves the request using the percent-decoded, normalized URI. Because the RBAC check never percent-decodes its input, an authenticated low-privilege user can request an admin-only path using percent-encoding (e.g. /%68tadmin.php) and have nginx route it to the restricted location while the Lua RBAC gate evaluating the un-decoded raw string finds no matching restriction and grants access.",
+      "id": "CVE-2026-18504",
+      "published": "2026-08-18T21:16:34.220",
+      "description": "fastify is a fast and low overhead web framework for Node.js. Versions of fastify before 5.12.1 are affected by a schema validation bypass when a request body schema targets a root primitive value. When the schema validates a top-level primitive such as an integer, Ajv can coerce a JSON string into the expected type during validation, but Fastify does not replace the root request body with the coerced value, so the route handler receives the original unvalidated string. As a result, a request that should have failed validation can reach application logic with a value that does not satisfy the schema, which can undermine integrity and access-control checks that rely on the validated type. Users should upgrade to fastify 5.12.1, which fixes the mismatch. No known workarounds are available.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-47720",
-      "published": "2026-08-18T20:17:15.250",
-      "description": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. Prior to 1.3.2, the TDengine DAQ storage connector's escapeTdString function in server/runtime/storage/tdengine/index.js doubles single quotes but does not escape backslashes. A remote unauthenticated attacker can submit a crafted sids tag identifier through GET /api/daq or the Socket.IO DAQ_QUERY event so TDengine interprets the backslash and quote sequence as SQL syntax. The injected query can return every row from fuxa.meters, exposing historical PLC tag values, device identifiers, and device names even when FUXA authentication is enabled. This issue is fixed in version 1.3.2.",
+      "id": "CVE-2026-41921",
+      "published": "2026-08-18T21:16:34.487",
+      "description": "Koha before 26.05.02, 25.11.07, and 25.05.13 contains a stored cross-site scripting vulnerability in the purchase suggestion handler that allows authenticated staff users to inject malicious scripts by submitting unsanitized input through the suggestion save operation. Attackers can supply crafted HTML or script content in fields such as title, author, isbn, publishercode, place, collectiontitle, itemtype, and note, which are stored without sanitization and later rendered in the suggestion list template, causing injected scripts to execute in the browser of any staff user who views the suggestions.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-52732",
-      "published": "2026-08-18T20:17:16.710",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, one unauthenticated P2P peer can monopolize all 25 MAX_INBOUND_CONCURRENCY slots in Zebra's inbound mempool download and verification pipeline. In zebrad/src/components/mempool/downloads.rs, the bounded queue was shared globally without per-peer accounting, while peer identity was not carried through Gossip and FullQueue responses were mapped to Response::Nil instead of reaching overload disconnection handling. An attacker can advertise fake transaction identifiers and remain silent so each task holds a slot until TRANSACTION_DOWNLOAD_TIMEOUT, then periodically refill the queue as slots expire. While saturated, honest peer transactions and local sendrawtransaction requests are rejected with MempoolError::FullQueue, although block validation and synchronization continue. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-54543",
+      "published": "2026-08-18T21:16:36.313",
+      "description": "Froxlor is open source server administration software. Prior to 2.3.8, the DomainZones.add API command in lib/Froxlor/Api/Commands/DomainZones.php accepts user-controlled record and type values without rejecting line delimiters, tab characters, semicolons, or unsupported DNS record types before lib/Froxlor/Dns/DnsEntry.php serializes the values into a BIND zone file. An authenticated customer with DNS-zone permissions can place a crafted value in the record field, or use the related type-field variant, to create additional resource-record lines that bypass Froxlor's field-level validation. BIND accepts the injected records, allowing modification of DNS data and possible DNS availability impact within a zone the caller is authorized to manage. This issue is fixed in version 2.3.8.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-52734",
-      "published": "2026-08-18T20:17:17.080",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, an unauthenticated P2P peer can cause the mempool download pipeline to retain transactions after verification reaches the outer RATE_LIMIT_DELAY timeout. In zebrad/src/components/mempool/downloads.rs, Downloads::poll_next removed cancel_handles entries after success and ordinary verification errors, but tokio::time::error::Elapsed did not carry the UnminedTxId needed to remove the timed-out entry. Each retained cancel_handles entry could hold a full Gossip::Tx(UnminedTx), while normal mined-transaction cleanup could not match attacker transactions and no periodic garbage collection or count cap existed. Sustained traffic therefore caused monotonic memory growth until swap pressure degraded the node or the operating system terminated the zebrad process for exhausting memory. This issue is fixed in version 4.5.0.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-52737",
-      "published": "2026-08-18T20:17:17.750",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a malicious unauthenticated P2P peer can answer Zebra's outbound getblocks or FindBlocks request with a small two-hash inventory and then serve a syntactically valid block whose coinbase height is far above the local chain tip. In zebrad/src/components/sync/downloads.rs, BlockDownloadVerifyError::AboveLookaheadHeightLimit originally carried only the block height and hash, so handle_block_response could not attribute the failure to the advertising peer. The error then reached the restart-worthy default path in zebrad/src/components/sync.rs, cancelling all in-flight downloads from honest peers and imposing a 67-second sync restart delay on mainnet. Because the peer was neither scored nor disconnected, the peer could repeat the cycle indefinitely with minimal bandwidth and significantly degrade synchronization without corrupting state. This issue is fixed in version 4.5.0.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-52735",
-      "published": "2026-08-18T20:17:17.227",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, Zebra can accept a block that zcashd rejects because the P2SH signature-operation counter undercounts redeem scripts containing a disabled opcode followed by signature opcodes. In zebra-script/src/lib.rs, p2sh_input_sigop_count used the pure-Rust script::Code::sig_op_count path, whose try_fold parser stops at disabled opcodes such as OP_CODESEPARATOR and returns only the partial count accumulated before the error. The zcashd reference implementation continues static signature-operation counting through disabled opcodes, so an attacker can broadcast P2SH spends that Zebra counts below MAX_BLOCK_SIGOPS while zcashd counts above the 20,000-operation limit. If a Zebra miner includes those transactions, Zebra validators accept the block while zcashd validators reject it, creating a consensus chain split that affects network integrity and availability without requiring the attacker to produce a block. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-52817",
+      "published": "2026-08-18T21:16:34.820",
+      "description": "Linuxfabrik Monitoring Plugins provides monitoring plugins for Icinga, Nagios, and related systems. Prior to version 5.1.0, the shipped assets/sudoers/Debian.sudoers policy allowed the nagios or icinga account to execute /usr/bin/apt-get as root without restricting its arguments. An attacker who already controls that monitoring account can supply the APT::Update::Pre-Invoke option to execute an arbitrary command while apt-get runs with root privileges, resulting in a root shell and complete compromise of the host. The vulnerable rule supports the check-plugins/deb-updates/deb-updates plugin, but it authorized arbitrary apt-get argument sequences rather than only the required apt-get update --quiet 2 command. This issue is fixed in version 5.1.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-52736",
-      "published": "2026-08-18T20:17:17.400",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a remote unauthenticated P2P peer can stall a Zebra node by racing an invalid block body against the valid canonical body for the same block header hash. ZIP-244 permits the attacker to mutate coinbase scriptSig authentication data while retaining the transaction identifiers, merkle root, and block header hash, so the poisoned body fails later commitment validation but shares the canonical hash. In zebra-state/src/service.rs, queue_and_commit_to_non_finalized_state recorded the hash in non_finalized_block_write_sent_hashes before contextual validation completed and did not remove it when the write task rejected the body. When the honest body later arrived, the cached hash caused KnownBlock::WriteChannel duplicate handling to suppress it, leaving the node stuck one height behind until restart or reorganization. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-53453",
+      "published": "2026-08-18T21:16:34.973",
+      "description": "Blueprint Studio is a VS Code-like file editor for Home Assistant configuration files. Prior to 2.5.2, Blueprint Studio exposed administrator-intended backend API actions to any authenticated Home Assistant user because the backend did not consistently enforce the panel's admin-only authorization boundary. Affected surfaces included the backend API, upload API, stream routes, terminal WebSocket, Blueprint Studio WebSocket subscriptions, call_service, render_template, global_replace, file and stream access paths, upload handling, and terminal helpers. A non-admin user could invoke arbitrary Home Assistant services, expose Home Assistant state through templates, modify configuration files, access streamed or downloaded configuration content, upload files, or reach terminal-related helpers. These actions could compromise the confidentiality, integrity, and availability of the Home Assistant installation. This issue is fixed in version 2.5.2.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-52738",
-      "published": "2026-08-18T20:17:17.953",
-      "description": "ZEBRA is a Zcash node written entirely in Rust. Prior to 4.5.0, a consensus-valid block containing a long chain of transparent self-spends to one address can permanently halt Zebra nodes. In zebra-state/src/service/finalized_state/zebra_db/transparent.rs, the finalized-state writer originally applied every newly created output as a credit before applying any spent-output debit from the same block. That credit-first ordering can make the intermediate per-address balance exceed MAX_MONEY even though the final net balance is valid, causing an expect-based panic under the panic equals abort release profile. Because zcashd accepts the triggering block and Zebra encounters it again after every restart, the halt persists until patched software is deployed; exploitation requires mining the specially constructed block and temporarily committing sufficient ZEC to the self-spend chain. This issue is fixed in version 4.5.0.",
+      "id": "CVE-2026-53454",
+      "published": "2026-08-18T21:16:35.133",
+      "description": "Blueprint Studio is a VS Code-like file editor for Home Assistant configuration files. Prior to 2.5.2, Blueprint Studio configured Git's credential.helper store when saving Git credentials, causing Git credential-store to persist usernames and access tokens in plaintext in the .git-credentials file for the user running Home Assistant. Tokens could remain outside Blueprint Studio's intended Home Assistant storage and be read by other users or processes with access to the same filesystem context. The persistent helper configuration also affected later Git operations beyond the immediate Blueprint Studio action. This issue is fixed in version 2.5.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53455",
+      "published": "2026-08-18T21:16:35.280",
+      "description": "Blueprint Studio is a VS Code-like file editor for Home Assistant configuration files. Prior to 2.5.2, Blueprint Studio generated a shell-based Git credential helper in custom_components/blueprint_studio/backend/git_manager.py by interpolating the configured Git username and token directly into executable helper script content without validating credential values. An attacker able to set Git credentials could include newline characters or shell syntax in a username or token. When Git executed the generated credential helper, the injected shell commands ran with the operating-system privileges of Home Assistant and could access or modify Home Assistant configuration data. This issue is fixed in version 2.5.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53456",
+      "published": "2026-08-18T21:16:35.423",
+      "description": "Blueprint Studio is a VS Code-like file editor for Home Assistant configuration files. Prior to 2.5.2, Blueprint Studio terminal SSH key authentication in custom_components/blueprint_studio/backend/terminal_manager.py wrote SSH private-key material to a file under the Home Assistant configuration directory before applying restrictive permissions and relied on best-effort cleanup. The key could temporarily remain on disk and could persist if cleanup failed or Home Assistant crashed. A user or process with filesystem access to the Home Assistant configuration directory could obtain the residual private key. This issue is fixed in version 2.5.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53457",
+      "published": "2026-08-18T21:16:35.570",
+      "description": "Blueprint Studio is a VS Code-like file editor for Home Assistant configuration files. Prior to 2.5.2, the legacy stateless terminal command execution path in custom_components/blueprint_studio/backend/terminal_manager.py accepted a cwd working-directory parameter and checked only whether the directory existed, without requiring it to remain inside the Home Assistant configuration directory. An administrator using the restricted terminal helper could select an existing directory outside the intended configuration boundary. Commands could then access or modify host paths permitted by the Home Assistant container and filesystem permissions, weakening the helper's expected filesystem restriction. This issue is fixed in version 2.5.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53458",
+      "published": "2026-08-18T21:16:35.713",
+      "description": "Blueprint Studio is a VS Code-like file editor for Home Assistant configuration files. Prior to 2.5.2, Blueprint Studio backend API handlers in custom_components/blueprint_studio/backend/api.py returned raw exception strings to authenticated Home Assistant users. Some exception messages could contain internal filesystem paths or implementation details. The disclosed information could help an authenticated user fingerprint a Home Assistant installation and refine follow-up attacks. This issue is fixed in version 2.5.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53759",
+      "published": "2026-08-18T21:16:35.880",
+      "description": "linuxfabrik-lib provides Python modules for database access, caching, shell execution, and API integrations. Prior to version 4.2.0, db_sqlite.py created SQLite databases at predictable paths in the shared /tmp directory and followed attacker-created symbolic links at those paths. An attacker who controls a local monitoring account can create a symlink such as /tmp/linuxfabrik-monitoring-plugins-docker-stats.db and then trigger a sudo-authorized plugin, causing the root process to create or modify the symlink target. The primitive can overwrite arbitrary paths, cause denial of service, or manipulate an existing SQLite database through a crafted rollback journal or write-ahead log. The Monitoring Plugins integration also moved plugin caches through lib.db_sqlite.get_db_path() so they use the secured per-user directory. This issue is fixed in version 4.2.0.",
       "severity": "UNKNOWN",
       "score": null
     }
