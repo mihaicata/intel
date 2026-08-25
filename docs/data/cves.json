@@ -1,5 +1,5 @@
 {
-  "totalResults": 3559,
+  "totalResults": 3588,
   "items": [
     {
       "id": "CVE-2026-75627",
@@ -14,6 +14,20 @@
       "description": "SpiderFoot fails to HTML-escape correlation titles built from external scan data sources including server banners and metadata. Attackers can inject malicious HTML elements with event handlers into correlation results that execute scripts in the operator's browser when the correlations view is opened, potentially stealing API keys.",
       "severity": "CRITICAL",
       "score": 9.3
+    },
+    {
+      "id": "CVE-2026-75827",
+      "published": "2026-08-18T12:19:32.553",
+      "description": "Grav before 2.0.15 contains an arbitrary file write vulnerability in the Blueprint dynamic-data bare-function validation that uses an incomplete denylist instead of a positive allowlist. Attackers with page-edit or blueprint-config access can invoke the error_log function through a data directive to append PHP payloads to web-accessible files, achieving remote code execution.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-75828",
+      "published": "2026-08-18T12:19:32.690",
+      "description": "Grav before 2.0.15 contains a stored cross-site scripting vulnerability in the detectXss() function where unpaired quotes in unquoted attribute values bypass event-handler detection. Authenticated editors can inject event handlers like onerror= that pass validation and execute in visitor browsers when page content is rendered.",
+      "severity": "HIGH",
+      "score": 8.7
     },
     {
       "id": "CVE-2026-74902",
@@ -49,13 +63,6 @@
       "description": "SiYuan before v3.7.4 contains a server-side request forgery (SSRF) vulnerability in the isPrivateIP function in kernel/util/net.go, used by SSRFSafeDialer to enforce SSRF protection in SafeMode. The function only checks for loopback, link-local unicast, private, and unspecified addresses and does not recognize IPv6 transition addresses (NAT64 64:ff9b::/96, 6to4 2002::/16, Teredo 2001::/32) that embed private IPv4 destinations. When SafeMode is enabled, an authenticated attacker can bypass the SSRF guard via the network forward proxy, WebSocket proxy, or SSE proxy endpoints by supplying a URL whose hostname resolves to such a transition address, reaching internal services and cloud metadata endpoints (e.g., 169.254.169.254). Because the forward proxy returns the full response body, this is a full-read SSRF that can be used to steal instance credentials, reach internal services, and port-scan internal infrastructure.",
       "severity": "HIGH",
       "score": 7.1
-    },
-    {
-      "id": "CVE-2024-14045",
-      "published": "2026-08-18T09:16:45.447",
-      "description": "A weakness has been identified in OpenBoxes up to 0.9.2. This vulnerability affects unknown code of the file grails-app/controllers/org/pih/warehouse/RoleInterceptor.groovy of the component Product Supplier Edit Controller. Executing a manipulation can lead to improper authorization. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks. Upgrading to version 0.9.3 is able to resolve this issue. This patch is called f767ac1a5987d4865d9f158c6a967680f8e45468. It is suggested to upgrade the affected component.",
-      "severity": "MEDIUM",
-      "score": 6.3
     },
     {
       "id": "CVE-2024-14046",
@@ -126,13 +133,6 @@
       "description": "A vulnerability was determined in karakeep-app karakeep up to 0.32.0. The impacted element is an unknown function of the file apps/web/server/auth.ts of the component OAuth Sign-In. This manipulation causes improper authentication. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is regarded as difficult. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
       "score": 3.7
-    },
-    {
-      "id": "CVE-2026-43971",
-      "published": "2026-08-18T09:17:14.340",
-      "description": "Improper Encoding or Escaping of Output vulnerability in ninenines cowlib allows Link header directive smuggling via unescaped special characters in cow_link:link/1.\n\ncow_link:do_link/1 in cowlib interpolates the target URI, rel value, and attribute keys directly into the serialized Link: header value without escaping or token-grammar validation. A > byte in target prematurely closes the URI slot, allowing an attacker to append additional link entries with attacker-chosen rel directives. A \" or \\ in rel escapes the quoted string and opens new parameters. Any byte — including whitespace, =, and \" — in an attribute key is emitted verbatim. Because browsers act on Link: directives such as rel=\"preconnect\", rel=\"preload\", and rel=\"prerender\", an attacker who can influence these fields in an application that round-trips parsed Link headers through cow_link:link/1 can force victim browsers to make out-of-band connections to attacker-controlled origins.\n\nThis issue affects cowlib: from 2.9.0 onward.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-18929",
