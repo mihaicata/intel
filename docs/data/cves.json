@@ -1,143 +1,143 @@
 {
-  "totalResults": 2811,
+  "totalResults": 2818,
   "items": [
     {
-      "id": "CVE-2026-50186",
-      "published": "2026-08-18T22:16:52.783",
-      "description": "4gaBoards is a boards system for realtime project management. Prior to 3.3.8, 4gaBoards allows an authenticated project manager to supply traversal sequences in the filename parameter of GET /exports/:id/:filename. In server/api/controllers/boards/download.js, the decoded inputs.filename value is passed to path.join() beneath private/exports/<user_id>/ without containment validation. A crafted value such as ../ can select an arbitrary file readable by the server process, and the file is returned to the attacker. The fileStream close handler then passes the same path to fs.unlink(), deleting the selected file and potentially causing data loss or denial of service. This issue is fixed in version 3.3.8.",
+      "id": "CVE-2026-76008",
+      "published": "2026-08-19T03:16:53.077",
+      "description": "A flaw has been found in Comfast CF-N1-S 2.6.0.1. This affects the function get_para_from_uri of the file /cgi-bin/mbox-config of the component URI Parameter Parsing. This manipulation of the argument width/height causes stack-based buffer overflow. The attack can be initiated remotely.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-75976",
+      "published": "2026-08-19T00:16:28.510",
+      "description": "A weakness has been identified in TRENDnet TEW-823DRU 1.1.02b01. Impacted is the function strcpy of the file /cgi-bin/wan.cgi of the component NVRAM. This manipulation of the argument wan_l2tp_password causes stack-based buffer overflow. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-76003",
+      "published": "2026-08-19T03:16:52.727",
+      "description": "A weakness has been identified in UTT HiPER 1200GW up to 2.5.3-170306. Affected is the function strcpy of the file /goform/formGroupConfig. Executing a manipulation of the argument timestart can lead to stack-based buffer overflow. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-76004",
+      "published": "2026-08-19T03:16:52.900",
+      "description": "A security vulnerability has been detected in UTT HiPER 1250GW up to 3.2.7-210907-180535. Affected by this vulnerability is the function strcpy of the file /goform/aspApBasicConfigUrcp of the component HTTP Handler. The manipulation of the argument pvid leads to stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-75984",
+      "published": "2026-08-19T01:16:57.640",
+      "description": "A vulnerability was detected in TRENDnet TEW-823DRU 1.1.02b01. Impacted is an unknown function of the file /cgi-bin/admin.cgi. The manipulation of the argument Hostname results in command injection. The attack can be launched remotely. The exploit is now public and may be used.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-50191",
-      "published": "2026-08-18T22:16:52.930",
-      "description": "4gaBoards is a boards system for realtime project management. Prior to 3.3.8, 4gaBoards is vulnerable to pre-account takeover when registrationEnabled, localRegistrationEnabled, and ssoRegistrationEnabled are enabled and Google, GitHub, Microsoft, or OIDC SSO is configured. The POST /api/register endpoint permits creation of an unverified local account with a victim's email address, and POST /api/access-tokens permits that account to authenticate while isVerified is false. During the victim's first SSO login, server/api/helpers/users/get-create-one-for-github-sso.js, server/api/helpers/users/get-create-one-for-google-sso.js, server/api/helpers/users/get-create-one-for-microsoft-sso.js, and server/api/helpers/users/get-create-one-for-oidc-sso.js find the attacker-controlled account by email and link the verified SSO identity without confirming ownership of the local account. The attacker can retain local-password access to the linked account and obtain the victim's projects, data, and permissions. This issue is fixed in version 3.3.8.",
+      "id": "CVE-2026-75985",
+      "published": "2026-08-19T02:16:12.830",
+      "description": "A flaw has been found in TRENDnet Router 1.1.02b01. The affected element is an unknown function of the file /cgi-bin/ping.cgi. This manipulation of the argument wan_type causes command injection. The attack may be initiated remotely. The exploit has been published and may be used.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-52872",
-      "published": "2026-08-18T22:16:53.650",
-      "description": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Prior to 2.5.0, the downloadSubtitleFile utility in src/ipc/downloads.js, reached through the run-download IPC channel, accepts a renderer-supplied subtitle url using the file: URI scheme and passes its decoded pathname to fs.copyFileSync. The renderer also controls downloadPath, which determines the destination path. A compromised renderer can therefore copy any file readable by the StreamBERT process into an attacker-chosen writable location, exposing sensitive local data, and can overwrite existing writable files. This vulnerability is fixed in 2.5.0.",
+      "id": "CVE-2026-75986",
+      "published": "2026-08-19T02:16:12.993",
+      "description": "A vulnerability has been found in code-projects Online Job Portal System 1.0. The impacted element is an unknown function of the file /ForPass.php of the component Password Recovery. Such manipulation of the argument txtUserName leads to sql injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-52876",
-      "published": "2026-08-18T22:16:54.173",
-      "description": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Prior to version 2.6.0, the open-path-at-time IPC handler in src/ipc/player.js accepts a renderer-controlled filePath without validating its type or location. If the mpv or VLC launch attempts are skipped or fail, the handler passes filePath to Electron's shell.openPath. A compromised renderer can provide the path of a local executable, script, shortcut, or other file with an executing default handler, causing the operating system to launch it with the privileges of the StreamBERT process and enabling escape from the renderer sandbox. This issue is fixed in version 2.6.0.",
+      "id": "CVE-2026-75987",
+      "published": "2026-08-19T02:16:13.173",
+      "description": "A vulnerability was found in SPLWare esProc up to 20260507. This affects the function ObjectInputStream.readUnshared of the file src/main/java/com/scudata/parallel/SocketData.java. Performing a manipulation results in deserialization. Remote exploitation of the attack is possible.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-52854",
-      "published": "2026-08-18T22:16:53.470",
-      "description": "Maps is a MediaWiki extension that enables visualization of geographic data through dynamic embedded maps. Prior to version 12.1.3, the display_map parser function in the Leaflet service accepts attacker-controlled HTML in the overlays parameter, and resources/leaflet/jquery.leaflet.js uses the overlay name as a Leaflet layer-control label without escaping it. A wiki user with the edit permission can store malicious wikitext that causes script execution when another user previews or views the affected map. The script executes in the viewing user's browser session and can access data or perform actions available to that user. This issue is fixed in version 12.1.3.",
+      "id": "CVE-2026-76048",
+      "published": "2026-08-19T03:16:53.430",
+      "description": "A flaw has been found in SourceCodester Simple Online Food Ordering System 1.0. The impacted element is an unknown function of the file /admin/ajax.php?action=login. Executing a manipulation of the argument Username can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-52877",
-      "published": "2026-08-18T22:16:54.520",
-      "description": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Prior to version 2.6.0, the open-external IPC handler in src/ipc/downloads.js passes a renderer-supplied url directly to Electron's shell.openExternal without validating its protocol. A compromised renderer can submit file: URIs or operating-system-specific custom schemes, causing the host to open local files, access remote resources through registered handlers, or launch scripts and applications supported by those handlers. This issue is fixed in version 2.6.0.",
+      "id": "CVE-2026-76049",
+      "published": "2026-08-19T04:17:38.277",
+      "description": "A vulnerability has been found in SourceCodester Simple Online Food Ordering System 1.0. This affects an unknown function of the file /admin/ajax.php?action=save_menu. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-53958",
-      "published": "2026-08-18T22:16:54.717",
-      "description": "4gaBoards is a boards system for realtime project management. Prior to 3.3.9, 4gaBoards allows an authenticated user to modify ssoGoogleId, ssoGoogleEmail, ssoGithubId, ssoGithubUsername, ssoGithubEmail, ssoMicrosoftId, ssoMicrosoftEmail, ssoOidcId, and ssoOidcEmail through PATCH /api/users/:id. The whitelist in server/api/controllers/users/update.js mass assigns these backend-managed identity attributes from user input. An attacker can place a victim's provider identifier on an attacker-controlled account, causing the default lookup in helpers such as server/api/helpers/users/get-create-one-for-github-sso.js to match the victim's first SSO login to the attacker's account before the email-linkage flow runs. The victim is logged into the attacker-controlled account, and projects, boards, or data the victim creates remain accessible through the attacker's original local credentials. This issue is fixed in version 3.3.9.",
+      "id": "CVE-2026-76050",
+      "published": "2026-08-19T04:17:42.060",
+      "description": "A vulnerability was found in SourceCodester Simple Online Food Ordering System 1.0. This impacts an unknown function of the file /admin/ajax.php?action=delete_menu. The manipulation of the argument ID results in sql injection. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-50142",
-      "published": "2026-08-18T22:16:52.633",
-      "description": "libheif is a HEIF and AVIF file format decoder and encoder. From 1.19.0 until 1.23.0, a crafted HEIF sequence accepted by heif_context_read_from_memory() with the msf1 sequence brand can cause unbounded heap allocation. In libheif/sequences/seq_boxes.cc, Box_stsz::parse() applies max_sequence_frames only to variable-size samples, so fixed-size mode accepts an attacker-controlled sample_count without a bound. In libheif/sequences/track.cc, Track::load() also adds current_sample_idx and samples_per_chunk in 32-bit arithmetic, allowing the consistency check to be bypassed by wraparound. The resulting values reach the Chunk::Chunk() allocation path, which can consume gigabytes of memory and crash or stall the process through memory exhaustion. This issue is fixed in version 1.23.0.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-52873",
-      "published": "2026-08-18T22:16:53.830",
-      "description": "Streambert is a cross-platform Electron Desktop App to stream and download video content. From version 2.5.0 until version 2.6.0, the wyzie-open-redeem IPC handler in index.js creates the partition:wyzie-redeem Electron session and registers an onHeadersReceived hook that removes the Content-Security-Policy header from every response in that session. The redeem window also lacks a setWindowOpenHandler restriction, so script injection in sub.wyzie.io, a loaded third-party resource, or a site reached through navigation executes without CSP constraints and can affect additional windows and persistent session storage. A user must open the Wyzie API key redemption window, and exploitation requires attacker-controlled script content in a loaded page. The resulting renderer script can invoke renderer-exposed application functionality and can be chained with other vulnerabilities to access internal services or sensitive data. This issue is fixed in version 2.6.0.",
-      "severity": "MEDIUM",
-      "score": 6.9
-    },
-    {
-      "id": "CVE-2026-53959",
-      "published": "2026-08-18T22:16:54.907",
-      "description": "4gaBoards is a boards system for realtime project management. Prior to 3.3.9, 4gaBoards allows any authenticated user to enumerate account information for every user through GET /api/users and retrieve arbitrary accounts through GET /api/users/:id. The users/index and users/show actions rely only on the default is-authenticated policy in server/config/policies.js, and server/api/controllers/users/index.js returns the result of sails.helpers.users.getMany() without requester-specific authorization or response sanitization. Responses expose email, phone, organization, name, isAdmin, ssoGoogleEmail, ssoGithubEmail, and other SSO-linked email fields, including data for administrators. This enables instance-wide user enumeration, privacy loss, and targeted phishing reconnaissance. This issue is fixed in version 3.3.9.",
+      "id": "CVE-2026-66591",
+      "published": "2026-08-18T23:17:04.917",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in David Lingren Media LIbrary Assistant allows Stored XSS.\n\nThis issue affects Media LIbrary Assistant: from n/a through 3.39.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-47699",
-      "published": "2026-08-18T22:16:52.127",
-      "description": "Confidential Containers Guest Components provides guest tools and components for confidential container workloads. From 0.16.0 until 0.20.0, a crafted OCI image layer can make image_rs::stream::unpack::unpack() create a hardlink outside its destination directory. In image-rs/src/stream/unpack.rs, try_hardlink_fallback() validates the hardlink source but computes the destination with destination.join(&entry_rel). Rust Path::join replaces the base when entry_rel is an absolute tar entry path, so fs::hard_link(&src_canon, &dst_entry_abs) can write attacker-controlled content to an arbitrary absolute path. In Confidential Containers the workload owner already controls trusted image content, so the issue is a workload-owner escape into the pod virtual machine rather than a crossing of the image trust boundary, but it may enable access to pod virtual machine capabilities and attestation abuse. This issue is fixed in version 0.20.0.",
+      "id": "CVE-2026-15421",
+      "published": "2026-08-19T02:16:12.677",
+      "description": "The Speed Optimizer – The All-In-One Performance-Boosting Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Image Tag Attributes in all versions up to, and including, 7.8.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is only exploitable when the site administrator has enabled the Lazy Load Media option in the plugin settings.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-48796",
-      "published": "2026-08-18T22:16:52.280",
-      "description": "CefSharp provides .NET bindings for the Chromium Embedded Framework for Windows Forms and Windows Presentation Foundation applications. Prior to version 148.0.90, CefSharp/SchemeHandler/FolderSchemeHandlerFactory.cs used filePath.StartsWith(rootFolder, StringComparison.OrdinalIgnoreCase) to decide whether a decoded and canonicalized request path remained inside rootFolder. That raw prefix test did not enforce a directory boundary, so a request such as ..%2fwww2/secret.txt could escape a configured www directory into a sibling www2 directory whose path shared the same string prefix. Applications that register FolderSchemeHandlerFactory for a custom scheme or an HTTP or HTTPS scheme can therefore serve local files outside the intended root when an attacker can cause the embedded browser to request the crafted URL. The issue affects both Unix-style paths such as /tmp/app/www2 and Windows paths such as C:\\app\\www2, and the fix appends a directory separator to the normalized root before comparison while rejecting null bytes and alternate data stream syntax. This issue is fixed in version 148.0.90.",
+      "id": "CVE-2026-75978",
+      "published": "2026-08-19T00:16:28.810",
+      "description": "A security vulnerability has been detected in xianrendzw EasyReport up to 2.0.17.0522_Beta. The affected element is the function DataSourceController.add of the file DataSourceController.java of the component QueryerFactory. Such manipulation of the argument queryerClass leads to permission issues. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-62291",
-      "published": "2026-08-18T22:17:02.877",
-      "description": "libheif is a HEIF and AVIF file format decoder and encoder. In 1.23.0 and earlier, a crafted image sequence with a 2x2 primary plane and a 256x256 auxiliary alpha plane can cause attacker-controlled heap corruption during a normal decode and re-encode workflow. Track_Visual::decode_next_image_sample() calls transfer_channel_from_image_as() without checking that the auxiliary alpha dimensions match the main frame. The resulting inconsistent image reaches heif_track_decode_next_image() and then heif_context_encode_image(). In unc_encoder::encode(), unc_encoder_component_interleave::encode_tile() sizes its buffer with compute_tile_data_size_bytes() using the primary dimensions but copies each component using its actual plane dimensions. The oversized alpha plane is therefore copied beyond the allocation, causing an out-of-bounds write; the inverse size mismatch can also produce an out-of-bounds read. This issue is fixed in version 1.23.1.",
+      "id": "CVE-2026-75979",
+      "published": "2026-08-19T01:16:57.460",
+      "description": "A vulnerability was found in xianrendzw EasyReport up to 2.0.17.0522_Beta. Affected is the function execSqlText/previewSqlText of the file DesignerController.java of the component SQL Preview Endpoint. The manipulation of the argument sqlText results in improper neutralization of special elements used in a template engine. The attack can be executed remotely. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-62289",
-      "published": "2026-08-18T22:17:02.720",
-      "description": "libheif is a HEIF and AVIF file format decoder and encoder. In 1.23.0 and earlier, a crafted HEIF or AVIF file containing a clean aperture box can reduce an image dimension to zero and crash or corrupt tiling results when heif_image_handle_get_image_tiling(handle, 1, &tiling) is called. ImageItem::get_heif_image_tiling() returns already transformed dimensions, and process_image_transformations_on_tiling() applies the clean aperture transformation again. The second application passes zero to Box_clap::left_rounded(0), where image_width minus one underflows and constructs Fraction(0xFFFFFFFF, 2). Debug builds reach an assertion and abort, while release builds can return a corrupt crop and zero-width tiling result. The affected implementation spans libheif/image-items/image_item.cc, libheif/context.cc, and libheif/box.cc. This issue is fixed in version 1.23.1.",
+      "id": "CVE-2026-27365",
+      "published": "2026-08-18T23:16:35.803",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PublishPress PublishPress Series allows Stored XSS.\n\nThis issue affects PublishPress Series: from n/a through 2.17.0.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-66589",
+      "published": "2026-08-18T23:17:04.787",
+      "description": "Missing Authorization vulnerability in Kings Plugins B2BKing allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects B2BKing: from n/a through 5.2.30.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2025-11729",
+      "published": "2026-08-19T00:16:24.943",
+      "description": "The PPWP: Password Protect Pages, Posts & Full or Partial Content plugin for WordPress is vulnerable to unauthorized access of data due to a improper capability check on the can_access function in all versions up to, and including, 1.9.15. This makes it possible for authenticated attackers, with Contributor-level access and above, to retrieve a master-password and access any password-protected content.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-15315",
-      "published": "2026-08-18T22:16:49.207",
-      "description": "Tapo C200 v5\ncontains an improper authentication vulnerability within the login\nauthentication verification module. An attacker on the local network can\nexploit weaknesses in challenge parameter validation to bypass normal\nauthentication controls and obtain administrative session tokens. \n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may allow an attacker to subsequently execute privileged\nmanagement actions, enable unauthorized administrative access and temporary\ndisruption of device services, resulting in a denial-of-service (DoS)\ncondition.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-76014",
+      "published": "2026-08-19T03:16:53.247",
+      "description": "A vulnerability has been found in BusyBox up to 1.30.1. This vulnerability affects unknown code of the file networking/wget.c of the component FEATURE_WGET_TIMEOUT Handler. Such manipulation of the argument -T leads to null pointer dereference. Local access is required to approach this attack. The exploit has been disclosed to the public and may be used. The name of the patch is 83a40bf7a93c8ac093d33ab452222dd5b9eb57ff. A patch should be applied to remediate this issue.",
+      "severity": "LOW",
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-15316",
-      "published": "2026-08-18T22:16:49.367",
-      "description": "An improper input\nvalidation vulnerability in the configuration service for processing encrypted\ncredential data has been identified in Tapo C200 v5.  An attacker can send oversized crypted\nciphertext values that may trigger exception handling failures, due to insufficient\nvalidation, causing the affected device to crash or restart.\n\n\n\n\n\nSuccessful\nexploitation may temporarily disrupt HTTPS management and monitoring\nfunctionality, resulting in a denial-of-service (DoS) condition until the\nservice recovers.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-21580",
-      "published": "2026-08-18T22:16:50.140",
-      "description": "This Critical severity Stored XSS, PrivEsc (Privilege Escalation), and Security Misconfiguration vulnerability was introduced in versions 7.1.1, 7.4.0, 7.13.0, 7.17.0, 7.19.0, 8.0.0, 8.5.0, 8.9.0, 9.0.1, 9.1.0, 9.2.0, 9.3.1, 9.4.0, 9.5.1, 10.0.2, 10.1.0 and 10.2.0 of Confluence Data Center and Server.\r\n\r\nThis Stored XSS, PrivEsc (Privilege Escalation), and Security Misconfiguration vulnerability, with a CVSS Score of 8.6, allows an unauthenticated attacker to execute arbitrary HTML or JavaScript code on a victims browser, perform actions as a higher-privileged user, and to get into the system utilizing loopholes exposed from security best-practices being overlooked.\r\n\r\nAtlassian recommends that Confluence Data Center and Server customers upgrade to latest version, if you are unable to do so, upgrade your instance to one of the specified supported fixed versions:\r\n Confluence Data Center and Server 9.2: Upgrade to a release greater than or equal to 9.2.21\r\n\r\n Confluence Data Center and Server 10.2: Upgrade to a release greater than or equal to 10.2.13\r\n\r\nSee the release notes ([https://confluence.atlassian.com/doc/confluence-release-notes-327.html]). You can download the latest version of Confluence Data Center and Server from the download center ([https://www.atlassian.com/software/confluence/download-archives]).\r\n\r\nThis vulnerability was reported via our Bug Bounty program.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-21582",
-      "published": "2026-08-18T22:16:50.340",
-      "description": "This High severity BASM (Broken Authentication & Session Management) vulnerability known as CVE-2026-21582 was introduced in version 7.2.1 of Crowd Data Center.\r\n\r\nThis BASM (Broken Authentication & Session Management) vulnerability, with a CVSS Score of 8.8, allows an unauthenticated attacker to perform actions as another user.\r\n\t\r\n\tAtlassian recommends that Crowd Data Center customers upgrade to latest version, if you are unable to do so, upgrade your instance to one of the specified supported fixed versions:\r\n\t\t\r\n\t\tCrowd Data Center 7.2: Upgrade to a release greater than or equal to 7.2.2\r\n\t\t\r\n\t\t\r\n\t\r\n\tSee the release notes (https://confluence.atlassian.com/crowd/crowd-release-notes-199094.html). You can download the latest version of Crowd Data Center from the download center (https://www.atlassian.com/software/crowd/download-archive). \r\n\t\r\n\tThis vulnerability was reported via our Penetration Testing program.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-21584",
-      "published": "2026-08-18T22:16:50.460",
-      "description": "This High severity Improper Authorization vulnerability was introduced in versions 10.0.0, 10.1.0, 10.2.0, 11.0.0, 12.0.0, and 12.1.0 of Bamboo Data Center. \n\t\n\tThis Improper Authorization vulnerability, with a CVSS Score of 7.6, allows an authenticated attacker to gain unintended access and can lead to the exposure of resources or functionality, possibly providing attackers with sensitive information or even execute arbitrary code. \n\t\n\tAtlassian recommends that Bamboo Data Center customers upgrade to latest version, if you are unable to do so, upgrade your instance to one of the specified supported fixed versions:\n\t\t\n\t\t* Bamboo Data Center 10.2: Upgrade to a release greater than or equal to 10.2.22\n\t\t\n\t\t* Bamboo Data Center 12.1: Upgrade to a release greater than or equal to 12.1.10\n\t\t\n\t\t\n\t\n\tSee the release notes (https://confluence.atlassian.com/bambooreleases/bamboo-release-notes-1189793869.html). You can download the latest version of Bamboo Data Center from the download center (https://www.atlassian.com/software/bamboo/download-archives). \n\t\n\tThis vulnerability was reported via our Penetration Testing program.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-52875",
-      "published": "2026-08-18T22:16:54.003",
-      "description": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Prior to 2.6.0, the perform-scheduled-backup IPC handler in src/ipc/storage.js takes settings.path from a renderer-supplied object and uses the resulting directory for fs.mkdirSync, fs.writeFileSync, fs.readdirSync, and fs.unlinkSync operations without checking that it is inside an authorized backup location. A compromised renderer can choose an absolute path or a relative traversal path to create directories and write a streambert-backup-[timestamp].json file containing renderer-controlled data. The pruning loop can also delete files in that directory whose names begin with streambert-backup- and end with .json. This vulnerability is fixed in 2.6.0.",
+      "id": "CVE-2026-11751",
+      "published": "2026-08-19T02:16:12.530",
+      "description": "A vulnerability has been identified in armeria-xds versions prior to 1.41.0, where xDS upstream TLS peer verification may be silently disabled, allowing man-in-the-middle attacks against xDS-managed upstream connections.",
       "severity": "UNKNOWN",
       "score": null
     }
