@@ -1,38 +1,17 @@
 {
-  "totalResults": 2822,
+  "totalResults": 2816,
   "items": [
-    {
-      "id": "CVE-2026-49415",
-      "published": "2026-08-19T05:17:03.830",
-      "description": "During execve(2) of a SUID binary, the new virtual address space is installed before the process credentials are updated.  During this window, a process running as the same user can access the target process's memory via procfs or linprocfs, because the kernel's debugging permission check still saw the original credentials.\n\nAn unprivileged local user can exploit this race to modify the address space of a SUID binary before its credentials are elevated, potentially gaining full control of the affected system.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-49418",
-      "published": "2026-08-19T05:17:03.943",
-      "description": "When msync(MS_INVALIDATE) is called on a mapping of an unmanaged device object, the physical pages in the mapping range are marked invalid but remain in the pager's page list.  A subsequent page fault will cause the fault handler to re-insert the page into the object's list.  This corrupts the list, and on object destruction the page is freed twice.\n\nAn unprivileged local user with access to a device that provides memory-mapped I/O can trigger a use-after-free in the kernel, though this is limited to a pool of objects (\"fictitious pages\") that are never recycled for a different purpose.  It may be possible to exploit this to escalate privileges.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-49419",
-      "published": "2026-08-19T05:17:04.053",
-      "description": "When the JAIL_AT_DESC flag is specified, kern_jail_set() and kern_jail_get() released the reference to the caller's current prison before looking up the jail descriptor.  If the descriptor lookup failed, error-handling paths released the same reference a second time.\n\nAn unprivileged local user can trigger a prison reference count underflow, which may cause the prison structure to be freed while still in use.  When this is done on the jail host, the bug will generally result in an immediate panic.  However, if the user is running in a jail, then it may be possible to exploit the bug to elevate privileges.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-70408",
-      "published": "2026-08-19T05:17:05.820",
-      "description": "An incorrect authorization vulnerability exists in acmailer, which may allow a user to create a sub-account that has administrative privileges.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
     {
       "id": "CVE-2026-14334",
       "published": "2026-08-19T06:17:33.263",
       "description": "The Booking calendar, Appointment Booking System WordPress plugin through 3.2.36 does not properly sanitize uploaded SVG files, allowing unauthenticated attackers to upload a file that bypasses the Booking calendar, Appointment Booking System WordPress plugin through 3.2.36's script-stripping and executes arbitrary JavaScript when the SVG is opened, including in the session of an administrator who reviews the submitted booking.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-16617",
+      "published": "2026-08-19T06:17:35.500",
+      "description": "The Simple File List WordPress plugin through 6.3.11 does not properly sanitise and escape a file's description before outputting it on the public file list, allowing unauthenticated users (when front-end file management is enabled) to perform Stored Cross-Site Scripting attacks that execute in the browser of any visitor viewing the list.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -44,18 +23,25 @@
       "score": 8.6
     },
     {
+      "id": "CVE-2026-16616",
+      "published": "2026-08-19T06:17:35.210",
+      "description": "The Simple File List WordPress plugin through 6.3.11 does not validate the source path of a file-move operation reachable by unauthenticated users, allowing them to read arbitrary files on the server and to relocate critical files out of the web root, leading to sensitive information disclosure and potential site takeover.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-16950",
+      "published": "2026-08-19T06:17:35.730",
+      "description": "The Product Shortlist WordPress plugin through 1.0.4 does not properly sanitise and escape a parameter before using it in a SQL statement, allowing unauthenticated attackers to perform SQL injection attacks.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
       "id": "CVE-2026-11565",
       "published": "2026-08-19T06:17:27.777",
       "description": "The Advanced File Manager  WordPress plugin before 5.4.13 does not perform capability checks in several of its file management AJAX actions, allowing users with any role to which an administrator has granted file-manager access (as low as Subscriber) to read arbitrary files on the server — including sensitive configuration files — and to overwrite existing non-PHP files, which can be leveraged to compromise administrator accounts and the whole site.",
       "severity": "HIGH",
       "score": 8.5
-    },
-    {
-      "id": "CVE-2026-19942",
-      "published": "2026-08-19T05:17:02.217",
-      "description": "The Atarim – AI Agency for WordPress: Edit Pages, Fix Code, Update Plugins, SEO & Client Feedback plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the AVCF_Abilities_Media::register (replace-media-file execute_callback) function in all versions up to, and including, 5.1.1. This makes it possible for authenticated attackers, with author-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). This is exploitable by first using the atarim/update-post-field ability to overwrite the _wp_attached_file meta of an attacker-owned attachment with a directory-traversal path, then invoking atarim/replace-media-file to cause get_attached_file() to resolve and unlink the targeted file.",
-      "severity": "HIGH",
-      "score": 8.1
     },
     {
       "id": "CVE-2026-13169",
@@ -79,6 +65,20 @@
       "score": 7.2
     },
     {
+      "id": "CVE-2026-17565",
+      "published": "2026-08-19T06:17:36.230",
+      "description": "The Animation Addons for Elementor  WordPress plugin before 2.7.2 does not validate a user-supplied value before using it to build the host of a server-side HTTP request, allowing unauthenticated users to make the site issue requests to internal hosts and read the responses back.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-16570",
+      "published": "2026-08-19T06:17:34.940",
+      "description": "The NextScripts: Social Networks Auto-Poster WordPress plugin before 4.4.8 does not escape some of the query-string parameters it reflects back on one of its admin pages, allowing attackers to perform Reflected Cross-Site Scripting attacks against logged-in users such as administrators who are tricked into opening a crafted link.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
       "id": "CVE-2026-15253",
       "published": "2026-08-19T06:17:34.360",
       "description": "The Easy Media Replace WordPress plugin through 0.2.0 does not sanitise and escape an attachment title before outputting it in an HTML attribute in the media library list view, allowing users with the Author role and above to inject arbitrary web scripts that are executed in the browser of a higher privileged user who views the media library.",
@@ -91,13 +91,6 @@
       "description": "The Eventin  WordPress plugin before 4.1.21 does not verify ownership before allowing schedule records to be modified or deleted, allowing users with contributor-level access and above to alter or delete schedule entries created by other users.",
       "severity": "MEDIUM",
       "score": 6.5
-    },
-    {
-      "id": "CVE-2026-66358",
-      "published": "2026-08-19T05:17:05.647",
-      "description": "A cross-site scripting vulnerability exists in acmailer, which may allow an attacker to execute an arbitrary script.",
-      "severity": "MEDIUM",
-      "score": 6.1
     },
     {
       "id": "CVE-2026-16058",
@@ -117,6 +110,13 @@
       "id": "CVE-2026-14196",
       "published": "2026-08-19T06:17:32.740",
       "description": "The WCFM Marketplace  WordPress plugin before 3.8.1 does not verify that a marketplace vendor owns a review before allowing it to be unapproved or deleted, allowing any vendor to modify or permanently delete reviews belonging to other vendors' stores.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-16979",
+      "published": "2026-08-19T06:17:36.013",
+      "description": "The SmartCrawl SEO checker, analyzer & optimizer WordPress plugin before 3.16.3 does not perform capability checks on two of its AJAX actions, allowing users with at least the Subscriber role to read the titles of private and draft posts by ID and to enumerate stored post-meta key names.",
       "severity": "MEDIUM",
       "score": 4.3
     },
