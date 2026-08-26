@@ -1,5 +1,5 @@
 {
-  "totalResults": 2839,
+  "totalResults": 2834,
   "items": [
     {
       "id": "CVE-2026-76008",
@@ -7,13 +7,6 @@
       "description": "A flaw has been found in Comfast CF-N1-S 2.6.0.1. This affects the function get_para_from_uri of the file /cgi-bin/mbox-config of the component URI Parameter Parsing. This manipulation of the argument width/height causes stack-based buffer overflow. The attack can be initiated remotely.",
       "severity": "CRITICAL",
       "score": 10
-    },
-    {
-      "id": "CVE-2026-75976",
-      "published": "2026-08-19T00:16:28.510",
-      "description": "A weakness has been identified in TRENDnet TEW-823DRU 1.1.02b01. Impacted is the function strcpy of the file /cgi-bin/wan.cgi of the component NVRAM. This manipulation of the argument wan_l2tp_password causes stack-based buffer overflow. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "CRITICAL",
-      "score": 9.9
     },
     {
       "id": "CVE-2026-76003",
@@ -44,18 +37,39 @@
       "score": 8.8
     },
     {
+      "id": "CVE-2026-49419",
+      "published": "2026-08-19T05:17:04.053",
+      "description": "When the JAIL_AT_DESC flag is specified, kern_jail_set() and kern_jail_get() released the reference to the caller's current prison before looking up the jail descriptor.  If the descriptor lookup failed, error-handling paths released the same reference a second time.\n\nAn unprivileged local user can trigger a prison reference count underflow, which may cause the prison structure to be freed while still in use.  When this is done on the jail host, the bug will generally result in an immediate panic.  However, if the user is running in a jail, then it may be possible to exploit the bug to elevate privileges.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-70408",
+      "published": "2026-08-19T05:17:05.820",
+      "description": "An incorrect authorization vulnerability exists in acmailer, which may allow a user to create a sub-account that has administrative privileges.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-12983",
+      "published": "2026-08-19T06:17:31.307",
+      "description": "The Dinatur WordPress plugin through 1.18 does not sanitize and escape user input before using it in a SQL query, allowing unauthenticated users to perform SQL injection attacks. The same handler also performs a database table truncation without any authorization check, allowing any unauthenticated visitor to wipe the Dinatur WordPress plugin through 1.18's data.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-11565",
+      "published": "2026-08-19T06:17:27.777",
+      "description": "The Advanced File Manager  WordPress plugin before 5.4.13 does not perform capability checks in several of its file management AJAX actions, allowing users with any role to which an administrator has granted file-manager access (as low as Subscriber) to read arbitrary files on the server — including sensitive configuration files — and to overwrite existing non-PHP files, which can be leveraged to compromise administrator accounts and the whole site.",
+      "severity": "HIGH",
+      "score": 8.5
+    },
+    {
       "id": "CVE-2026-19942",
       "published": "2026-08-19T05:17:02.217",
       "description": "The Atarim – AI Agency for WordPress: Edit Pages, Fix Code, Update Plugins, SEO & Client Feedback plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the AVCF_Abilities_Media::register (replace-media-file execute_callback) function in all versions up to, and including, 5.1.1. This makes it possible for authenticated attackers, with author-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). This is exploitable by first using the atarim/update-post-field ability to overwrite the _wp_attached_file meta of an attacker-owned attachment with a directory-traversal path, then invoking atarim/replace-media-file to cause get_attached_file() to resolve and unlink the targeted file.",
       "severity": "HIGH",
       "score": 8.1
-    },
-    {
-      "id": "CVE-2026-75984",
-      "published": "2026-08-19T01:16:57.640",
-      "description": "A vulnerability was detected in TRENDnet TEW-823DRU 1.1.02b01. Impacted is an unknown function of the file /cgi-bin/admin.cgi. The manipulation of the argument Hostname results in command injection. The attack can be launched remotely. The exploit is now public and may be used.",
-      "severity": "HIGH",
-      "score": 7.4
     },
     {
       "id": "CVE-2026-75985",
@@ -107,25 +121,11 @@
       "score": 6.4
     },
     {
-      "id": "CVE-2026-75978",
-      "published": "2026-08-19T00:16:28.810",
-      "description": "A security vulnerability has been detected in xianrendzw EasyReport up to 2.0.17.0522_Beta. The affected element is the function DataSourceController.add of the file DataSourceController.java of the component QueryerFactory. Such manipulation of the argument queryerClass leads to permission issues. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-66358",
+      "published": "2026-08-19T05:17:05.647",
+      "description": "A cross-site scripting vulnerability exists in acmailer, which may allow an attacker to execute an arbitrary script.",
       "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-75979",
-      "published": "2026-08-19T01:16:57.460",
-      "description": "A vulnerability was found in xianrendzw EasyReport up to 2.0.17.0522_Beta. Affected is the function execSqlText/previewSqlText of the file DesignerController.java of the component SQL Preview Endpoint. The manipulation of the argument sqlText results in improper neutralization of special elements used in a template engine. The attack can be executed remotely. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2025-11729",
-      "published": "2026-08-19T00:16:24.943",
-      "description": "The PPWP: Password Protect Pages, Posts & Full or Partial Content plugin for WordPress is vulnerable to unauthorized access of data due to a improper capability check on the can_access function in all versions up to, and including, 1.9.15. This makes it possible for authenticated attackers, with Contributor-level access and above, to retrieve a master-password and access any password-protected content.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "score": 6.1
     },
     {
       "id": "CVE-2026-76014",
