@@ -1,145 +1,145 @@
 {
-  "totalResults": 2772,
+  "totalResults": 2695,
   "items": [
     {
-      "id": "CVE-2026-18315",
-      "published": "2026-08-19T19:17:11.980",
-      "description": "The TrueBooker – Appointment Booking and Scheduler System plugin for WordPress is vulnerable to Authorization Bypass Through User-Controlled Key leading to Account Takeover in all versions up to, and including, 1.2.6. This is due to the admin_user_create_cus AJAX handler lacking any authentication or capability check before passing the attacker-supplied truebooker_wp_user_id parameter directly to wp_update_user. This makes it possible for unauthenticated attackers to overwrite the email address of any WordPress user — including an administrator — and then complete the standard WordPress lost-password flow to fully take over the targeted account.",
+      "id": "CVE-2026-53545",
+      "published": "2026-08-19T21:16:56.557",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the DELETE /ssh/tunnel/disconnect/:tunnelName teardown path in src/backend/ssh/tunnel.ts interpolates endpointPort, sourcePort, endpointUsername, and endpointIP into single-quoted pkill -f patterns. An authenticated user who can edit a tunnel host field can include a single quote to terminate the pattern and append a shell command, which executes when the tunnel is disconnected. Successful exploitation runs arbitrary commands on the source SSH host with the privileges of the connected SSH account. This issue is fixed in version 2.3.2.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-16687",
-      "published": "2026-08-19T19:17:10.280",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2  is affected by a vulnerability in the ASMI web interface. An unauthenticated attacker with network access can send the FSP a malformed request, allowing arbitrary code execution, giving the attacker full control over the managed system, resulting in a confidentiality, integrity, and availability impact.",
+      "id": "CVE-2026-53546",
+      "published": "2026-08-19T21:16:56.697",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the terminal WebSocket accepts a user-controlled hostConfig.id and src/backend/ssh/host-resolver.ts resolves that host without requiring ownership or explicit access. When no credential is shared with the requester, resolveHostById performs an owner credential fallback, and src/backend/ssh/terminal.ts combines that credential with attacker-controlled ip, port, and username values. An authenticated low-privileged user can therefore make Termix authenticate to an attacker-controlled SSH server and disclose another user's stored SSH password or private-key material while the victim user's data key is unlocked. This issue is fixed in version 2.3.2.",
       "severity": "CRITICAL",
       "score": 9.6
     },
     {
-      "id": "CVE-2026-16835",
-      "published": "2026-08-19T19:17:10.690",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2 is affected by a vulnerability in the FSP management network protocol. An unauthenticated attacker on the management network can bypass authentication and perform any administrative operation on the managed system, including control of partition power state, configuration, and console access across all hosted partitions, resulting in a confidentiality, integrity, and availability impact to the managed system.",
+      "id": "CVE-2026-53548",
+      "published": "2026-08-19T21:16:57.000",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.6.1, the GET /host/db/host/:id/password endpoint in src/backend/database/routes/host.ts accepts an authenticated user's numeric host ID and the field=password or field=sudoPassword query without enforcing host ownership during credential resolution. A failed requester-scoped lookup can resolve the host with the owner's context and return the owner's plaintext credential, allowing any authenticated user with a valid JWT to enumerate sequential hosts.id values and retrieve SSH or sudo passwords belonging to other users. The disclosed credentials can then be used to access and control managed systems outside the Termix instance. This issue is fixed in version 2.6.1.",
       "severity": "CRITICAL",
       "score": 9.6
     },
     {
-      "id": "CVE-2026-16832",
-      "published": "2026-08-19T19:17:10.557",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2 is affected by a vulnerability in the FSP management network protocol. An attacker with authenticated HMC administrator access can execute arbitrary code on the service processor, giving full control over the managed system, resulting in a confidentiality, integrity, and availability impact.",
+      "id": "CVE-2026-12522",
+      "published": "2026-08-19T21:16:53.507",
+      "description": "The HL7800 cellular modem driver's +CGCONTRDP: response handler on_cmd_atcmdinfo_ipaddr() in drivers/modem/vendor_standalone/hl7800.c parses the PDP-context dynamic parameters (local address, subnet mask, gateway, and DNS servers) that the cellular network assigns to the device. The response is linearized into a 256-byte stack buffer, after which each address field length is computed from comma/. delimiter positions in the network-supplied data and used directly as the length argument to strncpy() into the fixed 64-byte stack buffer temp_addr_str (and the 16-byte iface_ctx.dns_v4_string).\n\nBecause the field length is derived from attacker-controlled delimiter positions and was not bounded against the destination buffer, a single field can be far larger than 64 bytes. A malicious or impersonated cellular network (for example a rogue base station) can return a crafted +CGCONTRDP response with an overlong address field, causing strncpy() to write past temp_addr_str on the modem worker thread's stack, plus an out-of-bounds NUL write at temp_addr_str[addr_len].\n\nNo device-side privileges or user interaction are required: the device itself issues the AT+CGCONTRDP=1 query during normal network attach and parses whatever the network returns. The overflow corrupts adjacent stack memory in supervisor context, yielding at minimum a remotely triggerable crash and potentially control-flow hijacking on targets without stack protection.\n\nThe fix bounds every field length against its destination buffer (temp_addr_str and dns_v4_string) before each copy, rejecting overlong fields.",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-18848",
-      "published": "2026-08-19T19:17:12.247",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2 is affected by a vulnerability in the ASMI web interface. An attacker who can lure a logged-in ASMI administrator to visit a crafted web page can, under specific conditions, silently perform administrative actions on the FSP on behalf of that administrator, resulting in a confidentiality, integrity, and availability impact to the managed system.",
+      "id": "CVE-2026-53542",
+      "published": "2026-08-19T21:16:56.400",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the archive creation endpoint in src/backend/ssh/file-manager.ts passes selected file basenames to tar without an end-of-options marker and without making the operands unambiguously relative. A user with access to an SSH file-manager session can select basenames beginning with GNU tar options such as --checkpoint=1 and --checkpoint-action=exec, causing tar, tar.gz, tar.bz2, or tar.xz creation to interpret those names as options. The resulting checkpoint action executes commands on the managed SSH host with the privileges of the connected SSH account, allowing file disclosure, modification, and service disruption. This issue is fixed in version 2.3.2.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-16930",
-      "published": "2026-08-19T19:17:10.823",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, and FW1060.00 through FW1060.80 is affected by a vulnerability in the interface between the BMC/FSP and the host system. An attacker with service account or root access to the BMC/FSP can execute arbitrary code on the host system, giving full control over the host system and all hosted partitions, resulting in a confidentiality, integrity, and availability impact.",
+      "id": "CVE-2026-53547",
+      "published": "2026-08-19T21:16:56.843",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the POST /database/export endpoint creates a user export that includes the global settings table even though the rest of the export is user-scoped. The settings table contains reset_code_ and temp_reset_token_ password-reset artifacts, allowing a low-privileged authenticated user to recover another local account's reset code and complete the normal password-reset flow. Successful exploitation results in local-user account takeover and administrative compromise when the victim is an administrator. This issue is fixed in version 2.3.2.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-17093",
-      "published": "2026-08-19T19:17:11.100",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, FW950.00 through FW950.H2, OP940.00 through OP940.a1 (Power9), and OP940.00 - OP940.81 (Power HMC) is affected by a vulnerability in host firmware configuration parsing. An attacker with service-level access to the BMC/FSP can supply specially crafted configuration data, compromising the host firmware boot stage and everything subsequently loaded by it, resulting in a confidentiality, integrity, and availability impact to the managed system.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-17100",
-      "published": "2026-08-19T19:17:11.270",
-      "description": "Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, FW950.00 through FW950.H2, OP940.00 through OP940.a1, and OP940.00 - OP940.81 is affected by a vulnerability in the service processor mailbox interface. An attacker with authenticated service-level access to the BMC/FSP can exploit this vulnerability, allowing arbitrary code to be executed in the host firmware runtime, giving full control over the managed system, resulting in a confidentiality, integrity, and availability impact to the managed system.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-17494",
-      "published": "2026-08-19T19:17:11.703",
-      "description": "IBM Power Systems Firmware FW1120.00, and FW1110.00 through FW1110.30 is affected by a vulnerability in the interface between the BMC and the host system. An attacker with service access to the BMC can send a specially crafted command, allowing arbitrary code to be executed on the host system, giving full control over the host system and all hosted partitions, resulting in a confidentiality, integrity, and availability impact.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-17429",
-      "published": "2026-08-19T19:17:11.543",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, FW950.00 through FW950.H2, OP940.00 through OP940.a1 (Power9), and OP940.00 - OP940.81 (Power HMC) is affected by a vulnerability in the interface between the BMC/FSP and the host system. An attacker with service account or root access to the BMC/FSP can write arbitrary data to hardware control registers, allowing full control over the host system and all hosted partitions, resulting in a confidentiality, integrity, and availability impact.",
+      "id": "CVE-2026-12633",
+      "published": "2026-08-19T21:16:53.633",
+      "description": "The IPv6 neighbor-discovery code in subsys/net/ip/ipv6_nbr.c processes the 6LoWPAN Context Option (6CO, RFC 6775) carried inside ICMPv6 Router Advertisements. In handle_ra_6co() the 8-bit context_len field is taken directly from the packet and was never bounded to the RFC maximum of 128. The function computes context->context_len / 8 and then performs memset(context->prefix + context_len, 0, sizeof(context->prefix) - context_len), where context->prefix is a fixed 16-byte array.\n\nWith context_len between 136 and 255 (and the option length field set to 3, which the pre-fix validation accepts), context_len / 8 evaluates to 17..31, so the memset length 16 - context_len/8 underflows the unsigned size_t argument to roughly SIZE_MAX. This produces an unbounded out-of-bounds memset that zeroes kernel memory well past the 6lo context structure.\n\nThe defect is reachable from unauthenticated, link-local input: any host on the same link can send a crafted Router Advertisement with a 6CO option. The RA handler validates only the option length field before calling handle_ra_6co(), so a single packet triggers the wild write. The code is compiled when CONFIG_NET_6LO_CONTEXT is enabled.\n\nThe impact is a reliable remote (adjacent) denial of service via memory corruption, with collateral integrity loss as the memset zeroes contiguous memory before the system faults. Router Advertisements are link-scoped and not forwarded, so the attacker must be on the same link (AV:A). The fix rejects any context_len greater than 128 before the length computation.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-16828",
-      "published": "2026-08-19T19:17:10.420",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2 is affected by a vulnerability in the ASMI web interface. An unauthenticated attacker on the management network can cause the ASMI web server to crash with possible memory corruption and generate an error log; hosted partitions are not affected. The ASMI web interface will restart automatically; however, repeated exploitation could result in a sustained loss of access to the ASMI management interface, resulting in an integrity and availability impact.",
+      "id": "CVE-2026-18544",
+      "published": "2026-08-19T21:16:54.400",
+      "description": "IBM Portieris 0.5.0 through 0.14.2 could allow a remote authenticated attacker to bypass image policy enforcement due to improper authorization of pod owner references.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-16938",
-      "published": "2026-08-19T19:17:10.963",
-      "description": "IBM Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2 is affected by a vulnerability in access controls over privileged system configuration operations on the FSP. An attacker with authenticated administrator-level access to the FSP can place the managed system into a non-production operational mode, allowing certain system components to be disabled. This condition persists across FSP resets and requires explicit operator intervention — clearing the affected configuration — to restore normal operation. Successful exploitation results in an availability impact to the managed system.",
-      "severity": "MEDIUM",
-      "score": 6.9
+      "id": "CVE-2026-53549",
+      "published": "2026-08-19T21:16:57.143",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the POST /host/db/proxy/test endpoint accepts the singleProxy, proxyChain, and testTarget request fields without validating their destination addresses. The testProxyConnectivity path uses raw TCP and SOCKS connections to attacker-selected hosts and ports, allowing an authenticated user to probe localhost, private networks, link-local metadata services, and other infrastructure reachable from the Termix server. Structured connection errors disclose host reachability and timing information, and successful metadata access can expose cloud credentials. This issue is fixed in version 2.3.2.",
+      "severity": "HIGH",
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-18681",
-      "published": "2026-08-19T19:17:12.110",
-      "description": "IBM Server Firmware FW1120.00, FW1110.00 through FW1110.30, FW1060.00 through FW1060.80, and FW950.00 through FW950.H2 is affected by a vulnerability in the FSP firmware update process. An attacker with authenticated administrator-level access to the FSP can, under specific conditions, execute arbitrary code, resulting in a confidentiality, integrity, and availability impact.",
+      "id": "CVE-2026-54491",
+      "published": "2026-08-19T21:16:57.453",
+      "description": "Koel is a free, open-source music streaming solution. Prior to 9.7.1, outbound podcast and radio fetch paths perform a point-in-time App\\Helpers\\Network::isPublicHost() or isSafeUrl() check without pinning the validated address, and most paths lack redirect-hop validation and do not revalidate every redirect target. PhanAn\\Poddle\\Poddle::fromUrl(), PodcastService::getStreamableUrl(), PodcastService::isPodcastObsolete(), App\\Rules\\HasAudioContentType, and App\\Rules\\SafeUrl can therefore follow an attacker-controlled redirect to an internal address or connect after DNS rebinding changes a public resolution to a private one. These paths are reachable through podcast and radio APIs, including createPodcastChannel, createInternetRadioStation, refreshPodcasts, apiResource podcasts, and radio/stations, allowing an authenticated user to request internal services or cloud metadata and potentially receive parsed or streamed response content. This issue is fixed in version 9.7.1.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-18849",
+      "published": "2026-08-19T21:16:54.663",
+      "description": "IBM OpenBMC FW1060.00 through FW1060.80 is affected by a vulnerability in the BMC firmware update process. An attacker with authenticated administrator-level access to the BMC can, under specific conditions, execute arbitrary code, resulting in a confidentiality, integrity, and availability impact.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-19321",
-      "published": "2026-08-19T19:17:12.633",
-      "description": "Power Systems Firmware FW1120.00, FW1110.00 through FW1110.30, and FW1060.00 through FW1060.80 is affected by a vulnerability in the host firmware. An attacker with service access to the service processor can supply a carefully crafted command that could leak the contents of hardware registers that should be inaccessible to the service processor. Successful exploitation could result in limited confidentiality or availability impacts to the affected host system.",
-      "severity": "MEDIUM",
-      "score": 6.7
-    },
-    {
-      "id": "CVE-2026-49976",
-      "published": "2026-08-19T19:17:17.923",
-      "description": "Snipe-IT is an IT asset/license management system. Prior to 8.6.1, a user with the import permission can use CSV update mode to overwrite the email address of a non-admin user and then request a password reset to take over that account. app/Importer/UserImporter.php applies the canEditAuthFields gate by unsetting username, email, password, and activated on the model, but app/Importer/ItemImporter.php sanitizeItemForUpdating() rebuilds the update array from the raw CSV row in $this->item, restoring the unauthorized values. The app/Http/Controllers/ImportController.php import path checks import permission but does not require users.edit. This issue is fixed in version 8.6.1.",
+      "id": "CVE-2026-14514",
+      "published": "2026-08-19T21:16:53.883",
+      "description": "IBM Reliable Scalable Cluster Technology (RSCT) 3.0 could allow a remote attacker to cause a denial of service by sending a specially crafted request due improper input validation.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-55482",
-      "published": "2026-08-19T19:17:19.967",
-      "description": "Snipe-IT is an IT asset/license management system. Prior to 8.4.1, a non-superadmin can use app/Http/Controllers/Assets/BulkAssetsController.php update() to submit company_id directly without Company::getIdForCurrentUser(), allowing assets to be moved across company boundaries and breaking multi-tenant isolation. This issue is fixed in version 8.4.1.",
+      "id": "CVE-2026-14978",
+      "published": "2026-08-19T21:16:54.007",
+      "description": "HashiCorp go-slug 0.4.0 through 0.18.2 could allow a local attacker to bypass .terraformignore exclusions and cause sensitive files to be included in Terraform slug uploads due to improper handling of Unicode normalization during path matching.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-49870",
-      "published": "2026-08-19T19:17:17.770",
-      "description": "Snipe-IT is an IT asset/license management system. Prior to 8.6.1, POST /two-factor has no rate limiting, lockout, or attempt counter, allowing an attacker with valid credentials to submit unlimited TOTP guesses against the three accepted codes created by config/google2fa.php window=1. A successful guess creates a fully authenticated session. When two_factor_enabled is 1, POST /account/profile with two_factor_optin=0 can disable two-factor authentication without OTP reverification, while required mode 2 prevents that opt-out. An administrator can also use POST /api/v1/users/two_factor_reset to clear another user's secret. This issue is fixed in version 8.6.1.",
+      "id": "CVE-2026-17015",
+      "published": "2026-08-19T21:16:54.143",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to cause a denial of service and obtain sensitive information due to an out-of-bounds read.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-50550",
-      "published": "2026-08-19T19:17:18.380",
-      "description": "Snipe-IT is an IT asset/license management system. Prior to 8.5.0, a user who can edit other users can reset a superadmin's two-factor authentication through app/Http/Controllers/Api/UsersController.php postTwoFactorReset(). The endpoint authorizes update access but does not enforce canEditAuthFields before clearing two_factor_secret and two_factor_enrolled. This issue is fixed in version 8.5.0.",
+      "id": "CVE-2026-12634",
+      "published": "2026-08-19T21:16:53.757",
+      "description": "The NVS backend of the Zephyr settings subsystem (subsys/settings/src/settings_nvs.c) reads stored setting-name entries into fixed 74-byte stack buffers and NUL-terminates them with buf[rc] = '\\0', where rc is the return value of nvs_read(). Per its contract, nvs_read() returns the full stored entry length (wlk_ate.len), which can exceed the supplied buffer length — only MIN(len, stored_len) bytes are actually copied, but the return value may be much larger, bounded only by the NVS sector size. Three sites (settings_nvs_cache_match(), settings_nvs_load(), and settings_nvs_save()) used this value directly as the NUL index without clamping, so an oversized stored name entry causes a single \\0 byte to be written past the end of the stack buffer at an attacker-influenced offset (CWE-787).\n\nThe oversized entry cannot arise through the normal settings API, where names are bounded by SETTINGS_MAX_NAME_LEN. It requires an actor able to write the flash that backs the settings partition — a co-resident or untrusted component sharing the flash device, a malicious settings image/restore, or offline/physical flash access (a shared-flash threat model). The malformed entry is parsed when settings_load() runs at boot or subsystem init, or during settings_save().\n\nThe out-of-bounds write is a single NUL byte at an offset equal to the crafted entry length (up to the NVS sector size), so the practical impact is a crash or denial of service and limited stack corruption rather than reliable code execution. There is no confidentiality impact, and the path is not reachable from the network through the ordinary settings interface. The fix skips any entry whose nvs_read() length is greater than or equal to the buffer size before performing the NUL store.",
       "severity": "MEDIUM",
-      "score": 5.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-19198",
-      "published": "2026-08-19T19:17:12.383",
-      "description": "Akaunting 3.1.21 contains an authenticated improper authorization vulnerability in the common BulkActions dispatcher.This issue affects Akaunting: 3.1.21.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-4937",
+      "published": "2026-08-19T21:16:55.570",
+      "description": "IBM PowerVM Hypervisor FW1110.00 through FW1110.20, FW1060.00 through FW1060.71, and FW950.00 through FW950.H2 could allow a local attacker with administrative privileges to decrypt encrypted data due to certain hypervisor calls utilizing less entropy than requested.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-55483",
-      "published": "2026-08-19T19:17:20.123",
-      "description": "Snipe-IT is an IT asset/license management system. Prior to 8.6.0, an authenticated user with users.create permission can submit the admin permission while creating a user because store() in app/Http/Controllers/Users/UsersController.php strips superuser permission but does not strip admin permission. The created account can obtain administrative privileges. This issue is fixed in version 8.6.0.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-4936",
+      "published": "2026-08-19T21:16:55.353",
+      "description": "IBM PowerVM Hypervisor Platform KeyStore (PKS) and virtual TPM FW1110.00 through FW1110.20, FW1060.00 through FW1060.71, and FW950.00 through FW950.H2 use persistent storage key seeds that result in an AES key with reduced strength. An attacker with access to the service processor or HMC could exploit this weakness to derive the encryption key and access the data.",
+      "severity": "MEDIUM",
+      "score": 5.1
+    },
+    {
+      "id": "CVE-2026-54492",
+      "published": "2026-08-19T21:16:57.600",
+      "description": "Koel is a free, open-source music streaming solution. Prior to 9.7.0, the Subsonic-compatible createPodcastChannel.view route accepts an authenticated user's private URL because app/Http/Requests/Subsonic/CreatePodcastChannelRequest.php does not apply the SafeUrl validation used by the regular podcast API. app/Http/Controllers/Subsonic/CreatePodcastChannelController.php passes the URL to app/Services/Podcast/PodcastService.php, where PodcastService::addPodcast() and createParser() invoke Poddle::fromUrl() during channel creation, causing immediate server-side requests to loopback, Docker bridge, or RFC1918 HTTP destinations. The confirmed impact is blind internal request execution because generic response-body exfiltration was not demonstrated through this route. This issue is fixed in version 9.7.0.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-18102",
+      "published": "2026-08-19T21:16:54.270",
+      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to overwrite adjacent memory due to an integer underflow during bounds checking.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-11617",
+      "published": "2026-08-19T21:16:53.373",
+      "description": "Tanium addressed a compression bomb vulnerability in Findings.",
+      "severity": "LOW",
+      "score": 3.1
     }
   ]
 }
