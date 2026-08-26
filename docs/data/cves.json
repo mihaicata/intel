@@ -1,27 +1,6 @@
 {
-  "totalResults": 2829,
+  "totalResults": 2824,
   "items": [
-    {
-      "id": "CVE-2026-76008",
-      "published": "2026-08-19T03:16:53.077",
-      "description": "A flaw has been found in Comfast CF-N1-S 2.6.0.1. This affects the function get_para_from_uri of the file /cgi-bin/mbox-config of the component URI Parameter Parsing. This manipulation of the argument width/height causes stack-based buffer overflow. The attack can be initiated remotely.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-76003",
-      "published": "2026-08-19T03:16:52.727",
-      "description": "A weakness has been identified in UTT HiPER 1200GW up to 2.5.3-170306. Affected is the function strcpy of the file /goform/formGroupConfig. Executing a manipulation of the argument timestart can lead to stack-based buffer overflow. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-76004",
-      "published": "2026-08-19T03:16:52.900",
-      "description": "A security vulnerability has been detected in UTT HiPER 1250GW up to 3.2.7-210907-180535. Affected by this vulnerability is the function strcpy of the file /goform/aspApBasicConfigUrcp of the component HTTP Handler. The manipulation of the argument pvid leads to stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
     {
       "id": "CVE-2026-49415",
       "published": "2026-08-19T05:17:03.830",
@@ -47,6 +26,13 @@
       "id": "CVE-2026-70408",
       "published": "2026-08-19T05:17:05.820",
       "description": "An incorrect authorization vulnerability exists in acmailer, which may allow a user to create a sub-account that has administrative privileges.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-14334",
+      "published": "2026-08-19T06:17:33.263",
+      "description": "The Booking calendar, Appointment Booking System WordPress plugin through 3.2.36 does not properly sanitize uploaded SVG files, allowing unauthenticated attackers to upload a file that bypasses the Booking calendar, Appointment Booking System WordPress plugin through 3.2.36's script-stripping and executes arbitrary JavaScript when the SVG is opened, including in the session of an administrator who reviews the submitted booking.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -79,11 +65,11 @@
       "score": 8.1
     },
     {
-      "id": "CVE-2026-76048",
-      "published": "2026-08-19T03:16:53.430",
-      "description": "A flaw has been found in SourceCodester Simple Online Food Ordering System 1.0. The impacted element is an unknown function of the file /admin/ajax.php?action=login. Executing a manipulation of the argument Username can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used.",
+      "id": "CVE-2026-14861",
+      "published": "2026-08-19T06:17:34.067",
+      "description": "The User Verification by PickPlugins WordPress plugin through 2.0.47 does not verify that a request to resend a verification email is authorized to act on the supplied user, nor bind the protecting token to that user, allowing unauthenticated attackers to reset arbitrary users' email-verification status and lock them, including administrators, out of their accounts.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
       "id": "CVE-2026-76049",
@@ -121,6 +107,13 @@
       "score": 6.1
     },
     {
+      "id": "CVE-2026-14287",
+      "published": "2026-08-19T06:17:33.010",
+      "description": "The 10Web Booster  WordPress plugin before 2.33.5 does not correctly validate an access token on an unauthenticated request handler and does not escape attacker-supplied stylesheet content before rendering it into the page head, allowing an unauthenticated attacker to store markup that executes as JavaScript in the browser of anonymous visitors to an affected page.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
       "id": "CVE-2026-14196",
       "published": "2026-08-19T06:17:32.740",
       "description": "The WCFM Marketplace  WordPress plugin before 3.8.1 does not verify that a marketplace vendor owns a review before allowing it to be unapproved or deleted, allowing any vendor to modify or permanently delete reviews belonging to other vendors' stores.",
@@ -128,16 +121,23 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-76014",
-      "published": "2026-08-19T03:16:53.247",
-      "description": "A vulnerability has been found in BusyBox up to 1.30.1. This vulnerability affects unknown code of the file networking/wget.c of the component FEATURE_WGET_TIMEOUT Handler. Such manipulation of the argument -T leads to null pointer dereference. Local access is required to approach this attack. The exploit has been disclosed to the public and may be used. The name of the patch is 83a40bf7a93c8ac093d33ab452222dd5b9eb57ff. A patch should be applied to remediate this issue.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
       "id": "CVE-2026-13173",
       "published": "2026-08-19T06:17:31.960",
       "description": "The Eventin  WordPress plugin before 4.1.21 does not verify the current user's permission to edit other users before assigning roles and updating user metadata during speaker creation, allowing users with contributor-level access and above to modify other users' roles and metadata.",
+      "severity": "LOW",
+      "score": 2.7
+    },
+    {
+      "id": "CVE-2026-14825",
+      "published": "2026-08-19T06:17:33.610",
+      "description": "The Quiz and Survey Master (QSM)  WordPress plugin before 11.2.4 does not perform a per-object ownership check before saving a quiz's front-end text settings, allowing users with contributor-level access and above to modify the text settings of quizzes created by other users.",
+      "severity": "LOW",
+      "score": 2.7
+    },
+    {
+      "id": "CVE-2026-14826",
+      "published": "2026-08-19T06:17:33.890",
+      "description": "The Quiz and Survey Master (QSM)  WordPress plugin before 11.2.4 does not perform a per-object ownership check on the REST routes that return a quiz's email-notification and results-page configuration, allowing users with contributor-level access and above to read the configuration, including notification recipient addresses, of quizzes created by other users.",
       "severity": "LOW",
       "score": 2.7
     }
