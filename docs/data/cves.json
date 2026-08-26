@@ -1,33 +1,82 @@
 {
-  "totalResults": 2764,
+  "totalResults": 2751,
   "items": [
     {
-      "id": "CVE-2026-58083",
-      "published": "2026-08-19T08:17:12.470",
-      "description": "While the kernel was copying knotes during fork, a knote with a timer-based filter could fire and be enqueued on the kqueue's active list before the copy was complete.  The copy routine did not account for this and could enqueue the new knote a second time, corrupting the active list.  In addition, the copy routine did not hold the appropriate locks while reading knote state, allowing further races.\n\nAn unprivileged local user can trigger a use-after-free in the kernel, potentially leading to privilege escalation.",
-      "severity": "HIGH",
-      "score": 8.4
+      "id": "CVE-2026-66613",
+      "published": "2026-08-19T13:17:50.563",
+      "description": "Unauthenticated Remote Code Execution (RCE) in JetEngine <= 3.8.14 versions.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-58087",
-      "published": "2026-08-19T08:17:12.877",
-      "description": "The GETALL and SETALL commands in semctl(2) recorded the number of semaphores in the target set, dropped the lock protecting the set, allocated a buffer sized for that count, and reacquired the lock.  A sequence-number check was used to verify that the set had not been replaced in the interim, but the sequence number wraps after 0x8000 create/destroy cycles.  By rapidly destroying and recreating semaphore sets at the same index, another process can cause the sequence number to wrap, allowing a set with a different number of semaphores to pass validation.  The subsequent copy then reads or writes past the end of the allocated buffer.\n\nAn unprivileged local user can trigger out-of-bounds reads and writes on kernel heap memory, potentially leading to privilege escalation.",
-      "severity": "HIGH",
-      "score": 7.8
+      "id": "CVE-2026-73347",
+      "published": "2026-08-19T13:18:07.123",
+      "description": "Unauthenticated Privilege Escalation in TrueBooker <= 1.2.6 versions.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-58088",
-      "published": "2026-08-19T08:17:12.983",
-      "description": "The ELF core dump code counted the number of dumpable VM map entries, allocated a buffer for the corresponding program headers, then iterated over the map a second time to populate them.  A process sharing the address space via rfork(2) can mutate the map between the two passes, causing the second pass to write program headers past the end of the buffer.\n\nAn unprivileged local user sharing an address space with a process that dumps core can trigger an out-of-bounds write on the kernel heap, potentially leading to privilege escalation.",
-      "severity": "HIGH",
-      "score": 7.4
+      "id": "CVE-2026-73183",
+      "published": "2026-08-19T13:18:06.737",
+      "description": "Unauthenticated SQL Injection in Maps Marker Pro <= 4.32 versions.",
+      "severity": "CRITICAL",
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-75900",
-      "published": "2026-08-19T08:17:14.073",
-      "description": "An out-of-bounds read vulnerability was found in swtpm's SWTPM_NVRAM_CheckHeader() function. The entry guard checks the buffer length against sizeof(bh), where bh is a pointer, instead of sizeof(*bh), the actual struct size. This allows an undersized buffer to pass validation, causing a 2-byte heap overread on 64-bit systems (6 bytes on 32-bit) when accessing the totlen field. This may cause daemon termination on some platforms and leaks heap data to the log.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-73185",
+      "published": "2026-08-19T13:18:06.997",
+      "description": "Unauthenticated SQL Injection in NGG Smart Image Search < 4.0.0 versions.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-32552",
+      "published": "2026-08-19T13:17:45.137",
+      "description": "Subscriber SQL Injection in YITH WooCommerce Membership Premium <= 2.33.0 versions.",
+      "severity": "HIGH",
+      "score": 8.5
+    },
+    {
+      "id": "CVE-2026-66668",
+      "published": "2026-08-19T13:17:50.687",
+      "description": "Subscriber SQL Injection in Community by PeepSo <= 9.0.5.2 versions.",
+      "severity": "HIGH",
+      "score": 8.5
+    },
+    {
+      "id": "CVE-2026-61986",
+      "published": "2026-08-19T13:17:49.090",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in Contest Gallery <= 30.0.5 versions.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-66596",
+      "published": "2026-08-19T13:17:50.430",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in Newsletter <= 9.3.3 versions.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-73182",
+      "published": "2026-08-19T13:18:06.607",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in BBQ Pro <= 3.9 versions.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-73184",
+      "published": "2026-08-19T13:18:06.863",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in Global Gallery <= 11.1.2 versions.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-73354",
+      "published": "2026-08-19T13:18:07.250",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in SimplyRETS Real Estate IDX <= 3.2.8 versions.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
       "id": "CVE-2026-76166",
@@ -35,69 +84,6 @@
       "description": "A flaw was found in mod_cluster's AdvertiseListenerImpl (org.jboss.modcluster core module). A single crafted UDP multicast datagram with a valid HTTP status line and a \"Server:\" header but without the \"Date:\", \"Digest:\", and \"Sequence:\" headers triggers a NullPointerException in verifyDigest() that is not caught by the worker thread's exception handler. This causes the advertise listener thread to terminate permanently. The failure is silent (isListening() continues to return true) and persists until the node is restarted. The crash occurs before the AdvertiseSecurityKey comparison, so deployments with a configured security key are still affected.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-49424",
-      "published": "2026-08-19T08:17:12.060",
-      "description": "The Linux waitid() implementation translates a FreeBSD siginfo_t struct into a stack-declared Linux siginfo_t.  It did not first zero the stack struct.\n\nAn unprivileged user may observe 104 bytes of uninitialized kernel stack data, which may contain sensitive information.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-49425",
-      "published": "2026-08-19T08:17:12.160",
-      "description": "The compat32 kevent() handler translates a 64-bit kevent struct into a stack- declared 32-bit struct.  It did not first zero the stack struct.\n\nAn unprivileged user may observe a small amount of uninitialized kernel stack data, which may contain sensitive information.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58081",
-      "published": "2026-08-19T08:17:12.263",
-      "description": "Several encoding modules, including HZ, UTF-7, VIQR, and ZW, did not properly check the size of the caller-supplied output buffer before writing converted characters.\n\nAn application that uses iconv(3) to convert untrusted input to or from one of the affected encodings may be vulnerable to buffer overflows if it uses one of the affected encoding modules.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58082",
-      "published": "2026-08-19T08:17:12.370",
-      "description": "The ISO-2022 encoding module used a stack buffer sized to MB_LEN_MAX (6 bytes) for intermediate character output.  Some ISO-2022 variants can require up to 10 bytes per character, in which case conversions can trigger a stack buffer overflow of up to four bytes.\n\nAn application that uses iconv(3) to convert untrusted input to or from one of the affected encodings may be vulnerable to buffer overflows if it uses one of the affected encoding modules.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58084",
-      "published": "2026-08-19T08:17:12.570",
-      "description": "To retrieve the previous timer value, the kernel calls realtimer_gettime(), which obtains the current time for the timer's clock.  For a timer using CLOCK_TAI this can fail when no TAI offset has been configured, but the error return was not checked, so the uninitialized output buffer was copied to userspace.\n\nAn unprivileged local user can obtain uninitialized kernel stack memory by creating a POSIX timer with CLOCK_TAI and calling timer_settime(2), potentially disclosing sensitive kernel data.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58085",
-      "published": "2026-08-19T08:17:12.673",
-      "description": "After dispatching a decrypt operation to OCF and receiving the result, the wg(4) driver failed to check whether the MAC verification step succeeded.  The driver thus silently accepted packets with an invalid Poly1305 authentication tag.\n\nA remote attacker who can send UDP packets to a WireGuard endpoint, and who can guess the bounds of the receiver's replay window, can inject forged or modified transport data packets into the tunnel.\n\nA remote attacker who can intercept WireGuard packets bound for a FreeBSD host can modify the ciphertext and authenticated data without detection by the receiver.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58086",
-      "published": "2026-08-19T08:17:12.777",
-      "description": "As an inadvertent side effect of an unrelated code change, PRIV_KTRACE was always denied to a jailed root user.  Tracing configured by a jailed root user was therefore not flagged as privileged.\n\nAn unprivileged user in a jail that has permission to debug the target process can modify the jailed root user's ktrace(2) flags, or disable tracing outright.  A jailed root user therefore cannot reliably trace unprivileged processes.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-72889",
-      "published": "2026-08-19T08:17:13.833",
-      "description": "Net::OAuth versions before 0.33 for Perl allow the sender to choose the signature algorithm in verify.\n\nverify resolves the signature method class from the signature_method parameter of the incoming message. signature_method is required on every request, so the algorithm used to check a signature is chosen by whoever sent it, and nothing lets the verifying party pin the method instead. When a message names HMAC-SHA1 or HMAC-SHA256, the key is derived from consumer_secret and token_secret rather than from the key the provider deployed.\n\nA provider deployed on RSA-SHA1 holds only the consumer public key, and RFC 5849 does not use consumer_secret for that method, so the required parameter is filled with a placeholder. A client that names HMAC-SHA1 instead has its signature checked against that placeholder, so a guessable one is enough to forge requests for any consumer key and token.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-75589",
-      "published": "2026-08-19T08:17:13.970",
-      "description": "Net::OAuth versions before 0.33 for Perl check HMAC-SHA1, HMAC-SHA256 and PLAINTEXT signatures with a non-constant-time comparison in verify.\n\nEach of the three compares the signature carried in the message against the locally computed one with the eq operator, which returns as soon as the two strings differ. The time taken to reject a signature varies with the length of the matching prefix. RSA-SHA1 is not affected, as it verifies through the RSA key object rather than by comparing strings.\n\nA client that can submit messages and time the replies may recover a valid signature one byte at a time rather than searching the whole signature space. Under PLAINTEXT the value compared against is the signature key itself, so the search recovers consumer_secret and token_secret.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-76164",
@@ -138,6 +124,20 @@
       "id": "CVE-2026-19490",
       "published": "2026-08-19T13:17:45.000",
       "description": "Vulnerability in NetScaler ADC and NetScaler Gateway.\n\nThis issue affects ADC: from 14.1 through 73.32 and from 13.1 through 63.21; Gateway: from 14.1 through 73.32 and from 13.1 through 63.21.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-67363",
+      "published": "2026-08-19T13:17:50.820",
+      "description": "Joomla Extension - balbooa.com - Pre-auth Payment Amount Tampering in Balbooa Forms < 2.4.3.2 - The stripeCharges and payAuthorize endpoints accept the charge total from a client-controlled request parameter and forward it to the payment gateway without recomputing it from the form's configured product prices. Neither endpoint enforces authentication or CSRF checks. An unauthenticated attacker can purchase any priced item for an arbitrary amount (e.g., $0.01), and can additionally forge line items, quantities, and shipping.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-67364",
+      "published": "2026-08-19T13:17:50.957",
+      "description": "Joomla Extension - balbooa.com - Pre-auth PHP Code Injection in Balbooa Forms < 2.4.3.2 - CWE-94 / CWE-95 | CVSS 3.1: 9.8 Critical (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)\nThe form's optional custom-PHP post-submission handler is executed via eval(). The [URL parameter = X] shortcode is substituted with the raw, unescaped value of a query parameter, letting an unauthenticated attacker inject arbitrary PHP that executes server-side. The CSRF token needed to reach the endpoint is itself disclosed anonymously via a separate task, so it provides no real protection. Exploitability requires the form to have a custom-PHP handler configured (a documented builder feature) referencing that shortcode, and no reCAPTCHA on the submit button.",
       "severity": "UNKNOWN",
       "score": null
     }
