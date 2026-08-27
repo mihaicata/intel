@@ -1,145 +1,145 @@
 {
-  "totalResults": 2695,
+  "totalResults": 2555,
   "items": [
     {
-      "id": "CVE-2026-53545",
-      "published": "2026-08-19T21:16:56.557",
-      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the DELETE /ssh/tunnel/disconnect/:tunnelName teardown path in src/backend/ssh/tunnel.ts interpolates endpointPort, sourcePort, endpointUsername, and endpointIP into single-quoted pkill -f patterns. An authenticated user who can edit a tunnel host field can include a single quote to terminate the pattern and append a shell command, which executes when the tunnel is disconnected. Successful exploitation runs arbitrary commands on the source SSH host with the privileges of the connected SSH account. This issue is fixed in version 2.3.2.",
+      "id": "CVE-2026-75860",
+      "published": "2026-08-20T06:17:32.207",
+      "description": "The JSON Options WordPress plugin through 0.0.4 does not have any capability check or nonce verification on one of its actions, which runs on every request and is available to unauthenticated users, allowing them to update arbitrary WordPress options. This can be leveraged to enable user registration and set the default role to administrator, leading to privilege escalation and full site takeover.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-53546",
-      "published": "2026-08-19T21:16:56.697",
-      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the terminal WebSocket accepts a user-controlled hostConfig.id and src/backend/ssh/host-resolver.ts resolves that host without requiring ownership or explicit access. When no credential is shared with the requester, resolveHostById performs an owner credential fallback, and src/backend/ssh/terminal.ts combines that credential with attacker-controlled ip, port, and username values. An authenticated low-privileged user can therefore make Termix authenticate to an attacker-controlled SSH server and disclose another user's stored SSH password or private-key material while the victim user's data key is unlocked. This issue is fixed in version 2.3.2.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-53548",
-      "published": "2026-08-19T21:16:57.000",
-      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.6.1, the GET /host/db/host/:id/password endpoint in src/backend/database/routes/host.ts accepts an authenticated user's numeric host ID and the field=password or field=sudoPassword query without enforcing host ownership during credential resolution. A failed requester-scoped lookup can resolve the host with the owner's context and return the owner's plaintext credential, allowing any authenticated user with a valid JWT to enumerate sequential hosts.id values and retrieve SSH or sudo passwords belonging to other users. The disclosed credentials can then be used to access and control managed systems outside the Termix instance. This issue is fixed in version 2.6.1.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-12522",
-      "published": "2026-08-19T21:16:53.507",
-      "description": "The HL7800 cellular modem driver's +CGCONTRDP: response handler on_cmd_atcmdinfo_ipaddr() in drivers/modem/vendor_standalone/hl7800.c parses the PDP-context dynamic parameters (local address, subnet mask, gateway, and DNS servers) that the cellular network assigns to the device. The response is linearized into a 256-byte stack buffer, after which each address field length is computed from comma/. delimiter positions in the network-supplied data and used directly as the length argument to strncpy() into the fixed 64-byte stack buffer temp_addr_str (and the 16-byte iface_ctx.dns_v4_string).\n\nBecause the field length is derived from attacker-controlled delimiter positions and was not bounded against the destination buffer, a single field can be far larger than 64 bytes. A malicious or impersonated cellular network (for example a rogue base station) can return a crafted +CGCONTRDP response with an overlong address field, causing strncpy() to write past temp_addr_str on the modem worker thread's stack, plus an out-of-bounds NUL write at temp_addr_str[addr_len].\n\nNo device-side privileges or user interaction are required: the device itself issues the AT+CGCONTRDP=1 query during normal network attach and parses whatever the network returns. The overflow corrupts adjacent stack memory in supervisor context, yielding at minimum a remotely triggerable crash and potentially control-flow hijacking on targets without stack protection.\n\nThe fix bounds every field length against its destination buffer (temp_addr_str and dns_v4_string) before each copy, rejecting overlong fields.",
+      "id": "CVE-2026-75963",
+      "published": "2026-08-20T06:17:32.360",
+      "description": "The Events Made Easy plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 3.2.5 via the eme_single_event_page_template function. This makes it possible for authenticated attackers, with contributor-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included. The stored traversal payload is triggered passively when any visitor loads the affected single-event page, meaning post-submission execution does not require additional attacker interaction.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-53542",
-      "published": "2026-08-19T21:16:56.400",
-      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the archive creation endpoint in src/backend/ssh/file-manager.ts passes selected file basenames to tar without an end-of-options marker and without making the operands unambiguously relative. A user with access to an SSH file-manager session can select basenames beginning with GNU tar options such as --checkpoint=1 and --checkpoint-action=exec, causing tar, tar.gz, tar.bz2, or tar.xz creation to interpret those names as options. The resulting checkpoint action executes commands on the managed SSH host with the privileges of the connected SSH account, allowing file disclosure, modification, and service disruption. This issue is fixed in version 2.3.2.",
+      "id": "CVE-2026-76783",
+      "published": "2026-08-20T01:16:53.923",
+      "description": "A security vulnerability has been detected in DeDeCMS 53_1_UTF8. This vulnerability affects unknown code of the file /plus/advancedsearch.php. Such manipulation of the argument sql leads to sql injection. The attack can be launched remotely. The exploit has been disclosed publicly and may be used.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-53547",
-      "published": "2026-08-19T21:16:56.843",
-      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the POST /database/export endpoint creates a user export that includes the global settings table even though the rest of the export is user-scoped. The settings table contains reset_code_ and temp_reset_token_ password-reset artifacts, allowing a low-privileged authenticated user to recover another local account's reset code and complete the normal password-reset flow. Successful exploitation results in local-user account takeover and administrative compromise when the victim is an administrator. This issue is fixed in version 2.3.2.",
+      "id": "CVE-2026-76795",
+      "published": "2026-08-20T01:16:54.277",
+      "description": "A vulnerability has been found in AeternaLabsHQ PullMD 3.2.0. This impacts an unknown function of the file /api of the component REST API Endpoint. The manipulation of the argument url leads to server-side request forgery. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 3.3.0 will fix this issue. The identifier of the patch is 96448894cc93ccecb0bdcbf263a9d25390a8455e. Upgrading the affected component is advised.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-12633",
-      "published": "2026-08-19T21:16:53.633",
-      "description": "The IPv6 neighbor-discovery code in subsys/net/ip/ipv6_nbr.c processes the 6LoWPAN Context Option (6CO, RFC 6775) carried inside ICMPv6 Router Advertisements. In handle_ra_6co() the 8-bit context_len field is taken directly from the packet and was never bounded to the RFC maximum of 128. The function computes context->context_len / 8 and then performs memset(context->prefix + context_len, 0, sizeof(context->prefix) - context_len), where context->prefix is a fixed 16-byte array.\n\nWith context_len between 136 and 255 (and the option length field set to 3, which the pre-fix validation accepts), context_len / 8 evaluates to 17..31, so the memset length 16 - context_len/8 underflows the unsigned size_t argument to roughly SIZE_MAX. This produces an unbounded out-of-bounds memset that zeroes kernel memory well past the 6lo context structure.\n\nThe defect is reachable from unauthenticated, link-local input: any host on the same link can send a crafted Router Advertisement with a 6CO option. The RA handler validates only the option length field before calling handle_ra_6co(), so a single packet triggers the wild write. The code is compiled when CONFIG_NET_6LO_CONTEXT is enabled.\n\nThe impact is a reliable remote (adjacent) denial of service via memory corruption, with collateral integrity loss as the memset zeroes contiguous memory before the system faults. Router Advertisements are link-scoped and not forwarded, so the attacker must be on the same link (AV:A). The fix rejects any context_len greater than 128 before the length computation.",
+      "id": "CVE-2026-15049",
+      "published": "2026-08-20T06:16:49.710",
+      "description": "The Depicter — Popup & Slider Builder WordPress plugin before 4.8.0 does not validate the type of a file uploaded through its import feature and does not remove a malformed upload, allowing users with editor-level access to write an arbitrary file (including executable PHP) into a web-accessible directory, which can lead to remote code execution.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-18544",
-      "published": "2026-08-19T21:16:54.400",
-      "description": "IBM Portieris 0.5.0 through 0.14.2 could allow a remote authenticated attacker to bypass image policy enforcement due to improper authorization of pod owner references.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-53549",
-      "published": "2026-08-19T21:16:57.143",
-      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to 2.3.2, the POST /host/db/proxy/test endpoint accepts the singleProxy, proxyChain, and testTarget request fields without validating their destination addresses. The testProxyConnectivity path uses raw TCP and SOCKS connections to attacker-selected hosts and ports, allowing an authenticated user to probe localhost, private networks, link-local metadata services, and other infrastructure reachable from the Termix server. Structured connection errors disclose host reachability and timing information, and successful metadata access can expose cloud credentials. This issue is fixed in version 2.3.2.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-54491",
-      "published": "2026-08-19T21:16:57.453",
-      "description": "Koel is a free, open-source music streaming solution. Prior to 9.7.1, outbound podcast and radio fetch paths perform a point-in-time App\\Helpers\\Network::isPublicHost() or isSafeUrl() check without pinning the validated address, and most paths lack redirect-hop validation and do not revalidate every redirect target. PhanAn\\Poddle\\Poddle::fromUrl(), PodcastService::getStreamableUrl(), PodcastService::isPodcastObsolete(), App\\Rules\\HasAudioContentType, and App\\Rules\\SafeUrl can therefore follow an attacker-controlled redirect to an internal address or connect after DNS rebinding changes a public resolution to a private one. These paths are reachable through podcast and radio APIs, including createPodcastChannel, createInternetRadioStation, refreshPodcasts, apiResource podcasts, and radio/stations, allowing an authenticated user to request internal services or cloud metadata and potentially receive parsed or streamed response content. This issue is fixed in version 9.7.1.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-18849",
-      "published": "2026-08-19T21:16:54.663",
-      "description": "IBM OpenBMC FW1060.00 through FW1060.80 is affected by a vulnerability in the BMC firmware update process. An attacker with authenticated administrator-level access to the BMC can, under specific conditions, execute arbitrary code, resulting in a confidentiality, integrity, and availability impact.",
+      "id": "CVE-2026-19615",
+      "published": "2026-08-20T06:17:07.777",
+      "description": "The Admin and Site Enhancements (ASE) WordPress plugin before 9.0.1 does not sanitise uploaded SVG files on every route it accepts them through, allowing users with a role the site owner granted upload access to store a file containing JavaScript which then executes in the browser of anyone who opens it.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-14514",
-      "published": "2026-08-19T21:16:53.883",
-      "description": "IBM Reliable Scalable Cluster Technology (RSCT) 3.0 could allow a remote attacker to cause a denial of service by sending a specially crafted request due improper input validation.",
+      "id": "CVE-2026-19697",
+      "published": "2026-08-20T06:17:07.927",
+      "description": "The GutenKit  WordPress plugin before 2.5.0 does not sanitise uploaded SVG files on all of the upload paths it enables, allowing users with the file upload capability, such as Author, to upload a malicious SVG and perform Stored Cross-Site Scripting attacks against any user opening it, including administrators.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-14978",
-      "published": "2026-08-19T21:16:54.007",
-      "description": "HashiCorp go-slug 0.4.0 through 0.18.2 could allow a local attacker to bypass .terraformignore exclusions and cause sensitive files to be included in Terraform slug uploads due to improper handling of Unicode normalization during path matching.",
+      "id": "CVE-2026-74992",
+      "published": "2026-08-20T06:17:19.360",
+      "description": "The Kirki  WordPress plugin before 6.2.3 does not properly validate the files contained in archives uploaded by users with the Editor role, and does not remove all unwanted files after extracting them, allowing such users to upload arbitrary files to a web accessible directory, leading to Stored XSS as well as RCE on some server configurations.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-17015",
-      "published": "2026-08-19T21:16:54.143",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to cause a denial of service and obtain sensitive information due to an out-of-bounds read.",
+      "id": "CVE-2026-13405",
+      "published": "2026-08-20T06:16:41.710",
+      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not correctly sanitise custom widget markup before writing it to a file that is later executed, allowing users with the manage_options capability (and, on WordPress Multisite, non-super subsite administrators who do not otherwise hold code-execution capabilities) to execute arbitrary PHP code.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.6
     },
     {
-      "id": "CVE-2026-12634",
-      "published": "2026-08-19T21:16:53.757",
-      "description": "The NVS backend of the Zephyr settings subsystem (subsys/settings/src/settings_nvs.c) reads stored setting-name entries into fixed 74-byte stack buffers and NUL-terminates them with buf[rc] = '\\0', where rc is the return value of nvs_read(). Per its contract, nvs_read() returns the full stored entry length (wlk_ate.len), which can exceed the supplied buffer length — only MIN(len, stored_len) bytes are actually copied, but the return value may be much larger, bounded only by the NVS sector size. Three sites (settings_nvs_cache_match(), settings_nvs_load(), and settings_nvs_save()) used this value directly as the NUL index without clamping, so an oversized stored name entry causes a single \\0 byte to be written past the end of the stack buffer at an attacker-influenced offset (CWE-787).\n\nThe oversized entry cannot arise through the normal settings API, where names are bounded by SETTINGS_MAX_NAME_LEN. It requires an actor able to write the flash that backs the settings partition — a co-resident or untrusted component sharing the flash device, a malicious settings image/restore, or offline/physical flash access (a shared-flash threat model). The malformed entry is parsed when settings_load() runs at boot or subsystem init, or during settings_save().\n\nThe out-of-bounds write is a single NUL byte at an offset equal to the crafted entry length (up to the NVS sector size), so the practical impact is a crash or denial of service and limited stack corruption rather than reliable code execution. There is no confidentiality impact, and the path is not reachable from the network through the ordinary settings interface. The fix skips any entry whose nvs_read() length is greater than or equal to the buffer size before performing the NUL store.",
+      "id": "CVE-2026-76785",
+      "published": "2026-08-20T01:16:54.100",
+      "description": "A security flaw has been discovered in amirsanni Mini-Inventory-and-Sales-Management-System 0.1. Affected is the function Transaction::getAll of the file application/models/Transaction.php. Performing a manipulation of the argument orderBy/orderFormat results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-76800",
+      "published": "2026-08-20T03:16:23.887",
+      "description": "A flaw has been found in DeDeCMS 3. Affected by this vulnerability is an unknown functionality of the file /include/dialog/select_media_post.php. Executing a manipulation of the argument uploadfile can lead to unrestricted upload. The attack can be executed remotely. The exploit has been published and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-76956",
+      "published": "2026-08-20T05:16:29.610",
+      "description": "In libexpat 2.8.2 and 2.8.3 before 2.8.4, misinterpretation of getentropy's return code leads to insufficient entropy, which results in being vulnerable to hash flooding attacks, causing a denial of service via crafted XML content.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-76799",
+      "published": "2026-08-20T02:16:21.753",
+      "description": "A weakness has been identified in code-projects Login Registration System 1.0. This affects an unknown function of the file /loginsystem/database/login_registration_system.sql of the component SQL Database Backup Handler. This manipulation causes files or directories accessible. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-4937",
-      "published": "2026-08-19T21:16:55.570",
-      "description": "IBM PowerVM Hypervisor FW1110.00 through FW1110.20, FW1060.00 through FW1060.71, and FW950.00 through FW950.H2 could allow a local attacker with administrative privileges to decrypt encrypted data due to certain hypervisor calls utilizing less entropy than requested.",
+      "id": "CVE-2026-17153",
+      "published": "2026-08-20T06:16:58.230",
+      "description": "The AI Agent by SiteGround plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.2.7. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to upload images to the WordPress media library, bypassing the upload_files capability restriction that Contributors are normally subject to, as authenticated attackers with Contributor-level access or above can satisfy the endpoint's nonce and permission checks. The sg_ai_studio_gutenberg_nonce required by the endpoint is emitted to any user with block editor access — including Contributors — making the absent upload_files check the sole barrier to exploitation.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-4936",
-      "published": "2026-08-19T21:16:55.353",
-      "description": "IBM PowerVM Hypervisor Platform KeyStore (PKS) and virtual TPM FW1110.00 through FW1110.20, FW1060.00 through FW1060.71, and FW950.00 through FW950.H2 use persistent storage key seeds that result in an AES key with reduced strength. An attacker with access to the service processor or HMC could exploit this weakness to derive the encryption key and access the data.",
+      "id": "CVE-2026-76957",
+      "published": "2026-08-20T05:16:29.747",
+      "description": "libexpat before 2.8.4 lacks handler call depth tracking with custom encoding callbacks. Thus, a use-after-free can occur. NOTE: this is similar to CVE-2026-50219, CVE-2026-56131 and CVE-2026-56412.",
       "severity": "MEDIUM",
-      "score": 5.1
+      "score": 4.9
     },
     {
-      "id": "CVE-2026-54492",
-      "published": "2026-08-19T21:16:57.600",
-      "description": "Koel is a free, open-source music streaming solution. Prior to 9.7.0, the Subsonic-compatible createPodcastChannel.view route accepts an authenticated user's private URL because app/Http/Requests/Subsonic/CreatePodcastChannelRequest.php does not apply the SafeUrl validation used by the regular podcast API. app/Http/Controllers/Subsonic/CreatePodcastChannelController.php passes the URL to app/Services/Podcast/PodcastService.php, where PodcastService::addPodcast() and createParser() invoke Poddle::fromUrl() during channel creation, causing immediate server-side requests to loopback, Docker bridge, or RFC1918 HTTP destinations. The confirmed impact is blind internal request execution because generic response-body exfiltration was not demonstrated through this route. This issue is fixed in version 9.7.0.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-18102",
-      "published": "2026-08-19T21:16:54.270",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to overwrite adjacent memory due to an integer underflow during bounds checking.",
+      "id": "CVE-2026-73542",
+      "published": "2026-08-20T06:17:13.287",
+      "description": "Multiple SEIKO EPSON printers and scanners contain revoked root certificates. A man-in-the-middle attack may allow an attacker to obtain communication data transmitted by the product. As for the details of the affected products and versions, refer to the vendor's information.",
       "severity": "LOW",
-      "score": 3.5
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-11617",
-      "published": "2026-08-19T21:16:53.373",
-      "description": "Tanium addressed a compression bomb vulnerability in Findings.",
+      "id": "CVE-2026-19699",
+      "published": "2026-08-20T06:17:13.167",
+      "description": "The GutenKit  WordPress plugin before 2.5.0 does not have a sufficient capability check on some of its REST API endpoints, allowing users with the Contributor role and above to retrieve mailing-list audience metadata from the site's connected marketing account.",
       "severity": "LOW",
-      "score": 3.1
+      "score": 2.7
+    },
+    {
+      "id": "CVE-2026-75628",
+      "published": "2026-08-20T01:16:53.803",
+      "description": "Punk::OAuth2 versions before 0.03 for Perl allow an attacker-chosen off-site redirect after login because same_origin_path accepts a backslash or tab in the return parameter.\n\noauth2_login reads the return parameter from the initiation request, runs same_origin_path over it, and stores the survivor in the session flow record as the post-login redirect target. That check rejects a value that does not begin with a slash, one with a slash as its second byte, and one containing CR or LF. A backslash and a tab pass. The URL Standard treats a backslash as equivalent to a slash for special schemes, so `/\\evil.example` parses with the authority `evil.example`. It also strips ASCII tab before parsing, so a tab between two leading slashes leaves `//evil.example`.\n\nA crafted link to the application's own login route lands the victim on the attacker's site after a genuine authentication. The redirect carries no authorization code or access token.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19582",
+      "published": "2026-08-20T05:16:27.987",
+      "description": "In binutils 2.46.1 and prior versions, a victim who opens a crafted PE file using binutils could execute arbitrary code unknowningly via a stack buffer overflow out of bounds write.",
+      "severity": "NONE",
+      "score": 0
+    },
+    {
+      "id": "CVE-2025-14602",
+      "published": "2026-08-20T07:16:30.623",
+      "description": "The application generates uploaded file names using a weak and predictable method based on the request timestamp. This allows a remote attacker to accurately guess or brute-force the generated filename within a short time window. An attacker can successfully locate and access uploaded files, which can be used to facilitate further attacks.\n\n\n\n\nApply patch from vendor  https://vsdesk.ru/ . Versions 14.0101 and on have the patch.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
