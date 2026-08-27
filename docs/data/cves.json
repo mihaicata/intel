@@ -1,143 +1,143 @@
 {
-  "totalResults": 2644,
+  "totalResults": 2761,
   "items": [
     {
-      "id": "CVE-2025-15689",
-      "published": "2026-08-20T12:16:31.890",
-      "description": "Unauthenticated Privilege Escalation in Capella <= 2.5.5 versions.",
+      "id": "CVE-2026-67567",
+      "published": "2026-08-20T21:17:07.403",
+      "description": "A flaw was found in the multicloud-operators-subscription component. This vulnerability allows a tenant, who has the ability to create HelmRelease custom resources (CRs), to bypass existing security controls. The system's HelmRelease controller processes Helm chart templates using its own elevated ServiceAccount privileges without proper validation. This enables the tenant to deploy arbitrary resources across the entire cluster, leading to a significant security compromise.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-43798",
+      "published": "2026-08-20T21:17:06.580",
+      "description": "A single crafted SSH message gives an unauthenticated network attacker an out-of-bounds stack write of attacker-controlled length and content against any application built on swift-nio-ssh. This vulnerability is addressed in swift-nio-ssh version 0.14.1.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-66583",
-      "published": "2026-08-20T12:16:32.670",
-      "description": "Unauthenticated PHP Object Injection in Forminator <= 1.57.0 versions.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-11861",
-      "published": "2026-08-20T11:16:19.270",
-      "description": "A flaw was found in FreeIPA. When a trust relationship is configured between FreeIPA and Active Directory, Active Directory users can bypass authentication for FreeIPA services, including the portal, SMB server, and LDAP directory. This is possible by impersonating a client name in the Ticket Granting Service (TGS) due to FreeIPA services not verifying Privilege Attribute Certificate (PAC) certificates. This vulnerability could allow an authenticated Active Directory user to escalate their privileges within the FreeIPA domain.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2025-15688",
-      "published": "2026-08-20T12:16:31.763",
-      "description": "Unauthenticated SQL Injection in Capella <= 2.5.5 versions.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-13097",
-      "published": "2026-08-20T11:16:20.293",
-      "description": "A privilege escalation flaw was found in FreeIPA. The uniqueness constraint enforced on Kerberos principal name attributes in the 389-ds directory server does not properly account for equivalent representations of the same principal name, allowing a user with sufficient LDAP write privileges to create a service principal that impersonates an existing privileged one. This can lead to unauthorized acquisition of Kerberos service tickets for sensitive services, potentially resulting in full domain compromise.",
+      "id": "CVE-2026-71485",
+      "published": "2026-08-20T21:17:08.707",
+      "description": "Centrifugo is an open-source scalable real-time messaging server. Prior to 6.9.0, Centrifugo copies the client-controlled protocol.ConnectRequest.headers map through OnClientConnecting in internal/client/handler.go, ConnectEvent.Headers, and SetEmulatedHeadersToContext. The requestHeaders path in internal/proxy/http.go, the requestMetadata path in internal/proxy/grpc.go, and the Consume path in internal/unigrpc/grpc.go can forward an allowlisted value as a trusted backend header or metadata value. A remote client can spoof a header such as x-trusted-user for connect, refresh, subscribe, publish, RPC, and related proxy calls when the backend relies on that header for authentication or authorization. The unidirectional gRPC transport has no transport-level HTTP header that can override the emulated value. This issue is fixed in version 6.9.0.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2025-15637",
-      "published": "2026-08-20T12:16:30.777",
-      "description": "Unauthenticated Local File Inclusion in Shuffle <= 1.8 versions.",
+      "id": "CVE-2026-18420",
+      "published": "2026-08-20T21:17:06.137",
+      "description": "Improper input validation in the Time Series Visual Builder (TSVB) plugin in OpenSearch Dashboards allows an authenticated remote user to execute arbitrary code on the server via a crafted JSON payload to the metrics visualization API endpoint. This issue is a form of prototype pollution that enables remote code execution. \n\n\n\nTo remediate this issue, users should upgrade to OpenSearch Dashboards 3.8 or later.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-28150",
-      "published": "2026-08-20T12:16:32.283",
-      "description": "Unauthenticated Local File Inclusion in Golo Framework < 1.7.5 versions.",
+      "id": "CVE-2026-73040",
+      "published": "2026-08-20T21:17:09.110",
+      "description": "Dockge validates a stack name only on the write path. In backend/stack.ts the allow-list check in validate(), which requires the name to match ^[a-z0-9_-]+$, is reached from save() alone, while the path getter returns path.join(this.server.stacksDir, this.name) and Stack.getStack builds path.join(server.stacksDir, stackName) with no check. The socket handlers in backend/agent-socket-handlers/docker-socket-handler.ts confirm the caller is logged in and that the name is a string, then pass it straight to Stack.getStack, so a name containing traversal sequences resolves outside the managed stacks directory. An authenticated user can therefore read the composeENV and composeYAML values of any directory the server process can reach, which discloses the secrets in that directory's .env or Compose file, and can invoke delete(), which runs docker compose down and then fsAsync.rm on the traversed path with recursive and force set, removing that directory. Disclosure is limited to files named .env or an accepted Compose filename, and deletion requires the target directory to hold a valid Compose file so that docker compose down exits successfully. Dockge commonly runs as root with access to the Docker socket, so the reachable set includes unrelated applications on the host. Instances configured with disableAuth, a supported option that logs the caller in as admin automatically, expose both operations without authentication.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-73197",
-      "published": "2026-08-20T11:16:21.553",
-      "description": "A flaw was found in FreeIPA. A remote, unauthenticated attacker can exploit this vulnerability by sending oversized form POST requests to the `/ipa/migration/migration.py` endpoint. This can force the migration handler to read attacker-controlled request bodies fully into memory, leading to increased memory usage, slower request handling, and potential service disruption or denial of service.",
+      "id": "CVE-2026-76017",
+      "published": "2026-08-20T21:17:09.800",
+      "description": "Use after free in Chromoting in Google Chrome prior to 151.0.7922.173 allowed a remote attacker to execute arbitrary code outside the sandbox via crafted network traffic. (Chromium security severity: Critical)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-73137",
+      "published": "2026-08-20T21:17:09.270",
+      "description": "A flaw was found in the multicloud-operators-subscription component of Red Hat Advanced Cluster Management (RHACM). A tenant with HelmRelease create permissions can exploit this vulnerability by manipulating the `secretRef.Namespace` field. This allows the `GetSecret()` function in the HelmRelease controller to fetch sensitive credentials from any namespace, which are then sent to an attacker-controlled Helm repository. This can lead to the exfiltration of credentials from arbitrary namespace Secrets, resulting in information disclosure.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-52021",
+      "published": "2026-08-20T21:17:06.687",
+      "description": "An issue in code100xDevs 100xdevs CMS v.1.0 (2026-04-30) allows a remote attacker to obtain sensitive information via the src/middleware.ts, and src/app/api/mobile/search/route.ts components.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-73198",
-      "published": "2026-08-20T11:16:21.687",
-      "description": "A flaw was found in FreeIPA. A remote, unauthenticated attacker can exploit a vulnerability in the `/ipa/i18n_messages` endpoint by sending an arbitrarily large request body. This can cause the service to consume excessive memory, leading to memory exhaustion, degraded responsiveness, and a denial of service (DoS) condition.",
+      "id": "CVE-2026-53804",
+      "published": "2026-08-20T21:17:06.813",
+      "description": "OTRS Community Edition contains an authenticated OS command injection vulnerability in the PGP encryption module that allows administrators to execute arbitrary operating-system commands by supplying crafted values for the PGP binary path and command options. Administrator-supplied configuration values are concatenated without sanitization into a shell command, enabling arbitrary command execution as the web server process user during normal ticket operations after the malicious configuration is deployed.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-66581",
-      "published": "2026-08-20T12:16:32.420",
-      "description": "Unauthenticated Cross Site Scripting (XSS) in JetEngine <= 3.8.14.1 versions.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-66582",
-      "published": "2026-08-20T12:16:32.547",
-      "description": "Unauthenticated Cross Site Scripting (XSS) in TranslatePress <= 3.3.2 versions.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-66590",
-      "published": "2026-08-20T12:16:32.930",
-      "description": "Unauthenticated Cross Site Scripting (XSS) in Tagembed <= 7.4 versions.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-66586",
-      "published": "2026-08-20T12:16:32.800",
-      "description": "Author Local File Inclusion in WP Cafe Pro < 3.0.15 versions.",
+      "id": "CVE-2026-67445",
+      "published": "2026-08-20T21:17:07.110",
+      "description": "Mailpit is an email testing tool and API for developers. Prior to 1.30.4, Mailpit reads SMTP commands through internal/smtpd/smtpd.go session.readLine() using bufio.Reader.ReadString before session.parseLine() parses the verb or the RFC 5321 512-octet command-line limit is enforced. An unauthenticated remote SMTP client can send an oversized single command line that is fully allocated before syntax rejection or timeout, and the normal MaxMessageSize and DATA limits do not apply to this pre-DATA path. The same command reader is used by handleAuthLogin(), handleAuthPlain(), and handleAuthCramMD5() continuation lines, so concurrent oversized inputs can create memory pressure and reduce service availability. This issue is fixed in version 1.30.4.",
       "severity": "MEDIUM",
-      "score": 6.6
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-73199",
-      "published": "2026-08-20T11:16:21.813",
-      "description": "A flaw was found in the `ipa-enrollment` SLAPI plugin. A remote authenticated client can exploit a null pointer dereference vulnerability by sending a malformed Lightweight Directory Access Protocol (LDAP) extended operation. By omitting the request value for the `JOIN_OID` in the `ipa-enrollment` extended operation, an attacker can trigger a server crash, potentially causing a denial of service.",
+      "id": "CVE-2026-67446",
+      "published": "2026-08-20T21:17:07.260",
+      "description": "Mailpit is an email testing tool and API for developers. Prior to 1.30.4, Mailpit decodes attacker-supplied image attachments into a full raster before checking decoded dimensions, pixel count, or memory use in the GET /api/v1/message/{id}/part/{partID}/thumb endpoint. The Thumbnail handler in server/apiv1/thumbnails.go obtains attachment bytes through storage.GetAttachmentPart(), accepts image/* content, and calls imaging.Decode() with AutoOrientation before imaging.Fill() scales the image to 180 by 120 pixels. A compact image declaring very large dimensions can therefore consume disproportionately large memory and CPU, and opening the message UI can trigger the same endpoint through server/ui-src/components/message/MessageAttachments.vue. This can degrade availability when an unauthenticated client can store the crafted attachment and reach the web API. This issue is fixed in version 1.30.4.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2025-53999",
-      "published": "2026-08-20T12:16:32.027",
-      "description": "Unauthenticated Broken Access Control in Altair <= 5.2.2 versions.",
+      "id": "CVE-2026-68921",
+      "published": "2026-08-20T21:17:07.540",
+      "description": "DiceBear is an avatar library for designers and developers. Prior to 9.4.3, @dicebear/core interpolates the rotate option into an SVG transform attribute without XML escaping in addRotate in packages/@dicebear/core/src/utils/svg.ts, while @dicebear/initials similarly emits fontSize and fontWeight without escaping in packages/@dicebear/initials/src/index.ts. Runtime callers can pass strings despite the numeric TypeScript types, break out of the attributes, and inject arbitrary SVG markup. Script can execute in the page origin when the generated avatar is inserted inline or served as image/svg+xml and opened directly, although exploitation requires an application to pass untrusted values into these normally developer-controlled options. This issue is fixed in @dicebear/core and @dicebear/initials version 9.4.3.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 4.7
     },
     {
-      "id": "CVE-2025-62307",
-      "published": "2026-08-20T12:16:32.150",
-      "description": "HCL IntelliOps Event Management (IEM) is affected by insufficient logging. Insufficient logging weakens accountability, obscures attack detection, and enables privilege probing.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-19755",
+      "published": "2026-08-20T21:17:06.283",
+      "description": "NoSleep 1.5.1 exposes a privileged XPC Mach service and accepts raw dictionary messages containing attacker-controlled command and NSBundlePath values.This issue affects NoSleep: 1.5.1.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-77066",
-      "published": "2026-08-20T11:16:22.100",
-      "description": "The scanFeedsResolver in packages/api/src/resolvers/subscriptions/index.ts passes the caller-supplied url straight to axios.get(url, rssParserConfig()) with no address validation. The same file guards the subscribe path with validateUrl(), which rejects private and reserved ranges through the private-ip library, and createPageSaveRequest applies the same check, so the omission is specific to this resolver. An authenticated user can direct the server to request arbitrary internal endpoints. The response is parsed as a feed or as HTML and the resolver returns the resulting url, title, description and type fields, so disclosure is limited to feed-shaped metadata and to link elements advertising RSS or Atom feeds; requests that do not parse still distinguish reachable ports from unreachable ones through the resulting error.",
-      "severity": "MEDIUM",
-      "score": 5
+      "id": "CVE-2026-69242",
+      "published": "2026-08-20T21:17:07.697",
+      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, a crafted many-band TIFF processed through VipsForeignLoadTiff can evade scanline validation in libvips/iofuncs/image.c and cause an integer overflow in vips_image_sanity. The resulting buffer-region calculation can access attacker-controlled negative offsets in mmap-resident allocations, allowing reads or writes of other image data, possible data disclosure through uncompressed .v output, and likely process crashes. Remote code execution has not been demonstrated but cannot be ruled out. This issue is fixed in version 8.18.3.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-77067",
-      "published": "2026-08-20T11:16:22.240",
-      "description": "The setWebhookResolver in packages/api/src/resolvers/webhooks/index.ts stores the caller-supplied url without any address validation, and the file imports no validation helper. When a subscribed event fires, callWebhook in packages/api/src/jobs/call_webhook.ts issues axios.request with that url, the method and Content-Type recorded on the webhook, and a JSON body carrying the event data, so an authenticated user can make the server send repeated attacker-shaped requests to internal endpoints, including link-local metadata addresses. The request is blind: callWebhook discards the result and writes only a success line or the axios error to the server log, so the response is not returned through the API.",
-      "severity": "MEDIUM",
-      "score": 5
+      "id": "CVE-2026-70651",
+      "published": "2026-08-20T21:17:08.120",
+      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, libvips built without libtiff support but with ImageMagick support can overflow the combined frame height while loading a crafted multi-page TIFF through VipsForeignLoadMagick. The vulnerable calculations in libvips/foreign/magick6load.c and libvips/foreign/magick7load.c multiply the per-page Ysize by n_frames without a checked bound, which can cause a heap buffer over-read and process crash. Most package-manager builds include libtiff and do not use this affected fallback path. This issue is fixed in version 8.18.3.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-73196",
-      "published": "2026-08-20T11:16:21.417",
-      "description": "A flaw was found in FreeIPA. A low-privilege authenticated user can exploit this vulnerability by submitting an oversized One-Time Password (OTP) key value. This oversized key is then decoded and re-encoded without proper size limits, consuming excessive CPU and memory resources. This can lead to a denial of service, degrading the availability of the IPA service.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-70652",
+      "published": "2026-08-20T21:17:08.270",
+      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, libvips built with libultrahdr support can incorrectly size an output buffer in libvips/foreign/uhdrsave.c within vips_foreign_save_uhdr_set_raw_hdr when a pipeline enlarges an incoming JPEG to a very large output before encoding a gain map through VipsForeignSaveUhdr. The undersized allocation can cause a heap buffer over-read that may disclose adjacent data or crash the process. This issue is fixed in version 8.18.3.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-77026",
-      "published": "2026-08-20T11:16:21.947",
-      "description": "Joomla Extension - tassos.gr - Client-controlled validation bypass in Convert Forms extension < 5.2.5 - The front-end Submissions view did not enforce access control. An unauthenticated visitor could therefore list a form's submissions.",
+      "id": "CVE-2026-70653",
+      "published": "2026-08-20T21:17:08.427",
+      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, the old-style Radiance RLE decoder in libvips/foreign/radiance.c can process a repeat marker at the beginning of a scanline in scanline_read_old and read q[-1] before any prior pixel exists. A crafted Radiance image loaded through VipsForeignLoadRad can therefore disclose four bytes of adjacent heap data, most likely other image data. This issue is fixed in version 8.18.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-70654",
+      "published": "2026-08-20T21:17:08.567",
+      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, applications that define unusual custom libvips sources and use them to process untrusted uncompressed PPM images can trigger a max/min error in vips_source_read_to_memory in libvips/iofuncs/source.c. The function uses VIPS_MAX instead of VIPS_MIN when selecting the remaining read size, allowing up to 4032 bytes to be written beyond the allocated heap buffer and causing memory corruption or a process crash. This issue is fixed in version 8.18.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-74836",
+      "published": "2026-08-20T21:17:09.407",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in mtrudel bandit allows an unauthenticated remote attacker to pin an unbounded number of HTTP/2 stream processes indefinitely via connection-level flow control. When a stream's response body outruns the HTTP/2 connection-level send window (default 65,535 bytes, shared across all streams on the connection), Bandit.HTTP2.Connection queues the remaining bytes and a reply closure in pending_sends and the stream process blocks forever inside a synchronous call to the connection process. Nothing bounds that wait and nothing purges the queue: a client RST_STREAM for the blocked stream is delivered to its mailbox but never read while it is stuck inside the call, so cancelling frees nothing, and periodic PING frames keep the transport-level read timeout from ever firing. The equivalent block on the stream-level send window is already bounded at 15 seconds; the connection-level path had no such bound.\n\nEach stalled stream pins its process, Plug state, and any resource the Plug holds across the blocked write, such as a pooled upstream connection in a reverse-proxy Plug. The attacker chooses any endpoint whose response exceeds the connection window (common for most non-trivial payloads), grants a generous stream-level window so only the connection window limits it, and keeps the connection alive with periodic PINGs; the primitive is repeatable across streams and connections at the cost of one idle socket each.\n\nThis issue affects bandit: from 0.3.4 before 1.12.5.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-75484",
+      "published": "2026-08-20T21:17:09.597",
+      "description": "Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability in mtrudel bandit allows an unauthenticated remote attacker to smuggle CR, LF, or NUL characters into application-visible request headers via HTTP/2. Bandit.HTTP2.Stream.read_headers/1 validates pseudo-header placement and uniqueness, header-name casing, connection-specific headers, the te value, and content-length, but never checks field values. Because HPACK carries arbitrary octets, a HEADERS block whose field values contain \\r, \\n, or \\0 decodes without error and the values land in conn.req_headers unchanged. The HTTP/1 path already rejects the same octets; HTTP/2 did not.\n\nBandit itself is not a sink for the injected bytes: its own logging uses fixed strings or inspect, and HTTP/2 response headers are HPACK-encoded and separately rejected by Plug's put_resp_header, so response splitting is not reachable through this path. The risk is entirely in how a downstream application consumes header values, such as appending one verbatim to a plain-text log or concatenating it into an upstream request. A related gap bundled in the same fix: only :method, :scheme, and :path were checked for at most one occurrence; a duplicate :authority pseudo-header was accepted, with the first instance silently winning as conn.host while a conflicting value remained visible to the application.\n\nThis issue affects bandit: from 1.4.0 before 1.12.5.",
       "severity": "UNKNOWN",
       "score": null
     }
