@@ -1,143 +1,143 @@
 {
-  "totalResults": 2555,
+  "totalResults": 2644,
   "items": [
     {
-      "id": "CVE-2026-75860",
-      "published": "2026-08-20T06:17:32.207",
-      "description": "The JSON Options WordPress plugin through 0.0.4 does not have any capability check or nonce verification on one of its actions, which runs on every request and is available to unauthenticated users, allowing them to update arbitrary WordPress options. This can be leveraged to enable user registration and set the default role to administrator, leading to privilege escalation and full site takeover.",
+      "id": "CVE-2025-15689",
+      "published": "2026-08-20T12:16:31.890",
+      "description": "Unauthenticated Privilege Escalation in Capella <= 2.5.5 versions.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-75963",
-      "published": "2026-08-20T06:17:32.360",
-      "description": "The Events Made Easy plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 3.2.5 via the eme_single_event_page_template function. This makes it possible for authenticated attackers, with contributor-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included. The stored traversal payload is triggered passively when any visitor loads the affected single-event page, meaning post-submission execution does not require additional attacker interaction.",
+      "id": "CVE-2026-66583",
+      "published": "2026-08-20T12:16:32.670",
+      "description": "Unauthenticated PHP Object Injection in Forminator <= 1.57.0 versions.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-11861",
+      "published": "2026-08-20T11:16:19.270",
+      "description": "A flaw was found in FreeIPA. When a trust relationship is configured between FreeIPA and Active Directory, Active Directory users can bypass authentication for FreeIPA services, including the portal, SMB server, and LDAP directory. This is possible by impersonating a client name in the Ticket Granting Service (TGS) due to FreeIPA services not verifying Privilege Attribute Certificate (PAC) certificates. This vulnerability could allow an authenticated Active Directory user to escalate their privileges within the FreeIPA domain.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2025-15688",
+      "published": "2026-08-20T12:16:31.763",
+      "description": "Unauthenticated SQL Injection in Capella <= 2.5.5 versions.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-13097",
+      "published": "2026-08-20T11:16:20.293",
+      "description": "A privilege escalation flaw was found in FreeIPA. The uniqueness constraint enforced on Kerberos principal name attributes in the 389-ds directory server does not properly account for equivalent representations of the same principal name, allowing a user with sufficient LDAP write privileges to create a service principal that impersonates an existing privileged one. This can lead to unauthorized acquisition of Kerberos service tickets for sensitive services, potentially resulting in full domain compromise.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2025-15637",
+      "published": "2026-08-20T12:16:30.777",
+      "description": "Unauthenticated Local File Inclusion in Shuffle <= 1.8 versions.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-28150",
+      "published": "2026-08-20T12:16:32.283",
+      "description": "Unauthenticated Local File Inclusion in Golo Framework < 1.7.5 versions.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-73197",
+      "published": "2026-08-20T11:16:21.553",
+      "description": "A flaw was found in FreeIPA. A remote, unauthenticated attacker can exploit this vulnerability by sending oversized form POST requests to the `/ipa/migration/migration.py` endpoint. This can force the migration handler to read attacker-controlled request bodies fully into memory, leading to increased memory usage, slower request handling, and potential service disruption or denial of service.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-76783",
-      "published": "2026-08-20T01:16:53.923",
-      "description": "A security vulnerability has been detected in DeDeCMS 53_1_UTF8. This vulnerability affects unknown code of the file /plus/advancedsearch.php. Such manipulation of the argument sql leads to sql injection. The attack can be launched remotely. The exploit has been disclosed publicly and may be used.",
+      "id": "CVE-2026-73198",
+      "published": "2026-08-20T11:16:21.687",
+      "description": "A flaw was found in FreeIPA. A remote, unauthenticated attacker can exploit a vulnerability in the `/ipa/i18n_messages` endpoint by sending an arbitrarily large request body. This can cause the service to consume excessive memory, leading to memory exhaustion, degraded responsiveness, and a denial of service (DoS) condition.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-76795",
-      "published": "2026-08-20T01:16:54.277",
-      "description": "A vulnerability has been found in AeternaLabsHQ PullMD 3.2.0. This impacts an unknown function of the file /api of the component REST API Endpoint. The manipulation of the argument url leads to server-side request forgery. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 3.3.0 will fix this issue. The identifier of the patch is 96448894cc93ccecb0bdcbf263a9d25390a8455e. Upgrading the affected component is advised.",
+      "id": "CVE-2026-66581",
+      "published": "2026-08-20T12:16:32.420",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in JetEngine <= 3.8.14.1 versions.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-15049",
-      "published": "2026-08-20T06:16:49.710",
-      "description": "The Depicter — Popup & Slider Builder WordPress plugin before 4.8.0 does not validate the type of a file uploaded through its import feature and does not remove a malformed upload, allowing users with editor-level access to write an arbitrary file (including executable PHP) into a web-accessible directory, which can lead to remote code execution.",
+      "id": "CVE-2026-66582",
+      "published": "2026-08-20T12:16:32.547",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in TranslatePress <= 3.3.2 versions.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-19615",
-      "published": "2026-08-20T06:17:07.777",
-      "description": "The Admin and Site Enhancements (ASE) WordPress plugin before 9.0.1 does not sanitise uploaded SVG files on every route it accepts them through, allowing users with a role the site owner granted upload access to store a file containing JavaScript which then executes in the browser of anyone who opens it.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-66590",
+      "published": "2026-08-20T12:16:32.930",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in Tagembed <= 7.4 versions.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-19697",
-      "published": "2026-08-20T06:17:07.927",
-      "description": "The GutenKit  WordPress plugin before 2.5.0 does not sanitise uploaded SVG files on all of the upload paths it enables, allowing users with the file upload capability, such as Author, to upload a malicious SVG and perform Stored Cross-Site Scripting attacks against any user opening it, including administrators.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-74992",
-      "published": "2026-08-20T06:17:19.360",
-      "description": "The Kirki  WordPress plugin before 6.2.3 does not properly validate the files contained in archives uploaded by users with the Editor role, and does not remove all unwanted files after extracting them, allowing such users to upload arbitrary files to a web accessible directory, leading to Stored XSS as well as RCE on some server configurations.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-13405",
-      "published": "2026-08-20T06:16:41.710",
-      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not correctly sanitise custom widget markup before writing it to a file that is later executed, allowing users with the manage_options capability (and, on WordPress Multisite, non-super subsite administrators who do not otherwise hold code-execution capabilities) to execute arbitrary PHP code.",
+      "id": "CVE-2026-66586",
+      "published": "2026-08-20T12:16:32.800",
+      "description": "Author Local File Inclusion in WP Cafe Pro < 3.0.15 versions.",
       "severity": "MEDIUM",
       "score": 6.6
     },
     {
-      "id": "CVE-2026-76785",
-      "published": "2026-08-20T01:16:54.100",
-      "description": "A security flaw has been discovered in amirsanni Mini-Inventory-and-Sales-Management-System 0.1. Affected is the function Transaction::getAll of the file application/models/Transaction.php. Performing a manipulation of the argument orderBy/orderFormat results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-73199",
+      "published": "2026-08-20T11:16:21.813",
+      "description": "A flaw was found in the `ipa-enrollment` SLAPI plugin. A remote authenticated client can exploit a null pointer dereference vulnerability by sending a malformed Lightweight Directory Access Protocol (LDAP) extended operation. By omitting the request value for the `JOIN_OID` in the `ipa-enrollment` extended operation, an attacker can trigger a server crash, potentially causing a denial of service.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-76800",
-      "published": "2026-08-20T03:16:23.887",
-      "description": "A flaw has been found in DeDeCMS 3. Affected by this vulnerability is an unknown functionality of the file /include/dialog/select_media_post.php. Executing a manipulation of the argument uploadfile can lead to unrestricted upload. The attack can be executed remotely. The exploit has been published and may be used.",
+      "id": "CVE-2025-53999",
+      "published": "2026-08-20T12:16:32.027",
+      "description": "Unauthenticated Broken Access Control in Altair <= 5.2.2 versions.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-76956",
-      "published": "2026-08-20T05:16:29.610",
-      "description": "In libexpat 2.8.2 and 2.8.3 before 2.8.4, misinterpretation of getentropy's return code leads to insufficient entropy, which results in being vulnerable to hash flooding attacks, causing a denial of service via crafted XML content.",
+      "id": "CVE-2025-62307",
+      "published": "2026-08-20T12:16:32.150",
+      "description": "HCL IntelliOps Event Management (IEM) is affected by insufficient logging. Insufficient logging weakens accountability, obscures attack detection, and enables privilege probing.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-76799",
-      "published": "2026-08-20T02:16:21.753",
-      "description": "A weakness has been identified in code-projects Login Registration System 1.0. This affects an unknown function of the file /loginsystem/database/login_registration_system.sql of the component SQL Database Backup Handler. This manipulation causes files or directories accessible. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "id": "CVE-2026-77066",
+      "published": "2026-08-20T11:16:22.100",
+      "description": "The scanFeedsResolver in packages/api/src/resolvers/subscriptions/index.ts passes the caller-supplied url straight to axios.get(url, rssParserConfig()) with no address validation. The same file guards the subscribe path with validateUrl(), which rejects private and reserved ranges through the private-ip library, and createPageSaveRequest applies the same check, so the omission is specific to this resolver. An authenticated user can direct the server to request arbitrary internal endpoints. The response is parsed as a feed or as HTML and the resolver returns the resulting url, title, description and type fields, so disclosure is limited to feed-shaped metadata and to link elements advertising RSS or Atom feeds; requests that do not parse still distinguish reachable ports from unreachable ones through the resulting error.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5
     },
     {
-      "id": "CVE-2026-17153",
-      "published": "2026-08-20T06:16:58.230",
-      "description": "The AI Agent by SiteGround plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.2.7. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to upload images to the WordPress media library, bypassing the upload_files capability restriction that Contributors are normally subject to, as authenticated attackers with Contributor-level access or above can satisfy the endpoint's nonce and permission checks. The sg_ai_studio_gutenberg_nonce required by the endpoint is emitted to any user with block editor access — including Contributors — making the absent upload_files check the sole barrier to exploitation.",
+      "id": "CVE-2026-77067",
+      "published": "2026-08-20T11:16:22.240",
+      "description": "The setWebhookResolver in packages/api/src/resolvers/webhooks/index.ts stores the caller-supplied url without any address validation, and the file imports no validation helper. When a subscribed event fires, callWebhook in packages/api/src/jobs/call_webhook.ts issues axios.request with that url, the method and Content-Type recorded on the webhook, and a JSON body carrying the event data, so an authenticated user can make the server send repeated attacker-shaped requests to internal endpoints, including link-local metadata addresses. The request is blind: callWebhook discards the result and writes only a success line or the axios error to the server log, so the response is not returned through the API.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5
     },
     {
-      "id": "CVE-2026-76957",
-      "published": "2026-08-20T05:16:29.747",
-      "description": "libexpat before 2.8.4 lacks handler call depth tracking with custom encoding callbacks. Thus, a use-after-free can occur. NOTE: this is similar to CVE-2026-50219, CVE-2026-56131 and CVE-2026-56412.",
+      "id": "CVE-2026-73196",
+      "published": "2026-08-20T11:16:21.417",
+      "description": "A flaw was found in FreeIPA. A low-privilege authenticated user can exploit this vulnerability by submitting an oversized One-Time Password (OTP) key value. This oversized key is then decoded and re-encoded without proper size limits, consuming excessive CPU and memory resources. This can lead to a denial of service, degrading the availability of the IPA service.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-73542",
-      "published": "2026-08-20T06:17:13.287",
-      "description": "Multiple SEIKO EPSON printers and scanners contain revoked root certificates. A man-in-the-middle attack may allow an attacker to obtain communication data transmitted by the product. As for the details of the affected products and versions, refer to the vendor's information.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-19699",
-      "published": "2026-08-20T06:17:13.167",
-      "description": "The GutenKit  WordPress plugin before 2.5.0 does not have a sufficient capability check on some of its REST API endpoints, allowing users with the Contributor role and above to retrieve mailing-list audience metadata from the site's connected marketing account.",
-      "severity": "LOW",
-      "score": 2.7
-    },
-    {
-      "id": "CVE-2026-75628",
-      "published": "2026-08-20T01:16:53.803",
-      "description": "Punk::OAuth2 versions before 0.03 for Perl allow an attacker-chosen off-site redirect after login because same_origin_path accepts a backslash or tab in the return parameter.\n\noauth2_login reads the return parameter from the initiation request, runs same_origin_path over it, and stores the survivor in the session flow record as the post-login redirect target. That check rejects a value that does not begin with a slash, one with a slash as its second byte, and one containing CR or LF. A backslash and a tab pass. The URL Standard treats a backslash as equivalent to a slash for special schemes, so `/\\evil.example` parses with the authority `evil.example`. It also strips ASCII tab before parsing, so a tab between two leading slashes leaves `//evil.example`.\n\nA crafted link to the application's own login route lands the victim on the attacker's site after a genuine authentication. The redirect carries no authorization code or access token.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-19582",
-      "published": "2026-08-20T05:16:27.987",
-      "description": "In binutils 2.46.1 and prior versions, a victim who opens a crafted PE file using binutils could execute arbitrary code unknowningly via a stack buffer overflow out of bounds write.",
-      "severity": "NONE",
-      "score": 0
-    },
-    {
-      "id": "CVE-2025-14602",
-      "published": "2026-08-20T07:16:30.623",
-      "description": "The application generates uploaded file names using a weak and predictable method based on the request timestamp. This allows a remote attacker to accurately guess or brute-force the generated filename within a short time window. An attacker can successfully locate and access uploaded files, which can be used to facilitate further attacks.\n\n\n\n\nApply patch from vendor  https://vsdesk.ru/ . Versions 14.0101 and on have the patch.",
+      "id": "CVE-2026-77026",
+      "published": "2026-08-20T11:16:21.947",
+      "description": "Joomla Extension - tassos.gr - Client-controlled validation bypass in Convert Forms extension < 5.2.5 - The front-end Submissions view did not enforce access control. An unauthenticated visitor could therefore list a form's submissions.",
       "severity": "UNKNOWN",
       "score": null
     }
