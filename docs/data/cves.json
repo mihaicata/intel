@@ -1,145 +1,145 @@
 {
-  "totalResults": 2761,
+  "totalResults": 2687,
   "items": [
     {
-      "id": "CVE-2026-67567",
-      "published": "2026-08-20T21:17:07.403",
-      "description": "A flaw was found in the multicloud-operators-subscription component. This vulnerability allows a tenant, who has the ability to create HelmRelease custom resources (CRs), to bypass existing security controls. The system's HelmRelease controller processes Helm chart templates using its own elevated ServiceAccount privileges without proper validation. This enables the tenant to deploy arbitrary resources across the entire cluster, leading to a significant security compromise.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-43798",
-      "published": "2026-08-20T21:17:06.580",
-      "description": "A single crafted SSH message gives an unauthenticated network attacker an out-of-bounds stack write of attacker-controlled length and content against any application built on swift-nio-ssh. This vulnerability is addressed in swift-nio-ssh version 0.14.1.",
+      "id": "CVE-2026-77264",
+      "published": "2026-08-21T08:16:44.160",
+      "description": "The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Authentication Bypass in versions up to, and including, 4.8.6. This is due to the handle_email_otp_return() function returning the secret magic login token in the response to a publicly accessible OTP request, rather than only delivering it to the user's email address. This makes it possible for unauthenticated attackers to log in as any user on the site, including administrators, if they know that user's email address.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-71485",
-      "published": "2026-08-20T21:17:08.707",
-      "description": "Centrifugo is an open-source scalable real-time messaging server. Prior to 6.9.0, Centrifugo copies the client-controlled protocol.ConnectRequest.headers map through OnClientConnecting in internal/client/handler.go, ConnectEvent.Headers, and SetEmulatedHeadersToContext. The requestHeaders path in internal/proxy/http.go, the requestMetadata path in internal/proxy/grpc.go, and the Consume path in internal/unigrpc/grpc.go can forward an allowlisted value as a trusted backend header or metadata value. A remote client can spoof a header such as x-trusted-user for connect, refresh, subscribe, publish, RPC, and related proxy calls when the backend relies on that header for authentication or authorization. The unidirectional gRPC transport has no transport-level HTTP header that can override the emulated value. This issue is fixed in version 6.9.0.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-18420",
-      "published": "2026-08-20T21:17:06.137",
-      "description": "Improper input validation in the Time Series Visual Builder (TSVB) plugin in OpenSearch Dashboards allows an authenticated remote user to execute arbitrary code on the server via a crafted JSON payload to the metrics visualization API endpoint. This issue is a form of prototype pollution that enables remote code execution. \n\n\n\nTo remediate this issue, users should upgrade to OpenSearch Dashboards 3.8 or later.",
+      "id": "CVE-2026-47359",
+      "published": "2026-08-21T09:16:38.000",
+      "description": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Apache CloudStack's NAS backup provider plugin. The addBackupRepository API (available since 4.20.0.0) and updateBackupRepository API (introduced in 4.22.0.0) accept unsanitized command options for the backup repository. A malicious operator account can exploit this to inject arbitrary commands that execute on the KVM hypervisor host when any account subsequently performs a backup restore.\n\nThis issue affects Apache CloudStack: from 4.20.0.0 through 4.20.3.0 and from 4.21.0.0 through 4.22.1.0.\n\nUsers are recommended to upgrade to version 4.20.3.1 or 4.22.1.1 or later, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-73040",
-      "published": "2026-08-20T21:17:09.110",
-      "description": "Dockge validates a stack name only on the write path. In backend/stack.ts the allow-list check in validate(), which requires the name to match ^[a-z0-9_-]+$, is reached from save() alone, while the path getter returns path.join(this.server.stacksDir, this.name) and Stack.getStack builds path.join(server.stacksDir, stackName) with no check. The socket handlers in backend/agent-socket-handlers/docker-socket-handler.ts confirm the caller is logged in and that the name is a string, then pass it straight to Stack.getStack, so a name containing traversal sequences resolves outside the managed stacks directory. An authenticated user can therefore read the composeENV and composeYAML values of any directory the server process can reach, which discloses the secrets in that directory's .env or Compose file, and can invoke delete(), which runs docker compose down and then fsAsync.rm on the traversed path with recursive and force set, removing that directory. Disclosure is limited to files named .env or an accepted Compose filename, and deletion requires the target directory to hold a valid Compose file so that docker compose down exits successfully. Dockge commonly runs as root with access to the Docker socket, so the reachable set includes unrelated applications on the host. Instances configured with disableAuth, a supported option that logs the caller in as admin automatically, expose both operations without authentication.",
+      "id": "CVE-2026-50112",
+      "published": "2026-08-21T09:16:38.150",
+      "description": "SSRF via Metalink Mirror URL Resolution:\n\nAn authenticated tenant can register a template pointing to an attacker-controlled metalink file containing internal targets. The Secondary Storage VM will retrieve the data and persist it as a template file, which can later be downloaded through normal APIs.\n\nRCE on KVM hypervisor via NFS, Metalink files with/without Direct Downloads:\n\nAn authenticated CloudStack tenant holding the default User role can execute arbitrary shell commands as root on the KVM hypervisor host that runs other tenants' VMs. This is cross-tenant root on the underlying compute, reachable via the public CloudStack API.\n\n\nWhen a User registers a VM template with directDownload=true and a URL pointing to a .metalink file, the management server fetches the metalink XML and dispatches download to the KVM agent. Inner URLs inside the metalink XML are never re-validated against the scheme allowlist.\n\n\nThese issues affect Apache CloudStack: from 4.14.0.0 through 4.20.3.0 and from 4.21.0.0 through 4.22.1.0.\n\nUsers are recommended to upgrade to version 4.20.3.1 or 4.22.1.1 or later, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-76017",
-      "published": "2026-08-20T21:17:09.800",
-      "description": "Use after free in Chromoting in Google Chrome prior to 151.0.7922.173 allowed a remote attacker to execute arbitrary code outside the sandbox via crafted network traffic. (Chromium security severity: Critical)",
+      "id": "CVE-2026-18781",
+      "published": "2026-08-21T07:16:25.143",
+      "description": "The Drag and Drop Multiple File Upload for Contact Form 7 WordPress plugin before 1.3.9.9 does not validate the final name of an uploaded file after stripping characters from it, allowing unauthenticated users to defeat its file type restrictions and execute arbitrary code on the server.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-73137",
-      "published": "2026-08-20T21:17:09.270",
-      "description": "A flaw was found in the multicloud-operators-subscription component of Red Hat Advanced Cluster Management (RHACM). A tenant with HelmRelease create permissions can exploit this vulnerability by manipulating the `secretRef.Namespace` field. This allows the `GetSecret()` function in the HelmRelease controller to fetch sensitive credentials from any namespace, which are then sent to an attacker-controlled Helm repository. This can lead to the exfiltration of credentials from arbitrary namespace Secrets, resulting in information disclosure.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-52021",
-      "published": "2026-08-20T21:17:06.687",
-      "description": "An issue in code100xDevs 100xdevs CMS v.1.0 (2026-04-30) allows a remote attacker to obtain sensitive information via the src/middleware.ts, and src/app/api/mobile/search/route.ts components.",
+      "id": "CVE-2026-16323",
+      "published": "2026-08-21T08:16:42.667",
+      "description": "Execution after redirect (EAR) vulnerability in FuyaWeb Internet and Informatics Services ArchitectPanel Web Admin Panel allows Authentication Bypass.\n\nThis issue affects ArchitectPanel Web Admin Panel: through 28072026.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-53804",
-      "published": "2026-08-20T21:17:06.813",
-      "description": "OTRS Community Edition contains an authenticated OS command injection vulnerability in the PGP encryption module that allows administrators to execute arbitrary operating-system commands by supplying crafted values for the PGP binary path and command options. Administrator-supplied configuration values are concatenated without sanitization into a shell command, enabling arbitrary command execution as the web server process user during normal ticket operations after the malicious configuration is deployed.",
+      "id": "CVE-2026-50222",
+      "published": "2026-08-21T09:16:38.280",
+      "description": "Missing Authorization, Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Apache CloudStack's Userdata reference APIs.\n\nSeveral userdata-related APIs in Apache CloudStack, including deleteUserData, linkUserDataToTemplate, resetUserDataForVirtualMachine, deployVirtualMachine, and updateVirtualMachine, exhibit missing or insufficient access control validation, potentially allowing cross-tenant/cross-account access to userdata resources that belong to other tenants.\n\nThis issue affects Apache CloudStack: from 4.18.0.0 through 4.20.3.0 and from 4.21.0.0 through 4.22.1.0.\n\nThe deleteCniConfiguration API, introduced in 4.21.0.0, also exhibits similar behaviour and lacks access validation.\n\nUsers are recommended to upgrade to version 4.20.3.1 or 4.22.1.1 or later, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-16576",
+      "published": "2026-08-21T07:16:24.740",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.0.14 does not correctly check user capabilities on some of its admin REST API routes, checking only for a WooCommerce management capability instead of the Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.0.14-installation capability, allowing users such as Shop Managers to install and activate arbitrary Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.0.14 from WordPress.org.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-67445",
-      "published": "2026-08-20T21:17:07.110",
-      "description": "Mailpit is an email testing tool and API for developers. Prior to 1.30.4, Mailpit reads SMTP commands through internal/smtpd/smtpd.go session.readLine() using bufio.Reader.ReadString before session.parseLine() parses the verb or the RFC 5321 512-octet command-line limit is enforced. An unauthenticated remote SMTP client can send an oversized single command line that is fully allocated before syntax rejection or timeout, and the normal MaxMessageSize and DATA limits do not apply to this pre-DATA path. The same command reader is used by handleAuthLogin(), handleAuthPlain(), and handleAuthCramMD5() continuation lines, so concurrent oversized inputs can create memory pressure and reduce service availability. This issue is fixed in version 1.30.4.",
+      "id": "CVE-2026-75796",
+      "published": "2026-08-21T07:16:25.453",
+      "description": "The AI Engine  WordPress plugin before 3.6.1 does not verify that the requesting user is authorized to act on the targeted account before performing privileged user management operations, allowing users with the Administrator role on a Multisite sub-site to take over any account on the network, including the Network Administrator's.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-14601",
+      "published": "2026-08-21T07:16:24.530",
+      "description": "The Link Whisper Free WordPress plugin before 0.9.7 does not properly sanitize and escape a parameter before using it in a SQL query, allowing authenticated users with the Editor role or above to perform SQL injection attacks.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-16959",
+      "published": "2026-08-21T07:16:24.940",
+      "description": "The Media Library Assistant WordPress plugin before 3.40 does not validate a search parameter before concatenating it into a SQL query in one of its media-library query handlers, allowing users with the Author role to perform SQL injection.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2025-15671",
+      "published": "2026-08-21T07:16:22.960",
+      "description": "The Welcart e-Commerce WordPress plugin before 2.12.1 does not regenerate the session identifier on authentication and sets the session identifier from a user-supplied request parameter, allowing an unauthenticated attacker to fixate a shop member's session and take over their customer account after the victim logs in through an attacker-crafted request.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-13736",
+      "published": "2026-08-21T07:16:24.323",
+      "description": "The NewPath WildApricotPress Add-on  WordPress plugin through 1.0.0 does not enforce its members-only field privacy on an unauthenticated REST route, allowing anonymous visitors to read member email addresses and phone numbers that are configured to be visible to members only.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-67446",
-      "published": "2026-08-20T21:17:07.260",
-      "description": "Mailpit is an email testing tool and API for developers. Prior to 1.30.4, Mailpit decodes attacker-supplied image attachments into a full raster before checking decoded dimensions, pixel count, or memory use in the GET /api/v1/message/{id}/part/{partID}/thumb endpoint. The Thumbnail handler in server/apiv1/thumbnails.go obtains attachment bytes through storage.GetAttachmentPart(), accepts image/* content, and calls imaging.Decode() with AutoOrientation before imaging.Fill() scales the image to 180 by 120 pixels. A compact image declaring very large dimensions can therefore consume disproportionately large memory and CPU, and opening the message UI can trigger the same endpoint through server/ui-src/components/message/MessageAttachments.vue. This can degrade availability when an unauthenticated client can store the crafted attachment and reach the web API. This issue is fixed in version 1.30.4.",
+      "id": "CVE-2026-16575",
+      "published": "2026-08-21T07:16:24.637",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.0.14 does not restrict access to per-vendor commission configuration returned by one of its unauthenticated store REST endpoints, allowing any unauthenticated user to disclose a vendor's commission type and, when category-based commission is configured, the per-category and default commission rates.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-68921",
-      "published": "2026-08-20T21:17:07.540",
-      "description": "DiceBear is an avatar library for designers and developers. Prior to 9.4.3, @dicebear/core interpolates the rotate option into an SVG transform attribute without XML escaping in addRotate in packages/@dicebear/core/src/utils/svg.ts, while @dicebear/initials similarly emits fontSize and fontWeight without escaping in packages/@dicebear/initials/src/index.ts. Runtime callers can pass strings despite the numeric TypeScript types, break out of the attributes, and inject arbitrary SVG markup. Script can execute in the page origin when the generated avatar is inserted inline or served as image/svg+xml and opened directly, although exploitation requires an application to pass untrusted values into these normally developer-controlled options. This issue is fixed in @dicebear/core and @dicebear/initials version 9.4.3.",
+      "id": "CVE-2026-16962",
+      "published": "2026-08-21T07:16:25.040",
+      "description": "The Tamara Checkout WordPress plugin through 1.9.9.20 does not verify the order key, a nonce, or any capability on its public payment cancel/fail return URLs, changing a WooCommerce order's status based solely on an attacker-supplied numeric order id, so an unauthenticated attacker can cancel or fail arbitrary orders store-wide by enumerating ids (triggering downstream stock-release and notification side-effects).",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-19441",
+      "published": "2026-08-21T08:16:43.837",
+      "description": "Missing authentication for critical function vulnerability in IKAS Technology Inc. Rush allows Fake the Source of Data.\n\nThis issue affects Rush: through 21082026. \nNOTE: The vendor was contacted and it was learned that the product is not supported.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-73537",
+      "published": "2026-08-21T08:16:44.003",
+      "description": "Cross-site scripting vulnerability exists in Miraikan Assist App. If this vulnerability is exploited, an arbitrary script may be executed in the browser component (WebView) running on the affected product, resulting in the displayed content being altered.",
       "severity": "MEDIUM",
       "score": 4.7
     },
     {
-      "id": "CVE-2026-19755",
-      "published": "2026-08-20T21:17:06.283",
-      "description": "NoSleep 1.5.1 exposes a privileged XPC Mach service and accepts raw dictionary messages containing attacker-controlled command and NSBundlePath values.This issue affects NoSleep: 1.5.1.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-14325",
+      "published": "2026-08-21T07:16:24.430",
+      "description": "The Drag and Drop Multiple File Upload for Contact Form 7 WordPress plugin before 1.3.9.9 does not escape one of its settings before using it as an HTML tag name in front-end output, allowing users with administrator access to inject arbitrary web scripts that execute on any front-end page rendering its upload field.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-69242",
-      "published": "2026-08-20T21:17:07.697",
-      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, a crafted many-band TIFF processed through VipsForeignLoadTiff can evade scanline validation in libvips/iofuncs/image.c and cause an integer overflow in vips_image_sanity. The resulting buffer-region calculation can access attacker-controlled negative offsets in mmap-resident allocations, allowing reads or writes of other image data, possible data disclosure through uncompressed .v output, and likely process crashes. Remote code execution has not been demonstrated but cannot be ruled out. This issue is fixed in version 8.18.3.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-16577",
+      "published": "2026-08-21T07:16:24.840",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.0.14 does not validate a client-supplied payment amount against the vendor's actual outstanding balance when recording a reverse-withdrawal payment, allowing a vendor to credit their reverse-withdrawal ledger with an arbitrary amount and clear their real commission debt without paying.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-70651",
-      "published": "2026-08-20T21:17:08.120",
-      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, libvips built without libtiff support but with ImageMagick support can overflow the combined frame height while loading a crafted multi-page TIFF through VipsForeignLoadMagick. The vulnerable calculations in libvips/foreign/magick6load.c and libvips/foreign/magick7load.c multiply the per-page Ysize by n_frames without a checked bound, which can cause a heap buffer over-read and process crash. Most package-manager builds include libtiff and do not use this affected fallback path. This issue is fixed in version 8.18.3.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19085",
+      "published": "2026-08-21T07:16:25.243",
+      "description": "The Duplicate Post WordPress plugin before 1.5.6 does not check that a user may read the content of a post before duplicating it, allowing users with a delegated role to republish another user's password-protected post as publicly readable.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-70652",
-      "published": "2026-08-20T21:17:08.270",
-      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, libvips built with libultrahdr support can incorrectly size an output buffer in libvips/foreign/uhdrsave.c within vips_foreign_save_uhdr_set_raw_hdr when a pipeline enlarges an incoming JPEG to a very large output before encoding a gain map through VipsForeignSaveUhdr. The undersized allocation can cause a heap buffer over-read that may disclose adjacent data or crash the process. This issue is fixed in version 8.18.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-70653",
-      "published": "2026-08-20T21:17:08.427",
-      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, the old-style Radiance RLE decoder in libvips/foreign/radiance.c can process a repeat marker at the beginning of a scanline in scanline_read_old and read q[-1] before any prior pixel exists. A crafted Radiance image loaded through VipsForeignLoadRad can therefore disclose four bytes of adjacent heap data, most likely other image data. This issue is fixed in version 8.18.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-70654",
-      "published": "2026-08-20T21:17:08.567",
-      "description": "libvips is a fast image processing library with low memory needs. Prior to version 8.18.3, applications that define unusual custom libvips sources and use them to process untrusted uncompressed PPM images can trigger a max/min error in vips_source_read_to_memory in libvips/iofuncs/source.c. The function uses VIPS_MAX instead of VIPS_MIN when selecting the remaining read size, allowing up to 4032 bytes to be written beyond the allocated heap buffer and causing memory corruption or a process crash. This issue is fixed in version 8.18.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-74836",
-      "published": "2026-08-20T21:17:09.407",
-      "description": "Allocation of Resources Without Limits or Throttling vulnerability in mtrudel bandit allows an unauthenticated remote attacker to pin an unbounded number of HTTP/2 stream processes indefinitely via connection-level flow control. When a stream's response body outruns the HTTP/2 connection-level send window (default 65,535 bytes, shared across all streams on the connection), Bandit.HTTP2.Connection queues the remaining bytes and a reply closure in pending_sends and the stream process blocks forever inside a synchronous call to the connection process. Nothing bounds that wait and nothing purges the queue: a client RST_STREAM for the blocked stream is delivered to its mailbox but never read while it is stuck inside the call, so cancelling frees nothing, and periodic PING frames keep the transport-level read timeout from ever firing. The equivalent block on the stream-level send window is already bounded at 15 seconds; the connection-level path had no such bound.\n\nEach stalled stream pins its process, Plug state, and any resource the Plug holds across the blocked write, such as a pooled upstream connection in a reverse-proxy Plug. The attacker chooses any endpoint whose response exceeds the connection window (common for most non-trivial payloads), grants a generous stream-level window so only the connection window limits it, and keeps the connection alive with periodic PINGs; the primitive is repeatable across streams and connections at the cost of one idle socket each.\n\nThis issue affects bandit: from 0.3.4 before 1.12.5.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-75484",
-      "published": "2026-08-20T21:17:09.597",
-      "description": "Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability in mtrudel bandit allows an unauthenticated remote attacker to smuggle CR, LF, or NUL characters into application-visible request headers via HTTP/2. Bandit.HTTP2.Stream.read_headers/1 validates pseudo-header placement and uniqueness, header-name casing, connection-specific headers, the te value, and content-length, but never checks field values. Because HPACK carries arbitrary octets, a HEADERS block whose field values contain \\r, \\n, or \\0 decodes without error and the values land in conn.req_headers unchanged. The HTTP/1 path already rejects the same octets; HTTP/2 did not.\n\nBandit itself is not a sink for the injected bytes: its own logging uses fixed strings or inspect, and HTTP/2 response headers are HPACK-encoded and separately rejected by Plug's put_resp_header, so response splitting is not reachable through this path. The risk is entirely in how a downstream application consumes header values, such as appending one verbatim to a plain-text log or concatenating it into an upstream request. A related gap bundled in the same fix: only :method, :scheme, and :path were checked for at most one occurrence; a duplicate :authority pseudo-header was accepted, with the first instance silently winning as conn.host while a conflicting value remained visible to the application.\n\nThis issue affects bandit: from 1.4.0 before 1.12.5.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-19435",
+      "published": "2026-08-21T07:16:25.340",
+      "description": "The Duplicate Post WordPress plugin before 1.5.6 does not check the user's capabilities before returning post data, allowing users with a delegated role to read the content, metadata and passwords of posts they are not allowed to access, including other users' private and draft content.",
+      "severity": "LOW",
+      "score": 2.7
     }
   ]
 }
