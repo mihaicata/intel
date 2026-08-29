@@ -1,143 +1,143 @@
 {
-  "totalResults": 2795,
+  "totalResults": 2893,
   "items": [
     {
-      "id": "CVE-2026-54682",
-      "published": "2026-08-21T19:17:03.610",
-      "description": "DiscordChatExporter saves Discord chat logs to a file. Prior to 2.47.2, HTML exports generated with markdown formatting disabled pass attacker-controlled content through FormatMarkdownAsync and FormatEmbedMarkdownAsync in DiscordChatExporter.Core/Exporting/MessageGroupTemplate.cshtml and render it without HTML entity encoding. The affected fields include message.Content, message.ForwardedMessage.Content, message.ReferencedMessage.Content, embed.Title, embed.Description, field.Name, and field.Value. A Discord webhook or bot can store a script payload in these fields, and the payload executes when a user exports the channel with markdown formatting disabled and opens the resulting HTML, allowing the script to read the export or alter its displayed content. This issue is fixed in version 2.47.2.",
-      "severity": "HIGH",
-      "score": 8.2
+      "id": "CVE-2026-77000",
+      "published": "2026-08-22T06:16:17.150",
+      "description": "The WP Social Media Login WordPress plugin through 1.0.6 does not verify that a social login was actually completed with the identity provider before authenticating a visitor, allowing unauthenticated attackers to log in as any existing user, including administrators, by supplying that user's email address.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-54071",
-      "published": "2026-08-21T19:17:02.720",
-      "description": "BabelDOC is a document translation tool. Prior to 0.6.3, BabelDOC's vendored PDF parser in babeldoc/pdfminer/cmapdb.py deserializes untrusted pickle data when CMapDB._load_data() loads CMap files. PDF-controlled Encoding or CMapName values and embedded PostScript usecmap operators can reach this sink after path separators are decoded, while _normalize_cmap_name() removes only a leading slash. Absolute paths or traversal sequences can escape the trusted CMap directories through os.path.join(), select an attacker-writable .pickle.gz file, and cause pickle.loads() to execute arbitrary Python code with the privileges of the BabelDOC process. This issue is fixed in version 0.6.3.",
-      "severity": "HIGH",
-      "score": 7.8
+      "id": "CVE-2026-77001",
+      "published": "2026-08-22T06:16:17.323",
+      "description": "The Social Login & Sharing buttons with Analytics By SoClever WordPress plugin through 1.2.0 does not perform any authentication, authorisation or nonce checks in one of its publicly accessible login handlers, allowing unauthenticated attackers to obtain a valid session as any existing user, including administrators. In the default case a session as the site's original administrator account is obtained without needing to know any account details at all.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-63462",
-      "published": "2026-08-21T19:17:31.927",
-      "description": "Unleash is an open-source feature management platform. Prior to 7.5.2, 7.6.5, and 8.0.2, the shared OpenAPI validation error path in src/lib/error/bad-data-error.ts passes a raw request value from lodash.get to JSON.stringify in genericErrorMessage and fromOpenApiValidationErrors without guarding stack exhaustion. An unauthenticated attacker can send a roughly 10 KB JSON value nested thousands of levels deep to POST /edge/validate, POST /edge/issue-token, or another OpenAPI-validated endpoint, causing RangeError: Maximum call stack size exceeded in openAPIValidationMiddleware and terminating the Node process because no uncaughtException handler recovers it. Replaying the request can sustain a complete service outage. This issue is fixed in versions 7.5.2, 7.6.5, and 8.0.2.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-77002",
+      "published": "2026-08-22T06:16:17.510",
+      "description": "The SmilePass Selfie Login WordPress plugin through 1.0.2 does not perform any server-side verification of the identity it is asked to authenticate, allowing unauthenticated users to log in as any registered account, including administrators.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-27462",
-      "published": "2026-08-21T20:16:33.870",
-      "description": "Combodo iTop is a web based IT service management tool. Prior to 3.2.3, iTop returns different responses for valid/invalid usernames depending on multiple factors in the reset password mechanism, leading to user enumeration. This issue has been fixed in version 3.2.3.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-78003",
+      "published": "2026-08-22T09:16:53.543",
+      "description": "The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in versions up to and including 2.2.0. This is due to insufficient input validation in the add_list() function, which accepts user-controlled array keys from $_POST['addresses'], passes them through sanitize_text_field(). This makes it possible for unauthenticated attackers to make authenticated POST requests to any Mailgun API endpoint using the WordPress site's API key, including creating inbound email-forwarding routes that can intercept password reset emails, leading to administrator account takeover.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-27490",
-      "published": "2026-08-21T20:16:34.157",
-      "description": "Combodo iTop is a web based IT service management tool. Prior to 3.2.3, inline images that are accessible without being authenticated are protected by a weak 24-bit pseudo-random secret. This issue has been fixed in version 3.2.3.",
+      "id": "CVE-2026-19883",
+      "published": "2026-08-22T03:16:20.833",
+      "description": "The WPeMatico RSS Feed Fetcher plugin for WordPress is vulnerable to unauthorized modification of data that can lead to privilege escalation due to a missing capability check on the wpematico_import_settings function in all versions up to, and including, 2.8.24. This makes it possible for authenticated attackers, with subscriber-level access and above, to update arbitrary options on the WordPress site. This can be leveraged to update the default role for registration to administrator and enable user registration for attackers to gain administrative user access.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-30866",
-      "published": "2026-08-21T20:16:34.453",
-      "description": "Combodo iTop is a web based IT service management tool. Prior to 3.2.3, unauthenticated users can access uploaded sensitive via sniffed url. This issue has been fixed in version 3.2.3.",
+      "id": "CVE-2026-76789",
+      "published": "2026-08-22T06:16:16.643",
+      "description": "The Slider Hero with Video Background, Animation WordPress plugin before 9.1.3 does not have authorisation and nonce checks on two of its request handlers, and does not escape a stored setting before outputting it, allowing unauthenticated users to store malicious JavaScript which will be executed in the context of an administrator viewing the Slider Hero with Video Background, Animation WordPress plugin before 9.1.3's admin area, as well as any visitor of a page embedding a slider.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-30819",
-      "published": "2026-08-21T20:16:34.313",
-      "description": "Combodo iTop is a web based IT service management tool. Prior to 3.2.3, iTop has a reflected Cross-Site Scripting (XSS) vulnerability in its dashboard revert functionality with the parameter dashboard_id in /pages/ajax.render.php. This issue has been fixed in version 3.2.3.",
+      "id": "CVE-2026-18052",
+      "published": "2026-08-22T06:16:15.647",
+      "description": "The ManageWP Worker WordPress plugin before 4.9.37 does not bind the account being logged in to the signature which authorises the login, nor prevent an already used login link from being replayed, allowing attackers who obtain such a link to gain a session as any user on the site, including an administrator.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-77795",
-      "published": "2026-08-21T19:17:51.393",
-      "description": "A vulnerability was identified in Dromara RuoYi-Vue-Plus up to 5.6.2. This issue affects the function FlwInstanceController/FlwDefinitionController/FlwCategoryController/FlwSpelController/TestLeaveController of the component Workflow Endpoint. Such manipulation leads to improper authorization. The attack can be launched remotely.",
+      "id": "CVE-2026-76793",
+      "published": "2026-08-22T06:16:16.900",
+      "description": "The Firebase Authentication WordPress plugin before 1.7.1 does not require the email address in an authentication token to be verified before matching it to a WordPress account and issuing a session, allowing unauthenticated attackers to log in as any user, including administrators.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-77945",
+      "published": "2026-08-22T11:16:53.243",
+      "description": "A vulnerability was found in TRENDnet TEW-821DAP 2.2.01b05. Affected is an unknown function of the file /cgi-bin/upload.cgi of the component ssi. Performing a manipulation of the argument filename results in command injection. The attack may be initiated remotely. The exploit has been made public and could be used.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-19221",
+      "published": "2026-08-22T06:16:16.130",
+      "description": "The Forminator Forms  WordPress plugin before 1.57.0.5 does not restrict a network-wide setting to network administrators, allowing an administrator of any single site on a multisite network to execute arbitrary code across the entire network.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-16260",
+      "published": "2026-08-22T06:16:14.833",
+      "description": "The Post Grid, Slider & Carousel Ultimate  WordPress plugin before 1.8.1 does not sanitise and escape one of its custom post type settings before outputting it in an HTML attribute on the admin edit screen, allowing users with the Contributor role and above to inject JavaScript that executes in the session of any administrator who opens the affected item.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-53762",
-      "published": "2026-08-21T19:17:02.570",
-      "description": "VeraCrypt provides disk encryption with strong security based on TrueCrypt. Prior to 1.26.29, non-default builds created with WOLFCRYPT=1 and WOLFCRYPT_BACKEND route SHA-256 and SHA-512 volume-header key derivation through derive_key_sha256 and derive_key_sha512 in src/Crypto/wolfCrypt.c, where the configured iterations value is discarded and wc_HKDF is used instead of PBKDF2-HMAC. Changing the PIM or iteration count therefore does not increase derivation cost, allowing an attacker with an affected container, disk image, or volume header to perform substantially cheaper offline password guesses. Official precompiled VeraCrypt binaries and normal distribution packages use the standard PBKDF2 backend and are not affected. Volumes created by an affected WOLFCRYPT=1 build require backup and recreation because corrected builds derive different keys. This issue is fixed in version 1.26.29.",
+      "id": "CVE-2026-19093",
+      "published": "2026-08-22T06:16:15.900",
+      "description": "The Tutor LMS  WordPress plugin before 4.0.6 does not validate a stored file path before using it to stream media, allowing users with the instructor role to read arbitrary files on the server, including files outside the web root.\n\nThe readable files include the WordPress configuration file, which exposes the database credentials and the authentication keys and salts, so authentication cookies can be forged.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-63004",
-      "published": "2026-08-21T19:17:30.550",
-      "description": "Unleash is an open-source feature management platform. Prior to 7.5.2, 7.6.5, and 8.0.2, the addon and integration subsystem passes the operator-controlled parameters.url value from src/lib/addons/webhook.ts and the Slack, Microsoft Teams, Datadog, and New Relic integrations to Addon.fetchRetry in src/lib/addons/addon.ts without restricting loopback, link-local, private, or cloud metadata addresses. An authenticated actor with the root CREATE_ADDON or UPDATE_ADDON permission can cause the server to send requests from inside its network boundary, use integration event status as a blind probing oracle, forward Authorization, customHeaders, or DD-API-KEY values to an attacker-observed host, and deliver the feature-event JSON body to internal services. This issue is fixed in versions 7.5.2, 7.6.5, and 8.0.2.",
+      "id": "CVE-2026-19222",
+      "published": "2026-08-22T06:16:16.383",
+      "description": "The Forminator Forms  WordPress plugin before 1.57.0.7 does not consistently enforce the role restriction it applies to registration forms, allowing users who are permitted to build forms to configure one that assigns the administrator role to any visitor who registers through it.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.6
     },
     {
-      "id": "CVE-2026-27463",
-      "published": "2026-08-21T20:16:34.017",
-      "description": "Combodo iTop is a web based IT service management tool. Prior to 3.2.3, the HTML title attribute of the logo in the login page contains the complete iTop version. This issue has been fixed in version 3.2.3.",
+      "id": "CVE-2026-75027",
+      "published": "2026-08-22T04:18:15.057",
+      "description": "The Themify Builder plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 7.8.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to modify the stored Themify Builder styling data (padding and margin properties) of arbitrary posts, including private and draft posts, by supplying an attacker-controlled post ID and JSON styling payload. The nonce required by the handler is automatically emitted to all frontend pages rendered by the builder via wp_localize_script, meaning any unauthenticated visitor can trivially retrieve a valid nonce from page source and satisfy the only access control in place.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-54681",
-      "published": "2026-08-21T19:17:03.457",
-      "description": "DiscordChatExporter saves Discord chat logs to a file. Prior to 2.47.2, the VisitEmojiAsync method in DiscordChatExporter.Core/Exporting/HtmlMarkdownVisitor.cs interpolates emoji.Name into the alt attribute and emoji.Code into the title attribute without HTML entity encoding. This affects HTML exports regardless of the markdown setting. Discord's current custom emoji name validation normally excludes attribute-breaking characters, but tampered offline input, a relaxed upstream validation rule, or another future metadata source can inject an HTML attribute and execute script when a user opens the export. This issue is fixed in version 2.47.2.",
+      "id": "CVE-2026-16612",
+      "published": "2026-08-22T06:16:15.130",
+      "description": "The FiboSearch  WordPress plugin before 1.34.1 does not consistently exclude password-protected products from its unauthenticated AJAX endpoints, allowing unauthenticated users to disclose and enumerate password-protected products and their metadata without entering the product password. Two endpoints are affected: the autocomplete search endpoint (dgwt_wcas_ajax_search) and the Details Panel endpoint (dgwt_wcas_result_details) when queried for taxonomy details.",
       "severity": "MEDIUM",
-      "score": 4.1
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-63466",
-      "published": "2026-08-21T19:17:32.117",
-      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, FeatureEventFormatterMd.format in src/lib/addons/feature-event-formatter-md.ts assigns Mustache.escape to an identity function before rendering action and path templates. Because Mustache.escape is process-wide, the assignment disables escaping for subsequent Mustache.render calls in email-service.ts, webhook.ts, datadog.ts, and new-relic.ts. An editor-level user can place Slack or Microsoft Teams link syntax in an unrestricted username, trigger a feature event, and inject an attacker-labeled link into a trusted outbound notification channel, while other Mustache sinks remain unescaped until restart. This issue is fixed in version 8.0.3.",
+      "id": "CVE-2026-16738",
+      "published": "2026-08-22T06:16:15.383",
+      "description": "The Conekta Payment Gateway WordPress plugin before 6.2.2 does not verify the authenticity of incoming payment gateway webhook notifications, nor bind the confirmed payment to the targeted order or verify its amount, allowing unauthenticated attackers to mark arbitrary orders as paid without payment.",
       "severity": "MEDIUM",
-      "score": 4.1
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-35163",
-      "published": "2026-08-21T19:17:01.170",
-      "description": "OctoPrint provides a web interface for controlling consumer 3D printers. Prior to 1.11.8 and 2.0.0rc3, Suppressed Command notification popups use PNotify rendering for printer-controlled payload.command and payload.message values in src/octoprint/static/js/app/viewmodels/terminal.js without HTML escaping. An attacker who convinces a victim to print a crafted file can inject HTML and JavaScript into the notification, disrupt prints, read information available to the victim including sensitive settings when permitted, or perform actions in the victim's OctoPrint session. This issue is fixed in versions 1.11.8 and 2.0.0rc3.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-76057",
+      "published": "2026-08-22T04:18:17.367",
+      "description": "The AutomatorWP – Automator plugin for no-code automations, webhooks & custom integrations in WordPress plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 5.8.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to retrieve all ConvertKit form data configured by the site's manager account, exposing integration details intended to be restricted to plugin managers. The required nonce is localized on every admin page load, making it accessible to any authenticated user who can reach /wp-admin.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-54073",
-      "published": "2026-08-21T19:17:02.870",
-      "description": "VeraCrypt provides disk encryption with strong security based on TrueCrypt. From 1.26.6 until 1.26.29, file-hosted hidden volume creation forces quick format and the FormatNoFs function in src/Common/Format.c and FormatFat function in src/Common/Fat.c use WriteFile to place raw zeroed sectors at predictable 128 MiB intervals. These writes bypass the normal EncryptDataUnits formatting path, leaving deterministic plaintext markers in an area expected to resemble random ciphertext. The markers can weaken plausible deniability during forensic inspection, although they do not disclose hidden-volume content or reduce the strength of VeraCrypt encryption. This issue is fixed in version 1.26.29.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-76074",
+      "published": "2026-08-22T04:18:17.990",
+      "description": "The AutomatorWP – Automator plugin for no-code automations, webhooks & custom integrations in WordPress plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 5.8.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to retrieve the site's configured Campaign Monitor mailing list catalog, including all list IDs and names, that should be restricted to users with the plugin's manager capability. The required nonce is emitted unconditionally on every WordPress admin page via wp_localize_script, meaning any subscriber visiting /wp-admin/profile.php can obtain it without any elevated access.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-54134",
-      "published": "2026-08-21T19:17:03.197",
-      "description": "OctoPrint provides a web interface for controlling consumer 3D printers. Prior to 1.11.8 and 2.0.0rc3, OctoPrint's custom Tornado upload handler and Flask with Werkzeug parse request parameters differently, allowing an attacker with FILE_UPLOAD permission to inject reserved internal upload fields through query parameters or parser differentials despite the earlier GHSA-m9jh-jf9h-x3h2 fix. The affected endpoints are /api/files/{local|sdcard}, /api/languages, /plugin/backup/restore, and /plugin/pluginmanager/upload_file. An attacker can make OctoPrint treat an arbitrary host file as a temporary upload, move it into a downloadable upload directory, disclose configuration secrets or other readable files, and remove runtime files in a way that can affect a later restart. This issue is fixed in versions 1.11.8 and 2.0.0rc3.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-14187",
+      "published": "2026-08-22T06:16:11.597",
+      "description": "The Tutor LMS  WordPress plugin before 4.0.6 does not enforce per-object ownership checks on its course content type, allowing any user with the instructor role to read the content of private courses belonging to other instructors.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-55850",
-      "published": "2026-08-21T19:17:04.230",
-      "description": "Element Web is a Matrix web client built using the Matrix React SDK. Prior to 1.12.22, EmbeddedPage in apps/web/src/components/structures/EmbeddedPage.tsx renders homeserver-supplied homepage content through dangerouslySetInnerHTML without passing it through sanitizedHtmlNode. A malicious homeserver can provide crafted HTML that Element Web renders on the homepage; the content security policy prevents JavaScript but not phishing HTML. This issue is fixed in version 1.12.22.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-56875",
-      "published": "2026-08-21T19:17:04.723",
-      "description": "Rejected reason: reserved but not needed",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-50288",
-      "published": "2026-08-21T20:16:36.067",
-      "description": "SpecifyJS is a declarative TypeScript user interface framework. Prior to version 0.2.136, when `new URL()` throws a parse error, the `assertSecureUrl` function returned without throwing, silently allowing the request to proceed without HTTPS validation. Starting in version 0.2.136, the catch block now throws an error instead of silently returning.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-50290",
-      "published": "2026-08-21T20:16:36.220",
-      "description": "SpecifyJS is a declarative TypeScript user interface framework. Prior to version 0.2.136, CSS value sanitization stripped `expression(` and `url(javascript:` using simple regex, but could be bypassed with CSS unicode escapes (`\\65xpression(`), null bytes, or CSS comments (`exp/**/ression(`). These CSS injection vectors only work in legacy browsers (IE6-IE10). SpecifyJS targets modern browsers. Starting in version 0.2.136, CSS sanitization now normalizes unicode escapes and strips CSS comments before pattern matching. Also checks for `behavior:`, `-moz-binding`, and `-o-link` patterns.",
+      "id": "CVE-2026-12710",
+      "published": "2026-08-22T09:16:53.340",
+      "description": "A Missing Authorization vulnerability in the QueryEngineTask of Google Cloud Application Integration (versions from 2025-04-28 to 2026-04-04) allows an external attacker to access sensitive internal data.\n\n\n\n\nThe issue was patched on April 4, 2026; no customer action is required.",
       "severity": "UNKNOWN",
       "score": null
     }
