@@ -1,143 +1,143 @@
 {
-  "totalResults": 2880,
+  "totalResults": 2716,
   "items": [
     {
-      "id": "CVE-2026-68766",
-      "published": "2026-08-22T15:16:20.633",
-      "description": "hashcat fails to restrict command-line options when parsing restore files, allowing attackers to inject output-redirecting options like --outfile and --potfile-path. Attackers can craft restore files with malicious options to append attacker-controlled content to arbitrary files, enabling code execution when targeting shell startup files.",
+      "id": "CVE-2026-78050",
+      "published": "2026-08-23T00:16:50.590",
+      "description": "A vulnerability was found in Comfast CF-N1-S 2.6.0.1. The affected element is the function sub_41AD7C of the file /cgi-bin/mbox-config?method=SET&section=ntp_timezone of the component Web Management. The manipulation of the argument timestr/ntp_client_enabled results in stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-0551",
+      "published": "2026-08-23T00:16:49.777",
+      "description": "The PPWP – Password Protect Pages plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.9.18 via deserialization of untrusted input from the 'post_protection_roles' vulnerable parameter. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-16149",
+      "published": "2026-08-23T00:16:50.233",
+      "description": "The Security Hardener plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 2.4.4. The vulnerability exists because the plugin's user-enumeration protection, which is enabled by default, hooks the rest_endpoints filter via secure_user_endpoints() and overwrites every registered handler's permission_callback on both the /wp/v2/users and /wp/v2/users/(?P<id>[\\d]+) routes — including POST, PUT, PATCH, and DELETE handlers — with a bare closure that returns only is_user_logged_in(), completely stripping WordPress Core's original capability checks such as create_users, promote_user, edit_users, and delete_users that WP_REST_Users_Controller normally enforces. This makes it possible for authenticated attackers with Subscriber-level access and above to create new Administrator accounts by sending POST request to /wp/v2/users with administrator role, or to reset an existing Administrator's password by issuing a PUT/POST request to /wp/v2/users/<id>. Because the block_user_enum option defaults to enabled, no special plugin configuration is required — the overwrite is active on every request as soon as the plugin is installed.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-78136",
+      "published": "2026-08-23T01:17:20.143",
+      "description": "chirpmyradio CHIRP before 39178db allows eval injection via crafted CSV data. This occurs in _clean_tmode in drivers/kenwood_itm.py.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-62384",
-      "published": "2026-08-22T15:16:18.700",
-      "description": "NLTK versions before 3.10.2 contain a symlink-based sandbox bypass in FramenetCorpusReader that allows attackers to read arbitrary XML files outside the corpus root. Attackers can place symlinks with names containing no path separators inside the corpus subdirectory, which pass the path validation guard and are resolved to files outside the intended corpus root when accessed via frame_by_name(), _lu_file(), or doc() methods.",
+      "id": "CVE-2026-47895",
+      "published": "2026-08-22T22:16:28.153",
+      "description": "In strongSwan before 6.0.7, identity parsing/cloning is mishandled. Parsed EAP-Identities that result in an empty but non-NULL encoding are not correctly cloned and trigger a double-free once the duplicates are destroyed.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-62388",
-      "published": "2026-08-22T15:16:18.967",
-      "description": "NLTK versions before 3.10.0 default to ENFORCE=False in pathsec.py, causing all security validation functions to emit warnings instead of raising exceptions. Attackers can bypass path traversal and pickle deserialization protections by exploiting the disabled security controls that are only active when manually enabled.",
+      "id": "CVE-2026-78122",
+      "published": "2026-08-22T23:16:22.923",
+      "description": "docker-socket-proxy fails to properly gate read endpoints in the /containers Docker API namespace when the CONTAINERS environment variable is set. Attackers can use GET requests to /containers/{id}/archive, /containers/{id}/export, /containers/{id}/logs, and /containers/{id}/top to read arbitrary files and download entire container filesystems as tar archives.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-63312",
-      "published": "2026-08-22T15:16:19.367",
-      "description": "NLTK before 3.10.0 contains an arbitrary local file read vulnerability in StreamBackedCorpusView that bypasses pathsec.ENFORCE by calling builtins.open() directly instead of pathsec.open(). Attackers who control the fileid argument can read arbitrary local files regardless of the ENFORCE setting, including sensitive system files and application credentials.",
+      "id": "CVE-2026-78062",
+      "published": "2026-08-23T05:16:52.137",
+      "description": "A vulnerability was identified in vas3k TaxHacker up to 0.8.2. The affected element is the function envSchema.parse of the file lib/config.ts of the component JWT Secret Handler. The manipulation of the argument BETTER_AUTH_SECRET leads to hard-coded credentials. The attack can be initiated remotely. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-66393",
-      "published": "2026-08-22T15:16:19.633",
-      "description": "NLTK versions before 3.9.4 contain an unbounded recursion vulnerability in JSONTaggedDecoder.decode_obj() that allows attackers to cause denial of service by supplying deeply nested JSON structures. Attackers can craft JSON payloads exceeding the recursion limit to trigger an unhandled RecursionError that crashes the Python process.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-63310",
-      "published": "2026-08-22T15:16:19.100",
-      "description": "NLTK before 3.9.3 fails to verify file integrity after downloading packages and before extraction in the downloader module. Attackers can perform man-in-the-middle attacks or DNS poisoning to inject malicious package contents that are extracted without validation.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-74584",
-      "published": "2026-08-22T15:16:21.230",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/bnxt_re: zero shared page before exposing to userspace\n\nbnxt_re_alloc_ucontext() allocates uctx->shpg via\n__get_free_page(GFP_KERNEL). The buddy allocator does not zero pages\nwithout __GFP_ZERO, so the page contains stale kernel data from\nwhatever object most recently freed it.\n\nThe page is then mapped into userspace via vm_insert_page() under\nBNXT_RE_MMAP_SH_PAGE in bnxt_re_mmap(). The driver only ever writes\n4 bytes (a u32 AVID) at offset BNXT_RE_AVID_OFFT (0x10) inside\nbnxt_re_create_ah(); the remaining 4092 bytes of the page are exposed\nto userspace unsanitised, leaking kernel memory contents.\n\nAny user with access to /dev/infiniband/uverbsX on a host with a\nbnxt_re device (typically rdma group membership) can read this data\nvia a single mmap() at pgoff 0 after IB_USER_VERBS_CMD_GET_CONTEXT.\n\nOther shared pages in the same file already use get_zeroed_page()\ncorrectly:\n\n  drivers/infiniband/hw/bnxt_re/ib_verbs.c\n      srq->uctx_srq_page = (void *)get_zeroed_page(GFP_KERNEL);\n      cq->uctx_cq_page  = (void *)get_zeroed_page(GFP_KERNEL);\n\nuctx->shpg is the only outlier. Bring it in line with the existing\nconvention by switching to get_zeroed_page().",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-65915",
-      "published": "2026-08-22T15:16:19.500",
-      "description": "NLTK versions before 3.10.0 contain a logic bug in FileSystemPathPointer.open() where the sandbox validation check compares a normalized path against itself, making the security check permanently inert. Attackers can pass file:// URLs to nltk.data.load() to read arbitrary files accessible to the process user, including credentials and configuration files.",
+      "id": "CVE-2026-18027",
+      "published": "2026-08-23T00:16:50.370",
+      "description": "The WebToffee WooCommerce PDF Invoices, Packing Slips, Delivery Notes & Shipping Labels plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.9.8 via the get_image_src_in_base64 function. This makes it possible for authenticated attackers, with subscriber-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. The base64-encoded file contents are embedded into the cached invoice HTML and served directly to the attacker via the plugin's own Print/Download invoice endpoints, which require only a valid nonce and access key.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-70626",
-      "published": "2026-08-22T15:16:21.100",
-      "description": "NLTK versions before 3.9.4 contain a symlink escape vulnerability in CorpusReader.open() that allows local attackers to read arbitrary files outside the corpus root. The vulnerability exists because path validation is lexical and does not account for symlink resolution, enabling attackers to place symlinks inside the corpus root to access files outside the intended boundary.",
+      "id": "CVE-2026-78056",
+      "published": "2026-08-23T03:16:59.777",
+      "description": "A vulnerability was detected in sambitraj Student-Management-System up to 56ba287f2e9031523ccb4244cb6e3fe530e4e5d5. Affected by this issue is some unknown functionality of the component Dashboard. The manipulation of the argument roll_no/teacher_name results in sql injection. The attack can be executed remotely. The exploit is now public and may be used. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-68767",
-      "published": "2026-08-22T15:16:20.770",
-      "description": "hashcat's fgetl() function in src/filehandling.c writes a null terminator one byte past the caller's buffer when an input line is exactly the buffer length. Attackers can trigger this out-of-bounds heap write by providing a hash file, potfile, or wordlist containing a line of exactly HCBUFSIZ_LARGE bytes.",
+      "id": "CVE-2026-78057",
+      "published": "2026-08-23T03:16:59.977",
+      "description": "A flaw has been found in sambitraj Student-Management-System up to 56ba287f2e9031523ccb4244cb6e3fe530e4e5d5. This affects an unknown part of the component Management Mutation Handler. This manipulation of the argument roll_no/name/father_name/class/mobile/email/password/remark causes sql injection. The attack is possible to be carried out remotely. The exploit has been published and may be used. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-68768",
-      "published": "2026-08-22T15:16:20.903",
-      "description": "hashcat contains a heap-based buffer overflow (out-of-bounds write) in the outfile_write() function in src/outfile.c. When assembling output into a fixed-size buffer (HCBUFSIZ_LARGE, ~16 MB), the function sequentially appends the username, separator, hash, and plaintext via memcpy without validating that the accumulated length stays within the buffer capacity. When run with --username --show against a crafted hash file containing an oversized username that nearly fills the buffer, the total assembled output exceeds the buffer, causing a heap buffer overflow that can corrupt memory and crash the process.",
+      "id": "CVE-2026-78061",
+      "published": "2026-08-23T04:17:09.573",
+      "description": "A vulnerability was determined in vas3k TaxHacker up to 0.8.2. Impacted is the function buildImapConfig of the file lib/email-sync/imap-client.ts of the component Email Sync. Executing a manipulation of the argument host/port can lead to server-side request forgery. It is possible to launch the attack remotely. The pull request to fix this issue awaits acceptance.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-62385",
-      "published": "2026-08-22T15:16:18.833",
-      "description": "NLTK versions before 3.10.0 contain a path traversal vulnerability in FramenetCorpusReader and NKJPCorpusReader that allows attackers to parse XML files outside the corpus root by supplying unsafe selectors or poisoned index state. Attackers can exploit frame_by_name, doc, lu, and header methods with crafted parameters to read arbitrary XML files accessible to the application.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-62383",
-      "published": "2026-08-22T15:16:17.883",
-      "description": "nltk versions before 3.10.2 contain a symlink-based arbitrary file read vulnerability in IPIPANCorpusReader methods that bypass nltk.pathsec validation entirely. Attackers can place a symlink in the corpus root directory and read arbitrary files accessible to the process by calling channels(), domains(), categories(), or fileids() methods with the symlink filename.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-63311",
-      "published": "2026-08-22T15:16:19.233",
-      "description": "NLTK before 3.10.0 (affected versions <= 3.9.4) contains a server-side request forgery (SSRF) vulnerability in the validate_network_url() function in nltk/pathsec.py. The _resolve_hostname() helper catches OSError and ValueError during socket.getaddrinfo() and returns an empty list; when DNS resolution fails, the validation loop executes no IP checks and the function fails open, allowing urlopen() to proceed without validation. An attacker who can trigger DNS resolution failures or use DNS rebinding can bypass SSRF protections and reach restricted network resources, including cloud metadata endpoints (e.g., 169.254.169.254).",
+      "id": "CVE-2026-12999",
+      "published": "2026-08-22T21:16:48.747",
+      "description": "The Infineon Airoc Wi-Fi driver's transmit callback airoc_mgmt_send() in drivers/wifi/infineon/airoc_wifi.c allocates a net_buf from the fixed airoc_pool for every outbound packet. When whd_network_send_ethernet_data() returns a synchronous failure, the underlying WHD library does not take ownership of the buffer, but the pre-fix driver returned -EIO without releasing it. Each failed transmit therefore permanently leaks one buffer from the pool.\n\nairoc_pool is small and fixed (AIROC_WIFI_TX_PACKET_POOL_COUNT + AIROC_WIFI_RX_PACKET_POOL_COUNT, default 20 buffers) and is shared by WHD's whd_host_buffer_get callback for both transmit and receive. Once enough send failures have leaked the pool dry, airoc_wifi_host_buffer_get() returns WHD_BUFFER_ALLOC_FAIL for all subsequent allocations, so both transmit and the WHD-driven receive path fail and Wi-Fi connectivity is lost until the device is rebooted.\n\nThe leak occurs only on the transmit error path. A Wi-Fi-adjacent attacker can influence the conditions that cause synchronous send failures (for example by deauthenticating/disassociating the station while the local stack continues to attempt transmits), and ordinary transient failures over the device's lifetime accumulate toward the same state. Reliable on-demand triggering is of high complexity and the impact is availability-only, but the resulting denial of service is permanent and non-recoverable without a reboot.\n\nThe fix releases the buffer with airoc_wifi_buffer_release() on the failure branch, returning it to the pool. The commit also removes a redundant k_sem_give() in airoc_mgmt_disconnect(); because data->sema_common is a binary semaphore (limit 1) the duplicate give merely saturated at 1 and had no security impact.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-6258",
-      "published": "2026-08-22T15:16:21.033",
+      "id": "CVE-2026-78051",
+      "published": "2026-08-23T00:16:50.763",
+      "description": "A vulnerability was determined in alexta69 MeTube up to 2026.06.10. The impacted element is an unknown function of the file /download/.metube/cookies.txt of the component Cookie File Handler. This manipulation causes files or directories accessible. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 2026.06.20 is sufficient to resolve this issue. Patch name: ce897ee00903bf7ded406f0d7852d95dd4164add. You should upgrade the affected component.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-78054",
+      "published": "2026-08-23T01:17:19.963",
+      "description": "A weakness has been identified in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of the file /BSIS1.php. Executing a manipulation of the argument course can lead to cross site scripting. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-78055",
+      "published": "2026-08-23T02:17:00.243",
+      "description": "A security vulnerability has been detected in SourceCodester Class and Exam Timetabling System 1.0. Affected by this vulnerability is an unknown functionality of the file /BSIT2.php. The manipulation of the argument course leads to cross site scripting. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-78059",
+      "published": "2026-08-23T04:16:54.387",
+      "description": "A vulnerability has been found in SourceCodester Stock Management System 1.0. This vulnerability affects unknown code of the file /php_action/printOrder.php. Such manipulation of the argument clientName/clientContact leads to cross site scripting. The attack may be performed from remote. The exploit has been disclosed to the public and may be used.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-78060",
+      "published": "2026-08-23T04:17:08.610",
+      "description": "A vulnerability was found in SourceCodester Stock Management System 1.0. This issue affects some unknown processing of the file /php_action/getOrderReport.php. Performing a manipulation of the argument clientName/clientContact results in cross site scripting. It is possible to initiate the attack remotely. The exploit has been made public and could be used.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-78049",
+      "published": "2026-08-22T23:16:22.723",
+      "description": "A vulnerability has been found in Systerel S2OPC up to 1.7.3. Impacted is the function SOPC_NodeMgtHelperInternal_AddVariableNodeAttributes of the file src/ClientServer/address_space/internal/sopc_node_mgt_helper_internal.c of the component AddNodes Service. The manipulation of the argument UserAccessLevel leads to out-of-bounds read. It is possible to initiate the attack remotely. A high degree of complexity is needed for the attack. The exploitability is considered difficult. The exploit has been disclosed to the public and may be used. The identifier of the patch is aafbd37d381b618312ebdf5ddf57027f62c14fdd. It is suggested to install a patch to address this issue.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-19684",
+      "published": "2026-08-22T23:16:22.130",
       "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-76571",
-      "published": "2026-08-22T15:16:21.383",
-      "description": "Joomla Extension - fabrikar.com - Unauthenticated SQL injection in list filter condition parameter in Fabrik < 4.7.2 - The condition parameter passed to a list filter is concatenated verbatim into the WHERE clause built by getFilterQuery(). An unauthenticated attacker can supply arbitrary SQL through the filter condition, giving full read of the database.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76596",
-      "published": "2026-08-22T15:16:21.500",
-      "description": "Joomla Extension - fabrikar.com - Unauthenticated table truncation via list.doempty in Fabrik < 4.7.2- The list controllers doemtpy endpoints lacks ACL gates, a plain GET empties the target list's table",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76597",
-      "published": "2026-08-22T15:16:21.620",
-      "description": "Joomla Extension - fabrikar.com - Unauthenticated arbitrary file upload to web root via list email plugin in Fabrik < 4.7.2 - The list email plugin controller allows to upload non-executable files to the webroot.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76598",
-      "published": "2026-08-22T15:16:21.733",
-      "description": "Joomla Extension - fabrikar.com - Unauthenticated arbitrary directory listing via onAjax_getFolders in Fabrik < 4.7.2 - The onAjax_getFolders method of the elements model allows arbitrary directory listings.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76599",
-      "published": "2026-08-22T15:16:21.857",
-      "description": "Joomla Extension - fabrikar.com - Unauthenticated database table list and table-prefix disclosure in Fabrik < 4.7.2 - The ajax_tables method of the elements model allows listings of arbitrary database tables including columns.",
+      "id": "CVE-2026-5723",
+      "published": "2026-08-23T00:16:50.523",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     }
