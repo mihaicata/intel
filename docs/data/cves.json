@@ -1,47 +1,12 @@
 {
-  "totalResults": 2732,
+  "totalResults": 2754,
   "items": [
-    {
-      "id": "CVE-2026-5388",
-      "published": "2026-08-23T14:16:53.470",
-      "description": "justhtml before 1.15.0 contains multiple security issues in URL sanitization helpers (clean_url_value/clean_url_in_js_string), HTML serialization, Markdown passthrough (html_passthrough=True), and several custom sanitization-policy edge cases. Depending on configuration, an attacker can bypass sanitization to inject active HTML and JavaScript — for example via encoded javascript: URLs, backslash-based relative URLs resolved as remote hosts, markup-breaking programmatic element/attribute names or HTML comments, raw </textarea> reintroduction through Markdown passthrough, or preserved <style>/<meta http-equiv=refresh>/<base href> tags in custom policies. Most custom-policy issues do not affect the default sanitize=True configuration; they primarily affect helper APIs, programmatic DOM construction, html_passthrough=True, and custom policies/transform pipelines.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-7808",
-      "published": "2026-08-23T14:16:54.810",
-      "description": "justhtml before 1.16.0 contains multiple HTML sanitization bypass issues that can allow active/dangerous content (e.g., script or style) to survive sanitization, potentially leading to cross-site scripting. The issues primarily affect advanced usage rather than the default JustHTML(..., sanitize=True) path for ordinary parsed HTML: mutating or reusing sanitization policy objects (including exported defaults) could weaken later sanitization; programmatic DOM input to sanitize()/sanitize_dom() could miss mixed-case tag names (e.g., ScRiPt, StYlE); crafted programmatic doctype names could serialize into active markup; and custom policies preserving SVG or MathML could allow animation elements, presentation attributes with external url(...) references, or DOM trees mislabeled as namespace=\"html\" to bypass foreign-content checks. Fixed in 1.16.0.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-8445",
-      "published": "2026-08-23T14:16:54.957",
-      "description": "justhtml versions <= 1.11.0 (fixed in 1.12.0) do not sufficiently escape HTML-significant characters (angle brackets) in text nodes when converting a parsed document to Markdown via to_markdown(). While a small set of Markdown metacharacters are escaped, characters such as < and > are preserved, so untrusted input that is safe in to_html() — including entity-decoded text (e.g. &lt;script&gt;) or text from RCDATA/RAWTEXT-parsed elements like <title>, <textarea>, <noscript>, and <plaintext> — can be emitted as raw HTML in the Markdown output, enabling a sanitizer bypass and potential cross-site scripting when that output is rendered.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-78183",
       "published": "2026-08-23T20:16:50.550",
       "description": "DBD::Pg version 3.21.0 for Perl has a heap out-of-bounds write in quote_float.\n\nquote_float() allocates the length of the string + 1, which is the size of the bare numeric symbol plus NULL.  But for special literals NaN, Inf, +Inf, -Inf, Infinity, +Infinity, -Infinity it emits the literal surrounded by quotes plus NULL, which is length + 3 bytes. Every recognised literal (case-insensitive) overflows by 2 bytes, a single quote and a NULL.\n\nThis can be reached by the $dbh->quote method, for example\n\n    $dbh->quote( \"Infinity\", DBI::SQL_NUMERIC ).\n\nThis regression was introduced in 3.21.0 by the quote.c rewrite.",
       "severity": "CRITICAL",
       "score": 9.8
-    },
-    {
-      "id": "CVE-2026-4671",
-      "published": "2026-08-23T14:16:53.293",
-      "description": "justhtml before 1.18.0 contains multiple low-severity denial-of-service issues in CSS selector handling and linkification. Applications that evaluate attacker-controlled selector strings (via query(), matches(), or selector-based transforms), run selector matching over very large untrusted documents, construct DOM trees from untrusted structure, or enable linkification over attacker-controlled text may consume disproportionate CPU or memory. Triggers include oversized selectors, large selector lists, oversized compound selectors, long combinator chains, deeply nested functional pseudo-classes, repeated token/positional matching, cyclic DOM graphs causing non-terminating traversal, and punctuation-heavy or trailing-bracket linkification input. These are availability-only concerns and do not by themselves allow script execution, data disclosure, or sanitizer bypass. Default JustHTML(sanitize=True) usage is not expected to be exposed, since selectors are normally supplied by application code.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-9769",
-      "published": "2026-08-23T14:16:55.277",
-      "description": "justhtml through 1.9.1 (fixed in 1.10.0) is vulnerable to uncontrolled recursion leading to denial of service. During JustHTML() construction, TreeBuilder.finish() unconditionally calls _populate_selectedcontent(), which recursively traverses the DOM tree via _find_elements()/_find_element() without a depth bound. An attacker who can supply HTML for parsing can provide deeply nested elements (e.g., ~1000 nested <div> tags, roughly 11 KB) to exceed CPython's default recursion limit and trigger an unhandled RecursionError, which may abort parsing, fail requests, or terminate a worker/process depending on the host application's exception handling.",
-      "severity": "HIGH",
-      "score": 7.5
     },
     {
       "id": "CVE-2026-78141",
@@ -51,11 +16,46 @@
       "score": 7.4
     },
     {
+      "id": "CVE-2026-78156",
+      "published": "2026-08-24T00:16:47.367",
+      "description": "A security vulnerability has been detected in Open5GS 2.8.0. Affected by this issue is the function hss_ogs_diam_s6a_air_cb of the file src/hss/hss-s6a-path.c of the component S6a Authentication-Information-Request Handler. Such manipulation of the argument Visited-PLMN-Id leads to heap-based buffer overflow. The attack may be performed from remote. The name of the patch is a9c82ee0b590d76a581b0580cb46b598984e2392. A patch should be applied to remediate this issue.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-78157",
+      "published": "2026-08-24T01:16:56.817",
+      "description": "A vulnerability was detected in Open5GS 2.8.0. This affects the function pcrf_rx_aar_cb of the file src/pcrf/pcrf-rx-path.c of the component Rx AA-Request Handler. Performing a manipulation results in out-of-bounds read. It is possible to initiate the attack remotely. The patch is named c18dc6938bf63cc7374315d3dca303d92066e746. To fix this issue, it is recommended to deploy a patch.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
       "id": "CVE-2026-78143",
       "published": "2026-08-23T23:16:44.810",
       "description": "A vulnerability was determined in code-projects Barangay Resident Profiling Management System 1.0. Affected is an unknown function of the file residents.php of the component Resident Search Functionality. This manipulation of the argument Search causes sql injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
       "severity": "HIGH",
       "score": 7.3
+    },
+    {
+      "id": "CVE-2026-78147",
+      "published": "2026-08-23T23:16:46.243",
+      "description": "A vulnerability was found in ggml-org llama.cpp bec4772f6. The impacted element is the function deserialize_tensor of the file ggml/src/ggml-rpc/ggml-rpc.cpp of the component ggml-RPC Server. Performing a manipulation of the argument op/op_params results in deserialization. The attack may be initiated remotely. This vulnerability is distinct from CVE-2026-34159 (GHSA-j8rj-fmpv-wcxw, PR #20908), which only added a buffer==nullptr rejection in create_node() and does not validate op or op_params. The reported GitHub issue was closed automatically due to inactivity.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-78161",
+      "published": "2026-08-24T01:16:57.360",
+      "description": "A vulnerability was found in warmcat libwebsockets 4.5.0. Impacted is the function report_raw_cbor of the file lib/misc/lecp.c of the component LECP CBOR Recording. The manipulation results in out-of-bounds write. The attack can be launched remotely. The exploit has been made public and could be used. The patch is identified as 1d44554a1bb262db63ff4e240152a9deecd99054. It is best practice to apply a patch to resolve this issue.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-78203",
+      "published": "2026-08-24T01:16:57.530",
+      "description": "Ghostwriter before 7.1.2 fails to validate template ownership in the report template swap endpoint, allowing attackers to attach client-scoped templates from other clients to their own reports. Attackers can exploit sequential template primary keys to enumerate and attach foreign templates, then generate reports to disclose template contents including letterhead, boilerplate, and methodology text.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
       "id": "CVE-2026-78142",
@@ -72,51 +72,44 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-5389",
-      "published": "2026-08-23T14:16:53.647",
-      "description": "justhtml versions before 1.13.0 contain a cross-site scripting vulnerability in the to_markdown() function when serializing attacker-controlled pre content. Attackers can place backticks inside sanitized pre elements to break out of fixed-length code fences, allowing raw HTML to execute when the generated Markdown is rendered by CommonMark or GFM-style renderers.",
+      "id": "CVE-2026-78158",
+      "published": "2026-08-24T01:16:56.990",
+      "description": "A flaw has been found in Open5GS 2.8.0. This vulnerability affects unknown code of the component AMF UEContextReleaseRequest Path Handler. Executing a manipulation can lead to improper authorization. It is possible to launch the attack remotely.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-5751",
-      "published": "2026-08-23T14:16:53.807",
-      "description": "justhtml versions 1.13.0 and earlier contain a parser-differential / mutation cross-site scripting (mXSS) vulnerability when using a custom SanitizationPolicy that preserves foreign namespaces (e.g., drop_foreign_namespaces=False with allowlisted SVG/MathML elements or raw-text containers such as <style>). Specially crafted input can sanitize into markup that appears safe but becomes unsafe when re-parsed by a browser or another HTML parser, allowing markup injection. The default safe configuration (sanitize=True) is not affected. Fixed in 1.14.0.",
+      "id": "CVE-2026-78160",
+      "published": "2026-08-24T01:16:57.180",
+      "description": "A vulnerability has been found in Dolibarr ERP up to 18.0.10/22.0.5/23.0.3. This issue affects some unknown processing of the file /user/note.php of the component User Notes Handler. The manipulation of the argument ID leads to authorization bypass. The attack can be initiated remotely. Upgrading to version 23.0.4 and 24.0.0 is capable of addressing this issue. The identifier of the patch is 9b5229ef3a9b58d00252d327936b022fb739f149. Upgrading the affected component is advised.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-6827",
-      "published": "2026-08-23T14:16:53.963",
-      "description": "justhtml before 1.17.0 contains multiple security issues in sanitization, serialization, and programmatic DOM handling. When custom policies preserve foreign namespaces (SVG/MathML), dangerous content such as HTML integration points (SVG <foreignObject>, MathML <annotation-xml encoding=\"text/html\">) and mutation-XSS parser-differential payloads could survive sanitization and become active HTML after reparse; SVG filter=\"url(...)\" and preserved <style> could leave resource-loading CSS (@import, background-image:url()). Programmatic script/style/Comment nodes could serialize into active markup. Additional hardening fixes address sanitize-pipeline cache mutation and DOM parent/child cycles that could cause infinite loops. Most issues affect advanced or custom configurations rather than the default JustHTML(..., sanitize=True) safe path.",
+      "id": "CVE-2026-78205",
+      "published": "2026-08-24T01:16:57.823",
+      "description": "BentoML's outbound connection safeguard (make_safe_connect in _internal/utils/uri.py) blocks private, loopback, and link-local IP addresses but fails to reject the RFC 6598 shared address space (100.64.0.0/10, CGNAT). In versions 1.4.19 through 1.4.39, an unauthenticated attacker can supply URLs pointing to that range via multipart file handling (MultipartSerde.ensure_file) or JSON request parsing (JSONSerde.parse_request), causing the server to make outbound requests to internal hosts on CGNAT networks (Server-Side Request Forgery). This is an incomplete fix for CVE-2025-54381.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-74793",
-      "published": "2026-08-23T14:16:54.127",
-      "description": "justhtml before 3.11.0 contains a cross-site scripting vulnerability where the default sanitizer bypasses event handler removal in selectedcontent projections. Attackers can inject SVG or MathML elements with event handlers that are cloned and reinserted into output without sanitization, enabling stored or reflected XSS attacks.",
+      "id": "CVE-2026-78204",
+      "published": "2026-08-24T01:16:57.677",
+      "description": "Ghostwriter through 7.2.6 does not apply per-object authorization on its report template lint endpoints. RoleBasedAccessControlMixin.test_func returns only request.user.is_active unless a view overrides it, and neither the endpoint that lints a report template nor the endpoint that returns stored lint results provides an override, so each resolves a ReportTemplate from a caller-supplied primary key with no ownership or client-scope check. Any authenticated account can therefore lint an arbitrary template, which overwrites that template's stored lint result, and can read the returned findings, which enumerate the template's variable names and template-engine errors and so disclose its structure. This is distinct from the template swap path: that endpoint authorizes the report but omits the per-template check, whereas these endpoints omit authorization entirely and remain unfixed.",
       "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-77088",
-      "published": "2026-08-23T14:16:54.433",
-      "description": "justhtml versions 0.9.0 through 1.21.0 contain a cross-site scripting vulnerability in to_markdown() where inline code spans fail to account for blank lines as block boundaries. Attackers can inject blank lines into code or pre element text to break the inline span, causing sanitized HTML to be emitted unescaped and re-parsed as live Markdown by compliant renderers.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-8630",
-      "published": "2026-08-23T14:16:55.127",
-      "description": "justhtml before 1.12.0 (versions <= 1.11.0) contains a mutation cross-site scripting (mXSS) vulnerability in the serialization of raw-text elements such as <style> and <script>. When a DOM tree is processed by sanitize_dom() using a custom policy that keeps these elements, text nodes inside them are serialized literally without escaping, allowing attacker-controlled text containing the matching closing tag sequence to break out of the raw-text context and inject arbitrary HTML into the serialized output. The default sanitization policy is not affected because it drops the contents of style and script.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.4
     },
     {
       "id": "CVE-2026-75922",
       "published": "2026-08-23T19:16:28.930",
       "description": "Reverse::Proxy versions before 0.04 for Perl allow HTTP request smuggling via a percent-decoded PATH_INFO written unencoded to the upstream request line.\n\nPSGI hands PATH_INFO to an application percent-decoded, so a %XX sequence in the client URL has become a raw byte by the time the proxy sees it. The proxy appends that byte string to the upstream base URL, and for an Upgrade tunnel writes it into a request line it serializes itself, re-encoding nothing in either path. The HTTP client that sends the resulting URL does not validate the target either. A path containing %0d%0a therefore arrives at the upstream as a CRLF that ends the request line, and a decoded space, '?' or '#' truncates it the same way.\n\nEverything the client writes after the CRLF is read by the upstream as a second request. On the buffered path it arrives on a keep-alive connection the proxy pools and reuses for other clients. Its method, path and headers are all chosen by the client, and the upstream attributes it to the proxy, so it reaches upstream paths that the proxy's own routing does not expose.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-78148",
+      "published": "2026-08-24T00:16:46.293",
+      "description": "A vulnerability was determined in ggml-org llama.cpp bec4772f6. This affects the function rpc_server::graph_compute of the file ggml/src/ggml-rpc/ggml-rpc.cpp of the component ggml-RPC Server. Executing a manipulation can lead to null pointer dereference. The attack may be launched remotely. The pull request to fix this issue awaits acceptance.",
       "severity": "MEDIUM",
       "score": 5.3
     },
@@ -140,6 +133,13 @@
       "description": "Apache::AppSamurai::Util versions through 1.01 for Perl generate predictable session authentication keys from the clock and process id in CreateSessionAuthKey.\n\nCreateSessionAuthKey runs five rounds of SHA-256, each over a fresh Time::HiRes reading formatted to six decimal places, the running digest, and the process id. CreateSession calls it with an empty key source on every login, and the optional Keysource directive is the only route to the other branch. The result is 64 hex characters. The microsecond field of the first reading takes one of a million values, the later readings follow it within microseconds, and the process id is drawn from a small range.\n\nThe key is returned to the browser as the session cookie, and is combined with the configured server key to compute the session id and to encrypt the stored session data. An attacker who knows the second in which a session was created and the process id of the worker that created it can enumerate candidate keys and recover the victim's cookie, bypassing authentication for the protected resources. Each candidate has to be tried against the server, which validates the cookie with a key the attacker does not hold.",
       "severity": "LOW",
       "score": 3.7
+    },
+    {
+      "id": "CVE-2026-78154",
+      "published": "2026-08-24T00:16:47.200",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: This candidate was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: The endpoint is public on purpose and the invitation code is the credential. This is the standalone SDK onboarding path for mobile apps that have no backend of their own: a developer generates a code via the authenticated dashboard endpoint, the user types it into the app, and it's redeemed for SDK-scoped tokens.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
