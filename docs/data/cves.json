@@ -1,12 +1,40 @@
 {
-  "totalResults": 2772,
+  "totalResults": 2771,
   "items": [
+    {
+      "id": "CVE-2026-78167",
+      "published": "2026-08-24T02:17:04.300",
+      "description": "A weakness has been identified in EFM ipTIME T16000M 14.20.2. The impacted element is the function httpcon_check_session_url of the component Session Validation Handler. This manipulation causes improper authentication. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-78169",
+      "published": "2026-08-24T02:17:04.650",
+      "description": "A vulnerability was detected in UTT HiPER 1250GW up to 3.2.7-210907-180535. This impacts the function strcpy of the file /goform/aspRemoteApConfTempSend of the component HTTP Request Handler. Performing a manipulation of the argument Profile results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit is now public and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-78168",
+      "published": "2026-08-24T02:17:04.480",
+      "description": "A security vulnerability has been detected in EFM ipTIME T24000M up to 14.20.0. This affects the function httpcon_check_session_url of the component Session Validation Handler. Such manipulation leads to improper authentication. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
     {
       "id": "CVE-2026-78207",
       "published": "2026-08-24T01:16:58.137",
       "description": "exceljs through 4.4.0 contains a prototype pollution vulnerability in the deepMerge helper that fails to reject __proto__, constructor, or prototype keys when merging note objects. Attackers can assign parsed JSON with a malicious __proto__ property to cell notes, modifying Object.prototype and affecting all plain objects created in the process.",
       "severity": "CRITICAL",
       "score": 9.4
+    },
+    {
+      "id": "CVE-2026-78170",
+      "published": "2026-08-24T02:17:04.817",
+      "description": "A flaw has been found in UTT HiPER 1200GW up to 2.5.3-170306. Affected is the function strcpy of the file /goform/formConfigFastDirectionW. Executing a manipulation of the argument ssid can lead to buffer overflow. The attack may be performed from remote. The exploit has been published and may be used.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
       "id": "CVE-2026-78209",
@@ -30,13 +58,6 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-78141",
-      "published": "2026-08-23T22:16:32.667",
-      "description": "A vulnerability has been found in Tenda CH22 1.0.0.1. This affects the function formexeCommand of the file /goform/exeCommand. The manipulation of the argument cmdinput leads to command injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
       "id": "CVE-2026-78156",
       "published": "2026-08-24T00:16:47.367",
       "description": "A security vulnerability has been detected in Open5GS 2.8.0. Affected by this issue is the function hss_ogs_diam_s6a_air_cb of the file src/hss/hss-s6a-path.c of the component S6a Authentication-Information-Request Handler. Such manipulation of the argument Visited-PLMN-Id leads to heap-based buffer overflow. The attack may be performed from remote. The name of the patch is a9c82ee0b590d76a581b0580cb46b598984e2392. A patch should be applied to remediate this issue.",
@@ -51,23 +72,16 @@
       "score": 7.4
     },
     {
-      "id": "CVE-2026-78143",
-      "published": "2026-08-23T23:16:44.810",
-      "description": "A vulnerability was determined in code-projects Barangay Resident Profiling Management System 1.0. Affected is an unknown function of the file residents.php of the component Resident Search Functionality. This manipulation of the argument Search causes sql injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-78147",
-      "published": "2026-08-23T23:16:46.243",
-      "description": "A vulnerability was found in ggml-org llama.cpp bec4772f6. The impacted element is the function deserialize_tensor of the file ggml/src/ggml-rpc/ggml-rpc.cpp of the component ggml-RPC Server. Performing a manipulation of the argument op/op_params results in deserialization. The attack may be initiated remotely. This vulnerability is distinct from CVE-2026-34159 (GHSA-j8rj-fmpv-wcxw, PR #20908), which only added a buffer==nullptr rejection in create_node() and does not validate op or op_params. The reported GitHub issue was closed automatically due to inactivity.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
       "id": "CVE-2026-78161",
       "published": "2026-08-24T01:16:57.360",
       "description": "A vulnerability was found in warmcat libwebsockets 4.5.0. Impacted is the function report_raw_cbor of the file lib/misc/lecp.c of the component LECP CBOR Recording. The manipulation results in out-of-bounds write. The attack can be launched remotely. The exploit has been made public and could be used. The patch is identified as 1d44554a1bb262db63ff4e240152a9deecd99054. It is best practice to apply a patch to resolve this issue.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-78171",
+      "published": "2026-08-24T03:16:39.423",
+      "description": "A vulnerability has been found in itsourcecode Sales and Inventory System 1.0. Affected by this vulnerability is an unknown functionality of the file /pages/processlogin.php. The manipulation of the argument User leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "HIGH",
       "score": 7.3
     },
@@ -77,20 +91,6 @@
       "description": "Ghostwriter before 7.1.2 fails to validate template ownership in the report template swap endpoint, allowing attackers to attach client-scoped templates from other clients to their own reports. Attackers can exploit sequential template primary keys to enumerate and attach foreign templates, then generate reports to disclose template contents including letterhead, boilerplate, and methodology text.",
       "severity": "HIGH",
       "score": 7.1
-    },
-    {
-      "id": "CVE-2026-78142",
-      "published": "2026-08-23T22:16:32.903",
-      "description": "A vulnerability was found in code-projects Barangay Resident Profiling Management System 1.0. This impacts an unknown function of the file /archived_records.php of the component Restore/Delete. The manipulation of the argument resident_id results in authorization bypass. The attack may be launched remotely. The exploit has been made public and could be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-78144",
-      "published": "2026-08-23T23:16:45.870",
-      "description": "A vulnerability was identified in code-projects Barangay Resident Profiling Management System 1.0. Affected by this vulnerability is an unknown functionality of the file /boarders.php of the component Boarder Management Module. Such manipulation of the argument ID leads to authorization bypass. The attack can be executed remotely. The exploit is publicly available and might be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
     },
     {
       "id": "CVE-2026-78158",
@@ -103,6 +103,13 @@
       "id": "CVE-2026-78160",
       "published": "2026-08-24T01:16:57.180",
       "description": "A vulnerability has been found in Dolibarr ERP up to 18.0.10/22.0.5/23.0.3. This issue affects some unknown processing of the file /user/note.php of the component User Notes Handler. The manipulation of the argument ID leads to authorization bypass. The attack can be initiated remotely. Upgrading to version 23.0.4 and 24.0.0 is capable of addressing this issue. The identifier of the patch is 9b5229ef3a9b58d00252d327936b022fb739f149. Upgrading the affected component is advised.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-78166",
+      "published": "2026-08-24T02:17:04.120",
+      "description": "A security flaw has been discovered in provectus kafka-ui up to 0.7.2. The affected element is the function executeSmartFilterTest of the file kafka-ui-api/src/main/java/com/provectus/kafka/ui/controller/MessagesController.java of the component Groovy Code Handler. The manipulation results in code injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 6.3
     },
@@ -126,13 +133,6 @@
       "description": "A vulnerability was determined in ggml-org llama.cpp bec4772f6. This affects the function rpc_server::graph_compute of the file ggml/src/ggml-rpc/ggml-rpc.cpp of the component ggml-RPC Server. Executing a manipulation can lead to null pointer dereference. The attack may be launched remotely. The pull request to fix this issue awaits acceptance.",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-78145",
-      "published": "2026-08-23T23:16:46.043",
-      "description": "A vulnerability has been found in CTFd up to 3.8.4. The affected element is the function _is_safe_url of the file CTFd/utils/validators/__init__.py. Such manipulation of the argument Next leads to open redirect. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The name of the patch is 5d8515842fd1ab2c3a9f2dde9ffca907aa334ea9. Upgrading the affected component is recommended.",
-      "severity": "MEDIUM",
-      "score": 4.3
     },
     {
       "id": "CVE-2026-78154",
