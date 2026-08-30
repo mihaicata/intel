@@ -1,10 +1,10 @@
 {
-  "totalResults": 2718,
+  "totalResults": 2714,
   "items": [
     {
-      "id": "CVE-2026-78050",
-      "published": "2026-08-23T00:16:50.590",
-      "description": "A vulnerability was found in Comfast CF-N1-S 2.6.0.1. The affected element is the function sub_41AD7C of the file /cgi-bin/mbox-config?method=SET&section=ntp_timezone of the component Web Management. The manipulation of the argument timestr/ntp_client_enabled results in stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
+      "id": "CVE-2026-78155",
+      "published": "2026-08-23T10:16:28.757",
+      "description": "privilege escalation in StackGres operator allows a low-privilege tenant who owns a database to gain administrator privileges",
       "severity": "CRITICAL",
       "score": 9.9
     },
@@ -16,32 +16,25 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-0551",
-      "published": "2026-08-23T00:16:49.777",
-      "description": "The PPWP – Password Protect Pages plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.9.18 via deserialization of untrusted input from the 'post_protection_roles' vulnerable parameter. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-5388",
+      "published": "2026-08-23T14:16:53.470",
+      "description": "justhtml before 1.15.0 contains multiple security issues in URL sanitization helpers (clean_url_value/clean_url_in_js_string), HTML serialization, Markdown passthrough (html_passthrough=True), and several custom sanitization-policy edge cases. Depending on configuration, an attacker can bypass sanitization to inject active HTML and JavaScript — for example via encoded javascript: URLs, backslash-based relative URLs resolved as remote hosts, markup-breaking programmatic element/attribute names or HTML comments, raw </textarea> reintroduction through Markdown passthrough, or preserved <style>/<meta http-equiv=refresh>/<base href> tags in custom policies. Most custom-policy issues do not affect the default sanitize=True configuration; they primarily affect helper APIs, programmatic DOM construction, html_passthrough=True, and custom policies/transform pipelines.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-16149",
-      "published": "2026-08-23T00:16:50.233",
-      "description": "The Security Hardener plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 2.4.4. The vulnerability exists because the plugin's user-enumeration protection, which is enabled by default, hooks the rest_endpoints filter via secure_user_endpoints() and overwrites every registered handler's permission_callback on both the /wp/v2/users and /wp/v2/users/(?P<id>[\\d]+) routes — including POST, PUT, PATCH, and DELETE handlers — with a bare closure that returns only is_user_logged_in(), completely stripping WordPress Core's original capability checks such as create_users, promote_user, edit_users, and delete_users that WP_REST_Users_Controller normally enforces. This makes it possible for authenticated attackers with Subscriber-level access and above to create new Administrator accounts by sending POST request to /wp/v2/users with administrator role, or to reset an existing Administrator's password by issuing a PUT/POST request to /wp/v2/users/<id>. Because the block_user_enum option defaults to enabled, no special plugin configuration is required — the overwrite is active on every request as soon as the plugin is installed.",
+      "id": "CVE-2026-10053",
+      "published": "2026-08-23T10:16:27.140",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.8 before 19.0.6, 19.1 before 19.1.4, and 19.2 before 19.2.2 that under certain conditions could have allowed an authenticated user to achieve remote code execution due to a path traversal vulnerability in the package registry.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-78136",
-      "published": "2026-08-23T01:17:20.143",
-      "description": "chirpmyradio CHIRP before 39178db allows eval injection via crafted CSV data. This occurs in _clean_tmode in drivers/kenwood_itm.py.",
+      "id": "CVE-2026-4671",
+      "published": "2026-08-23T14:16:53.293",
+      "description": "justhtml before 1.18.0 contains multiple low-severity denial-of-service issues in CSS selector handling and linkification. Applications that evaluate attacker-controlled selector strings (via query(), matches(), or selector-based transforms), run selector matching over very large untrusted documents, construct DOM trees from untrusted structure, or enable linkification over attacker-controlled text may consume disproportionate CPU or memory. Triggers include oversized selectors, large selector lists, oversized compound selectors, long combinator chains, deeply nested functional pseudo-classes, repeated token/positional matching, cyclic DOM graphs causing non-terminating traversal, and punctuation-heavy or trailing-bracket linkification input. These are availability-only concerns and do not by themselves allow script execution, data disclosure, or sanitizer bypass. Default JustHTML(sanitize=True) usage is not expected to be exposed, since selectors are normally supplied by application code.",
       "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-78122",
-      "published": "2026-08-22T23:16:22.923",
-      "description": "docker-socket-proxy fails to properly gate read endpoints in the /containers Docker API namespace when the CONTAINERS environment variable is set. Attackers can use GET requests to /containers/{id}/archive, /containers/{id}/export, /containers/{id}/logs, and /containers/{id}/top to read arbitrary files and download entire container filesystems as tar archives.",
-      "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
       "id": "CVE-2026-78063",
@@ -58,11 +51,11 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-18027",
-      "published": "2026-08-23T00:16:50.370",
-      "description": "The WebToffee WooCommerce PDF Invoices, Packing Slips, Delivery Notes & Shipping Labels plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.9.8 via the get_image_src_in_base64 function. This makes it possible for authenticated attackers, with subscriber-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. The base64-encoded file contents are embedded into the cached invoice HTML and served directly to the attacker via the plugin's own Print/Download invoice endpoints, which require only a valid nonce and access key.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-77115",
+      "published": "2026-08-23T06:17:27.730",
+      "description": "Brave Popup Builder (brave-popup-builder) up to version 0.8.5 reflects UTM query parameters into popup form HTML without escaping them.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
       "id": "CVE-2026-78056",
@@ -86,18 +79,25 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-78051",
-      "published": "2026-08-23T00:16:50.763",
-      "description": "A vulnerability was determined in alexta69 MeTube up to 2026.06.10. The impacted element is an unknown function of the file /download/.metube/cookies.txt of the component Cookie File Handler. This manipulation causes files or directories accessible. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 2026.06.20 is sufficient to resolve this issue. Patch name: ce897ee00903bf7ded406f0d7852d95dd4164add. You should upgrade the affected component.",
+      "id": "CVE-2026-78112",
+      "published": "2026-08-23T10:16:28.333",
+      "description": "A flaw has been found in itsourcecode Hospital Management System Project in PHP 1.0. This impacts an unknown function of the file /viewservicetype.php. This manipulation of the argument delid causes sql injection. The attack may be initiated remotely. The exploit has been published and may be used.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-78054",
-      "published": "2026-08-23T01:17:19.963",
-      "description": "A weakness has been identified in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of the file /BSIS1.php. Executing a manipulation of the argument course can lead to cross site scripting. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "id": "CVE-2026-5389",
+      "published": "2026-08-23T14:16:53.647",
+      "description": "justhtml versions before 1.13.0 contain a cross-site scripting vulnerability in the to_markdown() function when serializing attacker-controlled pre content. Attackers can place backticks inside sanitized pre elements to break out of fixed-length code fences, allowing raw HTML to execute when the generated Markdown is rendered by CommonMark or GFM-style renderers.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-78115",
+      "published": "2026-08-23T10:16:28.573",
+      "description": "A vulnerability has been found in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of the file /admin/edit_user_account.php of the component User Account Update. Such manipulation of the argument id/username leads to improper authorization. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "severity": "MEDIUM",
+      "score": 5.4
     },
     {
       "id": "CVE-2026-78055",
@@ -121,25 +121,25 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-78049",
-      "published": "2026-08-22T23:16:22.723",
-      "description": "A vulnerability has been found in Systerel S2OPC up to 1.7.3. Impacted is the function SOPC_NodeMgtHelperInternal_AddVariableNodeAttributes of the file src/ClientServer/address_space/internal/sopc_node_mgt_helper_internal.c of the component AddNodes Service. The manipulation of the argument UserAccessLevel leads to out-of-bounds read. It is possible to initiate the attack remotely. A high degree of complexity is needed for the attack. The exploitability is considered difficult. The exploit has been disclosed to the public and may be used. The identifier of the patch is aafbd37d381b618312ebdf5ddf57027f62c14fdd. It is suggested to install a patch to address this issue.",
+      "id": "CVE-2026-14853",
+      "published": "2026-08-23T06:17:16.143",
+      "description": "The WooCommerce Bookings WordPress plugin before 3.9.0 does not perform a capability check on one of its AJAX actions, and its nonce check can be bypassed by omitting the token, allowing users with Subscriber-level access and above to create draft bookable products.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-77116",
+      "published": "2026-08-23T06:17:27.833",
+      "description": "Brave Popup Builder (slug: brave-popup-builder) has a broken access control issue in versions through 0.8.5. Any logged-in user - Subscriber or WooCommerce Customer is enough — can read popup content they shouldn't have access to by passing a post ID in the URL.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-77003",
+      "published": "2026-08-23T06:17:23.720",
+      "description": "The Content Mask WordPress plugin before 1.8.5.5 does not check the capability required to publish the post type being created, allowing users with a role as low as Contributor to publish posts and pages on the site without holding the publish capability.",
       "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-19684",
-      "published": "2026-08-22T23:16:22.130",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-5723",
-      "published": "2026-08-23T00:16:50.523",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 2.7
     }
   ]
 }
