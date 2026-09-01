@@ -1,10 +1,17 @@
 {
-  "totalResults": 2815,
+  "totalResults": 2810,
   "items": [
     {
       "id": "CVE-2026-56705",
       "published": "2026-08-25T02:16:42.330",
       "description": "Adminer before 5.4.3 fails to sanitize the server field before constructing a PDO DSN string, allowing unauthenticated attackers to inject ODBC parameters via semicolons. Attackers can inject TraceFile and TraceOn parameters to write PHP code to the web root, achieving remote code execution when the trace file is accessed.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-56710",
+      "published": "2026-08-25T02:16:43.073",
+      "description": "Grav Login plugin versions before 1.0.16 fail to validate the target account's privilege level in the onApiUserListRowAction unlock handler. An attacker with api.users.write permission can clear login lockout counters on admin.super accounts, removing brute-force protection from the highest-privilege accounts without requiring equivalent permissions.",
       "severity": "CRITICAL",
       "score": 9.8
     },
@@ -16,9 +23,23 @@
       "score": 8.8
     },
     {
+      "id": "CVE-2026-72696",
+      "published": "2026-08-25T02:16:45.253",
+      "description": "Grav CMS before 2.0.16 contains a symlink following vulnerability in Scheduler Job::createLockFile() that allows local attackers to overwrite arbitrary files by pre-creating symlinks at predictable lock file paths in the world-writable temp directory. Attackers can place a symlink at the predictable lock path pointing to any file the web server process can write to, and the next scheduled job run will follow the symlink and overwrite the target file's content with the job ID string.",
+      "severity": "HIGH",
+      "score": 8.4
+    },
+    {
       "id": "CVE-2026-34968",
       "published": "2026-08-25T02:16:40.843",
       "description": "Adminer before 5.4.3 contains an arbitrary file deletion vulnerability in SQLite mode where the database-list drop action fails to validate file extensions before deletion. An authenticated attacker can submit arbitrary relative file paths in the db[] parameter to delete any files writable by the PHP process.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-72695",
+      "published": "2026-08-25T02:16:45.097",
+      "description": "Grav before 2.0.16 contains a path traversal vulnerability in MediaUploadTrait::deleteFile() that allows authenticated users with media management permissions to delete arbitrary files by supplying filenames with directory traversal sequences. The method validates only the basename portion of the filename while preserving unvalidated directory paths containing ../ sequences that are passed to unlink(), enabling deletion of files outside the intended media storage directory.",
       "severity": "HIGH",
       "score": 8.1
     },
@@ -30,9 +51,9 @@
       "score": 7.7
     },
     {
-      "id": "CVE-2026-66766",
-      "published": "2026-08-25T01:16:37.230",
-      "description": "SAP S/4HANA (Private Cloud) uses a third-party component that contains a Regular Expression Denial of Service (ReDoS) vulnerability. An unauthenticated attacker could supply specially crafted input that triggers excessive processing within the affected functionality. Successful exploitation could exhaust system resources and make the service unavailable, resulting in a high impact on availability. There is no impact on confidentiality and integrity.",
+      "id": "CVE-2026-56709",
+      "published": "2026-08-25T02:16:42.930",
+      "description": "Grav before 3.9.2 fails to validate untrusted Host headers in the sendInvitationEmail() function when constructing token-bearing invitation links. Attackers can manipulate the Host header to poison invitation links and redirect users to attacker-controlled domains, bypassing the require_trusted_host protection which only covers password reset flows.",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -58,18 +79,11 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-55373",
-      "published": "2026-08-25T01:16:36.947",
-      "description": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. Versions prior to 3.2.10, 3.3.12, and 3.4.13 contain an infinite-loop vulnerability in SampleCountChannel. The helper roundListSizeUp() rounds a sample-list size up to the next power of two using repeated unsigned left shifts, which terminates for normal values but fails for UINT_MAX: the sequence reaches 0x80000000, and the next left shift wraps the 32-bit value to 0. Because 0 remains less than UINT_MAX, the loop never progresses and never exits. The bug is reachable through public OpenEXRUtil APIs, either by editing the sample-count buffer through SampleCountChannel::Edit (whose destructor calls endEdit()) or by calling SampleCountChannel::set(x, y, UINT_MAX) on a valid pixel. This issue has been fixed in versions 3.2.10, 3.3.12, and 3.4.13.",
+      "id": "CVE-2026-72697",
+      "published": "2026-08-25T02:16:45.407",
+      "description": "Grav CMS before 2.0.16 contains a path traversal vulnerability in the media_directory() Twig function that fails to validate filesystem paths, allowing authenticated users to enumerate and access files outside intended scope. Attackers with page authoring privileges can supply arbitrary filesystem paths to media_directory() and use the allow-listed filepath accessor on Medium objects to read file contents of any file matching configured media extensions that the web server process can access.",
       "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-55059",
-      "published": "2026-08-25T01:16:36.667",
-      "description": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. Versions prior to 3.2.10, 3.3.12 and 3.4.13 contain a heap out-of-bounds write in Imf_4_0::SampleCountChannel::set(int r, unsigned int newNumSamples[]). The row-based sample-count setter computes the target Y coordinate with dataWindow.min.x instead of dataWindow.min.y. For a valid deep image data window where min.x != min.y, a valid row index can be translated into an invalid Y coordinate, causing writes before the allocated _numSamples buffer. The vulnerability is reachable through the public OpenEXRUtil DeepImage API and can lead to heap corruption and process crashes. This issue has been fixed in versions 3.2.10, 3.3.12 and 3.4.13.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
       "id": "CVE-2026-56704",
@@ -86,18 +100,18 @@
       "score": 5.8
     },
     {
-      "id": "CVE-2026-59183",
-      "published": "2026-08-25T01:16:37.087",
-      "description": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions 3.1.0 through 3.2.10, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, an int32_t multiplication in OpenEXRCore's unpack_sample_table() can overflow while decoding a crafted deep tiled EXR file, producing an invalid pointer that leads to a read from an unmapped memory address and a crash. Because the overflow occurs in the standard decoding path (exr_decoding_run), any application that decodes deep tiled EXR files is affected. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
       "id": "CVE-2026-34967",
       "published": "2026-08-25T02:16:40.697",
       "description": "Adminer versions 5.3.0 through 5.4.2 with the sql-log plugin enabled contain an arbitrary file write vulnerability in the ns parameter of plugins/sql-log.php. An authenticated user can supply path traversal sequences in the ns parameter to write arbitrary .sql files with attacker-controlled content to any writable directory on the host.",
       "severity": "MEDIUM",
       "score": 5.4
+    },
+    {
+      "id": "CVE-2026-56708",
+      "published": "2026-08-25T02:16:42.783",
+      "description": "Grav API plugin before 1.0.16 contains a server-side request forgery vulnerability in webhook delivery that allows attackers to bypass hostname validation by DNS rebinding. Attackers controlling authoritative DNS for a configured webhook hostname can answer validation lookups with public addresses and delivery lookups with private addresses to reach internal network resources.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
       "id": "CVE-2026-34959",
@@ -119,20 +133,6 @@
       "description": "The BetterLinks – Link Shortener, Link Cloaking, Redirects, Affiliate Link Manager & MCP plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.1.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to create arbitrary BetterLinks short URLs with attacker-controlled slugs and redirect destinations, enabling phishing and SEO abuse. Exploitation requires the Fluent Boards companion plugin to be installed and active (so that the FLUENT_BOARDS constant is defined), and is further facilitated by the betterlinks_admin_nonce nonce being emitted on every frontend page via wp_localize_script, making it accessible to any authenticated user.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-54920",
-      "published": "2026-08-25T01:16:36.290",
-      "description": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions 3.4.0 through 3.4.12, a reachable assertion failure in the HTJ2K decode path allows a crafted HTJ2K-compressed EXR file to cause an unconditional process abort in any application that calls exr_start_read() on untrusted input, resulting in denial of service. The crash is triggered by a QCD marker whose lower five bits are zero, which OpenEXR passes into the vendored OpenJPH library while constructing the codestream and evaluating its quantization delta parameters. OpenJPH uses an assertion rather than a recoverable error to validate those bits, so any invalid value calls abort() directly and cannot be intercepted by surrounding error handling, a problem compounded by OpenEXR wrapping only its internal HT header parser in error handling while leaving the later codestream read and construction calls unprotected. This issue has been resolved in version 3.4.13.",
-      "severity": "NONE",
-      "score": 0
-    },
-    {
-      "id": "CVE-2026-55371",
-      "published": "2026-08-25T01:16:36.810",
-      "description": "OpenEXR is the reference implementation and specification for the EXR high-dynamic-range image file format, widely used in the motion picture industry. Versions 3.4.0 through 3.4.12 contain a NULL pointer dereference in the OpenEXRCore function exr_attr_set_bytes(). The public setter validates the top-level exr_attr_bytes_t value pointer but does not verify that the nested type_hint pointer is non-NULL when hint_length is greater than zero. When a caller supplies a positive hint_length together with a NULL type_hint, exr_attr_bytes_create() allocates a destination type-hint buffer and then copies from the NULL source pointer, causing a deterministic crash. The flaw is reachable through the public OpenEXRCore C API and results in a denial of service. The issue is fixed in version 3.4.13.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-16434",
