@@ -1,143 +1,143 @@
 {
-  "totalResults": 2812,
+  "totalResults": 2771,
   "items": [
     {
-      "id": "CVE-2026-48417",
-      "published": "2026-08-25T18:17:52.993",
-      "description": "Substance3D - Sampler is affected by a Stack-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-45018",
+      "published": "2026-08-25T20:16:55.720",
+      "description": "Chainlit is a Python framework for building production-ready conversational AI applications. From 2.4.0rc0 until 2.12.0, Chainlit deployments with features.mcp.enabled set to true in .chainlit/config.toml expose the POST /mcp endpoint without requiring authentication. For stdio transport, the endpoint accepts a user-controlled fullCommand string. The validate_mcp_command() function in backend/chainlit/mcp.py checks only the executable name against config.features.mcp.stdio.allowed_executables and passes unchecked arguments to StdioServerParameters in backend/chainlit/server.py. Because npx supports the -c argument, an attacker can execute arbitrary shell commands with the privileges of the Chainlit process. If allowed_executables is unset, its None default is treated as allowing every executable. This issue is fixed in version 2.12.0.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-51368",
+      "published": "2026-08-25T21:17:01.210",
+      "description": "An issue in Beijing Tongtech Co., Ltd tongweb v.7.0.24 in the Spring HttpInovkerServiceExporter component allows a remote attacker to execute arbitrary code via a crafted request to the console/heimdall endpoint",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-43670",
+      "published": "2026-08-25T20:16:55.600",
+      "description": "A Content Security Policy bypass was addressed with improved enforcement in AudioWorklet contexts. This issue is fixed in Safari 26.5, iOS 18.7.9 and iPadOS 18.7.9, iOS 26.5 and iPadOS 26.5, macOS Tahoe 26.5. Processing maliciously crafted web content may bypass Content Security Policy.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-66152",
+      "published": "2026-08-25T20:17:01.147",
+      "description": "A Path traversal vulnerability in the SonicWall NetExtender Linux client file extractor component allows an attacker to write arbitrary file as root.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-52491",
+      "published": "2026-08-25T21:17:01.467",
+      "description": "An issue in libtiff 85f2ac8e0b01cb7db2bbecf4a3b891bdbef67938 allows an attacker to execute arbitrary code via the libtiff/tools/thumbnail.c: main() component",
+      "severity": "HIGH",
+      "score": 8.4
+    },
+    {
+      "id": "CVE-2026-52489",
+      "published": "2026-08-25T21:17:01.340",
+      "description": "Buffer Overflow vulnerability in gpac 31becc9e08b88e525a4a62013a4000de1c0f8fd9 allows an attacker to execute arbitrary code via the svgNameToImplementationName() function",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-48418",
-      "published": "2026-08-25T18:17:53.160",
-      "description": "Substance3D - Sampler is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-55099",
+      "published": "2026-08-25T20:16:56.940",
+      "description": "icalendar is an RFC 5545 compatible parser and generator of iCalendar files for Python. From 7.1.0 until 7.1.3, the Component equality method in src/icalendar/cal/component.py compares nested subcomponents with two membership loops, and each membership test invokes the same method on child components, causing O(2^n) work relative to nesting depth. Component.from_ical accepts arbitrarily nested BEGIN:VEVENT blocks without a depth limit, so an attacker can submit a sub-kilobyte .ics file containing equal nested subtrees and trigger the cost when an application performs equality, inequality, membership, deduplication, test-assertion, round-trip, or normalization comparisons. Parsing alone does not trigger the issue, and comparisons that differ early short-circuit, but a few hundred bytes can pin a CPU core for minutes or indefinitely, causing denial of service in calendar sync or import endpoints, invite processing, and other comparison paths. This issue is fixed in version 7.1.3.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-48419",
-      "published": "2026-08-25T18:17:53.303",
-      "description": "Substance3D - Sampler is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-74932",
+      "published": "2026-08-25T20:17:03.250",
+      "description": "The WP Fastest Cache WordPress plugin before 1.5.1 does not validate the Host header before using it to build the URLs of the asset files it embeds in the pages it caches, and does not include that header in the cache key, allowing unauthenticated attackers to poison cached pages with references to a server they control and have arbitrary JavaScript run for every subsequent visitor.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-48420",
-      "published": "2026-08-25T18:17:53.450",
-      "description": "Substance3D - Sampler is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-45019",
+      "published": "2026-08-25T20:16:55.910",
+      "description": "Chainlit is a Python framework for building production-ready conversational AI applications. From 2.4.0rc0 until 2.12.0, Chainlit deployments with features.mcp.enabled set to true in .chainlit/config.toml expose the POST /mcp endpoint without requiring authentication. For sse and streamable-http transports, ConnectSseMCPRequest and ConnectStreamableHttpMCPRequest in backend/chainlit/types.py accept a user-controlled url and optional headers dictionary without scheme validation, private-address filtering, or an allowlist. The connect_mcp handler in backend/chainlit/server.py passes these values to sse_client() or streamablehttp_client(), allowing the Chainlit server to make blind outbound requests to arbitrary internal or external services, including cloud metadata endpoints, with attacker-controlled Authorization and Cookie headers. The SSE URL sink has existed since 2.4.0rc0, while attacker-controlled header forwarding and streamable-http support were added in 2.6.4. The response is consumed internally and not returned, but the attacker can issue state-changing authenticated requests, discover internal services, scan ports, and probe metadata endpoints. This issue is fixed in version 2.12.0.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-48421",
-      "published": "2026-08-25T18:17:53.583",
-      "description": "Substance3D - Sampler is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-59981",
+      "published": "2026-08-25T20:16:58.907",
+      "description": "OpenEXR is the reference implementation and specification for the EXR image file format, widely used in the motion picture industry. In versions through 3.2.10, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, the OpenEXRUtil library returns an out-of-bounds pointer from the SampleCountChannel::row() API when a deep image has a non-zero dataWindow origin. The row() accessor is documented as 0-based and computes its address from an internal base that is offset for absolute pixel coordinates, so the two coordinate models conflict whenever dataWindow.min is non-zero. For a deep image whose data window has a large negative vertical origin, row(0) points far outside the allocated sample-count buffer. An application that opens an attacker-controlled deep EXR file and accesses sample counts through row() performs an out-of-bounds read, which can crash the process or, under a controlled heap layout, return adjacent heap memory as sample-count values. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-48422",
-      "published": "2026-08-25T18:17:53.730",
-      "description": "Substance3D - Sampler is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-68513",
+      "published": "2026-08-25T20:17:02.463",
+      "description": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. Versions 3.3.0 through 3.3.12 and 3.4.0 through 3.4.13 contain a heap buffer overflow in PyOpenEXR triggered by a channel-name key collision between literal and prefixed RGB channels. When separate_channels=false, PyOpenEXR maps each physical channel name through channelNameToRGBA() and coalesces the results into a shared RGB array. A crafted flat scanline EXR that contains both a literal channel such as left and prefixed channels such as left.R, left.G, and left.B causes these names to collide, so the wrapper reuses an undersized two-dimensional NumPy array for the coalesced RGB slices and writes out of bounds when OpenEXR.File(path) decodes the pixels. This issue is fixed in versions 3.3.13 and 3.4.14.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-48423",
-      "published": "2026-08-25T18:17:53.880",
-      "description": "Substance3D - Sampler is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-68515",
+      "published": "2026-08-25T20:17:02.780",
+      "description": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions before 3.2.11, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, exrmultiview can write past a heap allocation when it combines two attacker-supplied, individually valid scanline EXR files whose union dataWindow is not aligned to one view's channel subsampling. The utility allocates sampled channel storage using a truncated union_width / xSampling, then reads the sampled input through a Slice based on the misaligned union window, producing a heap out-of-bounds write. The trigger is normal public-tool processing, such as exrmultiview left A.exr right B.exr out.exr with crafted but valid inputs, so this is not solely an API or caller-precondition issue. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-48424",
-      "published": "2026-08-25T18:17:54.037",
-      "description": "Substance3D - Sampler is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-66153",
+      "published": "2026-08-25T20:17:01.270",
+      "description": "The NEService auto-upgrade process insecurely handles temporary files in SonicWall NetExtender Linux client which allows an attacker to manipulate file paths.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7
     },
     {
-      "id": "CVE-2026-48425",
-      "published": "2026-08-25T18:17:54.183",
-      "description": "Substance3D - Sampler is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48426",
-      "published": "2026-08-25T18:17:54.330",
-      "description": "Substance3D - Designer is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48427",
-      "published": "2026-08-25T18:17:54.473",
-      "description": "Substance3D - Designer is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48428",
-      "published": "2026-08-25T18:17:54.627",
-      "description": "Substance3D - Designer is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48430",
-      "published": "2026-08-25T18:17:54.947",
-      "description": "Substance3D - Designer is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48431",
-      "published": "2026-08-25T18:17:55.097",
-      "description": "Substance3D - Designer is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48432",
-      "published": "2026-08-25T18:17:55.237",
-      "description": "Substance3D - Designer is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48433",
-      "published": "2026-08-25T18:17:55.377",
-      "description": "Substance3D - Designer is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-48429",
-      "published": "2026-08-25T18:17:54.783",
-      "description": "Substance3D - Designer is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-64705",
+      "published": "2026-08-25T20:17:00.333",
+      "description": "A buffer overflow was addressed with improved bounds checking. This issue is fixed in macOS Sequoia 15.7.7, macOS Sonoma 14.8.7. An app may be able to cause unexpected system termination or write kernel memory.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-55419",
-      "published": "2026-08-25T18:17:55.793",
-      "description": "Reachy Mini is an SDK for controlling Reachy Mini robots. Prior to 1.8.2, the Reachy Mini daemon exposes the /api/media/sounds/upload endpoint implemented by the upload_sound method in src/reachy_mini/daemon/app/routers/media.py without authentication, file-extension checks, content validation, or size validation. The daemon binds to 0.0.0.0 by default and uses permissive CORS allow_origins=[\"*\"], allowing an unauthenticated network attacker to upload arbitrary file types that are written to /tmp/reachy_mini_sounds/<original_filename>. Malicious files can compromise stored-data integrity and can serve as a foothold when combined with other vulnerabilities. This issue is fixed in version 1.8.2.",
+      "id": "CVE-2026-65367",
+      "published": "2026-08-25T20:17:00.640",
+      "description": "A null pointer dereference was addressed with improved input validation. This issue is fixed in iOS 18.7.9 and iPadOS 18.7.9, iOS 26.5 and iPadOS 26.5. An app may be able to cause unexpected system termination.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-68514",
+      "published": "2026-08-25T20:17:02.613",
+      "description": "OpenEXR is the reference implementation and specification for the EXR image file format, widely used in the motion picture industry. In versions 3.3.0 through 3.3.12 and 3.4.0 through 3.4.13, the PyOpenEXR Python bindings contain a heap out-of-bounds write triggered when reading a crafted deep scanline EXR file. When a deep file declares a literal channel named left alongside layer-prefixed RGB channels left.R, left.G, and left.B, the wrapper processes the literal left channel first and allocates a scalar deep sample array for it, then reuses that same array as the coalesced destination for the prefixed RGB group. The deep reader registers sample slices with an RGB stride (three lanes) into storage that was allocated with scalar shape, so decoding the deep samples writes past the allocation. Opening such a file through the default public Python API, OpenEXR.File(path), causes a heap buffer overflow during normal deep sample decode, leading to memory corruption and a crash. This issue is fixed in versions 3.3.13 and 3.4.14.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-77585",
+      "published": "2026-08-25T20:17:06.477",
+      "description": "The Okta Privileged Access client does not reject a leading hyphen in the username portion of an SSH target. As a result, the value may be interpreted as a command-line option by the underlying SSH process.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-26211",
-      "published": "2026-08-25T18:17:52.370",
-      "description": "Ekushey Project Manager CRM stores the administrator-configured system name and writes it to the login page without output encoding. The value is emitted in three places on that page: the content attribute of the description meta element, the title element, and the text of an h4 element in the page header. The h4 occurrence is parsed as markup, so HTML placed in the system name field is rendered as markup and any event handler it carries runs. The login page is served without authentication, so the stored value executes in the browser of every visitor who loads it, including visitors who are not signed in, within the origin that serves the login form and alongside the credential fields on it. Storing the value requires an administrator session; the resulting script runs for unauthenticated visitors and persists until the setting is changed.",
+      "id": "CVE-2026-39113",
+      "published": "2026-08-25T21:17:00.080",
+      "description": "Buffer Overflow vulnerability in SQLite affected version source snapshots/builds containing Fossil check-in 8bdc0d485e3ad0c7a1e818da66f106951d496b05cbe61d12c2c448f2f24b6d5d (Git mirror 169f68ed88b34cb68f720191c64c058f2ccec508, 2026-03-11) and later snapshots/builds allows an attacker to cause a denial of service via the ext/misc/sqlar.c, sqlarUncompressFunc(), sqlar_uncompress(), sqlite3_value_int64(), sqlite3_malloc(int), uncompress() components",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 4
     },
     {
-      "id": "CVE-2026-55623",
-      "published": "2026-08-25T18:17:56.087",
-      "description": "Rejected reason: This CVE is a duplicate of another CVE.",
+      "id": "CVE-2026-43657",
+      "published": "2026-08-25T20:16:55.283",
+      "description": "A permissions issue was addressed with additional restrictions. This issue is fixed in iOS 26.5 and iPadOS 26.5. A malicious app may be able to enumerate installed apps.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-53965",
+      "published": "2026-08-25T21:17:01.597",
+      "description": "The MCP PHP SDK (Composer package mcp/sdk) is the official Model Context Protocol SDK for PHP. In versions 0.5.0 through 0.7.0, the HTTP client transport reads a Server-Sent Events response stream incrementally and appends each chunk to an in-memory buffer with no upper bound. The buffer is only flushed when an SSE event delimiter, a double newline, is found, so a remote MCP server that streams response bytes without ever sending the delimiter causes the buffer to grow without limit. A malicious, compromised, or man-in-the-middle-controlled server that the client connects to over the HTTP transport can exploit this to exhaust the client process's memory, triggering a fatal allocation error or OS out-of-memory kill and denying service to the MCP client. The issue affects any client using HttpTransport against an untrusted server endpoint and does not require authentication or user interaction beyond initiating the connection. This issue is fixed in version 0.7.1.",
       "severity": "UNKNOWN",
       "score": null
     }
