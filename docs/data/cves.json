@@ -1,143 +1,143 @@
 {
-  "totalResults": 2795,
+  "totalResults": 2770,
   "items": [
     {
-      "id": "CVE-2026-63586",
-      "published": "2026-08-25T09:17:31.823",
-      "description": "The web-based management interface uses a modified uhttpd server with CGI shell scripts. The HTTP Basic Authentication username, taken directly from the Authorization header without sanitization, is inserted into a shell command string executed via the system() function. By submitting a specially crafted username containing shell metacharacters, an unauthenticated attacker with network access to the device can escape the command context and execute arbitrary commands with root privileges.",
+      "id": "CVE-2026-16286",
+      "published": "2026-08-25T15:16:30.180",
+      "description": "Unrestricted upload of file with dangerous type vulnerability in TRtek Technological Products Computer Software Hardware Industry and Trade Limited Company Software Repository Management allows Upload a Web Shell to a Web Server.\n\nThis issue affects Software Repository Management: before 2fb4acee.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-59769",
-      "published": "2026-08-25T08:18:09.717",
-      "description": "FA-50 all versions contain hard-coded credentials.\r\nAn attacker, who knows the credentials and has access to the vessel's internal network, can operate the settings screen using that credentials to alter the identification number.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-16601",
-      "published": "2026-08-25T08:18:08.220",
-      "description": "The CM Map Locations – Visualize and share your locations in a few clicks plugin for WordPress is vulnerable to Limited Arbitrary File Upload in all versions up to, and including, 2.1.8 via the uploadMedia function. This is due to insufficient file type validation in the upload handler, which performs incomplete extension filtering without MIME-type checks or upload capability verification before passing attacker-supplied files to move_uploaded_file(). This makes it possible for authenticated attackers, with subscriber-level access and above, to upload files that may be executable, which makes remote code execution possible. The required nonce is exposed to any logged-in Subscriber via the CMLOC_Editor_Images JavaScript object on the front-end location editor page.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-63587",
-      "published": "2026-08-25T09:17:32.057",
-      "description": "The SMS control function of IE-SR-2TX-WL-4G devices can require a password for SMS commands via the 'Enable Password Authorization' setting. The device increments a retry counter on each failed SMS password attempt; after 5 consecutive failed attempts, SMS password authorization is automatically disabled. An unauthenticated remote attacker who is able to send SMS messages to the device can deliberately trigger this by submitting 5 or more invalid passwords, after which subsequent SMS commands are executed without requiring a password, resulting in potential limited configuration tampering, limited information leakage and potentially full loss of availability.",
+      "id": "CVE-2026-55534",
+      "published": "2026-08-25T15:16:34.167",
+      "description": "PraisonAI is a multi-agent teams system. From praisonai 4.6.34 until 4.6.58, praisonai serve agents accepts --api-key but _create_agents_app() does not authenticate POST /agents or POST /agents/{agent_name}. A network caller can invoke configured agents without credentials even when an API key was supplied. This issue is fixed in version 4.6.58.",
       "severity": "HIGH",
       "score": 8.6
     },
     {
-      "id": "CVE-2026-19851",
-      "published": "2026-08-25T08:18:08.880",
-      "description": "A Use of Default Password vulnerability affecting Tuleap Enterprise Edition from 17.0 through 17.5 could allow an attacker to gain access to user accounts created during XML import.",
+      "id": "CVE-2026-55526",
+      "published": "2026-08-25T15:16:33.300",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, spider_tools._host_is_blocked() does not resolve ordinary hostnames before scrape_page fetches them. A hostname such as 127.0.0.1.nip.io passes validation and resolves to loopback, permitting internal HTTP access. The fix uses socket.getaddrinfo and fails closed on DNS errors. This issue is fixed in version 1.6.58.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-67578",
-      "published": "2026-08-25T08:18:10.360",
-      "description": "FA-50 all versions miss authentication for some configuration.\r\nAn attacker with access to the vessel's internal network can manipulate the product's settings screen to alter some configuration parameters.",
+      "id": "CVE-2026-55528",
+      "published": "2026-08-25T15:16:33.590",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, AgentServer exposes ServerConfig.auth_token but AgentServer._create_app does not check it on any route. A remote caller can subscribe, publish, and perform other actions without a valid bearer token or X-Auth-Token even when authentication is configured. This issue is fixed in version 1.6.58.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-79655",
+      "published": "2026-08-25T14:16:58.010",
+      "description": "A flaw was found in sos clean, a utility within the sos package. This vulnerability allows a local attacker to perform arbitrary file creation or overwrite. By crafting a malicious tar archive, an attacker can exploit a path traversal issue during tar extraction, where symlink and hardlink targets are not properly validated. This enables the attacker to write files to arbitrary locations on the system with the privileges of the sos clean process, which often runs as root.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-55525",
+      "published": "2026-08-25T14:16:52.417",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, the web_crawl function validates only the initial URL before _crawl_with_httpx uses httpx.Client(follow_redirects=True). Redirect targets are not revalidated, so an attacker who influences a crawl target can redirect a public URL to loopback, private network, or cloud metadata services while ALLOW_LOCAL_CRAWL remains disabled. The fetched internal response is returned to the agent context. This issue is fixed in version 1.6.58.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-18323",
-      "published": "2026-08-25T08:18:08.497",
-      "description": "The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Radio Field (Save and Continue Draft) in all versions up to, and including, 1.57.0.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable because the Save-and-Continue draft submission AJAX endpoint is registered as nopriv, allowing unauthenticated attackers to bypass radio field option-membership validation and persist a crafted payload that, when rendered on the Submissions admin page, is auto-executed via the bundled Inputmask library's data-attribute callback binding.",
+      "id": "CVE-2026-79622",
+      "published": "2026-08-25T14:16:57.420",
+      "description": "A weakness has been identified in dekdee adobe-xd-mcp 1.0.0. Impacted is an unknown function of the file src/parsers/xd-parser.ts of the component file-access-from-request Endpoint. Executing a manipulation of the argument outputFile/outputDir can lead to path traversal. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-18328",
-      "published": "2026-08-25T08:18:08.627",
-      "description": "The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to DOM-Based Reflected Cross-Site Scripting via the 'error_description' parameter in all versions up to, and including, 1.57.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability is only triggerable on pages hosting a Forminator form configured to use the Stripe Checkout Sessions payment API, which became the default in 1.56.0.",
+      "id": "CVE-2026-55538",
+      "published": "2026-08-25T15:16:34.597",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.51, praisonai serve agents parses config[\"api_key\"] but _create_agents_app() does not authenticate POST /agents or POST /agents/{agent_name}. Missing or incorrect bearer and X-API-Key values still reach agent execution. This issue is fixed in version 4.6.58.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-78322",
-      "published": "2026-08-25T08:18:10.583",
-      "description": "A flaw was found in file-roller. When opening or extracting a malicious 7z or RAR archive containing a file entry with an excessively long path, file-roller's progress-line parsing copies the path into a fixed-size stack buffer using an unbounded string copy. This can trigger a stack buffer overflow and cause file-roller to terminate, resulting in a denial of service. To exploit this flaw, a victim must open or extract the crafted archive using file-roller.",
+      "id": "CVE-2026-55527",
+      "published": "2026-08-25T15:16:33.443",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, the FileMemory constructor joins unsanitized user_id into self.user_path. A caller supplying ../ or path separators can escape the memory directory and write JSON data to arbitrary process-writable locations. The fix sanitizes user_id before constructing self.user_path. This issue is fixed in version 1.6.58.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-55537",
+      "published": "2026-08-25T15:16:34.450",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, JobSubmitRequest.validate_webhook_url() accepts webhook_url when resolution raises socket.gaierror because the exception path uses except socket.gaierror: pass. JobExecutor._send_webhook() later performs a fresh lookup, allowing DNS changes to direct the request to an internal service. This issue is fixed in version 4.6.58.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-55540",
+      "published": "2026-08-25T15:16:34.740",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.51, is_path_within_directory() uses os.path.abspath() rather than os.path.realpath() for the workspace boundary. A symlink inside workspace can point outside and still pass the check, allowing read_file and other code tools to access files outside the configured workspace. This issue is fixed in version 4.6.58.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-55529",
+      "published": "2026-08-25T15:16:33.727",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, the MCP HTTP Stream _validate_origin method accepts request_origin.startswith(allowed), so the attacker-controlled localhost.evil.example HTTP origin matches the localhost allowlist. Without an API key, a malicious webpage can submit tools/call requests to the local MCP server and execute exposed tools. This issue is fixed in version 4.6.58.",
+      "severity": "MEDIUM",
+      "score": 6.9
+    },
+    {
+      "id": "CVE-2026-55535",
+      "published": "2026-08-25T15:16:34.307",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, the Jobs API validate_webhook_url() path fails open on socket.gaierror and does not bind the validated address to the later request. An attacker webhook_url can later resolve to 127.0.0.1, 169.254.169.254, or another internal address. This issue is fixed in version 4.6.58.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-55531",
+      "published": "2026-08-25T15:16:34.017",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, the MCP HTTP Stream mcp_post handler creates a new _sessions entry for every initialize request but does not call _cleanup_sessions or enforce a maximum. An unauthenticated caller can exhaust memory. The fix invokes cleanup and limits sessions through PRAISONAI_MCP_MAX_SESSIONS. This issue is fixed in version 4.6.58.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-78701",
-      "published": "2026-08-25T08:18:10.713",
-      "description": "A flaw was found in 389-ds-base. A remote, authenticated attacker could exploit a vulnerability in the Simple Authentication and Security Layer (SASL) UNBIND process. By sending a specially crafted request, the attacker can cause a connection to stall, leading to resource exhaustion and a Denial of Service (DoS) for the server.",
+      "id": "CVE-2026-79623",
+      "published": "2026-08-25T14:16:57.620",
+      "description": "A security vulnerability has been detected in FishCodeTech Muteki up to 0.2.5. The affected element is an unknown function of the file .claude/settings.json of the component Default Local Worker Backend. The manipulation leads to os command injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. The issue was closed with the comment (translated from Chinese): \"The project will be refactored and shut down.\"",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-18100",
-      "published": "2026-08-25T08:18:08.360",
-      "description": "The MetForm – Contact Form, Survey, Quiz, & Custom Form Builder for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'mf_form_id' Widget Setting in all versions up to, and including, 4.1.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload bypasses Elementor's save-time wp_kses_post filter because it contains no HTML tags, and MetForm's own str_replace transformation of script tags into JavaScript template literal expressions provides an additional delivery path.",
+      "id": "CVE-2026-55530",
+      "published": "2026-08-25T15:16:33.870",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, ast_grep_rewrite lacks the @require_approval decorator used by sibling mutation tools. With dry_run=False, an agent-controlled call can pass --update-all and a broad path to rewrite matching files without the expected authorization gate. This issue is fixed in version 1.6.58.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-18512",
-      "published": "2026-08-25T08:18:08.750",
-      "description": "The TranslatePress – Translate Multilingual sites with AI Translation plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Approved Comment Body Rendered in Translation Editor Strings Dropdown in all versions up to, and including, 3.2.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-65633",
-      "published": "2026-08-25T08:18:09.857",
-      "description": "Improper Authentication vulnerability in team-alembic AshAuthentication allows purpose-limited JWTs to be replayed as full bearer API credentials when a resource uses stateless bearer-token verification.\n\nThe bearer-token authentication helper AshAuthentication.Plug.Helpers.retrieve_from_bearer/3 verifies an Authorization: Bearer JWT's signature and rejects tokens containing an act claim, but performs no check that the token's purpose claim equals user at the bearer boundary. When the resource is configured with require_token_presence_for_authentication?: false (the DSL default), the follow-on validate_token/3 helper returns {:ok, nil} without consulting the token resource, so no downstream check on purpose takes place either. As a result, any valid, non-expired JWT the library itself issued for a narrow, single-purpose flow (most notably the purpose: sign_in token that WebAuthn always emits during sign-in, and that the Password strategy emits when sign-in tokens are enabled) is accepted directly as a general-purpose bearer credential and resolves to a full current_user assignment.\n\nThis bypasses the library's intended token-exchange contract, in which the sign_in token is meant to be presented exactly once to a preparation that validates the purpose claim and immediately revokes the token. The first use of a still-valid sign-in token presented directly in the Authorization header succeeds because the stateless bearer path never scopes it to purpose == \"user\".\n\nAn attacker who obtains a not-yet-exchanged sign-in token for a target subject (for example via log or referrer leakage, an intercepted magic-link delivery channel, or a partially compromised intermediary) can present it as a bearer token and be authenticated as that subject, fully bypassing the intended one-time-use and revocation semantics. Exploitation additionally requires that the host application wire up retrieve_from_bearer/3 on a reachable route and uses either WebAuthn (sign-in tokens are always issued) or the Password strategy with sign_in_tokens_enabled?: true. Resources configured with require_token_presence_for_authentication?: true (including applications scaffolded by the Igniter installer since v4.5.0) and the session-based path (authenticate_resource_from_session/4) enforce purpose == \"user\" against the stored token record and are not affected.\n\nThis issue affects ash_authentication: from 3.10.5 before 4.14.2 and from 5.0.0-rc.0 before 5.0.0-rc.13.",
+      "id": "CVE-2026-15310",
+      "published": "2026-08-25T15:16:30.027",
+      "description": "When decompressing crafted zip files using the bzip/LZMA/Zstandard \n\ncompressions, Python could use an attacker-controlled size to \n\npre-allocate memory, possibly resulting in memory exhaustion.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-66882",
-      "published": "2026-08-25T08:18:10.143",
-      "description": "Improper Neutralization of Input During Web Page Generation (XSS) vulnerability in team-alembic AshAuthentication allows reflected cross-site scripting via the confirmation and magic link interaction forms.\n\nWhen a strategy is configured with require_interaction? set to true, AshAuthentication serves an intermediate HTML page asking the user to confirm the action by submitting a form. Both such pages embed a request parameter directly into a hidden input's value attribute without HTML escaping: lib/ash_authentication/add_ons/confirmation/confirmation_form.html.eex interpolates the confirm parameter, and lib/ash_authentication/strategies/magic_link/sign_in_form.html.eex interpolates the magic link token parameter. These templates are compiled with EEx.function_from_file/3 using plain <%= %> expressions, which perform no escaping, so the parameter is reflected verbatim.\n\nNeither accept handler validates the value before rendering it. AshAuthentication.AddOn.Confirmation.Plug.accept/2 only checks that a confirm key is present, and AshAuthentication.Strategy.MagicLink.Plug.accept/2 reads the parameter directly, so no token signature is verified at this stage and arbitrary attacker-supplied text reaches the template. An unauthenticated attacker can therefore craft a URL whose parameter terminates the attribute and injects markup, for example a quote followed by a <script> element. Because the accept phase is served over GET, loading the crafted link is sufficient; no form submission or prior authentication is required.\n\nThe injected script executes in the origin of the application embedding AshAuthentication, giving it access to that origin's cookies, session, and same-origin responses. Since these pages are part of the authentication flow, a victim following what appears to be a legitimate confirmation or sign-in link is a plausible target.\n\nThis issue affects ash_authentication: from 4.8.0 before 4.14.2 and from 5.0.0-rc.0 before 5.0.0-rc.13.",
+      "id": "CVE-2026-16599",
+      "published": "2026-08-25T15:16:30.340",
+      "description": "GNU wget is vulnerable to denial of service in its FTP OPIE/S-KEY authentication functionality. The server-supplied sequence number from the FTP challenge line is used as an iteration count for an MD5 key-derivation loop without any upper bound validation. A malicious FTP server or a network attacker positioned to intercept FTP traffic can send a crafted OPIE challenge with a sequence number near INT_MAX, causing wget to perform up to approximately 2.1 billion MD5 computations and suspend for some time. The --timeout option does not mitigate this because it applies only to network I/O, not CPU computation.\n\n\nThis issue was fixed in commit e9697d98e7249b0f68a6be040a4f3dcc5bc101fa",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-17548",
-      "published": "2026-08-25T09:17:30.550",
-      "description": "Missing authorization in Checkmk <2.5.0p12, <2.4.0p36, <2.3.0p50 and all 2.2.0 versions allows an authenticated user who knows the ID of a background job to view that job's status and results.",
+      "id": "CVE-2026-55541",
+      "published": "2026-08-25T15:16:34.887",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, praisonai serve agents and praisonai serve unified parse --api-key but _create_agents_app() and _create_unified_app() do not install a credential check. Unauthenticated callers can reach POST /agents and POST /api/v1/agents/{id}/invoke. This issue is fixed in version 4.6.58.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-56092",
-      "published": "2026-08-25T09:17:30.807",
-      "description": "The extension forces empty frontend-group and subpage-inheritance restrictions onto page records during indexer sub-requests, and this forged state was persisted into the shared rootline cache, allowing anonymous visitors to bypass extendToSubpages-inherited access restrictions on cached pages.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-56093",
-      "published": "2026-08-25T09:17:31.030",
-      "description": "The extension's frontend detail-view document lookup does not apply the current site's siteHash filter or frontend user access filter, unlike the regular search path. A visitor who can obtain or guess a valid Solr document id can retrieve documents through this lookup without the same access restrictions enforced elsewhere.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-56094",
-      "published": "2026-08-25T09:17:31.260",
-      "description": "The extension allows a request-provided additionalFilters parameter to register a named siteHash filter before the system's own siteHash filter is applied, and the query builder does not overwrite an already-registered named filter. In a shared Solr core serving multiple TYPO3 sites, a visitor can use this to read public documents belonging to another site. The same root cause also affects the suggest top-results path when suggest is enabled.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-56095",
-      "published": "2026-08-25T09:17:31.457",
-      "description": "The extension's indexer passed every field value returned by content object rendering through PHP's unserialize() function when transferring multi-value data for the SOLR_CLASSIFICATION, SOLR_MULTIVALUE and SOLR_RELATION content object types, rather than a safe format. If user-generated content saved in the TYPO3 database can reach an indexed field, this exposes a PHP Object Injection surface.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-56096",
-      "published": "2026-08-25T09:17:31.647",
-      "description": "The extension passes the user-supplied search query parameter to Apache Solr without restricting advanced Solr query syntax such as wildcards, field selectors and range queries. A remote, unauthenticated attacker can use this syntax to enumerate indexed field names and extract their stored values through boolean- and range-based blind extraction techniques, independent of any site-specific configuration.",
+      "id": "CVE-2026-55624",
+      "published": "2026-08-25T15:16:35.033",
+      "description": "MintyItanium Lost-Auction is an auction plugin for Minecraft. Prior to commit 88c920b05042929db334ba06d57f052b42d6b3f8, players can take items like barrier blocks or duplicate items from the GUI. Commit 88c920b05042929db334ba06d57f052b42d6b3f8 fixes the issue.",
       "severity": "UNKNOWN",
       "score": null
     }
