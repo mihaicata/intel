@@ -1,143 +1,143 @@
 {
-  "totalResults": 2541,
+  "totalResults": 2485,
   "items": [
     {
-      "id": "CVE-2025-61163",
-      "published": "2026-08-26T19:16:44.290",
-      "description": "Cohere North AI v1.1.5 was discovered to contain excessively permissive cross-domain policy with untrusted domains. This occurs via the server failing to validate the Origin header of incoming connection requests.",
+      "id": "CVE-2026-75329",
+      "published": "2026-08-26T22:16:29.087",
+      "description": "The Netty configuration distribution service (port 8283) of super-diamond-server <= 1.3.3 has no authentication mechanism. Attackers can directly obtain the full configuration of any project (including database passwords, API keys, etc.) by sending a TCP request without any credential.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2025-61165",
-      "published": "2026-08-26T19:16:44.927",
-      "description": "An arbitrary file upload vulnerability in the /v1/my_drive/batch_upload component of cohere North AI v1.1.5 allows attackers to exeute arbitrary code via uploading a crafted file.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-43621",
+      "published": "2026-08-26T22:16:24.643",
+      "description": "Simple Machines Forum (SMF) through 2.1.7, fixed in commit 6f0dc61, contains an authorization state-confusion vulnerability in the profile loader that allows authenticated low-privileged users to gain administrator access by supplying multiple values for the user parameter. Attackers can exploit the mismatch between Profile::$member and User::$me->is_owner during sequential profile loading to be treated as the owner of an administrator profile, enabling unauthorized password changes and full account takeover.",
+      "severity": "HIGH",
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-75325",
-      "published": "2026-08-26T19:17:03.673",
-      "description": "DWSurvey v6.14.0 is is vulnerable to authentication bypass via the '/api/dwsurvey/none/' and '/api/dwsurvey/up/**' parameters.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-61617",
+      "published": "2026-08-26T22:16:25.247",
+      "description": "Wings is the server control plane for the Pterodactyl game-server management panel. In versions up to and including 1.13.2, the SFTP write path does not enforce a server's disk quota during a transfer, allowing a tenant with SFTP write access to a single server to exhaust the host node's physical disk and take down every server on it. Wings checks available space only once, as a boolean, when the write handle is opened, using a stale cached usage value and without knowing the size of the incoming data, and it then returns a raw, unaccounted file handle that is never re-checked as the transfer proceeds. A single upload can therefore be written without bound, far beyond the configured disk limit, until the node's disk is full, and because a server stopped for exceeding its limit is not treated as suspended, SFTP writes are still accepted even after the quota is already exceeded. This issue is fixed in version 1.13.3.",
+      "severity": "HIGH",
+      "score": 7.7
     },
     {
-      "id": "CVE-2025-70290",
-      "published": "2026-08-26T20:16:59.550",
-      "description": "An issue was discovered in Denx U-Boot before 2026.04. An integer overflow vulnerability in the ZFS filesystem support can be triggered by malformed on-disk metadata. The issue may result in incorrect memory allocation followed by out-of-bounds memory access, potentially leading to a crash or arbitrary code execution during the boot process.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2025-70293",
-      "published": "2026-08-26T20:16:59.697",
-      "description": "An issue was discovered in Denx U-Boot before 2026.04. An integer overflow vulnerability exists in function ext4fs_get_bgdtable, the size calculation can lead to under allocation and this underallocated buffer will be used in memcpy() which could lead to arbitrary code execution, a denial of service, or other unspecified impacts.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-51106",
-      "published": "2026-08-26T19:16:50.800",
-      "description": "An issue in TokTok qTox v1.18.4 allows a local attacker to cause a denial of service via the src/persistence/serialize.cpp component",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-70419",
-      "published": "2026-08-26T19:16:56.540",
-      "description": "Dell Cloud Disaster Recovery, versions 20.2 and prior, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2025-61162",
-      "published": "2026-08-26T19:16:42.900",
-      "description": "Incorrect access control in Cohere North AI v1.1.5 allows attackers to arbitrarily overwrite user info via a crafted request to the /api/internal/v1/users/{{USER_ID}} endpoint",
+      "id": "CVE-2026-75328",
+      "published": "2026-08-26T22:16:28.980",
+      "description": "In DocSys-master V2.02.85, the downloadDocEx interface in src/com/DocSystem/controller/DocController.java has an arbitrary file read vulnerability:",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2025-61164",
-      "published": "2026-08-26T19:16:44.797",
-      "description": "Cohere North AI v1.1.5 was discovered to contain an information leak via the WebSocket Endpoint.",
+      "id": "CVE-2026-75333",
+      "published": "2026-08-26T22:16:29.327",
+      "description": "yx-image-recognition v1.0 is vulnerable to Path Traversal. Parameters such as dir, filePath are directly passed to new File() for file system operations without any path sanitization or whitelist validation.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-36851",
-      "published": "2026-08-26T19:16:49.850",
-      "description": "Path traversal vulnerability in UnPoller 2.33.0 password field allows arbitrary file read and network exfiltration.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-26445",
-      "published": "2026-08-26T20:17:11.400",
-      "description": "stomper 5e2741e is vulnerable to Denial of Service. A malicious client can send partial STOMP frames and keep the TCP connections open, which, combined with the broker s use of edge-triggered epoll (EPOLLET) and MSG_PEEK in recv(), causes sockets to enter a permanent half-read state. When enough such connections accumulate, the broker stops receiving any further epoll events for those sockets and eventually hangs in epoll_wait, effectively refusing to process new messages.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-26446",
-      "published": "2026-08-26T20:17:11.527",
-      "description": "Stomper 5e2741e is vulnerable to Denial of Service. When a broker sends data to a client whose TCP connection was already closed by the peer, the server process receives SIGPIPE and immediately terminates, resulting in a denial of service. Any unauthenticated client can trigger the crash by closing the socket at specific points.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-71171",
-      "published": "2026-08-26T19:16:57.647",
-      "description": "Dell Cloud Disaster Recovery, versions 20.2 and prior, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in the REST API. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-48786",
-      "published": "2026-08-26T19:16:50.643",
-      "description": "Fleet is an open-source device management platform built on osquery. In versions prior to 4.87.0, the target search endpoint (POST /api/latest/fleet/targets) returned unmasked team enroll secrets and full team configuration, including credential-bearing agent options, to low-privilege observer-class users. Other team-facing endpoints mask these fields for observers, but the target search endpoint did not apply the same sanitization, so an authenticated user with the Observer, Observer+, or Technician role, whether global or team-scoped, could retrieve the secrets and agent options by performing a target search against an observer-runnable query. With a leaked team enroll secret an attacker could enroll unauthorized hosts into the affected team, and if the team's agent options contained credentials such as AWS secret access keys or proxy passwords, those values were disclosed as well. This issue is fixed in version 4.87.0.",
+      "id": "CVE-2026-45694",
+      "published": "2026-08-26T22:16:24.793",
+      "description": "LibreNMS is a network monitoring system. In versions up to and including 26.4.0, the Proxmox application view is vulnerable to reflected cross-site scripting through the user-supplied instance and vmid GET parameters, which are reflected into the page title without adequate encoding. The parameters are placed into the page title with only strip_tags applied, and the title is then written into an inline document.title assignment through string interpolation, so a single quote terminates the JavaScript string and the remaining input runs as script. An attacker who lures an authenticated user into following a crafted link can execute script in that user's session, enabling actions such as theft of session data. This issue is fixed in version 26.5.0.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-75466",
-      "published": "2026-08-26T19:17:03.787",
-      "description": "libjpeg-turbo 3.2.0 contains an integer division-by-zero vulnerability in the PNG loader. When processing a valid indexed-color PNG image with a non-gray palette through tj3LoadImage12() or tj3LoadImage16() using the default pixel format, the application may trigger a division-by-zero in alloc_sarray(), causing a SIGFPE and denial of service.",
+      "id": "CVE-2026-75331",
+      "published": "2026-08-26T22:16:29.210",
+      "description": "tamguo 1.5.3 is vulnerable to Unrestricted File Upload Leading to Stored XSS. The /uploadFile and /imgUpload endpoints in FileUploadController.java and UEditorController.java have no file type validation. Attackers can upload arbitrary HTML/JavaScript files to the server.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 4.6
     },
     {
-      "id": "CVE-2025-70340",
-      "published": "2026-08-26T20:16:59.823",
-      "description": "A Broken Access Control vulnerability exists in ThingsBoard Professional Edition (PE) 4.21 and below, within the Alarms comments functionality. An authenticated customer user can manipulate the respective API request parameters to create or modify system-generated alarm comments. This allows unauthorized impersonation of system messages and modification of trusted system-owned data, resulting in vertical privilege escalation and potential integrity violations.",
+      "id": "CVE-2026-21810",
+      "published": "2026-08-26T22:16:23.447",
+      "description": "HCL BigFix Quantum Risk Analyzer is affected by a hardcoded external resource reference and a lack of binary integrity which could allow an attacker to obtain sensitive information or modify the binary.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-79940",
-      "published": "2026-08-26T19:17:19.213",
-      "description": "Dell iDRAC9, 14G versions prior to 7.00.00.182 and 15G/16G versions prior to 7.20.30.50, contains an Improper Access Control vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to gaining access to unauthorized data.",
-      "severity": "MEDIUM",
-      "score": 5.9
+      "id": "CVE-2026-21809",
+      "published": "2026-08-26T22:16:23.323",
+      "description": "HCL BigFix Quantum Risk Analyzer has a certain validation process that provides overly descriptive error messages when it encounters malformed input which can allow an attacker to conduct more efficient reconnaissance and fine-tune automated fuzzing tools to produce valid input.",
+      "severity": "LOW",
+      "score": 3.9
     },
     {
-      "id": "CVE-2026-63179",
-      "published": "2026-08-26T19:16:51.840",
-      "description": "Winter CMS is a content management system built on the Laravel PHP framework. In versions up to and including 1.2.12, authenticated backend users can disclose arbitrary files readable by the PHP process by injecting @import (inline) directives into LESS source that the backend compiles, because the LESS parser was instantiated without a safe import resolver and fell back to the raw attacker-supplied path when no allowed root matched. The flaw is reachable through four entry points that share the same root cause: the Brand Settings custom_css field, the Editor Settings html_custom_styles field, the Mail Brand Settings colour-picker fields whose values are concatenated into LESS source without escaping, and theme .less, .sass, and .scss assets compiled when served. Both absolute paths and .. traversal outside the asset's own tree were accepted, so an attacker could read any file the web process can access, most significantly the application .env file and the APP_KEY and database credentials it contains. Exploitation requires a backend account holding one of the associated permissions, which are assigned by default to the built-in Developer role. This issue is fixed in version 1.2.13.",
-      "severity": "MEDIUM",
-      "score": 4.9
+      "id": "CVE-2026-16809",
+      "published": "2026-08-26T22:16:23.160",
+      "description": "LimeSurvey Community Edition 7.0.5 contains a stored cross-site scripting vulnerability in the survey quota creation workflow. An authenticated low-privileged user who can create and manage their own survey can store malicious JavaScript in a quota message.\n\nThis issue affects LimeSurvey: 7.0.5.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-41262",
-      "published": "2026-08-26T19:16:50.480",
-      "description": "Fleet is an open-source device management platform built on osquery. In versions prior to 4.85.0, the global policy read endpoint (GET /api/latest/fleet/policies/{policy_id}) fails to verify team ownership of the requested policy, allowing an authenticated user with observer-level access on any single team to read the full details of policies belonging to any other team and bypass Fleet's team isolation model. The handler authorizes the request against an empty policy object whose TeamID is nil, which an authorization rule permits for any user holding a role on any team, and then fetches the policy by ID with no team filter and returns it without any post-fetch scope check. Because policy IDs are sequential integers, an attacker can enumerate them to read other teams' policy SQL queries, host pass and fail counts, and associated software-installer and script metadata, exposing security-monitoring strategies and compliance posture across team boundaries. This issue is fixed in version 4.85.0.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-55182",
+      "published": "2026-08-26T22:16:24.950",
+      "description": "LibreNMS is a network monitoring system. In versions from 21.6.0 up to 26.5.0, the Signal alert transport is vulnerable to command injection because the signal-cli path and the Recipient field of an alert transport entry are insufficiently escaped before being passed to an exec call. An authenticated administrator can craft a transport entry whose Recipient contains shell metacharacters and whose path points to the bundled composer_wrapper.php script, which itself passes attacker-controlled input to further unsafe exec calls. By chaining these calls, the administrator can execute arbitrary operating-system commands on the LibreNMS host. This issue is fixed in version 26.5.0.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-19485",
-      "published": "2026-08-26T19:16:49.157",
-      "description": "A Predictable Resource Name vulnerability in BigQuery Import Staging in Google Cloud Vertex AI Search for Commerce versions prior to 2026-04-27 on Google Cloud Platform allows an attacker knowing the victim's project number to obtain read/write access to staged data and error logs using predictable bucket names.\n\n\n\nThis vulnerability was patched and no customer action is needed.",
+      "id": "CVE-2026-58070",
+      "published": "2026-08-26T22:16:25.107",
+      "description": "A vulnerability that records guest OS processing credentials in cleartext in a support log on the guest, allowing a user with read access to that log to recover privileged account credentials.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-63360",
+      "published": "2026-08-26T22:16:25.410",
+      "description": "LimeSurvey Community Edition 7.0.5+260623 contains an authenticated reflected Cross-Site Scripting vulnerability in the user activation confirmation endpoint. The action query parameter is copied into the response and inserted into a hidden input attribute without HTML attribute encoding.\n\n\n\nThis issue affects LimeSurvey: 7.0.5.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-64632",
+      "published": "2026-08-26T22:16:25.617",
+      "description": "A vulnerability allowing a low-privileged user to capture the NTLM credentials of the Reporter service account.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65641",
+      "published": "2026-08-26T22:16:25.747",
+      "description": "A vulnerability allowing an unauthenticated network attacker to coerce SMB authentication from the service account.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65642",
+      "published": "2026-08-26T22:16:25.883",
+      "description": "Insecure direct object reference in Plesk 18.0.79.7 and earlier or 18.0.80 through 18.0.80.3, allows remote authenticated users to read and modify other customers' databases.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65646",
+      "published": "2026-08-26T22:16:26.020",
+      "description": "Improper neutralization of special elements in Plesk allows remote authenticated users to disclose arbitrary local files and escalate privileges.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65647",
+      "published": "2026-08-26T22:16:26.157",
+      "description": "Improper symlink resolution before file access in Plesk allows remote authenticated users to execute arbitrary code as root.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65930",
+      "published": "2026-08-26T22:16:26.283",
+      "description": "LimeSurvey Community Edition 7.0.5 contains an authenticated stored cross-site scripting vulnerability in the replacement-fields dialog used by the administrative question editor.This issue affects LimeSurvey: 7.0.5.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-77298",
+      "published": "2026-08-26T22:16:29.570",
+      "description": "SeaweedFS is a distributed storage system for files and blobs. In versions 4.39 and earlier, the S3 API accepts an external OIDC JWT sent directly in the Authorization header and maps it to an IAM role without enforcing that role's trust policy, so a federated user can assume a role they are not permitted to hold. The standard STS AssumeRoleWithWebIdentity path rejects such a token when the role's trust policy does not trust the token's federated provider, but the direct S3 bearer path validates only the token itself and then authenticates as the mapped role and evaluates that role's attached S3 permissions. As a result, a valid OIDC user whose token would be denied the role through STS can obtain the role's S3 access, including object read, write, and delete, by presenting the raw OIDC JWT directly to the S3 API. This issue is fixed in version 4.40",
       "severity": "UNKNOWN",
       "score": null
     }
