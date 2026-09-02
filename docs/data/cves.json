@@ -1,143 +1,143 @@
 {
-  "totalResults": 2510,
+  "totalResults": 2523,
   "items": [
     {
-      "id": "CVE-2026-16639",
-      "published": "2026-08-25T23:16:56.673",
-      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal Internationalization Single Sign-On allows Authentication Bypass. This issue affects Internationalization Single Sign-On versions: from 0.0.0 to 1.8.0.",
+      "id": "CVE-2026-19632",
+      "published": "2026-08-26T05:18:06.810",
+      "description": "The TranslatePress – Translate Multilingual sites with AI Translation plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.3.1 via the 'trp_get_translations_regular' AJAX action. This makes it possible for unauthenticated attackers to extract the raw administrator password-reset URL — including the plaintext reset key and login parameters stored in the translation dictionary table — enabling full administrator account takeover. This vulnerability is only exploitable when automatic string saving is enabled (the default setting) and the target administrator's profile locale is set to a published secondary language, as these conditions cause the password-reset URL to be persisted as a translatable string in the secondary-language dictionary table.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-16641",
-      "published": "2026-08-25T23:16:56.900",
-      "description": "Vulnerability in Drupal Commerce Elavon. This issue affects Commerce Elavon versions: *.*.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-80193",
+      "published": "2026-08-26T05:18:26.617",
+      "description": "Kimai before 2.62.0 fails to validate create_other_timesheet permission in the QuickEntry controller when creating new timesheets. Authenticated users with view_other_timesheet and edit_other_timesheet permissions can create timesheet records for team members by submitting the QuickEntry form, bypassing authorization checks enforced elsewhere.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-16644",
-      "published": "2026-08-25T23:16:57.200",
-      "description": "Incorrect Authorization vulnerability in Drupal Webform REST allows Forceful Browsing. This issue affects Webform REST versions: from 0.0.0 to 4.1.0.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-16645",
-      "published": "2026-08-25T23:16:57.313",
-      "description": "Missing Authorization vulnerability in Drupal PhotoSwipe - Responsive JavaScript Modal Image Gallery allows Forceful Browsing. This issue affects PhotoSwipe - Responsive JavaScript Modal Image Gallery versions: from 0.0.0 to 3.2.0.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-18985",
-      "published": "2026-08-25T23:16:57.913",
-      "description": "Incorrect Authorization vulnerability in Drupal Edit in-place field allows Forceful Browsing. This issue affects Edit in-place field versions: from 0.0.0 to 2.1.1.",
+      "id": "CVE-2026-58092",
+      "published": "2026-08-26T05:18:12.453",
+      "description": "In FreeBSD 15.0, the kernel structure used to represent user credentials changed: previously the primary group ID was stored in the first element of the array containing the list of supplementary group IDs, whereas now the primary group ID is stored in a dedicated field.  This change was largely internal to the kernel and not user-visible.\n\nOne function, group_is_primary(), was not properly updated as a part of this transition.  This function is used by mac_do to determine the primary group ID of the credential after applying a transition rule, used when the rule target does not explicitly specify a group.\n\nAs a result, with certain mac_do rules, it is possible for a credential switch to incorrectly set the primary group ID to the ID stored in the first element of the original credential's supplementary group array.\n\nIf the list of supplementary groups is empty, this value will be 0, corresponding to the \"wheel\" group.  For example, a rule such as \"uid=1001>uid=1002\" can be abused to set the primary group ID to 0 even if the process did not originally belong to group 0.\n\n\n\nCertain mac_do rules can be abused to set a process' group ID to 0.  Note however, that the rule must apply to the caller in order for the bug to be triggered, e.g., given the ruleset \"uid=1001>uid=1002\", the user must have user ID 1001 in order to trigger the bug.\n\nFurther, logged-in users will in general have a non-empty supplementary group list, in which case the bug can at worst be used to set the credential's first supplementary group ID as its primary group ID.  Processes must explicitly remove themselves from all supplementary groups, using the privileged setgroups(2) system call, in order to exploit the bug to set 0 as the primary group ID.\n\nSince membership in group 0 is often used to enable controlled privilege escalation, the bug might be further exploitable to obtain root privileges, depending on the system configuration.  For instance, a ruleset such as the following could be exploited by a process running as user 1001 and with an empty supplementary group list: \"uid=1001>uid=1002;gid=0>uid=0\".",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-54757",
-      "published": "2026-08-25T23:17:19.277",
-      "description": "Compliance-trestle (Trestle) is a Python SDK and command-line tool for managing OSCAL compliance documents. In versions before 3.12.4 and versions 4.0.0 through 4.0.3, Trestle is vulnerable to server-side template injection that can lead to remote code execution. This occurs because the MDCleanInclude and MDSectionInclude Jinja2 tags re-parse untrusted Markdown content as template source code using a non-sandboxed jinja2.Environment. An attacker who controls content that Trestle renders, such as a crafted workspace Markdown file, a third-party SSP document, or a YAML lookup-table value, can inject a Jinja2 expression that traverses Python object internals to execute arbitrary operating system commands in the context of the Trestle process. This issue is fixed in versions 3.12.4 and 4.1.0.",
+      "id": "CVE-2026-80192",
+      "published": "2026-08-26T05:18:26.460",
+      "description": "@better-auth/sso before 1.6.27 (and before 1.4.8 in the 1.4.x line and before 1.7.0-rc.5 in the 1.7 prerelease line) contains two domain-ownership flaws. When domain verification is disabled, automatic organization assignment accepts unverified provider domains, allowing an authenticated organization owner/administrator to register an SSO provider for an arbitrary domain and have users with matching email domains added to the attacker's organization with default member permissions. When domain verification is enabled, a race condition between the verify-domain and update-provider endpoints can apply completed DNS proof to a different domain; combined with implicit account linking, this can link an attacker-controlled identity provider to an existing user account. Exploitation requires the SSO plugin (and, for the org-assignment path, the organization plugin) with the relevant configuration enabled.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-57170",
+      "published": "2026-08-26T05:18:11.763",
+      "description": "Compliance-trestle (Trestle) is a Python SDK and command-line tool for managing OSCAL compliance documents. In versions prior to 3.12.4 and 4.0.0 through 4.0.3, the custom Jinja2 include tags mdsection_include and md_clean_include re-parse the content of an included Markdown file as Jinja2 template code in a non-sandboxed environment, allowing server-side template injection that can lead to arbitrary code execution. The MDSectionInclude and MDCleanInclude tags in Trestle/core/jinja/tags.py pass included file content to Parser(self.environment, ...).parse(), splicing it into the host template's compilation, and the environment is a plain jinja2.Environment rather than a SandboxedEnvironment, so any expressions in the file are evaluated with full access to the usual SSTI gadget chain. Because Trestle's Markdown writers emit OSCAL prose and component-description fields verbatim, applying delimiter neutralization only to parameter tables, attacker-controlled OSCAL data such as a control statement, part prose, or component description containing Jinja2 syntax flows into an included Markdown file and is executed when the include tag re-parses it. This issue is fixed in version 4.1.0.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-18259",
-      "published": "2026-08-25T23:16:57.600",
-      "description": "Observable Timing Discrepancy vulnerability in Drupal Token Content Access allows Brute Force. This issue affects Token Content Access versions: from 0.0.0 to 3.1.2.",
+      "id": "CVE-2026-58089",
+      "published": "2026-08-26T05:18:12.080",
+      "description": "When a process calls execve(2) to execute a setuid or setgid image, hwpmc(4) is supposed to detach PMCs owned by unprivileged processes.  An inverted check meant that this scenario was not handled properly.\n\nAn unprivileged local user who has attached PMCs to a process can continue monitoring it after the process executes a setuid or setgid binary, contrary to the intended policy.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-58090",
+      "published": "2026-08-26T05:18:12.217",
+      "description": "The SOCK_STREAM receive path in the unix socket implementation failed to fully detach control messages from the socket buffer before processing them.  Some error paths would free those messages, leaving freed data mbufs in the receive socket buffer.\n\nAn unprivileged local user can exploit this use-after-free to escalate privileges.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-58091",
+      "published": "2026-08-26T05:18:12.337",
+      "description": "The implementation of this ioctl attempts to acquire locks on all channels in a sync group.  If locking a channel would block, it releases the sync group list lock and sleeps.  Upon reawakening, it is possible that the sync group structure is freed, but the implementation did not handle this possibility.\n\n On a system with a multiple audio devices, an unprivileged local user can exploit this use-after-free to escalate privileges.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-76148",
+      "published": "2026-08-26T05:18:18.953",
+      "description": "CorvusSKK contains a code injection vulnerability, which may lead to arbitrary code execution on the affected product.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-57171",
+      "published": "2026-08-26T05:18:11.923",
+      "description": "Compliance-trestle (Trestle) is a Python SDK and command-line tool for managing OSCAL compliance documents. In versions before 3.12.4 and versions 4.0.0 through 4.0.3, the catalog-generate, profile-generate, and ssp-generate author commands write generated Markdown to an attacker-influenced output path without path-traversal validation, allowing arbitrary file write outside the Trestle workspace. These commands join the user-supplied output argument onto the Trestle root and write to the result, but guard it only with an is_directory_name_allowed() task-name-collision check rather than the PathSecurityValidator.validate_local_path() guard used by the jinja command, so an absolute path or one containing traversal sequences escapes the workspace and writes files under an attacker-chosen location as the invoking process owner. The security boundary is crossed when a trusted CI job, shared service, or wrapper derives the output argument from repository-controlled, tenant-controlled, or otherwise untrusted data while expecting output to stay inside the workspace. When --force-overwrite is used, the selected output directory is first recursively deleted, extending the primitive to destruction of an attacker-chosen directory tree and enabling indirect code execution by overwriting files a pipeline later runs. This issue is fixed in versions 3.12.4 and 4.1.0.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-29988",
+      "published": "2026-08-26T05:18:07.543",
+      "description": "A cleartext transmission of sensitive information vulnerability in the NFC interface of multiple Milesight IoT device models running affected firmware versions allows an unauthenticated attacker with physical proximity to retrieve LoRaWAN ABP NwkSKey and AppSKey values and D2D keys via an NFC read operation. The exposed keys can be used to decrypt LoRaWAN traffic, forge uplink and downlink frames, submit falsified sensor data, issue supported device commands, and cause subsequent legitimate frames to be rejected.",
+      "severity": "HIGH",
+      "score": 7.6
+    },
+    {
+      "id": "CVE-2026-80191",
+      "published": "2026-08-26T05:18:26.283",
+      "description": "GROWI applies its page-viewer permission check to attachment requests only when the request carries an authenticated user. retrieveAttachmentFromIdParam in apps/app/src/server/routes/attachment/get.ts guards the check with a condition requiring the user to be non-null, so a request that carries no session skips the check entirely and the handler returns the file. The routes reached this way, /attachment/:id and /download/:id, take the attachment identifier from the path, so an unauthenticated caller who has an attachment identifier receives the file regardless of whether the page owning it is private and regardless of whether that caller would be permitted to view the page. Identifiers can be retained by a user whose access was later removed, or recovered from anywhere the identifier was previously exposed. Version 8.0.2 runs the check for authenticated and unauthenticated requests alike, skipping it only where a valid share link has already bound the requested file to that link's page.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-41707",
-      "published": "2026-08-25T23:16:59.933",
-      "description": "Authentication Bypass by Capture-replay vulnerability in Spring Spring Security allows Spring Security's DPoPProofJwtDecoderFactory contains a cache-based replay attack vulnerability. The internal cache storing JWT ID claims has a strict size limit, allowing attackers to evict legitimate entries by flooding the server with dummy requests, then replay intercepted valid DPoP proofs.\n\nThis issue affects Spring Security: 7.1.0, from 7.0.0 through 7.0.6, and from 6.5.0 through 6.5.11.",
+      "id": "CVE-2026-80196",
+      "published": "2026-08-26T05:18:27.083",
+      "description": "Kimai before 2.58.0 contains an authentication bypass vulnerability where password reset links remain valid after password changes because the LoginLink signature covers only the user id, not the password hash. Attackers who intercept or cache a password reset link can use it up to 2 additional times within a 1-hour window to log in as the user even after the legitimate user has changed their password.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-16638",
-      "published": "2026-08-25T23:16:56.560",
-      "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Media Folders allows Stored XSS. This issue affects Media Folders versions: from 0.0.0 to 1.0.8.",
+      "id": "CVE-2026-54467",
+      "published": "2026-08-26T05:18:11.053",
+      "description": "On the Trusted Firmware-M (TF-M) 2 through 2.3.0 platform before 00d1b3e, mailbox initialization on PSOC64 and RP2350 accepts a non-secure, unvalidated, supplied pointer.",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-80189",
+      "published": "2026-08-26T05:18:26.117",
+      "description": "LeafWiki extracts an uploaded ZIP archive without limiting how much data it will write. ZipExtractor.ExtractToDir in internal/importer/zip_extractor.go opens each entry and copies it to the destination with io.Copy, which runs to the end of the decompressed stream, so only the size of the uploaded archive is bounded and the size it expands to is not. The import route that reaches this code requires the Editor or Admin role, and the upload itself is capped at 500 MiB compressed. Because a ZIP entry can compress at a very high ratio, an archive well inside that cap can expand to hundreds of gigabytes as it is written out. The extraction directory defaults to a location under the operating system temporary directory, so the written data consumes the disk backing that path, which on a tmpfs-backed temporary directory is memory. A user holding the Editor role can therefore exhaust the storage the service depends on and keep it from serving, using far more resource than the upload limit alone would permit.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-16640",
-      "published": "2026-08-25T23:16:56.787",
-      "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Search API Autocomplete allows Reflected XSS. This issue affects Search API Autocomplete versions: from 0.0.0 to 1.12.0.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-15088",
-      "published": "2026-08-25T23:16:54.810",
-      "description": "Vulnerability in Drupal Development Environment. This issue affects Development Environment versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-16642",
-      "published": "2026-08-25T23:16:56.997",
-      "description": "Vulnerability in Drupal Email Login OTP. This issue affects Email Login OTP versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-16643",
-      "published": "2026-08-25T23:16:57.100",
-      "description": "Vulnerability in Drupal Lunr exposed filters. This issue affects Lunr exposed filters versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-16646",
-      "published": "2026-08-25T23:16:57.423",
-      "description": "Vulnerability in Drupal PanKM. This issue affects PanKM versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-18260",
-      "published": "2026-08-25T23:16:57.713",
-      "description": "Vulnerability in Drupal Disable Login Page. This issue affects Disable Login Page versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-18261",
-      "published": "2026-08-25T23:16:57.810",
-      "description": "Vulnerability in Drupal Powerful Surveys. This issue affects Powerful Surveys versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-55805",
-      "published": "2026-08-25T23:17:19.740",
-      "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Drupal core allows Stored XSS. This issue affects Drupal core versions: from 0.0.0 to 10.6.13, from 11.3.0 to 11.3.14, from 11.4.0 to 11.4.4, from 0.0.0 to 11.0.*, from 0.0.0 to 11.1.*, from 0.0.0 to 11.2.*.",
+      "id": "CVE-2026-80195",
+      "published": "2026-08-26T05:18:26.937",
+      "description": "Kimai before 2.63.0 contains a business logic / improper authorization vulnerability in the team update API endpoint (PATCH /api/teams/{id}), which removes all existing team members before validating the submitted replacement member list. An authenticated teamlead (or other user) with permission to edit a team can submit a malformed members payload; although Kimai returns a validation error, the existing membership rows have already been deleted. This bypasses the dedicated member-removal endpoint's protection against removing teamleaders and can leave a team with no members or teamleaders, disrupting team-based access control.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-15917",
-      "published": "2026-08-25T23:16:56.437",
-      "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Drupal core allows Cross-Site Scripting (XSS). This issue affects Drupal core versions: from 11.3.0 to 11.3.14, from 11.4.0 to 11.4.4, from 0.0.0 to 11.2.*.",
+      "id": "CVE-2026-73335",
+      "published": "2026-08-26T05:18:17.790",
+      "description": "Android application \"Myna Point\" is vulnerable to Improper Authorization in Handler for Custom URL Scheme (CWE-939). A malicious application installed on the user's Android device may exploit the affected application's functionality through an Intent, potentially allowing arbitrary JavaScript to be executed within the affected application.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-15916",
-      "published": "2026-08-25T23:16:56.320",
-      "description": "Missing Authorization vulnerability in Drupal Drupal core allows Forceful Browsing. This issue affects Drupal core versions: from 0.0.0 to 10.6.13, from 11.3.0 to 11.3.14, from 11.4.0 to 11.4.4, from 0.0.0 to 11.0.*, from 0.0.0 to 11.1.*, from 0.0.0 to 11.2.*.",
+      "id": "CVE-2026-76149",
+      "published": "2026-08-26T05:18:19.103",
+      "description": "CorvusSKK contains an integer overflow vulnerability, which may allow malicious data to be written to a dictionary file.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-44476",
-      "published": "2026-08-25T23:17:04.400",
-      "description": "Doorkeeper is an OAuth 2 provider for Ruby on Rails. In version 1.9.0, an attacker who knows only a dynamically registered client's client_id, which is public information, can authenticate as that client at the token endpoint and obtain an access token without providing its client_secret. This occurs because the Dynamic Client Registration feature creates applications with confidential: false hard-coded, even though the registration response returns a client_secret and advertises support for the client_secret_basic and client_secret_post authentication methods; since Doorkeeper treats a blank or missing secret as valid for non-confidential (public) clients, the secret is never verified. Only projects that have explicitly enabled Dynamic Client Registration, which is disabled by default, are affected. This issue is fixed in version 1.10.0.",
+      "id": "CVE-2026-80194",
+      "published": "2026-08-26T05:18:26.780",
+      "description": "Kimai before 2.64.0 contains a missing authorization vulnerability in the ProjectViewController export route (report_project_view_export). The authorization guards are attached to the sibling __invoke method rather than at the class level, so the export route inherits no authorization checks. Any authenticated user, including a plain ROLE_USER without the project_reporting permission, can download the project overview export - which returns the same dataset as the protected report - disclosing customer names, project names, currency, budget type, and aggregate totals across all customers. Actual financial figures remain protected in the export template.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-52776",
+      "published": "2026-08-26T05:18:10.880",
+      "description": "Compliance-trestle (Trestle) is a tooling platform for managing compliance as code. In versions before 3.12.4 and versions 4.0.0 through 4.0.3, the URLSecurityValidator that guards trestle's remote-fetch paths against server-side request forgery can be bypassed to reach loopback, link-local, cloud-metadata, and internal network endpoints it was designed to block. The blocklist does not canonicalize IPv4-mapped IPv6 literals such as [::ffff:169.254.169.254], which resolve to IPv6Address objects that never match the blocked IPv4 ranges, and it does not block the unspecified address 0.0.0.0, which routes to local services on Linux and inside containers. An attacker who can supply or influence an OSCAL artifact that trestle fetches, such as a malicious profile whose imports reference one of these bypass URLs, can cause the HTTPSFetcher and SFTPFetcher paths to contact cloud instance-metadata services, loopback interfaces, or internal hosts. This issue is fixed in versions 3.12.4 and 4.1.0.",
       "severity": "UNKNOWN",
       "score": null
     }
