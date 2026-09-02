@@ -1,145 +1,145 @@
 {
-  "totalResults": 2519,
+  "totalResults": 2498,
   "items": [
     {
-      "id": "CVE-2026-58095",
-      "published": "2026-08-26T06:16:26.460",
-      "description": "mp_Enddisc() used incorrect length calculations when formatting endpoint discriminator addresses for display, allowing a received endpoint option to overflow a global result buffer.\n\nA malicious PPP peer can crash ppp(8) or potentially execute arbitrary code as root.",
+      "id": "CVE-2026-77550",
+      "published": "2026-08-26T11:16:38.930",
+      "description": "A malicious actor with access to the network could exploit an Improper Neutralization of CRLF Sequences vulnerability found in certain devices running UniFi OS to bypass authentication to such UniFi OS devices or instances.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-77554",
+      "published": "2026-08-26T11:16:39.400",
+      "description": "A malicious actor with access to the network could exploit an Improper Input Validation vulnerability found in UniFi Talk Application to execute a Command Injection on the host device.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-77546",
+      "published": "2026-08-26T11:16:38.463",
+      "description": "A malicious actor with access to the network and low privileges could exploit an Improper Input Validation vulnerability found in UniFi Access Application to execute a Command Injection on the host device.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-77547",
+      "published": "2026-08-26T11:16:38.573",
+      "description": "A malicious actor with access to the network and low privileges could exploit an Improper Input Validation vulnerability found in UniFi Access Application to execute a Command Injection on the host device.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-77548",
+      "published": "2026-08-26T11:16:38.693",
+      "description": "A malicious actor with access to the network and low privileges could exploit an Improper Input Validation vulnerability found in UniFi Protect Application to execute a Command Injection on the host device.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-77553",
+      "published": "2026-08-26T11:16:39.283",
+      "description": "A malicious actor with access to the network and low privileges could exploit an Improper Access Control vulnerability found in UniFi Access Application to escalate privileges on the host device.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-18080",
+      "published": "2026-08-26T11:16:37.930",
+      "description": "The ERP: Complete HR, Accounting & CRM Suite Built for WooCommerce plugin for WordPress is vulnerable to Unrestricted File Type Upload in all versions up to, and including, 1.17.8 via the save_attachments() function. This is due to missing file extension validation and missing path normalization when CRM Email Connect processes inbound IMAP email attachments. This makes it possible for unauthenticated attackers to send a crafted email to the site's configured inbound mailbox with a forged References header matching the plugin's expected pattern and an attachment filename such as `../helper.php`, causing the cron-based IMAP sync job to write attacker-controlled PHP outside of the .htaccess-protected `crm-attachments` directory and into `wp-content/uploads/`. On configurations where PHP executes in uploads, this can lead to remote code execution. Exploitation requires the CRM module and IMAP Email Connect feature to be enabled and configured.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-77552",
+      "published": "2026-08-26T11:16:39.167",
+      "description": "A malicious actor with access to the network could exploit an Improper Input Validation vulnerability found in UniFi Enterprise Audio/Video Bridge to execute a Command Injection on the device.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-77557",
+      "published": "2026-08-26T11:16:39.520",
+      "description": "A malicious actor with access to the network could exploit an Improper Access Control vulnerability found in UniFi Protect AI Key to escalate privileges on the device.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-80203",
+      "published": "2026-08-26T11:16:39.647",
+      "description": "The getgrav/grav-plugin-api plugin before 1.0.18 does not enforce API-key scope in the requireNotSuperTarget() function in UsersController.php across seven sensitive user-management endpoints. The check uses isSuperAdmin() on the acting account rather than verifying whether the specific API key carries super authority (via isSuperWithinScope()). As a result, an API key scoped below full super authority but belonging to a super-admin account can act against other super-admin accounts—disabling their 2FA, deleting their avatar, minting new API keys under their identity, or deleting their existing API keys.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-77532",
+      "published": "2026-08-26T11:16:38.343",
+      "description": "A malicious actor with access to an adjacent network could exploit a Buffer Overflow vulnerability found in a DHCPv6-enabled EdgeMAX EdgeSwitch to initiate a Remote Code Execution on such device.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-77549",
+      "published": "2026-08-26T11:16:38.807",
+      "description": "A malicious actor with access to the network and under certain conditions could exploit an Improper Neutralization of CRLF Sequences vulnerability found in certain devices running UniFi OS to bypass authentication to such UniFi OS devices or instances.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-77551",
+      "published": "2026-08-26T11:16:39.053",
+      "description": "A malicious actor with access to the network and under certain conditions could exploit an Improper Access Control vulnerability found in UniFi Connect Display Cast Pro to escalate privileges on the device.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-63041",
+      "published": "2026-08-26T12:16:21.353",
+      "description": "Reliance on Untrusted Inputs in a Security Decision vulnerability in Apache APISIX.\n\nThis vulnerability allows an attacker to escalate privilege or perform an authorization bypass by sending certain values that the attach-consumer-label plugin does not sanitise correctly.\n\n\nThis issue affects Apache APISIX: from 3.11.0 through 3.17.0.\n\n\n\nUsers are recommended to upgrade to version 3.18.0, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-58096",
-      "published": "2026-08-26T06:16:26.577",
-      "description": "LcpDecodeConfig() did not validate the length of received endpoint discriminator options against the minimum required by RFC 1717.  Undersized options would trigger an out-of-bounds write.\n\nA malicious PPP peer can exploit CVE-2026-58095 and CVE-2026-58096 to crash ppp(8) or potentially execute arbitrary code as root.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-19718",
-      "published": "2026-08-26T06:16:25.900",
-      "description": "The BlogVault Backup & Staging WordPress plugin before 6.65, MalCare WordPress Security Plugin  WordPress plugin before 6.65, The WP Remote WordPress Plugin WordPress plugin before 6.65 do not prevent unauthenticated users from obtaining data derived from the secret that binds a site to its remote management service, and generate that secret with a weak pseudo-random number generator, allowing attackers to recover it and gain administrative access to the site.",
+      "id": "CVE-2026-15985",
+      "published": "2026-08-26T12:16:20.940",
+      "description": "The Classified Listing - Mobile Number Verification plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 1.6.0. This is due to missing server-side Firebase OTP validation in the process_otp_login() function. This makes it possible for unauthenticated attackers to authenticate as any user with a phone number registered in the plugin's phone table by submitting an arbitrary OTP code and UID through the Firebase OTP login flow. Successful exploitation requires OTP login to be enabled with Firebase selected as the verification gateway, and requires the attacker to know or guess the target account's registered phone number. Administrator account takeover is possible if an administrator account has a phone number registered in the plugin.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-58094",
-      "published": "2026-08-26T06:16:26.350",
-      "description": "The FIOSSHMLPGCNF ioctl(2) operation configures the page size for a largepage shared memory object.  This is intended to be used immediately after creating the object, before any memory is allocated for the object.  The handler checked whether a page size had already been configured without holding the rangelock.  Two concurrent callers could both observe an unconfigured object and set conflicting page sizes, leaving the object in an inconsistent state.\n\nAn unprivileged local user can exploit this race to escalate privileges.",
+      "id": "CVE-2026-80205",
+      "published": "2026-08-26T11:16:39.950",
+      "description": "NLTK versions before 3.10.0 contain a regular expression denial of service vulnerability in Text.findall() and TokenSearcher.findall() methods that accept user-supplied regular expressions without validation or timeout. Attackers can supply crafted regex patterns that cause catastrophic backtracking, resulting in indefinite CPU saturation and denial of service to all users of the Python process.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-58097",
-      "published": "2026-08-26T06:16:26.700",
-      "description": "mp_SetEnddisc() copied a user-supplied PSN endpoint value without length validation, allowing a buffer overflow via the ppp(8) command interface.\n\nA local user with access to the ppp(8) command interface can crash ppp(8) or potentially execute arbitrary code as root.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-19760",
-      "published": "2026-08-26T06:16:26.007",
-      "description": "The WP Fastest Cache – WordPress Cache Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via HTTP Host Header in all versions up to, and including, 1.5.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the Polylang or Polylang Pro plugin to be active and the Combine JS option to be enabled, as these conditions trigger the vulnerable Host-header-to-URL code path that writes attacker-controlled script src values into the shared page-cache file served to all subsequent visitors.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-74851",
-      "published": "2026-08-26T06:16:26.830",
-      "description": "The Pods  WordPress plugin before 3.3.9.1 does not correctly compare a display callback against its list of blocked functions, allowing users with the author role and above to execute arbitrary code on the server. Only sites using the restricted display-callback mode are affected, which is the automatic default on installations whose first Pods version predates 3.1.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-58093",
-      "published": "2026-08-26T06:16:26.227",
-      "description": "The TIOCSCTTY ioctl handler drops the tty lock in order to acquire the process tree lock.  After reacquiring the tty lock, the handler did not revalidate the state of the terminal, and could proceed to link a terminal that was concurrently being destroyed to the calling process' session.\n\nAn unprivileged local user can exploit this race condition to escalate privileges.",
-      "severity": "HIGH",
-      "score": 7
-    },
-    {
-      "id": "CVE-2026-19226",
-      "published": "2026-08-26T06:16:25.803",
-      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not validate some widget settings before outputting them inside an HTML attribute, which could allow users with the Contributor role and above to perform Stored Cross-Site Scripting attacks.",
+      "id": "CVE-2026-5092",
+      "published": "2026-08-26T11:16:38.210",
+      "description": "The Greenshift – animation and page builder blocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the customapi action handler in versions up to, and including, 12.8.9. This is due to insufficient sanitization of API responses before output via innerHTML. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses the injected page.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-14216",
-      "published": "2026-08-26T06:16:24.910",
-      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.7 does not require authentication before processing its pending notification queue, allowing an unauthenticated user to force the dispatch of queued notifications and integration callbacks.",
+      "id": "CVE-2026-80206",
+      "published": "2026-08-26T11:16:40.103",
+      "description": "NLTK before 3.10.3 contains a regular expression denial of service (ReDoS) vulnerability in the tgrep module. The _tgrep_node_action function compiles user-supplied regular expressions embedded in /regex/ pattern nodes and executes them via re.search against tree node labels without any validation or timeout. An attacker who controls the tgrep pattern (e.g., via tgrep_positions() or tgrep_compile() exposed to external input) can supply a pattern that triggers catastrophic backtracking, causing indefinite CPU saturation that blocks the Python process.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-16984",
-      "published": "2026-08-26T06:16:25.393",
-      "description": "The Privacy Policy Generator, Terms & Conditions, GDPR, CCPA, Cookie Policy & Disclaimer Templates  WordPress plugin before 3.7.1 does not include an authorization check on a REST route that returns stored account data, allowing unauthenticated visitors to retrieve the connected service's API secret and account details, which can then be used to disconnect the Privacy Policy Generator, Terms & Conditions, GDPR, CCPA, Cookie Policy & Disclaimer Templates  WordPress plugin before 3.7.1's integration.",
+      "id": "CVE-2026-80204",
+      "published": "2026-08-26T11:16:39.797",
+      "description": "The Grav API plugin (getgrav/grav-plugin-api) before 1.0.18 does not apply the API-key scope cap in the injectSecurityTab() function of BlueprintController when deciding whether a page's security/permissions blueprint section is editable. Because the function performs raw isSuperAdmin()/hasPermission() checks without a request parameter, it cannot enforce scopeAllows(). A caller holding a scoped API key may therefore see (and potentially edit) page permission fields beyond the scope granted to the key. The end-to-end write-time impact was not fully confirmed by the reporter.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-13172",
-      "published": "2026-08-26T06:16:23.350",
-      "description": "The Eventin  WordPress plugin before 4.1.22 does not restrict access to non-published content by status or ownership in one of its REST API namespaces, allowing unauthenticated users to retrieve draft, pending and private posts belonging to other users, along with the passwords and contents of password-protected ones.",
+      "id": "CVE-2026-3235",
+      "published": "2026-08-26T11:16:38.073",
+      "description": "The WP Data Access plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 5.5.68 via the 'check_app_access' function due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to access data from protected app containers by exploiting a mismatch between the authorization check (performed against app_id) and data retrieval (performed using cnt_id without verifying container ownership).",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-13404",
-      "published": "2026-08-26T06:16:24.593",
-      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not perform any capability or ownership check (relying only on a publicly-scrapeable nonce) before writing like-count and visitor-tracking post meta keyed on an arbitrary post ID, allowing unauthenticated users to modify that metadata on any post, including private and draft posts.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-13406",
-      "published": "2026-08-26T06:16:24.700",
-      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not perform any capability or nonce check before returning taxonomy term data for an arbitrary, caller-supplied taxonomy, allowing unauthenticated users to disclose the names and IDs of terms belonging to non-public taxonomies.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-14550",
-      "published": "2026-08-26T06:16:25.007",
-      "description": "The WPCafe  WordPress plugin before 3.0.18 does not perform an authorization check when creating a reservation through its REST API, verifying only a publicly available nonce, allowing unauthenticated users to submit reservations with an arbitrary approval status and bypass the administrator moderation workflow.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-16986",
-      "published": "2026-08-26T06:16:25.500",
-      "description": "The Booking Package WordPress plugin before 1.7.25 does not validate the payment amount server-side against the stored service price, deriving the expected charge from attacker-supplied request values instead, so an unauthenticated attacker can pay an arbitrary fraction of a service's real price.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-19094",
-      "published": "2026-08-26T06:16:25.600",
-      "description": "The Tutor LMS  WordPress plugin before 4.0.6 does not validate values used to build a database query, and does not restrict which template file a request may load, allowing unauthenticated users to inject SQL and to read question and answer content belonging to courses that are not publicly available.\n\nThe injected text reaches the query as grammar rather than as data, and on the database engines tested it does not yield extraction of arbitrary data, so the confidentiality impact is the disclosed course content rather than the database at large.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-14212",
-      "published": "2026-08-26T06:16:24.800",
-      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 9.8 does not verify that an authenticated employee (provider) owns the provider account being updated, allowing any employee with an Employee Panel login to overwrite another employee's cabinet password and take over their account.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-19220",
-      "published": "2026-08-26T06:16:25.703",
-      "description": "The Forminator Forms  WordPress plugin before 1.57.1 does not verify that site registration is enabled on the network before creating a site signup, allowing unauthenticated visitors to create a new site on a WordPress multisite network and gain administrator privileges on it.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-15203",
-      "published": "2026-08-26T06:16:25.130",
-      "description": "Improper access control in debug and engineering interfaces in Danfoss iC7-Automation SP, iC7-Marine, and iC7-Hybrid GR3 allows attackers to gain read/write access to internal values, upload and execute unsigned applications, and upload unsigned EEPROM data and firmware via exposed service interfaces and software update mechanisms",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
