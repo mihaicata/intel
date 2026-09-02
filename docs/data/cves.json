@@ -1,143 +1,143 @@
 {
-  "totalResults": 2485,
+  "totalResults": 2446,
   "items": [
     {
-      "id": "CVE-2026-75329",
-      "published": "2026-08-26T22:16:29.087",
-      "description": "The Netty configuration distribution service (port 8283) of super-diamond-server <= 1.3.3 has no authentication mechanism. Attackers can directly obtain the full configuration of any project (including database passwords, API keys, etc.) by sending a TCP request without any credential.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-43621",
-      "published": "2026-08-26T22:16:24.643",
-      "description": "Simple Machines Forum (SMF) through 2.1.7, fixed in commit 6f0dc61, contains an authorization state-confusion vulnerability in the profile loader that allows authenticated low-privileged users to gain administrator access by supplying multiple values for the user parameter. Attackers can exploit the mismatch between Profile::$member and User::$me->is_owner during sequential profile loading to be treated as the owner of an administrator profile, enabling unauthorized password changes and full account takeover.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-61617",
-      "published": "2026-08-26T22:16:25.247",
-      "description": "Wings is the server control plane for the Pterodactyl game-server management panel. In versions up to and including 1.13.2, the SFTP write path does not enforce a server's disk quota during a transfer, allowing a tenant with SFTP write access to a single server to exhaust the host node's physical disk and take down every server on it. Wings checks available space only once, as a boolean, when the write handle is opened, using a stale cached usage value and without knowing the size of the incoming data, and it then returns a raw, unaccounted file handle that is never re-checked as the transfer proceeds. A single upload can therefore be written without bound, far beyond the configured disk limit, until the node's disk is full, and because a server stopped for exceeding its limit is not treated as suspended, SFTP writes are still accepted even after the quota is already exceeded. This issue is fixed in version 1.13.3.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-75328",
-      "published": "2026-08-26T22:16:28.980",
-      "description": "In DocSys-master V2.02.85, the downloadDocEx interface in src/com/DocSystem/controller/DocController.java has an arbitrary file read vulnerability:",
+      "id": "CVE-2026-47851",
+      "published": "2026-08-27T01:17:32.150",
+      "description": "Analyzing a PDF with a deeply nested or cyclic table of contents can cause a StackOverflowError in the ingestion thread.\nSpring AI 2.0.0\nSpring AI 1.1.0 - 1.1.8\nSpring AI 1.0.0 - 1.0.9",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-75333",
-      "published": "2026-08-26T22:16:29.327",
-      "description": "yx-image-recognition v1.0 is vulnerable to Path Traversal. Parameters such as dir, filePath are directly passed to new File() for file system operations without any path sanitization or whitelist validation.",
+      "id": "CVE-2026-47852",
+      "published": "2026-08-27T01:17:32.320",
+      "description": "A local attacker on a multi-user host can pre-create the deterministic cache path and plant a malicious ONNX model file.\nSpring AI 2.0.0\nSpring AI 1.1.0 - 1.1.8\nSpring AI 1.0.0 - 1.0.9",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-45694",
-      "published": "2026-08-26T22:16:24.793",
-      "description": "LibreNMS is a network monitoring system. In versions up to and including 26.4.0, the Proxmox application view is vulnerable to reflected cross-site scripting through the user-supplied instance and vmid GET parameters, which are reflected into the page title without adequate encoding. The parameters are placed into the page title with only strip_tags applied, and the title is then written into an inline document.title assignment through string interpolation, so a single quote terminates the JavaScript string and the remaining input runs as script. An attacker who lures an authenticated user into following a crafted link can execute script in that user's session, enabling actions such as theft of session data. This issue is fixed in version 26.5.0.",
+      "id": "CVE-2026-81421",
+      "published": "2026-08-27T01:18:16.227",
+      "description": "A security flaw has been discovered in ddfourtwo sentry-selfhosted-mcp 0.4.0. The affected element is an unknown function of the component raw_sentry_api. The manipulation of the argument endpoint results in server-side request forgery. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-81491",
+      "published": "2026-08-27T04:17:59.853",
+      "description": "A flaw has been found in boxpositron with-context-mcp up to 3.0.7. This affects the function ingest_notes/teleport_notes/sync_notes/project_folder of the file src/index.ts. Executing a manipulation can lead to path traversal. It is possible to launch the attack remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-47860",
+      "published": "2026-08-27T01:17:33.000",
+      "description": "An attacker who can publish to a queue consumed by an application that has enabled message decompression can crash the consumer JVM with a single ~1 MB message.\nSpring AMQP 4.1.0\nSpring AMQP 4.0.0 - 4.0.4\nSpring AMQP 3.2.0 - 3.2.12\nSpring AMQP 2.4.18 and earlier",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-47856",
+      "published": "2026-08-27T01:17:32.487",
+      "description": "Spring Integration's JSON to object conversion uses the json__TypeId__ header to choose the deserialization target type, and resolves that header value to a class with ClassUtils.forName and no type/package allow-list.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12\nSpring Integration 5.5.21 and earlier",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-47861",
+      "published": "2026-08-27T01:17:33.157",
+      "description": "An unauthenticated remote attacker who can send a single UDP packet to a Spring Integration UDP inbound adapter can cause the server to emit an outbound UDP datagram to an arbitrary internal or external host and port of the attacker's choosing.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12\nSpring Integration 5.5.21 and earlier",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-47857",
+      "published": "2026-08-27T01:17:32.687",
+      "description": "In Reactor Core, applications that use the Flux.windowTimeout operator with fairBackpressure enabled are vulnerable to a Denial of Service (DoS) condition.\nReactor Core 3.8.0 - 3.8.6\nReactor Core 3.5.0 - 3.7.19\nReactor Core 3.4.41 and earlier",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-47863",
+      "published": "2026-08-27T01:17:33.467",
+      "description": "In Reactor Core, applications that use the Flux.bufferTimeout operator with fairBackpressure enabled are vulnerable to a Denial of Service (DoS) condition.\nReactor Core 3.8.0 - 3.8.6\nReactor Core 3.7.19 and earlier",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-47859",
+      "published": "2026-08-27T01:17:32.850",
+      "description": "RFC6587SyslogDeserializer, used by the Spring Integration syslog TCP inbound adapter to decode RFC 6587 / RFC 5424 frames, trusts the sender-supplied octet count of an octet-counted frame and allocates a byte array of exactly that size with no upper bound.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12\nSpring Integration 5.5.21 and earlier",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-75331",
-      "published": "2026-08-26T22:16:29.210",
-      "description": "tamguo 1.5.3 is vulnerable to Unrestricted File Upload Leading to Stored XSS. The /uploadFile and /imgUpload endpoints in FileUploadController.java and UEditorController.java have no file type validation. Attackers can upload arbitrary HTML/JavaScript files to the server.",
+      "id": "CVE-2026-47862",
+      "published": "2026-08-27T01:17:33.313",
+      "description": "An attacker who can set the file_name header on a message reaching a ZipTransformer with ZipResultType.FILE (the default) can cause the resulting .zip archive to be written to an arbitrary filesystem path outside the configured workDirectory.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12",
       "severity": "MEDIUM",
-      "score": 4.6
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-21810",
-      "published": "2026-08-26T22:16:23.447",
-      "description": "HCL BigFix Quantum Risk Analyzer is affected by a hardcoded external resource reference and a lack of binary integrity which could allow an attacker to obtain sensitive information or modify the binary.",
+      "id": "CVE-2026-47845",
+      "published": "2026-08-27T01:17:31.827",
+      "description": "In specific scenarios, Reactor Netty HTTP Server may incorrectly evaluate the remote IP address when HAProxy Protocol is enabled. In order for this to happen, the application must be configured to use HAProxy Protocol.\nReactor Netty 1.3.0 - 1.3.6\nReactor Netty 1.1.0 - 1.2.18\nReactor Netty 1.0.52 and earlier",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-21809",
-      "published": "2026-08-26T22:16:23.323",
-      "description": "HCL BigFix Quantum Risk Analyzer has a certain validation process that provides overly descriptive error messages when it encounters malformed input which can allow an attacker to conduct more efficient reconnaissance and fine-tune automated fuzzing tools to produce valid input.",
-      "severity": "LOW",
-      "score": 3.9
+      "id": "CVE-2026-47874",
+      "published": "2026-08-27T01:17:33.620",
+      "description": "The vulnerability occurs when a client sends HTTP/1.1 pipelined requests over a single connection, causing the Reactor Netty HTTP server to consume an excessive amount of memory.\nReactor Netty 1.3.0 - 1.3.6\nReactor Netty 1.1.0 - 1.2.18\nReactor Netty 1.0.52 and earlier",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-16809",
-      "published": "2026-08-26T22:16:23.160",
-      "description": "LimeSurvey Community Edition 7.0.5 contains a stored cross-site scripting vulnerability in the survey quota creation workflow. An authenticated low-privileged user who can create and manage their own survey can store malicious JavaScript in a quota message.\n\nThis issue affects LimeSurvey: 7.0.5.",
+      "id": "CVE-2026-81485",
+      "published": "2026-08-27T02:16:28.553",
+      "description": "A security vulnerability has been detected in danielpopamd linkedin-ads-mcp 1.0.0. Affected by this vulnerability is the function fs.readFileSync of the file src/tools/campaign-management.ts of the component Media Upload. Such manipulation of the argument filePath leads to path traversal. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-81486",
+      "published": "2026-08-27T02:16:28.747",
+      "description": "A vulnerability was detected in bsmi021 mcp-file-context-server 1.0.0. Affected by this issue is the function read_context of the file src/index.ts of the component Path Resolution. Performing a manipulation of the argument path results in path traversal. It is possible to initiate the attack remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-47850",
+      "published": "2026-08-27T01:17:31.997",
+      "description": "Spring Data REST does not preserve the persisted version (@Version) property of an aggregate root when handling an HTTP PUT against an immutable target type.\nSpring Data REST 5.1.0\nSpring Data REST 5.0.0 - 5.0.6\nSpring Data REST 4.5.0 - 4.5.12\nSpring Data REST 4.0.0 - 4.4.15\nSpring Data REST 3.7.20 and earlier",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-80183",
+      "published": "2026-08-27T01:18:16.050",
+      "description": "In OpenStack Keystone before 29.0.3, any authenticated user holding role:reader on any project can list every project-scoped role assignment under any domain by passing a domain ID as scope.project.id with include_subtree to the GET /v3/role_assignments endpoint. The domain's project record has domain_id=null, causing the policy domain_id check to pass for any caller. With include_names, the response discloses the names and home-domain IDs of every user, group, project, and role involved. The literal \"default\" domain ID works against any deployment created with keystone-manage bootstrap. An attacker can harvest domain IDs from the response and repeat the query to map role assignments across the entire cloud. This is caused by misuse of \"None\" in \n\nlist_role_assignments_for_tree.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-55182",
-      "published": "2026-08-26T22:16:24.950",
-      "description": "LibreNMS is a network monitoring system. In versions from 21.6.0 up to 26.5.0, the Signal alert transport is vulnerable to command injection because the signal-cli path and the Recipient field of an alert transport entry are insufficiently escaped before being passed to an exec call. An authenticated administrator can craft a transport entry whose Recipient contains shell metacharacters and whose path points to the bundled composer_wrapper.php script, which itself passes attacker-controlled input to further unsafe exec calls. By chaining these calls, the administrator can execute arbitrary operating-system commands on the LibreNMS host. This issue is fixed in version 26.5.0.",
+      "id": "CVE-2026-19398",
+      "published": "2026-08-27T02:16:27.460",
+      "description": "“unsupported-when-assigned.” An out-of-bounds write in the SmiFlash SMM module of ASUS FA507NU and FA507NV BIOS allows a local  administrator to cause a system crash (BSOD) or BIOS corruption via a crafted software SMI (SW SMI) request with an oversized length value.Refer to the ' \nSecurity Update for ASUS FA507NV / FA507NU BIOS   ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-58070",
-      "published": "2026-08-26T22:16:25.107",
-      "description": "A vulnerability that records guest OS processing credentials in cleartext in a support log on the guest, allowing a user with read access to that log to recover privileged account credentials.",
+      "id": "CVE-2026-16895",
+      "published": "2026-08-27T04:16:41.530",
+      "description": "A logic vulnerability (fail-open condition) has been identified within the Metasploit Framework's JSON-RPC web service interface. When an exception occurs during the database health check (db.check) and the environment variable MSF_WS_JSON_RPC_API_TOKEN is not explicitly set, the application resets the internal state flag msf.auth_initialized to false. The ApiToken Warden authentication strategy misinterprets this false value as an indicator that authentication is not initialized or required, thereby granting unauthenticated local access to the JSON-RPC request dispatcher.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-63360",
-      "published": "2026-08-26T22:16:25.410",
-      "description": "LimeSurvey Community Edition 7.0.5+260623 contains an authenticated reflected Cross-Site Scripting vulnerability in the user activation confirmation endpoint. The action query parameter is copied into the response and inserted into a hidden input attribute without HTML attribute encoding.\n\n\n\nThis issue affects LimeSurvey: 7.0.5.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-64632",
-      "published": "2026-08-26T22:16:25.617",
-      "description": "A vulnerability allowing a low-privileged user to capture the NTLM credentials of the Reporter service account.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-65641",
-      "published": "2026-08-26T22:16:25.747",
-      "description": "A vulnerability allowing an unauthenticated network attacker to coerce SMB authentication from the service account.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-65642",
-      "published": "2026-08-26T22:16:25.883",
-      "description": "Insecure direct object reference in Plesk 18.0.79.7 and earlier or 18.0.80 through 18.0.80.3, allows remote authenticated users to read and modify other customers' databases.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-65646",
-      "published": "2026-08-26T22:16:26.020",
-      "description": "Improper neutralization of special elements in Plesk allows remote authenticated users to disclose arbitrary local files and escalate privileges.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-65647",
-      "published": "2026-08-26T22:16:26.157",
-      "description": "Improper symlink resolution before file access in Plesk allows remote authenticated users to execute arbitrary code as root.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-65930",
-      "published": "2026-08-26T22:16:26.283",
-      "description": "LimeSurvey Community Edition 7.0.5 contains an authenticated stored cross-site scripting vulnerability in the replacement-fields dialog used by the administrative question editor.This issue affects LimeSurvey: 7.0.5.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77298",
-      "published": "2026-08-26T22:16:29.570",
-      "description": "SeaweedFS is a distributed storage system for files and blobs. In versions 4.39 and earlier, the S3 API accepts an external OIDC JWT sent directly in the Authorization header and maps it to an IAM role without enforcing that role's trust policy, so a federated user can assume a role they are not permitted to hold. The standard STS AssumeRoleWithWebIdentity path rejects such a token when the role's trust policy does not trust the token's federated provider, but the direct S3 bearer path validates only the token itself and then authenticates as the mapped role and evaluates that role's attached S3 permissions. As a result, a valid OIDC user whose token would be denied the role through STS can obtain the role's S3 access, including object read, write, and delete, by presenting the raw OIDC JWT directly to the S3 API. This issue is fixed in version 4.40",
+      "id": "CVE-2023-22289",
+      "published": "2026-08-27T06:16:44.280",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
       "severity": "UNKNOWN",
       "score": null
     }
