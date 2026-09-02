@@ -1,143 +1,143 @@
 {
-  "totalResults": 2523,
+  "totalResults": 2519,
   "items": [
     {
-      "id": "CVE-2026-19632",
-      "published": "2026-08-26T05:18:06.810",
-      "description": "The TranslatePress – Translate Multilingual sites with AI Translation plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.3.1 via the 'trp_get_translations_regular' AJAX action. This makes it possible for unauthenticated attackers to extract the raw administrator password-reset URL — including the plaintext reset key and login parameters stored in the translation dictionary table — enabling full administrator account takeover. This vulnerability is only exploitable when automatic string saving is enabled (the default setting) and the target administrator's profile locale is set to a published secondary language, as these conditions cause the password-reset URL to be persisted as a translatable string in the secondary-language dictionary table.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-80193",
-      "published": "2026-08-26T05:18:26.617",
-      "description": "Kimai before 2.62.0 fails to validate create_other_timesheet permission in the QuickEntry controller when creating new timesheets. Authenticated users with view_other_timesheet and edit_other_timesheet permissions can create timesheet records for team members by submitting the QuickEntry form, bypassing authorization checks enforced elsewhere.",
+      "id": "CVE-2026-58095",
+      "published": "2026-08-26T06:16:26.460",
+      "description": "mp_Enddisc() used incorrect length calculations when formatting endpoint discriminator addresses for display, allowing a received endpoint option to overflow a global result buffer.\n\nA malicious PPP peer can crash ppp(8) or potentially execute arbitrary code as root.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-58092",
-      "published": "2026-08-26T05:18:12.453",
-      "description": "In FreeBSD 15.0, the kernel structure used to represent user credentials changed: previously the primary group ID was stored in the first element of the array containing the list of supplementary group IDs, whereas now the primary group ID is stored in a dedicated field.  This change was largely internal to the kernel and not user-visible.\n\nOne function, group_is_primary(), was not properly updated as a part of this transition.  This function is used by mac_do to determine the primary group ID of the credential after applying a transition rule, used when the rule target does not explicitly specify a group.\n\nAs a result, with certain mac_do rules, it is possible for a credential switch to incorrectly set the primary group ID to the ID stored in the first element of the original credential's supplementary group array.\n\nIf the list of supplementary groups is empty, this value will be 0, corresponding to the \"wheel\" group.  For example, a rule such as \"uid=1001>uid=1002\" can be abused to set the primary group ID to 0 even if the process did not originally belong to group 0.\n\n\n\nCertain mac_do rules can be abused to set a process' group ID to 0.  Note however, that the rule must apply to the caller in order for the bug to be triggered, e.g., given the ruleset \"uid=1001>uid=1002\", the user must have user ID 1001 in order to trigger the bug.\n\nFurther, logged-in users will in general have a non-empty supplementary group list, in which case the bug can at worst be used to set the credential's first supplementary group ID as its primary group ID.  Processes must explicitly remove themselves from all supplementary groups, using the privileged setgroups(2) system call, in order to exploit the bug to set 0 as the primary group ID.\n\nSince membership in group 0 is often used to enable controlled privilege escalation, the bug might be further exploitable to obtain root privileges, depending on the system configuration.  For instance, a ruleset such as the following could be exploited by a process running as user 1001 and with an empty supplementary group list: \"uid=1001>uid=1002;gid=0>uid=0\".",
+      "id": "CVE-2026-58096",
+      "published": "2026-08-26T06:16:26.577",
+      "description": "LcpDecodeConfig() did not validate the length of received endpoint discriminator options against the minimum required by RFC 1717.  Undersized options would trigger an out-of-bounds write.\n\nA malicious PPP peer can exploit CVE-2026-58095 and CVE-2026-58096 to crash ppp(8) or potentially execute arbitrary code as root.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-19718",
+      "published": "2026-08-26T06:16:25.900",
+      "description": "The BlogVault Backup & Staging WordPress plugin before 6.65, MalCare WordPress Security Plugin  WordPress plugin before 6.65, The WP Remote WordPress Plugin WordPress plugin before 6.65 do not prevent unauthenticated users from obtaining data derived from the secret that binds a site to its remote management service, and generate that secret with a weak pseudo-random number generator, allowing attackers to recover it and gain administrative access to the site.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-80192",
-      "published": "2026-08-26T05:18:26.460",
-      "description": "@better-auth/sso before 1.6.27 (and before 1.4.8 in the 1.4.x line and before 1.7.0-rc.5 in the 1.7 prerelease line) contains two domain-ownership flaws. When domain verification is disabled, automatic organization assignment accepts unverified provider domains, allowing an authenticated organization owner/administrator to register an SSO provider for an arbitrary domain and have users with matching email domains added to the attacker's organization with default member permissions. When domain verification is enabled, a race condition between the verify-domain and update-provider endpoints can apply completed DNS proof to a different domain; combined with implicit account linking, this can link an attacker-controlled identity provider to an existing user account. Exploitation requires the SSO plugin (and, for the org-assignment path, the organization plugin) with the relevant configuration enabled.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-57170",
-      "published": "2026-08-26T05:18:11.763",
-      "description": "Compliance-trestle (Trestle) is a Python SDK and command-line tool for managing OSCAL compliance documents. In versions prior to 3.12.4 and 4.0.0 through 4.0.3, the custom Jinja2 include tags mdsection_include and md_clean_include re-parse the content of an included Markdown file as Jinja2 template code in a non-sandboxed environment, allowing server-side template injection that can lead to arbitrary code execution. The MDSectionInclude and MDCleanInclude tags in Trestle/core/jinja/tags.py pass included file content to Parser(self.environment, ...).parse(), splicing it into the host template's compilation, and the environment is a plain jinja2.Environment rather than a SandboxedEnvironment, so any expressions in the file are evaluated with full access to the usual SSTI gadget chain. Because Trestle's Markdown writers emit OSCAL prose and component-description fields verbatim, applying delimiter neutralization only to parameter tables, attacker-controlled OSCAL data such as a control statement, part prose, or component description containing Jinja2 syntax flows into an included Markdown file and is executed when the include tag re-parses it. This issue is fixed in version 4.1.0.",
+      "id": "CVE-2026-58094",
+      "published": "2026-08-26T06:16:26.350",
+      "description": "The FIOSSHMLPGCNF ioctl(2) operation configures the page size for a largepage shared memory object.  This is intended to be used immediately after creating the object, before any memory is allocated for the object.  The handler checked whether a page size had already been configured without holding the rangelock.  Two concurrent callers could both observe an unconfigured object and set conflicting page sizes, leaving the object in an inconsistent state.\n\nAn unprivileged local user can exploit this race to escalate privileges.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-58089",
-      "published": "2026-08-26T05:18:12.080",
-      "description": "When a process calls execve(2) to execute a setuid or setgid image, hwpmc(4) is supposed to detach PMCs owned by unprivileged processes.  An inverted check meant that this scenario was not handled properly.\n\nAn unprivileged local user who has attached PMCs to a process can continue monitoring it after the process executes a setuid or setgid binary, contrary to the intended policy.",
+      "id": "CVE-2026-58097",
+      "published": "2026-08-26T06:16:26.700",
+      "description": "mp_SetEnddisc() copied a user-supplied PSN endpoint value without length validation, allowing a buffer overflow via the ppp(8) command interface.\n\nA local user with access to the ppp(8) command interface can crash ppp(8) or potentially execute arbitrary code as root.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-58090",
-      "published": "2026-08-26T05:18:12.217",
-      "description": "The SOCK_STREAM receive path in the unix socket implementation failed to fully detach control messages from the socket buffer before processing them.  Some error paths would free those messages, leaving freed data mbufs in the receive socket buffer.\n\nAn unprivileged local user can exploit this use-after-free to escalate privileges.",
+      "id": "CVE-2026-19760",
+      "published": "2026-08-26T06:16:26.007",
+      "description": "The WP Fastest Cache – WordPress Cache Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via HTTP Host Header in all versions up to, and including, 1.5.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the Polylang or Polylang Pro plugin to be active and the Combine JS option to be enabled, as these conditions trigger the vulnerable Host-header-to-URL code path that writes attacker-controlled script src values into the shared page-cache file served to all subsequent visitors.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-58091",
-      "published": "2026-08-26T05:18:12.337",
-      "description": "The implementation of this ioctl attempts to acquire locks on all channels in a sync group.  If locking a channel would block, it releases the sync group list lock and sleeps.  Upon reawakening, it is possible that the sync group structure is freed, but the implementation did not handle this possibility.\n\n On a system with a multiple audio devices, an unprivileged local user can exploit this use-after-free to escalate privileges.",
+      "id": "CVE-2026-74851",
+      "published": "2026-08-26T06:16:26.830",
+      "description": "The Pods  WordPress plugin before 3.3.9.1 does not correctly compare a display callback against its list of blocked functions, allowing users with the author role and above to execute arbitrary code on the server. Only sites using the restricted display-callback mode are affected, which is the automatic default on installations whose first Pods version predates 3.1.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-76148",
-      "published": "2026-08-26T05:18:18.953",
-      "description": "CorvusSKK contains a code injection vulnerability, which may lead to arbitrary code execution on the affected product.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-57171",
-      "published": "2026-08-26T05:18:11.923",
-      "description": "Compliance-trestle (Trestle) is a Python SDK and command-line tool for managing OSCAL compliance documents. In versions before 3.12.4 and versions 4.0.0 through 4.0.3, the catalog-generate, profile-generate, and ssp-generate author commands write generated Markdown to an attacker-influenced output path without path-traversal validation, allowing arbitrary file write outside the Trestle workspace. These commands join the user-supplied output argument onto the Trestle root and write to the result, but guard it only with an is_directory_name_allowed() task-name-collision check rather than the PathSecurityValidator.validate_local_path() guard used by the jinja command, so an absolute path or one containing traversal sequences escapes the workspace and writes files under an attacker-chosen location as the invoking process owner. The security boundary is crossed when a trusted CI job, shared service, or wrapper derives the output argument from repository-controlled, tenant-controlled, or otherwise untrusted data while expecting output to stay inside the workspace. When --force-overwrite is used, the selected output directory is first recursively deleted, extending the primitive to destruction of an attacker-chosen directory tree and enabling indirect code execution by overwriting files a pipeline later runs. This issue is fixed in versions 3.12.4 and 4.1.0.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-29988",
-      "published": "2026-08-26T05:18:07.543",
-      "description": "A cleartext transmission of sensitive information vulnerability in the NFC interface of multiple Milesight IoT device models running affected firmware versions allows an unauthenticated attacker with physical proximity to retrieve LoRaWAN ABP NwkSKey and AppSKey values and D2D keys via an NFC read operation. The exposed keys can be used to decrypt LoRaWAN traffic, forge uplink and downlink frames, submit falsified sensor data, issue supported device commands, and cause subsequent legitimate frames to be rejected.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2026-80191",
-      "published": "2026-08-26T05:18:26.283",
-      "description": "GROWI applies its page-viewer permission check to attachment requests only when the request carries an authenticated user. retrieveAttachmentFromIdParam in apps/app/src/server/routes/attachment/get.ts guards the check with a condition requiring the user to be non-null, so a request that carries no session skips the check entirely and the handler returns the file. The routes reached this way, /attachment/:id and /download/:id, take the attachment identifier from the path, so an unauthenticated caller who has an attachment identifier receives the file regardless of whether the page owning it is private and regardless of whether that caller would be permitted to view the page. Identifiers can be retained by a user whose access was later removed, or recovered from anywhere the identifier was previously exposed. Version 8.0.2 runs the check for authenticated and unauthenticated requests alike, skipping it only where a valid share link has already bound the requested file to that link's page.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-80196",
-      "published": "2026-08-26T05:18:27.083",
-      "description": "Kimai before 2.58.0 contains an authentication bypass vulnerability where password reset links remain valid after password changes because the LoginLink signature covers only the user id, not the password hash. Attackers who intercept or cache a password reset link can use it up to 2 additional times within a 1-hour window to log in as the user even after the legitimate user has changed their password.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-54467",
-      "published": "2026-08-26T05:18:11.053",
-      "description": "On the Trusted Firmware-M (TF-M) 2 through 2.3.0 platform before 00d1b3e, mailbox initialization on PSOC64 and RP2350 accepts a non-secure, unvalidated, supplied pointer.",
+      "id": "CVE-2026-58093",
+      "published": "2026-08-26T06:16:26.227",
+      "description": "The TIOCSCTTY ioctl handler drops the tty lock in order to acquire the process tree lock.  After reacquiring the tty lock, the handler did not revalidate the state of the terminal, and could proceed to link a terminal that was concurrently being destroyed to the calling process' session.\n\nAn unprivileged local user can exploit this race condition to escalate privileges.",
       "severity": "HIGH",
       "score": 7
     },
     {
-      "id": "CVE-2026-80189",
-      "published": "2026-08-26T05:18:26.117",
-      "description": "LeafWiki extracts an uploaded ZIP archive without limiting how much data it will write. ZipExtractor.ExtractToDir in internal/importer/zip_extractor.go opens each entry and copies it to the destination with io.Copy, which runs to the end of the decompressed stream, so only the size of the uploaded archive is bounded and the size it expands to is not. The import route that reaches this code requires the Editor or Admin role, and the upload itself is capped at 500 MiB compressed. Because a ZIP entry can compress at a very high ratio, an archive well inside that cap can expand to hundreds of gigabytes as it is written out. The extraction directory defaults to a location under the operating system temporary directory, so the written data consumes the disk backing that path, which on a tmpfs-backed temporary directory is memory. A user holding the Editor role can therefore exhaust the storage the service depends on and keep it from serving, using far more resource than the upload limit alone would permit.",
+      "id": "CVE-2026-19226",
+      "published": "2026-08-26T06:16:25.803",
+      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not validate some widget settings before outputting them inside an HTML attribute, which could allow users with the Contributor role and above to perform Stored Cross-Site Scripting attacks.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-14216",
+      "published": "2026-08-26T06:16:24.910",
+      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.7 does not require authentication before processing its pending notification queue, allowing an unauthenticated user to force the dispatch of queued notifications and integration callbacks.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-80195",
-      "published": "2026-08-26T05:18:26.937",
-      "description": "Kimai before 2.63.0 contains a business logic / improper authorization vulnerability in the team update API endpoint (PATCH /api/teams/{id}), which removes all existing team members before validating the submitted replacement member list. An authenticated teamlead (or other user) with permission to edit a team can submit a malformed members payload; although Kimai returns a validation error, the existing membership rows have already been deleted. This bypasses the dedicated member-removal endpoint's protection against removing teamleaders and can leave a team with no members or teamleaders, disrupting team-based access control.",
+      "id": "CVE-2026-16984",
+      "published": "2026-08-26T06:16:25.393",
+      "description": "The Privacy Policy Generator, Terms & Conditions, GDPR, CCPA, Cookie Policy & Disclaimer Templates  WordPress plugin before 3.7.1 does not include an authorization check on a REST route that returns stored account data, allowing unauthenticated visitors to retrieve the connected service's API secret and account details, which can then be used to disconnect the Privacy Policy Generator, Terms & Conditions, GDPR, CCPA, Cookie Policy & Disclaimer Templates  WordPress plugin before 3.7.1's integration.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-73335",
-      "published": "2026-08-26T05:18:17.790",
-      "description": "Android application \"Myna Point\" is vulnerable to Improper Authorization in Handler for Custom URL Scheme (CWE-939). A malicious application installed on the user's Android device may exploit the affected application's functionality through an Intent, potentially allowing arbitrary JavaScript to be executed within the affected application.",
+      "id": "CVE-2026-13172",
+      "published": "2026-08-26T06:16:23.350",
+      "description": "The Eventin  WordPress plugin before 4.1.22 does not restrict access to non-published content by status or ownership in one of its REST API namespaces, allowing unauthenticated users to retrieve draft, pending and private posts belonging to other users, along with the passwords and contents of password-protected ones.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-76149",
-      "published": "2026-08-26T05:18:19.103",
-      "description": "CorvusSKK contains an integer overflow vulnerability, which may allow malicious data to be written to a dictionary file.",
+      "id": "CVE-2026-13404",
+      "published": "2026-08-26T06:16:24.593",
+      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not perform any capability or ownership check (relying only on a publicly-scrapeable nonce) before writing like-count and visitor-tracking post meta keyed on an arbitrary post ID, allowing unauthenticated users to modify that metadata on any post, including private and draft posts.",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-80194",
-      "published": "2026-08-26T05:18:26.780",
-      "description": "Kimai before 2.64.0 contains a missing authorization vulnerability in the ProjectViewController export route (report_project_view_export). The authorization guards are attached to the sibling __invoke method rather than at the class level, so the export route inherits no authorization checks. Any authenticated user, including a plain ROLE_USER without the project_reporting permission, can download the project overview export - which returns the same dataset as the protected report - disclosing customer names, project names, currency, budget type, and aggregate totals across all customers. Actual financial figures remain protected in the export template.",
+      "id": "CVE-2026-13406",
+      "published": "2026-08-26T06:16:24.700",
+      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1066 does not perform any capability or nonce check before returning taxonomy term data for an arbitrary, caller-supplied taxonomy, allowing unauthenticated users to disclose the names and IDs of terms belonging to non-public taxonomies.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-52776",
-      "published": "2026-08-26T05:18:10.880",
-      "description": "Compliance-trestle (Trestle) is a tooling platform for managing compliance as code. In versions before 3.12.4 and versions 4.0.0 through 4.0.3, the URLSecurityValidator that guards trestle's remote-fetch paths against server-side request forgery can be bypassed to reach loopback, link-local, cloud-metadata, and internal network endpoints it was designed to block. The blocklist does not canonicalize IPv4-mapped IPv6 literals such as [::ffff:169.254.169.254], which resolve to IPv6Address objects that never match the blocked IPv4 ranges, and it does not block the unspecified address 0.0.0.0, which routes to local services on Linux and inside containers. An attacker who can supply or influence an OSCAL artifact that trestle fetches, such as a malicious profile whose imports reference one of these bypass URLs, can cause the HTTPSFetcher and SFTPFetcher paths to contact cloud instance-metadata services, loopback interfaces, or internal hosts. This issue is fixed in versions 3.12.4 and 4.1.0.",
+      "id": "CVE-2026-14550",
+      "published": "2026-08-26T06:16:25.007",
+      "description": "The WPCafe  WordPress plugin before 3.0.18 does not perform an authorization check when creating a reservation through its REST API, verifying only a publicly available nonce, allowing unauthenticated users to submit reservations with an arbitrary approval status and bypass the administrator moderation workflow.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-16986",
+      "published": "2026-08-26T06:16:25.500",
+      "description": "The Booking Package WordPress plugin before 1.7.25 does not validate the payment amount server-side against the stored service price, deriving the expected charge from attacker-supplied request values instead, so an unauthenticated attacker can pay an arbitrary fraction of a service's real price.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-19094",
+      "published": "2026-08-26T06:16:25.600",
+      "description": "The Tutor LMS  WordPress plugin before 4.0.6 does not validate values used to build a database query, and does not restrict which template file a request may load, allowing unauthenticated users to inject SQL and to read question and answer content belonging to courses that are not publicly available.\n\nThe injected text reaches the query as grammar rather than as data, and on the database engines tested it does not yield extraction of arbitrary data, so the confidentiality impact is the disclosed course content rather than the database at large.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-14212",
+      "published": "2026-08-26T06:16:24.800",
+      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 9.8 does not verify that an authenticated employee (provider) owns the provider account being updated, allowing any employee with an Employee Panel login to overwrite another employee's cabinet password and take over their account.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-19220",
+      "published": "2026-08-26T06:16:25.703",
+      "description": "The Forminator Forms  WordPress plugin before 1.57.1 does not verify that site registration is enabled on the network before creating a site signup, allowing unauthenticated visitors to create a new site on a WordPress multisite network and gain administrator privileges on it.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-15203",
+      "published": "2026-08-26T06:16:25.130",
+      "description": "Improper access control in debug and engineering interfaces in Danfoss iC7-Automation SP, iC7-Marine, and iC7-Hybrid GR3 allows attackers to gain read/write access to internal values, upload and execute unsigned applications, and upload unsigned EEPROM data and firmware via exposed service interfaces and software update mechanisms",
       "severity": "UNKNOWN",
       "score": null
     }
