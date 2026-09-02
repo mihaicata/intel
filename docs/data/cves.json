@@ -1,143 +1,143 @@
 {
-  "totalResults": 2533,
+  "totalResults": 2541,
   "items": [
     {
-      "id": "CVE-2026-74737",
-      "published": "2026-08-26T15:16:52.313",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG\n\nOn the packet reception path, the ID of the MAC Port on which the packet\nwas received, is embedded in the RX DMA Descriptor's metadata. The ID is\nextracted using the helper function cppi5_desc_get_tags_ids() which fills\nin the 16-bit Source Tag into the 'port_id' variable. However, it is only\nthe lower 8-bits of the 16-bit Source Tag that represent the MAC Port ID,\nwhile the upper 8-bits are Hardware-Reserved and carry an arbitrary value.\nWith the existing logic, sporadic kernel crash is observed due to the\nsubsequent driver code accessing out-of-bound memory because of an invalid\nport_id.\n\nHence, fix the port_id extraction logic to use only the lower 8-bits of the\nSource Tag as the MAC Port ID.",
+      "id": "CVE-2025-61163",
+      "published": "2026-08-26T19:16:44.290",
+      "description": "Cohere North AI v1.1.5 was discovered to contain excessively permissive cross-domain policy with untrusted domains. This occurs via the server failing to validate the Origin header of incoming connection requests.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-74743",
-      "published": "2026-08-26T15:16:53.113",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmacvlan: inherit needed_headroom and needed_tailroom from lowerdev\n\nmacvlan devices inherit hard_header_len from lowerdev during macvlan_init(),\nbut leave needed_headroom and needed_tailroom set to 0.\n\nWhen the underlying lowerdev requires extra headroom or tailroom for\nheaders/trailers (e.g. macsec, ipsec, wireguard, tunnels, or veth with rx\nheadroom), upper layers calculating packet headroom and tailroom fail to\nreserve sufficient space.\n\nThis can result in reallocation overhead, skb headroom underflows, or KASAN\nslab-use-after-free crashes when dev_hard_header() / macvlan_hard_header()\nprepends header data or when lower devices append tailroom.\n\nFix this by:\n1. Inheriting needed_headroom and needed_tailroom from lowerdev in macvlan_init().\n2. Propagating needed_headroom and needed_tailroom updates to attached macvlans\n   in macvlan_device_event() when receiving NETDEV_FEAT_CHANGE events.",
+      "id": "CVE-2025-61165",
+      "published": "2026-08-26T19:16:44.927",
+      "description": "An arbitrary file upload vulnerability in the /v1/my_drive/batch_upload component of cohere North AI v1.1.5 allows attackers to exeute arbitrary code via uploading a crafted file.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-74744",
-      "published": "2026-08-26T15:16:53.250",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipvlan: inherit needed_headroom and needed_tailroom from phy_dev\n\nipvlan devices inherit hard_header_len from phy_dev during ipvlan_init(),\nbut leave needed_headroom and needed_tailroom set to 0.\n\nWhen the underlying phy_dev (or stacked lower device) requires extra headroom\nor tailroom for headers/trailers (e.g. macsec, ipsec, wireguard, tunnels, or\nveth with rx headroom), upper layers calculating packet headroom and tailroom\nfail to reserve sufficient space.\n\nThis can result in reallocation overhead, skb headroom underflows, or KASAN\nslab-use-after-free crashes when dev_hard_header() / ipvlan_hard_header()\nprepends header data or when lower devices append tailroom.\n\nFix this by:\n1. Inheriting needed_headroom and needed_tailroom from phy_dev in ipvlan_init().\n2. Propagating needed_headroom and needed_tailroom updates to attached ipvlans\n   in ipvlan_device_event() when receiving NETDEV_FEAT_CHANGE events.",
+      "id": "CVE-2026-75325",
+      "published": "2026-08-26T19:17:03.673",
+      "description": "DWSurvey v6.14.0 is is vulnerable to authentication bypass via the '/api/dwsurvey/none/' and '/api/dwsurvey/up/**' parameters.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-54523",
-      "published": "2026-08-26T15:16:48.910",
-      "description": "Kyverno is a policy engine designed for cloud native platform engineering teams. From 1.18.0 until 1.18.2, the NamespacedMutatingPolicy CEL compiler exposes the generator library to matchConditions, allowing a namespace-scoped policy to invoke generator.apply(namespace, resources) with an arbitrary target namespace. The validation in pkg/cel/policies/mpol/validate.go checks that the policy compiles but does not enforce namespace scope, and GenerateResources in pkg/cel/libs/context.go does not reject the cross-namespace target. A user who can create NamespacedMutatingPolicy objects in one namespace can cause the admission controller, operating with cluster-wide privileges, to create ConfigMaps, NetworkPolicies, Secrets, RoleBindings, and other resources in another namespace, enabling unauthorized modification and potential privilege escalation. This issue is fixed in version 1.18.2.",
+      "id": "CVE-2025-70290",
+      "published": "2026-08-26T20:16:59.550",
+      "description": "An issue was discovered in Denx U-Boot before 2026.04. An integer overflow vulnerability in the ZFS filesystem support can be triggered by malformed on-disk metadata. The issue may result in incorrect memory allocation followed by out-of-bounds memory access, potentially leading to a crash or arbitrary code execution during the boot process.",
       "severity": "CRITICAL",
-      "score": 9.6
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-54511",
-      "published": "2026-08-26T15:16:48.727",
-      "description": "LogTape is an unobtrusive logging library. Prior to 1.3.11, 2.0.14, and 2.1.5, the @logtape/syslog package's escapeStructuredDataValue() function in packages/syslog/src/syslog.ts does not neutralize C0 control characters from U+0000 through U+001F in structured data values, and formatStructuredData() inserts property keys without validating the RFC 5424 SD-NAME grammar. When includeStructuredData is true, an attacker-controlled newline can terminate an RFC 6587 non-transparent TCP syslog frame and make following bytes appear as a forged RFC 5424 record, while a key containing a closing bracket or other forbidden character can terminate or corrupt the structured-data element. Applications that forward attacker-controlled property values or keys can therefore allow forged records with arbitrary hosts, applications, process identifiers, facilities, or severity levels, undermining downstream collector and SIEM integrity. This issue is fixed in versions 1.3.11, 2.0.14, and 2.1.5.",
-      "severity": "HIGH",
-      "score": 8.6
+      "id": "CVE-2025-70293",
+      "published": "2026-08-26T20:16:59.697",
+      "description": "An issue was discovered in Denx U-Boot before 2026.04. An integer overflow vulnerability exists in function ext4fs_get_bgdtable, the size calculation can lead to under allocation and this underallocated buffer will be used in memcpy() which could lead to arbitrary code execution, a denial of service, or other unspecified impacts.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-74736",
-      "published": "2026-08-26T15:16:52.173",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: cls_bpf: reject dev-bound programs bound to a different device\n\ncls_bpf_prog_from_efd() obtained a SCHED_CLS program via\nbpf_prog_get_type_dev() but never verified that a device-bound (offloaded)\nprogram's bound netdev matches the TC netdev the classifier is being\nattached to. This let a program loaded with prog_ifindex for device A be\nattached via cls_bpf + skip_sw to device B; deleting device A then\ndestroyed the program's offload state while it was still attached to\ndevice B, triggering a netdevsim WARN (panic with panic_on_warn=1).\n\nMirror the XDP attach path (net/core/dev.c) and reject the attach with\n-EINVAL when a dev-bound program's bound device does not match the\ntarget device.",
-      "severity": "HIGH",
-      "score": 7.8
+      "id": "CVE-2026-51106",
+      "published": "2026-08-26T19:16:50.800",
+      "description": "An issue in TokTok qTox v1.18.4 allows a local attacker to cause a denial of service via the src/persistence/serialize.cpp component",
+      "severity": "CRITICAL",
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-74739",
-      "published": "2026-08-26T15:16:52.603",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: cls_u32: skip hash tables in u32_bind_class()\n\nu32_walk() enumerates both struct tc_u_hnode and struct tc_u_knode\nthrough the walker callback. u32_bind_class() unconditionally casts the\npassed fh to tc_u_knode and accesses &n->res, so when fh is actually a\ntc_u_hnode, which has no tcf_result member, this results in a\nslab-out-of-bounds read of res->classid in tc_cls_bind_class().\n\nThe issue can be reproduced with the following commands:\n\n    tc qdisc add dev lo root handle 1: hfsc\n    tc class add dev lo parent 1: classid 1:1 hfsc sc rate 1000kbit\n    tc filter add dev lo parent 1:1 protocol ip prio 1 u32 match u32 0 0 flowid 1:1\n    tc class add dev lo parent 1: classid 1:2 hfsc sc rate 2000kbit\n\nFix this by skipping hash tables via the TC_U32_KEY(handle) check.",
-      "severity": "HIGH",
-      "score": 7.8
+      "id": "CVE-2026-70419",
+      "published": "2026-08-26T19:16:56.540",
+      "description": "Dell Cloud Disaster Recovery, versions 20.2 and prior, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-74741",
-      "published": "2026-08-26T15:16:52.867",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ngbe: fix NULL pointer dereference in non-MSI-X interrupt enabling\n\nIn non-MSI-X mode (such as legacy INTx or single MSI), wx->msix_entry is\nnot allocated or initialized. Calling NGBE_INTR_MISC(wx) dereferences\nwx->msix_entry->entry, leading to a NULL pointer dereference crash.\n\nThis issue was introduced by fixing the IRQ vector when the number of\nVFs is 7. Fix the issue by explicitly checking `pdev->msix_enabled` to\ndetermine the correct vector index.\n\nAdditionally, as a side fix, set the interrupt mask to BIT(0) for the\nnon-MSI-X fallback. In MSI/INTx mode, the MISC and queue interrupts\nshare vector 0, and the WX_PX_MISC_IVAR register is only valid in the\nMSI-X case. Thus, BIT(0) is the correct mask for the miscellaneous cause\nwhen MSI-X is disabled.",
+      "id": "CVE-2025-61162",
+      "published": "2026-08-26T19:16:42.900",
+      "description": "Incorrect access control in Cohere North AI v1.1.5 allows attackers to arbitrarily overwrite user info via a crafted request to the /api/internal/v1/users/{{USER_ID}} endpoint",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-74742",
-      "published": "2026-08-26T15:16:52.990",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nveth: fix queue index used to wake the peer txq in veth_poll\n\nveth_poll() derives the index of the peer TX queue to wake from\nrq->xdp_rxq.queue_index. That field is only initialized by\nxdp_rxq_info_reg() in veth_enable_xdp_range(), which runs only when an\nXDP program is attached. On the plain GRO/NAPI path\n(veth_napi_enable_range()) xdp_rxq_info_reg() is never called, so\nqueue_index stays 0 for every queue, as priv->rq is zero-allocated.\n\nSo in a multi-queue setup with GRO enabled and no XDP program attached,\nevery NAPI instance looks at the peer's TX queue 0. If veth_xmit() stops\npeer TX queue 1 because the ptr_ring is full (NETDEV_TX_BUSY), nothing\never wakes it again: the poller draining queue 1 wakes queue 0 instead.\nveth implements no ndo_tx_timeout, so the netdev watchdog does not kick\nin either, and the queue stays stopped indefinitely.\n\nDerive the index from the position of the rq within priv->rq instead,\nwhich is correct regardless of whether XDP was ever enabled.\n\nScripts to reproduce the stall are available at\nhttps://github.com/netoptimizer/veth-backpressure-performance-testing",
+      "id": "CVE-2025-61164",
+      "published": "2026-08-26T19:16:44.797",
+      "description": "Cohere North AI v1.1.5 was discovered to contain an information leak via the WebSocket Endpoint.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-54550",
-      "published": "2026-08-26T15:16:49.223",
-      "description": "IzPack is a widely used tool for packaging applications on the Java platform as cross-platform installers. In 5.2.6 and earlier, UnpackerBase.unpack() in izpack-installer/src/main/java/com/izforge/izpack/installer/unpacker/UnpackerBase.java obtains an attacker-controlled PackFile targetPath, passes it through IoHelper.translatePath(), which only converts separators, and constructs a File without normalizing parent-directory segments or enforcing destination containment. A malicious installer pack entry containing ../ sequences can therefore write outside the intended installation directory to startup folders, executable search paths, or other locations accessible with the victim's privileges when the victim runs the installer.",
+      "id": "CVE-2026-36851",
+      "published": "2026-08-26T19:16:49.850",
+      "description": "Path traversal vulnerability in UnPoller 2.33.0 password field allows arbitrary file read and network exfiltration.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-13481",
-      "published": "2026-08-26T15:16:42.953",
-      "description": "The IEEE 1588 PTP management-message parser in subsys/net/lib/ptp/tlv.c mishandles the PTP_MGMT_TIME management id. In tlv_mgmt_post_recv(), the PTP_MGMT_TIME case casts mgmt_tlv->data to a 10-byte struct ptp_timestamp and reads it (then byte-swaps and writes it back) without first checking that the TLV data field is at least sizeof(struct ptp_timestamp). Every sibling management id in the same switch validates its length first; PTP_MGMT_TIME was the only case lacking that check.\n\nThe length passed in is the management data size (tlv->length - 2), and the upstream guard in ptp_tlv_post_recv() only requires tlv->length > 2, while msg_tlv_post_recv() validates only that the TLV fits within the received byte count, not a per-id minimum. A peer on the local PTP segment can therefore send a PTP_MSG_MANAGEMENT message carrying a short PTP_MGMT_TIME TLV (data as small as 2 bytes), causing the parser to read and write 8 bytes beyond the validated data. The message type and TLV contents are taken straight off the wire, so the path is reachable by any adjacent attacker when CONFIG_PTP is enabled.\n\nThe over-read and write-back stay within the struct ptp_msg allocation (mgmt_tlv->data lives in the leading mtu[NET_ETH_MTU] union member, so data + 10 lands at most a few bytes past mtu[], inside the same object), so this is an out-of-bounds read of adjacent in-object memory plus a bounded in-place corruption of the message's parsed timestamp, not past-allocation memory corruption. Impact is limited to minor information exposure of adjacent bytes and corruption of the device's parsed management TIME value; there is no crash on the access and no reachable reference-count corruption.\n\nThe fix adds if (length < sizeof(struct ptp_timestamp)) { return -EBADMSG; } before the cast, matching the other management-id cases and fully closing the receive-path defect.",
+      "id": "CVE-2026-26445",
+      "published": "2026-08-26T20:17:11.400",
+      "description": "stomper 5e2741e is vulnerable to Denial of Service. A malicious client can send partial STOMP frames and keep the TCP connections open, which, combined with the broker s use of edge-triggered epoll (EPOLLET) and MSG_PEEK in recv(), causes sockets to enter a permanent half-read state. When enough such connections accumulate, the broker stops receiving any further epoll events for those sockets and eventually hangs in epoll_wait, effectively refusing to process new messages.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-26446",
+      "published": "2026-08-26T20:17:11.527",
+      "description": "Stomper 5e2741e is vulnerable to Denial of Service. When a broker sends data to a client whose TCP connection was already closed by the peer, the server process receives SIGPIPE and immediately terminates, resulting in a denial of service. Any unauthenticated client can trigger the crash by closing the socket at specific points.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-71171",
+      "published": "2026-08-26T19:16:57.647",
+      "description": "Dell Cloud Disaster Recovery, versions 20.2 and prior, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in the REST API. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-48786",
+      "published": "2026-08-26T19:16:50.643",
+      "description": "Fleet is an open-source device management platform built on osquery. In versions prior to 4.87.0, the target search endpoint (POST /api/latest/fleet/targets) returned unmasked team enroll secrets and full team configuration, including credential-bearing agent options, to low-privilege observer-class users. Other team-facing endpoints mask these fields for observers, but the target search endpoint did not apply the same sanitization, so an authenticated user with the Observer, Observer+, or Technician role, whether global or team-scoped, could retrieve the secrets and agent options by performing a target search against an observer-runnable query. With a leaked team enroll secret an attacker could enroll unauthorized hosts into the affected team, and if the team's agent options contained credentials such as AWS secret access keys or proxy passwords, those values were disclosed as well. This issue is fixed in version 4.87.0.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-54553",
-      "published": "2026-08-26T15:16:49.370",
-      "description": "Starlette-Admin is a fast, beautiful and extensible administrative interface framework for FastAPI and Starlette applications. Prior to 0.16.1, the list API does not validate user-supplied order_by and structured where field names against the configured sortable_fields and searchable_fields allowlists. An authenticated user with access to an affected list endpoint can submit arbitrary field names to starlette_admin/base.py and the BaseModelView validation path, bypassing restrictions presented by the administrative user interface. Requests can sort or filter on fields that are not intended to be sortable or searchable, causing limited information exposure. Invalid field names and special Python attribute names such as metadata and the class dunder attribute can also trigger unhandled exceptions and HTTP 500 responses, causing limited denial of service for targeted requests. This issue is fixed in version 0.16.1.",
+      "id": "CVE-2026-75466",
+      "published": "2026-08-26T19:17:03.787",
+      "description": "libjpeg-turbo 3.2.0 contains an integer division-by-zero vulnerability in the PNG loader. When processing a valid indexed-color PNG image with a non-gray palette through tj3LoadImage12() or tj3LoadImage16() using the default pixel format, the application may trigger a division-by-zero in alloc_sarray(), causing a SIGFPE and denial of service.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-54548",
-      "published": "2026-08-26T15:16:49.070",
-      "description": "kas is a setup tool for bitbake based projects. Prior to 5.4, internal SSH key setup triggered by SSH_PRIVATE_KEY or SSH_PRIVATE_KEY_FILE creates ~/.ssh/config when no user-specific SSH configuration exists and adds a global Host * rule containing StrictHostKeyChecking no. In kas/libcmds.py, ssh_no_host_key_check() runs without checking ctx.managed_env, so the setting persists after kas exits and affects future SSH sessions by the same local user, extending beyond the intended short-lived continuous integration environment. A later SSH connection can therefore accept an attacker-controlled host key without verification, increasing the risk of a man-in-the-middle attack that compromises session confidentiality or integrity. This issue is fixed in version 5.4.",
-      "severity": "LOW",
-      "score": 3.3
+      "id": "CVE-2025-70340",
+      "published": "2026-08-26T20:16:59.823",
+      "description": "A Broken Access Control vulnerability exists in ThingsBoard Professional Edition (PE) 4.21 and below, within the Alarms comments functionality. An authenticated customer user can manipulate the respective API request parameters to create or modify system-generated alarm comments. This allows unauthorized impersonation of system messages and modification of trusted system-owned data, resulting in vertical privilege escalation and potential integrity violations.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-13479",
-      "published": "2026-08-26T15:16:42.693",
-      "description": "The LoRaWAN application-layer clock-synchronization service parses downlinks in clock_sync_package_callback() (subsys/lorawan/services/clock_sync.c). Its command loop only guarantees that the one-byte command id is in bounds; for the CLOCK_SYNC_CMD_APP_TIME (AppTimeAns) command the handler then reads a 4-byte time correction via sys_get_le32() plus a 1-byte token without checking that 5 bytes remain in the receive buffer (len - rx_pos). A short or crafted AppTimeAns therefore reads up to 5 bytes past the end of the decrypted payload.\n\nThe payload (rx_buf/len) is the decrypted application frame delivered to the registered downlink callback (mcps_indication->Buffer/BufferSize). Reaching the handler requires a frame on the clock-sync port that passes LoRaWAN's MAC integrity check and FRMPayload decryption, so the practical attacker is a malicious or compromised network/application server (the designated sender of AppTimeAns) or a party holding the session keys, rather than an arbitrary radio listener.\n\nThe over-read is bounded: the backing store is a fixed 255-byte static buffer, so the few stray bytes do not fault, and the read values (time_correction, token) are used only internally and never transmitted, so there is no disclosure to the attacker and no crash. The sole effect is that a stale token matching ctx.req_token can apply a garbage time_correction to the device's own clock offset (ctx.time_offset), a minor integrity impact confined to the victim's time estimate. The fix adds an explicit length check that drops a too-short AppTimeAns. Note the sibling one-byte reads in the periodicity and force-resync handlers remain unguarded with the same negligible impact.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-79940",
+      "published": "2026-08-26T19:17:19.213",
+      "description": "Dell iDRAC9, 14G versions prior to 7.00.00.182 and 15G/16G versions prior to 7.20.30.50, contains an Improper Access Control vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to gaining access to unauthorized data.",
+      "severity": "MEDIUM",
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-13480",
-      "published": "2026-08-26T15:16:42.830",
-      "description": "The LoRaWAN TS004 Fragmented Data Block Transport handler frag_transport_package_callback() in subsys/lorawan/services/frag_transport.c parses downlink command bytes without validating that enough payload bytes remain before each access. The loop's only bound is rx_pos < len; after consuming the one-byte command id the handler cast rx_buf + rx_pos to a 10-byte struct frag_transport_setup_req, and for a DATA_FRAGMENT command passed &rx_buf[rx_pos] to the fragment decoder, which reads exactly ctx.frag_size bytes — with no remaining-length check in either case.\n\nThe fragment size is attacker-chosen in a preceding FRAG_SESSION_SETUP command (ctx.frag_size = req->frag_size, capped at CONFIG_LORAWAN_FRAG_TRANSPORT_MAX_FRAG_SIZE, default 232). rx_buf aliases the 255-byte static MacCtx.RxPayload buffer in the loramac-node MAC layer, while len is the actual decrypted payload length. By padding a downlink with mismatched-index DATA_FRAGMENT filler commands (each advancing rx_pos by three bytes without producing an answer) and appending one matching-index fragment near the end of the payload, an attacker can make the decoder read up to roughly frag_size bytes past the end of RxPayload, copying adjacent static memory into the decoder buffers and the FUOTA flash image.\n\nThe handler runs only on downlinks that have already passed the LoRaWAN frame MIC and FRMPayload decryption, so the defect is reachable only by a party holding the device's session keys (the FUOTA server or an attacker who has compromised those keys). The out-of-bounds bytes are never returned to the sender — the only uplink emitted is a status answer carrying fragment counts — so there is no direct disclosure channel, and on typical flat-memory LoRaWAN MCUs the over-read stays within mapped memory, making a crash unlikely. The impact is therefore a bounded out-of-bounds read with limited confidentiality consequence and no write or control-flow primitive. The fix adds remaining-length guards before each access.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-63179",
+      "published": "2026-08-26T19:16:51.840",
+      "description": "Winter CMS is a content management system built on the Laravel PHP framework. In versions up to and including 1.2.12, authenticated backend users can disclose arbitrary files readable by the PHP process by injecting @import (inline) directives into LESS source that the backend compiles, because the LESS parser was instantiated without a safe import resolver and fell back to the raw attacker-supplied path when no allowed root matched. The flaw is reachable through four entry points that share the same root cause: the Brand Settings custom_css field, the Editor Settings html_custom_styles field, the Mail Brand Settings colour-picker fields whose values are concatenated into LESS source without escaping, and theme .less, .sass, and .scss assets compiled when served. Both absolute paths and .. traversal outside the asset's own tree were accepted, so an attacker could read any file the web process can access, most significantly the application .env file and the APP_KEY and database credentials it contains. Exploitation requires a backend account holding one of the associated permissions, which are assigned by default to the built-in Developer role. This issue is fixed in version 1.2.13.",
+      "severity": "MEDIUM",
+      "score": 4.9
     },
     {
-      "id": "CVE-2026-54556",
-      "published": "2026-08-26T15:16:49.527",
-      "description": "Http4s is a Scala interface for HTTP services. Prior to 0.23.35 and 1.0.0-M47, an unauthenticated HTTP/2 peer can cause an out-of-memory denial of service in the Ember backend with HTTP/2 enabled. The Hpack wrapper in ember-core/shared/src/main/scala/org/http4s/ember/core/h2/Hpack.scala concatenates HEADERS and CONTINUATION frame fragments and decodes them into a single List, but maxHeaderSize accounting does not include indexed headers or HPACK per-header overhead. A small compressed header block can therefore expand into a much larger decoded representation that remains in memory for processing. Servers exposed to untrusted HTTP/2 traffic and clients directed to an untrusted HTTP/2 server are affected, and concurrent malicious connections can exhaust the process heap. This issue is fixed in versions 0.23.35 and 1.0.0-M47.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-41262",
+      "published": "2026-08-26T19:16:50.480",
+      "description": "Fleet is an open-source device management platform built on osquery. In versions prior to 4.85.0, the global policy read endpoint (GET /api/latest/fleet/policies/{policy_id}) fails to verify team ownership of the requested policy, allowing an authenticated user with observer-level access on any single team to read the full details of policies belonging to any other team and bypass Fleet's team isolation model. The handler authorizes the request against an empty policy object whose TeamID is nil, which an authorization rule permits for any user holding a role on any team, and then fetches the policy by ID with no team filter and returns it without any post-fetch scope check. Because policy IDs are sequential integers, an attacker can enumerate them to read other teams' policy SQL queries, host pass and fail counts, and associated software-installer and script metadata, exposing security-monitoring strategies and compliance posture across team boundaries. This issue is fixed in version 4.85.0.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-74734",
-      "published": "2026-08-26T15:16:51.927",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nfirewire: ohci: fix NULL pointer dereference in ar_context_release\n\nDuring the error handling path of the driver's probe function, a NULL\npointer dereference can occur in ar_context_release().\n\nWhen pci_probe() fails early (e.g., if pcim_enable_device() or MMIO mapping\nfails), the devres cleanup mechanism invokes release_ohci(). This function\nunconditionally calls ar_context_release() to clean up the asynchronous\nreceive contexts. However, if ar_context_init() was not yet called,\nctx->ohci remains NULL (as the fw_ohci structure is zero-initialized by\ndevres_alloc()).\n\nar_context_release() immediately dereferences ctx->ohci to get the dev\npointer before checking if the context was actually initialized, leading to\na crash:\n\nOops: general protection fault, probably for non-canonical address\n0xdffffc0000000001: 0000 [#1] SMP KASAN NOPTI\nKASAN: null-ptr-deref in range [0x0000000000000008-0x000000000000000f]\nRIP: 0010:ar_context_release+0x3f/0x380 drivers/firewire/ohci.c:543\nCall Trace:\n release_ohci+0x3f/0x60 drivers/firewire/ohci.c:3567\n release_nodes drivers/base/devres.c:546 [inline]\n devres_release_all+0x1a8/0x260 drivers/base/devres.c:576\n device_unbind_cleanup drivers/base/dd.c:597 [inline]\n really_probe+0x451/0xae0 drivers/base/dd.c:772\n\nTo fix this, move the assignment of the dev pointer after the !ctx->buffer\ncheck. If ctx->buffer is NULL, it indicates that the context was never\nsuccessfully initialized and there is nothing to release, safely avoiding\nthe dereference of the uninitialized ctx->ohci pointer.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-74735",
-      "published": "2026-08-26T15:16:52.057",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nl2tp: fix tunnel and session refcount leak on seq_file release\n\nIn pppol2tp_proc_open() and l2tp_dfs_seq_open(), iteration state\n(pd->tunnel and pd->session) is kept in seq_file private data to allow\niteration across multiple read() system calls.\n\nHowever, if userspace closes /proc/net/pppol2tp or /sys/kernel/debug/l2tp/tunnels\nbefore reading to end-of-file (EOF), any tunnel or session reference stored in\npd->tunnel / pd->session is left un-dropped when seq_file private data is freed.\n\nFix this by dropping any remaining pd->tunnel and pd->session references in\npppol2tp_proc_release() and l2tp_dfs_seq_release() when closing the file.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-74738",
-      "published": "2026-08-26T15:16:52.480",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nregmap: sdw-mbq: don't call an unset readable_reg callback\n\nregmap_sdw_mbq_poll_busy() decides whether to poll the Function Busy bit\nby calling ctx->readable_reg(), which is a straight copy of\nconfig->readable_reg. That callback is optional: regmap_readable() treats\na NULL ->readable_reg as \"every register is readable\", and drivers rely on\nthat. es9356 and tac5xx2-sdw both build an MBQ regmap without one.\n\nSince commit ca1b11b36d82 (\"regmap: sdw-mbq: Allow defers on undeferrable\ncontrols\") the poll runs on every -ENODATA, not only for Controls the\ndriver marked deferrable, so any of those devices answering\nCOMMAND_IGNORED takes the kernel through a NULL function pointer.\n\nTreat a missing callback the way the rest of regmap does and poll.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-74740",
-      "published": "2026-08-26T15:16:52.743",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: act_api: fix TOCTOU NULL deref on a->goto_chain\n\ntcf_action_exec() handles TC_ACT_GOTO_CHAIN by first checking\nrcu_access_pointer(a->goto_chain) and then calling\ntcf_action_goto_chain_exec(), which does a second, independent\nrcu_dereference_bh(a->goto_chain) read and immediately dereferences\nchain->filter_chain. A concurrent tcf_action_set_ctrlact() (e.g. the gact\nreplace path) can clear a->goto_chain between the two reads, so the second\nread returns NULL and tcf_action_goto_chain_exec() dereferences NULL.\n\nFix the race by doing a single rcu_dereference_bh() read of a->goto_chain\nin tcf_action_exec(), checking it once for NULL, and passing the resulting\nchain pointer into tcf_action_goto_chain_exec(). This turns the split\ncheck/use into a single check/use on one value.",
+      "id": "CVE-2026-19485",
+      "published": "2026-08-26T19:16:49.157",
+      "description": "A Predictable Resource Name vulnerability in BigQuery Import Staging in Google Cloud Vertex AI Search for Commerce versions prior to 2026-04-27 on Google Cloud Platform allows an attacker knowing the victim's project number to obtain read/write access to staged data and error logs using predictable bucket names.\n\n\n\nThis vulnerability was patched and no customer action is needed.",
       "severity": "UNKNOWN",
       "score": null
     }
