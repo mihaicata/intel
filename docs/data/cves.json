@@ -1,143 +1,143 @@
 {
-  "totalResults": 2257,
+  "totalResults": 2200,
   "items": [
     {
-      "id": "CVE-2026-19092",
-      "published": "2026-08-27T20:17:04.150",
-      "description": "The Tutor LMS WordPress plugin before 4.0.6 does not prevent request data from overwriting internal variables while rendering templates, allowing unauthenticated users to invoke arbitrary zero-argument PHP functions and receive their output.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-30612",
-      "published": "2026-08-27T20:17:33.780",
-      "description": "An issue in Time4 Popcorn for Windows <= 6.2.1.18 and Time4Popcorn for MacOS <= 6.2.1.17 and Time4Popcorn for Android <= 3.5.0.173 allows a remote attacker to execute arbitrary code via the updater.exe for windows, PT.updd on MacOS components",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-35868",
-      "published": "2026-08-27T20:17:40.463",
-      "description": "A Command Injection vulnerability exists in the bs_SetLimitCli_info function within the libshare.so library of LB-link Router AC2100_AZ3 V1.0.4. This flaw occurs due to insufficient validation and sanitization of user-supplied input before it is passed to a system-level command execution context. An attacker can exploit this vulnerability by injecting specially crafted shell metacharacters or payloads into the vulnerable parameter, resulting in the execution of arbitrary operating system commands.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-35869",
-      "published": "2026-08-27T20:17:40.620",
-      "description": "A Command Injection vulnerability exists in the bs_SetLimitCli_info function within the libshare.so library of LB-link Router AC450M V4.0.0. This flaw occurs due to insufficient validation and sanitization of user-supplied input before it is passed to a system-level command execution context. An attacker can exploit this vulnerability by injecting specially crafted shell metacharacters or payloads into the vulnerable parameter, resulting in the execution of arbitrary operating system commands.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-37003",
-      "published": "2026-08-27T20:17:41.107",
-      "description": "Agno up to and including 2.5.8 is vulnerable to Remote Code Execution (RCE) via prompt injection. The PythonTools and ShellTools components pass unsanitized, LLM-generated arguments directly to execution sinks including exec(), runpy.run_path(), and subprocess.run(). An unauthenticated attacker can exploit this by embedding malicious instructions in content processed by the agent (such as web pages or documents), allowing for arbitrary code and OS command execution on the host server.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-37004",
-      "published": "2026-08-27T20:17:41.270",
-      "description": "BerriAI litellm <=1.82.4 is vulnerable to Server-Side Template Injection (SSTI), which allows unauthenticated remote attackers to execute arbitrary OS commands via a crafted dotprompt_content parameter in the /prompts/test endpoint due to use of an unsandboxed jinja2.Environment.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-37006",
-      "published": "2026-08-27T20:17:41.423",
-      "description": "A vulnerability in the WebSocket endpoint of gpt-researcher v0.14.7 and before allows an unauthenticated remote attacker to achieve code execution via malicious Model Context Protocol configurations.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-37007",
-      "published": "2026-08-27T20:17:41.557",
-      "description": "A vulnerability in FileWriterTool in crewai-tools <= 1.10.2rc1 allows a remote attacker to achieve code execution via malicious path traversal sequences in the filename argument.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-37065",
-      "published": "2026-08-27T20:17:42.200",
-      "description": "Veno File Manager Project 4.4.9 is vulnerable to Arbitrary File Deletion in /vfm-admin/index.php?section=translations&action=update&remove=.",
+      "id": "CVE-2026-50152",
+      "published": "2026-08-28T00:18:07.073",
+      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the Monitor subscription handler fails to properly authorize access to the configuration-key store, allowing any CephX user with only  `mon allow r` capabilities to read the entire store by sending a single crafted MMonSubscribe message. The config-key store holds sensitive secrets including OSD LUKS disk-encryption passphrases and, on cephadm-managed clusters, the SSH private key that cephadm uses to reach every host in the cluster. Because that key grants root on every node under the default cephadm configuration, a low-privileged read-only account can escalate to full cluster and host compromise. This issue is fixed in versions 20.2.4 and 19.2.6",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-10036",
-      "published": "2026-08-27T20:17:02.130",
-      "description": "SpeechBrain before 1.1.1 contains an arbitrary code execution vulnerability that allows attackers to execute arbitrary code by supplying a crafted CKPT.yaml checkpoint metadata file parsed with PyYAML's unsafe loader during candidate enumeration in Checkpointer.recover_if_possible(). Attackers can embed malicious Python object construction tags such as !!python/object/apply in any CKPT.yaml file within the configured checkpoint path to trigger code execution during candidate discovery, even if the malicious checkpoint is never selected for recovery.",
+      "id": "CVE-2025-30156",
+      "published": "2026-08-28T00:16:45.557",
+      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the CephX authentication protocol encrypts tickets with AES-128-CBC in an unauthenticated mode that uses a hard-coded initialization vector and no message authentication, allowing an attacker to forge credentials and gain cluster-wide access. Because the ciphertext is malleable and the monitor will encrypt attacker-chosen entity names, an attacker holding one low-privilege key and able to observe CephX traffic can use the monitor as an encryption oracle and splice ciphertext blocks into valid tickets for privileged entities such as Manager, MDS, and OSD. The same lack of authentication also lets an attacker with CephX permissions escalate privileges by flipping a single bit in a service ticket to set its allow_all field to true. This issue is fixed in versions 20.2.4 and 19.2.6.",
+      "severity": "HIGH",
+      "score": 8.9
+    },
+    {
+      "id": "CVE-2026-18965",
+      "published": "2026-08-28T00:16:48.933",
+      "description": "PayRange API is missing proper authorization on management endpoints, which allows verbose details of every device on the PayRange network to be publicly accessible, with or without an account.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-37012",
-      "published": "2026-08-27T20:17:41.843",
-      "description": "A vulnerability in pentestgpt/core/langfuse.py in PentestGPT 1.0.0 allows remote attackers to disclose sensitive user telemetry data via hardcoded API credentials.",
+      "id": "CVE-2026-39944",
+      "published": "2026-08-28T00:17:27.860",
+      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the RADOS Gateway (RGW) protects STS session tokens with an AES-128-CBC handler that provides no message authentication, allowing an attacker who holds any valid STS token to tamper with it undetected and escalate to full RGW administrative access. Because the ciphertext is unauthenticated, the attacker can perform a CBC bit-flip on the acct_type, perm_type, and is_admin fields of their own token, and a forged is_admin value triggers a global administrative override that bypasses all capability checks. The attack is reachable remotely over the RGW S3 endpoint and is a self-contained modification of a token the attacker already possesses, requiring no encryption oracle and no network observation. It requires only a single valid STS token, which need not carry any elevated privileges, with STS enabled. This issue is fixed in versions 20.2.4 and 19.2.6.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-54083",
+      "published": "2026-08-28T00:18:07.233",
+      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. The  ip-customblock  active response script contains a path traversal vulnerability that lets an attacker create or delete arbitrary files on the filesystem as root. The script builds a file path by concatenating the  srcip  field taken from alert JSON directly onto the fixed  /ipblock/  base directory, without validating that the value is a well-formed IP address. Because the extraction routine returns the raw string unchecked, an attacker who can trigger alert-matching log events with a crafted  srcip  containing  ../  sequences can escape the base directory. The block action opens the resulting path in append mode, creating an empty file at an arbitrary location, while the unblock action passes it to remove(), deleting an arbitrary file; since the active response daemon runs as root, this includes sensitive files such as system credentials and Wazuh configuration. Unlike the sibling scripts host-deny.c, default-firewall-drop.c, and firewalld-drop.c, which reject non-IP input via get_ip_version(), ip-customblock.c omits this validation. This issue is fixed in version 4.14.7.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-54330",
+      "published": "2026-08-28T00:18:07.683",
+      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the Ceph Object Gateway (RGW) SigV4 handler does not reject requests that carry x-amz-* headers absent from the signed header set, allowing anyone holding a presigned URL to attach arbitrary unsigned x-amz-* headers that RGW will honor. AWS S3 requires every x-amz-* header on a SigV4 request to be signed and rejects requests bearing additional unsigned headers, but RGW validates only the headers listed in X-Amz-SignedHeaders and ignores any extra ones, so they take effect without being covered by the signature. By adding such headers to a presigned PUT URL, an attacker can grant themselves more capabilities than the URL's signer intended and escalate their privileges. This issue is fixed in versions 20.2.4 and 19.2.6.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-44629",
+      "published": "2026-08-28T00:17:28.117",
+      "description": "Improper access control to the Synergis Softwire installation folder. This vulnerability affects Streamvault all-in-one appliances (SV-100E and SV-300E series) and Synergis Softwire installed on Windows servers.",
+      "severity": "HIGH",
+      "score": 7.9
+    },
+    {
+      "id": "CVE-2026-38344",
+      "published": "2026-08-28T00:17:27.087",
+      "description": "A NULL pointer dereference in the get_min_buffer_size function (/libswscale/slice.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted video file.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-36102",
-      "published": "2026-08-27T20:17:40.750",
-      "description": "An issue in the inviteController.js component in Bluewave Labs Checkmate <=3.3.0 allows remote authenticated administrators to escalate privileges to superadmin via the role parameter to the /api/v1/invite endpoint.",
+      "id": "CVE-2026-38346",
+      "published": "2026-08-28T00:17:27.317",
+      "description": "An integer overflow in the yuv2planeX_8_c() function (libswscale/output.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted video file.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-37009",
-      "published": "2026-08-27T20:17:41.700",
-      "description": "A SQL injection vulnerability in NL2SQLTool in crewai-tools v1.10.2rc1 allows a remote attacker to execute arbitrary SQL commands via an unsanitized sql_query argument.",
+      "id": "CVE-2026-38347",
+      "published": "2026-08-28T00:17:27.420",
+      "description": "A heap overflow in the ff_sws_alphablendaway function (libswscale/alphablend.c) of FFmpeg git-master commit 722a217 allows attackers to cause a Denial of Service (DoS) via a crafted input.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-38348",
+      "published": "2026-08-28T00:17:27.530",
+      "description": "An integer overflow in the libswscale/utils.c component of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted image file.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-38349",
+      "published": "2026-08-28T00:17:27.630",
+      "description": "An integer overflow in the hScale16To19_c() function (libswscale/output.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted image file.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-38350",
+      "published": "2026-08-28T00:17:27.743",
+      "description": "An integer overflow in the target_sws_fuzzer() function (libswscale/output.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted input.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-18717",
+      "published": "2026-08-28T00:16:48.740",
+      "description": "ASE2000 2.35 through 2.37 is vulnerable to an improper certificate validation vulnerability, which may allow an attacker to impersonate the trusted peer, complete the TLS handshake, and read or modify protected communications.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-54085",
+      "published": "2026-08-28T00:18:07.520",
+      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.2.0 through 4.14.6, multiple active response scripts pass attacker-influenced alert fields to privileged system commands without validating their format, allowing argument injection into tools that run as root. Five of the eight scripts that handle the srcip field, route-null.c, netsh.c, pf.c, npf.c, and ipfw.c, omit the get_ip_version() check that rejects non-IP input, and disable-account.c passes the dstuser field to passwd/chuser with only a comparison against \"root\". An attacker who can inject crafted log events, for example via syslog, can supply srcip or dstuser values that, when an active response rule triggers, are passed unvalidated to firewall and account-management commands such as pfctl, npfctl, ipfw, route, netsh, and passwd. This enables injecting additional command arguments, and on Windows the unquoted CreateProcess command-line concatenation in wpopenv() lets a srcip containing spaces add further arguments, while disable-account.c can be abused to lock arbitrary system accounts. This issue is fixed in version 4.14.7.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-38343",
+      "published": "2026-08-28T00:17:26.980",
+      "description": "An integer overflow in the libavfilter/vf_scale.c component of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted video file.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-25250",
-      "published": "2026-08-27T20:17:18.243",
-      "description": "EAZ EazyFix 12.9 allows a Security Feature Bypass related to a \"Missing Cryptographic Step\" associated with \"Secure Boot disable.\"",
+      "id": "CVE-2026-38345",
+      "published": "2026-08-28T00:17:27.197",
+      "description": "A Division-by-Zero vulnerability in the ff_sws_init_single_context function (/libswscale/utils.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via a crafted input.",
       "severity": "MEDIUM",
-      "score": 6
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-34616",
-      "published": "2026-08-27T20:17:34.757",
-      "description": "DNG SDK versions 1.7.1 2502 and earlier are affected by an out-of-bounds read vulnerability that could lead to memory exposure. An attacker could leverage this vulnerability to disclose sensitive information from memory. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-34620",
-      "published": "2026-08-27T20:17:35.350",
-      "description": "DNG SDK versions 1.7.1 2502 and earlier are affected by an out-of-bounds write vulnerability that could lead to application denial-of-service. An attacker could leverage this vulnerability to corrupt memory, causing the application to crash or become unresponsive. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-37064",
-      "published": "2026-08-27T20:17:41.993",
-      "description": "User enumeration in /vfm-admin/ajax/usr-check.php in Veno File Manager Project 4.4.9 allows an unauthenticated attacker to enumerate the application users via sending a specially crafted POST request to the affected endpoint with a chosen 'user_name' parameter to test if the user exists.",
+      "id": "CVE-2026-54084",
+      "published": "2026-08-28T00:18:07.370",
+      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.0.0 through 4.14.6, a malicious or man-in-the-middle enrollment manager can crash a Wazuh agent during enrollment by returning a malformed key response with fewer than four fields, causing a NULL pointer dereference. The  w_enrollment_process_agent_key()  routine splits the manager-provided key into four space-separated fields but does not verify that all fields are present before passing them to validators. Because OS_StrBreak() leaves missing trailing entries as NULL and OS_IsValidName() calls strlen() on its argument without a NULL check, a response such as  OSSEC K:'1'  reaches OS_IsValidName(NULL) and terminates the agent process. Since Wazuh permits enrollment against an unverified manager when no CA certificate is configured, an attacker operating a rogue manager or intercepting the enrollment flow can deterministically crash agents, resulting in denial of service. This issue is fixed in version 4.14.7.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-18374",
-      "published": "2026-08-27T20:17:03.553",
-      "description": "Passing an effectively empty string to the `,ccs=` syntax extension of the mode argument in the `fopen` function in the GNU C Library version 2.45 or earlier may result in a heap buffer overflow when the mode string input to the function is attacker controlled.\n\n\n\nThis usage pattern is not seen in applications in common GNU/Linux distributions and applications that process user-supplied values for `ccs` should not pass them through without validation.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-18885",
-      "published": "2026-08-27T20:17:03.870",
-      "description": "ServiceNow has remediated a code injection vulnerability that was identified in the ServiceNow AI platform. This vulnerability could enable an unauthenticated user, in certain circumstances, to execute arbitrary code in the ServiceNow platform and gain access to, or modify, instance data beyond what was intended. \n\n\n\n\n\nServiceNow deployed a security update to hosted instances and ServiceNow provided the update to our partners and self-hosted customers. We are not currently aware of malicious exploitation against ServiceNow instances. \n\n\n\nWe recommend customers promptly apply appropriate updates or upgrade to a patched release if they have not already done so.",
+      "id": "CVE-2026-17610",
+      "published": "2026-08-28T00:16:48.470",
+      "description": "In SiSDK v2026.6.0 and earlier, high network traffic loads can cause a dropped ACK leading to a denial of service. This is only present for EFR32MG24 and EFR32MG26 devices running concurrent multiprotocol Zigbee and Thread.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-18886",
-      "published": "2026-08-27T20:17:04.020",
-      "description": "ServiceNow has remediated an improper access control vulnerability that was identified in the ServiceNow AI platform. This vulnerability could enable an unauthenticated user, in certain circumstances, to create or modify instance data beyond what was intended, resulting in privilege escalation. \n\n\n\n\n\nServiceNow deployed a security update to hosted instances and ServiceNow provided the update to our partners and self-hosted customers. We are not currently aware of exploitation against ServiceNow instances. \n\n\n\nWe recommend customers promptly apply appropriate updates or upgrade to a patched release if they have not already done so.",
+      "id": "CVE-2026-5706",
+      "published": "2026-08-28T00:18:07.853",
+      "description": "In Bluetooth Mesh SDK 6.1.4 and earlier, malformed extended advertisements can trigger out-of-bounds writes leading to stack corruption and remote code execution. These messages must come from a device that has already joined the network. Only provisioners supporting extended advertisements may be impacted.",
       "severity": "UNKNOWN",
       "score": null
     }
