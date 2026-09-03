@@ -1,27 +1,6 @@
 {
-  "totalResults": 2446,
+  "totalResults": 2429,
   "items": [
-    {
-      "id": "CVE-2026-47851",
-      "published": "2026-08-27T01:17:32.150",
-      "description": "Analyzing a PDF with a deeply nested or cyclic table of contents can cause a StackOverflowError in the ingestion thread.\nSpring AI 2.0.0\nSpring AI 1.1.0 - 1.1.8\nSpring AI 1.0.0 - 1.0.9",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-47852",
-      "published": "2026-08-27T01:17:32.320",
-      "description": "A local attacker on a multi-user host can pre-create the deterministic cache path and plant a malicious ONNX model file.\nSpring AI 2.0.0\nSpring AI 1.1.0 - 1.1.8\nSpring AI 1.0.0 - 1.0.9",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-81421",
-      "published": "2026-08-27T01:18:16.227",
-      "description": "A security flaw has been discovered in ddfourtwo sentry-selfhosted-mcp 0.4.0. The affected element is an unknown function of the component raw_sentry_api. The manipulation of the argument endpoint results in server-side request forgery. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
     {
       "id": "CVE-2026-81491",
       "published": "2026-08-27T04:17:59.853",
@@ -30,102 +9,11 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-47860",
-      "published": "2026-08-27T01:17:33.000",
-      "description": "An attacker who can publish to a queue consumed by an application that has enabled message decompression can crash the consumer JVM with a single ~1 MB message.\nSpring AMQP 4.1.0\nSpring AMQP 4.0.0 - 4.0.4\nSpring AMQP 3.2.0 - 3.2.12\nSpring AMQP 2.4.18 and earlier",
+      "id": "CVE-2026-13414",
+      "published": "2026-08-27T06:16:55.207",
+      "description": "The CMP  WordPress plugin before 4.1.18 does not perform authorization checks on one of its AJAX actions and relies on a nonce that is skipped for certain  (and exposed to anonymous visitors on others), allowing unauthenticated attackers to disable the site's maintenance/coming-soon mode under a non-default countdown configuration.",
       "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-47856",
-      "published": "2026-08-27T01:17:32.487",
-      "description": "Spring Integration's JSON to object conversion uses the json__TypeId__ header to choose the deserialization target type, and resolves that header value to a class with ClassUtils.forName and no type/package allow-list.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12\nSpring Integration 5.5.21 and earlier",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-47861",
-      "published": "2026-08-27T01:17:33.157",
-      "description": "An unauthenticated remote attacker who can send a single UDP packet to a Spring Integration UDP inbound adapter can cause the server to emit an outbound UDP datagram to an arbitrary internal or external host and port of the attacker's choosing.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12\nSpring Integration 5.5.21 and earlier",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-47857",
-      "published": "2026-08-27T01:17:32.687",
-      "description": "In Reactor Core, applications that use the Flux.windowTimeout operator with fairBackpressure enabled are vulnerable to a Denial of Service (DoS) condition.\nReactor Core 3.8.0 - 3.8.6\nReactor Core 3.5.0 - 3.7.19\nReactor Core 3.4.41 and earlier",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-47863",
-      "published": "2026-08-27T01:17:33.467",
-      "description": "In Reactor Core, applications that use the Flux.bufferTimeout operator with fairBackpressure enabled are vulnerable to a Denial of Service (DoS) condition.\nReactor Core 3.8.0 - 3.8.6\nReactor Core 3.7.19 and earlier",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-47859",
-      "published": "2026-08-27T01:17:32.850",
-      "description": "RFC6587SyslogDeserializer, used by the Spring Integration syslog TCP inbound adapter to decode RFC 6587 / RFC 5424 frames, trusts the sender-supplied octet count of an octet-counted frame and allocates a byte array of exactly that size with no upper bound.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12\nSpring Integration 5.5.21 and earlier",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-47862",
-      "published": "2026-08-27T01:17:33.313",
-      "description": "An attacker who can set the file_name header on a message reaching a ZipTransformer with ZipResultType.FILE (the default) can cause the resulting .zip archive to be written to an arbitrary filesystem path outside the configured workDirectory.\nSpring Integration 7.1.0\nSpring Integration 7.0.0 - 7.0.5\nSpring Integration 6.5.0 - 6.5.10\nSpring Integration 6.4.0 - 6.4.12",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-47845",
-      "published": "2026-08-27T01:17:31.827",
-      "description": "In specific scenarios, Reactor Netty HTTP Server may incorrectly evaluate the remote IP address when HAProxy Protocol is enabled. In order for this to happen, the application must be configured to use HAProxy Protocol.\nReactor Netty 1.3.0 - 1.3.6\nReactor Netty 1.1.0 - 1.2.18\nReactor Netty 1.0.52 and earlier",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-47874",
-      "published": "2026-08-27T01:17:33.620",
-      "description": "The vulnerability occurs when a client sends HTTP/1.1 pipelined requests over a single connection, causing the Reactor Netty HTTP server to consume an excessive amount of memory.\nReactor Netty 1.3.0 - 1.3.6\nReactor Netty 1.1.0 - 1.2.18\nReactor Netty 1.0.52 and earlier",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-81485",
-      "published": "2026-08-27T02:16:28.553",
-      "description": "A security vulnerability has been detected in danielpopamd linkedin-ads-mcp 1.0.0. Affected by this vulnerability is the function fs.readFileSync of the file src/tools/campaign-management.ts of the component Media Upload. Such manipulation of the argument filePath leads to path traversal. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-81486",
-      "published": "2026-08-27T02:16:28.747",
-      "description": "A vulnerability was detected in bsmi021 mcp-file-context-server 1.0.0. Affected by this issue is the function read_context of the file src/index.ts of the component Path Resolution. Performing a manipulation of the argument path results in path traversal. It is possible to initiate the attack remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-47850",
-      "published": "2026-08-27T01:17:31.997",
-      "description": "Spring Data REST does not preserve the persisted version (@Version) property of an aggregate root when handling an HTTP PUT against an immutable target type.\nSpring Data REST 5.1.0\nSpring Data REST 5.0.0 - 5.0.6\nSpring Data REST 4.5.0 - 4.5.12\nSpring Data REST 4.0.0 - 4.4.15\nSpring Data REST 3.7.20 and earlier",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-80183",
-      "published": "2026-08-27T01:18:16.050",
-      "description": "In OpenStack Keystone before 29.0.3, any authenticated user holding role:reader on any project can list every project-scoped role assignment under any domain by passing a domain ID as scope.project.id with include_subtree to the GET /v3/role_assignments endpoint. The domain's project record has domain_id=null, causing the policy domain_id check to pass for any caller. With include_names, the response discloses the names and home-domain IDs of every user, group, project, and role involved. The literal \"default\" domain ID works against any deployment created with keystone-manage bootstrap. An attacker can harvest domain IDs from the response and repeat the query to map role assignments across the entire cloud. This is caused by misuse of \"None\" in \n\nlist_role_assignments_for_tree.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-19398",
-      "published": "2026-08-27T02:16:27.460",
-      "description": "“unsupported-when-assigned.” An out-of-bounds write in the SmiFlash SMM module of ASUS FA507NU and FA507NV BIOS allows a local  administrator to cause a system crash (BSOD) or BIOS corruption via a crafted software SMI (SW SMI) request with an oversized length value.Refer to the ' \nSecurity Update for ASUS FA507NV / FA507NU BIOS   ' section on the ASUS Security Advisory for more information.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 4.8
     },
     {
       "id": "CVE-2026-16895",
@@ -137,6 +25,118 @@
     {
       "id": "CVE-2023-22289",
       "published": "2026-08-27T06:16:44.280",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22328",
+      "published": "2026-08-27T06:16:47.767",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22343",
+      "published": "2026-08-27T06:16:47.957",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22352",
+      "published": "2026-08-27T06:16:48.120",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22364",
+      "published": "2026-08-27T06:16:48.273",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22420",
+      "published": "2026-08-27T06:16:48.397",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22423",
+      "published": "2026-08-27T06:16:48.530",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22426",
+      "published": "2026-08-27T06:16:48.647",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22430",
+      "published": "2026-08-27T06:16:48.807",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22433",
+      "published": "2026-08-27T06:16:48.943",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22434",
+      "published": "2026-08-27T06:16:49.100",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22437",
+      "published": "2026-08-27T06:16:49.250",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22445",
+      "published": "2026-08-27T06:16:49.400",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-22446",
+      "published": "2026-08-27T06:16:49.570",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-23544",
+      "published": "2026-08-27T06:16:49.703",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-27503",
+      "published": "2026-08-27T06:16:49.890",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-27508",
+      "published": "2026-08-27T06:16:50.070",
       "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority because it is Unused",
       "severity": "UNKNOWN",
       "score": null
