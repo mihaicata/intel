@@ -1,143 +1,143 @@
 {
-  "totalResults": 2225,
+  "totalResults": 2218,
   "items": [
     {
-      "id": "CVE-2026-50152",
-      "published": "2026-08-28T00:18:07.073",
-      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the Monitor subscription handler fails to properly authorize access to the configuration-key store, allowing any CephX user with only  `mon allow r` capabilities to read the entire store by sending a single crafted MMonSubscribe message. The config-key store holds sensitive secrets including OSD LUKS disk-encryption passphrases and, on cephadm-managed clusters, the SSH private key that cephadm uses to reach every host in the cluster. Because that key grants root on every node under the default cephadm configuration, a low-privileged read-only account can escalate to full cluster and host compromise. This issue is fixed in versions 20.2.4 and 19.2.6",
+      "id": "CVE-2026-61800",
+      "published": "2026-08-28T02:16:21.767",
+      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.4.0 through 4.14.6, a party holding the cluster key can write, overwrite, or delete arbitrary files under /var/ossec on worker nodes, leading to remote code execution as root. During cluster file synchronization, the non-merged branch of update_master_files_in_worker() moves each staged file to a destination derived only from safe_join(), which confines the path to /var/ossec but never verifies that the file lands in the directory declared by its cluster_item_key. Because the destination check present on the primary node and on the worker's merged branch was not applied, a peer can place files at attacker-chosen locations under /var/ossec, including paths that are executed as root, and the delete branch has the same gap. This is an incomplete fix for CVE-2026-30893, which addressed traversal outside /var/ossec but left this path able to redirect files anywhere within it. This issue is fixed in version 4.14.7.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2025-30156",
-      "published": "2026-08-28T00:16:45.557",
-      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the CephX authentication protocol encrypts tickets with AES-128-CBC in an unauthenticated mode that uses a hard-coded initialization vector and no message authentication, allowing an attacker to forge credentials and gain cluster-wide access. Because the ciphertext is malleable and the monitor will encrypt attacker-chosen entity names, an attacker holding one low-privilege key and able to observe CephX traffic can use the monitor as an encryption oracle and splice ciphertext blocks into valid tickets for privileged entities such as Manager, MDS, and OSD. The same lack of authentication also lets an attacker with CephX permissions escalate privileges by flipping a single bit in a service ticket to set its allow_all field to true. This issue is fixed in versions 20.2.4 and 19.2.6.",
+      "id": "CVE-2026-38820",
+      "published": "2026-08-28T02:16:21.350",
+      "description": "openNDS before 11.0.0 is susceptible to unauthenticated OS command execution via shell command injection through the fas query parameter on the /opennds_preauth/ endpoint because of libopennds.sh.",
       "severity": "HIGH",
-      "score": 8.9
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-18965",
-      "published": "2026-08-28T00:16:48.933",
-      "description": "PayRange API is missing proper authorization on management endpoints, which allows verbose details of every device on the PayRange network to be publicly accessible, with or without an account.",
+      "id": "CVE-2026-38822",
+      "published": "2026-08-28T02:16:21.620",
+      "description": "In openNDS before 11.0.0, the client_params.sh script, invoked by the openNDS daemon to serve the authenticated client status page, is vulnerable to OS command injection through crafted HTTP GET query parameter keys. An authenticated captive portal user can inject arbitrary shell commands by embedding semicolons in a URL query parameter name.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-39944",
-      "published": "2026-08-28T00:17:27.860",
-      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the RADOS Gateway (RGW) protects STS session tokens with an AES-128-CBC handler that provides no message authentication, allowing an attacker who holds any valid STS token to tamper with it undetected and escalate to full RGW administrative access. Because the ciphertext is unauthenticated, the attacker can perform a CBC bit-flip on the acct_type, perm_type, and is_admin fields of their own token, and a forged is_admin value triggers a global administrative override that bypasses all capability checks. The attack is reachable remotely over the RGW S3 endpoint and is a self-contained modification of a token the attacker already possesses, requiring no encryption oracle and no network observation. It requires only a single valid STS token, which need not carry any elevated privileges, with STS enabled. This issue is fixed in versions 20.2.4 and 19.2.6.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-54083",
-      "published": "2026-08-28T00:18:07.233",
-      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. The  ip-customblock  active response script contains a path traversal vulnerability that lets an attacker create or delete arbitrary files on the filesystem as root. The script builds a file path by concatenating the  srcip  field taken from alert JSON directly onto the fixed  /ipblock/  base directory, without validating that the value is a well-formed IP address. Because the extraction routine returns the raw string unchecked, an attacker who can trigger alert-matching log events with a crafted  srcip  containing  ../  sequences can escape the base directory. The block action opens the resulting path in append mode, creating an empty file at an arbitrary location, while the unblock action passes it to remove(), deleting an arbitrary file; since the active response daemon runs as root, this includes sensitive files such as system credentials and Wazuh configuration. Unlike the sibling scripts host-deny.c, default-firewall-drop.c, and firewalld-drop.c, which reject non-IP input via get_ip_version(), ip-customblock.c omits this validation. This issue is fixed in version 4.14.7.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-54330",
-      "published": "2026-08-28T00:18:07.683",
-      "description": "Ceph is an open-source distributed storage platform providing object, block, and file storage. In versions prior to 20.2.4 and 19.2.6, the Ceph Object Gateway (RGW) SigV4 handler does not reject requests that carry x-amz-* headers absent from the signed header set, allowing anyone holding a presigned URL to attach arbitrary unsigned x-amz-* headers that RGW will honor. AWS S3 requires every x-amz-* header on a SigV4 request to be signed and rejects requests bearing additional unsigned headers, but RGW validates only the headers listed in X-Amz-SignedHeaders and ignores any extra ones, so they take effect without being covered by the signature. By adding such headers to a presigned PUT URL, an attacker can grant themselves more capabilities than the URL's signer intended and escalate their privileges. This issue is fixed in versions 20.2.4 and 19.2.6.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-44629",
-      "published": "2026-08-28T00:17:28.117",
-      "description": "Improper access control to the Synergis Softwire installation folder. This vulnerability affects Streamvault all-in-one appliances (SV-100E and SV-300E series) and Synergis Softwire installed on Windows servers.",
-      "severity": "HIGH",
-      "score": 7.9
-    },
-    {
-      "id": "CVE-2026-38344",
-      "published": "2026-08-28T00:17:27.087",
-      "description": "A NULL pointer dereference in the get_min_buffer_size function (/libswscale/slice.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted video file.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-38346",
-      "published": "2026-08-28T00:17:27.317",
-      "description": "An integer overflow in the yuv2planeX_8_c() function (libswscale/output.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted video file.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-38347",
-      "published": "2026-08-28T00:17:27.420",
-      "description": "A heap overflow in the ff_sws_alphablendaway function (libswscale/alphablend.c) of FFmpeg git-master commit 722a217 allows attackers to cause a Denial of Service (DoS) via a crafted input.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-38348",
-      "published": "2026-08-28T00:17:27.530",
-      "description": "An integer overflow in the libswscale/utils.c component of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted image file.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-38349",
-      "published": "2026-08-28T00:17:27.630",
-      "description": "An integer overflow in the hScale16To19_c() function (libswscale/output.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted image file.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-38350",
-      "published": "2026-08-28T00:17:27.743",
-      "description": "An integer overflow in the target_sws_fuzzer() function (libswscale/output.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted input.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-18717",
-      "published": "2026-08-28T00:16:48.740",
-      "description": "ASE2000 2.35 through 2.37 is vulnerable to an improper certificate validation vulnerability, which may allow an attacker to impersonate the trusted peer, complete the TLS handshake, and read or modify protected communications.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-54085",
-      "published": "2026-08-28T00:18:07.520",
-      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.2.0 through 4.14.6, multiple active response scripts pass attacker-influenced alert fields to privileged system commands without validating their format, allowing argument injection into tools that run as root. Five of the eight scripts that handle the srcip field, route-null.c, netsh.c, pf.c, npf.c, and ipfw.c, omit the get_ip_version() check that rejects non-IP input, and disable-account.c passes the dstuser field to passwd/chuser with only a comparison against \"root\". An attacker who can inject crafted log events, for example via syslog, can supply srcip or dstuser values that, when an active response rule triggers, are passed unvalidated to firewall and account-management commands such as pfctl, npfctl, ipfw, route, netsh, and passwd. This enables injecting additional command arguments, and on Windows the unquoted CreateProcess command-line concatenation in wpopenv() lets a srcip containing spaces add further arguments, while disable-account.c can be abused to lock arbitrary system accounts. This issue is fixed in version 4.14.7.",
+      "id": "CVE-2026-38821",
+      "published": "2026-08-28T02:16:21.490",
+      "description": "A heap-based buffer overflow vulnerability exists in openNDS before 11.0.0 that allows an unauthenticated attacker on the captive portal network to crash the openNDS daemon (denial of service) and potentially achieve remote code execution. This is in http_microhttpd.c.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-38343",
-      "published": "2026-08-28T00:17:26.980",
-      "description": "An integer overflow in the libavfilter/vf_scale.c component of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via supplying a crafted video file.",
+      "id": "CVE-2026-61802",
+      "published": "2026-08-28T02:16:21.907",
+      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.14.0 through 4.14.6, a low-privilege API user can read the cleartext cluster key from a configuration endpoint that fails to redact it. The REST API provides a masking control, mask_sensitive_config, that redacts sensitive fields such as authd.pass and cluster.key from configuration responses for users who lack update-config permission, and every config-read endpoint carries this decorator except GET /cluster/local/config. That endpoint, backed by read_config_wrapper, is gated only by cluster:read and returns the local node's cluster configuration including the cleartext key, whereas its siblings return the same value masked. As a result, any account with the default readonly or cluster_readonly role, which is explicitly denied update-config precisely so it cannot view secrets, receives the real cluster key. Because the cluster key authenticates and encrypts traffic between cluster nodes, disclosing it to an unprivileged account provides the authentication precondition for the cluster-peer remote code execution chains established by prior advisories. This issue is fixed in version 4.14.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-38345",
-      "published": "2026-08-28T00:17:27.197",
-      "description": "A Division-by-Zero vulnerability in the ff_sws_init_single_context function (/libswscale/utils.c) of FFmpeg N-122528-gdd2976b9e1 allows attackers to cause a Denial of Service (DoS) via a crafted input.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-54084",
-      "published": "2026-08-28T00:18:07.370",
-      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.0.0 through 4.14.6, a malicious or man-in-the-middle enrollment manager can crash a Wazuh agent during enrollment by returning a malformed key response with fewer than four fields, causing a NULL pointer dereference. The  w_enrollment_process_agent_key()  routine splits the manager-provided key into four space-separated fields but does not verify that all fields are present before passing them to validators. Because OS_StrBreak() leaves missing trailing entries as NULL and OS_IsValidName() calls strlen() on its argument without a NULL check, a response such as  OSSEC K:'1'  reaches OS_IsValidName(NULL) and terminates the agent process. Since Wazuh permits enrollment against an unverified manager when no CA certificate is configured, an attacker operating a rogue manager or intercepting the enrollment flow can deterministically crash agents, resulting in denial of service. This issue is fixed in version 4.14.7.",
+      "id": "CVE-2026-38819",
+      "published": "2026-08-28T02:16:21.200",
+      "description": "Multiple memory leaks in openNDS before 11.0.0 allow an unauthenticated attacker on the captive portal network to exhaust all available memory on the device within minutes.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-17610",
-      "published": "2026-08-28T00:16:48.470",
-      "description": "In SiSDK v2026.6.0 and earlier, high network traffic loads can cause a dropped ACK leading to a denial of service. This is only present for EFR32MG24 and EFR32MG26 devices running concurrent multiprotocol Zigbee and Thread.",
+      "id": "CVE-2026-13086",
+      "published": "2026-08-28T02:16:20.197",
+      "description": "A stack-based buffer overflow in the epm (Endpoint Protection Manager) service used by the deprecated Mobile Security feature in WatchGuard Fireware OS allows an unauthenticated remote attacker to execute arbitrary code.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-5706",
-      "published": "2026-08-28T00:18:07.853",
-      "description": "In Bluetooth Mesh SDK 6.1.4 and earlier, malformed extended advertisements can trigger out-of-bounds writes leading to stack corruption and remote code execution. These messages must come from a device that has already joined the network. Only provisioners supporting extended advertisements may be impacted.",
+      "id": "CVE-2026-13108",
+      "published": "2026-08-28T02:16:20.323",
+      "description": "WatchGuard Dimension is susceptible to a denial-of-service condition when an attacker sends a high volume of TCP SYN packets to the log listening service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19313",
+      "published": "2026-08-28T02:16:20.450",
+      "description": "An heap overflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to execute arbitrary code by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19314",
+      "published": "2026-08-28T02:16:20.580",
+      "description": "An integer underflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19315",
+      "published": "2026-08-28T02:16:20.703",
+      "description": "A type confusion vulnerability in the iked process of WatchGuard Fireware OS allows a remote unauthenticated attacker to execute arbitrary code by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19316",
+      "published": "2026-08-28T02:16:20.827",
+      "description": "A double-free vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19317",
+      "published": "2026-08-28T02:16:20.947",
+      "description": "An out-of-bounds read vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19318",
+      "published": "2026-08-28T02:16:21.070",
+      "description": "A stack-based buffer overflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to execute arbitrary code by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78008",
+      "published": "2026-08-28T02:16:22.167",
+      "description": "A buffer overflow vulnerability in the WatchGuard Fireware OS Management Web UI allows an authenticated administrator with network access to cause a denial of service (DoS) condition or potentially execute arbitrary code by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78009",
+      "published": "2026-08-28T02:16:22.293",
+      "description": "An out-of-bounds read vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78010",
+      "published": "2026-08-28T02:16:22.417",
+      "description": "A stack-based buffer overflow vulnerability in the WatchGuard Fireware OS iked process iallows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78011",
+      "published": "2026-08-28T02:16:22.563",
+      "description": "An integer underflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78047",
+      "published": "2026-08-28T02:16:22.697",
+      "description": "A stored cross-site scripting (XSS) vulnerability in WatchGuard Dimension's task scheduling feature allows a low-privileged authenticated administrator to inject arbitrary HTML/JavaScript into these fields, which then executes in the browser session of any other user.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78103",
+      "published": "2026-08-28T02:16:22.830",
+      "description": "WatchGuard Dimension provides a client-side lock/unlock UI control for management changes. The server-side configuration endpoint does not enforce this lock/unlock workflow state, allowing an authenticated administrator to submit configuration changes directly to the endpoint without first completing the UI unlock step. This allows an authenticated read-write administrator session to bypass the intended editing workflow and overwrite configuration changes being made by another concurrent administrator session.",
       "severity": "UNKNOWN",
       "score": null
     }
