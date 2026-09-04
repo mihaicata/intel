@@ -1,145 +1,145 @@
 {
-  "totalResults": 2201,
+  "totalResults": 2105,
   "items": [
     {
-      "id": "CVE-2026-76581",
-      "published": "2026-08-28T08:16:41.463",
-      "description": "The WPMU DEV Dashboard plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 5.0.1. This is due to inconsistent and ambiguous HMAC message construction between the unauthenticated `wdpsso_step1` and `wdpsso_step2` AJAX actions, where step 1 signs and discloses an unseparated concatenation of the token, state, redirect, and domain values, while step 2 verifies an unseparated concatenation that omits the domain field. This makes it possible for unauthenticated attackers, on sites connected to WPMU DEV with Hub SSO enabled and mapped to an administrator, to obtain a valid HMAC from step 1 and replay it to step 2 by moving the domain value into the redirect field, resulting in an authenticated administrator session.",
+      "id": "CVE-2026-42007",
+      "published": "2026-08-28T12:16:29.260",
+      "description": "An attacker that has valid credentials can use a Sieve script with the editheader extension to trigger a use-after-free in the mail editing code, and to write memory contents beyond the intended buffer into the delivered mail. This causes memory leak and opportunity to do memory corruption during mail delivery, which can crash the delivery process and may allow execution of arbitrary code in the context of that process. Disable the Sieve editheader extension. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-78032",
-      "published": "2026-08-28T08:16:41.800",
-      "description": "SOY CMS  contains an issue with deserialization of untrusted data. An arbitrary code may be executed by an attacker with the web server privilege.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-40541",
-      "published": "2026-08-28T08:16:40.713",
-      "description": "An improper neutralization of input during web page generation ('Cross-site Scripting') vulnerability in extract domain in Synology Chat Server before 2.4.5-22148 allows remote authenticated users, via a UI interaction, to read or write arbitrary files and conduct denial-of-service attacks in DSM.",
-      "severity": "CRITICAL",
-      "score": 9
-    },
-    {
-      "id": "CVE-2026-19423",
-      "published": "2026-08-28T08:16:40.610",
-      "description": "The Ultimate Member  WordPress plugin before 2.13.0 does not validate a submitted role selection when it cannot resolve the set of roles a profile form permits, and screens the value against the site's registered role names rather than against the form's own allow-list, allowing unauthenticated users who register through the Ultimate Member  WordPress plugin before 2.13.0's own form to grant themselves arbitrary capabilities and reach administrator-equivalent access.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-19084",
-      "published": "2026-08-28T08:16:40.513",
-      "description": "The shared-files-pro WordPress plugin before 1.7.70 does not validate the file path supplied when creating a featured image, allowing unauthenticated attackers to read arbitrary files from the server and republish their contents at a public URL.",
+      "id": "CVE-2026-27852",
+      "published": "2026-08-28T12:16:27.330",
+      "description": "An attacker that can send mail to a user can craft a message whose headers contain a very large number of email addresses or MIME parameters, which causes excessive memory usage when the message is later parsed. The message is still delivered, but reading it over IMAP can exhaust the memory limit of the process and terminate it, causing denial of service for the affected user. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-5097",
-      "published": "2026-08-28T08:16:41.003",
-      "description": "The wpForo Forum plugin for WordPress is vulnerable to SQL Injection via the 'referer' parameter in all versions up to, and including, 2.4.17. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-33605",
+      "published": "2026-08-28T12:16:27.740",
+      "description": "An unauthenticated attacker can crash the ManageSieve login process by sending a small malformed command before authenticating. If running in high-security mode (default for community releases), only the attacker's own connection is terminated. If running in high-performance mode (default for Pro releases), all connections handled by the same managesieve-login process are terminated. Repeating the attack can cause denial of service for Sieve script management. Restrict network access to the ManageSieve service to trusted clients. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-14558",
-      "published": "2026-08-28T08:16:40.327",
-      "description": "The User Frontend  WordPress plugin before 4.3.10 does not properly validate field type definitions and deserialises user-controlled post metadata when rendering submitted posts, allowing users with Editor-level access and above to inject arbitrary PHP objects, which can lead to remote code execution when a suitable POP chain is present on the site.",
+      "id": "CVE-2026-42391",
+      "published": "2026-08-28T12:16:29.503",
+      "description": "An unauthenticated attacker can send an IMAP ID command with a very large number of parameters before logging in, which causes memory and CPU usage to grow disproportionately. The login process can be terminated by the out-of-memory handling, which also terminates all other connections handled by the same process. This can cause degradation or denial of service for IMAP logins. Limit the number of connections handled by a single imap-login process. This has a performance impact though. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-6286",
-      "published": "2026-08-28T08:16:41.140",
-      "description": "The Booking for Appointments and Events Calendar – Amelia plugin for WordPress is vulnerable to Stored Cross-Site Scripting via customer name fields in versions up to and including 2.2. This is due to an authentication bypass where the AddBookingCommand explicitly skips nonce verification (Command.php line 186), allowing unauthenticated users to submit booking data. While the plugin applies sanitize_text_field() to customer firstName and lastName fields (BookingApplicationService.php lines 302-308), this function only removes HTML tags and preserves special characters including double quotes. The vulnerability manifests in the administrative Calendar view where a FullCalendar eventContent callback interpolates customer names directly into JavaScript template literals (redesign/dist/index.js line 199) and renders them via innerHTML without proper HTML entity encoding. Because double quotes are preserved, an attacker can inject payloads like '\" onmouseover=\"alert(document.cookie)\"' to break out of the title attribute and inject malicious event handlers. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that will execute when an administrator accesses the Calendar page and hovers over the malicious appointment.",
+      "id": "CVE-2026-40018",
+      "published": "2026-08-28T12:16:28.630",
+      "description": "None None None No publicly available exploits are known.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-79996",
-      "published": "2026-08-28T08:16:42.427",
-      "description": "The User Registration & Membership  WordPress plugin before 5.2.6 does not perform a capability check when saving its login settings, allowing authenticated users who have been granted a User Registration & Membership  WordPress plugin before 5.2.6 management capability but not full administrator access to change arbitrary site options and escalate their privileges to administrator.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-12513",
-      "published": "2026-08-28T08:16:40.083",
-      "description": "The Shared Files  WordPress plugin before 1.7.67, shared-files-pro WordPress plugin before 1.7.68 do not properly sanitize a file path taken from a frontend file submission and their single-pass traversal filter is bypassable, allowing unauthenticated users to store a path that points outside the uploads directory. When the corresponding file entry is later permanently deleted, an arbitrary file on the server (such as wp-config.php) is deleted, leading to denial of service and potential site takeover.",
+      "id": "CVE-2026-40014",
+      "published": "2026-08-28T12:16:28.240",
+      "description": "An attacker that can send mail to a user can craft a message header that makes the IMAP THREAD command consume CPU disproportionate to the size of the message. When a mail client issues a THREAD command on the affected mailbox, this can cause degradation or denial of service for IMAP. Monitor system for abnormal CPU usage, kill the offending process and remove the offending message from the affected mailbox. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-4246",
-      "published": "2026-08-28T08:16:40.850",
-      "description": "The ElementsKit Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 's' parameter of the Advanced Search REST endpoint in all versions up to, and including, 4.10.1 due to insufficient input sanitization and output escaping. The REST endpoint at /wp-json/elementskit/v1/advanced-search uses permission_callback set to __return_true, allowing unauthenticated access. Search terms are stored in the ekit_advanced_search_popular_keyword WordPress option via update_option(). While sanitize_text_field() is applied, it does not encode double quotes, and the stored keywords are rendered in HTML attributes via sprintf without esc_attr(), allowing attribute injection. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user triggers the \"no results\" popular keywords view on pages using the Advanced Search widget.",
+      "id": "CVE-2026-40017",
+      "published": "2026-08-28T12:16:28.480",
+      "description": "An attacker that can send mail to a user can craft a message header whose values are chosen to collide in an internal hash table, which makes the IMAP THREAD command consume CPU disproportionate to the size of the message. This is a separate issue from CVE-2026-40014 and is not addressed by that fix. Whenever a mail client issues a THREAD command on the affected mailbox, this can cause degradation or denial of service for IMAP. Monitor system for abnormal CPU usage, kill the offending process and remove the offending message from the affected mailbox. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-73827",
-      "published": "2026-08-28T08:16:41.313",
-      "description": "SOY Calendar contains a cross-site scripting vulnerability. An arbitrary script may be executed on the web browser of the user who is logging in to the product.",
+      "id": "CVE-2026-33604",
+      "published": "2026-08-28T12:16:27.613",
+      "description": "An attacker that can get Dovecot to relay a message, for example through Sieve redirect or submission relay, can use a crafted line ending in the message body to bypass the outbound protection that prevents message content from being interpreted as SMTP commands. A downstream mail server that hasn't yet fixed the SMTP smuggling vulnerability can be tricked into treating part of the message body as new SMTP commands, allowing injection of spoofed email. This is the same vulnerability class as CVE-2023-51764 and CVE-2023-51766. Where you control the receiving mail servers, ensure they reject bare carriage returns in message data. Update to non-vulnerable version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-40019",
+      "published": "2026-08-28T12:16:28.770",
+      "description": "An unauthenticated attacker can send a truncated quoted argument to the ManageSieve login process, which makes it spin in an infinite loop consuming CPU. This can cause degradation or denial of service for Sieve script management, and repeated connections can consume all available CPU on the server. Monitor system for abnormal CPU usage and kill the offending process. Restrict network access to the ManageSieve service to trusted clients. Update to non-vulnerable version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-40205",
+      "published": "2026-08-28T12:16:29.140",
+      "description": "An attacker that holds an OAuth2 token granting only part of the required scopes can authenticate, because when more than one scope is required in the configuration, the remote token validation paths accept a token that carries only one of them, while the local token validation path correctly requires all of them. The configured authorization policy is not enforced, so a token that was granted only part of the required permissions is accepted where it should have been rejected. Use local token validation where tokens can be validated locally. Update to non-vulnerable version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-18393",
+      "published": "2026-08-28T12:16:25.943",
+      "description": "A flaw was found in FFmpeg. The tdsc_load_cursor() function writes beyond\nthe bounds of a heap-allocated buffer when processing crafted TDSC cursor\ndata. A remote attacker could exploit this by supplying a specially crafted\nvideo file, potentially leading to a denial of service or arbitrary code\nexecution.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-77838",
-      "published": "2026-08-28T08:16:41.680",
-      "description": "SOY Calendar contains a cross-site scripting vulnerability. An arbitrary script may be executed on the web browser of the user who is logging in to the product.",
+      "id": "CVE-2026-33606",
+      "published": "2026-08-28T12:16:27.867",
+      "description": "Mail content stored by a user can be crafted so that it is interpreted as dsync protocol commands when an administrator later runs dsync with the stream protocol, for example during a migration. Injected commands can modify mailbox state on the destination during migration or replication, including internal mailbox attributes that a user should not be able to set directly. It can also cause dsync errors. Avoid running dsync with the stream protocol on mailboxes with untrusted content. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-78238",
-      "published": "2026-08-28T08:16:42.030",
-      "description": "SOY Gallery  contains a cross-site scripting vulnerability. An arbitrary script may be executed on the web browser of the user who is logging in to the product.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-12514",
-      "published": "2026-08-28T08:16:40.230",
-      "description": "The Shared Files  WordPress plugin before 1.7.67, shared-files-pro WordPress plugin before 1.7.70 do not perform a capability check in their file-upload handler, which is registered for unauthenticated users and protected only by a nonce that is output on public pages, so an unauthenticated visitor can upload files to a publicly accessible directory and read the server's absolute path from the response. Uploads are limited to WordPress's allowed MIME types, so executable PHP cannot be uploaded.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-14567",
-      "published": "2026-08-28T08:16:40.423",
-      "description": "The User Frontend  WordPress plugin before 4.3.10 does not restrict access to its user directory search endpoint, allowing unauthenticated attackers to retrieve the email address and phone number of every registered user, including administrators.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-77701",
-      "published": "2026-08-28T08:16:41.587",
-      "description": "The WCFM Marketplace  WordPress plugin before 3.8.2 does not correctly verify that the person requesting a refund owns the order, allowing unauthenticated users to create refund requests against any guest checkout order on the site.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-79706",
-      "published": "2026-08-28T08:16:42.243",
-      "description": "The Breeze Cache WordPress plugin before 2.5.13 does not sanitise a value taken from the request before using it to build the paths of the files it caches, allowing unauthenticated attackers to create files at arbitrary locations on the server, outside the intended cache directory.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-79995",
-      "published": "2026-08-28T08:16:42.337",
-      "description": "The User Registration & Membership  WordPress plugin before 5.2.5 does not verify that the account whose pending email change is being cancelled belongs to the user making the request, allowing authenticated users with Subscriber-level access and above to cancel any other user's in-progress email change, including an administrator's.",
+      "id": "CVE-2026-33263",
+      "published": "2026-08-28T12:16:27.483",
+      "description": "When mail_max_userip_connections is set (default 10) and reached, submission-login can crash with epoll() panic caused by file descriptor handling issues. If running in high-security mode (default for community releases), only the new submission connection gets terminated. If running in high-performance mode (default for Pro releases), all connections handled by the submission-login process will be terminated. The crashes can cause failure for user to send a message, or it can cause duplicate messages to be sent. If TLS is not used (in the backend server processing the submission), duplicate deliveries cannot happen, because the crash can only happen at AUTH stage. Limit the number of connections handled by single submission-login process. This has a performance impact though. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-79615",
-      "published": "2026-08-28T08:16:42.150",
-      "description": "The Quiz and Survey Master (QSM)  WordPress plugin before 11.2.4 does not check authorisation when returning question bank entries through one of its REST API routes, allowing users with a role as low as Contributor to read the questions, hints and correct answer keys of quizzes belonging to other users.",
+      "id": "CVE-2026-33607",
+      "published": "2026-08-28T12:16:27.990",
+      "description": "An attacker that has valid credentials can use IMAP LIST command to consume CPU. This can cause degradation or denial of service for IMAP. Monitor system for abnormal CPU usage and kill the offending process and lock account. Alternatively install fixed version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-40013",
+      "published": "2026-08-28T12:16:28.113",
+      "description": "An attacker that has valid credentials can submit a Sieve script containing an extreme numeric literal, which causes an out-of-bounds write when the ManageSieve service compiles the script. This causes memory corruption and an observed crash of the ManageSieve process, resulting in denial of service for script management. This might be able to be used for remote code execution. Disable the ManageSieve service if users do not need remote Sieve script management. Update to non-vulnerable version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-40015",
+      "published": "2026-08-28T12:16:28.363",
+      "description": "An attacker that has valid credentials can open many connections to the imap-hibernate service and send invalid commands, which can intermittently cause an out-of-bounds read and crash the process. The crash interrupts hibernated IMAP sessions handled by the affected process, which can cause degradation of service for IMAP. Disable IMAP hibernation. Update to non-vulnerable version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-42008",
+      "published": "2026-08-28T12:16:29.380",
+      "description": "Forwarding information received from a host listed as a trusted proxy is not kept separate from Dovecot's own authentication fields, so a value sent by that host can be injected as an internal authentication field. Any host permitted to act as a trusted proxy can authenticate as any user without knowing that user's password. This affects deployments whose password database honours a field that permits authentication without a password. Deployments that do not configure trusted proxies are not affected. Restrict the list of trusted proxy networks to hosts that are fully under your control. Update to non-vulnerable version. No publicly available exploits are known.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-40203",
+      "published": "2026-08-28T12:16:28.897",
+      "description": "When IMAP compression is enabled, the same compression state is reused across responses in a session, so response sizes depend on both attacker-supplied mail and other mail in the same mailbox. An attacker that can send mail to a user and can also observe the sizes of that user's IMAP traffic can confirm whether the body of a small message matches a guessed text. Recovery of arbitrary unknown content was not demonstrated, but the attack can disclose whether a secret-like message body matches a candidate. Disable IMAP compression. Update to non-vulnerable version. No publicly available exploits are known.",
       "severity": "LOW",
-      "score": 2.7
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-40204",
+      "published": "2026-08-28T12:16:29.023",
+      "description": "None None None No publicly available exploits are known.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-18918",
+      "published": "2026-08-28T12:16:27.150",
+      "description": "In Eclipse Lyo versions 2.0.0 to 7.0.0, OAuth server authorization checks can be bypassed when the 2-legged auth is supported by the server. In those cases, application that based their authz filters upon Lyo-provided `AbstractAdapterCredentialsFilter`, are vulnerable. An attacked can create a provisional trusted client (valid use-case) but then it can be used as a trusted client immediately without requiring the administrator approval to clear the provisional status. The 3-legged path requiring user interaction is not vulnerable and rejects provisional clients.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
