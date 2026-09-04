@@ -1,145 +1,145 @@
 {
-  "totalResults": 2288,
+  "totalResults": 2242,
   "items": [
     {
-      "id": "CVE-2026-18527",
-      "published": "2026-08-28T22:16:46.620",
-      "description": "IBM Administration Runtime Expert for i 1R1M0 IBM Application Runtime Expert (ARE) for i could allow a remote attacker to gain elevated privileges, caused by ARE GUI component processing. An unauthenticated attacker can exploit this vulnerability to execute actions under another user's authenticated profile gaining elevated privileges on the IBM i system.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-19295",
-      "published": "2026-08-28T22:16:47.613",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 allows an authenticated attacker to execute arbitrary operating system commands in the server process by saving a flow with a crafted type field value and triggering a build of a wrapper flow that references it. This allowed privilege escalation from \"authenticated flow user\" to arbitrary OS-level command execution under the server process identity, bypassing the LANGFLOW_ALLOW_CUSTOM_COMPONENTS=false policy control.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-19286",
-      "published": "2026-08-28T22:16:47.357",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary code due to improper enforcement of security restrictions on the A2A public endpoint.",
+      "id": "CVE-2026-10522",
+      "published": "2026-08-29T06:16:57.717",
+      "description": "The MemberHero  WordPress plugin through 6.9 does not restrict which account fields can be supplied during its frontend registration process, allowing unauthenticated attackers to register a new user with an arbitrary role, including Administrator, leading to a full site takeover.\n\nVersion 6.9 is advertised as resolving this issue, but the fix is incomplete and the current version remains exploitable by unauthenticated attackers to obtain administrator access and to take over existing accounts. No version that fully addresses the issue is available at the time of this advisory.\n\nMitigation: deactivate and remove the MemberHero  WordPress plugin through 6.9 until a version that fully resolves this issue is released. If the MemberHero  WordPress plugin through 6.9 must stay active, disable public registration, restrict access to the registration functionality, and monitor the site for unexpected administrator accounts.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-3627",
-      "published": "2026-08-28T22:16:49.063",
-      "description": "IBM Concert 1.0.0 through 2.3.1 is vulnerable to SQL injection. A remote attacker could send specially crafted SQL statements, which could allow the attacker to view, add, modify, or delete information in the back-end database.",
+      "id": "CVE-2026-16259",
+      "published": "2026-08-29T06:17:00.360",
+      "description": "The Uix UserCenter WordPress plugin through 1.0.3 does not verify that the account being modified through an unauthenticated profile-update action belongs to the requester, and it authenticates that action with a token whose signing key is hardcoded and identical across every install, allowing unauthenticated attackers to forge a token for any user, overwrite an administrator's email and password, and take over the account.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-77012",
+      "published": "2026-08-29T06:17:44.040",
+      "description": "The 爱采集数据采集和发布插件 WordPress plugin through 1.0.0 does not require a per-install secret for one of its unauthenticated endpoints, relying on a hardcoded default, and does not validate the URLs or destination paths it is given, allowing unauthenticated attackers to read arbitrary files from the server, force it to issue arbitrary requests and retrieve the responses, and write attacker-supplied content outside the uploads directory.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-16947",
+      "published": "2026-08-29T06:17:05.583",
+      "description": "The Total processing card payments for WooCommerce WordPress plugin through 7.3 does not validate a user-supplied path before using it to build a server-side verification request, and does not verify the authenticity of the response, allowing unauthenticated attackers to redirect that request to an arbitrary host (disclosing the merchant's payment-gateway credentials) and to forge a success response that marks arbitrary WooCommerce orders as paid.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-51661",
-      "published": "2026-08-28T22:16:49.303",
-      "description": "Incorrect access control in the getPortForwardRules function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to obtain port-forwarding rules via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-18729",
-      "published": "2026-08-28T22:16:46.867",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote authenticated attacker to execute arbitrary code due to improper control of generation of code.",
+      "id": "CVE-2026-16061",
+      "published": "2026-08-29T06:17:00.247",
+      "description": "The Rest Routes  WordPress plugin through 5.5.5 does not sanitize and validate a value taken from the URL of one of its public REST routes before using it in a SQL query, allowing unauthenticated attackers to perform SQL injection attacks.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-18891",
-      "published": "2026-08-28T22:16:46.990",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary flows and access sensitive information due to improper authentication.",
+      "id": "CVE-2026-76548",
+      "published": "2026-08-29T06:17:29.450",
+      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not properly restrict its front-end file upload feature, granting unauthenticated visitors capabilities reserved to privileged roles. This allows them to list the site's media library and to modify unpublished posts, pages and media items belonging to other users.",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-18904",
-      "published": "2026-08-28T22:16:47.227",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to obtain sensitive information and inject unauthorized messages due to a namespace collision between user identifiers.",
+      "id": "CVE-2026-41012",
+      "published": "2026-08-29T03:17:06.637",
+      "description": "Traffic interception vulnerability in BOSH Director vCenter CPI allows attackers positioned between BOSH Director and vCenter to impersonate vCenter REST API and capture administrator credentials via HTTP Basic auth, leading to complete virtualization infrastructure takeover.\n\n\n\nAn attacker who can intercept traffic between the BOSH Director and vCenter can establish a malicious server impersonating the vCenter REST API. When the BOSH Director makes CPI calls to perform routine cloud infrastructure operations, the attacker captures the vCenter administrator username and password transmitted via HTTP Basic authentication.\n\n\n\nThe vulnerability stems from insufficient authentication security in the communication protocol between BOSH Director and vCenter. While HTTPS may be used, the lack of proper certificate validation and pinning allows attackers to successfully impersonate vCenter endpoints. Because vCenter credentials typically grant full administrative control over the entire virtualization estate, successful credential capture yields complete takeover of every VM, datastore, and network the CPI manages.\n\n\n\nThis exposure exists on every CPI call (including routine deployment operations, not just when tags are configured) and cannot be mitigated by supplying a CA certificate alone. The attack impacts all infrastructure managed by the compromised vCenter instance, potentially affecting hundreds or thousands of VMs across multiple deployments and environments.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-17203",
-      "published": "2026-08-28T22:16:46.480",
-      "description": "IBM Administration Runtime Expert for i 1R1M0 could allow a remote authenticated attacker to obtain sensitive information due to improper authentication enforcement.",
+      "id": "CVE-2026-16600",
+      "published": "2026-08-29T06:17:05.443",
+      "description": "The SmartAIPress WordPress plugin through 1.2.0 does not perform a capability check on one of its AJAX actions and does not validate a user-supplied URL before fetching it server-side, allowing users with subscriber-level access and above to make the site retrieve arbitrary internal or external URLs and read the response, resulting in a full-read Server-Side Request Forgery.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-76586",
+      "published": "2026-08-29T06:17:34.353",
+      "description": "The Appointment Booking Calendar Plugin and Scheduling Plugin  WordPress plugin before 1.6.3 does not verify the amount actually paid against the server-side price staged for a booking when confirming an online payment, allowing unauthenticated users to have a paid appointment approved for a fraction of its price.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-18899",
-      "published": "2026-08-28T22:16:47.107",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to read arbitrary files due to path traversal.",
+      "id": "CVE-2026-77007",
+      "published": "2026-08-29T06:17:34.453",
+      "description": "The HEL Online Classroom: AI-powered Online Classrooms WordPress plugin through 1.0.3 does not perform any authorisation check on one of its REST API routes, allowing unauthenticated users to retrieve its stored settings, including the shared secret used to sign API requests to the connected BigBlueButton server.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-16821",
-      "published": "2026-08-28T22:16:46.310",
-      "description": "IBM AIX 7.2, and 7.3 and IBM PowerVM VIOS 4.1 could allow a local attacker to gain elevated privileges due to a format string vulnerability.",
-      "severity": "HIGH",
-      "score": 7
+      "id": "CVE-2026-76546",
+      "published": "2026-08-29T06:17:24.977",
+      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not escape the output of one of its optional shortcodes, allowing users with a role as low as contributor to perform Stored Cross-Site Scripting attacks against any user viewing the affected content, including administrators. The shortcode is not enabled by default.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-13734",
-      "published": "2026-08-28T22:16:46.057",
-      "description": "Zephyr's WireGuard VPN data-plane receive handler wg_process_data_message() in subsys/net/lib/wireguard/wg_crypto.c validated the anti-replay counter too late. After AEAD decryption of a MESSAGE_TRANSPORT_DATA packet succeeded, the code committed several peer-state changes — update_peer_addr() (endpoint roaming update), the keypair->last_rx/peer->last_rx liveness timers, and keypair_update() (promote next→current and destroy the previous keypair) — and only afterward called wg_check_replay(). On a replayed packet the replay check returned -EINVAL, but none of the preceding mutations were rolled back.\n\nThe AEAD tag authenticates content but not freshness, so a replayed-but-authentic transport packet decrypts correctly. An attacker who captures one valid ciphertext off the wire (an on-path or shared-medium observer) can re-inject it from an arbitrary spoofed source address. Reaching the handler requires no credentials: it is driven directly from inbound UDP datagrams via the dispatch in subsys/net/lib/wireguard/wg.c.\n\nBecause the state mutations committed before the replay check, the replay repoints the peer endpoint to the attacker-chosen source address (roaming hijack), redirecting the victim's subsequent outbound tunnel traffic until the legitimate peer's next packet re-corrects it; it also prematurely destroys the previous keypair and refreshes the RX liveness timer. The tunnel payload stays encrypted under the session keypair, so this is an integrity/availability impact (traffic redirection and session disruption), not payload disclosure. The fix moves wg_check_replay() to immediately after a successful decrypt, before any peer-state mutation, matching the WireGuard specification and the Linux reference implementation.",
+      "id": "CVE-2026-76547",
+      "published": "2026-08-29T06:17:29.343",
+      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not validate the type of data being deserialized when importing a configuration file, allowing high privilege users such as administrators to conduct PHP Object Injection. The affected feature is a free add-on which is disabled by default, and no POP chain is present in the User Profile Builder  WordPress plugin before 4.0.1 itself, so further impact requires a suitable gadget from another installed User Profile Builder  WordPress plugin before 4.0.1 or .",
+      "severity": "MEDIUM",
+      "score": 6.6
+    },
+    {
+      "id": "CVE-2026-18233",
+      "published": "2026-08-29T06:17:16.007",
+      "description": "The MStore API  WordPress plugin before 4.21.1 does not verify that the order targeted by one of its delivery endpoints belongs to the requester, allowing any authenticated user, including Subscribers, to mark arbitrary orders as completed and paid without any payment being made.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-19294",
-      "published": "2026-08-28T22:16:47.470",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote authenticated attacker to execute and read any user's private flow due to improper authorization.",
+      "id": "CVE-2026-18234",
+      "published": "2026-08-29T06:17:20.960",
+      "description": "The MStore API  WordPress plugin before 4.21.1 does not verify that the order targeted by its wallet payment handling belongs to the requester, and does not deduct the wallet balance for most payment methods, allowing any authenticated user, including Subscribers, to mark arbitrary orders as paid without any payment being taken.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-3686",
-      "published": "2026-08-28T22:16:49.180",
-      "description": "IBM Cloud Pak for Data System 11.3.0.2 through Interim Fix 001 is vulnerable to a denial of service due to improper limitation of resources.",
+      "id": "CVE-2026-77008",
+      "published": "2026-08-29T06:17:38.927",
+      "description": "The HEL Online Classroom: AI-powered Online Classrooms WordPress plugin through 1.0.3 does not have any authorisation or authentication check when saving its settings, allowing unauthenticated users to overwrite them and repoint every online classroom, along with the shared secret those sessions are signed with, at infrastructure of their choosing.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.5
     },
     {
-      "id": "CVE-2025-36271",
-      "published": "2026-08-28T22:16:45.587",
-      "description": "IBM Integrated Analytics System 1.0.0.0 through 1.0.31.0 uses weaker than expected cryptographic algorithms that could allow an attacker to decrypt highly sensitive information.",
+      "id": "CVE-2026-77010",
+      "published": "2026-08-29T06:17:39.037",
+      "description": "The HEL Online Classroom: AI-powered Online Classrooms WordPress plugin through 1.0.3 does not perform authorisation checks on its REST API routes and does not consistently enforce the per-class access code, allowing unauthenticated users to obtain a signed meeting join link for any classroom, including one protected by an access code, and to join it with moderator privileges.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.5
     },
     {
-      "id": "CVE-2025-36290",
-      "published": "2026-08-28T22:16:45.757",
-      "description": "IBM Integrated Analytics System 1.0.0.0 through 1.0.31.0 does not validate or improperly validates TLS certificate validation, which could allow an attacker to obtain sensitive information using man in the middle techniques.",
+      "id": "CVE-2026-17522",
+      "published": "2026-08-29T06:17:12.290",
+      "description": "The Newsletters WordPress plugin before 4.17 does not perform any nonce or capability check when saving one of its settings screens, and writes every submitted parameter into its own options, allowing attackers to make a logged in administrator overwrite arbitrary Newsletters WordPress plugin before 4.17 settings, including the credential protecting its API, via a Cross-Site Request Forgery attack.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2025-64649",
-      "published": "2026-08-28T22:16:45.913",
-      "description": "IBM Concert 1.0.0 through 2.3.1 could allow a remote attacker to perform unauthorized actions using man in the middle techniques due to improper certificate validation.",
+      "id": "CVE-2026-19430",
+      "published": "2026-08-29T06:17:24.857",
+      "description": "The Catfolders Document Gallery Pro WordPress plugin before 2.0.7 does not authorise some of its REST API routes, and the token identifying the requested content is forgeable client side, allowing unauthenticated users to list and download the contents of folders that were never published on the site.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-18545",
-      "published": "2026-08-28T22:16:46.743",
-      "description": "IBM Langflow OSS 1.0.0 through 1.11.1 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
+      "id": "CVE-2026-17520",
+      "published": "2026-08-29T06:17:12.177",
+      "description": "The Newsletters WordPress plugin before 4.17 does not generate its API key using a sufficiently random source, deriving it from a publicly known value, allowing unauthenticated attackers to compute the key and perform privileged actions such as adding and deleting subscribers and sending emails, when the optional API has been enabled.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-13735",
-      "published": "2026-08-28T22:16:46.187",
-      "description": "Zephyr's WireGuard implementation in subsys/net/lib/wireguard/wg_crypto.c mishandled keepalive packets. In wg_process_data_message(), any type-4 transport-data message whose payload was exactly 16 bytes (an empty plaintext plus a bare Poly1305 tag, i.e. a keepalive) was accepted and returned immediately, before wg_decrypt_packet() was ever called. The Poly1305 authentication tag was therefore never verified; the only preceding gates were a cleartext receiver-index lookup (get_peer_keypair_for_index() on the attacker-supplied data_hdr->receiver) and a non-cryptographic keypair validity/expiry check.\n\nThe path is reachable entirely from the network: inbound UDP on the WireGuard port is dispatched by wg_input() to handle_transport_data() and then wg_process_data_message(). The 32-bit receiver index is transmitted in cleartext in WireGuard handshake and data messages, so an on-path observer learns it directly and an off-path attacker can brute-force it against the UDP port. Given an active receiving-valid session for that index, an attacker could send a 16-byte garbage payload and have it accepted without possessing the session key.\n\nOn acceptance the unauthenticated message caused the management layer to observe a spoofed NET_EVENT_VPN_CONNECTED signal (setting peer->first_valid and notifying any net_mgmt listener) and incremented the keepalive-RX statistic. The impact is limited to integrity of this status signal: no plaintext is decrypted or injected, no key is disclosed, and the early-return path did not update the peer endpoint or liveness timers, so there is no traffic-injection, session-takeover, or availability consequence.\n\nThe fix removes the pre-decrypt early return so a 16-byte payload flows through wg_decrypt_packet(), which verifies the Poly1305 tag over the empty plaintext, followed by the existing anti-replay check; only an authenticated, non-replayed message is then recognised as a keepalive. Forged keepalives now fail the tag check and are counted as decrypt failures.",
+      "id": "CVE-2026-77704",
+      "published": "2026-08-29T06:17:44.150",
+      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.9 does not check that a user holds the required capability before letting them change an appointment's status, allowing customers to set arbitrary statuses on appointments they are booked on, including approving their own bookings that were left awaiting approval and overwriting another customer's booking status on a shared appointment.",
       "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-22056",
-      "published": "2026-08-28T22:16:47.883",
-      "description": "StorageGRID (formerly StorageGRID Webscale) versions 11.5 and higher in a non-standard configuration and scenario are susceptible to a Denial of Service vulnerability. Successful exploit could allow an attacker with some control over the environment to cause a partial Denial of Service.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 2.7
     }
   ]
 }
