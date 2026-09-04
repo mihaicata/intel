@@ -1,145 +1,145 @@
 {
-  "totalResults": 2218,
+  "totalResults": 2201,
   "items": [
     {
-      "id": "CVE-2026-61800",
-      "published": "2026-08-28T02:16:21.767",
-      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.4.0 through 4.14.6, a party holding the cluster key can write, overwrite, or delete arbitrary files under /var/ossec on worker nodes, leading to remote code execution as root. During cluster file synchronization, the non-merged branch of update_master_files_in_worker() moves each staged file to a destination derived only from safe_join(), which confines the path to /var/ossec but never verifies that the file lands in the directory declared by its cluster_item_key. Because the destination check present on the primary node and on the worker's merged branch was not applied, a peer can place files at attacker-chosen locations under /var/ossec, including paths that are executed as root, and the delete branch has the same gap. This is an incomplete fix for CVE-2026-30893, which addressed traversal outside /var/ossec but left this path able to redirect files anywhere within it. This issue is fixed in version 4.14.7.",
+      "id": "CVE-2026-76581",
+      "published": "2026-08-28T08:16:41.463",
+      "description": "The WPMU DEV Dashboard plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 5.0.1. This is due to inconsistent and ambiguous HMAC message construction between the unauthenticated `wdpsso_step1` and `wdpsso_step2` AJAX actions, where step 1 signs and discloses an unseparated concatenation of the token, state, redirect, and domain values, while step 2 verifies an unseparated concatenation that omits the domain field. This makes it possible for unauthenticated attackers, on sites connected to WPMU DEV with Hub SSO enabled and mapped to an administrator, to obtain a valid HMAC from step 1 and replay it to step 2 by moving the domain value into the redirect field, resulting in an authenticated administrator session.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-38820",
-      "published": "2026-08-28T02:16:21.350",
-      "description": "openNDS before 11.0.0 is susceptible to unauthenticated OS command execution via shell command injection through the fas query parameter on the /opennds_preauth/ endpoint because of libopennds.sh.",
+      "id": "CVE-2026-78032",
+      "published": "2026-08-28T08:16:41.800",
+      "description": "SOY CMS  contains an issue with deserialization of untrusted data. An arbitrary code may be executed by an attacker with the web server privilege.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-40541",
+      "published": "2026-08-28T08:16:40.713",
+      "description": "An improper neutralization of input during web page generation ('Cross-site Scripting') vulnerability in extract domain in Synology Chat Server before 2.4.5-22148 allows remote authenticated users, via a UI interaction, to read or write arbitrary files and conduct denial-of-service attacks in DSM.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-19423",
+      "published": "2026-08-28T08:16:40.610",
+      "description": "The Ultimate Member  WordPress plugin before 2.13.0 does not validate a submitted role selection when it cannot resolve the set of roles a profile form permits, and screens the value against the site's registered role names rather than against the form's own allow-list, allowing unauthenticated users who register through the Ultimate Member  WordPress plugin before 2.13.0's own form to grant themselves arbitrary capabilities and reach administrator-equivalent access.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-38822",
-      "published": "2026-08-28T02:16:21.620",
-      "description": "In openNDS before 11.0.0, the client_params.sh script, invoked by the openNDS daemon to serve the authenticated client status page, is vulnerable to OS command injection through crafted HTTP GET query parameter keys. An authenticated captive portal user can inject arbitrary shell commands by embedding semicolons in a URL query parameter name.",
+      "id": "CVE-2026-19084",
+      "published": "2026-08-28T08:16:40.513",
+      "description": "The shared-files-pro WordPress plugin before 1.7.70 does not validate the file path supplied when creating a featured image, allowing unauthenticated attackers to read arbitrary files from the server and republish their contents at a public URL.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-38821",
-      "published": "2026-08-28T02:16:21.490",
-      "description": "A heap-based buffer overflow vulnerability exists in openNDS before 11.0.0 that allows an unauthenticated attacker on the captive portal network to crash the openNDS daemon (denial of service) and potentially achieve remote code execution. This is in http_microhttpd.c.",
+      "id": "CVE-2026-5097",
+      "published": "2026-08-28T08:16:41.003",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to SQL Injection via the 'referer' parameter in all versions up to, and including, 2.4.17. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-61802",
-      "published": "2026-08-28T02:16:21.907",
-      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. In versions 4.14.0 through 4.14.6, a low-privilege API user can read the cleartext cluster key from a configuration endpoint that fails to redact it. The REST API provides a masking control, mask_sensitive_config, that redacts sensitive fields such as authd.pass and cluster.key from configuration responses for users who lack update-config permission, and every config-read endpoint carries this decorator except GET /cluster/local/config. That endpoint, backed by read_config_wrapper, is gated only by cluster:read and returns the local node's cluster configuration including the cleartext key, whereas its siblings return the same value masked. As a result, any account with the default readonly or cluster_readonly role, which is explicitly denied update-config precisely so it cannot view secrets, receives the real cluster key. Because the cluster key authenticates and encrypts traffic between cluster nodes, disclosing it to an unprivileged account provides the authentication precondition for the cluster-peer remote code execution chains established by prior advisories. This issue is fixed in version 4.14.",
+      "id": "CVE-2026-14558",
+      "published": "2026-08-28T08:16:40.327",
+      "description": "The User Frontend  WordPress plugin before 4.3.10 does not properly validate field type definitions and deserialises user-controlled post metadata when rendering submitted posts, allowing users with Editor-level access and above to inject arbitrary PHP objects, which can lead to remote code execution when a suitable POP chain is present on the site.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-6286",
+      "published": "2026-08-28T08:16:41.140",
+      "description": "The Booking for Appointments and Events Calendar – Amelia plugin for WordPress is vulnerable to Stored Cross-Site Scripting via customer name fields in versions up to and including 2.2. This is due to an authentication bypass where the AddBookingCommand explicitly skips nonce verification (Command.php line 186), allowing unauthenticated users to submit booking data. While the plugin applies sanitize_text_field() to customer firstName and lastName fields (BookingApplicationService.php lines 302-308), this function only removes HTML tags and preserves special characters including double quotes. The vulnerability manifests in the administrative Calendar view where a FullCalendar eventContent callback interpolates customer names directly into JavaScript template literals (redesign/dist/index.js line 199) and renders them via innerHTML without proper HTML entity encoding. Because double quotes are preserved, an attacker can inject payloads like '\" onmouseover=\"alert(document.cookie)\"' to break out of the title attribute and inject malicious event handlers. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that will execute when an administrator accesses the Calendar page and hovers over the malicious appointment.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-79996",
+      "published": "2026-08-28T08:16:42.427",
+      "description": "The User Registration & Membership  WordPress plugin before 5.2.6 does not perform a capability check when saving its login settings, allowing authenticated users who have been granted a User Registration & Membership  WordPress plugin before 5.2.6 management capability but not full administrator access to change arbitrary site options and escalate their privileges to administrator.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-12513",
+      "published": "2026-08-28T08:16:40.083",
+      "description": "The Shared Files  WordPress plugin before 1.7.67, shared-files-pro WordPress plugin before 1.7.68 do not properly sanitize a file path taken from a frontend file submission and their single-pass traversal filter is bypassable, allowing unauthenticated users to store a path that points outside the uploads directory. When the corresponding file entry is later permanently deleted, an arbitrary file on the server (such as wp-config.php) is deleted, leading to denial of service and potential site takeover.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-38819",
-      "published": "2026-08-28T02:16:21.200",
-      "description": "Multiple memory leaks in openNDS before 11.0.0 allow an unauthenticated attacker on the captive portal network to exhaust all available memory on the device within minutes.",
+      "id": "CVE-2026-4246",
+      "published": "2026-08-28T08:16:40.850",
+      "description": "The ElementsKit Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 's' parameter of the Advanced Search REST endpoint in all versions up to, and including, 4.10.1 due to insufficient input sanitization and output escaping. The REST endpoint at /wp-json/elementskit/v1/advanced-search uses permission_callback set to __return_true, allowing unauthenticated access. Search terms are stored in the ekit_advanced_search_popular_keyword WordPress option via update_option(). While sanitize_text_field() is applied, it does not encode double quotes, and the stored keywords are rendered in HTML attributes via sprintf without esc_attr(), allowing attribute injection. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user triggers the \"no results\" popular keywords view on pages using the Advanced Search widget.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-73827",
+      "published": "2026-08-28T08:16:41.313",
+      "description": "SOY Calendar contains a cross-site scripting vulnerability. An arbitrary script may be executed on the web browser of the user who is logging in to the product.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-77838",
+      "published": "2026-08-28T08:16:41.680",
+      "description": "SOY Calendar contains a cross-site scripting vulnerability. An arbitrary script may be executed on the web browser of the user who is logging in to the product.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-78238",
+      "published": "2026-08-28T08:16:42.030",
+      "description": "SOY Gallery  contains a cross-site scripting vulnerability. An arbitrary script may be executed on the web browser of the user who is logging in to the product.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-12514",
+      "published": "2026-08-28T08:16:40.230",
+      "description": "The Shared Files  WordPress plugin before 1.7.67, shared-files-pro WordPress plugin before 1.7.70 do not perform a capability check in their file-upload handler, which is registered for unauthenticated users and protected only by a nonce that is output on public pages, so an unauthenticated visitor can upload files to a publicly accessible directory and read the server's absolute path from the response. Uploads are limited to WordPress's allowed MIME types, so executable PHP cannot be uploaded.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-13086",
-      "published": "2026-08-28T02:16:20.197",
-      "description": "A stack-based buffer overflow in the epm (Endpoint Protection Manager) service used by the deprecated Mobile Security feature in WatchGuard Fireware OS allows an unauthenticated remote attacker to execute arbitrary code.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-14567",
+      "published": "2026-08-28T08:16:40.423",
+      "description": "The User Frontend  WordPress plugin before 4.3.10 does not restrict access to its user directory search endpoint, allowing unauthenticated attackers to retrieve the email address and phone number of every registered user, including administrators.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-13108",
-      "published": "2026-08-28T02:16:20.323",
-      "description": "WatchGuard Dimension is susceptible to a denial-of-service condition when an attacker sends a high volume of TCP SYN packets to the log listening service.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-77701",
+      "published": "2026-08-28T08:16:41.587",
+      "description": "The WCFM Marketplace  WordPress plugin before 3.8.2 does not correctly verify that the person requesting a refund owns the order, allowing unauthenticated users to create refund requests against any guest checkout order on the site.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-19313",
-      "published": "2026-08-28T02:16:20.450",
-      "description": "An heap overflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to execute arbitrary code by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-79706",
+      "published": "2026-08-28T08:16:42.243",
+      "description": "The Breeze Cache WordPress plugin before 2.5.13 does not sanitise a value taken from the request before using it to build the paths of the files it caches, allowing unauthenticated attackers to create files at arbitrary locations on the server, outside the intended cache directory.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-19314",
-      "published": "2026-08-28T02:16:20.580",
-      "description": "An integer underflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-79995",
+      "published": "2026-08-28T08:16:42.337",
+      "description": "The User Registration & Membership  WordPress plugin before 5.2.5 does not verify that the account whose pending email change is being cancelled belongs to the user making the request, allowing authenticated users with Subscriber-level access and above to cancel any other user's in-progress email change, including an administrator's.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-19315",
-      "published": "2026-08-28T02:16:20.703",
-      "description": "A type confusion vulnerability in the iked process of WatchGuard Fireware OS allows a remote unauthenticated attacker to execute arbitrary code by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-19316",
-      "published": "2026-08-28T02:16:20.827",
-      "description": "A double-free vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-19317",
-      "published": "2026-08-28T02:16:20.947",
-      "description": "An out-of-bounds read vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-19318",
-      "published": "2026-08-28T02:16:21.070",
-      "description": "A stack-based buffer overflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to execute arbitrary code by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78008",
-      "published": "2026-08-28T02:16:22.167",
-      "description": "A buffer overflow vulnerability in the WatchGuard Fireware OS Management Web UI allows an authenticated administrator with network access to cause a denial of service (DoS) condition or potentially execute arbitrary code by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78009",
-      "published": "2026-08-28T02:16:22.293",
-      "description": "An out-of-bounds read vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78010",
-      "published": "2026-08-28T02:16:22.417",
-      "description": "A stack-based buffer overflow vulnerability in the WatchGuard Fireware OS iked process iallows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78011",
-      "published": "2026-08-28T02:16:22.563",
-      "description": "An integer underflow vulnerability in the WatchGuard Fireware OS iked process allows a remote unauthenticated attacker to create a Denial of Service (DoS) condition in VPN processing by sending specially crafted network traffic.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78047",
-      "published": "2026-08-28T02:16:22.697",
-      "description": "A stored cross-site scripting (XSS) vulnerability in WatchGuard Dimension's task scheduling feature allows a low-privileged authenticated administrator to inject arbitrary HTML/JavaScript into these fields, which then executes in the browser session of any other user.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78103",
-      "published": "2026-08-28T02:16:22.830",
-      "description": "WatchGuard Dimension provides a client-side lock/unlock UI control for management changes. The server-side configuration endpoint does not enforce this lock/unlock workflow state, allowing an authenticated administrator to submit configuration changes directly to the endpoint without first completing the UI unlock step. This allows an authenticated read-write administrator session to bypass the intended editing workflow and overwrite configuration changes being made by another concurrent administrator session.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-79615",
+      "published": "2026-08-28T08:16:42.150",
+      "description": "The Quiz and Survey Master (QSM)  WordPress plugin before 11.2.4 does not check authorisation when returning question bank entries through one of its REST API routes, allowing users with a role as low as Contributor to read the questions, hints and correct answer keys of quizzes belonging to other users.",
+      "severity": "LOW",
+      "score": 2.7
     }
   ]
 }
