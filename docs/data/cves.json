@@ -1,145 +1,145 @@
 {
-  "totalResults": 2254,
+  "totalResults": 2295,
   "items": [
     {
-      "id": "CVE-2026-10522",
-      "published": "2026-08-29T06:16:57.717",
-      "description": "The MemberHero  WordPress plugin through 6.9 does not restrict which account fields can be supplied during its frontend registration process, allowing unauthenticated attackers to register a new user with an arbitrary role, including Administrator, leading to a full site takeover.\n\nVersion 6.9 is advertised as resolving this issue, but the fix is incomplete and the current version remains exploitable by unauthenticated attackers to obtain administrator access and to take over existing accounts. No version that fully addresses the issue is available at the time of this advisory.\n\nMitigation: deactivate and remove the MemberHero  WordPress plugin through 6.9 until a version that fully resolves this issue is released. If the MemberHero  WordPress plugin through 6.9 must stay active, disable public registration, restrict access to the registration functionality, and monitor the site for unexpected administrator accounts.",
+      "id": "CVE-2026-82456",
+      "published": "2026-08-29T14:16:38.767",
+      "description": "argocd-mcp 0.8.0 binds its HTTP transport to every network interface and accepts MCP sessions without requiring caller credentials when ARGOCD_API_TOKEN is configured. Attackers who can reach the listener can invoke the full tool surface using the operator's stored token to create applications, request syncs, and modify Argo CD resources.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-14494",
+      "published": "2026-08-29T12:16:41.163",
+      "description": "The Sigma Forms Pro plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.4.5 via the handle_form_submission function. This is due to the plugin dynamically granting the unfiltered_upload capability to all users during form submissions and bypassing MIME type validation when allowed_file_types is not configured. This makes it possible for unauthenticated attackers to execute code on the server. Several default pre-built templates including Job Application, Support Ticket, and Wholesale Application have file upload fields with no file type restrictions configured by design, making this vulnerability immediately exploitable upon installation.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-16259",
-      "published": "2026-08-29T06:17:00.360",
-      "description": "The Uix UserCenter WordPress plugin through 1.0.3 does not verify that the account being modified through an unauthenticated profile-update action belongs to the requester, and it authenticates that action with a token whose signing key is hardcoded and identical across every install, allowing unauthenticated attackers to forge a token for any user, overwrite an administrator's email and password, and take over the account.",
+      "id": "CVE-2026-82448",
+      "published": "2026-08-29T13:16:38.877",
+      "description": "Shinobi before commit 5a76c74f contains a hardcoded connection key in the child node service that allows unauthenticated attackers to execute arbitrary database queries. Attackers reaching the child node port can present the hardcoded key during WebSocket handshake, then dispatch SQL queries through the onWebSocketDataFromChildNode handler to read and modify user records and camera configuration.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-77012",
-      "published": "2026-08-29T06:17:44.040",
-      "description": "The 爱采集数据采集和发布插件 WordPress plugin through 1.0.0 does not require a per-install secret for one of its unauthenticated endpoints, relying on a hardcoded default, and does not validate the URLs or destination paths it is given, allowing unauthenticated attackers to read arbitrary files from the server, force it to issue arbitrary requests and retrieve the responses, and write attacker-supplied content outside the uploads directory.",
+      "id": "CVE-2026-82452",
+      "published": "2026-08-29T14:16:38.210",
+      "description": "rust-iot-platform through commit 5df942ab contains an authentication bypass vulnerability where most REST API routes lack authentication guards in their handler signatures. Unauthenticated attackers can create, update, list, retrieve, and delete user accounts by directly accessing unprotected endpoints without providing valid credentials.",
       "severity": "CRITICAL",
-      "score": 9.3
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-16947",
-      "published": "2026-08-29T06:17:05.583",
-      "description": "The Total processing card payments for WooCommerce WordPress plugin through 7.3 does not validate a user-supplied path before using it to build a server-side verification request, and does not verify the authenticity of the response, allowing unauthenticated attackers to redirect that request to an arbitrary host (disclosing the merchant's payment-gateway credentials) and to forge a success response that marks arbitrary WooCommerce orders as paid.",
+      "id": "CVE-2026-82460",
+      "published": "2026-08-29T17:17:58.060",
+      "description": "Cloud Commander before 19.20.2 contains a directory traversal vulnerability in REST file-operation and markdown endpoints that fails to properly validate path normalization. Attackers can use path traversal sequences to read, write, move, or copy files outside the configured root directory.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-82454",
+      "published": "2026-08-29T14:16:38.480",
+      "description": "The Omnivore API (packages/api) before the fix in commit abf53d6 contains an authentication bypass in Apple sign-in token verification. The decodeAppleToken function extracted the 'alg' field from the attacker-supplied JWT header and passed it as the sole allowed algorithm to jwt.verify(). Using jsonwebtoken v8 (which does not validate key/algorithm compatibility), an attacker can set alg=HS256 and sign a forged token using Apple's publicly available RSA public key as the HMAC secret, bypassing signature verification and impersonating any Apple-linked account.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-16061",
-      "published": "2026-08-29T06:17:00.247",
-      "description": "The Rest Routes  WordPress plugin through 5.5.5 does not sanitize and validate a value taken from the URL of one of its public REST routes before using it in a SQL query, allowing unauthenticated attackers to perform SQL injection attacks.",
+      "id": "CVE-2026-82447",
+      "published": "2026-08-29T13:16:38.643",
+      "description": "Skyvern before 1.0.45 contains a sandbox escape vulnerability in TextPromptBlock that renders prompts twice, first through a sandboxed Jinja environment and then through an unsandboxed environment. Attackers can inject malicious Jinja template syntax through workflow parameters or upstream block output to execute arbitrary code with server process privileges.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-76548",
-      "published": "2026-08-29T06:17:29.450",
-      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not properly restrict its front-end file upload feature, granting unauthenticated visitors capabilities reserved to privileged roles. This allows them to list the site's media library and to modify unpublished posts, pages and media items belonging to other users.",
+      "id": "CVE-2026-82450",
+      "published": "2026-08-29T14:16:37.930",
+      "description": "BookStack before 26.05.4 contains a remote code execution vulnerability in the portable ZIP import functionality that allows users with Import Content and Create Books permissions to upload a PHP polyglot file as a book cover. Attackers can bypass image extension validation by embedding a PHP file with a .php filename in the ZIP archive, which is stored in the public web root and executed by unauthenticated requests.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-16600",
-      "published": "2026-08-29T06:17:05.443",
-      "description": "The SmartAIPress WordPress plugin through 1.2.0 does not perform a capability check on one of its AJAX actions and does not validate a user-supplied URL before fetching it server-side, allowing users with subscriber-level access and above to make the site retrieve arbitrary internal or external URLs and read the response, resulting in a full-read Server-Side Request Forgery.",
+      "id": "CVE-2026-82461",
+      "published": "2026-08-29T17:17:58.207",
+      "description": "pac4j-oidc before 6.5.6 fails to verify access token signatures, issuers, audiences, or expiry when extracting Keycloak realm and client roles. Attackers can forge access tokens with administrative roles paired with valid ID tokens to bypass authorization checks in applications relying on pac4j role validation.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-76586",
-      "published": "2026-08-29T06:17:34.353",
-      "description": "The Appointment Booking Calendar Plugin and Scheduling Plugin  WordPress plugin before 1.6.3 does not verify the amount actually paid against the server-side price staged for a booking when confirming an online payment, allowing unauthenticated users to have a paid appointment approved for a fraction of its price.",
+      "id": "CVE-2026-82463",
+      "published": "2026-08-29T17:17:58.490",
+      "description": "pac4j-core before 6.5.6 contains an authentication bypass vulnerability in CheckProfileTypeAuthorizer that reverses the profile type validation logic. Attackers can authenticate through a weaker client and access resources requiring a stronger profile type by satisfying generic profile checks.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-82457",
+      "published": "2026-08-29T14:16:38.910",
+      "description": "su-exec through 0.3 fails to validate numeric user and group identifiers parsed with strtol before assigning to uid_t and gid_t, allowing truncation of out-of-range values to zero. Attackers can supply large numeric identifiers that truncate to root's identifier, causing su-exec to execute target programs with root privileges instead of intended unprivileged accounts.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-82453",
+      "published": "2026-08-29T14:16:38.347",
+      "description": "rust-iot-platform through commit 5df942ab stores user passwords in cleartext without hashing in the user model. Attackers can read API responses from user retrieval and listing routes to obtain plaintext credentials for all accounts.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-77007",
-      "published": "2026-08-29T06:17:34.453",
-      "description": "The HEL Online Classroom: AI-powered Online Classrooms WordPress plugin through 1.0.3 does not perform any authorisation check on one of its REST API routes, allowing unauthenticated users to retrieve its stored settings, including the shared secret used to sign API requests to the connected BigBlueButton server.",
+      "id": "CVE-2026-82455",
+      "published": "2026-08-29T14:16:38.623",
+      "description": "RubyGems fails to re-validate path containment after filesystem symlink resolution during gem extraction. When a pre-existing symlink inside the destination directory points outside the extraction root, extracted files that appear to be written under the destination directory can instead be written outside of it, breaking the extraction safety boundary. The fix resolves the real path of the parent directory before writing and raises Gem::Package::PathError if it escapes the destination directory.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-76546",
-      "published": "2026-08-29T06:17:24.977",
-      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not escape the output of one of its optional shortcodes, allowing users with a role as low as contributor to perform Stored Cross-Site Scripting attacks against any user viewing the affected content, including administrators. The shortcode is not enabled by default.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-76547",
-      "published": "2026-08-29T06:17:29.343",
-      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not validate the type of data being deserialized when importing a configuration file, allowing high privilege users such as administrators to conduct PHP Object Injection. The affected feature is a free add-on which is disabled by default, and no POP chain is present in the User Profile Builder  WordPress plugin before 4.0.1 itself, so further impact requires a suitable gadget from another installed User Profile Builder  WordPress plugin before 4.0.1 or .",
-      "severity": "MEDIUM",
-      "score": 6.6
-    },
-    {
-      "id": "CVE-2026-18233",
-      "published": "2026-08-29T06:17:16.007",
-      "description": "The MStore API  WordPress plugin before 4.21.1 does not verify that the order targeted by one of its delivery endpoints belongs to the requester, allowing any authenticated user, including Subscribers, to mark arbitrary orders as completed and paid without any payment being made.",
+      "id": "CVE-2026-82462",
+      "published": "2026-08-29T17:17:58.350",
+      "description": "pac4j-oidc before 6.5.6 accepts OIDC callbacks carrying only an access token without authorization code or ID token validation. Attackers can substitute access tokens minted for other clients to create authenticated sessions without proper issuer, audience, nonce, or subject verification.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-18234",
-      "published": "2026-08-29T06:17:20.960",
-      "description": "The MStore API  WordPress plugin before 4.21.1 does not verify that the order targeted by its wallet payment handling belongs to the requester, and does not deduct the wallet balance for most payment methods, allowing any authenticated user, including Subscribers, to mark arbitrary orders as paid without any payment being taken.",
+      "id": "CVE-2026-82451",
+      "published": "2026-08-29T14:16:38.067",
+      "description": "Formwork before 2.3.11 contains a stored cross-site scripting vulnerability in visit tracking that records the Referer header host unescaped. Unauthenticated attackers can craft malicious Referer headers to inject markup that executes in administrator browsers when viewing the Statistics panel.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-77008",
-      "published": "2026-08-29T06:17:38.927",
-      "description": "The HEL Online Classroom: AI-powered Online Classrooms WordPress plugin through 1.0.3 does not have any authorisation or authentication check when saving its settings, allowing unauthenticated users to overwrite them and repoint every online classroom, along with the shared secret those sessions are signed with, at infrastructure of their choosing.",
+      "id": "CVE-2026-82464",
+      "published": "2026-08-29T17:17:58.640",
+      "description": "pac4j-core before 6.5.6 contains an open redirect vulnerability in DefaultLogoutLogic.perform() that accepts backslash-prefixed logout redirect targets matching logoutUrlPattern. Attackers can craft logout links with backslash-prefixed external hosts that browsers normalize into network-path references, redirecting victims to attacker-controlled sites after logout.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-77010",
-      "published": "2026-08-29T06:17:39.037",
-      "description": "The HEL Online Classroom: AI-powered Online Classrooms WordPress plugin through 1.0.3 does not perform authorisation checks on its REST API routes and does not consistently enforce the per-class access code, allowing unauthenticated users to obtain a signed meeting join link for any classroom, including one protected by an access code, and to join it with moderator privileges.",
+      "id": "CVE-2026-82477",
+      "published": "2026-08-29T15:17:55.317",
+      "description": "In MITRE SAF Heimdall 2.11.6 through 2.13.x before 2.14.0, an SSRF issue allows remote attackers to access internal network resources via the Tenable proxy endpoint. This occurs in apps/backend/src/tenable/tenable.controller.ts.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-17522",
-      "published": "2026-08-29T06:17:12.290",
-      "description": "The Newsletters WordPress plugin before 4.17 does not perform any nonce or capability check when saving one of its settings screens, and writes every submitted parameter into its own options, allowing attackers to make a logged in administrator overwrite arbitrary Newsletters WordPress plugin before 4.17 settings, including the credential protecting its API, via a Cross-Site Request Forgery attack.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-19430",
-      "published": "2026-08-29T06:17:24.857",
-      "description": "The Catfolders Document Gallery Pro WordPress plugin before 2.0.7 does not authorise some of its REST API routes, and the token identifying the requested content is forgeable client side, allowing unauthenticated users to list and download the contents of folders that were never published on the site.",
+      "id": "CVE-2026-82449",
+      "published": "2026-08-29T13:16:39.030",
+      "description": "Cockpit CMS before 2.14.1 contains an account enumeration vulnerability in the auth check endpoint due to timing discrepancies in password verification. Attackers can measure response times across multiple requests to determine which accounts exist by observing that existing accounts trigger bcrypt verification while non-existent accounts return immediately.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-77786",
-      "published": "2026-08-29T06:17:44.250",
-      "description": "The Rank Math SEO  WordPress plugin before 1.0.277 does not check that the user requesting an automated SEO fix holds the capability WordPress itself requires for the settings being changed, allowing users with the Editor role to modify site-wide core WordPress settings that are reserved to administrators.",
+      "id": "CVE-2026-82364",
+      "published": "2026-08-29T11:16:47.140",
+      "description": "A security vulnerability has been detected in macrozheng mall up to 1.0.3. This impacts an unknown function of the file /order/submit of the component Order Submission. The manipulation leads to race condition. It is possible to initiate the attack remotely. The attack is considered to have high complexity. The exploitability is said to be difficult. The vendor deleted the GitHub issue for this vulnerability without and explanation.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-17520",
-      "published": "2026-08-29T06:17:12.177",
-      "description": "The Newsletters WordPress plugin before 4.17 does not generate its API key using a sufficiently random source, deriving it from a publicly known value, allowing unauthenticated attackers to compute the key and perform privileged actions such as adding and deleting subscribers and sending emails, when the optional API has been enabled.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-77704",
-      "published": "2026-08-29T06:17:44.150",
-      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.9 does not check that a user holds the required capability before letting them change an appointment's status, allowing customers to set arbitrary statuses on appointments they are booked on, including approving their own bookings that were left awaiting approval and overwriting another customer's booking status on a shared appointment.",
-      "severity": "LOW",
-      "score": 2.7
+      "id": "CVE-2026-82481",
+      "published": "2026-08-29T15:17:55.487",
+      "description": "The cohttp package before 6.3.0 for OCaml allows directory traversal.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
