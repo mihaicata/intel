@@ -1,27 +1,6 @@
 {
-  "totalResults": 2324,
+  "totalResults": 2323,
   "items": [
-    {
-      "id": "CVE-2026-82456",
-      "published": "2026-08-29T14:16:38.767",
-      "description": "argocd-mcp 0.8.0 binds its HTTP transport to every network interface and accepts MCP sessions without requiring caller credentials when ARGOCD_API_TOKEN is configured. Attackers who can reach the listener can invoke the full tool surface using the operator's stored token to create applications, request syncs, and modify Argo CD resources.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-82448",
-      "published": "2026-08-29T13:16:38.877",
-      "description": "Shinobi before commit 5a76c74f contains a hardcoded connection key in the child node service that allows unauthenticated attackers to execute arbitrary database queries. Attackers reaching the child node port can present the hardcoded key during WebSocket handshake, then dispatch SQL queries through the onWebSocketDataFromChildNode handler to read and modify user records and camera configuration.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-82452",
-      "published": "2026-08-29T14:16:38.210",
-      "description": "rust-iot-platform through commit 5df942ab contains an authentication bypass vulnerability where most REST API routes lack authentication guards in their handler signatures. Unauthenticated attackers can create, update, list, retrieve, and delete user accounts by directly accessing unprotected endpoints without providing valid credentials.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-82460",
       "published": "2026-08-29T17:17:58.060",
@@ -30,25 +9,11 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-82454",
-      "published": "2026-08-29T14:16:38.480",
-      "description": "The Omnivore API (packages/api) before the fix in commit abf53d6 contains an authentication bypass in Apple sign-in token verification. The decodeAppleToken function extracted the 'alg' field from the attacker-supplied JWT header and passed it as the sole allowed algorithm to jwt.verify(). Using jsonwebtoken v8 (which does not validate key/algorithm compatibility), an attacker can set alg=HS256 and sign a forged token using Apple's publicly available RSA public key as the HMAC secret, bypassing signature verification and impersonating any Apple-linked account.",
+      "id": "CVE-2026-15369",
+      "published": "2026-08-29T20:16:31.840",
+      "description": "The Custom User Registration Fields for WooCommerce plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 2.2.3. This is due to the plugin accepting an attacker-controlled afreg_select_user_role value from the unauthenticated WooCommerce Store API /wc/store/v1/checkout request in the af_reg_checkout_data_to_order_meta_data_block() function, persisting it in order meta, and then passing it directly to WP_User::add_role() in the af_reg_custom_order_processing_function() function (hooked to woocommerce_thankyou) without validating against the plugin's admin-configured allowed role list. This makes it possible for unauthenticated attackers to elevate their privileges to Administrator by creating an account during checkout with a modified JSON body specifying administrator (or any other role slug) as the desired role. Note: The exploit requires the \"User Role Selection\" setting to be enabled.",
       "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-82447",
-      "published": "2026-08-29T13:16:38.643",
-      "description": "Skyvern before 1.0.45 contains a sandbox escape vulnerability in TextPromptBlock that renders prompts twice, first through a sandboxed Jinja environment and then through an unsandboxed environment. Attackers can inject malicious Jinja template syntax through workflow parameters or upstream block output to execute arbitrary code with server process privileges.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-82450",
-      "published": "2026-08-29T14:16:37.930",
-      "description": "BookStack before 26.05.4 contains a remote code execution vulnerability in the portable ZIP import functionality that allows users with Import Content and Create Books permissions to upload a PHP polyglot file as a book cover. Attackers can bypass image extension validation by embedding a PHP file with a .php filename in the ZIP archive, which is stored in the public web root and executed by unauthenticated requests.",
-      "severity": "HIGH",
-      "score": 8.8
+      "score": 9.8
     },
     {
       "id": "CVE-2026-82466",
@@ -56,6 +21,13 @@
       "description": "Rodauth before 2.46.0 contains an authentication bypass vulnerability in the webauthn_login route that allows logged-in users to authenticate as any other account. Attackers can exploit improper account resolution logic that falls back to session account identifiers instead of validating the credential binding to complete authentication as arbitrary users.",
       "severity": "HIGH",
       "score": 8.7
+    },
+    {
+      "id": "CVE-2026-82473",
+      "published": "2026-08-29T17:17:59.770",
+      "description": "KubeEdge CloudCore through 1.23.1 accepts node task status reports on its HTTPS server without authentication verification. Attackers can reach CloudCore on port 10002 to mark upgrade jobs as succeeded or failed, deceiving the control plane about node upgrade status and blocking further upgrade scheduling.",
+      "severity": "HIGH",
+      "score": 8.2
     },
     {
       "id": "CVE-2026-82461",
@@ -72,25 +44,32 @@
       "score": 8.1
     },
     {
-      "id": "CVE-2026-82457",
-      "published": "2026-08-29T14:16:38.910",
-      "description": "su-exec through 0.3 fails to validate numeric user and group identifiers parsed with strtol before assigning to uid_t and gid_t, allowing truncation of out-of-range values to zero. Attackers can supply large numeric identifiers that truncate to root's identifier, causing su-exec to execute target programs with root privileges instead of intended unprivileged accounts.",
+      "id": "CVE-2026-82475",
+      "published": "2026-08-29T17:18:00.057",
+      "description": "iFlytek astron-agent through 1.1.1 contains an authorization bypass vulnerability in the copyFlow endpoint that fails to validate workflow ownership. Authenticated attackers can enumerate workflow identifiers and overwrite other tenants' workflows or copy private workflows to read their definitions.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-82474",
+      "published": "2026-08-29T17:17:59.910",
+      "description": "Sudo through 1.9.17p2 fails to apply intercept policy checks to the execveat system call in ptrace-based intercept mode. Users permitted to run specific commands can execute denied programs by calling execveat directly or through fexecve, bypassing policy enforcement and logging.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-82453",
-      "published": "2026-08-29T14:16:38.347",
-      "description": "rust-iot-platform through commit 5df942ab stores user passwords in cleartext without hashing in the user model. Attackers can read API responses from user retrieval and listing routes to obtain plaintext credentials for all accounts.",
+      "id": "CVE-2026-82472",
+      "published": "2026-08-29T17:17:59.623",
+      "description": "Documenso before 2.13.0 accepts PDF file uploads on the /api/files/upload-pdf endpoint without requiring authentication, session tokens, or API credentials. Unauthenticated attackers can upload arbitrary PDF files indefinitely to exhaust storage resources or fill the database with unlinked document records.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-82455",
-      "published": "2026-08-29T14:16:38.623",
-      "description": "RubyGems fails to re-validate path containment after filesystem symlink resolution during gem extraction. When a pre-existing symlink inside the destination directory points outside the extraction root, extracted files that appear to be written under the destination directory can instead be written outside of it, breaking the extraction safety boundary. The fix resolves the real path of the parent directory before writing and raises Gem::Package::PathError if it escapes the destination directory.",
+      "id": "CVE-2026-75807",
+      "published": "2026-08-29T18:16:36.313",
+      "description": "The SAML Single Sign On – SSO Login plugin for WordPress is vulnerable to Authentication Bypass in versions up to, and including, 5.4.6. This is due to the mo_saml_login_validate() ACS handler persisting the X.509 certificate extracted from an incoming SAMLResponse into the mo_saml_required_certificate option before the signature-validation verdict is enforced, because mo_saml_find_certificate() returns false on a fingerprint mismatch rather than halting execution. This makes it possible for unauthenticated attackers to overwrite the plugin's stored IdP signing certificate with an attacker-controlled value, and subsequently forge SAML assertions for any WordPress account — including administrators — to obtain a fully privileged session. Note: The exploit requires the administrator to perform a repair after receiving the test_config_error_wpsamlerr004 error message during the test configuration.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
       "id": "CVE-2026-82462",
@@ -100,11 +79,18 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-82451",
-      "published": "2026-08-29T14:16:38.067",
-      "description": "Formwork before 2.3.11 contains a stored cross-site scripting vulnerability in visit tracking that records the Referer header host unescaped. Unauthenticated attackers can craft malicious Referer headers to inject markup that executes in administrator browsers when viewing the Statistics panel.",
+      "id": "CVE-2026-82421",
+      "published": "2026-08-29T21:16:44.707",
+      "description": "A vulnerability was identified in itsourcecode Sales and Inventory System 1.0. This issue affects some unknown processing of the file /pages/emp_edit.php. The manipulation of the argument ID leads to sql injection. The attack may be initiated remotely. The exploit is publicly available and might be used.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-82422",
+      "published": "2026-08-29T22:16:32.017",
+      "description": "A security flaw has been discovered in itsourcecode Sales and Inventory System 1.0. Impacted is an unknown function of the file /pages/emp_del.php. The manipulation of the argument ID results in sql injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks.",
+      "severity": "MEDIUM",
+      "score": 6.3
     },
     {
       "id": "CVE-2026-82464",
@@ -114,18 +100,18 @@
       "score": 6.1
     },
     {
-      "id": "CVE-2026-82477",
-      "published": "2026-08-29T15:17:55.317",
-      "description": "In MITRE SAF Heimdall 2.11.6 through 2.13.x before 2.14.0, an SSRF issue allows remote attackers to access internal network resources via the Tenable proxy endpoint. This occurs in apps/backend/src/tenable/tenable.controller.ts.",
+      "id": "CVE-2026-82469",
+      "published": "2026-08-29T17:17:59.350",
+      "description": "Rodauth before 2.47.0 contains an authentication bypass vulnerability in the jwt_refresh route that issues new JWT access tokens without requiring a refresh token. Attackers can present an access token to the refresh route via non-POST methods to obtain a new valid access token, enabling indefinite account access with temporary token possession.",
       "severity": "MEDIUM",
-      "score": 5.8
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-82449",
-      "published": "2026-08-29T13:16:39.030",
-      "description": "Cockpit CMS before 2.14.1 contains an account enumeration vulnerability in the auth check endpoint due to timing discrepancies in password verification. Attackers can measure response times across multiple requests to determine which accounts exist by observing that existing accounts trigger bcrypt verification while non-existent accounts return immediately.",
+      "id": "CVE-2026-82470",
+      "published": "2026-08-29T17:17:59.490",
+      "description": "Rodauth before 2.47.0 contains a time-based one-time password reuse vulnerability in the otp feature that fails to track the last accepted code timestamp. Attackers who observe a valid TOTP code can replay it during the drift window to bypass the second authentication factor.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
       "id": "CVE-2026-82465",
@@ -135,11 +121,25 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-82481",
-      "published": "2026-08-29T15:17:55.487",
-      "description": "The cohttp package before 6.3.0 for OCaml allows directory traversal.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-82476",
+      "published": "2026-08-29T17:18:00.197",
+      "description": "Memos through 0.30.0 omits the 100.64.0.0/10 carrier-grade NAT address range from SSRF protection in its link-metadata fetcher, allowing unauthenticated attackers to bypass IP validation. Attackers can make the server request internal hosts in that range including cloud metadata services and read page titles and descriptions back.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-82467",
+      "published": "2026-08-29T17:17:59.057",
+      "description": "Rodauth before 2.47.0 fails to validate protocol-relative return-to paths in confirm_password, login_return_to_requested_location, and two_factor_auth_return_to_requested_location features. Attackers can craft paths with leading double slashes that browsers resolve as protocol-relative URLs, redirecting authenticated users to attacker-controlled sites after login or password confirmation.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-82468",
+      "published": "2026-08-29T17:17:59.213",
+      "description": "Rodauth before 2.47.0 contains a cross-site request forgery protection bypass vulnerability in the JSON request content type validation. Attackers can craft cross-origin form posts with content types containing application/json substrings to bypass CSRF token validation and force victims to authenticate to attacker-controlled accounts.",
+      "severity": "MEDIUM",
+      "score": 4.7
     }
   ]
 }
