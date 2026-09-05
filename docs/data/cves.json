@@ -1,5 +1,5 @@
 {
-  "totalResults": 2242,
+  "totalResults": 2254,
   "items": [
     {
       "id": "CVE-2026-10522",
@@ -42,13 +42,6 @@
       "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not properly restrict its front-end file upload feature, granting unauthenticated visitors capabilities reserved to privileged roles. This allows them to list the site's media library and to modify unpublished posts, pages and media items belonging to other users.",
       "severity": "HIGH",
       "score": 8.2
-    },
-    {
-      "id": "CVE-2026-41012",
-      "published": "2026-08-29T03:17:06.637",
-      "description": "Traffic interception vulnerability in BOSH Director vCenter CPI allows attackers positioned between BOSH Director and vCenter to impersonate vCenter REST API and capture administrator credentials via HTTP Basic auth, leading to complete virtualization infrastructure takeover.\n\n\n\nAn attacker who can intercept traffic between the BOSH Director and vCenter can establish a malicious server impersonating the vCenter REST API. When the BOSH Director makes CPI calls to perform routine cloud infrastructure operations, the attacker captures the vCenter administrator username and password transmitted via HTTP Basic authentication.\n\n\n\nThe vulnerability stems from insufficient authentication security in the communication protocol between BOSH Director and vCenter. While HTTPS may be used, the lack of proper certificate validation and pinning allows attackers to successfully impersonate vCenter endpoints. Because vCenter credentials typically grant full administrative control over the entire virtualization estate, successful credential capture yields complete takeover of every VM, datastore, and network the CPI manages.\n\n\n\nThis exposure exists on every CPI call (including routine deployment operations, not just when tags are configured) and cannot be mitigated by supplying a CA certificate alone. The attack impacts all infrastructure managed by the compromised vCenter instance, potentially affecting hundreds or thousands of VMs across multiple deployments and environments.",
-      "severity": "HIGH",
-      "score": 7.7
     },
     {
       "id": "CVE-2026-16600",
@@ -126,6 +119,13 @@
       "description": "The Catfolders Document Gallery Pro WordPress plugin before 2.0.7 does not authorise some of its REST API routes, and the token identifying the requested content is forgeable client side, allowing unauthenticated users to list and download the contents of folders that were never published on the site.",
       "severity": "MEDIUM",
       "score": 5.3
+    },
+    {
+      "id": "CVE-2026-77786",
+      "published": "2026-08-29T06:17:44.250",
+      "description": "The Rank Math SEO  WordPress plugin before 1.0.277 does not check that the user requesting an automated SEO fix holds the capability WordPress itself requires for the settings being changed, allowing users with the Editor role to modify site-wide core WordPress settings that are reserved to administrators.",
+      "severity": "MEDIUM",
+      "score": 4.9
     },
     {
       "id": "CVE-2026-17520",
