@@ -1,26 +1,26 @@
 {
-  "totalResults": 2336,
+  "totalResults": 2341,
   "items": [
     {
-      "id": "CVE-2026-82542",
-      "published": "2026-08-30T13:16:56.267",
-      "description": "A weakness has been identified in Tenda HG10 300001138. Affected by this issue is the function formIPv6Routing of the file /boaform/admin/formIPv6Routing of the component Boa Web Server. This manipulation of the argument destNet causes buffer overflow. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-82539",
-      "published": "2026-08-30T11:17:35.067",
-      "description": "A vulnerability was determined in TOTOLINK A720R 4.1.5cu.630_B20250509. This impacts the function setMacFilterRules of the file cstecgi.cgi of the component MAC Filtering. Executing a manipulation of the argument desc can lead to memory corruption. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-82635",
-      "published": "2026-08-30T13:16:56.923",
-      "description": "Pake before 3.13.1 joins the JavaScript-supplied filename for the download_file Tauri command onto the user's Downloads directory with no sanitization. A filename containing path traversal sequences (for example ../Library/LaunchAgents/com.evil.plist) or an absolute path resolves outside ~/Downloads. The command then fetches attacker-controlled content from the supplied URL (via Rust HTTP, not the browser) and writes it to that path. A script that can invoke the command can overwrite user-writable files and install persistence (macOS LaunchAgents, Linux autostart, Windows Startup), leading to code execution in the user account. All desktop apps generated from an affected Pake tree expose the same command.",
+      "id": "CVE-2026-82642",
+      "published": "2026-08-30T14:17:04.193",
+      "description": "Readest is an open-source e-book reader built on Tauri. In versions prior to 0.11.16, EPUB chapter HTML is sanitized with DOMPurify using a configuration that forbade only the <script> tag (FORBID_TAGS: ['script']) in apps/readest-app/src/services/transformers/sanitizer.ts. DOMPurify does not parse the contents of the srcdoc attribute on <iframe> elements, treating it as an opaque string attribute, so an attacker who can get an <iframe> element to survive sanitization can embed a complete HTML document containing a <script> tag inside srcdoc and have it execute when the browser renders the iframe. The content iframe is configured with sandbox=\"allow-same-origin allow-scripts\", so script executing inside it shares the parent origin and can reach parent.parent.__TAURI_INTERNALS__.invoke(...), giving access to every Tauri IPC command the application is permitted to use, which escalates to arbitrary code execution. The payload can be made invisible (zero-size, transparent iframe) so the reader sees only normal book text. Version 0.11.16 hardened the sanitizer configuration by adding 'iframe', 'object' and 'embed' to FORBID_TAGS and adding 'srcdoc' to FORBID_ATTR.",
       "severity": "HIGH",
       "score": 8.8
+    },
+    {
+      "id": "CVE-2026-82641",
+      "published": "2026-08-30T14:17:04.020",
+      "description": "Keploy versions 3.1.0 through 3.6.25, fixed in 3.6.26, bind the agent control-plane HTTP server to all interfaces without authentication, exposing endpoints that stream TLS session keys and traffic data. Attackers can access the /agent/pcap/keylog endpoint to retrieve NSS keylog lines and decrypt recorded TLS traffic, or invoke /agent/stop and /agent/storemocks to manipulate recording sessions.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-82645",
+      "published": "2026-08-30T15:16:44.863",
+      "description": "AVideo (current commit e01e41ecc and earlier) exposes stream credentials through the plugin/Live/view/Live_restreams/getLiveKey.json.php endpoint. Supplying a 'token' request parameter waives both the Live::canRestream() access gate and the restream ownership check, causing the endpoint to return any restream's stream_key and stream_url (credentials for external platforms such as YouTube, Facebook, and Twitch) without authentication. The token is merely encryptString() of an integer id with no user binding, expiry, or authentication tag. Because encryption uses AES-256-CBC with a deterministic IV and no MAC, and because intval() accepts any string beginning with a digit, an unauthenticated attacker can forge valid tokens using the public encryption oracle in view/url2Embed.json.php, disclosing arbitrary users' stream credentials.",
+      "severity": "HIGH",
+      "score": 8.6
     },
     {
       "id": "CVE-2026-82636",
@@ -37,32 +37,67 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-82543",
-      "published": "2026-08-30T13:16:56.447",
-      "description": "A vulnerability was detected in vastsa FileCodeBox up to 2.3. This vulnerability affects the function update_file_usage of the file apps/base/views.py of the component Pickup Limit Handler. Performing a manipulation results in race condition. It is possible to initiate the attack remotely. The exploit is now public and may be used. Upgrading to version 2.5.0 is able to resolve this issue. The patch is named 8d7d856c62d73badd0797eb4daec8d2ff10a403a. Upgrading the affected component is recommended.",
+      "id": "CVE-2026-82639",
+      "published": "2026-08-30T14:17:03.750",
+      "description": "NextChat versions from 2.15.8 through 2.16.1 contain an improper URL validation vulnerability in the proxy endpoint that allows attackers to obtain the server's OpenAI API key. The x-base-url header is validated using substring matching instead of hostname parsing, allowing any URL containing 'api.openai.com' to pass validation and receive the server's credentials in the Authorization header.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-82634",
-      "published": "2026-08-30T13:16:56.780",
-      "description": "Frappe Framework development builds contain an authorization flaw in the render_jinja_template endpoint that allows low-privileged users to render arbitrary Jinja templates by supplying raw template strings. Attackers with print permission on any document can execute arbitrary SELECT statements against unrelated tables, including reading password hashes from the __Auth table.",
+      "id": "CVE-2026-82644",
+      "published": "2026-08-30T15:16:44.727",
+      "description": "WWBN AVideo (current e01e41ecc and earlier) contains a brute-force rate limiting bypass in enforceRateLimit(), which protects login.json.php and 13 other endpoints. The function stores its attempt counter via a cache layer (ObjectYPT::setCacheGlobal) that silently discards writes for any client identified as a bot by isBot(). Because isBot() treats a missing User-Agent header as a bot by default — and also matches common bot identifiers such as 'curl', 'bot', 'crawler', and 'spider' — the counter never increments for such clients, so the rate limit never fires. An unauthenticated attacker can therefore submit unlimited login attempts (e.g., by omitting the User-Agent header or using curl's default User-Agent), enabling unrestricted password-guessing attacks.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-82648",
+      "published": "2026-08-30T15:16:45.300",
+      "description": "WWBN AVideo contains a server-side request forgery filter bypass vulnerability in the isSSRFSafeURL function that fails to normalize NAT64 addresses written in hexadecimal form. Attackers can bypass SSRF protections by supplying hex-encoded NAT64 addresses like 64:ff9b::a9fe:a9fe to reach cloud metadata services and loopback interfaces.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-82547",
+      "published": "2026-08-30T15:16:44.237",
+      "description": "A vulnerability was found in Linux Foundation Magma 1.9.0. The affected element is an unknown function of the file tasks/amf/amf_fsm.cpp of the component Registration Complete Message Handler. The manipulation results in improper authentication. The attack can be launched remotely. The exploit has been made public and could be used.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-82540",
-      "published": "2026-08-30T12:17:19.190",
-      "description": "A vulnerability was identified in itsourcecode Sales and Inventory System 1.0. Affected is an unknown function of the file /pages/cust_searchfrm.php. The manipulation of the argument ID leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used.",
+      "id": "CVE-2026-82643",
+      "published": "2026-08-30T15:16:44.583",
+      "description": "WWBN AVideo contains an unauthenticated credential submission vulnerability in plugin/Live/api/preauthorize.json.php that accepts credentials over GET without rate limiting. Attackers can submit correct credentials repeatedly to trigger uncapped two-factor confirmation emails and perform sustained password guessing attacks against user accounts.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-82545",
+      "published": "2026-08-30T15:16:43.290",
+      "description": "A vulnerability has been found in itsourcecode Sales and Inventory System 1.0. Impacted is an unknown function of the file /pages/sup_searchfrm.php. The manipulation of the argument ID leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-82541",
-      "published": "2026-08-30T12:17:19.390",
-      "description": "A security flaw has been discovered in itsourcecode Sales and Inventory System 1.0. Affected by this vulnerability is an unknown functionality of the file /pages/sup_edit.php. The manipulation of the argument ID results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-82646",
+      "published": "2026-08-30T15:16:45.013",
+      "description": "WWBN AVideo contains an unauthenticated reflected cross-site scripting vulnerability in the url2Embed.json.php endpoint that allows attackers to inject malicious scripts by supplying URLs with HTML metacharacters. Attackers can mint an encrypted evideo payload containing unescaped markup, then deliver it as a legitimate-looking link on the site's own domain to execute JavaScript in victims' sessions and steal cookies or CSRF tokens.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-82647",
+      "published": "2026-08-30T15:16:45.160",
+      "description": "WWBN AVideo contains a cross-site request forgery vulnerability in sendEmail.json.php that allows authenticated administrators to send mail from the site's contact address by bypassing origin checks and captcha validation. Attackers can craft a malicious web page that, when visited by an authenticated admin, sends emails with attacker-controlled subject and body to arbitrary recipients, passing SPF/DKIM/DMARC validation for phishing and brand impersonation attacks.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-82640",
+      "published": "2026-08-30T14:17:03.890",
+      "description": "browser-use web-ui versions 2.0.0 through 3.0.0 write configured LLM API keys to disk in cleartext without encryption or access restrictions. Attackers with read access to the temporary settings directory can recover provider API keys from predictably-named JSON files.",
+      "severity": "MEDIUM",
+      "score": 5.5
     },
     {
       "id": "CVE-2026-82637",
@@ -72,11 +107,25 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-82633",
-      "published": "2026-08-30T13:16:56.613",
-      "description": "Dolibarr versions 10.0.0 before 24.0.0 fail to perform per-object authorization checks in the Users::getGroups REST API endpoint, allowing authenticated users to retrieve group memberships of other users. Attackers can call GET /users/{id}/groups with arbitrary user identifiers to access group names, entity associations, and private notes across tenant boundaries.",
+      "id": "CVE-2026-82548",
+      "published": "2026-08-30T15:16:44.417",
+      "description": "A vulnerability was determined in Linux Foundation Magma 1.9.0. The impacted element is an unknown function of the component InitialUEMessage Handler. This manipulation causes information disclosure. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-82651",
+      "published": "2026-08-30T15:16:45.753",
+      "description": "SiYuan before v3.8.1 does not apply the IsForbiddenAbsPath guard (introduced in GHSA-c8r8-95hg-mp34) to the /history/*path and /repo/diff/*path endpoints in kernel/server/serve.go. These routes require admin authentication but construct file paths independently, so an authenticated administrator can retrieve historical snapshots of sensitive files that the guard is meant to block, including data/.siyuan/publishAccess.json (plaintext publish-mode passwords) and files under data/templates/.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2026-82650",
+      "published": "2026-08-30T15:16:45.610",
+      "description": "SiYuan 3.8.0 contains a path traversal / sensitive file exposure vulnerability in the RenderTemplate function (kernel/model/template.go), reachable via the POST /api/template/render endpoint (kernel/api/template.go). The endpoint restricts the supplied path only to the workspace directory (util.IsAbsPathInWorkspace) but, unlike the file API's refuseToAccess() blocklist, applies no sensitive-path exclusion. This allows an authenticated attacker to read sensitive workspace files, including conf/conf.json, which contains the API token and cookie signing key. The issue is fixed in v3.8.1.",
+      "severity": "MEDIUM",
+      "score": 4.4
     },
     {
       "id": "CVE-2026-82544",
@@ -86,58 +135,9 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-82488",
-      "published": "2026-08-30T11:17:34.213",
-      "description": "A vulnerability was identified in Beetel 450TC3 01.00.00_01. This vulnerability affects unknown code of the component User Management. The manipulation of the argument Username leads to cross site scripting. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-77454",
-      "published": "2026-08-30T12:17:17.273",
-      "description": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller to bypass a scoping or authorization filter expressed as exists/2 over a relationship that declares both a limit (or from_many?) and a parent(...)-referencing filter or sort.\n\nAshSql.Join.related_query/3 skips the caller-supplied exists predicate for such relationships and delegates it to limit_from_many/5. When the relationship's own filter or sort references parent(...), limit_from_many/5 takes a branch that drops both the limit and the predicate, emitting a bare correlated EXISTS with no predicate. The check then matches any record that has any related row. Most severely, when the expression backs a policy (for example authorize_if expr(exists(memberships, user_id == ^actor(:id)))), the actor-scoping condition disappears and the policy passes for any actor with any related row.\n\nThis issue affects ash_sql: from 0.4.1 before 0.7.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78038",
-      "published": "2026-08-30T12:17:18.157",
-      "description": "Improperly Controlled Modification of Dynamically-Determined Object Attributes vulnerability in ash-project ash_oban allows a user whose input reaches the :args option of AshOban.build_trigger/3 to retarget an update or destroy trigger at another record, including across tenants.\n\nbuild_trigger/3 builds the trusted job arguments with atom keys (:primary_key, :tenant, :action_arguments) and merges the caller's :args underneath so the trusted values win on collision. Because Oban job arguments round-trip through JSON, the caller's keys arrive as strings, so Map.merge sees no collision and both keys survive. When the job is persisted the JSON object is de-duplicated keeping the last (string) key, and the worker reads the caller's value. The documentation describes :args as unable to affect the action, so an application that forwards user input into it for uniqueness scoping is exposed to authorization bypass and tenant isolation breaks.\n\nThis issue affects ash_oban: from 0.2.5 before 0.8.14.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78228",
-      "published": "2026-08-30T12:17:18.380",
-      "description": "Uncontrolled Recursion vulnerability in ash-project ash_oban allows a user who can drive a trigger's on_error action to fail on the final attempt to exhaust worker CPU and memory, denying service.\n\nThe generated worker's atomic handle_error/4 runs the trigger's on_error action on a job's final attempt inside a rescue that, when the action itself raises, calls handle_error/4 again with the same job. The job's attempt still equals max_attempts, so it re-enters the same clause and re-runs the failing action, with no exit. Any deterministic on_error failure (a data-layer outage, a misconfigured action, or a record the action rejects) loops forever; because the recursive call is not in tail position, each iteration retains a formatted stacktrace and the process heap grows without bound while the failing statement is re-issued against the data layer until the runtime kills the worker.\n\nThis issue affects ash_oban: from 0.8.0-rc.1 before 0.8.14.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-78691",
-      "published": "2026-08-30T12:17:18.550",
-      "description": "Improper Neutralization of Special Elements in Data Query Logic vulnerability in ash-project ash_sql allows a user who supplies a search term to contains/2, string_starts_with/2, or string_ends_with/2 to inject live SQL LIKE wildcards, turning a literal substring search into an attacker-controlled pattern match.\n\nThe escape helpers in AshSql.Expr prefix % and _ with a backslash but never escape a backslash already present in the input. Because backslash is the default LIKE escape character, the escaping defeats itself: the input \\% becomes the pattern fragment \\\\%, where \\\\ is a literal backslash and the attacker's % remains a live wildcard. The search value stays parameterized, so this is confined to the LIKE pattern grammar rather than full SQL. An attacker can widen matches to probe values, slip past a negated contains(...) guard, or crash the query with a trailing lone backslash.\n\nThis issue affects ash_sql: from 0.1.1-rc.10 before 0.7.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-80227",
-      "published": "2026-08-30T12:17:18.710",
-      "description": "Incorrect Comparison vulnerability in ash-project ash_sql allows a user to pad a string field with tab, newline, carriage-return, or form-feed characters and pass a trimmed uniqueness or equality check in the database that the same expression would fail in memory (or the reverse).\n\nstring_trim/1 compiles to REGEXP_REPLACE patterns built from an Elixir string in which \\s is the escape for a single space (codepoint 32), not a regex whitespace class. The generated SQL therefore removes only literal spaces and leaves tabs, newlines, carriage returns, and form feeds in place, whereas String.trim/1 in Elixir removes them all. Any Ash filter, validation, or identity that relies on string_trim/1 then behaves differently depending on whether Ash pushes the expression down to SQL or evaluates it in memory, so padded input can register a near-duplicate value or slip past a trimmed comparison.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-81316",
-      "published": "2026-08-30T12:17:18.870",
-      "description": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller to receive an aggregate value computed over rows a more restrictive filter should have excluded, disclosing counts, sums, or lists across an authorization or tenancy boundary.\n\nAshSql.Aggregate.different_queries?/2 reports two aggregate queries as different only when their filter and their sort both differ. Aggregate queries rarely carry a sort, so two aggregates that share a name but carry entirely different filters compare as identical. The colliding aggregate keeps its name and is treated as already computed, and select_aggregates returns the first-registered variant's value. The same name reaches the builder twice with different filters when actor or tenant context is stamped into each aggregate's query, so a narrowly filtered aggregate can be served the value of a previously registered broad one.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-81318",
-      "published": "2026-08-30T12:17:19.030",
-      "description": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller in a schema-based multitenant application to receive aggregate values computed from another tenant's rows.\n\nWhen an aggregate is computed over a distinct query, AshSql.AggregateQuery.add_single_aggs/5 rebuilds the outer query from query.from.source alone, which is only the {table, schema} tuple and does not carry query.prefix or query.from.prefix. For strategy(:context) multitenancy those hold the tenant schema, so the rebuilt outer query reads the repo's default schema while the inner correlated subquery still reads the tenant schema, and the two are joined only on primary key. The aggregate, and any relationship join added off the prefix-less binding, is then computed against the wrong tenant's rows. The neighbouring limit and exists branches instead wrap the query with subquery/1, which preserves the prefix.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
+      "id": "CVE-2026-82649",
+      "published": "2026-08-30T15:16:45.470",
+      "description": "SiYuan Windows installer before version 3.8.1 (affected versions >= 2.0.14) contains an uncontrolled search path element vulnerability in its NSIS installer, which invokes system executables such as TASKKILL by name rather than by absolute path. Because NSIS nsExec::Exec resolves these calls using a search path that includes the installer's own launch directory ahead of System32, an attacker who plants a malicious executable (e.g., a renamed TASKKILL.exe) in that directory can have it executed when the installer runs. These calls occur in electron-builder's preInit hook before the license page is displayed, and with an all-users (elevated) install the planted binary executes with an elevated token, resulting in local privilege escalation.",
       "severity": "UNKNOWN",
       "score": null
     }
