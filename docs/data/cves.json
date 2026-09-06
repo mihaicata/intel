@@ -1,143 +1,143 @@
 {
-  "totalResults": 2341,
+  "totalResults": 2315,
   "items": [
     {
-      "id": "CVE-2026-82642",
-      "published": "2026-08-30T14:17:04.193",
-      "description": "Readest is an open-source e-book reader built on Tauri. In versions prior to 0.11.16, EPUB chapter HTML is sanitized with DOMPurify using a configuration that forbade only the <script> tag (FORBID_TAGS: ['script']) in apps/readest-app/src/services/transformers/sanitizer.ts. DOMPurify does not parse the contents of the srcdoc attribute on <iframe> elements, treating it as an opaque string attribute, so an attacker who can get an <iframe> element to survive sanitization can embed a complete HTML document containing a <script> tag inside srcdoc and have it execute when the browser renders the iframe. The content iframe is configured with sandbox=\"allow-same-origin allow-scripts\", so script executing inside it shares the parent origin and can reach parent.parent.__TAURI_INTERNALS__.invoke(...), giving access to every Tauri IPC command the application is permitted to use, which escalates to arbitrary code execution. The payload can be made invisible (zero-size, transparent iframe) so the reader sees only normal book text. Version 0.11.16 hardened the sanitizer configuration by adding 'iframe', 'object' and 'embed' to FORBID_TAGS and adding 'srcdoc' to FORBID_ATTR.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-82641",
-      "published": "2026-08-30T14:17:04.020",
-      "description": "Keploy versions 3.1.0 through 3.6.25, fixed in 3.6.26, bind the agent control-plane HTTP server to all interfaces without authentication, exposing endpoints that stream TLS session keys and traffic data. Attackers can access the /agent/pcap/keylog endpoint to retrieve NSS keylog lines and decrypt recorded TLS traffic, or invoke /agent/stop and /agent/storemocks to manipulate recording sessions.",
-      "severity": "HIGH",
-      "score": 8.6
-    },
-    {
-      "id": "CVE-2026-82645",
-      "published": "2026-08-30T15:16:44.863",
-      "description": "AVideo (current commit e01e41ecc and earlier) exposes stream credentials through the plugin/Live/view/Live_restreams/getLiveKey.json.php endpoint. Supplying a 'token' request parameter waives both the Live::canRestream() access gate and the restream ownership check, causing the endpoint to return any restream's stream_key and stream_url (credentials for external platforms such as YouTube, Facebook, and Twitch) without authentication. The token is merely encryptString() of an integer id with no user binding, expiry, or authentication tag. Because encryption uses AES-256-CBC with a deterministic IV and no MAC, and because intval() accepts any string beginning with a digit, an unauthenticated attacker can forge valid tokens using the public encryption oracle in view/url2Embed.json.php, disclosing arbitrary users' stream credentials.",
-      "severity": "HIGH",
-      "score": 8.6
-    },
-    {
-      "id": "CVE-2026-82636",
-      "published": "2026-08-30T14:17:03.310",
-      "description": "Qubes OS before qubes-core-dom0-linux 4.3.22 allows OS command injection during a qvm-copy-to-vm call from dom0 to an attacker-controlled qube, because the \"system\" library function is used to process an error message that may have shell metacharacters. This occurs in core-admin-linux/file-copy-vm/qfile-dom0-agent.c.",
-      "severity": "HIGH",
-      "score": 7.9
-    },
-    {
-      "id": "CVE-2026-82638",
-      "published": "2026-08-30T14:17:03.610",
-      "description": "jina-ai reader disables its private-address guard outside Google Cloud deployments, allowing unauthenticated attackers to perform server-side request forgery. Attackers can supply publicly resolvable hostnames mapping to private addresses to retrieve cloud metadata and internal service content.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-82639",
-      "published": "2026-08-30T14:17:03.750",
-      "description": "NextChat versions from 2.15.8 through 2.16.1 contain an improper URL validation vulnerability in the proxy endpoint that allows attackers to obtain the server's OpenAI API key. The x-base-url header is validated using substring matching instead of hostname parsing, allowing any URL containing 'api.openai.com' to pass validation and receive the server's credentials in the Authorization header.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-82644",
-      "published": "2026-08-30T15:16:44.727",
-      "description": "WWBN AVideo (current e01e41ecc and earlier) contains a brute-force rate limiting bypass in enforceRateLimit(), which protects login.json.php and 13 other endpoints. The function stores its attempt counter via a cache layer (ObjectYPT::setCacheGlobal) that silently discards writes for any client identified as a bot by isBot(). Because isBot() treats a missing User-Agent header as a bot by default — and also matches common bot identifiers such as 'curl', 'bot', 'crawler', and 'spider' — the counter never increments for such clients, so the rate limit never fires. An unauthenticated attacker can therefore submit unlimited login attempts (e.g., by omitting the User-Agent header or using curl's default User-Agent), enabling unrestricted password-guessing attacks.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-82648",
-      "published": "2026-08-30T15:16:45.300",
-      "description": "WWBN AVideo contains a server-side request forgery filter bypass vulnerability in the isSSRFSafeURL function that fails to normalize NAT64 addresses written in hexadecimal form. Attackers can bypass SSRF protections by supplying hex-encoded NAT64 addresses like 64:ff9b::a9fe:a9fe to reach cloud metadata services and loopback interfaces.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-82547",
-      "published": "2026-08-30T15:16:44.237",
-      "description": "A vulnerability was found in Linux Foundation Magma 1.9.0. The affected element is an unknown function of the file tasks/amf/amf_fsm.cpp of the component Registration Complete Message Handler. The manipulation results in improper authentication. The attack can be launched remotely. The exploit has been made public and could be used.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-82643",
-      "published": "2026-08-30T15:16:44.583",
-      "description": "WWBN AVideo contains an unauthenticated credential submission vulnerability in plugin/Live/api/preauthorize.json.php that accepts credentials over GET without rate limiting. Attackers can submit correct credentials repeatedly to trigger uncapped two-factor confirmation emails and perform sustained password guessing attacks against user accounts.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-82545",
-      "published": "2026-08-30T15:16:43.290",
-      "description": "A vulnerability has been found in itsourcecode Sales and Inventory System 1.0. Impacted is an unknown function of the file /pages/sup_searchfrm.php. The manipulation of the argument ID leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "id": "CVE-2026-82556",
+      "published": "2026-08-30T18:17:00.563",
+      "description": "A vulnerability was found in Forgejo up to 15.0.4. This issue affects the function net.LookupIP of the file services/migrations/allowlist/is_migrate_allowed.go of the component Repository Migration Handler. Performing a manipulation results in server-side request forgery. The attack can be initiated remotely. The exploit has been made public and could be used. The patch is named b313bb83f5ff22bcc0378e0e0ca7bbd58303f168. It is recommended to apply a patch to fix this issue. The project maintainer explains: \"I don't intend to backport this to v15 or v16 as it is a breaking change.\"",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-82646",
-      "published": "2026-08-30T15:16:45.013",
-      "description": "WWBN AVideo contains an unauthenticated reflected cross-site scripting vulnerability in the url2Embed.json.php endpoint that allows attackers to inject malicious scripts by supplying URLs with HTML metacharacters. Attackers can mint an encrypted evideo payload containing unescaped markup, then deliver it as a legitimate-looking link on the site's own domain to execute JavaScript in victims' sessions and steal cookies or CSRF tokens.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-82647",
-      "published": "2026-08-30T15:16:45.160",
-      "description": "WWBN AVideo contains a cross-site request forgery vulnerability in sendEmail.json.php that allows authenticated administrators to send mail from the site's contact address by bypassing origin checks and captcha validation. Attackers can craft a malicious web page that, when visited by an authenticated admin, sends emails with attacker-controlled subject and body to arbitrary recipients, passing SPF/DKIM/DMARC validation for phishing and brand impersonation attacks.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-82640",
-      "published": "2026-08-30T14:17:03.890",
-      "description": "browser-use web-ui versions 2.0.0 through 3.0.0 write configured LLM API keys to disk in cleartext without encryption or access restrictions. Attackers with read access to the temporary settings directory can recover provider API keys from predictably-named JSON files.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-82637",
-      "published": "2026-08-30T14:17:03.470",
-      "description": "browser-use web-ui versions 2.0.0 through 3.0.0 fail to validate browser settings paths in run_agent_task, allowing attackers to create directories at arbitrary locations by supplying absolute paths to save_recording_path, save_trace_path, save_agent_history_path, or save_download_path parameters. Attackers can exploit this via the unauthenticated Gradio interface to create directories anywhere the root-running container has write access.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-82548",
-      "published": "2026-08-30T15:16:44.417",
-      "description": "A vulnerability was determined in Linux Foundation Magma 1.9.0. The impacted element is an unknown function of the component InitialUEMessage Handler. This manipulation causes information disclosure. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-82651",
-      "published": "2026-08-30T15:16:45.753",
-      "description": "SiYuan before v3.8.1 does not apply the IsForbiddenAbsPath guard (introduced in GHSA-c8r8-95hg-mp34) to the /history/*path and /repo/diff/*path endpoints in kernel/server/serve.go. These routes require admin authentication but construct file paths independently, so an authenticated administrator can retrieve historical snapshots of sensitive files that the guard is meant to block, including data/.siyuan/publishAccess.json (plaintext publish-mode passwords) and files under data/templates/.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-82650",
-      "published": "2026-08-30T15:16:45.610",
-      "description": "SiYuan 3.8.0 contains a path traversal / sensitive file exposure vulnerability in the RenderTemplate function (kernel/model/template.go), reachable via the POST /api/template/render endpoint (kernel/api/template.go). The endpoint restricts the supplied path only to the workspace directory (util.IsAbsPathInWorkspace) but, unlike the file API's refuseToAccess() blocklist, applies no sensitive-path exclusion. This allows an authenticated attacker to read sensitive workspace files, including conf/conf.json, which contains the API token and cookie signing key. The issue is fixed in v3.8.1.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-82544",
-      "published": "2026-08-30T14:17:02.627",
-      "description": "A flaw has been found in wger-project wger up to 2.6.0-alpha2. This issue affects the function reset_user_password of the file wger/gym/views/gym.py of the component Password Reset. Executing a manipulation can lead to cross-site request forgery. It is possible to launch the attack remotely. This patch is called 3c6ce4b7f3eeafeb35318c6c4e82b1a3fd28b314. It is advisable to implement a patch to correct this issue.",
+      "id": "CVE-2026-82554",
+      "published": "2026-08-30T18:17:00.180",
+      "description": "A flaw has been found in SourceCodester Queue Management System 1.0. This affects an unknown part of the file /api/add_customer.php. This manipulation of the argument Name causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been published and may be used.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-82649",
-      "published": "2026-08-30T15:16:45.470",
-      "description": "SiYuan Windows installer before version 3.8.1 (affected versions >= 2.0.14) contains an uncontrolled search path element vulnerability in its NSIS installer, which invokes system executables such as TASKKILL by name rather than by absolute path. Because NSIS nsExec::Exec resolves these calls using a search path that includes the installer's own launch directory ahead of System32, an attacker who plants a malicious executable (e.g., a renamed TASKKILL.exe) in that directory can have it executed when the installer runs. These calls occur in electron-builder's preInit hook before the license page is displayed, and with an all-users (elevated) install the planted binary executes with an elevated token, resulting in local privilege escalation.",
+      "id": "CVE-2026-82587",
+      "published": "2026-08-30T19:17:30.050",
+      "description": "A vulnerability was determined in Open5GS up to 2.7.7. This vulnerability affects the function amf_namf_comm_decode_ue_mm_context_list of the file src/amf/namf-handler.c of the component AMF. This manipulation of the argument ueContext.mmContextList[*].allowedNssai causes memory corruption. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 2.8.0 is able to resolve this issue. Patch name: abf8a836564b966b5141110fc25ed413c4f17522. It is recommended to upgrade the affected component.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-82555",
+      "published": "2026-08-30T18:17:00.380",
+      "description": "A vulnerability has been found in TOTOLINK N600R 4.3.0cu.7866_B20220506. This vulnerability affects the function loginAuth of the file /web_cste/cgi-bin/cstecgi.cgi of the component Authentication Handler. Such manipulation leads to insufficiently random values. It is possible to launch the attack remotely. This attack is characterized by high complexity. It is stated that the exploitability is difficult. The exploit has been disclosed to the public and may be used.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-81319",
+      "published": "2026-08-30T18:16:59.157",
+      "description": "Deserialization of Untrusted Data vulnerability in ash-project ash_cloak allows an attacker who can influence the bytes of an encrypted column to crash the BEAM node, by triggering unbounded atom creation or a decompression bomb during decryption.\n\nAshCloak.Calculations.Decrypt decodes the decrypted binary with Ash.Helpers.non_executable_binary_to_term/1 without the :safe option, so atoms in the payload are interned during the decode and never garbage collected, and the term format's compressed form is inflated transparently. vault.decrypt!() is the only barrier and stops tampering only for an authenticated cipher. Cloak also ships the unauthenticated AES.CTR, whose ciphertext an attacker who knows their own plaintext can XOR into any same-length payload without the key, so an ordinary read of the forged column reaches the decoder. A few hundred kilobytes of distinct atoms exhausts the atom table, or a small compressed payload inflates to gigabytes.\n\nThis issue affects ash_cloak: from 0.1.0 before 0.4.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-81322",
+      "published": "2026-08-30T18:17:00.010",
+      "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in ash-project ash_cloak allows anyone with access to logs, error trackers, or crash reports, or anyone who can trigger a validation error, to recover the plaintext of a field the library encrypts.\n\nAshCloak.Transformers.SetUpEncryption removes each cloaked attribute from the action's accept list and adds an action argument that carries the plaintext into the encryption change. That argument is built with sensitive?: attr.sensitive?, inheriting the flag from the source attribute, so a cloaked attribute declared without sensitive? true produces a non-sensitive argument. It is the only place the cleartext value lives, and the one place Ash will not redact: it appears verbatim in inspect(changeset), Ash.Error.Invalid and validation error messages, telemetry, :sys dumps, and error-tracker payloads. The generated encrypted attribute and decrypt calculation are already hardcoded sensitive.\n\nThis issue affects ash_cloak: from 0.1.0 before 0.4.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-56713",
+      "published": "2026-08-30T19:17:27.940",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-56715",
+      "published": "2026-08-30T19:17:28.533",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-78693",
+      "published": "2026-08-30T19:17:28.620",
+      "description": "Generation of Error Message Containing Sensitive Information vulnerability in ash-project ash_graphql allows a remote client to read internal field names that an application configured its error_handler to redact.\n\nIn AshGraphql.Errors, each error is passed to the configured error_handler and the returned map is merged with the pre-handler path via Map.put_new(handled, :path, path). Because put_new defers to the handler only when the handler itself set :path, a sanitizing handler that returns a fresh map or deletes :path has that decision reverted. The re-injected path comes from build_error_path/5, which falls back to raw internal Ash attribute and argument names when no field_names mapping is configured. A validation failure on a non-exposed or nested field therefore returns internal names in the GraphQL error path, defeating the application's redaction.\n\nThis issue affects ash_graphql: from 1.9.0 before 1.11.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-80223",
+      "published": "2026-08-30T19:17:29.220",
+      "description": "Incorrect Authorization vulnerability in ash-project ash_graphql allows an authenticated subscriber in one tenant to receive another tenant's records over GraphQL subscriptions.\n\nThe subscription resolver in AshGraphql.Graphql.Resolver authorizes each notification payload in memory: its fast path calls Ash.can/3 with run_queries?: false, which evaluates the read policy filter against the in-memory record via Ash.Expr.eval/2 and never issues a query. Ash applies multitenancy at query-build and data-layer-prefix time, not inside query.filter, so the evaluated policy carries no tenant condition and a tenant-B notification routed to a tenant-A subscriber is emitted whenever the policy filter is true. The single-notification clause has no tenant guard at all, and the batched clause checks only the head of the notification list, so non-head entries authorize purely in memory. A tenant-scoped read is reached only when filter evaluation fails.\n\nThis issue affects ash_graphql: from 1.4.0 before 1.11.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-81633",
+      "published": "2026-08-30T19:17:29.390",
+      "description": "Improper Input Validation vulnerability in ash-project ash_graphql allows an unauthenticated client to crash a relay node(id: ...) query with an unhandled KeyError.\n\nAshGraphql.Graphql.Resolver.resolve_node/2 decodes the client-supplied global ID with decode_relay_id/1, which only base64-decodes the string and splits it on : without validating the type segment. The decoded type is passed straight to Map.fetch!(type_to_domain_and_resource_map, type). Because fetch! raises on a missing key, a relay ID whose type segment is a valid atom that is not a relay-exposed type aborts the resolver before its resolve/2 clauses and their rescue handlers run, so the error never becomes a GraphQL error and may expose a stacktrace. Common resource names are easy to guess. The fix uses Map.fetch/2 and returns an Invalid node id error for unknown types.\n\nThis issue affects ash_graphql: from 0.27.0 before 1.11.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-81636",
+      "published": "2026-08-30T19:17:29.543",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in ash-project ash_graphql allows an unauthenticated client to bypass the configured GraphQL query-complexity limit and force an unbounded database read.\n\nAshGraphql.Graphql.Resolver.query_complexity/3 multiplies child complexity by the requested page size only when the argument map contains :limit (offset pagination). Relay connections and keyset pagination use first and last, which never match that clause and fall through to the catch-all that returns child_complexity + 1. A nested relay query such as posts(first: 500) { edges { node { comments(first: 500) { ... } } } } therefore scores as trivially cheap while materializing the full fan-out, passing an Absinthe max_complexity cap that rejects the equivalent limit-based query. The fix adds first and last clauses clamped to the action's page size.\n\nThis issue affects ash_graphql: from 0.16.23 before 1.11.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-81643",
+      "published": "2026-08-30T19:17:29.707",
+      "description": "Incorrect Authorization vulnerability in ash-project ash_graphql delivers GraphQL subscription payloads for records a subscriber is not authorized to see.\n\nIn AshGraphql.Subscription.Batcher, do_send/5 resolves the first notification of a batch and filters it with should_send?/1, which drops results whose errors are coded forbidden or not_found or carry no code, precisely so that unauthorized results are not disclosed. The remaining notifications in the batch are read from the process dictionary, re-run through the pipeline, and appended to the outgoing results without that filter. They reach pubsub.publish_subscription/2, and the not is_nil(record) guard drops only nil records, not error-carrying results. Any two qualifying notifications arriving within the default one-second batch interval suffice, and batching is the default path. The fix applies should_send?/1 to the whole batch.\n\nThis issue affects ash_graphql: from 1.4.0 before 1.11.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82367",
+      "published": "2026-08-30T19:17:29.877",
+      "description": "Exposure of Data Element to Wrong Session vulnerability in ash-project ash_graphql can deliver one subscription's resolved records to a different subscriber's topic.\n\nAshGraphql.Subscription.Batcher.do_send/5 reads the resolved batch from the process dictionary via Process.get(:batch_resolved) and then unconditionally deletes it. That is sound only inside a task the library owns. On the :backpressure_sync and :noproc fallbacks do_send/5 runs inline in the publishing caller's process, so if a resolver inside an outer do_send/5 triggers another synchronous Ash notification, the inner call finds the outer run's value still under :batch_resolved, adopts it as its own result, and publishes it to the inner topic, a different subscription document with a different actor and tenant. It then deletes the key, so the outer run publishes nothing. The key is not namespaced by run, so records cannot be told apart. The fix saves, clears, and restores :batch_resolved around each run.\n\nThis issue affects ash_graphql: from 1.4.0 before 1.11.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-56716",
+      "published": "2026-08-30T20:16:34.077",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-64839",
+      "published": "2026-08-30T20:16:34.160",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-64840",
+      "published": "2026-08-30T20:16:34.220",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-64841",
+      "published": "2026-08-30T20:16:34.280",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-64842",
+      "published": "2026-08-30T20:16:34.337",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-64843",
+      "published": "2026-08-30T20:16:34.397",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     }
