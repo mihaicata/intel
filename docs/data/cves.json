@@ -1,145 +1,145 @@
 {
-  "totalResults": 2321,
+  "totalResults": 2293,
   "items": [
     {
-      "id": "CVE-2026-82616",
-      "published": "2026-08-31T05:17:06.393",
-      "description": "A vulnerability was found in TOTOLINK NR1800X 9.1.0u.6681_B20230703. Impacted is the function setUploadSetting of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument FileName results in stack-based buffer overflow. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "id": "CVE-2026-49003",
+      "published": "2026-08-31T10:16:49.963",
+      "description": "Attackers can exploit command injection vulnerabilities to delete core system runtime files, causing the monitoring module to crash and become paralyzed; simultaneously, they can obtain root privileges to steal configuration passwords such as SNMP, thereby tampering with critical system parameters and triggering abnormal operation of the entire power system.",
       "severity": "CRITICAL",
-      "score": 9.9
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-40463",
-      "published": "2026-08-31T07:17:42.610",
-      "description": "WaveSuite is affected by an insufficient role-based access control vulnerability in the CPB Log Files feature. Successful exploitation allows an authenticated low-privilege user to load pages restricted to higher-privilege roles by requesting the corresponding URL directly in the browser.",
+      "id": "CVE-2026-82688",
+      "published": "2026-08-31T11:16:40.353",
+      "description": "A security vulnerability has been detected in D-Link DNS-340L and DNS-345 1.01B04/1.03B06/1.04.B02/1.05b04. This impacts an unknown function of the file /cgi-bin/virtual_vol.cgi of the component Virtual Volume Handler. The manipulation of the argument f_sharename/f_target/f_name leads to os command injection. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-82680",
+      "published": "2026-08-31T11:16:40.177",
+      "description": "A weakness has been identified in D-Link DSM-G600 1.01. This affects an unknown function of the file /load_file.cgi of the component Multipart Handler. Executing a manipulation can lead to out-of-bounds write. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-82610",
-      "published": "2026-08-31T04:17:26.273",
-      "description": "A security flaw has been discovered in itsourcecode Online Medicine Delivery System 1.0. Affected is the function Employee::employeeAuthentication of the file /rider/login.php of the component Login Interface. The manipulation of the argument emp_email results in sql injection. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-82876",
+      "published": "2026-08-31T11:16:41.190",
+      "description": "Phison PS3111-S11 controller firmware verifies RSA signatures using a public modulus embedded within the firmware image itself rather than anchored in immutable storage. Attackers can generate arbitrary RSA key pairs, sign modified firmware with the private key, embed the matching modulus in the signature segment, and the controller accepts the tampered firmware as valid.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-82611",
-      "published": "2026-08-31T04:17:28.317",
-      "description": "A weakness has been identified in itsourcecode Online Medicine Delivery System 1.0. Affected by this vulnerability is the function Customer::cusAuthentication of the file /login.php of the component Customer Login Interface. This manipulation of the argument U_USERNAME causes sql injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "id": "CVE-2026-19873",
+      "published": "2026-08-31T10:16:49.790",
+      "description": "HTML::FormFu versions through 2.08 for Perl allow resource exhaustion via an unbounded repeat count from the query string in Repeatable elements.\n\nWhen a Repeatable element has counter_name set, its process method reads the repeat count from the named query string parameter, checks only that it is a positive integer, and passes it to repeat, which deep-clones the element's child subtree once per iteration. Nothing caps the value, and no attribute lets an application impose a limit.\n\nThe count is read on every request, before the form decides whether it was submitted, so a plain GET reaches the clone loop with no credentials, no session and no request body. Nesting multiplies: a Repeatable inside a Repeatable takes a counter at each level, so an outer and an inner value of 100 build 10,000 clones.\n\nOnce the form is submitted, each cloned field's constraints scan the whole element tree in _find_field_value, so cost grows faster than linearly with the count. A single request exhausts memory and CPU.\n\nThe latest release on CPAN is 2.07, from 2018. Version 2.08 exists only in the git repository.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-82612",
-      "published": "2026-08-31T04:17:28.543",
-      "description": "A security vulnerability has been detected in itsourcecode Online Medicine Delivery System 1.0. Affected by this issue is the function loadResultList of the file /index.php?q=single-item of the component Product Detail Page. Such manipulation of the argument ID leads to sql injection. The attack can be launched remotely. The exploit has been disclosed publicly and may be used.",
+      "id": "CVE-2026-82880",
+      "published": "2026-08-31T11:16:41.793",
+      "description": "YaCy Search Server through 1.941 contains an XML external entity injection vulnerability in SVG, FreeMind, and OpenSearch parsers that fail to disable external entity resolution. Attackers can publish malicious documents with DOCTYPE declarations containing SYSTEM entities pointing to local files, causing the crawler to exfiltrate file contents into the searchable index.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-82613",
-      "published": "2026-08-31T04:17:28.777",
-      "description": "A vulnerability was detected in itsourcecode Online Medicine Delivery System 1.0. This affects the function loadResultList of the file /index.php?q=product of the component Product Search Interface. Performing a manipulation of the argument Search results in sql injection. The attack may be initiated remotely. The exploit is now public and may be used.",
+      "id": "CVE-2026-71257",
+      "published": "2026-08-31T12:17:56.643",
+      "description": "Apache Wicket enforces the upload limits configured on a form or upload field while parsing a multipart request with Apache Commons FileUpload. If the request body has already been consumed by another component, Commons FileUpload returns no items and Wicket falls back to reading the upload through HttpServletRequest#getParts(). The per-file size limit (for example Form#setFileMaxSize) and the file count limit (Form#setFileCountMax) are not applied to the parts obtained that way, and no exception is raised, so the upload is processed as though those limits had been satisfied. A remote uploader can therefore submit files that are larger, or more numerous, than the application permits, up to whatever the component that parsed the request allows. A part carrying no Content-Type header is additionally read into memory in full during parsing, so the size of that allocation is determined by the request and bounded only by those same external limits.\n\nThe total upload size limit (Form#setMaxSize) is not affected. Commons FileUpload compares the declared Content-Length against it before reading the body, so a request declaring an oversized length is rejected before the fallback is reached.\n\nThe fallback is reached in deployments where a servlet or filter has already parsed the request body — for example a servlet annotated with @MultipartConfig, Spring Boot's multipart resolver, or any filter that calls HttpServletRequest#getParameter() on a multipart request. It applies to the Wicket components that accept uploads on that path, including Form with FileUploadField, FileUploadToResourceField and AjaxFileDropBehavior. Applications that configure neither a per-file nor a file-count limit are not affected, as Wicket applies neither by default.\n\nThis issue affects Apache Wicket: from 8.0.0 through 8.18.0, from 9.0.0 through 9.23.0, from 10.0.0 through 10.10.0.\n\nUsers are recommended to upgrade to version 8.19.0, 9.24.0 or 10.11.0, which fix the issue. Users of Apache Wicket 7.x or older, which are no longer supported, should upgrade to a supported version. As a workaround, configure equivalent limits in the component that parses the request — for example spring.servlet.multipart.max-file-size and max-request-size, or maxFileSize and maxRequestSize in @MultipartConfig or in the web.xml <multipart-config> element.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-82614",
-      "published": "2026-08-31T05:17:04.020",
-      "description": "A flaw has been found in itsourcecode Online Medicine Delivery System 1.0. This vulnerability affects the function loadResultList of the file /index.php?q=product of the component Product Category Filter Interface. Executing a manipulation of the argument Category can lead to sql injection. The attack may be launched remotely. The exploit has been published and may be used.",
-      "severity": "HIGH",
-      "score": 7.3
+      "id": "CVE-2026-82877",
+      "published": "2026-08-31T11:16:41.330",
+      "description": "ILIAS before versions 9.22, 10.10, and 11.3 contains an arbitrary file read vulnerability in the SOAP addFile method that allows authenticated users to read server files by supplying crafted XML with COPY-mode imports. Attackers can construct absolute file paths through an unsandboxed import directory and retrieve sensitive files including configuration files containing database credentials and setup passwords.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-82615",
-      "published": "2026-08-31T05:17:06.217",
-      "description": "A vulnerability has been found in itsourcecode Online Medicine Delivery System 1.0. This issue affects the function Customer::find_phone of the file /passwordrecover.php of the component Password Recovery Interface. The manipulation of the argument phonenumber leads to sql injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-82621",
-      "published": "2026-08-31T06:17:08.280",
-      "description": "A weakness has been identified in Soarkey StudentManagement and 学生信息管理系统 up to e08f7f1d5015af407aa4cca0ada3dea189b4937e. This impacts the function AdminDao.doGet of the file code/src/service/AdminDao.java of the component Administrative Servlet. Executing a manipulation of the argument action can lead to authorization bypass. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-82609",
-      "published": "2026-08-31T04:17:16.390",
-      "description": "A vulnerability was identified in itsourcecode Sales and Inventory System 1.0. This impacts an unknown function of the file /pages/inv_edit.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used.",
+      "id": "CVE-2026-82679",
+      "published": "2026-08-31T11:16:40.000",
+      "description": "A security flaw has been discovered in diem-project diem up to 5.1.3. The impacted element is an unknown function of the file dmFrontPlugin/lib/dmWidget/media/dmWidgetContentBaseMediaForm.php of the component Widget Editor. Performing a manipulation results in unrestricted upload. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-82620",
-      "published": "2026-08-31T06:17:08.103",
-      "description": "A security flaw has been discovered in Soarkey StudentManagement and 学生信息管理系统 up to e08f7f1d5015af407aa4cca0ada3dea189b4937e. This affects the function CourseDao.course_ranking of the file code/src/dao/CourseDao.java. Performing a manipulation of the argument cno results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-82878",
+      "published": "2026-08-31T11:16:41.467",
+      "description": "DataEase versions before 2.10.26 omit object-level authorization checks on geographic information, dashboard linkage, and chart detail REST endpoints, allowing authenticated users to access resources belonging to other users. Attackers can overwrite or delete map geometry, modify dashboard linkages, and retrieve chart metadata and configuration for resources they do not own by supplying arbitrary identifiers in requests.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-53620",
-      "published": "2026-08-31T07:17:43.967",
-      "description": "GROWI contains a vulnerability with an authorization bypass through user-controlled key in the bookmark folder APIs. If this vulnerability is exploited, an authenticated attacker could retrieve, tamper with, and/or delete the other user's bookmark data.",
+      "id": "CVE-2026-82879",
+      "published": "2026-08-31T11:16:41.603",
+      "description": "DataEase before 2.10.26 contains multiple access control defects in the sharing link module. Tickets are not bound to the target share UUID, so a valid ticket issued for one share can be reused against another (ShareTicketManage.validateTicket / POST /de2api/share/proxyInfo). The POST /de2api/share/validate endpoint issues a LinkToken after password verification without requiring a ticket, bypassing the 'ticket mandatory' policy. Additionally, the ticket create and delete endpoints (POST /de2api/ticket/saveTicket, POST /de2api/ticket/delTicket) lack share-ownership checks, allowing an authenticated user who knows another user's ticket to modify, rebind, or delete it (denial of service), and GET /de2api/share/queryRelationByUserId/{uid} allows authenticated users to enumerate other users' share mappings.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-40464",
-      "published": "2026-08-31T07:17:43.750",
-      "description": "NSP is vulnerable to a stored XSS due to insufficient validation or encoding of user-controlled input in a workflow application. An authenticated attacker with access to the workflow application could embed harmful code that runs when another user views the content.",
+      "id": "CVE-2026-82881",
+      "published": "2026-08-31T11:16:43.247",
+      "description": "Aix-DB through 1.2.4 renders markdown with raw HTML enabled into v-html bindings without sanitization, allowing stored cross-site scripting attacks. Attackers can inject malicious HTML and JavaScript through markdown content in chat responses, skill descriptions, or knowledge messages that execute in users' browsers when viewed.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-40465",
-      "published": "2026-08-31T07:17:43.857",
-      "description": "NSP is vulnerable to an open redirect due to insufficient server-side validation of the URL (or redirect) parameter.",
+      "id": "CVE-2026-75802",
+      "published": "2026-08-31T12:17:56.967",
+      "description": "AjaxEditableChoiceLabel in wicket-extensions, when constructed with a non-null IChoiceRenderer, writes the display value obtained from that renderer into the label's markup without applying the HTML escaping Wicket performs by default for component model values. An attacker who can influence the choice or model data rendered by such a label can inject HTML or script that executes in the browser of any user who views the page. The same value is correctly escaped when the component's dropdown editor renders it as an option, so only the label rendering is affected.\n\nAjaxEditableLabel, AjaxEditableChoiceLabel and AjaxEditableMultiLineLabel write the value returned by the protected defaultNullLabel() method into the label's markup the same way when the component's model is empty, while the model value they show otherwise is escaped. The default implementation returns a constant, so an application is affected where it overrides that method and returns a value an attacker can influence.\n\nNeither value could be escaped by configuration, because escapeModelStrings had no effect on any of the three components: it is read by the label they render with rather than by the component itself, and nothing carried the setting across.\n\nThis issue affects Apache Wicket: from 8.0.0 through 8.18.0, from 9.0.0 through 9.23.0, from 10.0.0 through 10.10.0. Older, unsupported releases are also affected; the display value from the renderer since 6.22.0 and the null label since 1.4.0. Users are recommended to upgrade to version 8.19.0, 9.24.0 or 10.11.0, which fix the issue.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-82669",
+      "published": "2026-08-31T10:16:50.130",
+      "description": "A vulnerability was detected in klaussilveira GitList 2.0.0. Affected by this issue is the function SimpleXMLElement of the file src/SCM/System/Git/CommandLine.php of the component XML Parsing. Performing a manipulation results in denial of service. The attack is possible to be carried out remotely. The exploit is now public and may be used. Upgrading to version 3.0.0-beta can resolve this issue. The patch is named f67609d52c1812fa8a7ed80eae5e795cfd72115f. It is advisable to upgrade the affected component.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-82618",
-      "published": "2026-08-31T05:17:06.570",
-      "description": "A vulnerability was determined in Systerel S2OPC up to 1.7.3. The affected element is the function set_range_matrix_on_string_array of the file src/Common/opcua_types/sopc_builtintypes.c of the component String Array Range Writing. This manipulation causes out-of-bounds read. The attack is possible to be carried out remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-70449",
+      "published": "2026-08-31T12:17:56.493",
+      "description": "Improper validation of resource URL attributes in Apache Wicket allows an unauthenticated remote attacker to read files from the web application, including files under WEB-INF that the servlet container would not otherwise serve.\n\nThe locale, style and variation attributes decoded from a package resource URL are spliced into the resource lookup path without being checked for path separators. The IPackageResourceGuard — whose rejection of .. is one of the two intended controls — is applied to the resource name before those attributes are appended, and WebApplicationPath rejects only paths literally beginning with WEB-INF/. Neither control ever inspects the attacker-controlled portion of the path. On servlet containers that normalize .. in ServletContext.getResource(), a crafted request therefore escapes the intended package directory.\n\nThe set of readable files is limited to the file extensions permitted by the configured IPackageResourceGuard. The default SecurePackageResourceGuard permits only js, css, png, jpg, jpeg, gif, ico, cur, map, html, txt, swf, bmp, svg, avif, eot, ttf, woff and woff2, which excludes configuration formats. Applications that have added patterns to the guard, or replaced it with the blocklist-based PackageResourceGuard, can additionally disclose configuration files such as web.xml. Independently of the extension, the lookup performed before the guard runs acts as an existence oracle for arbitrary paths.\n\nThis issue affects Apache Wicket 8.18.0 and before, 9.23.0 and before and 10.10.0 and before.\n\nUsers are recommended to upgrade to version 8.19.0, 9.24.0 or 10.11.0, which fix the issue. Users of Apache Wicket 7.x or older, which are no longer supported, should upgrade to a supported version.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-82619",
-      "published": "2026-08-31T06:17:07.857",
-      "description": "A vulnerability was identified in Systerel S2OPC up to 1.7.3. The impacted element is the function monitored_item_event_filter_treatment_bs__init_event_filter_ctx_and_result of the file src/ClientServer/services/bgenc/subscription_mgr.c. Such manipulation of the argument EventFilter leads to use after free. The attack may be performed from remote. The exploit is publicly available and might be used. The name of the patch is a4cee16a851b971be447a6ed531173702c722b99. It is best practice to apply a patch to resolve this issue.",
+      "id": "CVE-2026-82678",
+      "published": "2026-08-31T11:16:39.807",
+      "description": "A vulnerability was identified in diem-project diem up to 5.1.3. The affected element is the function executeCommand of the file dmAdminPlugin/modules/dmConsole/actions/actions.class.php of the component Administrative Console. Such manipulation of the argument dm_command leads to os command injection. The attack can be launched remotely. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-82724",
-      "published": "2026-08-31T04:17:28.980",
-      "description": "Incorrect Authorization vulnerability in ash-project ash_phoenix invokes the SubdomainHook authorization callback with a nil tenant, so tenant-scoped access checks never see the tenant they are meant to enforce.\n\nAshPhoenix.LiveView.SubdomainHook.on_mount/4 attached a handle_params hook to assign the tenant and then immediately called handle_subdomain in the same on_mount. The tenant assign is only written when LiveView later runs handle_params, strictly after on_mount returns, so handle_subdomain read an unset assign and ran as apply(m, f, [socket, nil | a]). A consumer gate that halts when the user does not belong to the tenant instead evaluated nil, either crashing or taking a permissive branch, and it was never re-run once the real subdomain was assigned or on later navigations. The fix runs handle_subdomain inside the handle_params hook with the real tenant on every navigation.\n\nThis issue affects ash_phoenix: from 2.1.26 before 2.3.25.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-71378",
+      "published": "2026-08-31T12:17:56.803",
+      "description": "ResourceIsolationRequestCycleListener protects a Wicket application against cross-site request forgery by rejecting requests that a resource isolation policy judges to come from another origin. Its default policy, FetchMetadataResourceIsolationPolicy, was derived from a reference implementation written to guard static resources, and it inherited two allowances that are unsafe when the thing being guarded is an action on a page:\n  *  Every \"simple top-level navigation\" was allowed. Any GET request carrying Sec-Fetch-Mode: navigate whose Sec-Fetch-Dest was neither object nor embed was allowed, whatever Sec-Fetch-Site said — including cross-site. Wicket invokes component listeners (Link.onClick(), form submits, behaviour callbacks) through ordinary GET navigations, so a page under an attacker's control could navigate the victim's browser to a listener URL and have that listener run inside the victim's authenticated session. Browsers send SameSite=Lax cookies — the effective default when no SameSite attribute is set — on cross-site top-level GET navigations, so the victim's session cookie accompanied the request.\n  *  Sec-Fetch-Site: same-site was allowed unconditionally. That value means the same registrable domain and scheme but a different origin — another subdomain or another port. Any sibling origin could therefore invoke any listener by any method, POST form submits included, and cookies are always sent on same-site requests regardless of SameSite. A hostile sibling origin obtained through a subdomain takeover, through delegated user content, or through an XSS elsewhere on the site could act as the authenticated user.\nUsers are recommended to upgrade to version 9.24.0 or 10.11.0, which fix the issue.\nAffected versions\n\n  *  Apache Wicket 9.1.0 through 9.23.0\n  *  Apache Wicket 10.0.0 through 10.10.0\n\n\n\nNot affected\n\nAny release older than 9.1.0:\n  *  Apache Wicket 8.x (8.0.0 through 8.17.0). The resource isolation classes do not exist in the 8.x line, which offers only the Origin/Referer-based CsrfPreventionRequestCycleListener. No 8.x release requires a fix.\n  *  Apache Wicket 9.0.0. ResourceIsolationRequestCycleListener and FetchMetadataResourceIsolationPolicy were introduced by WICKET-6786 and first shipped in 9.1.0 (released 2020-10-07).",
+      "severity": "MEDIUM",
+      "score": 4.6
     },
     {
-      "id": "CVE-2026-82725",
-      "published": "2026-08-31T04:17:29.167",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in ash-project ash_phoenix lets an attacker who controls filter form parameters filter across relationships the resource author marked non-public, turning the returned rows into a boolean oracle over private related data.\n\nAshPhoenix.FilterForm resolved every relationship hop in the user-supplied path with Ash.Resource.Info.related/2, which traverses private relationships, and only checked the terminal field for publicity. parse_path_and_field/2 also rewrote a field naming a relationship into an extra path segment, so field=some_private_rel was accepted too. Both path and field come straight from form params, and the resulting ref went to Ash.Query.do_filter/2 without the public-only enforcement of Ash.Filter.parse_input/2. The fix resolves each hop with Ash.Resource.Info.public_relationship/2, rejecting the first non-public hop, and requires the terminal field to be public.\n\nThis issue affects ash_phoenix: from 0.6.0-rc.1 before 2.3.25.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-82670",
+      "published": "2026-08-31T10:16:50.420",
+      "description": "A flaw has been found in IObit Uninstaller 15.5.0.11. This affects the function IRP_MJ_DEVICE_CONTROL in the library IUForceDelete.sys of the component IOCTL Handler. Executing a manipulation can lead to improper privilege management. The attack requires local access. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-82726",
-      "published": "2026-08-31T04:17:29.357",
-      "description": "Permissive Regular Expression vulnerability in ash-project ash_phoenix lets a remote client select the tenant an Ash application uses, or degrade the request, by sending a crafted Host header.\n\nAshPhoenix.Helpers.get_subdomain/2 stripped the root domain with String.replace(host, ~r/.?#{root_host}/, \"\"). The root host was interpolated raw, so each . became a wildcard and any metacharacter a pattern, and the replace was global and unanchored, so a match was removed from anywhere in the string. With root_host example.com, Host: foo.exampleXcom.attacker.net returned the tenant foo.attacker.net. A metacharacter-bearing or nil root host degraded the pattern or raised on every request. The comparison was also case-sensitive, so TENANT.EXAMPLE.COM and EXAMPLE.COM slipped past the root-host allowlist. conn.host comes from the client Host header. The fix matches the root host case-insensitively and only as an exact trailing suffix.\n\nThis issue affects ash_phoenix: from 2.1.26 before 2.3.25.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-82671",
+      "published": "2026-08-31T10:16:50.603",
+      "description": "A vulnerability has been found in IObit Unlocker 1.3.0.12. This vulnerability affects the function ZwTerminateProcess in the library IObitUnlocker.sys of the component IRP_MJ_DEVICE_CONTROL Handler. The manipulation leads to improper privilege management. An attack has to be approached locally. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "LOW",
+      "score": 3.4
     },
     {
-      "id": "CVE-2026-82727",
-      "published": "2026-08-31T04:17:29.560",
-      "description": "Generation of Error Message Containing Sensitive Information vulnerability in ash-project ash_phoenix writes the entire raw submitted param map into an exception message, so secrets submitted alongside a union form field leak into logs, crash reports and the dev error page.\n\nWhen AshPhoenix.Form.Auto builds a union sub-form and the submitted _union_type does not match a configured type, both raise sites built the message with inspect(params, pretty: true), embedding the full untrusted param map, and also inspected the internal union constraints[:types]. Because the message is constructed by the library rather than Phoenix's parameter logger, config :phoenix, :filter_parameters never redacts it. An attacker controls both the trigger and the contents: submitting %{\"_union_type\" => \"nope\", \"password\" => \"...\"} puts the password verbatim in the raised message. The fix reports only the offending _union_type and the valid type names, dropping the param and constraints dumps.\n\nThis issue affects ash_phoenix: from 1.2.17 before 2.3.25.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-82677",
+      "published": "2026-08-31T10:16:50.780",
+      "description": "A vulnerability was determined in valkey-io valkey 9.1.0. Impacted is the function moduleTimerHandler of the file src/module.c of the component Module Timer Subsystem. This manipulation causes double free. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. Patch name: b349fe2821e3998534b1454c1b64a478daf8c6b7. To fix this issue, it is recommended to deploy a patch.",
+      "severity": "LOW",
+      "score": 2.4
     }
   ]
 }
