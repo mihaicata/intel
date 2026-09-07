@@ -1,145 +1,145 @@
 {
-  "totalResults": 2280,
+  "totalResults": 2190,
   "items": [
     {
-      "id": "CVE-2026-51733",
-      "published": "2026-08-31T20:17:04.563",
-      "description": "Incorrect access control in the FirmwareUpgrade function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to remove Wi-Fi schedule entries via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
+      "id": "CVE-2026-82971",
+      "published": "2026-08-31T23:16:35.460",
+      "description": "A vulnerability was determined in QVidium Opera11 3.3.2a26-Ax4x-opera11. This affects an unknown part of the file /cgi-bin/net_tr.cgi of the component CGI Script. This manipulation of the argument ipaddr causes command injection. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor explains: \"QVidium has now closed its doors and no longer will be able to sell products or provide support.\" This vulnerability only affects products that are no longer supported by the maintainer.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-83524",
+      "published": "2026-08-31T23:16:35.650",
+      "description": "A security vulnerability has been detected in RedPort Optimizer wXa-203, Optimizer wXa-213 and Optimizer wXa-223 up to 20260704. This impacts the function exec of the file /xgatev1/system/datetime.php of the component System Clock. The manipulation leads to command injection. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-75865",
+      "published": "2026-09-01T03:16:51.370",
+      "description": "The WPLP Cookie Consent – Cookie Banner & Consent Management for GDPR, CCPA & Google Consent Mode plugin for WordPress is vulnerable to arbitrary file upload due to missing file type validation in the saas_upload_logo() function combined with an authorization bypass on the WPLP connector REST endpoints in all versions up to, and including, 4.4.1. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-51734",
-      "published": "2026-08-31T20:17:04.670",
-      "description": "Incorrect access control in the informSlaveUpdate function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to trigger mesh slave update coordination via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-51738",
-      "published": "2026-08-31T20:17:05.103",
-      "description": "Incorrect access control in the LoadDefSettings function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to reset the device configuration and reboot the device via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-51740",
-      "published": "2026-08-31T20:17:05.320",
-      "description": "Incorrect access control in the killProcess function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to terminate critical services via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-38577",
-      "published": "2026-08-31T21:17:07.930",
-      "description": "Insecure hardcoded credentials in the Admin account of Tenda HG21 V4.0.0-260302 allows attackers to gain root access.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-51731",
-      "published": "2026-08-31T20:17:04.353",
-      "description": "Incorrect access control in the delVlanCfg function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to remove VLAN entries via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-51736",
-      "published": "2026-08-31T20:17:04.877",
-      "description": "Incorrect access control in the clearSyslog function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to erase system logs via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-51735",
-      "published": "2026-08-31T20:17:04.773",
-      "description": "Incorrect access control in the showSyslog function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to retrieve recent system logs via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
+      "id": "CVE-2026-65643",
+      "published": "2026-09-01T03:16:50.807",
+      "description": "Eval injection in cPanel 11.138.0.0 and earlier allows remote authenticated users to execute arbitrary code as root.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-13732",
-      "published": "2026-08-31T20:17:02.180",
-      "description": "A flaw was found in GDB's STABS debug format parser. The\nread_member_functions() function in gdb/stabsread.c contains a linked\nlist removal bug in the code that separates destructor and non-destructor\nmember functions of C++ classes. The bug causes the destructor entries to\nremain in the main function list while the list length counter is\ndecremented, resulting in an out-of-bounds write when the function list\nis copied to its final allocated array. An attacker can craft an ELF\nbinary with malicious .stab and .stabstr sections that triggers this\nout-of-bounds write when a user opens the file in GDB and performs any\nsymbol-inspection operation such as setting a breakpoint. The inferior\nprocess does not need to be executed. Under controlled conditions, this\nwas demonstrated to achieve execution of arbitrary commands within the\nGDB process.",
-      "severity": "HIGH",
-      "score": 7
-    },
-    {
-      "id": "CVE-2026-14697",
-      "published": "2026-08-31T20:17:03.253",
-      "description": "net_ipv6_send_ns() in subsys/net/ip/ipv6_nbr.c allocates a transmit net_pkt for a Neighbor Solicitation. When it is called with a data packet pending on an unresolved neighbor and that neighbor's pending_queue is already non-empty (an NS is already outstanding), the function appends the data packet and returns early without ever sending the NS via net_send_data() or releasing it with net_pkt_unref(). The freshly allocated NS net_pkt and its attached TX buffers are held only by a local variable and are leaked permanently, never returning to CONFIG_NET_PKT_TX_COUNT / CONFIG_NET_BUF_TX_COUNT.\n\nThe leaking branch sits on the normal IPv6 transmit path: net_ipv6_prepare_for_send() (called from net_if.c) invokes net_ipv6_send_ns() for any outbound or forwarded IPv6 packet whose next hop is not yet in the neighbor cache. An on-link (adjacent) attacker can drive it deterministically by sending a burst of request packets (for example ICMPv6 echo requests or UDP datagrams) that all spoof a single non-existent on-link source address: the node generates a reply to each, the first reply queues an NS, and every subsequent reply during the roughly three-second INCOMPLETE resolution window takes the leaking branch and loses one TX packet. Router-configured nodes forwarding attacker traffic toward a non-existent on-link host leak identically.\n\nBecause the leaked packets are never reclaimed and CONFIG_NET_PKT_TX_COUNT defaults to only 4 (14 for Ethernet), a brief low-rate burst exhausts the TX pool. Once exhausted the node can no longer allocate any transmit packet and cannot send TCP/UDP, ARP/ND, or any reply at all, producing a complete and persistent network denial of service that does not self-heal until reboot. The fix releases the unsent NS packet with net_pkt_unref(pkt) before the early return.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-82833",
-      "published": "2026-08-31T20:17:15.337",
-      "description": "A vulnerability was identified in Doccano Open Source Annotation Tools for Machine Learning Practitioners and Auto Labeling Pipeline Module to Annotate a Document Automatically up to 1.8.5. Affected by this issue is the function ExampleDetail of the file /v1/projects/1/examples/ of the component Project Example Detail Endpoint. Such manipulation leads to improper access controls. The attack may be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-82905",
-      "published": "2026-08-31T20:17:15.840",
-      "description": "A vulnerability was detected in sdcb chats up to 1.12.0. This affects the function McpController of the file src/BE/web/Controllers/Users/Mcps/McpController.cs of the component fetch-tools Endpoint. The manipulation results in server-side request forgery. The attack may be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2025-63607",
-      "published": "2026-08-31T21:17:06.210",
-      "description": "TechStore 1.0 is vulnerable to Cross Site Scripting (XSS). In contact_display, the application echoes the id parameter verbatim into the rendered page, permitting execution of attacker-supplied JavaScript in users browser.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-51739",
-      "published": "2026-08-31T20:17:05.210",
-      "description": "Incorrect access control in the CloudSrvVersionCheck function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to trigger cloud update checks via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
+      "id": "CVE-2026-67395",
+      "published": "2026-09-01T03:16:51.060",
+      "description": "A path traversal vulnerability exists in Sage Employee Self Service’s custom logo functionality due to improper validation of file path parameters. By leveraging directory traversal sequences and their encoded variants, an attacker may bypass directory restrictions and access files outside the application's intended file system scope. Successful exploitation would require knowledge of valid file names and paths.\r\n\r\nDepending on the privileges of the affected component, exploitation could result in the disclosure of sensitive information, including configuration files, environment settings, application assets, and log data.\r\n\r\nThe vulnerability has been remediated through enhanced path validation and secure path resolution controls that prevent access to unauthorised locations.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-81267",
-      "published": "2026-08-31T20:17:11.983",
-      "description": "A malicious webpage could stall a popup's cross-origin navigation after commit, causing the address bar to display the destination origin while continuing to render attacker-controlled content. This vulnerability was fixed in Firefox for iOS 155.0.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-82834",
-      "published": "2026-08-31T20:17:15.510",
-      "description": "A security flaw has been discovered in Doccano Open Source Annotation Tools for Machine Learning Practitioners and Auto Labeling Pipeline Module to Annotate a Document Automatically up to 1.8.5. This affects the function LabelList of the file /v1/projects/1/category-types of the component Bulk-Delete Endpoint. Performing a manipulation results in improper access controls. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-82835",
-      "published": "2026-08-31T20:17:15.673",
-      "description": "A weakness has been identified in caoqianming django-vue-admin 1.0. This vulnerability affects unknown code of the file /api/file/. Executing a manipulation of the argument file_id can lead to improper access controls. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-51732",
-      "published": "2026-08-31T20:17:04.460",
-      "description": "Incorrect access control in the delWiFiScheduleCfg function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to remove Wi-Fi schedule entries via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
+      "id": "CVE-2026-19032",
+      "published": "2026-09-01T04:18:00.433",
+      "description": "jackson-databind's deserializer for java.nio.file.Path resolves an attacker-supplied URI without restricting the URI scheme. In JDKFromStringDeserializer.NioPathHelper.deserialize, a string bound from untrusted JSON is passed to new URI(value) and then to Path.of(uri). When that throws FileSystemNotFoundException, the code enumerates ServiceLoader<FileSystemProvider> and calls provider.getPath(uri) on the first provider whose scheme matches the attacker-chosen scheme. Untrusted JSON can therefore select and drive an arbitrary registered FileSystemProvider during readValue under a default JsonMapper, and forces provider class loading at the same time. With only the JDK built-in providers (file, jar/zipfs) present, the resolved path is inert and no mount or network I/O occurs; further impact requires a side-effecting third-party FileSystemProvider on the classpath. This affects com.fasterxml.jackson.core:jackson-databind from 2.8.0 before 2.18.10, from 2.19.0 before 2.21.6, and from 2.22.0 before 2.22.2, and tools.jackson.core:jackson-databind from 3.0.0 before 3.1.6 and from 3.2.0 before 3.2.2. Users should upgrade to 2.18.10, 2.21.6, 2.22.2, 3.1.6, or 3.2.2. Binding java.nio.file.Path from untrusted JSON should be avoided regardless of version.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-51737",
-      "published": "2026-08-31T20:17:04.990",
-      "description": "Incorrect access control in the clearTracerouteLog function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to erase traceroute logs via sending a crafted POST request to /cgi-bin/cstecgi.cgi.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-48932",
+      "published": "2026-09-01T03:16:48.680",
+      "description": "A flaw in Node.js HTTP client can cause a request desynchronization for Node.js-based forwarding proxies that rebuild outbound headers from the visible `IncomingMessage` headers while piping the original body to a reused backend connection.\r\n\r\nNode.js can omit headers beyond `maxHeadersCount` / `maxHeaderPairs` from `req.headers`, `req.rawHeaders`, and `req.headersDistinct`, while still using those omitted headers internally for HTTP message framing. In particular, `Content-Length` can be hidden from userland while the request body is still delivered.\r\n\r\nThis vulnerability affects all supported release lines: **Node.js 22**, **Node.js 24**, and **Node.js 26**.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-52730",
-      "published": "2026-08-31T20:17:05.427",
-      "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing Authorization in Module::settingsForm allows to view (not change) super admin-restricted module settings and leak the full module entity. Exploitation of the vulnerability is possible on behalf of an authorized user who has access to the Module View feature, which are not granted to non-admins as standard. Users should upgrade to version 4.4.3 which fixes this issue. Upgrading to a fixed version is necessary to remediate. Users unable to upgrade should revoke such privileges from users they do not trust.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-18743",
+      "published": "2026-09-01T02:16:57.647",
+      "description": "A flaw was found in popt. This vulnerability allows an attacker to provide specially crafted configuration content to a host, which, when loaded, can lead to a small memory corruption issue. This occurs because of an error in how the `poptConfigFileToString` function reallocates memory for buffers. Successful exploitation could result in heap metadata corruption, potentially causing the affected process to become unavailable (denial of service).",
+      "severity": "LOW",
+      "score": 2.5
+    },
+    {
+      "id": "CVE-2026-4560",
+      "published": "2026-08-31T23:16:35.360",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. Reason: This candidate was issued in error. Notes: All references and descriptions in this candidate have been removed to prevent accidental usage.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19820",
+      "published": "2026-09-01T01:16:33.137",
+      "description": "A vulnerability in the Backblaze Client allows a local user to make the system not bootable by creating a link from Backblaze's folder to Windows OS system files during a backup. Successful exploitation requires an administrator-level system change that results in the absence of specific Windows OS security controls. This vulnerability is due to improper link resolution.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-67394",
+      "published": "2026-09-01T03:16:50.937",
+      "description": "A critical local privilege escalation via OS command injection vulnerability has been discovered in Plesk for Linux, affecting all versions from 18.0.34 before 18.0.79.9 and 18.0.80.5. The vulnerability allows a customer or reseller with shell access (or allowed to change their own shell access) to elevate privileges to the root account on the hosting server.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-74837",
+      "published": "2026-09-01T03:16:51.187",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in ash-project ash_typescript allows an unauthenticated attacker to exhaust the BEAM atom table and abort the node via client-supplied RPC field names.\n\nAshTypescript.FieldFormatter.convert_to_field_atom/2 in lib/ash_typescript/field_formatter.ex converts a client-supplied field name to an atom with String.to_atom/1 when no matching atom already exists. It delegates first to parse_input_field/2, which resolves the name with String.to_existing_atom/1 and falls back to returning the plain string; convert_to_field_atom/2 then mints an atom from that string rather than treating the name as unknown.\n\nRPC field selection reaches it for every requested field name through AshTypescript.Rpc.FieldProcessing.FieldSelector, which resolves each name before checking that the field exists, with no allowlist, length bound, or rate limit. Atoms are never garbage collected, so each distinct name mints a permanent one and the VM aborts once the atom table limit is reached. A field name over 255 characters additionally raises an uncaught SystemLimitError.\n\nThis issue affects ash_typescript: from 0.1.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-77856",
+      "published": "2026-09-01T03:16:51.500",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in ash-project ash_typescript allows an unauthenticated attacker to exhaust the BEAM atom table and abort the node via client-supplied typed struct field names.\n\nresolve_typed_struct_field/2 in lib/ash_typescript/rpc/field_processing/field_selector.ex looks a client-supplied field name up in the typed struct's reverse map and, when it finds no match, falls back to String.to_atom/1. Because this runs before any field-existence check, an unresolvable name mints a permanent atom rather than being rejected as unknown. Atoms are never garbage collected, so a request carrying many distinct names on a typed struct field grows the atom table until the VM aborts at its limit.\n\nThis issue affects ash_typescript: from 0.11.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-77950",
+      "published": "2026-09-01T03:16:51.660",
+      "description": "Generation of Error Message Containing Sensitive Information vulnerability in ash-project ash_typescript allows an unauthenticated attacker to receive unredacted internal error data by provoking an error shape the configured error handler does not match.\n\napply_error_handler/3 in lib/ash_typescript/rpc/errors.ex is the only hook an application has for redacting or suppressing errors before they reach the client, with a nil return dropping the error entirely. Its rescue clause logs a warning and then returns the original, pre-handler error map. Error handlers are conventionally written as pattern-matching functions over expected error shapes, so an unmatched shape raises FunctionClauseError and the raw transformed error, including any secrets carried in vars, is emitted instead. An intent to suppress an error becomes an intent to publish it. The rescue catches exceptions only, so a handler that throws or exits still propagates.\n\nThis issue affects ash_typescript: from 0.8.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82730",
+      "published": "2026-09-01T03:16:52.787",
+      "description": "Incorrect Authorization vulnerability in ash-project ash_typescript allows an unauthorized RPC caller to read attribute values that Ash field policies denied.\n\nWhen a field policy denies an attribute, Ash substitutes %Ash.ForbiddenField{}, which retains the real value in original_value because embedded resources must remain writable, and hides it from Inspect rather than removing it. AshTypescript.Rpc.ResultProcessor strips these markers to nil on its template-driven paths, but normalize_primitive/1 in lib/ash_typescript/rpc/result_processor.ex had no such clause, so a marker fell through to the generic struct branch which calls Map.from_struct/1 and serializes every key, original_value included. The denied value is returned to the caller inside the marker that represents its own denial.\n\nThe simplest trigger is an action returning an embedded resource as a map, which routes through normalize_resource_struct/2 with an empty template. normalize_value_for_json/1 is a public, unguarded entry point to the same path.\n\nThis issue affects ash_typescript: from 0.11.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82731",
+      "published": "2026-09-01T03:16:52.993",
+      "description": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in ash-project ash_typescript allows an attacker who controls a path-parameter value to redirect a generated client's request, and the credentials attached to it, to an unintended route or an external origin.\n\nThe URL builders in lib/ash_typescript/typed_controller/codegen/route_renderer.ex replace each :param placeholder with a bare template interpolation and never call encodeURIComponent, so the value reaches executeTypedControllerRequest raw. A value containing ../ is normalised away by the fetch URL resolver and reaches a different route, while ? or # truncates the path and can smuggle or override query parameters. For a route whose path begins with a parameter, a value such as /evil.example.com/x yields the protocol-relative URL //evil.example.com/x, sending the request and the credentials from TypedControllerConfig to an attacker-controlled host. Nothing constrains the value at runtime: get_path_param_type/2 emits only a TypeScript type, which is erased.\n\nThe query-string path is unaffected, since URLSearchParams.set encodes its own values.\n\nThis issue affects ash_typescript: from 0.15.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82732",
+      "published": "2026-09-01T03:16:53.193",
+      "description": "Improper Input Validation vulnerability in ash-project ash_typescript allows a remote attacker to submit argument values outside a declared allowlist or bound on typed-controller routes.\n\nAshTypescript.TypedController.RequestHandler in lib/ash_typescript/typed_controller/request_handler.ex calls Ash.Type.cast_input/3 and treats an {:ok, cast} result as fully validated. In Ash these are separate steps: cast_input/3 only coerces the term, while every constraint declared on the argument is applied by Ash.Type.apply_constraints/3, which this path never calls. Constraints such as one_of, max_length, min and max, and match are therefore inert, so a value outside a declared allowlist is accepted and passed to the route handler. Codegen renders the same constraints into the generated TypeScript types, so an allowlist appears enforced to a TypeScript caller while any other HTTP client ignores it. Empty-string to nil normalization also lives in apply_constraints, so the allow_nil?: false check accepts \"\" for a required argument.\n\nWhere a constraint gates a role, a status, or a sort direction, this becomes a privilege or state-machine bypass.\n\nThis issue affects ash_typescript: from 0.15.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82733",
+      "published": "2026-09-01T03:16:53.373",
+      "description": "Generation of Error Message Containing Sensitive Information vulnerability in ash-project ash_typescript allows an unauthenticated attacker to read internal application data from an HTTP 500 response body.\n\nWhen a typed-controller route handler returns anything other than a %Plug.Conn{}, dispatch/3 in lib/ash_typescript/typed_controller/request_handler.ex passes the value to unexpected_return/2, which interpolates inspect(value, limit: 50) directly into the response message. The limit option bounds elements per collection rather than the term as a whole, so a handler falling through with a term such as {:error, %User{}} or a changeset serialises its full field set, including hashed passwords, tokens, and tenant identifiers, into the JSON error returned to the caller.\n\nThis contradicts the module's own posture elsewhere: the rescue clause gates Exception.message/1 behind AshTypescript.typed_controller_show_raised_errors?/0 and otherwise returns a generic message, while this path is ungated and always echoes.\n\nThis issue affects ash_typescript: from 0.15.0 before 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82734",
+      "published": "2026-09-01T04:18:02.600",
+      "description": "Improper Validation of Specified Quantity in Input vulnerability in ash-project ash allows an attacker to submit a non-finite decimal value that bypasses numeric bounds constraints or fails later operations on the value.\n\nAsh.Type.Decimal cast input through Ecto's decimal cast in cast_input/2 and cast_stored/2 (lib/ash/type/decimal.ex) without checking that the resulting value is finite. Elixir's Decimal represents Infinity and NaN as valid structs, so a value such as \"Infinity\" or \"NaN\" passed casting and was persisted. Because NaN compares as false against every bound, min and max constraints do not reject it, and the stored special value later raises when used in Decimal arithmetic or is refused by the data layer, failing subsequent requests. The fix rejects any non-finite Decimal during casting.\n\nThis issue affects ash: from 1.28.0 before 3.32.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82735",
+      "published": "2026-09-01T04:18:02.817",
+      "description": "Uncontrolled Resource Consumption vulnerability in ash-project ash allows an attacker to force an expensive regular expression to run on input that a length constraint should have already rejected.\n\nAsh.Type.String.apply_constraints/2 (lib/ash/type/string.ex) evaluated the :match regex regardless of the min_length and max_length constraints on the same attribute. Because the length check did not gate the regex, an over-length value that the length constraint rejects still had the pattern applied to it, so the length limit that would otherwise bound the work never constrained the regex input. Against a backtracking pattern this yields catastrophic regex evaluation on attacker-sized input, and even a linear pattern runs on arbitrarily large input, consuming CPU per request. The fix skips the :match regex whenever a length constraint is violated, making the two checks order-independent.\n\nThis issue affects ash: from 0.10.0 before 3.32.2.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
