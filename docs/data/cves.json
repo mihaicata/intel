@@ -1,143 +1,143 @@
 {
-  "totalResults": 2213,
+  "totalResults": 2132,
   "items": [
     {
-      "id": "CVE-2026-18550",
-      "published": "2026-09-01T12:17:35.920",
-      "description": "The Nokri - Job Board WordPress Theme for WordPress is vulnerable to Privilege Escalation via Account Takeover in all versions up to, and including, 1.6.6. This is due to insufficient reset token validation in the `nokri_reset_password()` function, which allows empty attacker-supplied reset tokens to match empty or unset `sb_password_forget_token` user meta values. This makes it possible for unauthenticated attackers to reset the password of any user, including administrators, and gain access to their account.",
+      "id": "CVE-2026-51934",
+      "published": "2026-09-01T17:17:31.270",
+      "description": "Buffer Overflow vulnerability in Shenzhen Jixiang Tengda Technology Co., Ltd. Tenda A18 v.15.13.07.09 allows a remote attacker to execute arbitrary code via the fromSetCmdlineRun function",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-84200",
-      "published": "2026-09-01T12:17:49.540",
-      "description": "Kyverno versions v1.9.0 through v1.12.7 contain a policy exception handling flaw. When a policy in enforce mode is combined with two PolicyExceptions, the less restrictive exception takes precedence, allowing an attacker to bypass the policy by crafting a resource name that matches the second exception's name pattern (e.g., '*ingress*'). This can be used to circumvent policies such as one blocking hostPath volumes. Fixed in v1.13.0.",
+      "id": "CVE-2026-19593",
+      "published": "2026-09-01T18:17:40.480",
+      "description": "OpenAI Codex Desktop for Windows and macOS automatically inspected Git metadata and working-tree status when a user opened a workspace. If the workspace contains a repository with preserved attacker-controlled .git/config, the attr.tree setting and a configured clean or process filter can cause Git to run an attacker-controlled program. The program runs outside Codex's command sandbox with the signed-in user's privileges, without a workspace-trust prompt, command approval, or interaction with a model. The attacker can read, modify, or delete files and access credentials available to that user. Exploitation requires Git to be available on PATH and the user to open the attacker-prepared repository with its local Git configuration intact. An ordinary Git clone does not copy the source repository's .git/config and is not sufficient by itself.",
       "severity": "CRITICAL",
-      "score": 9
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-76111",
-      "published": "2026-09-01T12:17:47.113",
-      "description": "Dell PowerStore contains an Incorrect Authorization vulnerability. An authenticated attacker with low privileges could potentially exploit this vulnerability to invoke administrator-only operations, leading to privilege escalation.",
+      "id": "CVE-2026-52111",
+      "published": "2026-09-01T18:17:43.477",
+      "description": "An issue in fast-note-sync-service <=2.13.7 allows a remote attacker to escalate privileges via the admin configuration endpoint exposes authTokenKey",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-58566",
+      "published": "2026-09-01T17:17:31.507",
+      "description": "Dell PowerStore, an Incorrect Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-84187",
-      "published": "2026-09-01T12:17:48.007",
-      "description": "AVideo contains a missing authentication vulnerability in plugin/Live/on_publish.php that allows unauthenticated attackers to mark arbitrary scheduled broadcasts as failed by sending crafted POST requests with schedule identifiers. Attackers can exploit the unguarded RTMP callback endpoint to modify scheduled broadcast status fields by supplying fabricated stream keys matching the pattern -ps-<N>, silently canceling any scheduled live broadcast without credentials or authorization.",
+      "id": "CVE-2026-19591",
+      "published": "2026-09-01T18:17:40.260",
+      "description": "OpenAI Codex CLI for Windows, macOS, and Linux and Codex Desktop for Windows and macOS misclassified certain PowerShell commands as safe because their command-safety parser interpreted PowerShell's stop-parsing token (--%) differently than PowerShell itself. If a user opens an attacker-prepared repository and Codex follows its instructions, Codex can run a file-writing Git command without requesting user approval. On macOS and Linux, exploitation additionally requires separately installed PowerShell Core (pwsh) to be invoked. If filesystem protections permit the write, the command can modify Codex's configuration. If Codex later loads the modified configuration, it can launch an attacker-controlled MCP server and execute code with the user's privileges, allowing it to read, change, or delete files accessible to that account. The approval bypass does not disable filesystem sandboxing; the default filesystem sandbox on macOS and Linux can prevent writes outside permitted locations.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-83595",
-      "published": "2026-09-01T12:17:47.870",
-      "description": "AVideo contains a cross-site request forgery vulnerability in plugin/API/set.json.php that allows attackers to perform state-changing actions by crafting GET requests that bypass CSRF protection. Attackers can navigate a victim's browser to a malicious URL with API parameters to delete videos, deactivate accounts, or modify playlists without user interaction.",
+      "id": "CVE-2026-51974",
+      "published": "2026-09-01T18:17:43.117",
+      "description": "An eval() injection vulnerability in the get_list function in modules/meta_parser.py in lllyasviel Fooocus 2.1.854 through 2.5.5 allows remote attackers to execute arbitrary Python code via a crafted styles payload in the EXIF metadata of an uploaded image file.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-51956",
+      "published": "2026-09-01T17:17:31.390",
+      "description": "A Broken Object Level Authorization vulnerability exists in Grashjs Atlas CMMS prior to v1.6.0. An authenticated user from one tenant can read and modify another tenant's company record by changing only the numeric ID in the /company/{id} endpoint. The application does not enforce tenant-level ownership checks when accessing or updating company objects, allowing cross-tenant access and modification of company profile data.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-84189",
-      "published": "2026-09-01T12:17:48.287",
-      "description": "LibreNMS through 26.4.0 renders JSON fields (name, ip, model, author, commit message) returned by the admin-configurable Oxidized integration URL (oxidized.url) into the device showconfig page without applying htmlspecialchars(). An administrator who points the Oxidized URL at an attacker-controlled server (SSRF) can cause it to return malicious JSON, resulting in stored/persistent cross-site scripting affecting all users who view any device's showconfig tab. Fixed in 26.7.0.",
+      "id": "CVE-2026-51788",
+      "published": "2026-09-01T17:17:31.137",
+      "description": "An issue in cleverange_auth v.0.1.10 allows a remote attacker to cause a denial of service via the account_verification function and the accounts/models.py component",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-84195",
-      "published": "2026-09-01T12:17:49.130",
-      "description": "Kyverno before 1.16.4 automatically attaches the admission controller's ServiceAccount token to outbound HTTP requests in apiCall service mode without explicit authorization headers. Attackers can exfiltrate the token by directing apiCall requests to external or attacker-controlled endpoints, gaining full control over Kyverno policies and cluster resources.",
+      "id": "CVE-2026-52022",
+      "published": "2026-09-01T18:17:43.243",
+      "description": "An issue in kamailio v.6.1.1 and before allows a remote attacker to cause a denial of service via the IMS P-CSCF registration handling components",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-84196",
-      "published": "2026-09-01T12:17:49.270",
-      "description": "Kyverno before 1.18.0 contains a server-side request forgery vulnerability in apiCall.service.url that allows authenticated users to send arbitrary HTTP requests by injecting user-controlled input through variable substitution. Attackers can target internal services, cloud metadata endpoints, and loopback addresses, with response data reflected in admission error messages enabling non-blind data exfiltration.",
+      "id": "CVE-2026-52130",
+      "published": "2026-09-01T18:17:43.603",
+      "description": "llama.cpp b5693 and before is vulnerable to Uncontrolled Recursion in common/json-schema-to-grammar.cpp, resulting in a denial of service.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-84199",
-      "published": "2026-09-01T12:17:49.407",
-      "description": "Kyverno before 1.16.2 contains a server-side request forgery (SSRF) vulnerability in the APICall feature. The URL field in a Policy's ServiceCall configuration is not validated, so a user with namespace-level Policy creation permissions can direct Kyverno to make HTTP requests to arbitrary internal resources (e.g., cloud metadata endpoints such as 169.254.169.254 or other tenants' resources). Because Kyverno executes these requests using its cluster-wide high-privilege ServiceAccount (a Confused Deputy problem), the responses—potentially including other tenants' secrets and cloud IAM credentials—are returned in the PolicyReport and can be read by the attacker, breaking multi-tenant isolation.",
+      "id": "CVE-2026-52131",
+      "published": "2026-09-01T18:17:43.717",
+      "description": "llama.cpp b5693 and before has a Reachable Assertion via the gguf_reader::read function.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-84190",
-      "published": "2026-09-01T12:17:48.450",
-      "description": "LibreNMS versions before 26.5.0 contain a remote code execution vulnerability in the AboutController where the snmpget configuration parameter is passed to shell_exec() without proper validation. An authenticated administrator can modify the snmpget configuration to point to a malicious executable file and trigger code execution by accessing the /about endpoint.",
+      "id": "CVE-2026-52132",
+      "published": "2026-09-01T18:17:43.823",
+      "description": "llama.cpp through commit 97f06e9, when started with the --reranking flag, allows remote attackers to cause a denial of service (std::bad_alloc and HTTP 500) via a negative top_n value in a POST request to /rerank.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-19590",
+      "published": "2026-09-01T18:17:40.140",
+      "description": "OpenAI Codex Desktop for Windows and macOS could execute attacker-controlled Git hooks because automated Git operations trusted the repository's local core.hooksPath setting. If a user opens an attacker-prepared repository whose preserved .git/config points core.hooksPath to an attacker-controlled directory, Codex can run a malicious hook while processing the repository. The hook executes outside Codex's command sandbox, without user approval, and with the user's privileges, allowing it to read, change, or delete the user's files and access other resources available to the user's account. An ordinary Git clone does not preserve the attacker-controlled repository-local configuration required for exploitation.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-19592",
+      "published": "2026-09-01T18:17:40.370",
+      "description": "OpenAI Codex CLI for Windows, macOS, and Linux and Codex Desktop for Windows and macOS automatically collected Git repository metadata without disabling the repository-local core.fsmonitor setting. If a user opens or uses an attacker-prepared repository whose preserved .git/config sets core.fsmonitor to an attacker-controlled filesystem-monitor helper, Git can execute that helper while Codex collects repository metadata. The helper runs outside Codex's command sandbox and without a user-approval prompt, allowing attacker-controlled code to run with the user's privileges. The code can read, change, or delete the user's files and access other resources available to the user's account. An ordinary Git clone does not preserve the source repository's local .git/config; exploitation requires a repository delivered or copied with that configuration intact.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-83551",
+      "published": "2026-09-01T19:17:29.483",
+      "description": "Cleartext storage of sensitive information in the @step and @remote decorator pipeline component in Amazon SageMaker Python SDK before v3.11.0 and v2.256.0 might allow an authenticated remote user to extract the HMAC signing key from SageMaker DescribePipeline API responses and forge valid integrity signatures for specially crafted function payloads, achieving code execution in another user's pipeline execution context within the same AWS account.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-84192",
-      "published": "2026-09-01T12:17:48.723",
-      "description": "LibreNMS before 26.3.1 contains a stored cross-site scripting vulnerability in legacy PHP templates that output SNMP-sourced and syslog-sourced data without escaping. An attacker who controls a monitored network device can inject arbitrary JavaScript through SNMP interface descriptions or syslog program fields that executes when authenticated users view affected pages.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2025-15613",
-      "published": "2026-09-01T12:17:18.183",
-      "description": "Kyverno before v1.13.4 is vulnerable to server-side request forgery (SSRF) via its Service Call functionality. An attacker with permission to create Kyverno (Cluster)Policies can specify an external URL in a policy's apiCall/service configuration; although Service Call is documented for in-cluster services, it also resolves external addresses, allowing requests to an attacker-controlled server. Because policy context data (including contents of Kubernetes resources such as secrets) is sent in these requests, an attacker can exfiltrate sensitive cluster data.",
+      "id": "CVE-2026-52295",
+      "published": "2026-09-01T18:17:43.940",
+      "description": "Buffer Overflow vulnerability in Ffmpeg v.7.0 and after allows an attacker to cause a denial of service via the libavformat/iamf_writer.c component",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-11873",
-      "published": "2026-09-01T12:17:35.300",
-      "description": "An Apache-proxied Dogtag CA REST endpoint exposed by IdM (POST /ca/rest/certrequests) returns HTTP 500 with internal Java stack traces for unauthenticated malformed requests. The same unauthenticated error path emits large multi-line stack traces into the CA debug log, creating a log-amplification resource exhaustion vector (disk growth and I/O contention) without requiring authentication.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-84191",
-      "published": "2026-09-01T12:17:48.587",
-      "description": "LibreNMS before 26.5.0 contains stored cross-site scripting vulnerabilities in VRF display pages where mplsVpnVrfDescription, vrf_name, and mplsVpnVrfRouteDistinguisher fields from SNMP polling are rendered without sanitization. Attackers controlling a monitored network device can inject arbitrary JavaScript through SNMP responses that executes in the browser of any user viewing VRF-related pages.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-10420",
-      "published": "2026-09-01T12:17:34.687",
-      "description": "Untrusted pointer dereference vulnerability in Samsung Open Source mTower allows Pointer Manipulation.\n\nThis issue affects mTower: before 102d3dc75cf8e58e68e4bea54ae3c803992c91be.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-77194",
-      "published": "2026-09-01T12:17:47.737",
-      "description": "The Simple Membership plugin for WordPress is vulnerable to Authentication Bypass leading to Administrator Account Takeover in versions up to, and including, 4.8.0. This is due to improper identity verification during the public registration flow in WordPress Multisite environments, where the plugin binds new Simple Membership records to existing global WordPress users based solely on matching username and email, without requiring password verification or ownership proof, and fails to properly detect Administrator roles on child sites. This makes it possible for unauthenticated attackers to take over Administrator accounts on child sites in a Multisite network by registering a Simple Membership account with a victim's credentials on a site where public registration is enabled, then updating the victim's global WordPress password through the profile edit functionality. The vulnerability was partially patched in version 4.8.1.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-84188",
-      "published": "2026-09-01T12:17:48.143",
-      "description": "LibreNMS versions <= 26.4.0 contain a stored cross-site scripting vulnerability in the graph_descr.<graphtype> configuration settings, which are echoed verbatim without HTML escaping in includes/html/pages/graphs.inc.php. An administrator can store a malicious HTML payload that executes in the browser of any authenticated user who views the affected graph type. The issue is fixed in version 26.7.0.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2023-54356",
-      "published": "2026-09-01T12:17:11.220",
-      "description": "Kyverno versions 1.9.4 and earlier support insecure 3DES cipher suites (TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA and TLS_RSA_WITH_3DES_EDE_CBC_SHA) on their TLS endpoints. These 64-bit block ciphers are vulnerable to the Sweet32 attack (CVE-2016-2183), which, over very long-lived TLS connections carrying large volumes of traffic, could allow an attacker to recover small amounts of plaintext. The issue is fixed in Kyverno 1.9.5 and 1.10.0.",
+      "id": "CVE-2026-81846",
+      "published": "2026-09-01T19:17:28.333",
+      "description": "An authorization bypass in the runZero Platform MCP service has been resolved in version 5.1.260826.0. This issue is an instance of CWE-639: Authorization Bypass Through User-Controlled Key and has an estimated CVSS score of CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:L/I:N/A:N (3.5 Low).",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-84193",
-      "published": "2026-09-01T12:17:48.867",
-      "description": "LibreNMS through 26.2.0 contains a stored cross-site scripting vulnerability in legacy PHP template pages that render unescaped SNMP-sourced data fields including BGP peer descriptions, VRF names, process information, and SLA tags. Attackers with device management access or network access to enroll a rogue SNMP device can inject malicious JavaScript that executes when admins view affected routing and device pages, enabling credential theft and CSRF token exfiltration.",
+      "id": "CVE-2024-7952",
+      "published": "2026-09-01T18:17:38.110",
+      "description": "A data exposure vulnerability exists in the affected product. There are hardcoded links in the source code that lead to JSON files that can be reached without authentication. If exploited, a threat actor could view customer data.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-84194",
-      "published": "2026-09-01T12:17:49.000",
-      "description": "LibreNMS versions >= 23.10.0 and < 26.2.0 (fixed in 26.4.0) contain an authenticated OS command injection vulnerability in libvirt discovery. When libvirt support is enabled (enable_libvirt=true), the device hostname ($this->getDevice()->hostname) is concatenated into shell commands (ssh, virsh list/dumpxml/domstate) in VminfoLibvirt.php and passed to exec() without escapeshellarg() or argument separation. An authenticated admin can set a crafted device hostname to inject arbitrary OS commands, leading to remote code execution in the discovery worker context.",
+      "id": "CVE-2024-7953",
+      "published": "2026-09-01T18:17:38.887",
+      "description": "A vulnerability exists in the affected products that allows a threat actor to create a project and become the administrator for it. If exploited, a threat actor could create, modify, and delete their own project.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-52023",
+      "published": "2026-09-01T18:17:43.360",
+      "description": "An issue in kamailio v.6.1.1 and before allows a remote attacker to cause a denial of service via the ims_registrar_pcscf module, specifically the pcscf_save_pending/save_pending path and security-agreement parsing in sec_agree.c:parse_sec_agree()",
       "severity": "UNKNOWN",
       "score": null
     }
