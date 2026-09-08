@@ -1,145 +1,145 @@
 {
-  "totalResults": 2132,
+  "totalResults": 3244,
   "items": [
     {
-      "id": "CVE-2026-51934",
-      "published": "2026-09-01T17:17:31.270",
-      "description": "Buffer Overflow vulnerability in Shenzhen Jixiang Tengda Technology Co., Ltd. Tenda A18 v.15.13.07.09 allows a remote attacker to execute arbitrary code via the fromSetCmdlineRun function",
+      "id": "CVE-2026-19766",
+      "published": "2026-09-01T20:17:12.760",
+      "description": "An authentication bypass vulnerability exists in the underlying operating system of HPE Networking Fabric Composer. Successful exploitation could allow an unauthenticated adjacent attacker to execute arbitrary code as a privileged user on the underlying operating system, leading to complete compromise of the AFC host.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-19593",
-      "published": "2026-09-01T18:17:40.480",
-      "description": "OpenAI Codex Desktop for Windows and macOS automatically inspected Git metadata and working-tree status when a user opened a workspace. If the workspace contains a repository with preserved attacker-controlled .git/config, the attr.tree setting and a configured clean or process filter can cause Git to run an attacker-controlled program. The program runs outside Codex's command sandbox with the signed-in user's privileges, without a workspace-trust prompt, command approval, or interaction with a model. The attacker can read, modify, or delete files and access credentials available to that user. Exploitation requires Git to be available on PATH and the user to open the attacker-prepared repository with its local Git configuration intact. An ordinary Git clone does not copy the source repository's .git/config and is not sufficient by itself.",
+      "id": "CVE-2026-73700",
+      "published": "2026-09-01T20:17:17.343",
+      "description": "A vulnerability in the web-based management interface of HPE Networking Fabric Composer could allow an authenticated low privilege operator user to conduct a stored cross-site scripting (XSS) attack against an administrative user of the interface. A successful exploit could allow an attacker to execute arbitrary script code in a victim's browser in the context of the affected interface.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9
     },
     {
-      "id": "CVE-2026-52111",
-      "published": "2026-09-01T18:17:43.477",
-      "description": "An issue in fast-note-sync-service <=2.13.7 allows a remote attacker to escalate privileges via the admin configuration endpoint exposes authTokenKey",
+      "id": "CVE-2026-73701",
+      "published": "2026-09-01T20:17:17.453",
+      "description": "An unauthenticated remote code execution vulnerability exists in the underlying operating system of HPE Networking Fabric Composer and could be exploited if certain preconditions outside of the attacker's control are met. Successful exploitation of this vulnerability could allow an unauthenticated remote attacker to execute arbitrary code as a privileged user on the underlying operating system, leading to complete compromise of the HPE Networking Fabric Composer host.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9
     },
     {
-      "id": "CVE-2026-58566",
-      "published": "2026-09-01T17:17:31.507",
-      "description": "Dell PowerStore, an Incorrect Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "id": "CVE-2026-72649",
+      "published": "2026-09-01T20:17:16.853",
+      "description": "Deserialization of Untrusted Data (CWE-502) in the Elasticsearch machine learning component can lead to remote code execution via Object Injection (CAPEC-586). A specially crafted trained model artifact could cause attacker-controlled logic to execute with a materially broader system-call surface than intended. Exploitation requires an authenticated user with sufficient privileges to create and deploy trained models.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-19591",
-      "published": "2026-09-01T18:17:40.260",
-      "description": "OpenAI Codex CLI for Windows, macOS, and Linux and Codex Desktop for Windows and macOS misclassified certain PowerShell commands as safe because their command-safety parser interpreted PowerShell's stop-parsing token (--%) differently than PowerShell itself. If a user opens an attacker-prepared repository and Codex follows its instructions, Codex can run a file-writing Git command without requesting user approval. On macOS and Linux, exploitation additionally requires separately installed PowerShell Core (pwsh) to be invoked. If filesystem protections permit the write, the command can modify Codex's configuration. If Codex later loads the modified configuration, it can launch an attacker-controlled MCP server and execute code with the user's privileges, allowing it to read, change, or delete files accessible to that account. The approval bypass does not disable filesystem sandboxing; the default filesystem sandbox on macOS and Linux can prevent writes outside permitted locations.",
+      "id": "CVE-2026-73702",
+      "published": "2026-09-01T20:17:17.557",
+      "description": "A privilege escalation vulnerability exists in the API of HPE Networking Fabric Composer. Successful exploitation could allow an authenticated low privilege operator user to escalate their permissions to those of an administrative user, leading to complete system compromise.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-51974",
-      "published": "2026-09-01T18:17:43.117",
-      "description": "An eval() injection vulnerability in the get_list function in modules/meta_parser.py in lllyasviel Fooocus 2.1.854 through 2.5.5 allows remote attackers to execute arbitrary Python code via a crafted styles payload in the EXIF metadata of an uploaded image file.",
+      "id": "CVE-2026-73703",
+      "published": "2026-09-01T20:17:17.663",
+      "description": "A vulnerability in the web-based management interface of HPE Networking Fabric Composer could allow an unauthenticated adjacent attacker to conduct a stored cross-site scripting (XSS) attack against a user of the interface. A successful exploit could allow an attacker to execute arbitrary script code in a victim's browser in the context of the affected interface.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-51956",
-      "published": "2026-09-01T17:17:31.390",
-      "description": "A Broken Object Level Authorization vulnerability exists in Grashjs Atlas CMMS prior to v1.6.0. An authenticated user from one tenant can read and modify another tenant's company record by changing only the numeric ID in the /company/{id} endpoint. The application does not enforce tenant-level ownership checks when accessing or updating company objects, allowing cross-tenant access and modification of company profile data.",
+      "id": "CVE-2026-73704",
+      "published": "2026-09-01T20:17:17.763",
+      "description": "A command sanitization bypass exists in the API of HPE Networking Fabric Composer. Successful exploitation could allow an authenticated low privilege operator user to escalate their permissions to those of an administrative user, leading to complete compromise of the affected system.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-51788",
-      "published": "2026-09-01T17:17:31.137",
-      "description": "An issue in cleverange_auth v.0.1.10 allows a remote attacker to cause a denial of service via the account_verification function and the accounts/models.py component",
+      "id": "CVE-2026-73705",
+      "published": "2026-09-01T20:17:17.870",
+      "description": "An arbitrary file write vulnerability in the API of HPE Networking Fabric Composer could allow an authenticated low privilege operator user to escalate privileges. Successful exploitation of this vulnerability may enable the attacker to execute arbitrary commands on the underlying operating system, leading to complete compromise of the affected system.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-52022",
-      "published": "2026-09-01T18:17:43.243",
-      "description": "An issue in kamailio v.6.1.1 and before allows a remote attacker to cause a denial of service via the IMS P-CSCF registration handling components",
+      "id": "CVE-2026-63137",
+      "published": "2026-09-01T20:17:15.117",
+      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to privilege escalation via Exploiting Incorrectly Configured Access Control Security Levels (CAPEC-180). A user holding workflow edit permissions could cause scheduled workflow executions to run with the privileges of a different, higher-privileged user, allowing access to and modification of data beyond their own authorization scope.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-52130",
-      "published": "2026-09-01T18:17:43.603",
-      "description": "llama.cpp b5693 and before is vulnerable to Uncontrolled Recursion in common/json-schema-to-grammar.cpp, resulting in a denial of service.",
+      "id": "CVE-2026-45221",
+      "published": "2026-09-01T20:17:14.680",
+      "description": "Konga before 2.1.0 contains a privilege escalation vulnerability that allows low-privileged local attackers to execute arbitrary code by planting attacker-controlled OpenSSL configuration or library files in a hardcoded filesystem path absent from default installations. On Windows, the missing directory resides in a location writable by any authenticated local user, enabling attackers to create the directory and place malicious files that execute at the privilege level of the user or service account that launches Konga, facilitating privilege escalation.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-52131",
-      "published": "2026-09-01T18:17:43.717",
-      "description": "llama.cpp b5693 and before has a Reachable Assertion via the gguf_reader::read function.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-52132",
-      "published": "2026-09-01T18:17:43.823",
-      "description": "llama.cpp through commit 97f06e9, when started with the --reranking flag, allows remote attackers to cause a denial of service (std::bad_alloc and HTTP 500) via a negative top_n value in a POST request to /rerank.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-19590",
-      "published": "2026-09-01T18:17:40.140",
-      "description": "OpenAI Codex Desktop for Windows and macOS could execute attacker-controlled Git hooks because automated Git operations trusted the repository's local core.hooksPath setting. If a user opens an attacker-prepared repository whose preserved .git/config points core.hooksPath to an attacker-controlled directory, Codex can run a malicious hook while processing the repository. The hook executes outside Codex's command sandbox, without user approval, and with the user's privileges, allowing it to read, change, or delete the user's files and access other resources available to the user's account. An ordinary Git clone does not preserve the attacker-controlled repository-local configuration required for exploitation.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-19592",
-      "published": "2026-09-01T18:17:40.370",
-      "description": "OpenAI Codex CLI for Windows, macOS, and Linux and Codex Desktop for Windows and macOS automatically collected Git repository metadata without disabling the repository-local core.fsmonitor setting. If a user opens or uses an attacker-prepared repository whose preserved .git/config sets core.fsmonitor to an attacker-controlled filesystem-monitor helper, Git can execute that helper while Codex collects repository metadata. The helper runs outside Codex's command sandbox and without a user-approval prompt, allowing attacker-controlled code to run with the user's privileges. The code can read, change, or delete the user's files and access other resources available to the user's account. An ordinary Git clone does not preserve the source repository's local .git/config; exploitation requires a repository delivered or copied with that configuration intact.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-83551",
-      "published": "2026-09-01T19:17:29.483",
-      "description": "Cleartext storage of sensitive information in the @step and @remote decorator pipeline component in Amazon SageMaker Python SDK before v3.11.0 and v2.256.0 might allow an authenticated remote user to extract the HMAC signing key from SageMaker DescribePipeline API responses and forge valid integrity signatures for specially crafted function payloads, achieving code execution in another user's pipeline execution context within the same AWS account.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-52295",
-      "published": "2026-09-01T18:17:43.940",
-      "description": "Buffer Overflow vulnerability in Ffmpeg v.7.0 and after allows an attacker to cause a denial of service via the libavformat/iamf_writer.c component",
+      "id": "CVE-2026-33465",
+      "published": "2026-09-01T20:17:13.460",
+      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user with low-level permissions could submit a specially crafted request that causes excessive resource consumption, which may render Kibana unavailable.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-81846",
-      "published": "2026-09-01T19:17:28.333",
-      "description": "An authorization bypass in the runZero Platform MCP service has been resolved in version 5.1.260826.0. This issue is an instance of CWE-639: Authorization Bypass Through User-Controlled Key and has an estimated CVSS score of CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:L/I:N/A:N (3.5 Low).",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-63138",
+      "published": "2026-09-01T20:17:15.247",
+      "description": "Improper Neutralization of Special Elements in Data Query Logic (CWE-943) in Kibana can lead to information disclosure via NoSQL Injection (CAPEC-676). An authenticated user with access to the affected query functionality could submit specially crafted input that alters the intended query logic, returning data the user is not authorized to read.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2024-7952",
-      "published": "2026-09-01T18:17:38.110",
-      "description": "A data exposure vulnerability exists in the affected product. There are hardcoded links in the source code that lead to JSON files that can be reached without authentication. If exploited, a threat actor could view customer data.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-72628",
+      "published": "2026-09-01T20:17:16.373",
+      "description": "Improper Handling of Highly Compressed Data (CWE-409) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding Streams management privileges could supply specially crafted content that expands to a far larger volume of data during processing, exhausting the memory available to Kibana. The Kibana process is terminated by the host and remains unavailable to all users until the service is restarted.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2024-7953",
-      "published": "2026-09-01T18:17:38.887",
-      "description": "A vulnerability exists in the affected products that allows a threat actor to create a project and become the administrator for it. If exploited, a threat actor could create, modify, and delete their own project.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-72644",
+      "published": "2026-09-01T20:17:16.733",
+      "description": "Uncaught Exception (CWE-248) in Kibana can lead to a denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only the low-privileged feature access required to use the Observability AI Assistant can submit a specially crafted request that produces an unhandled error condition, terminating the Kibana process and denying service to all users and spaces on that instance until it is restarted.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-52023",
-      "published": "2026-09-01T18:17:43.360",
-      "description": "An issue in kamailio v.6.1.1 and before allows a remote attacker to cause a denial of service via the ims_registrar_pcscf module, specifically the pcscf_save_pending/save_pending path and security-agreement parsing in sec_agree.c:parse_sec_agree()",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-72652",
+      "published": "2026-09-01T20:17:16.970",
+      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user can submit a specially crafted request that causes excessive resource consumption, which may render Kibana unavailable.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-72654",
+      "published": "2026-09-01T20:17:17.093",
+      "description": "Execution with Unnecessary Privileges (CWE-250) in the Kibana machine learning feature can lead to information disclosure via Privilege Abuse (CAPEC-122). An operation available to users holding only read access to the machine learning feature was performed with an internal service identity rather than the identity of the requesting user. Such a user could therefore receive data from Elasticsearch indices they are not authorized to read. No Elasticsearch cluster or index privileges are required.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-72682",
+      "published": "2026-09-01T20:17:17.227",
+      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only low, read-level Agent Builder privileges could submit a specially crafted request that causes Kibana to consume an unbounded amount of memory, terminating the process and denying service to all users of the instance.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-72641",
+      "published": "2026-09-01T20:17:16.613",
+      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to unauthorized modification of data via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An authenticated user holding only Security Solution read access in a Kibana space could enumerate and change the state of Entity Store maintainer tasks, silently disabling Entity Analytics maintenance for that space.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-56143",
+      "published": "2026-09-01T20:17:14.990",
+      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Elasticsearch can lead to a denial of service via Excessive Allocation (CAPEC-130). A user with elevated privileges can submit a specially crafted request that causes excessive memory consumption, which may render the affected node unavailable.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2026-72633",
+      "published": "2026-09-01T20:17:16.497",
+      "description": "Incorrect Authorization (CWE-863) in Kibana Entity Analytics can lead to a loss of security monitoring via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An authenticated user holding only read-level Security feature access, and no Elasticsearch privileges, could stop the recurring Privilege Monitoring engine task for a Kibana space. Privileged user monitoring then stops producing data for that space while the engine continues to report a healthy state to operators.",
+      "severity": "MEDIUM",
+      "score": 4.3
     }
   ]
 }
