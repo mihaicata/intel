@@ -1,47 +1,82 @@
 {
-  "totalResults": 2192,
+  "totalResults": 2213,
   "items": [
     {
-      "id": "CVE-2026-59681",
-      "published": "2026-09-01T10:17:13.300",
-      "description": "A OS command injection vulnerability in yast2-auth-client allows an attacker who controls Active Directory configuration values to execute arbitrary commands as root on the configured host.\n Auth::AuthConf in src/lib/auth/authconf.rb assembles the Samba net ads join, net ads lookup -S and net ads testjoin invocations by interpolating configuration values into a single command string and passing that string to Open3.popen2 / Open3.capture2, which causes Ruby to run it through /bin/sh. The Organizational Unit (ou), dnshostname, AD user name and AD domain name values are neither validated nor shell-quoted.",
+      "id": "CVE-2026-18550",
+      "published": "2026-09-01T12:17:35.920",
+      "description": "The Nokri - Job Board WordPress Theme for WordPress is vulnerable to Privilege Escalation via Account Takeover in all versions up to, and including, 1.6.6. This is due to insufficient reset token validation in the `nokri_reset_password()` function, which allows empty attacker-supplied reset tokens to match empty or unset `sb_password_forget_token` user meta values. This makes it possible for unauthenticated attackers to reset the password of any user, including administrators, and gain access to their account.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-84200",
+      "published": "2026-09-01T12:17:49.540",
+      "description": "Kyverno versions v1.9.0 through v1.12.7 contain a policy exception handling flaw. When a policy in enforce mode is combined with two PolicyExceptions, the less restrictive exception takes precedence, allowing an attacker to bypass the policy by crafting a resource name that matches the second exception's name pattern (e.g., '*ingress*'). This can be used to circumvent policies such as one blocking hostPath volumes. Fixed in v1.13.0.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-76111",
+      "published": "2026-09-01T12:17:47.113",
+      "description": "Dell PowerStore contains an Incorrect Authorization vulnerability. An authenticated attacker with low privileges could potentially exploit this vulnerability to invoke administrator-only operations, leading to privilege escalation.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-59680",
-      "published": "2026-09-01T10:17:13.160",
-      "description": "An OS command injection vulnerability was found in yast2-users. When displaying the \"Password Settings\" tab of a user, get_password_term() in src/include/users/dialogs.rb read the shadowLastChange and shadowExpire fields with GetString(), which performs no numeric validation, and passed the resulting string to format_days_after_epoch(). That helper interpolated the value into a shell command executed via Ruby backticks without quoting or escaping.\n\nImpact: an administrator who manages users against an external/federated LDAP directory via `yast2 users` triggers root command execution the moment they view or edit that particular user's \"Password Settings\" tab. No \"join domain\" or trust setup is required, just browsing/editing one user entry.\n\nThis issue affects yast2-users through 5.0.8.",
+      "id": "CVE-2026-84187",
+      "published": "2026-09-01T12:17:48.007",
+      "description": "AVideo contains a missing authentication vulnerability in plugin/Live/on_publish.php that allows unauthenticated attackers to mark arbitrary scheduled broadcasts as failed by sending crafted POST requests with schedule identifiers. Attackers can exploit the unguarded RTMP callback endpoint to modify scheduled broadcast status fields by supplying fabricated stream keys matching the pattern -ps-<N>, silently canceling any scheduled live broadcast without credentials or authorization.",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-25706",
-      "published": "2026-09-01T10:17:12.993",
-      "description": "Improper neutralization of special elements used in an OS command in yast2-samba-client allows an attacker who controls the content of an Active Directory directory tree - a rogue domain controller, or a directory user delegated the right to create objects - to execute arbitrary commands as root on a machine being joined to that domain.\nThis issue affects yast2-samba-client through 5.0.4.",
+      "id": "CVE-2026-83595",
+      "published": "2026-09-01T12:17:47.870",
+      "description": "AVideo contains a cross-site request forgery vulnerability in plugin/API/set.json.php that allows attackers to perform state-changing actions by crafting GET requests that bypass CSRF protection. Attackers can navigate a victim's browser to a malicious URL with API parameters to delete videos, deactivate accounts, or modify playlists without user interaction.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-84059",
-      "published": "2026-09-01T11:16:45.493",
-      "description": "A flaw has been found in ICP DAS UA-2200 and UA-5200 up to 20260704. The affected element is the function ArmAngstromInstructionSet of the file /CGI?RestApi=SetHostname. Executing a manipulation of the argument ParameterArray can lead to command injection. The attack can be executed remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-84189",
+      "published": "2026-09-01T12:17:48.287",
+      "description": "LibreNMS through 26.4.0 renders JSON fields (name, ip, model, author, commit message) returned by the admin-configurable Oxidized integration URL (oxidized.url) into the device showconfig page without applying htmlspecialchars(). An administrator who points the Oxidized URL at an attacker-controlled server (SSRF) can cause it to return malicious JSON, resulting in stored/persistent cross-site scripting affecting all users who view any device's showconfig tab. Fixed in 26.7.0.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-19914",
-      "published": "2026-09-01T10:17:12.843",
-      "description": "The Welcart e-Commerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom_order' parameter in all versions up to, and including, 2.12.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is delivered via the guest checkout form, requiring no authentication, and executes when an administrator views the affected order in the WordPress admin panel.",
+      "id": "CVE-2026-84195",
+      "published": "2026-09-01T12:17:49.130",
+      "description": "Kyverno before 1.16.4 automatically attaches the admission controller's ServiceAccount token to outbound HTTP requests in apiCall service mode without explicit authorization headers. Attackers can exfiltrate the token by directing apiCall requests to external or attacker-controlled endpoints, gaining full control over Kyverno policies and cluster resources.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-84196",
+      "published": "2026-09-01T12:17:49.270",
+      "description": "Kyverno before 1.18.0 contains a server-side request forgery vulnerability in apiCall.service.url that allows authenticated users to send arbitrary HTTP requests by injecting user-controlled input through variable substitution. Attackers can target internal services, cloud metadata endpoints, and loopback addresses, with response data reflected in admission error messages enabling non-blind data exfiltration.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-84199",
+      "published": "2026-09-01T12:17:49.407",
+      "description": "Kyverno before 1.16.2 contains a server-side request forgery (SSRF) vulnerability in the APICall feature. The URL field in a Policy's ServiceCall configuration is not validated, so a user with namespace-level Policy creation permissions can direct Kyverno to make HTTP requests to arbitrary internal resources (e.g., cloud metadata endpoints such as 169.254.169.254 or other tenants' resources). Because Kyverno executes these requests using its cluster-wide high-privilege ServiceAccount (a Confused Deputy problem), the responses—potentially including other tenants' secrets and cloud IAM credentials—are returned in the PolicyReport and can be read by the attacker, breaking multi-tenant isolation.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-84190",
+      "published": "2026-09-01T12:17:48.450",
+      "description": "LibreNMS versions before 26.5.0 contain a remote code execution vulnerability in the AboutController where the snmpget configuration parameter is passed to shell_exec() without proper validation. An authenticated administrator can modify the snmpget configuration to point to a malicious executable file and trigger code execution by accessing the /about endpoint.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-74916",
-      "published": "2026-09-01T08:17:01.393",
-      "description": "The WP Fastest Cache WordPress plugin before 1.5.1 does not include a set of tracking-related query parameters in its page-cache key while still caching pages requested with them, allowing unauthenticated attackers to have a page rendered under their own request context stored under, and served from, the clean URL's cache entry to every subsequent visitor.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-84192",
+      "published": "2026-09-01T12:17:48.723",
+      "description": "LibreNMS before 26.3.1 contains a stored cross-site scripting vulnerability in legacy PHP templates that output SNMP-sourced and syslog-sourced data without escaping. An attacker who controls a monitored network device can inject arbitrary JavaScript through SNMP interface descriptions or syslog program fields that executes when authenticated users view affected pages.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
       "id": "CVE-2025-15613",
@@ -58,39 +93,11 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-15101",
-      "published": "2026-09-01T10:17:10.253",
-      "description": "The WPBakery Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'data' parameter in all versions up to, and including, 8.7.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The wp_kses_post sanitization applied during save does not neutralize the payload because the malicious script content is base64-encoded as plain alphanumeric text with no HTML tags to strip; the vc_raw_html shortcode template then decodes and echoes this content unescaped at render time.",
+      "id": "CVE-2026-84191",
+      "published": "2026-09-01T12:17:48.587",
+      "description": "LibreNMS before 26.5.0 contains stored cross-site scripting vulnerabilities in VRF display pages where mplsVpnVrfDescription, vrf_name, and mplsVpnVrfRouteDistinguisher fields from SNMP polling are rendered without sanitization. Attackers controlling a monitored network device can inject arbitrary JavaScript through SNMP responses that executes in the browser of any user viewing VRF-related pages.",
       "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-16786",
-      "published": "2026-09-01T10:17:11.603",
-      "description": "The Live Composer – Free WordPress Website Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via dslc_module_testimonials_output Shortcode in all versions up to, and including, 2.1.19 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload survives save-time wp_kses_post filtering because KSES treats shortcode delimiters as opaque, and the unescaped fields — including main_heading_title, view_all_link, main_heading_link_title, and main_filter_title_all — are only rendered when do_shortcode() executes at page-view time.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-16788",
-      "published": "2026-09-01T10:17:11.740",
-      "description": "The Live Composer – Free WordPress Website Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via dslc_module_projects_output Shortcode in all versions up to, and including, 2.1.19 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. WordPress's shortcode-aware kses handling preserves the serialized shortcode body as a placeholder before content filtering runs, allowing attacker-controlled values such as view_all_link, main_heading_link_title, main_filter_title_all, and button_text to reach render-time sinks entirely unescaped.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-82926",
-      "published": "2026-09-01T11:16:45.243",
-      "description": "NULL pointer dereference vulnerability in Samsung Open Source mTower allows Pointer Manipulation.\n\nThis issue affects mTower: before afef59aa6f55c5d5ebf9b14bc020bf1c2c37489a.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-82927",
-      "published": "2026-09-01T11:16:45.373",
-      "description": "Untrusted pointer dereference vulnerability in Samsung Open Source mTower allows Pointer Manipulation.\n\nThis issue affects mTower: before 06994e303637512e39062f3e037c222e8448e57e.",
-      "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.1
     },
     {
       "id": "CVE-2026-10420",
@@ -100,16 +107,16 @@
       "score": 5.5
     },
     {
-      "id": "CVE-2026-13611",
-      "published": "2026-09-01T08:17:00.263",
-      "description": "The KiviCare WordPress plugin before 4.5.5 does not perform authorization checks on some of its REST endpoints, allowing unauthenticated attackers to disclose the patient roster and, when a payment gateway is configured, the payment gateway secret key.",
+      "id": "CVE-2026-77194",
+      "published": "2026-09-01T12:17:47.737",
+      "description": "The Simple Membership plugin for WordPress is vulnerable to Authentication Bypass leading to Administrator Account Takeover in versions up to, and including, 4.8.0. This is due to improper identity verification during the public registration flow in WordPress Multisite environments, where the plugin binds new Simple Membership records to existing global WordPress users based solely on matching username and email, without requiring password verification or ownership proof, and fails to properly detect Administrator roles on child sites. This makes it possible for unauthenticated attackers to take over Administrator accounts on child sites in a Multisite network by registering a Simple Membership account with a victim's credentials on a site where public registration is enabled, then updating the victim's global WordPress password through the profile edit functionality. The vulnerability was partially patched in version 4.8.1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-78363",
-      "published": "2026-09-01T08:17:01.510",
-      "description": "The MW WP Form WordPress plugin before 5.1.5 does not prevent shortcodes in user-submitted values from being executed when it merges those values into a message that it later processes for shortcodes, allowing unauthenticated users to run any shortcode registered on the site. Exploitation requires the site to have been configured to echo a submitted value back to the visitor after submission.",
+      "id": "CVE-2026-84188",
+      "published": "2026-09-01T12:17:48.143",
+      "description": "LibreNMS versions <= 26.4.0 contain a stored cross-site scripting vulnerability in the graph_descr.<graphtype> configuration settings, which are echoed verbatim without HTML escaping in includes/html/pages/graphs.inc.php. An administrator can store a malicious HTML payload that executes in the browser of any authenticated user who views the affected graph type. The issue is fixed in version 26.7.0.",
       "severity": "MEDIUM",
       "score": 4.8
     },
@@ -121,23 +128,16 @@
       "score": 3.7
     },
     {
-      "id": "CVE-2026-78319",
-      "published": "2026-09-01T07:16:36.523",
-      "description": "A service running on the affected products contains a potential Time-of-Check Time-of-Use (TOCTOU) race condition.\nAn unauthenticated remote attacker could exploit this race condition to bypass intended security controls.\nThis may result in the execution of unauthorized code.",
+      "id": "CVE-2026-84193",
+      "published": "2026-09-01T12:17:48.867",
+      "description": "LibreNMS through 26.2.0 contains a stored cross-site scripting vulnerability in legacy PHP template pages that render unescaped SNMP-sourced data fields including BGP peer descriptions, VRF names, process information, and SLA tags. Attackers with device management access or network access to enroll a rogue SNMP device can inject malicious JavaScript that executes when admins view affected routing and device pages, enabling credential theft and CSRF token exfiltration.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-4813",
-      "published": "2026-09-01T11:16:44.443",
-      "description": "A vulnerability in the Lutece Core XSL export management module up to version 7.1.7, which allows authenticated administrators to execute code remotely. The XML/XSLT processing configuration does not enable secure processing mode (FEATURE_SECURE_PROCESSING), allowing Java extension functions to be executed from malicious XSL stylesheets. An attacker with administrator privileges can upload a manipulated XSL transformation file and trigger its execution during user export operations, resulting in the execution of arbitrary code on the server.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-84165",
-      "published": "2026-09-01T11:16:45.713",
-      "description": "A vulnerability relating to incorrect access control in OpenNebula by OpenNebula Systems, affecting all versions prior to 7.4. This vulnerability could allow an authenticated user with basic permissions to execute commands on virtual machines belonging to other users via the `one.vm.exec` function, without proper verification of access permissions. To exploit the vulnerability, it is only necessary to know the virtual machine’s identifier and for qemu-agent to be enabled on that machine. Exploitation could allow commands to be executed and compromise the confidentiality, integrity and availability of the affected virtual machines.",
+      "id": "CVE-2026-84194",
+      "published": "2026-09-01T12:17:49.000",
+      "description": "LibreNMS versions >= 23.10.0 and < 26.2.0 (fixed in 26.4.0) contain an authenticated OS command injection vulnerability in libvirt discovery. When libvirt support is enabled (enable_libvirt=true), the device hostname ($this->getDevice()->hostname) is concatenated into shell commands (ssh, virsh list/dumpxml/domstate) in VminfoLibvirt.php and passed to exec() without escapeshellarg() or argument separation. An authenticated admin can set a crafted device hostname to inject arbitrary OS commands, leading to remote code execution in the discovery worker context.",
       "severity": "UNKNOWN",
       "score": null
     }
