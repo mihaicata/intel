@@ -1,20 +1,6 @@
 {
-  "totalResults": 2190,
+  "totalResults": 2204,
   "items": [
-    {
-      "id": "CVE-2026-82971",
-      "published": "2026-08-31T23:16:35.460",
-      "description": "A vulnerability was determined in QVidium Opera11 3.3.2a26-Ax4x-opera11. This affects an unknown part of the file /cgi-bin/net_tr.cgi of the component CGI Script. This manipulation of the argument ipaddr causes command injection. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor explains: \"QVidium has now closed its doors and no longer will be able to sell products or provide support.\" This vulnerability only affects products that are no longer supported by the maintainer.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-83524",
-      "published": "2026-08-31T23:16:35.650",
-      "description": "A security vulnerability has been detected in RedPort Optimizer wXa-203, Optimizer wXa-213 and Optimizer wXa-223 up to 20260704. This impacts the function exec of the file /xgatev1/system/datetime.php of the component System Clock. The manipulation leads to command injection. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
     {
       "id": "CVE-2026-75865",
       "published": "2026-09-01T03:16:51.370",
@@ -56,13 +42,6 @@
       "description": "A flaw was found in popt. This vulnerability allows an attacker to provide specially crafted configuration content to a host, which, when loaded, can lead to a small memory corruption issue. This occurs because of an error in how the `poptConfigFileToString` function reallocates memory for buffers. Successful exploitation could result in heap metadata corruption, potentially causing the affected process to become unavailable (denial of service).",
       "severity": "LOW",
       "score": 2.5
-    },
-    {
-      "id": "CVE-2026-4560",
-      "published": "2026-08-31T23:16:35.360",
-      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. Reason: This candidate was issued in error. Notes: All references and descriptions in this candidate have been removed to prevent accidental usage.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-19820",
@@ -138,6 +117,27 @@
       "id": "CVE-2026-82735",
       "published": "2026-09-01T04:18:02.817",
       "description": "Uncontrolled Resource Consumption vulnerability in ash-project ash allows an attacker to force an expensive regular expression to run on input that a length constraint should have already rejected.\n\nAsh.Type.String.apply_constraints/2 (lib/ash/type/string.ex) evaluated the :match regex regardless of the min_length and max_length constraints on the same attribute. Because the length check did not gate the regex, an over-length value that the length constraint rejects still had the pattern applied to it, so the length limit that would otherwise bound the work never constrained the regex input. Against a backtracking pattern this yields catastrophic regex evaluation on attacker-sized input, and even a linear pattern runs on arbitrarily large input, consuming CPU per request. The fix skips the :match regex whenever a length constraint is violated, making the two checks order-independent.\n\nThis issue affects ash: from 0.10.0 before 3.32.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82736",
+      "published": "2026-09-01T04:18:03.007",
+      "description": "Incorrect Behavior Order: Validate Before Canonicalize vulnerability in ash-project ash lets an attacker store a case-insensitive string value that violates its length or match constraints.\n\nAsh.Type.CiString.apply_constraints/2 (lib/ash/type/ci_string.ex) validated the max_length, min_length, and match constraints against the value as submitted, while the type case-folds the string (per its casing) for storage and comparison. Because validation ran before folding, an attacker can submit a value whose folded form breaks a constraint but whose original form passes: for example, against a match pattern requiring uppercase, an uppercase value that is stored lowercased persists a value the pattern rejects. The fix case-folds the value at the start of apply_constraints/2, so the constraints are checked against the form that is actually stored.\n\nThis issue affects ash: from 1.29.0-rc0 before 3.32.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82737",
+      "published": "2026-09-01T04:18:03.193",
+      "description": "Integer Overflow or Wraparound vulnerability in ash-project ash lets an attacker corrupt a stored vector and crash later reads of it by submitting a vector with more than 65,535 elements.\n\nAsh.Vector.new/1 (lib/ash/vector.ex) encodes a vector as <<dim::unsigned-16, 0::unsigned-16>> followed by the element floats, packing the element count into a 16-bit field without checking its range. A list of more than 65,535 elements wraps the dimension modulo 65,536, so the encoded header records a dimension that disagrees with the number of stored floats. from_binary/1 later reads binary-size(dim)-unit(32) from the wrapped header, so every read of the corrupted value misparses and raises, denying access to the affected record. The fix rejects any vector whose dimension exceeds 65,535.\n\nThis issue affects ash: from 2.14.13 before 3.32.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82738",
+      "published": "2026-09-01T04:18:03.387",
+      "description": "Improper Input Validation vulnerability in ash-project ash allows an attacker to persistently deny reads of a record by storing a non-version-7 UUID in an Ash.Type.UUIDv7 attribute.\n\nAsh.Type.UUIDv7.cast_input/2 accepts any well-formed UUID string, including non-version-7 UUIDs, and stores it as a 16-byte binary. On read, cast_stored/2 (lib/ash/type/uuid_v7.ex) routes the stored binary back through cast_input/2, which since an input-validation tightening in v3.6.3 matches only version-7 (and optionally version-4) 16-byte binaries and otherwise expects a 36-character string. A stored non-v7 16-byte binary matches neither clause and returns :error, so every later read of that record fails. An attacker able to set such an attribute poisons the row permanently. The fix decodes any 16-byte stored binary directly in cast_stored/2.\n\nThis issue affects ash: from 3.6.3 before 3.32.2.",
       "severity": "UNKNOWN",
       "score": null
     }
