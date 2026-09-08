@@ -1,145 +1,145 @@
 {
-  "totalResults": 3244,
+  "totalResults": 3323,
   "items": [
     {
-      "id": "CVE-2026-19766",
-      "published": "2026-09-01T20:17:12.760",
-      "description": "An authentication bypass vulnerability exists in the underlying operating system of HPE Networking Fabric Composer. Successful exploitation could allow an unauthenticated adjacent attacker to execute arbitrary code as a privileged user on the underlying operating system, leading to complete compromise of the AFC host.",
+      "id": "CVE-2026-84480",
+      "published": "2026-09-01T23:17:22.220",
+      "description": "WWBN AVideo fails to validate password recovery token expiration in userRecoverPassSave.json.php, allowing attackers to use expired tokens to reset account passwords indefinitely. Attackers who obtain a recovery token can use it at any time to change the target account's password and gain full account access.",
       "severity": "CRITICAL",
-      "score": 9.6
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-73700",
-      "published": "2026-09-01T20:17:17.343",
-      "description": "A vulnerability in the web-based management interface of HPE Networking Fabric Composer could allow an authenticated low privilege operator user to conduct a stored cross-site scripting (XSS) attack against an administrative user of the interface. A successful exploit could allow an attacker to execute arbitrary script code in a victim's browser in the context of the affected interface.",
+      "id": "CVE-2026-84325",
+      "published": "2026-09-02T00:18:27.340",
+      "description": "Improper input validation in DataTransfer in Google Chrome prior to 152.0.7977.75 allowed a remote attacker leveraging social engineering to bypass system access restrictions via a co-installed app. (Chromium security severity: High)",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-84479",
+      "published": "2026-09-01T23:17:22.083",
+      "description": "WWBN AVideo (current e01e41ecc and earlier) makes three login-time security controls depend solely on the client-supplied User-Agent header. The isAVideoEncoder()/isAVideoMobileApp() checks match HTTP_USER_AGENT against a hardcoded literal (\"AVideoEncoder\"/\"AVideoMobileApp\") with no IP check or shared secret. An attacker who submits valid credentials and sets User-Agent: AVideoEncoder bypasses two-factor authentication, skips brute-force captcha escalation, and avoids being recorded in the login/device audit history. No patch is available at the time of publication.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-84324",
+      "published": "2026-09-02T00:18:27.230",
+      "description": "Use after free in Proxy in Google Chrome prior to 152.0.7977.75 allowed a remote attacker to execute arbitrary code outside the sandbox via crafted network traffic. (Chromium security severity: High)",
       "severity": "CRITICAL",
       "score": 9
     },
     {
-      "id": "CVE-2026-73701",
-      "published": "2026-09-01T20:17:17.453",
-      "description": "An unauthenticated remote code execution vulnerability exists in the underlying operating system of HPE Networking Fabric Composer and could be exploited if certain preconditions outside of the attacker's control are met. Successful exploitation of this vulnerability could allow an unauthenticated remote attacker to execute arbitrary code as a privileged user on the underlying operating system, leading to complete compromise of the HPE Networking Fabric Composer host.",
-      "severity": "CRITICAL",
-      "score": 9
-    },
-    {
-      "id": "CVE-2026-72649",
-      "published": "2026-09-01T20:17:16.853",
-      "description": "Deserialization of Untrusted Data (CWE-502) in the Elasticsearch machine learning component can lead to remote code execution via Object Injection (CAPEC-586). A specially crafted trained model artifact could cause attacker-controlled logic to execute with a materially broader system-call surface than intended. Exploitation requires an authenticated user with sufficient privileges to create and deploy trained models.",
+      "id": "CVE-2026-84482",
+      "published": "2026-09-01T23:17:22.477",
+      "description": "WWBN AVideo through commit 9c39d8c8 contains a cross-site request forgery vulnerability in the get_domain() and isSameDomain() functions that fail to properly validate referer origins. Attackers can forge requests from sibling subdomains or unparseable long-gTLD origins to perform administrative ObjectYPT writes including live server configuration changes.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-73702",
-      "published": "2026-09-01T20:17:17.557",
-      "description": "A privilege escalation vulnerability exists in the API of HPE Networking Fabric Composer. Successful exploitation could allow an authenticated low privilege operator user to escalate their permissions to those of an administrative user, leading to complete system compromise.",
+      "id": "CVE-2026-84326",
+      "published": "2026-09-02T00:18:27.447",
+      "description": "Uninitialized resource in V8 in Google Chrome prior to 152.0.7977.75 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-73703",
-      "published": "2026-09-01T20:17:17.663",
-      "description": "A vulnerability in the web-based management interface of HPE Networking Fabric Composer could allow an unauthenticated adjacent attacker to conduct a stored cross-site scripting (XSS) attack against a user of the interface. A successful exploit could allow an attacker to execute arbitrary script code in a victim's browser in the context of the affected interface.",
+      "id": "CVE-2026-84208",
+      "published": "2026-09-01T23:17:21.353",
+      "description": "AVideo through version 29.0 contains an unauthenticated SQL injection vulnerability in the User_Location plugin's regions.json.php and cities.json.php endpoints. The country and region GET parameters are passed directly into SQL queries without escaping or prepared statement binding, allowing unauthenticated attackers to execute UNION-based SQL injection to read arbitrary database contents including password hashes and sensitive data.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-73704",
-      "published": "2026-09-01T20:17:17.763",
-      "description": "A command sanitization bypass exists in the API of HPE Networking Fabric Composer. Successful exploitation could allow an authenticated low privilege operator user to escalate their permissions to those of an administrative user, leading to complete compromise of the affected system.",
+      "id": "CVE-2026-84476",
+      "published": "2026-09-01T23:17:21.670",
+      "description": "WWBN AVideo fails to validate trusted proxies before accepting X-Real-IP and X-Forwarded-For headers, allowing attackers to spoof the client address used by enforceRateLimit(). Attackers can rotate the header value per request to bypass login rate limiting and perform unlimited credential guessing attacks.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-73705",
-      "published": "2026-09-01T20:17:17.870",
-      "description": "An arbitrary file write vulnerability in the API of HPE Networking Fabric Composer could allow an authenticated low privilege operator user to escalate privileges. Successful exploitation of this vulnerability may enable the attacker to execute arbitrary commands on the underlying operating system, leading to complete compromise of the affected system.",
+      "id": "CVE-2026-81928",
+      "published": "2026-09-02T00:18:26.147",
+      "description": "Net::DNS versions before 1.57 for Perl allow memory exhaustion via unbounded recursion in sig_data when re-encoding a message with a misplaced TSIG record.\n\nsig_data signs a message by re-encoding it, and removes TSIG records only from the additional section. A TSIG decoded into the answer or authority section survives that step and is signed again, so encoding re-enters sig_data with no termination condition. Decoding does not reject such a message: a TSIG that is not the last record on the wire raises \"misplaced or corrupt TSIG\", but the error is caught, reported as a warning, and the record is left in the packet. RFC 8945 section 5.2 requires the message to be dropped.\n\nThe recursion is reached only when the decoded TSIG carries an empty MAC, since a MAC recovered from the wire short-circuits the signing step. It is reached only from code that re-encodes a message it decoded, such as a forwarder or a proxy. A decoded message that is never re-encoded is unaffected. Message direction does not matter: a query reaches the same path as a response.\n\nEach cycle re-encodes the whole message, so fewer than 100 bytes on the wire exhaust available memory and terminate the process.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-63137",
-      "published": "2026-09-01T20:17:15.117",
-      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to privilege escalation via Exploiting Incorrectly Configured Access Control Security Levels (CAPEC-180). A user holding workflow edit permissions could cause scheduled workflow executions to run with the privileges of a different, higher-privileged user, allowing access to and modification of data beyond their own authorization scope.",
+      "id": "CVE-2026-84423",
+      "published": "2026-09-01T23:17:21.497",
+      "description": "A vulnerability has been found in Casdoor up to 4.0.0. This affects an unknown function of the file controllers/resource.go of the component upload-resource API. Such manipulation leads to missing authentication. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor deleted the GitHub issue for this vulnerability without any explanation. Afterwards the vendor was contacted early about this disclosure via email but did not respond in any way.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-45221",
-      "published": "2026-09-01T20:17:14.680",
-      "description": "Konga before 2.1.0 contains a privilege escalation vulnerability that allows low-privileged local attackers to execute arbitrary code by planting attacker-controlled OpenSSL configuration or library files in a hardcoded filesystem path absent from default installations. On Windows, the missing directory resides in a location writable by any authenticated local user, enabling attackers to create the directory and place malicious files that execute at the privilege level of the user or service account that launches Konga, facilitating privilege escalation.",
+      "id": "CVE-2026-84478",
+      "published": "2026-09-01T23:17:21.947",
+      "description": "WWBN AVideo contains a path traversal vulnerability in the API get_api_login_code endpoint that allows unauthenticated attackers to delete arbitrary .log files by supplying directory traversal sequences in the code parameter. Attackers can exploit this to destroy audit logs and probe for file existence on the server, with the vulnerability enabling both file deletion and information disclosure about the filesystem.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-33465",
-      "published": "2026-09-01T20:17:13.460",
-      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user with low-level permissions could submit a specially crafted request that causes excessive resource consumption, which may render Kibana unavailable.",
+      "id": "CVE-2026-84327",
+      "published": "2026-09-02T00:18:27.557",
+      "description": "Incorrect authorization in Autofill in Google Chrome on on Android prior to 152.0.7977.75 allowed a remote attacker leveraging social engineering to obtain sensitive information via a crafted HTML page. (Chromium security severity: Low)",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-63138",
-      "published": "2026-09-01T20:17:15.247",
-      "description": "Improper Neutralization of Special Elements in Data Query Logic (CWE-943) in Kibana can lead to information disclosure via NoSQL Injection (CAPEC-676). An authenticated user with access to the affected query functionality could submit specially crafted input that alters the intended query logic, returning data the user is not authorized to read.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-72628",
-      "published": "2026-09-01T20:17:16.373",
-      "description": "Improper Handling of Highly Compressed Data (CWE-409) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding Streams management privileges could supply specially crafted content that expands to a far larger volume of data during processing, exhausting the memory available to Kibana. The Kibana process is terminated by the host and remains unavailable to all users until the service is restarted.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-72644",
-      "published": "2026-09-01T20:17:16.733",
-      "description": "Uncaught Exception (CWE-248) in Kibana can lead to a denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only the low-privileged feature access required to use the Observability AI Assistant can submit a specially crafted request that produces an unhandled error condition, terminating the Kibana process and denying service to all users and spaces on that instance until it is restarted.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-72652",
-      "published": "2026-09-01T20:17:16.970",
-      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user can submit a specially crafted request that causes excessive resource consumption, which may render Kibana unavailable.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-72654",
-      "published": "2026-09-01T20:17:17.093",
-      "description": "Execution with Unnecessary Privileges (CWE-250) in the Kibana machine learning feature can lead to information disclosure via Privilege Abuse (CAPEC-122). An operation available to users holding only read access to the machine learning feature was performed with an internal service identity rather than the identity of the requesting user. Such a user could therefore receive data from Elasticsearch indices they are not authorized to read. No Elasticsearch cluster or index privileges are required.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-72682",
-      "published": "2026-09-01T20:17:17.227",
-      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Kibana can lead to a denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only low, read-level Agent Builder privileges could submit a specially crafted request that causes Kibana to consume an unbounded amount of memory, terminating the process and denying service to all users of the instance.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-72641",
-      "published": "2026-09-01T20:17:16.613",
-      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to unauthorized modification of data via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An authenticated user holding only Security Solution read access in a Kibana space could enumerate and change the state of Entity Store maintainer tasks, silently disabling Entity Analytics maintenance for that space.",
+      "id": "CVE-2026-84477",
+      "published": "2026-09-01T23:17:21.810",
+      "description": "AVideo Live_schedule::setTitle() and setDescription() store POST input without sanitization, allowing users with streaming permission to inject malicious scripts. Unauthenticated attackers can access remindMe.php to execute stored XSS payloads in victim browsers without requiring authentication.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-56143",
-      "published": "2026-09-01T20:17:14.990",
-      "description": "Allocation of Resources Without Limits or Throttling (CWE-770) in Elasticsearch can lead to a denial of service via Excessive Allocation (CAPEC-130). A user with elevated privileges can submit a specially crafted request that causes excessive memory consumption, which may render the affected node unavailable.",
+      "id": "CVE-2026-84330",
+      "published": "2026-09-02T00:18:27.870",
+      "description": "UI misrepresentation in FullScreen in Google Chrome on on Android prior to 152.0.7977.75 allowed a remote attacker to spoof address bar via a crafted HTML page. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-72633",
-      "published": "2026-09-01T20:17:16.497",
-      "description": "Incorrect Authorization (CWE-863) in Kibana Entity Analytics can lead to a loss of security monitoring via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An authenticated user holding only read-level Security feature access, and no Elasticsearch privileges, could stop the recurring Privilege Monitoring engine task for a Kibana space. Privileged user monitoring then stops producing data for that space while the engine continues to report a healthy state to operators.",
+      "id": "CVE-2026-84483",
+      "published": "2026-09-01T23:17:22.617",
+      "description": "WWBN AVideo through commit 9c39d8c8 contains an incomplete authentication bypass in encryptPass.json.php that allows unauthenticated attackers to compute valid HMAC tokens using the public site URL and current time. Attackers can forge authentication tokens by computing hash_hmac with the site's base URL as the key and submit arbitrary passwords to receive encrypted hashes, enabling offline precomputation attacks against stolen password databases.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84323",
+      "published": "2026-09-02T00:18:27.113",
+      "description": "Missing authorization in FileSystem in Google Chrome prior to 152.0.7977.75 allowed a remote attacker who had compromised the renderer process and leveraged social engineering to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84329",
+      "published": "2026-09-02T00:18:27.767",
+      "description": "Confused deputy in CredentialProvider in Google Chrome on on Windows prior to 152.0.7977.75 allowed a remote attacker who had compromised the renderer process to leak sensitive information via a crafted HTML page. (Chromium security severity: Low)",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84328",
+      "published": "2026-09-02T00:18:27.657",
+      "description": "Missing authorization in FileSystem in Google Chrome prior to 152.0.7977.75 allowed a remote attacker who had compromised the renderer process to bypass web origin policy via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-84331",
+      "published": "2026-09-02T00:18:27.980",
+      "description": "Incorrect authorization in Actor in Google Chrome prior to 152.0.7977.75 allowed a remote attacker who had compromised the renderer process to bypass web origin policy via a crafted HTML page. (Chromium security severity: Low)",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-84481",
+      "published": "2026-09-01T23:17:22.350",
+      "description": "WWBN AVideo through 30.0 contains an information disclosure vulnerability in the MobileManager plugin getConfiguration endpoint that returns sensitive configuration data to unauthenticated visitors. Attackers can send an unauthenticated GET request to plugin/MobileManager/getConfiguration.json.php to obtain TLS private key file paths, socket configuration details, platform version, and debug flags enabling further targeted attacks.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
