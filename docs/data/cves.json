@@ -1,143 +1,143 @@
 {
-  "totalResults": 3596,
+  "totalResults": 3588,
   "items": [
     {
-      "id": "CVE-2026-20212",
-      "published": "2026-09-02T17:17:31.547",
-      "description": "A vulnerability in the Silicon One integration for Cisco Nexus 9000 Series Switches could allow an unauthenticated, remote attacker to execute code with&nbsp;root privileges.\r\n\r\nThis vulnerability exists because TCP ports 43210 and 43211 are accessible in the default Layer 3 (L3) virtual routing and forwarding (VRF). A successful exploit could allow the attacker to connect to an affected device and send crafted input that could be executed as code with&nbsp;root privileges. The exploitation of this vulnerability could also cause the S1HAL process to crash, which could cause the device to reload.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-20274",
-      "published": "2026-09-02T17:17:32.630",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20274 are related to improper resource control issues that are grouped under the Common Weakness Enumeration (CWE) CWE-664.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-20279",
-      "published": "2026-09-02T17:17:33.420",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20279 are related to improper access control issues that are grouped under the Common Weakness Enumeration (CWE) CWE-284.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-20275",
-      "published": "2026-09-02T17:17:32.790",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20275 are related to incorrect calculation issues that are grouped under the Common Weakness Enumeration (CWE) CWE-682.",
+      "id": "CVE-2023-20576",
+      "published": "2026-09-02T20:17:32.950",
+      "description": "Insufficient Verification of Data Authenticity in AGESA™ may allow an attacker to update SPI ROM data potentially resulting in denial of service or privilege escalation.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-20278",
-      "published": "2026-09-02T17:17:33.267",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20278 are related to improper neutralization issues that are grouped under the Common Weakness Enumeration (CWE) CWE-707.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-20280",
-      "published": "2026-09-02T17:17:33.580",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the&nbsp;Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20280 are related to improper checking or handling of exceptional condition issues that are grouped under the Common Weakness Enumeration (CWE) CWE-703.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-20276",
-      "published": "2026-09-02T17:17:32.957",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20276 are related to insufficient control flow management issues that are grouped under the Common Weakness Enumeration (CWE) CWE-691.",
-      "severity": "HIGH",
-      "score": 8.6
-    },
-    {
-      "id": "CVE-2026-45730",
-      "published": "2026-09-02T17:17:40.847",
-      "description": "Nuclio is a \"Serverless\" framework for Real-Time Events and Data Processing. Prior to version 1.16.0, there is a vulnerability in Nuclio Dashboard's project management API, allowing any authenticated user (without membership in the target project) to bypass OPA authorization checks on write paths (PUT /api/projects/{id}, DELETE /api/projects) and modify or delete any project along with all its associated resources (functions, API gateways, etc.). This issue has been patched in version 1.16.0.",
-      "severity": "HIGH",
-      "score": 8.3
-    },
-    {
-      "id": "CVE-2026-20277",
-      "published": "2026-09-02T17:17:33.110",
-      "description": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco IOS XR Software engineering team has conducted a comprehensive internal security review. This review resulted in a software hardening releases that address multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20277 are related to protection mechanism failure issues that are grouped under the Common Weakness Enumeration (CWE) CWE-693.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-52831",
-      "published": "2026-09-02T17:17:45.347",
-      "description": "Nuclio is a \"Serverless\" framework for Real-Time Events and Data Processing. Prior to version 1.16.4, the Nuclio controller builds a curl invocation string for each cron trigger and stores it as the args of a Kubernetes CronJob container (/bin/sh, -c, <command>). Two fields in the trigger specification flow into this string without adequate sanitization: event.headers keys and event.body. This issue has been patched in version 1.16.4.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-52833",
-      "published": "2026-09-02T17:17:45.630",
-      "description": "Nuclio is a \"Serverless\" framework for Real-Time Events and Data Processing. Prior to version 1.16.5, Nuclio's Java runtime generates a build.gradle file during function builds using Go's text/template package. The template renders runtimeAttributes.repositories[] values with the {{ . }} action, which performs no escaping. An attacker can embed a closing brace (}) to break out of the repositories {} block and append arbitrary Groovy statements that execute unconditionally during the Gradle configuration phase. This issue has been patched in version 1.16.5.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-79755",
-      "published": "2026-09-02T17:17:59.940",
-      "description": "Nuclio is a \"Serverless\" framework for Real-Time Events and Data Processing. Prior to version 1.17.4, on the Nuclio local Docker platform, the function namespace is interpolated—unvalidated—into a double-quoted docker ps --filter \"label=nuclio.io/namespace=<value>\" command that is executed via the host shell (/bin/sh -c). Because the default auth kind is nop (unauthenticated), a remote attacker can inject arbitrary OS commands that run as root inside the dashboard container, which holds the Docker socket → host compromise. This issue has been patched in version 1.17.4.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-53635",
-      "published": "2026-09-02T17:17:45.770",
-      "description": "Open edX Platform enables the authoring and delivery of online learning at any scale. Prior to commit 59bb6d6, the view function set_course_mode_price() at lms/djangoapps/instructor/views/instructor_dashboard.py:430 is decorated only with @login_required and performs no course-level permission check. Any authenticated user — including a learner account with zero course roles — can issue a single POST request to overwrite the honor mode price and currency of any course on the platform. The companion frontend modal was removed in a prior cleanup, but the URL route and view remain live, making this an unguarded orphan endpoint. This issue has been patched via commit 59bb6d6.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2026-20281",
-      "published": "2026-09-02T17:17:33.730",
-      "description": "A vulnerability in Cisco Desk Phone 9800 Series, Cisco IP Phone 7800 and 8800 Series, and Cisco Video Phone 8875 that are running Cisco Session Initiation Protocol (SIP) Software could allow an unauthenticated, remote attacker to cause a denial of service (DoS) condition on an affected device.\r\n\r\nThis vulnerability is due to improper memory management when an affected device processes HTTP packets. An attacker could exploit this vulnerability by sending a continuous stream of crafted HTTP packets to the device. A successful exploit could allow the attacker to cause the affected device to continuously consume memory, resulting in a DoS condition.&nbsp;A manual reboot of the device is required to recover from this condition.\r\nNote: For this vulnerability to be exploitable, the phone must be registered to Cisco Unified Communications Manager (Unified CM) and have Web Access enabled. Web Access is disabled by default.",
+      "id": "CVE-2026-56855",
+      "published": "2026-09-02T20:17:36.397",
+      "description": "Previously, after a channel has been established, a malicious peer could send crafted messages that would deadlock the entire connection. Now, we handle all RFC 4254 channel messages; global requests are handled explicitly. Then, treat all other messages as a protocol error and tear the connection down instead of buffering and blocking.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-55421",
-      "published": "2026-09-02T17:17:46.290",
-      "description": "Open edX Platform enables the authoring and delivery of online learning at any scale. Prior to commit 00b7c3c, the endpoint accepts user-supplied files[].url, performs a server-side fetch using \"requests.get(url, allow_redirects=True)\". The fetched bytes are then returned inside a ZIP response. This enables SSRF with response exfiltration. Redirect-following is enabled, and there is no timeout in the vulnerable fetch path. This issue has been patched via commit 00b7c3c.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-78662",
+      "published": "2026-09-02T20:17:37.167",
+      "description": "Previously, a channel registered in the mux's chanList is not usable until it is established. A malicious peer was able flood the channel's incomingRequests, deadlocking the entire connection. Now, we add an atomic established state, set when a channel becomes usable. Until such a time, handlePacket drops every packet other than the open confirmation/failure, without blocking and without tearing down the connection.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-20354",
-      "published": "2026-09-02T17:17:33.897",
-      "description": "Multiple vulnerabilities in the Secure/Multipurpose Internet Mail Extensions (S/MIME) decryption functionality of Cisco Secure Email could allow an unauthenticated, remote attacker to recover plain text from encrypted email messages.\r\n\r\nThese vulnerabilities are due to insufficient validation of message integrity. An attacker could exploit these vulnerabilities by using a machine-in-the-middle technique to intercept and modify traffic between email gateways. A successful exploit could allow the attacker to obtain plaintext content from the encrypted communication.",
-      "severity": "MEDIUM",
-      "score": 5.9
+      "id": "CVE-2026-84292",
+      "published": "2026-09-02T20:17:39.543",
+      "description": "fast-uri serializes the port component of a URI without validating it. When recomposing the authority, the userinfo and host components are escaped but the port is concatenated verbatim, so a port value that is not a sequence of digits can inject authority delimiters, demoting the intended host to userinfo and pointing the authority at an attacker-controlled host. Both fast-uri and Node's URL read the result back as the attacker's host with no error, so re-validating the built URI does not catch it. This affects applications that build URIs from parts and assign untrusted data to the port component through the serialize, normalize, or equal functions in their object forms. The issue affects fast-uri versions before 2.4.6, from 3.0.0 before 3.1.7, and from 4.0.0 before 4.1.4. It is fixed in 2.4.6, 3.1.7, and 4.1.4, where recomposeAuthority rejects any port that is not a digit sequence per RFC 3986.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-20355",
-      "published": "2026-09-02T17:17:34.027",
-      "description": "Multiple vulnerabilities in the Secure/Multipurpose Internet Mail Extensions (S/MIME) decryption functionality of Cisco Secure Email could allow an unauthenticated, remote attacker to recover plain text from encrypted email messages.\r\n\r\nThese vulnerabilities are due to insufficient validation of message integrity. An attacker could exploit these vulnerabilities by using a machine-in-the-middle technique to intercept and modify traffic between email gateways. A successful exploit could allow the attacker to obtain plaintext content from the encrypted communication.",
-      "severity": "MEDIUM",
-      "score": 5.9
+      "id": "CVE-2026-84394",
+      "published": "2026-09-03T05:16:38.680",
+      "description": "fast-uri accepts a host that contains an unbalanced or misplaced authority bracket without reporting an error. A host that starts with an opening bracket but does not end with a closing bracket is neither validated as an IP literal nor canonicalized as a domain name, so parse() returns it as the host with error undefined, while Node's URL and the HTTP clients built on it resolve the same string to a different host. An application that reads the parsed host to make a host decision, such as an SSRF denylist, a redirect allowlist, or proxy routing, and then passes the original URL to an HTTP client evaluates its policy against a string that is not the host the request reaches. The same host is carried through normalize, equal, and resolve. This affects fast-uri versions 2.4.5, 3.1.6, and 4.1.3, and is fixed in 2.4.6, 3.1.7, and 4.1.4, where parse() reports a malformed host for any host that contains a bracket but is not a valid IPv6 literal.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-52832",
-      "published": "2026-09-02T17:17:45.487",
-      "description": "Nuclio is a \"Serverless\" framework for Real-Time Events and Data Processing. Prior to version 1.16.5, Nuclio Dashboard exposes POST /api/functions without authentication by default (NOP auth mode). The spec.handler field (e.g., mymodule:myfunction) is parsed by functionconfig.ParseHandler() which splits on : only — no path validation is applied to the module portion. This issue has been patched in version 1.16.5.",
-      "severity": "MEDIUM",
-      "score": 4.9
+      "id": "CVE-2026-84851",
+      "published": "2026-09-03T05:16:46.640",
+      "description": "An uncontrolled recursion issue exists in Amazon Ion-C versions before 1.1.6 that might allow a remote unauthenticated actor to craft Ion data that exhausts the native call stack and crashes the application using the library, resulting in a denial of service.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-53636",
-      "published": "2026-09-02T17:17:45.917",
-      "description": "Open edX Platform enables the authoring and delivery of online learning at any scale. Prior to commit 3a5ac85, a security vulnerability has been identified in the Open edX LMS platform's LTI (Learning Tools Interoperability) Provider implementation. The validate_timestamp_and_nonce function in lms/djangoapps/lti_provider/signature_validator.py does not validate OAuth nonces or timestamps, allowing an attacker who captures a valid LTI launch request to replay it an unlimited number of times without detection. This issue has been patched via commit 3a5ac85.",
-      "severity": "MEDIUM",
-      "score": 4.7
+      "id": "CVE-2023-20577",
+      "published": "2026-09-02T20:17:34.093",
+      "description": "A heap overflow in SMM module may allow an attacker with access to a second vulnerability that enables writing to SPI flash, potentially resulting in arbitrary code execution.",
+      "severity": "HIGH",
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-79754",
-      "published": "2026-09-02T17:17:59.770",
-      "description": "Nuclio is a \"Serverless\" framework for Real-Time Events and Data Processing. From version 1.6.19 to before version 1.17.2, Nuclio's Dashboard build pipeline does not sanitize the spec.build.tempDir field before using it to construct a shell command. When the Kaniko container builder is enabled, a user with function-create permission can inject shell metacharacters into this field and achieve arbitrary command execution inside the Dashboard container, which runs with a Kubernetes service account holding wildcard access to Secrets, Pods, Jobs, and Deployments in its namespace. This issue has been patched in version 1.17.2.",
+      "id": "CVE-2026-82524",
+      "published": "2026-09-02T20:17:39.210",
+      "description": "UnoPim before 2.1.5 contains an authenticated file upload vulnerability that allows authenticated administrators to upload arbitrary PHP files through the TinyMCE image upload endpoint due to missing file extension and MIME type validation. Attackers can upload a PHP web shell to the public storage disk and execute arbitrary operating system commands on the server by accessing the uploaded file at the URL returned in the server response.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-75134",
+      "published": "2026-09-02T20:17:36.577",
+      "description": "SEOWriting plugin for WordPress through 1.12.5 contains a stored cross-site scripting vulnerability that allows authenticated contributors to inject malicious JavaScript by exploiting an overly permissive KSES allowlist that explicitly permits the onload event handler on iframe elements. Attackers can store crafted JavaScript payloads in post content that execute when the affected post is viewed or previewed by higher-privileged users, potentially leading to privilege escalation or account compromise.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-75135",
+      "published": "2026-09-02T20:17:36.720",
+      "description": "UpSignOn for Windows before 7.19.0 contains a sensitive data exposure vulnerability that allows local attackers to recover the master password and decrypt vault contents by reading a retained backup key from the process memory of UpSignOn.exe, even after the vault has been re-locked. Attackers can extract the backup key from process memory to decrypt the encrypted master password backup stored in v6-vault1.DATA.txt, then use the recovered master password to decrypt the main vault and export all password manager entries in cleartext.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-75136",
+      "published": "2026-09-02T20:17:36.877",
+      "description": "UpSignOn for Windows before 7.19.0 contains an insecure credential storage vulnerability that allows local attackers to retrieve the biometric unlock key stored in the Windows PasswordVault API without triggering any authentication prompt. Attackers can access the stored biometric key from a standard local process within the same Windows session to decrypt the protected vault files and export the entire password manager contents in cleartext.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-75137",
+      "published": "2026-09-02T20:17:37.033",
+      "description": "UpSignOn for Windows before 7.19.0 contains a sensitive data exposure vulnerability that allows local attackers to recover cleartext vault data from process memory even after the application has been locked. Attackers can use the PROCESS_VM_READ permission to read the memory space of UpSignOn.exe and extract sensitive fields including entry names, URLs, usernames, passwords, TOTP secrets, and notes.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-84856",
+      "published": "2026-09-02T20:17:42.563",
+      "description": "A vulnerability was detected in rowboatlabs rowboat up to 0.9.1. The impacted element is the function request.text/req.json of the file apps/rowboat/app/api/composio/webhook/route.ts of the component Composio Webhook Endpoint. The manipulation results in denial of service. It is possible to launch the attack remotely. The exploit is now public and may be used. Upgrading to version 0.9.2 is sufficient to resolve this issue. Upgrading the affected component is recommended. The legacy Next.js app was deleted at 0.9.2 rather than patched, leaving no security control behind.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84857",
+      "published": "2026-09-02T20:17:42.753",
+      "description": "A flaw has been found in sigoden aichat up to 0.30.4. This affects an unknown function of the file src/serve.rs of the component API Endpoint. This manipulation causes uncontrolled memory allocation. The attack can be initiated remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84886",
+      "published": "2026-09-03T05:16:47.167",
+      "description": "A vulnerability was determined in simular-ai Agent-S up to 0.3.2. Affected by this vulnerability is the function ImageData of the file gui_agents/s1/utils/ocr_server.py of the component OCR HTTP API. Executing a manipulation of the argument img_bytes can lead to resource consumption. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84852",
+      "published": "2026-09-02T20:17:42.050",
+      "description": "A security vulnerability has been detected in Reader Tools PDF Reader App 98.8 on Android. The affected element is the function ActSplashNew.handleDeeplink of the component File Handler. The manipulation of the argument _display_name leads to path traversal. An attack has to be approached locally. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.4
+    },
+    {
+      "id": "CVE-2026-84885",
+      "published": "2026-09-03T05:16:47.010",
+      "description": "A vulnerability has been found in simular-ai Agent-S 0.3.1/0.3.2. This impacts an unknown function of the file code_agent.py of the component CodeAgent. Such manipulation leads to denial of service. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-84452",
+      "published": "2026-09-02T20:17:41.350",
+      "description": "Windows ML CLI is a command line tool for building portable, performant, and high-quality AI models for Windows ML. Prior to 0.4.0, the src/winml/modelkit/serve/cli_api.py component exposes WinML CLI commands through a localhost HTTP API without authentication and configures the allow_origins setting as a wildcard in both src/winml/modelkit/serve/cli_api.py and src/winml/modelkit/serve/app.py. A malicious website loaded by a user can send cross-origin requests to /v1/cli/build or /v1/cli/config and set the trust_remote_code parameter to true, which is converted to the --trust-remote-code command-line flag without validation. This reaches AutoConfig.from_pretrained with trust_remote_code=True in src/winml/modelkit/loader/_autoconfig.py and imports Python code from an attacker-controlled model repository, resulting in arbitrary code execution as the server user. This issue is fixed in version 0.4.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66048",
+      "published": "2026-09-03T05:05:41.247",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66049",
+      "published": "2026-09-03T05:05:41.440",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     }
