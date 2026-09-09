@@ -1,33 +1,12 @@
 {
-  "totalResults": 3588,
+  "totalResults": 3628,
   "items": [
     {
-      "id": "CVE-2023-20576",
-      "published": "2026-09-02T20:17:32.950",
-      "description": "Insufficient Verification of Data Authenticity in AGESA™ may allow an attacker to update SPI ROM data potentially resulting in denial of service or privilege escalation.",
+      "id": "CVE-2021-38489",
+      "published": "2026-09-03T13:04:10.943",
+      "description": "HDD password plaintext is stored in a UEFI variable.",
       "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-56855",
-      "published": "2026-09-02T20:17:36.397",
-      "description": "Previously, after a channel has been established, a malicious peer could send crafted messages that would deadlock the entire connection. Now, we handle all RFC 4254 channel messages; global requests are handled explicitly. Then, treat all other messages as a protocol error and tear the connection down instead of buffering and blocking.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-78662",
-      "published": "2026-09-02T20:17:37.167",
-      "description": "Previously, a channel registered in the mux's chanList is not usable until it is established. A malicious peer was able flood the channel's incomingRequests, deadlocking the entire connection. Now, we add an atomic established state, set when a channel becomes usable. Until such a time, handlePacket drops every packet other than the open confirmation/failure, without blocking and without tearing down the connection.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-84292",
-      "published": "2026-09-02T20:17:39.543",
-      "description": "fast-uri serializes the port component of a URI without validating it. When recomposing the authority, the userinfo and host components are escaped but the port is concatenated verbatim, so a port value that is not a sequence of digits can inject authority delimiters, demoting the intended host to userinfo and pointing the authority at an attacker-controlled host. Both fast-uri and Node's URL read the result back as the attacker's host with no error, so re-validating the built URI does not catch it. This affects applications that build URIs from parts and assign untrusted data to the port component through the serialize, normalize, or equal functions in their object forms. The issue affects fast-uri versions before 2.4.6, from 3.0.0 before 3.1.7, and from 4.0.0 before 4.1.4. It is fixed in 2.4.6, 3.1.7, and 4.1.4, where recomposeAuthority rejects any port that is not a digit sequence per RFC 3986.",
-      "severity": "HIGH",
-      "score": 7.5
+      "score": 8.2
     },
     {
       "id": "CVE-2026-84394",
@@ -44,60 +23,60 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2023-20577",
-      "published": "2026-09-02T20:17:34.093",
-      "description": "A heap overflow in SMM module may allow an attacker with access to a second vulnerability that enables writing to SPI flash, potentially resulting in arbitrary code execution.",
+      "id": "CVE-2026-71220",
+      "published": "2026-09-03T13:06:02.703",
+      "description": "A stack out-of-bounds write vulnerability was found in gfs2-utils. In gfs2_edit, the di_height field from on-disk inode metadata is used as an array index without bounds checking, causing a stack buffer overflow that may lead to arbitrary code execution when processing crafted GFS2 filesystem images.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7
     },
     {
-      "id": "CVE-2026-82524",
-      "published": "2026-09-02T20:17:39.210",
-      "description": "UnoPim before 2.1.5 contains an authenticated file upload vulnerability that allows authenticated administrators to upload arbitrary PHP files through the TinyMCE image upload endpoint due to missing file extension and MIME type validation. Attackers can upload a PHP web shell to the public storage disk and execute arbitrary operating system commands on the server by accessing the uploaded file at the URL returned in the server response.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-68860",
+      "published": "2026-09-03T13:06:01.480",
+      "description": "Dell PowerProtect Data Manager, versions 20.2.0.0 and below, contain a Reliance on Data/Memory Layout vulnerability. An unauthenticated remote attacker could potentially exploit this vulnerability, leading to Launch of phishing attacks.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-75134",
-      "published": "2026-09-02T20:17:36.577",
-      "description": "SEOWriting plugin for WordPress through 1.12.5 contains a stored cross-site scripting vulnerability that allows authenticated contributors to inject malicious JavaScript by exploiting an overly permissive KSES allowlist that explicitly permits the onload event handler on iframe elements. Attackers can store crafted JavaScript payloads in post content that execute when the affected post is viewed or previewed by higher-privileged users, potentially leading to privilege escalation or account compromise.",
+      "id": "CVE-2021-43614",
+      "published": "2026-09-03T13:04:12.283",
+      "description": "Error in handling the PlatformLangCodes UEFI variable could cause a buffer overflow, leading to resource exhaustion and failure.",
+      "severity": "MEDIUM",
+      "score": 6.7
+    },
+    {
+      "id": "CVE-2021-43613",
+      "published": "2026-09-03T13:04:12.157",
+      "description": "An issue was discovered in SysPasswordDxe in Insyde InsydeH2O. User and administrator password hashes are exposed in runtime UEFI variables, leading to escalation of privilege",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-2573",
+      "published": "2026-09-03T13:05:06.937",
+      "description": "The GutenKit – Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘postBodyCss’ parameter in all versions up to, and including, 2.4.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-75135",
-      "published": "2026-09-02T20:17:36.720",
-      "description": "UpSignOn for Windows before 7.19.0 contains a sensitive data exposure vulnerability that allows local attackers to recover the master password and decrypt vault contents by reading a retained backup key from the process memory of UpSignOn.exe, even after the vault has been re-locked. Attackers can extract the backup key from process memory to decrypt the encrypted master password backup stored in v6-vault1.DATA.txt, then use the recovered master password to decrypt the main vault and export all password manager entries in cleartext.",
+      "id": "CVE-2026-3852",
+      "published": "2026-09-03T13:05:38.903",
+      "description": "The Divi theme for WordPress is vulnerable to Stored Cross-Site Scripting via the `skype_url` shortcode attribute of the Social Media Follow module in all versions up to, and including, 4.27.6. This is due to a three-part sanitization failure: (1) the `skype_url` field is not included in the `$url_options` whitelist in `class-et-builder-element.php`, so it never invokes `esc_url_raw()` during shortcode processing, (2) the render code in `SocialMediaFollowItem.php` explicitly skips `esc_url()` for Skype URLs (`! $is_skype ? esc_url( $url ) : $skype_url`), and (3) only `sanitize_text_field()` is applied, which preserves single and double quote characters allowing attribute breakout. The unsanitized value is interpolated directly into a single-quoted `href` attribute (`href='{$social_network_link_url}'`). This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user interacts with the injected element.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-75136",
-      "published": "2026-09-02T20:17:36.877",
-      "description": "UpSignOn for Windows before 7.19.0 contains an insecure credential storage vulnerability that allows local attackers to retrieve the biometric unlock key stored in the Windows PasswordVault API without triggering any authentication prompt. Attackers can access the stored biometric key from a standard local process within the same Windows session to decrypt the protected vault files and export the entire password manager contents in cleartext.",
+      "id": "CVE-2026-17539",
+      "published": "2026-09-03T13:04:35.693",
+      "description": "RTU500 has a vulnerability, where high-load scenarios, such as sending GI requests at short intervals, may cause a NULL pointer dereference in the last entry of the enhanced message queue. This can cause a BCI_IEC104 fatal write error, resulting in connection interruption and restart, and ultimately a denial of service for bidirectional IEC 60870-5-104 communication.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-75137",
-      "published": "2026-09-02T20:17:37.033",
-      "description": "UpSignOn for Windows before 7.19.0 contains a sensitive data exposure vulnerability that allows local attackers to recover cleartext vault data from process memory even after the application has been locked. Attackers can use the PROCESS_VM_READ permission to read the memory space of UpSignOn.exe and extract sensitive fields including entry names, URLs, usernames, passwords, TOTP secrets, and notes.",
+      "id": "CVE-2026-3416",
+      "published": "2026-09-03T13:05:37.847",
+      "description": "The API Publisher component previously used a non-cryptographic pseudorandom number generator (PRNG) to create shared secrets for Webhook HMAC validation. This PRNG lacks sufficient entropy for security-sensitive operations, allowing a sophisticated attacker to predict future secrets. This enables malicious actors to forge event payloads with valid HMAC signatures, bypassing the API Gateway's authenticity verification.\n\nSuccessful exploitation could allow an attacker to predict shared secrets used for Webhook HMAC validation and forge event payloads with valid signatures. This may enable bypassing API Gateway authenticity checks, leading to unauthorized event injection, data manipulation, or downstream system compromise.",
       "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-84856",
-      "published": "2026-09-02T20:17:42.563",
-      "description": "A vulnerability was detected in rowboatlabs rowboat up to 0.9.1. The impacted element is the function request.text/req.json of the file apps/rowboat/app/api/composio/webhook/route.ts of the component Composio Webhook Endpoint. The manipulation results in denial of service. It is possible to launch the attack remotely. The exploit is now public and may be used. Upgrading to version 0.9.2 is sufficient to resolve this issue. Upgrading the affected component is recommended. The legacy Next.js app was deleted at 0.9.2 rather than patched, leaving no security control behind.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-84857",
-      "published": "2026-09-02T20:17:42.753",
-      "description": "A flaw has been found in sigoden aichat up to 0.30.4. This affects an unknown function of the file src/serve.rs of the component API Endpoint. This manipulation causes uncontrolled memory allocation. The attack can be initiated remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.9
     },
     {
       "id": "CVE-2026-84886",
@@ -107,11 +86,11 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-84852",
-      "published": "2026-09-02T20:17:42.050",
-      "description": "A security vulnerability has been detected in Reader Tools PDF Reader App 98.8 on Android. The affected element is the function ActSplashNew.handleDeeplink of the component File Handler. The manipulation of the argument _display_name leads to path traversal. An attack has to be approached locally. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-71219",
+      "published": "2026-09-03T13:06:02.550",
+      "description": "A stack overflow vulnerability was found in gfs2-utils. The hash table traversal code in metawalk.c uses alloca() with an exponentially-derived size from the untrusted on-disk di_depth field without bounds validation. A crafted GFS2 filesystem image with a large di_depth value causes stack exhaustion and a denial of service when processed by fsck.gfs2, gfs2_edit, or savemeta.",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 4.7
     },
     {
       "id": "CVE-2026-84885",
@@ -121,11 +100,18 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-84452",
-      "published": "2026-09-02T20:17:41.350",
-      "description": "Windows ML CLI is a command line tool for building portable, performant, and high-quality AI models for Windows ML. Prior to 0.4.0, the src/winml/modelkit/serve/cli_api.py component exposes WinML CLI commands through a localhost HTTP API without authentication and configures the allow_origins setting as a wildcard in both src/winml/modelkit/serve/cli_api.py and src/winml/modelkit/serve/app.py. A malicious website loaded by a user can send cross-origin requests to /v1/cli/build or /v1/cli/config and set the trust_remote_code parameter to true, which is converted to the --trust-remote-code command-line flag without validation. This reaches AutoConfig.from_pretrained with trust_remote_code=True in src/winml/modelkit/loader/_autoconfig.py and imports Python code from an attacker-controlled model repository, resulting in arbitrary code execution as the server user. This issue is fixed in version 0.4.0.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-84887",
+      "published": "2026-09-03T05:16:47.333",
+      "description": "A vulnerability was identified in simular-ai Agent-S up to 0.3.2. Affected by this issue is some unknown functionality of the file grounding.py of the component Model-generated GUI Action Execution Workflow. The manipulation leads to denial of service. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-84888",
+      "published": "2026-09-03T05:16:47.493",
+      "description": "A weakness has been identified in RightNow-AI OpenFang up to 0.6.9. This vulnerability affects the function shell_exec of the file crates/openfang-runtime/src/tool_runner.rs. This manipulation causes uncontrolled memory allocation. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
       "id": "CVE-2026-66048",
@@ -138,6 +124,20 @@
       "id": "CVE-2026-66049",
       "published": "2026-09-03T05:05:41.440",
       "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-15926",
+      "published": "2026-09-03T13:04:35.160",
+      "description": "Rejected reason: Red Hat Product Security has determined that this CVE ID is not needed",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-15933",
+      "published": "2026-09-03T13:04:35.243",
+      "description": "OptimiDoc Server (On-Premise) stores credentials for external services in cleartext. An authenticated administrator can view previously configured service passwords, including SMTP, FTP (for scan delivery), Active Directory (for user list import), and SharePoint credentials, in cleartext via the web administration panel page source, allowing exposure of sensitive third-party authentication data.\n\n\nThis issue was fixed in version 26.08",
       "severity": "UNKNOWN",
       "score": null
     }
