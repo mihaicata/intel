@@ -1,143 +1,143 @@
 {
-  "totalResults": 3643,
+  "totalResults": 3645,
   "items": [
     {
-      "id": "CVE-2026-82526",
-      "published": "2026-09-03T19:17:29.950",
-      "description": "R2R through 3.6.6 contains a stacked SQL injection vulnerability that allows unauthenticated attackers to execute arbitrary SQL statements by manipulating the index name parameter in the vector index creation endpoint. The index name is interpolated directly into a CREATE INDEX statement via string formatting without identifier quoting or allowlist validation, enabling arbitrary DDL and DML execution through semicolon-separated statements under the PostgreSQL superuser account.",
+      "id": "CVE-2026-85061",
+      "published": "2026-09-03T21:17:23.323",
+      "description": "MapLibre GL JS is an interactive vector tile map library for web browsers. Prior to 6.4.1, DOM.sanitize() in src/util/dom.ts iterates elem.attributes as a live NamedNodeMap while removeAttributes() removes attributes from the same collection, shifting indexes and skipping an adjacent dangerous attribute. An attacker who controls untrusted third-party style attribution strings or user-supplied custom attributions can supply consecutive dangerous attributes, causing an attribute such as onload or ontoggle to survive sanitization and execute when the attribution control inserts the content into innerHTML. A victim must render the affected map content for the script to execute. This issue is fixed in version 6.4.1.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-58400",
-      "published": "2026-09-03T18:17:22.827",
-      "description": "GeoNetwork is a catalog application to manage spatially referenced resources. Prior to versions 4.4.12 and 4.2.17, the Saxon XSLT processor used to render formatters is configured without secure processing (`FEATURE_SECURE_PROCESSING`) and without disabling Java extension functions (`ALLOW_EXTERNAL_FUNCTIONS`). Any stylesheet loaded by GeoNetwork can therefore invoke\n`java.lang.Runtime.exec()` or `java.lang.ProcessBuilder` directly, achieving arbitrary command execution as the GeoNetwork process user. A user with sufficient privileges to upload a formatter can deliver a `.xsl` file containing Java extension call that execute arbitrary OS commands with the privileges of the GeoNetwork process. The issue is patched in GeoNetwork versions 4.4.12 and 4.2.17.",
+      "id": "CVE-2026-85222",
+      "published": "2026-09-03T21:17:23.990",
+      "description": "A vulnerability has been found in D-Link DNS-340L 1.01B04. Affected by this vulnerability is an unknown functionality of the file /cgi-bin/addon_center.cgi of the component Add-On Center. Such manipulation of the argument f_name/f_url/f_flag/f_login_user leads to os command injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-63219",
-      "published": "2026-09-03T18:17:22.997",
-      "description": "GeoNetwork is a catalog application to manage spatially referenced resources. Prior to versions 4.4.12 and 4.2.17, the API endpoint for creating a new formatter via file upload is unprotected and allows the upload of external uncontrolled files. An unauthenticated attacker can upload arbitrary `.xsl` or `.zip` formatter files to the server.  An unauthenticated attacker can write arbitrary files into the GeoNetwork formatter directory. On its own this constitutes unauthorized write access to server storage. The issue is patched in GeoNetwork versions 4.4.12 and 4.2.17.",
+      "id": "CVE-2026-63376",
+      "published": "2026-09-03T21:17:21.513",
+      "description": "toml-node is a TOML parser for Node.js and the browser. Prior to 4.1.2, toml.parse() in lib/compiler.js can be tricked by a table path such as a.b.y.__proto__.__proto__, allowing traversal from a scalar value into Number.prototype and Object.prototype. The currentPath tracking value uses both arrays and strings, so valueAssignments records a comma-joined path such as a,b.y while deepRef checks the dot-joined path a.b.y, allowing the duplicate-key guard to miss and attacker-controlled keys to be written to Object.prototype. A table-array prefix-clearing path in addTableArray can also erase guard state before the same __proto__ traversal. Injected properties become visible throughout the Node.js process and can cause denial of service, logic or authorization bypass, or code execution when an application contains a suitable gadget. This issue is fixed in version 4.1.2.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-78583",
-      "published": "2026-09-03T19:17:28.550",
-      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to privilege escalation via Input Data Manipulation (CAPEC-153). Elasticsearch cluster privilege declarations originating from integration packages were not validated before being used to mint credentials for enrolled Elastic Agents. A user holding Fleet management privileges could therefore cause every Elastic Agent on a targeted policy to receive a credential carrying arbitrarily elevated Elasticsearch cluster privileges, up to and including full cluster administration.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-82302",
-      "published": "2026-09-03T19:17:29.827",
-      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to unauthorized configuration modification via Exploiting Incorrectly Configured Access Control Security Levels (CAPEC-180).",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-85012",
-      "published": "2026-09-03T18:17:33.190",
-      "description": "Improper neutralization of special elements used in an OS command (CWE-78) in the blueprint resynthesis framework in Amazon Web Services codecatalyst-blueprints before 0.3.156 might allow a user with permission to commit to a repository in the project to execute arbitrary commands in the blueprint resynthesis environment via shell metacharacters in the owner field of a [local] merge strategy entry in a crafted .ownership-file.\n\n\n\nVersion 0.3.156 removes shell interpretation of the owner field, running the command directly rather than through a shell, and rejects values outside an allowlisted command form. This eliminates shell metacharacter command injection. To remediate this issue, users should upgrade to version 0.3.156 or later.\n\n\n\nNo action is required for use of the Amazon CodeCatalyst service. Resynthesis runs in an isolated per-project environment with scoped credentials, and the service applies server-side validation there that rejects [local] merge strategy commands outside a restricted allowlisted form, including for blueprint versions published before 0.3.156.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-83959",
-      "published": "2026-09-03T18:17:24.733",
-      "description": "Substance3D - Sampler is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-64195",
+      "published": "2026-09-03T22:18:09.293",
+      "description": "There is an out-of-bounds write vulnerability in DASYLab due to lack of proper validation of user-supplied data. Successful exploitation requires an attacker to get a user to open a specially crafted .DSB file.  This issue affects all versions before 2026.0.0.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-33630",
-      "published": "2026-09-03T19:17:27.420",
-      "description": "c-ares is an asynchronous resolver library. From ver 1.32.3 until 1.34.7, a use-after-free / double-free in c-ares' query-completion handling. The same flaw — a query's callback being invoked while the query is still linked in the channel's internal lookup structures — is present at multiple points in the resend/finish path (timeout handling, response handling, and query dispatch). If the query, or for ares_getaddrinfo() the owning host_query, is freed as a side effect of that callback, it is then accessed and/or freed a second time. This vulnerability is fixed in ver 1.34.7.",
+      "id": "CVE-2026-64196",
+      "published": "2026-09-03T22:18:09.950",
+      "description": "There is an out-of-bounds write vulnerability in DASYLab due to improper validation of user-supplied data, resulting in a write past the end of an allocated heap. Successful exploitation requires an attacker to get a user to open a specially crafted .DSB file.  This issue affects all versions before 2026.0.0.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-64197",
+      "published": "2026-09-03T22:18:10.073",
+      "description": "There is an out-of-bounds write vulnerability in DASYLab due to improper validation of user-supplied data, resulting in a write past the end of an allocated data structure. Successful exploitation requires an attacker to get a user to open a specially crafted .DSB file.  This issue affects all versions before 2026.0.0.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-77465",
+      "published": "2026-09-03T21:17:21.803",
+      "description": "toml-node is a TOML parser for Node.js and the browser. Prior to 4.2.0, toml.parse() uses a Peggy 5.1.0 generated recursive-descent parser in lib/parser.js whose peg$parsevalue, peg$parsearray, and peg$parseinline_table_entry functions recurse through nested arrays and inline tables without a depth limit. A remote unauthenticated application parsing an attacker-controlled TOML document containing a few thousand nested arrays or inline tables can exhaust the Node.js call stack, raise an unexpected RangeError rather than the parser's SyntaxError, and terminate an unprotected request worker or process. The corresponding grammar source is src/toml.pegjs, where the generated parser must be bounded. This issue is fixed in version 4.2.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-85187",
-      "published": "2026-09-03T18:17:33.707",
-      "description": "A security vulnerability has been detected in itsourcecode Online Medicine Delivery System 1.0. Affected by this issue is the function Order::pupdate of the file /rider/orders/controller.php?action=edit&actions=confirm of the component Order Status Update. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "id": "CVE-2026-82520",
+      "published": "2026-09-03T21:17:22.407",
+      "description": "parsedmarc before 11.0.1 decompresses gzip and ZIP attachments in a single unbounded read with no limit on decompressed output size. Because parsedmarc automatically processes incoming DMARC report emails without user interaction, an unauthenticated remote attacker can send a crafted email with a highly compressed attachment to the monitored mailbox, causing the parsedmarc process to allocate memory proportional to the uncompressed size and exhaust available RAM.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-8862",
+      "published": "2026-09-03T21:17:24.307",
+      "description": "IBM Netezza Software 11.3.0.3 through Interim Fix 002 has credentials that are hardcoded in the application source code, allowing unauthorized access to the container registry. The exposed secret enables attackers to pull private container images, potentially revealing proprietary code, configuration details, and other sensitive information.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-85208",
+      "published": "2026-09-03T21:17:23.777",
+      "description": "A security flaw has been discovered in itsourcecode Online Medicine Delivery System 1.0. The affected element is the function doInsert of the file /rider/orders/controller.php?action=add of the component Order Management Controller. Performing a manipulation of the argument image results in unrestricted upload. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-49455",
-      "published": "2026-09-03T19:17:28.100",
-      "description": "Waku is the minimal React framework. Prior to version 1.0.0-beta.1, Waku's RSC request dispatcher invokes server actions without validating the request's Origin (or Sec-Fetch-Site) header. A cross-origin web attacker can therefore cause a victim browser to issue an authenticated POST to a registered server action endpoint using a CORS-safelisted content type (text/plain), which does not trigger a preflight. Any state-mutating server action that the application exposes via 'use server' can be invoked with the victim's cookies attached. This issue has been patched in version 1.0.0-beta.1.",
+      "id": "CVE-2026-9745",
+      "published": "2026-09-03T21:17:24.797",
+      "description": "IBM Netezza Software 11.3.0.3 through Interim Fix 002 has operations that are performed without validating bucket ownership using the ExpectedBucketOwner parameter. This omission may allow a remote attacker to exploit misconfigurations or naming collisions to redirect application requests to an unintended S3 bucket under their control.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-82299",
-      "published": "2026-09-03T19:17:29.707",
-      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to information disclosure via Exploiting Incorrectly Configured Access Control Security Levels (CAPEC-180).",
+      "id": "CVE-2026-71429",
+      "published": "2026-09-03T21:17:21.660",
+      "description": "stream-json is a micro-library of stream components for processing JSON and JSONC with a minimal memory footprint. Prior to 3.5.0, the path filters pick, ignore, filter, and replace in src/core/filters/filter-base.js recompute the full path string from the nesting stack for every checkable token. Because the stack length equals the current nesting depth and a checkable token is emitted at every level, a depth D document costs O(D²) rather than O(D) to process. The issue is triggered by nesting depth rather than byte volume, including the documented pick({filter: 'data'}) traversal-until-match path, so an application that sends untrusted JSON through a string or RegExp filter can block the Node.js event loop and cause denial of service with a small deeply nested document. The streamArray, streamObject, and streamValues streamers are not affected because they use the constant-time asm.depth getter. This issue is fixed in version 3.5.0.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-82024",
-      "published": "2026-09-03T18:17:24.410",
-      "description": "LearnPress WordPress Plugin before 4.4.6 contains a stored cross-site scripting vulnerability that allows authenticated attackers with the Instructor role to inject persistent malicious payloads by submitting unsanitized input into quiz question answer title fields. Attackers can store arbitrary JavaScript through the answer title parameter, which is rendered through an unescaped HTML sink to execute in the browsers of any user who views the affected quiz question, including students, other instructors, and administrators.",
+      "id": "CVE-2026-84185",
+      "published": "2026-09-03T21:17:22.687",
+      "description": "A flaw was found in the jwcrypto library, which is used for implementing Javascript Object Signing and Encryption (JOSE) standards. The issue occurs when the library verifies a General JSON Serialization JWS using a set of keys. Due to a coding error, the library fails to correctly identify the specific key ID (kid) and may instead accept a signature made by any valid key in the set. This can allow an attacker with a valid key to bypass authorization checks in applications that rely on the key ID to identify specific tenants or users.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-84968",
-      "published": "2026-09-03T18:17:33.010",
-      "description": "An out-of-bounds read in the BSON decoding component of the MongoDB PHP driver may allow an unauthenticated party who supplies specially formed input to have a small amount of adjacent process memory copied into an error message that is returned to application code. This may result in unintended disclosure of limited memory contents.",
+      "id": "CVE-2026-9036",
+      "published": "2026-09-03T21:17:24.440",
+      "description": "IBM Netezza Software 11.3.0.3 through Interim Fix 002 does not validate or improperly validates TLS certificate validation, which could allow an attacker to obtain sensitive information using man in the middle techniques.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-82521",
+      "published": "2026-09-03T21:17:22.553",
+      "description": "parsedmarc 9.0.6 before 11.0.1 writes forensic report sample files using an output path derived from the email subject. When the subject consists entirely of path traversal sequences, the filename sanitization function produces an empty string, and a fallback to the raw unsanitized subject causes the resulting file to be written outside the intended samples directory. An attacker who can cause a forensic failure report with a crafted Subject to be processed can write a dot-prefixed file with attacker-controlled content to an ancestor directory of the configured samples output path. Exploitation requires that file output for forensic report samples is enabled.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-82023",
-      "published": "2026-09-03T18:17:24.260",
-      "description": "LearnPress WordPress Plugin before 4.4.6 contains a broken object-level authorization vulnerability that allows authenticated attackers with the Instructor role to add answers to quiz questions owned by other instructors by exploiting a missing ownership check on the question answer insert path. Attackers can supply arbitrary question identifiers during answer insertion, bypassing instructor-boundary restrictions to persistently modify quiz content across courses they do not own.",
+      "id": "CVE-2026-9736",
+      "published": "2026-09-03T21:17:24.560",
+      "description": "IBM Netezza Software 11.3.0.3 through Interim Fix 002 could allow an unauthorized user to inject data into log messages due to improper neutralization of special elements when written to log files.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-78593",
-      "published": "2026-09-03T19:17:28.687",
-      "description": "An insufficiently validated configuration field in Kibana's Cribl integration allows an authenticated user holding Kibana Fleet management privileges to inject attacker-controlled expressions into a server-side script template, resulting in an Elasticsearch ingest pipeline being written beyond the caller's authorized Elasticsearch permissions.",
+      "id": "CVE-2026-9744",
+      "published": "2026-09-03T21:17:24.683",
+      "description": "IBM Netezza Software 11.3.0.3 through Interim Fix 002 does not validate or improperly validates TLS certificate validation, which could allow an attacker to obtain sensitive information using man in the middle techniques.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-78595",
-      "published": "2026-09-03T19:17:28.850",
-      "description": "Missing Authorization in Kibana Leading to Information Disclosure / Missing Authorization (CWE-862) in the Kibana Fleet feature can lead to information disclosure via Privilege Abuse (CAPEC-122). An authenticated user holding read-level Fleet agent privileges in one Kibana space could enumerate agent metadata and access diagnostic content belonging to agents enrolled in other Kibana spaces.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-85062",
+      "published": "2026-09-03T21:17:23.477",
+      "description": "Colord is a tiny yet powerful tool for high-performance color manipulations and conversions. Prior to 2.9.4, synchronous CSS color string matchers in src/colorModels/rgbString.ts, src/colorModels/hslString.ts, src/colorModels/hwbString.ts, src/colorModels/lchString.ts, and src/colorModels/cmykString.ts use the ambiguous numeric regular expression ([+-]?\\d*.?\\d+), allowing the same digits to be divided between overlapping quantifiers in quadratically many ways when malformed input is rejected. An attacker who can supply an unbounded color string to colord(), getFormat(), isEqual(), mix(), or contrast(), including through a request body, JSON field, or uploaded stylesheet, can block the processing thread with a multi-kilobyte payload. The affected matchers are parseRgbaString, parseHslaString, parseHwbaString, parseLchaString, and parseCmykaString. This issue is fixed in version 2.9.4.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-78596",
-      "published": "2026-09-03T19:17:28.993",
-      "description": "Missing Authorization in Kibana Leading to Unauthorized Modification of Data / Missing Authorization (CWE-862) in Kibana can lead to unauthorized modification of data via Privilege Abuse (CAPEC-122). An authenticated user holding Security read-level access in a single Kibana space could trigger Entity Analytics migration operations that perform privileged writes across all Kibana spaces, regardless of that user's actual access scope.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-85063",
+      "published": "2026-09-03T21:17:23.620",
+      "description": "node-csv is a full-featured CSV parser with a simple API that is tested against large datasets. Prior to 7.0.2, csv-parse with the columns and group_columns_by_name options enabled treats a duplicate __proto__ header as an existing property in packages/csv-parse/lib/api/index.js, assigns an attacker-controlled array through obj['__proto__'], and replaces the parsed record object's prototype. A malicious CSV header can therefore inject inherited array values into the returned record, hide those inherited values from JSON serialization, and affect property enumeration and type or shape checks in applications that process the record. This issue is fixed in version 7.0.2.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-82298",
-      "published": "2026-09-03T19:17:29.587",
-      "description": "Incorrect Authorization (CWE-863) in Kibana can lead to denial of service via Exploiting Incorrectly Configured Access Control Security Levels (CAPEC-180).",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-49456",
-      "published": "2026-09-03T19:17:28.250",
-      "description": "Waku is the minimal React framework. Prior to version 1.0.0-beta.1, the unstable_redirect() helper exported from waku/router/server (packages/waku/src/router/define-router.tsx:156–161) accepts an arbitrary string and reflects it unchanged into the HTTP Location response header with no URL validation, scheme restriction, or path-only enforcement. Any application that passes user-controlled input to this helper — the natural pattern documented in the JSDoc and official fixtures — is vulnerable to open redirect attacks. An attacker who convinces a victim to click a crafted link can silently redirect the browser to an arbitrary external domain, enabling phishing, credential harvesting, and OAuth token theft. Additionally, scheme-relative URLs (//evil.example/) bypass naive https?://-only allow-list filters that developers might add as ad-hoc mitigations. This issue has been patched in version 1.0.0-beta.1.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-15431",
-      "published": "2026-09-03T19:17:26.820",
-      "description": "A potential security vulnerability has been identified in the HP Support\n Assistant for versions prior to 9.53.2.0. The vulnerability\n               could potentially allow a local attacker to escalate \nprivileges due to insufficient access controls.",
+      "id": "CVE-2026-85458",
+      "published": "2026-09-03T21:17:24.170",
+      "description": "Divide-by-zero in Xpdf 4.06 (and earlier), when a glyph in a Type 3 font has a zero height.",
       "severity": "UNKNOWN",
       "score": null
     }
