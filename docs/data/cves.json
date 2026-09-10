@@ -1,145 +1,145 @@
 {
-  "totalResults": 3714,
+  "totalResults": 3666,
   "items": [
     {
-      "id": "CVE-2021-38489",
-      "published": "2026-09-03T13:04:10.943",
-      "description": "HDD password plaintext is stored in a UEFI variable.",
+      "id": "CVE-2026-85181",
+      "published": "2026-09-03T15:17:39.433",
+      "description": "CAT uses Java String.hashCode as the sole integrity check for session cookies without server-side keying, allowing attackers to forge valid checksums offline. Attackers can set the x-forwarded-for header to bypass IP binding validation and create admin sessions with full configuration access.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-85176",
+      "published": "2026-09-03T15:17:38.607",
+      "description": "DbGate fails to validate jslid parameters in the jsldata controller, allowing authenticated users to read and write arbitrary files via file:// scheme resolution. Attackers can exploit getJslFileName() to bypass directory containment and access sensitive files including encrypted database credentials stored in connections configuration.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-73600",
-      "published": "2026-09-03T13:06:03.427",
-      "description": "Dell PowerProtect Data Manager, versions 20.2.0.0 and below, contain a stack buffer overflow vulnerability in file-level restore agent. A high privileged remote attacker could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-71404",
+      "published": "2026-09-03T15:17:32.327",
+      "description": "A flaw was found in Rancher Manager. The GlobalRole controller derived the target ClusterRole name from the user-settable `authz.management.cattle.io/cr-name` annotation and overwrote that object's rules without verifying ownership. A user with delegated GlobalRole create or update permission could point the annotation at any existing ClusterRole, such as `cluster-admin`, and revoke the permissions of every principal bound to it. The change persists after the malicious GlobalRole is deleted.\n\n\nThis issue affects Rancher: before 2.15.1.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-71220",
-      "published": "2026-09-03T13:06:02.703",
-      "description": "A stack out-of-bounds write vulnerability was found in gfs2-utils. In gfs2_edit, the di_height field from on-disk inode metadata is used as an array index without bounds checking, causing a stack buffer overflow that may lead to arbitrary code execution when processing crafted GFS2 filesystem images.",
+      "id": "CVE-2026-85179",
+      "published": "2026-09-03T15:17:39.097",
+      "description": "Label Studio through 1.23.0 fails to validate webhook URLs, allowing authenticated users to dispatch requests to internal services including RFC 1918 addresses and cloud metadata endpoints. Attackers can create webhooks targeting private networks and exfiltrate annotation data by enabling payload transmission in outbound requests.",
       "severity": "HIGH",
-      "score": 7
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-71221",
-      "published": "2026-09-03T13:06:02.887",
-      "description": "A stack out-of-bounds write vulnerability was found in gfs2-utils. In savemeta, the height value from on-disk inode metadata is used as a loop bound without bounds checking, causing a stack buffer overflow that may lead to arbitrary code execution when processing crafted GFS2 filesystem images.",
+      "id": "CVE-2026-75033",
+      "published": "2026-09-03T15:17:32.873",
+      "description": "A flaw was found in Rancher Manager. Project Secrets were propagated into a namespace based only on its `field.cattle.io/projectId` annotation, without verifying that the referenced project belonged to the same downstream cluster. A user able to create namespaces on one cluster could set the annotation to a project ID from another cluster and have that project's secrets copied into a namespace under their control.\n\n\nThis issue affects Rancher: before 2.15.1.",
       "severity": "HIGH",
-      "score": 7
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-68860",
-      "published": "2026-09-03T13:06:01.480",
-      "description": "Dell PowerProtect Data Manager, versions 20.2.0.0 and below, contain a Reliance on Data/Memory Layout vulnerability. An unauthenticated remote attacker could potentially exploit this vulnerability, leading to Launch of phishing attacks.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-85178",
+      "published": "2026-09-03T15:17:38.933",
+      "description": "Helicone's VaultManager.getDecryptedProviderKeyById() function in the GET /v1/vault/key/{providerKeyId} endpoint fails to validate the requester's organization against the vault key's organization identifier. Attackers with admin or owner privileges in any organization can retrieve decrypted upstream provider credentials for other tenants, including plaintext OpenAI, Anthropic, and Bedrock API keys.",
+      "severity": "HIGH",
+      "score": 7.7
     },
     {
-      "id": "CVE-2021-43614",
-      "published": "2026-09-03T13:04:12.283",
-      "description": "Error in handling the PlatformLangCodes UEFI variable could cause a buffer overflow, leading to resource exhaustion and failure.",
-      "severity": "MEDIUM",
-      "score": 6.7
+      "id": "CVE-2026-85180",
+      "published": "2026-09-03T15:17:39.250",
+      "description": "Ollama fails to validate redirect destinations when pulling tensor-layer models, allowing unauthenticated attackers to redirect blob downloads to arbitrary hosts. An attacker can control a registry, serve a malicious tensor-layer manifest, and cause the server to issue GET requests to internal hosts including cloud metadata endpoints.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2021-43613",
-      "published": "2026-09-03T13:04:12.157",
-      "description": "An issue was discovered in SysPasswordDxe in Insyde InsydeH2O. User and administrator password hashes are exposed in runtime UEFI variables, leading to escalation of privilege",
+      "id": "CVE-2026-85182",
+      "published": "2026-09-03T15:17:39.593",
+      "description": "vhr through commit 03abbd3 fails to verify that the account ID in PUT /hr/pass requests belongs to the authenticated caller. Authenticated attackers can change arbitrary account passwords by supplying a target account ID and that account's current password in the request body.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-84989",
+      "published": "2026-09-03T15:17:36.680",
+      "description": "ntopng is a web-based network traffic monitoring application. In versions 6.7.0 through 6.7.260717, two REST v2 endpoints that manage ntopng's tag/badge feature — `POST /lua/rest/v2/delete/tag/tag.lua` and `POST /lua/rest/v2/edit/tag/tag.lua` — perform no authorization check at all. Any authenticated user, including a non-administrator (\"unprivileged\") account, can delete or rename any tag in the system, including tags created by an administrator. Version 6.7.260718 contains a fix.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-84971",
+      "published": "2026-09-03T15:17:36.547",
+      "description": "Improper handling of an unexpected value size in the decryption path of a client-side encryption library can cause a failed internal check that terminates the process using the library. A party able to place a suitably formed encrypted value where an application will decrypt it, or able to control the responses the application receives, may cause that application to stop running.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-74769",
-      "published": "2026-09-03T13:06:07.447",
-      "description": "Dell PowerProtect Data Manager, versions 20.2.0.0 and below, contain an Incorrect Authorization vulnerability in the REST API. A low privileged remote attacker could potentially exploit this vulnerability, leading to Protection mechanism bypass.",
+      "id": "CVE-2026-85135",
+      "published": "2026-09-03T15:17:37.390",
+      "description": "A security flaw has been discovered in ILIAS up to 9.21/10.9/11.2. This affects the function ilObjMediaObjectGUI::uploadMultipleSubtitleFileObject of the file Services/Repository/Service/Resources/ZipAdapter.php of the component MediaPool. The manipulation results in unrestricted upload. The attack may be launched remotely. Upgrading to version 9.22, 10.10 and 11.3 is able to mitigate this issue. The patch is identified as ef5d7f99fe1ea0381db04b333a2906548b3590e4/b0d61be43671b6bfe91baf469a5ee11e764f2e23. It is recommended to upgrade the affected component.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-2573",
-      "published": "2026-09-03T13:05:06.937",
-      "description": "The GutenKit – Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘postBodyCss’ parameter in all versions up to, and including, 2.4.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-84970",
+      "published": "2026-09-03T15:17:36.403",
+      "description": "A numeric truncation weakness exists in the JSON parsing component of the MongoDB C++ Driver's BSON library. An actor who controls the text that an embedding application hands to the library's public JSON parsing interface, when that text is very large, can cause the library to read memory beyond the supplied buffer and return it to the caller, to silently accept only part of the input as a complete document, or to terminate the process. No MongoDB server, credentials, or non-default configuration is required; the effect is confined to the process that uses the library.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-3852",
-      "published": "2026-09-03T13:05:38.903",
-      "description": "The Divi theme for WordPress is vulnerable to Stored Cross-Site Scripting via the `skype_url` shortcode attribute of the Social Media Follow module in all versions up to, and including, 4.27.6. This is due to a three-part sanitization failure: (1) the `skype_url` field is not included in the `$url_options` whitelist in `class-et-builder-element.php`, so it never invokes `esc_url_raw()` during shortcode processing, (2) the render code in `SocialMediaFollowItem.php` explicitly skips `esc_url()` for Skype URLs (`! $is_skype ? esc_url( $url ) : $skype_url`), and (3) only `sanitize_text_field()` is applied, which preserves single and double quote characters allowing attribute breakout. The unsanitized value is interpolated directly into a single-quoted `href` attribute (`href='{$social_network_link_url}'`). This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user interacts with the injected element.",
+      "id": "CVE-2026-71403",
+      "published": "2026-09-03T15:17:32.180",
+      "description": "A flaw was found in Rancher Manager. The /v3/users update path did not enforce immutability of a User resource's `username` and `principalIds` fields. A user holding the `update` verb on `users.management.cattle.io` could inject a foreign identity provider principal into any account, so that the next login by the owner of that principal was bound to the victim's account and inherited its role bindings.\n\n\nThis issue affects Rancher: before 2.15.1.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-17539",
-      "published": "2026-09-03T13:04:35.693",
-      "description": "RTU500 has a vulnerability, where high-load scenarios, such as sending GI requests at short intervals, may cause a NULL pointer dereference in the last entry of the enhanced message queue. This can cause a BCI_IEC104 fatal write error, resulting in connection interruption and restart, and ultimately a denial of service for bidirectional IEC 60870-5-104 communication.",
+      "id": "CVE-2026-56126",
+      "published": "2026-09-03T15:17:30.630",
+      "description": "pfSense Plus before 26.07 and CE before 2.9.0 allow authenticated users with the Status: Monitoring privilege to inject arbitrary JavaScript via graph configuration parameters in /status_monitoring.php. Multiple POST parameters including graph-left, graph-right, time-period, resolution, start-date, end-date, start-time, end-time, graph-type, invert, and refresh-interval are concatenated and written to the global pfSense XML configuration without sanitization, then echoed unsanitized into a JavaScript string context on page render. Because the setting is stored in the global configuration, the payload executes in the browser of every user who visits the Status: Monitoring page.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-3416",
-      "published": "2026-09-03T13:05:37.847",
-      "description": "The API Publisher component previously used a non-cryptographic pseudorandom number generator (PRNG) to create shared secrets for Webhook HMAC validation. This PRNG lacks sufficient entropy for security-sensitive operations, allowing a sophisticated attacker to predict future secrets. This enables malicious actors to forge event payloads with valid HMAC signatures, bypassing the API Gateway's authenticity verification.\n\nSuccessful exploitation could allow an attacker to predict shared secrets used for Webhook HMAC validation and forge event payloads with valid signatures. This may enable bypassing API Gateway authenticity checks, leading to unauthorized event injection, data manipulation, or downstream system compromise.",
+      "id": "CVE-2026-56127",
+      "published": "2026-09-03T15:17:30.793",
+      "description": "pfSense Plus before 26.07 and CE before 2.9.0 allow authenticated users with the Firewall: Rules: Edit privilege to inject arbitrary JavaScript via the descr parameter in /firewall_rules_edit.php. The firewall rule description is stored in the pfSense XML configuration with only backslash-escaping applied and no HTML sanitization, then rendered without encoding in the firewall log table in /status_logs_filter.php. The payload executes in the browser of any user with the Status: Logs: Firewall privilege who views the affected log entries.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-71222",
-      "published": "2026-09-03T13:06:03.050",
-      "description": "A heap out-of-bounds read vulnerability was found in gfs2-utils. The ea_num_ptrs field from on-disk extended attribute metadata is consumed without bounds validation, causing a heap buffer over-read that may disclose sensitive memory contents or cause a crash when processing crafted GFS2 filesystem images.",
+      "id": "CVE-2026-56128",
+      "published": "2026-09-03T15:17:30.953",
+      "description": "pfSense Plus before 26.07 and CE before 2.9.0 allow authenticated users with the Firewall: Schedules: Edit privilege to inject arbitrary JavaScript via the descr parameter in /firewall_schedule_edit.php. The schedule description is stored without HTML sanitization and subsequently inserted into an HTML attribute value in /firewall_rules.php with only single-quote escaping applied, permitting double-quote breakout. The payload executes in the browser of any user with the Firewall: Rules privilege who views the rules list with the affected schedule attached.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-71219",
-      "published": "2026-09-03T13:06:02.550",
-      "description": "A stack overflow vulnerability was found in gfs2-utils. The hash table traversal code in metawalk.c uses alloca() with an exponentially-derived size from the untrusted on-disk di_depth field without bounds validation. A crafted GFS2 filesystem image with a large di_depth value causes stack exhaustion and a denial of service when processed by fsck.gfs2, gfs2_edit, or savemeta.",
+      "id": "CVE-2026-85177",
+      "published": "2026-09-03T15:17:38.767",
+      "description": "CRMEB through 6.0.0 fails to validate message ownership in the edit_message handler of MessageSystemController.php, allowing authenticated users to modify arbitrary system inbox messages. Attackers can update any message's columns including is_del, look, and uid to delete, mark read, or reassign victim notifications without authorization.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-71224",
-      "published": "2026-09-03T13:06:03.233",
-      "description": "A stack overflow vulnerability was found in gfs2-utils. The metadata walk code in metawalk.c uses alloca() with an untrusted inode height value from on-disk metadata without bounds validation, causing stack exhaustion and a denial of service when processing crafted GFS2 filesystem images.",
+      "id": "CVE-2026-35160",
+      "published": "2026-09-03T15:17:25.127",
+      "description": "Dell SmartFabric OS10 Software, versions prior to 10.5.6.14, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5
     },
     {
-      "id": "CVE-2026-74768",
-      "published": "2026-09-03T13:06:07.307",
-      "description": "Dell PowerProtect Data Manager, versions 20.2.0.0 and below, contain a Server-Side Request Forgery (SSRF) vulnerability in the REST API. A high privileged remote attacker could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-63694",
+      "published": "2026-09-03T15:17:31.680",
+      "description": "Dell SmartFabric OS10 Software, versions prior to 10.5.6.14, contains an Improper Neutralization of Special Elements used in a Command ('Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.",
       "severity": "MEDIUM",
-      "score": 4.1
+      "score": 5
     },
     {
-      "id": "CVE-2026-15926",
-      "published": "2026-09-03T13:04:35.160",
-      "description": "Rejected reason: Red Hat Product Security has determined that this CVE ID is not needed",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-15933",
-      "published": "2026-09-03T13:04:35.243",
-      "description": "OptimiDoc Server (On-Premise) stores credentials for external services in cleartext. An authenticated administrator can view previously configured service passwords, including SMTP, FTP (for scan delivery), Active Directory (for user list import), and SharePoint credentials, in cleartext via the web administration panel page source, allowing exposure of sensitive third-party authentication data.\n\n\nThis issue was fixed in version 26.08",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76174",
-      "published": "2026-09-03T13:06:07.723",
-      "description": "Unrestricted file upload vulnerability in the CSV file upload functionality of the Ocsreports admin_info endpoint. The application validates files solely based on the name provided by the client, without properly checking their content or securely restricting the permitted file types. This allows a user with administrator privileges to upload PHP files to a directory accessible via the web interface. If the file is subsequently processed by the server, an attacker could execute arbitrary code with the privileges of the account used by the web service.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76175",
-      "published": "2026-09-03T13:06:07.867",
-      "description": "SQL injection vulnerability in the del_check parameter of the /ocsreports/?function=save_query_list endpoint. Input provided by an authenticated user with operator privileges is incorporated into an SQL query without proper parameterisation or validation, allowing the query to be manipulated and information to be extracted from the database using SQL injection techniques.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-84969",
+      "published": "2026-09-03T15:17:36.250",
+      "description": "A memory-handling error in the BSON-to-JSON conversion helpers of the MongoDB C Driver can write a small number of bytes past the end of a heap buffer when a binary field is encoded and the output is cut short at a caller-configured length limit. A party who supplies the document content, with no privileges on the application that links the driver, may cause a small amount of data outside the intended buffer to be altered.",
+      "severity": "LOW",
+      "score": 3.7
     }
   ]
 }
