@@ -1,145 +1,145 @@
 {
-  "totalResults": 3676,
+  "totalResults": 3663,
   "items": [
     {
-      "id": "CVE-2026-15354",
-      "published": "2026-09-04T07:17:08.487",
-      "description": "The ACPT (Premium) plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.0.66. This is due to missing authorization in the `submit()` function, which allows unauthenticated form submissions to control the target user ID before calling `wp_update_user()`. This makes it possible for unauthenticated attackers to overwrite any WordPress user's email address and password, including an administrator's, and take over the account. Successful exploitation requires a public ACPT user form that permits anonymous submissions.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-62928",
-      "published": "2026-09-04T07:17:09.057",
-      "description": "XING CPTrans-ME-X contains an OS Command Injection (CWE-78). Unauthenticated OS command may be injected.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-69657",
-      "published": "2026-09-04T07:17:09.340",
-      "description": "XING CPTrans-ME-X contains a Use of Default Password (CWE-1393). Anyone with the knowledge of the credential may log in to the affected device.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-70403",
-      "published": "2026-09-04T07:17:09.467",
-      "description": "XING CPTrans-ME-X contains a Use of Hard-coded Password (CWE-259). Anyone with the knowledge of the credential may log in to the affected device.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-80181",
-      "published": "2026-09-04T07:17:10.230",
-      "description": "Apache Allura's webhooks are vulnerable to Server-Side Request Forgery (SSRF).\n\n\n\n\nThis issue affects Apache Allura: through 1.20.0.\n\n\n\nUsers are recommended to upgrade to version 1.21.0, which fixes the issue.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-66840",
-      "published": "2026-09-04T07:17:09.210",
-      "description": "XING CPTrans-ME-X contains an Exposure of Sensitive System Information to an Unauthorized Control Sphere (CWE-497). Sensitive system information may be leaked.",
+      "id": "CVE-2026-19080",
+      "published": "2026-09-04T12:17:18.443",
+      "description": "Observable response discrepancy vulnerability in Menulux Software Inc. Menulux Portal allows Account Footprinting.\n\nThis issue affects Menulux Portal: before 20260903211448.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-81270",
-      "published": "2026-09-04T07:17:10.433",
-      "description": "Apache Allura: exposure of non-public information via search.\n\n\n\nThis issue affects Apache Allura: through 1.20.0.\n\n\n\nUsers are recommended to upgrade to version 1.21.0, which fixes the issue.",
+      "id": "CVE-2026-85581",
+      "published": "2026-09-04T12:17:20.050",
+      "description": "SiYuan before v3.8.2 contains a denial of service vulnerability in the unauthenticated /api/system/uiproc endpoint that accepts and retains attacker-controlled process identifiers without size limits or authentication. Attackers can send repeated requests with unique identifiers to exhaust process memory and degrade service availability.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-19224",
-      "published": "2026-09-04T07:17:08.937",
-      "description": "The Hummingbird Performance  WordPress plugin before 3.21.2 does not restrict a network-wide setting to network administrators, allowing an administrator of any single site on a multisite network to execute arbitrary code across the entire network.",
+      "id": "CVE-2026-85584",
+      "published": "2026-09-04T12:17:20.463",
+      "description": "SiYuan versions before v3.8.2 contain a denial of service vulnerability in the publish-service Basic Auth throttle that stores failed-attempt state using attacker-controlled usernames without enforcing capacity limits or eviction policies. Unauthenticated attackers can submit repeated authentication requests with unique invalid usernames to exhaust memory and increase synchronization overhead, degrading service availability.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-16281",
-      "published": "2026-09-04T07:17:08.730",
-      "description": "The Classified Listing  WordPress plugin before 6.1.1 does not verify that the caller owns or can edit the target listing before its AI image-editing AJAX action deletes or attaches media, allowing any authenticated user, including a subscriber, to permanently delete attachments from, and attach files to, any listing owned by another user.",
+      "id": "CVE-2026-85585",
+      "published": "2026-09-04T12:17:20.593",
+      "description": "SiYuan before v3.8.2 contains an unbounded resource consumption vulnerability in the request-concurrency middleware that retains mutex entries for every unique request path without eviction. Unauthenticated attackers can send numerous unique request paths to permanently increase process memory and synchronization overhead, degrading availability.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-19051",
+      "published": "2026-09-04T12:17:18.323",
+      "description": "Plaintext storage of a password vulnerability in Menulux Software Inc. Menulux Portal allows Retrieve Embedded Sensitive Data.\n\nThis issue affects Menulux Portal: before 20260903211448.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-74853",
-      "published": "2026-09-04T07:17:09.713",
-      "description": "The Pods  WordPress plugin before 3.3.9.2 does not restrict which functions a display callback may resolve to, allowing users with the author role and above to read arbitrary files from the server, including files outside the web root. Only sites using the restricted display-callback mode are affected, which is the automatic default on installations whose first Pods version predates 3.1.",
+      "id": "CVE-2026-85578",
+      "published": "2026-09-04T12:17:19.640",
+      "description": "SiYuan through 3.8.1 contains an authorization bypass vulnerability in the /api/file/getFile endpoint that allows readers to retrieve files from notebooks explicitly configured as Visible:false. Attackers with reader role can access private workspace files including notebook metadata and internal configuration by knowing the hidden notebook identifier and file path.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-80180",
-      "published": "2026-09-04T07:17:10.120",
-      "description": "Stored XSS via markdown HTML processing in Apache Allura.\n\n\n\nThis issue affects Apache Allura: from through 1.20.0.\n\n\n\nUsers are recommended to upgrade to version 1.21.0, which fixes the issue.",
+      "id": "CVE-2026-85580",
+      "published": "2026-09-04T12:17:19.917",
+      "description": "SiYuan versions before v3.8.2 contain a path guard bypass vulnerability in the MCP file-access handler that uses case-sensitive matching on Linux filesystems. Attackers can read the protected publishAccess.json file by requesting case-variant paths like PublishAccess.json to disclose sensitive publish-access configuration and metadata.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-80438",
-      "published": "2026-09-04T07:17:10.340",
-      "description": "The Ninja Forms  WordPress plugin before 3.15.2 does not restrict its REST abilities to administrators, accepting a Ninja Forms  WordPress plugin before 3.15.2-specific capability as equivalent to full site administration, which allows any user granted that capability to read Ninja Forms  WordPress plugin before 3.15.2 settings and stored form submissions, overwrite the Ninja Forms  WordPress plugin before 3.15.2's configuration, and create or modify arbitrary posts and pages.\nThe capability belongs to no default WordPress role and the Ninja Forms  WordPress plugin before 3.15.2 never grants it, so an administrator must have assigned it, typically when delegating access to the form builder.",
+      "id": "CVE-2026-85582",
+      "published": "2026-09-04T12:17:20.190",
+      "description": "SiYuan versions before v3.8.2 contain an unbounded session creation vulnerability in the publish-service Basic Auth handler that allows authenticated attackers to exhaust memory. Attackers can repeatedly authenticate with valid credentials to create persistent session entries without expiry or capacity limits, causing indefinite process memory growth and denial of service.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-81347",
-      "published": "2026-09-04T07:17:10.547",
-      "description": "The Frontend Admin by DynamiApps WordPress plugin before 3.29.13 does not properly validate a user-controllable directory path before deleting files within it, allowing unauthenticated attackers to delete index.php and .htaccess files outside the intended directory, including the WordPress root, which can render the site inoperable. Successful exploitation requires a non-default form configuration.",
+      "id": "CVE-2026-85583",
+      "published": "2026-09-04T12:17:20.327",
+      "description": "SiYuan versions before v3.8.2 contain a path traversal vulnerability in the reader-accessible file-read endpoint that follows symlinks when opening authorized asset paths. Attackers with reader role can request a logical asset under data/assets/ that is a symlink to a file outside the workspace and receive the target file bytes, bypassing workspace boundary restrictions.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.5
     },
     {
-      "id": "CVE-2025-15691",
-      "published": "2026-09-04T07:17:07.293",
-      "description": "The WPFunnels  WordPress plugin before 3.13.0 does not check whether user registration is enabled on the site before creating accounts from opt-in form submissions, relying on a value supplied in the request instead, allowing unauthenticated attackers to create WordPress user accounts even when registration is disabled.\n\nThis is an incomplete fix for CVE-2025-12353: the check added in 3.6.3 covers only one of the three registration paths.",
+      "id": "CVE-2026-18957",
+      "published": "2026-09-04T12:17:17.190",
+      "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Menulux Software Inc. Menulux Portal allows Stored XSS.\n\nThis issue affects Menulux Portal: before 20260903211448.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-17517",
-      "published": "2026-09-04T07:17:08.827",
-      "description": "The Content Views  WordPress plugin before 4.5.1.2 does not check whether the user requesting a view is allowed to read the posts it returns, allowing unauthenticated attackers to obtain the title and content of non-public posts, such as draft, pending, private and scheduled posts, when a view has been configured to include them.",
+      "id": "CVE-2026-85577",
+      "published": "2026-09-04T12:17:19.500",
+      "description": "AVideo through commit c91b5975d contains a reflected cross-site scripting vulnerability in userLogin.php that allows unauthenticated attackers to inject arbitrary JavaScript by closing the script tag with </script>. Attackers can craft a malicious URL with an error parameter containing script breakout sequences to execute arbitrary JavaScript in the victim's browser context on the login page.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-71216",
-      "published": "2026-09-04T07:17:09.587",
-      "description": "PagerDuty alarm hook transmits the integration routing key over cleartext HTTP.\n\n\n\nPagerDuty serves this endpoint over HTTPS and will\nnormally answer plain HTTP with a redirect. That does not remove the exposure.\nThe initial POST -- including the JSON body containing the routing key -- is\nwritten to the socket unencrypted before any redirect response is received.\nRedirection affects only whether the request is retried securely, not whether\nthe first copy left the host in the clear.\n\n\n\nThis issue affects Apache SkyWalking: from 9.6.0 through 11.0.0.\n\n\n\nUsers are recommended to upgrade to version 11.0.0, which fixes the issue.",
+      "id": "CVE-2026-19043",
+      "published": "2026-09-04T12:17:18.203",
+      "description": "Missing Authorization vulnerability in Menulux Software Inc. Menulux Portal allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Menulux Portal: before 20260903211448.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-79630",
-      "published": "2026-09-04T07:17:09.817",
-      "description": "The WPFunnels  WordPress plugin before 3.13.0 does not verify that the product requested through a checkout order bump is the product that bump's discount was configured for, allowing unauthenticated users to obtain any purchasable product at a discount intended for a different one, with the reduced price carried through to the total of the order they place.",
+      "id": "CVE-2026-85579",
+      "published": "2026-09-04T12:17:19.780",
+      "description": "SiYuan is affected by an information disclosure vulnerability (confirmed in v3.8.1, fixed in v3.8.2) in the reader-accessible POST /api/transactions/undoState endpoint. The endpoint returns the peekMutatedRootIDs list from the global undo-log stack for a caller-supplied root ID without applying publish-access visibility filtering. An authenticated reader who knows the root ID of a visible document can obtain the internal root IDs of other documents (including private or unpublished ones) modified in the same cross-document transaction, disclosing internal identifiers and cross-document relationships. Document body contents are not directly exposed.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-79631",
-      "published": "2026-09-04T07:17:09.923",
-      "description": "The WPFunnels  WordPress plugin before 3.13.0 does not restrict access to the log files it writes to a predictable location under the public uploads directory, allowing unauthenticated users to download customer order details and opt-in form submissions when logging is enabled.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-85592",
+      "published": "2026-09-04T12:17:22.557",
+      "description": "phpMyFAQ before 4.1.8 contains an authorization bypass vulnerability in the question creation endpoint where the isAddingQuestionsAllowed() method grants access to all callers when main.enableAskQuestions is enabled, ignoring the records.allowQuestionsForGuests setting. Unauthenticated attackers can submit questions via the question/create API endpoint to bypass guest submission restrictions and inject spam into the admin moderation queue.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-79632",
-      "published": "2026-09-04T07:17:10.017",
-      "description": "The WPFunnels  WordPress plugin before 3.13.0 does not perform any authorisation or nonce check in one of its opt-in submission handlers, and takes the notification recipients and subject from the request, allowing unauthenticated users to make the site send emails to arbitrary recipients with an arbitrary subject.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-85586",
+      "published": "2026-09-04T12:17:20.737",
+      "description": "phpMyFAQ versions before 4.1.8 fail to validate CAPTCHA when the store parameter is set to 'now' in question submission requests. Unauthenticated attackers can bypass CAPTCHA protection and submit unlimited questions directly, causing database pollution and triggering outgoing mail notifications.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-82186",
-      "published": "2026-09-04T07:17:10.647",
-      "description": "The WPLP Cookie Consent  WordPress plugin before 4.4.2 does not properly validate a pagination parameter before using it in a SQL query, allowing users with administrator privileges to perform SQL injection attacks.",
-      "severity": "MEDIUM",
-      "score": 4.1
+      "id": "CVE-2026-85587",
+      "published": "2026-09-04T12:17:20.867",
+      "description": "phpMyFAQ before 4.1.8 enforces incorrect permission checks on admin content pages, allowing lesser-privileged editors to read draft and inactive content. Attackers with only add permissions can access news edit and FAQ translate endpoints to view unpublished content invisible to the public.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-85588",
+      "published": "2026-09-04T12:17:21.013",
+      "description": "phpMyFAQ versions before 4.1.8 include live TOTP shared secrets in plaintext within user data export ZIP files. Attackers obtaining exported archives can extract the TOTP seed and generate valid one-time codes to bypass two-factor authentication.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-85589",
+      "published": "2026-09-04T12:17:21.160",
+      "description": "phpMyFAQ before 4.2.0-alpha.2 contains a missing authorization vulnerability in the admin dashboard API endpoints searches and content-health that enforce only authentication without permission checks. Any authenticated user can access these endpoints to read site-wide search statistics and content-health counters regardless of their privilege level.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-85590",
+      "published": "2026-09-04T12:17:21.327",
+      "description": "phpMyFAQ before 4.1.8 contains an authentication bypass vulnerability in its two-factor authentication (TOTP) disable functionality. The removeTwofactorConfig() handler (reachable via POST /api/user/remove-twofactor) verifies only that the user is logged in and that a valid CSRF token is supplied, then disables TOTP without requiring password re-entry or a current TOTP code. The same downgrade is also reachable inline via PUT /api/user/data/update, which accepts a plain twofactor_enabled form field under the same session+CSRF-only guard. An attacker who has hijacked a user's session can silently strip two-factor protection from any account, including administrator accounts, after which password-only authentication succeeds.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-85591",
+      "published": "2026-09-04T12:17:22.433",
+      "description": "phpMyFAQ versions before 4.1.8 contain an authentication bypass vulnerability in the user control panel API endpoint that allows authenticated attackers to change account passwords without verifying the current password. Attackers with session access can submit a PUT request to the user data update endpoint with only a CSRF token to silently change any user's password, including administrators, causing irreversible account takeover and victim lockout.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
