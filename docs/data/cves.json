@@ -1,143 +1,143 @@
 {
-  "totalResults": 3372,
+  "totalResults": 3822,
   "items": [
     {
-      "id": "CVE-2026-71624",
-      "published": "2026-09-04T20:17:26.183",
-      "description": "An issue in esoTalk v.1.0.0g4 allows a remote attacker to execute arbitrary code via the core/models/ETMemberModel.class.php, core/controllers/ETMemberController.class.php, and core/lib/ET.class.php components",
+      "id": "CVE-2026-52766",
+      "published": "2026-09-05T00:17:19.393",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, the {{erasespamedcomments}} wiki action (actions/EraseSpamedCommentsAction.php) accepts a suppr[] array from POST and deletes every wiki page whose tag appears in that array, with no authorization check anywhere in the action body or in the page-deletion path it invokes. Combined with YesWiki's allow-by-default action ACL model, any user who has page write access, which is the default for everyone (default_write_acl='*') on a fresh install can permanently delete arbitrary wiki pages, including the front page, admin pages, and pages owned by other users. This issue has been patched in version 4.6.6.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-71625",
-      "published": "2026-09-04T20:17:26.293",
-      "description": "An issue in slimkit plus ThinkSNS+ v.2.4 allows a remote attacker to escalate privileges via the ResetPasswordController.php component",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-79391",
-      "published": "2026-09-04T20:17:28.363",
-      "description": "No authentication exists in the MQTT service of Trueview 6.0.23.4. The MQTT broker accepts client connections on TCP port 1883 without requiring authentication, allowing a remote attacker with network access to establish an MQTT session and perform unauthorized publish or subscribe operations.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2025-67066",
-      "published": "2026-09-04T21:17:24.143",
-      "description": "SQL Injection vulnerability in oasys sysoa version 1.0 allows a remote attacker to execute arbitrary code via the outtype parameter in the /outaddresspaging path",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-50894",
-      "published": "2026-09-04T21:17:25.177",
-      "description": "easyadmin v2.0.2.2 is vulnerable to Unrestricted Upload of File with Dangerous Type in the background management interface which allows authenticated remote attackers to execute arbitrary code and gain server privileges via a crafted file upload.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-61699",
-      "published": "2026-09-04T20:17:24.347",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.7.1, revocation is the only in-band mechanism that isolates a compromised/offboarded host from a Nebula mesh. Because the blocklist never reaches any peer's config.yml, a Blocked host retains full overlay reachability to every peer under its CA (and internal services on the mesh) for up to 30d (agent) / 365d (mobile). An attacker who exfiltrates host.key+host.crt can run stock slackhq/nebula directly, ignore the agent's 403/410 poll responses, and stay connected after the operator revokes the host. Operator-visible state (UI shows blocked, audit log records it) is misleading. This issue has been patched in version 0.7.1.",
+      "id": "CVE-2026-48019",
+      "published": "2026-09-04T23:17:09.143",
+      "description": "Laravel is a web application framework. Prior to versions 12.60.0 and 13.10.0, a CRLF injection vulnerability in Laravel's email validation, in combination with how Symfony Mailer and Symfony Mime handle certain character sequences, may allow an unauthenticated attacker to interfere with outbound email processing in applications that send mail to user-supplied addresses. This issue has been patched in versions 12.60.0 and 13.10.0.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.9
     },
     {
-      "id": "CVE-2026-53932",
-      "published": "2026-09-04T20:17:23.570",
-      "description": "laravel-backup-restore restores database backups made with spatie/laravel-backup. Prior to version 1.9.4, a crafted backup archive can trigger OS command injection during database restore. This issue has been patched in version 1.9.4.",
+      "id": "CVE-2026-52775",
+      "published": "2026-09-05T00:17:20.520",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki through the latest development branch contains a SQL injection vulnerability in ReactionManager::deleteUserReaction() that allows any authenticated user to inject arbitrary SQL via the {idreaction} and {id} URL path parameters. The parameters are concatenated directly into a SQL LIKE clause without escaping or parameterization. This issue has been patched in version 4.6.6.",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-63464",
-      "published": "2026-09-04T20:17:24.730",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. From version 0.6.0 to before version 0.7.2, non-admin operators (role user) can set allow_private: true on their own managed webhook subscription (POST/PATCH /api/v1/webhook-subscriptions). No admin check exists on this field. At delivery time, allow_private switches the dispatcher to an unguarded HTTP client, bypassing the private/loopback/link-local SSRF guard — letting a low-privilege operator make the server request internal addresses. This issue has been patched in version 0.7.2.",
+      "id": "CVE-2026-52769",
+      "published": "2026-09-05T00:17:19.683",
+      "description": "YesWiki is a wiki system written in PHP. From version 4.6.2 to before version 4.6.6, the POST /api/forms/{formId}/actor/inbox route - exposed publicly with acl:\"public\" - accepts an HTTP Signature header whose keyId parameter is a URL. HttpSignatureService::verifySignature() parses the header and immediately makes a server-side HTTP GET to that URL, before any cryptographic verification or URL validation. An unauthenticated remote attacker can therefore make YesWiki issue arbitrary outbound HTTP requests to any host the server can reach - internal services, cloud-metadata endpoints (169.254.169.254), intranet-only admin panels, etc. - and read enough back via timing and error-message oracles to scan ports, enumerate services, and (on a real cloud instance) reach IAM metadata. The only deployment-side precondition is that ActivityPub be enabled on at least one Bazar form. This issue has been patched in version 4.6.6.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-71626",
-      "published": "2026-09-04T20:17:26.413",
-      "description": "An issue in Invoice Ninja v5.13.24 allows a remote attacker to obtain sensitive information via the StoreWebhookRequest.php, UpdateWebhookRequest.php, and WebhookSingle.php components",
+      "id": "CVE-2026-52771",
+      "published": "2026-09-05T00:17:19.963",
+      "description": "YesWiki is a wiki system written in PHP. From version 4.2.0 to before version 4.6.6, ApiController::deletePage() interpolates a page tag retrieved from the database into a DELETE FROM …_links WHERE to_tag = '$tag' query without escaping. The page tag is attacker-controlled — the POST /api/pages/{tag} API accepts arbitrary URL-encoded values, including single quotes, and stores them. A low-privilege authenticated user can therefore create a page whose tag is a SQL fragment, make the page non-orphaned via the standard {{include page=\"…\"}} link mechanism, and then invoke the delete endpoint to execute arbitrary SQL inside the wiki database - including time-based blind data exfiltration from any table. This issue has been patched in version 4.6.6.",
+      "severity": "HIGH",
+      "score": 8.3
+    },
+    {
+      "id": "CVE-2026-52767",
+      "published": "2026-09-05T00:17:19.540",
+      "description": "YesWiki is a wiki system written in PHP. From version 4.6.2 to before version 4.6.6, HttpSignatureService::verifySignature() checks the result of PHP's openssl_verify() with a loose boolean negation - if (!openssl_verify(...)) { throw ... }. PHP's openssl_verify has four possible return values: 1, 0, -1, and \"false\". The -1 row is the bypass: PHP's truthiness rules make -1 a truthy value, so !(-1) === false, the throw is skipped, and the controller proceeds to processActivity(). Any condition that makes OpenSSL's EVP_VerifyFinal() return -1 triggers the bypass. The reachable consequence is the controller silently treats a failed verification as success and processes the attacker's payload. This issue has been patched in version 4.6.6.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-86095",
+      "published": "2026-09-04T23:18:03.220",
+      "description": "Unidata netcdf-c through 4.10.1 contains an out-of-bounds write vulnerability in NC4_HDF5_inq_attname() that copies HDF5 attribute names into a fixed 256-byte buffer without length validation. Attackers can craft HDF5 files with oversized attribute names to overflow the destination buffer, causing memory corruption and crashes when applications enumerate attribute names.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-52770",
+      "published": "2026-09-05T00:17:19.827",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki’s public Bazar entry-listing APIs are vulnerable to unauthenticated SQL injection in numeric query / queries filters. For Bazar fields whose value structure is numeric, YesWiki escapes the attacker-controlled filter value but inserts it into SQL without quotes or numeric validation. An unauthenticated attacker can inject boolean SQL expressions and infer database contents from whether entries are returned. This issue has been patched in version 4.6.6.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-79390",
-      "published": "2026-09-04T20:17:28.257",
-      "description": "Trueview TI8161 6.0.23.4 is vulnerable to information disclosure due to the transmission of MQTT communications in plaintext over TCP port 1883. An unauthenticated attacker with access to the same network segment can intercept MQTT traffic and obtain sensitive device information and operational data, including device identifiers, message metadata, and control-related information.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-85786",
-      "published": "2026-09-04T20:17:33.153",
-      "description": "Improper handling of highly compressed data in Amazon ion-java before 1.12.1 might allow remote attackers to cause a denial of service via a crafted compressed Ion document that expands to an arbitrarily large size upon decompression due to insufficient coverage of the GZIP auto-decompression opt-out introduced for CVE-2026-75936.\n\n\n\nTo remediate this issue, users should upgrade to version 1.12.1.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-71622",
-      "published": "2026-09-04T20:17:26.053",
-      "description": "SQL injection vulnerability in Zhao-github APiAdmin v.5.0.1 allows a remote attacker to obtain sensitive information via the User.php component",
+      "id": "CVE-2026-86098",
+      "published": "2026-09-04T23:18:03.687",
+      "description": "ntop nDPI versions before 6.0 contain a heap buffer overflow vulnerability in the ndpi_json_string_escape function that writes beyond caller-supplied buffer boundaries. Attackers can trigger the overflow by supplying crafted network packet data including TLS SNI, HTTP headers, or DNS names that reach the vulnerable function, causing heap corruption.",
       "severity": "HIGH",
       "score": 7.4
     },
     {
-      "id": "CVE-2026-55513",
-      "published": "2026-09-04T20:17:23.857",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. From version 0.3.0 to before version 0.5.0, the nebula-mgmt Web UI host-creation path ignores both the server-wide enrollment_token_ttl security setting and per-network network_config.enrollment_token_ttl overrides. API host creation and token-regeneration paths use the configured TTL resolver, but POST /ui/hosts hardcodes now.Add(24 * time.Hour) for newly minted agent enrollment tokens. In deployments that intentionally reduce enrollment-token lifetime, any authenticated operator who can create a host through the Web UI can still mint a bearer enrollment token valid for about 24 hours. This issue has been patched in version 0.5.0.",
+      "id": "CVE-2026-86138",
+      "published": "2026-09-05T05:17:12.600",
+      "description": "In libxml2 before 2.15.4, xmlDictAddQString in dict.c has an integer overflow and resultant heap-based buffer overflow.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.9
     },
     {
-      "id": "CVE-2022-26961",
-      "published": "2026-09-04T21:17:19.887",
-      "description": "Italtel NetMatch-S 5.0.0-20200703 allows Multiple Stored XSS under NP_IBCF-NATUP-01/NMSCI-WebGui/backup_restore.jsp and NP_IBCF-MIBER-03/NMSCI-WebGui/storage.jsp via the name parameter. A malicious user leveraging this vulnerability could inject arbitrary JavaScript. The malicious payload will then be triggered every time an authenticated user browses the page containing it.",
+      "id": "CVE-2026-86097",
+      "published": "2026-09-04T23:18:03.547",
+      "description": "PX4 Autopilot through 1.17.0 contains a null pointer dereference vulnerability in param_set_default_file() and param_set_backup_file() functions that allows attackers to crash the autopilot process. Attackers can invoke 'param select' or 'param select-backup' commands with no path argument from any PX4 shell to trigger the crash.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-55512",
-      "published": "2026-09-04T20:17:23.717",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. From version 0.2.0 to before version 0.5.0, when OIDC is enabled, GET /ui/oidc/login is reachable without authentication and is registered outside the Web UI rate-limited auth routes. Every request creates a fresh random OIDC state value and stores it in an in-memory map for 10m. Expired states are swept lazily, but there is no rate limit or maximum live-state cap on the allocation path. An unauthenticated remote client can therefore grow OIDC.states for the full state TTL, bounded by request throughput rather than by configured auth rate limits. This issue has been patched in version 0.5.0.",
+      "id": "CVE-2026-52763",
+      "published": "2026-09-05T00:17:19.257",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, the recentchanges action (actions/recentchanges.php) accepts a period argument from two disjoint parameter spaces. A whitelist validates only the URL form against ['day','week','month']. The action-argument form takes the else branch with no validation, and the value flows into PageManager::getRecentlyChanged(), where it is interpolated into a WHERE time >= '...' ORDER BY time DESC clause without escaping or parameterization. UNION-based injection succeeds, the leaked rows render into the response page, so any visitor of the trigger page sees the exfiltrated data. The vulnerability provides arbitrary read of the YesWiki database to anyone who can save the trigger page. On a default install (default_write_acl='*'), this includes anonymous users, subject to the hashcash JS check on the page-edit form. Once the trigger page is saved, every subsequent view fires the injection as the SQLi is stored. Stored SQL injection is reachable through the page-edit flow, with arbitrary database read. This issue has been patched in version 4.6.6.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-85643",
-      "published": "2026-09-04T20:17:32.853",
-      "description": "A flaw has been found in code-projects Online Shopping System 1.0. Impacted is the function mysqli_query of the file admin/adduser.php. Executing a manipulation of the argument mobile can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used.",
+      "id": "CVE-2026-86100",
+      "published": "2026-09-05T00:17:20.810",
+      "description": "Camaleon CMS versions 2.7.5 through 2.9.1 fail to validate redirect targets when fetching remote files in the Upload from URL media feature. Authenticated attackers can supply URLs that pass initial validation but redirect to internal network addresses, allowing server-side request forgery to internal services.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-53602",
-      "published": "2026-09-04T20:17:23.130",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.3.7, two related authorization gaps let a host that should no longer be trusted obtain a fresh, valid Nebula certificate, because nebula-mgmt does not re-evaluate revocation/authorization state at certificate issuance time — only at poll time. Firstly, the blocklist is not enforced at sign / re-enroll time. internal/api/enroll.go:128 calls caMgr.Sign(...) without consulting the blocklist. The blocklist is only checked in the poll path (internal/api/updates.go:57, fingerprintInBlocklist). The blocklist is keyed by certificate fingerprint (internal/store/sqlite.go), so a re-enrollment produces a new fingerprint that is not in the blocklist. Secondly, renewal does not re-validate operator / CA status. Auto-renewal at poll time (internal/api/updates.go:285-319, signHostCert) reads host.Name, host.Groups, host.NebulaIPs from the DB and re-signs without checking whether the owning operator is still active or the CA still valid. DisableOperator (internal/store/sqlite_operators.go) revokes sessions and API keys but does not retire the operator's CAs, and pki/signer.go checks only CA cert time-expiry, not operator/CA status. This issue has been patched in version 0.3.7.",
+      "id": "CVE-2026-52773",
+      "published": "2026-09-05T00:17:20.243",
+      "description": "YesWiki is a wiki system written in PHP. From version 4.1.0 to before version 4.6.6, YesWiki's archived-revision view reflects the time GET parameter into a hidden HTML input in handlers/page/show.php without escaping. Because MySQL coerces malformed DATETIME strings, an attacker can append HTML or JavaScript to a valid archived revision timestamp, still load that archived revision, and execute arbitrary JavaScript in the victim's browser. The vulnerable form is only rendered when the victim can both read and edit the target page. In restricted deployments this requires a victim with read and write access to that page. On a default doryphore 4.6.5 install, public pages such as PagePrincipale were editable anonymously during validation, so the issue can also affect unauthenticated visitors in that configuration. This issue has been patched in version 4.6.6.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-52774",
+      "published": "2026-09-05T00:17:20.380",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki's Bazar widget handler reflects the id GET parameter into HTML attributes using strip_tags() only. Because strip_tags() does not escape double quotes, an attacker can break out of the attribute value, inject an event handler such as onmouseover, and execute arbitrary JavaScript in the victim's browser. This issue is reachable without authentication. During validation, the vulnerable widget route returned the injected HTML for both /HomePage/widget?id=... and /NoSuchPage/widget?id=..., which shows that no login, no page ownership, no edit rights, and not even a valid page tag were required. The only routing prerequisite observed was that the Bazar extension is enabled and the request includes an id parameter. This issue has been patched in version 4.6.6.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-86096",
+      "published": "2026-09-04T23:18:03.377",
+      "description": "PX4 Autopilot through 1.17.0 contains a use-after-free vulnerability in TemperatureCalibration::start() due to a race condition between task spawning and object deletion. Attackers can trigger the calibration process via shell commands to write to freed heap memory, corrupting unrelated objects or allocator metadata and destabilizing heap operations.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-52772",
+      "published": "2026-09-05T00:17:20.110",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, Bazar form-field templates still apply |raw('html') to field.label / field.hint in attribute and label-body contexts, resulting stored XSS in form renders. This issue has been patched in version 4.6.6.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-86137",
+      "published": "2026-09-05T05:17:11.490",
+      "description": "In libxml2 before 2.15.4, xmlFAParsePosCharGroup has an out-of-bounds read, aka an out-of-bounds read in the NXT macro in xmlregexp.",
+      "severity": "LOW",
+      "score": 2.9
+    },
+    {
+      "id": "CVE-2026-52762",
+      "published": "2026-09-05T00:17:18.607",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki Bazar contains a stored Server-Side Template Injection (SSTI) vulnerability in the semantic template feature that can be escalated to confirmed Remote Code Execution (RCE). An authenticated administrator can place arbitrary Twig expressions into the Semantic template (Twig) field (bn_sem_template), and that content is later executed server-side when public semantic endpoints are requested. This issue has been patched in version 4.6.6.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-53603",
-      "published": "2026-09-04T20:17:23.287",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.3.8, Operator session tokens are stored in plaintext in the operator_sessions table (the token column is the PRIMARY KEY). The session token is a 32-byte random hex value sent directly in a cookie and valid for 24 hours. Anyone who can read the database (backup, snapshot, file copy, or SQL-level disclosure) obtains every active session token and can hijack operator sessions directly, with no further authentication. This issue has been patched in version 0.3.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-53604",
-      "published": "2026-09-04T20:17:23.437",
-      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.3.8, the web handler renderMobileBundle passes the real *pki.CAResolver directly into mobilebundle.Build. Inside Build, resolver.LoadByID decrypts the CA's ed25519 private key into a *pki.CAManager, but Build never calls CAManager.Wipe() on any return path. As a result, when a mobile-bundle request goes through the web UI and Build returns — especially on error (missing network, invalid prefix, DB error, signing failure) — the plaintext CA private key remains on the Go heap, unwiped, until garbage collection. An attacker able to read process memory (core dump, swap, memory-scraping) can recover the CA signing key, which would allow minting arbitrary host certificates for the mesh. The API handler already does this correctly: it loads the CAManager, defer caMgr.Wipe(), and wraps it in caManagerResolver. Only the web path is affected. This issue has been patched in version 0.3.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-79389",
-      "published": "2026-09-04T20:17:28.133",
-      "description": "Trueview T18161 S 6.0.23.4 contains an improper verification in MQTT command processing. An attacker with network access can replay or modify captured MQTT messages, including security-related nonce, timestamp, and signature fields, and the device accepts the modified messages and executes the associated commands.",
+      "id": "CVE-2026-52777",
+      "published": "2026-09-05T00:17:20.663",
+      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, there is an authenticated PHP object injection vulnerability in BazarImportAction via unserialize. This issue has been patched in version 4.6.6.",
       "severity": "UNKNOWN",
       "score": null
     }
