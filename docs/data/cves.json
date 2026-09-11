@@ -1,145 +1,145 @@
 {
-  "totalResults": 3467,
+  "totalResults": 3372,
   "items": [
     {
-      "id": "CVE-2026-13297",
-      "published": "2026-09-04T17:16:51.573",
-      "description": "IBM Verify Identity Access Advanced Access Control may be vulnerable to an information disclosure attack.",
+      "id": "CVE-2026-71624",
+      "published": "2026-09-04T20:17:26.183",
+      "description": "An issue in esoTalk v.1.0.0g4 allows a remote attacker to execute arbitrary code via the core/models/ETMemberModel.class.php, core/controllers/ETMemberController.class.php, and core/lib/ET.class.php components",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-71625",
+      "published": "2026-09-04T20:17:26.293",
+      "description": "An issue in slimkit plus ThinkSNS+ v.2.4 allows a remote attacker to escalate privileges via the ResetPasswordController.php component",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-79391",
+      "published": "2026-09-04T20:17:28.363",
+      "description": "No authentication exists in the MQTT service of Trueview 6.0.23.4. The MQTT broker accepts client connections on TCP port 1883 without requiring authentication, allowing a remote attacker with network access to establish an MQTT session and perform unauthorized publish or subscribe operations.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2025-67066",
+      "published": "2026-09-04T21:17:24.143",
+      "description": "SQL Injection vulnerability in oasys sysoa version 1.0 allows a remote attacker to execute arbitrary code via the outtype parameter in the /outaddresspaging path",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-50894",
+      "published": "2026-09-04T21:17:25.177",
+      "description": "easyadmin v2.0.2.2 is vulnerable to Unrestricted Upload of File with Dangerous Type in the background management interface which allows authenticated remote attackers to execute arbitrary code and gain server privileges via a crafted file upload.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-61699",
+      "published": "2026-09-04T20:17:24.347",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.7.1, revocation is the only in-band mechanism that isolates a compromised/offboarded host from a Nebula mesh. Because the blocklist never reaches any peer's config.yml, a Blocked host retains full overlay reachability to every peer under its CA (and internal services on the mesh) for up to 30d (agent) / 365d (mobile). An attacker who exfiltrates host.key+host.crt can run stock slackhq/nebula directly, ignore the agent's 403/410 poll responses, and stay connected after the operator revokes the host. Operator-visible state (UI shows blocked, audit log records it) is misleading. This issue has been patched in version 0.7.1.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-53932",
+      "published": "2026-09-04T20:17:23.570",
+      "description": "laravel-backup-restore restores database backups made with spatie/laravel-backup. Prior to version 1.9.4, a crafted backup archive can trigger OS command injection during database restore. This issue has been patched in version 1.9.4.",
+      "severity": "HIGH",
+      "score": 8
+    },
+    {
+      "id": "CVE-2026-63464",
+      "published": "2026-09-04T20:17:24.730",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. From version 0.6.0 to before version 0.7.2, non-admin operators (role user) can set allow_private: true on their own managed webhook subscription (POST/PATCH /api/v1/webhook-subscriptions). No admin check exists on this field. At delivery time, allow_private switches the dispatcher to an unguarded HTTP client, bypassing the private/loopback/link-local SSRF guard — letting a low-privilege operator make the server request internal addresses. This issue has been patched in version 0.7.2.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-71626",
+      "published": "2026-09-04T20:17:26.413",
+      "description": "An issue in Invoice Ninja v5.13.24 allows a remote attacker to obtain sensitive information via the StoreWebhookRequest.php, UpdateWebhookRequest.php, and WebhookSingle.php components",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-14470",
-      "published": "2026-09-04T17:16:51.847",
-      "description": "IBM Langflow OSS 1.0.0 through 1.10.2 could allow an authenticated attacker to traverse directories on the system. An attacker could send a specially crafted URL request containing \"dot dot\" sequences (/../) to view arbitrary files on the system.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-79390",
+      "published": "2026-09-04T20:17:28.257",
+      "description": "Trueview TI8161 6.0.23.4 is vulnerable to information disclosure due to the transmission of MQTT communications in plaintext over TCP port 1883. An unauthenticated attacker with access to the same network segment can intercept MQTT traffic and obtain sensitive device information and operational data, including device identifiers, message metadata, and control-related information.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-17057",
-      "published": "2026-09-04T17:16:52.893",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service and affect data integrity due to missing authentication for critical functions.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-85786",
+      "published": "2026-09-04T20:17:33.153",
+      "description": "Improper handling of highly compressed data in Amazon ion-java before 1.12.1 might allow remote attackers to cause a denial of service via a crafted compressed Ion document that expands to an arbitrarily large size upon decompression due to insufficient coverage of the GZIP auto-decompression opt-out introduced for CVE-2026-75936.\n\n\n\nTo remediate this issue, users should upgrade to version 1.12.1.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-17207",
-      "published": "2026-09-04T17:16:53.020",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service and compromise integrity due to a buffer overflow.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-71622",
+      "published": "2026-09-04T20:17:26.053",
+      "description": "SQL injection vulnerability in Zhao-github APiAdmin v.5.0.1 allows a remote attacker to obtain sensitive information via the User.php component",
+      "severity": "HIGH",
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-17273",
-      "published": "2026-09-04T17:16:53.570",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to cause a denial of service due to a NULL pointer dereference.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-16689",
-      "published": "2026-09-04T17:16:52.250",
-      "description": "IBM App Connect Enterprise 13.0.1.0 through 13.0.8.1, and 12.0.1.0 through 12.0.12.28 and IBM Integration Bus for z/OS 10.1.0.0 through 10.1.0.7 could allow a local attacker to obtain sensitive information due to improper logging of credentials.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-16180",
-      "published": "2026-09-04T17:16:51.977",
-      "description": "IBM App Connect Enterprise 13.0.1.0 through 13.0.8.1, and 12.0.1.0 through 12.0.12.28 and IBM Integration Bus for z/OS 10.1.0.0 through 10.1.0.7 Toolkit could allow an authenticated user to cause a denial-of-service condition due to improper validation of XML entities.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-17440",
-      "published": "2026-09-04T17:16:53.870",
-      "description": "IBM App Connect Enterprise 13.0.1.0 through 13.0.8.1, and 12.0.1.0 through 12.0.12.28 and IBM Integration Bus for z/OS 10.1.0.0 through 10.1.0.7 could allow a local attacker to cause a denial of service due to uncontrolled recursion.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-16892",
-      "published": "2026-09-04T17:16:52.643",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to bypass security restrictions due to improper authentication during service-name matching.",
+      "id": "CVE-2026-55513",
+      "published": "2026-09-04T20:17:23.857",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. From version 0.3.0 to before version 0.5.0, the nebula-mgmt Web UI host-creation path ignores both the server-wide enrollment_token_ttl security setting and per-network network_config.enrollment_token_ttl overrides. API host creation and token-regeneration paths use the configured TTL resolver, but POST /ui/hosts hardcodes now.Add(24 * time.Hour) for newly minted agent enrollment tokens. In deployments that intentionally reduce enrollment-token lifetime, any authenticated operator who can create a host through the Web UI can still mint a bearer enrollment token valid for about 24 hours. This issue has been patched in version 0.5.0.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-17274",
-      "published": "2026-09-04T17:16:53.710",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to bypass security restrictions due to predictable server seeds.",
+      "id": "CVE-2022-26961",
+      "published": "2026-09-04T21:17:19.887",
+      "description": "Italtel NetMatch-S 5.0.0-20200703 allows Multiple Stored XSS under NP_IBCF-NATUP-01/NMSCI-WebGui/backup_restore.jsp and NP_IBCF-MIBER-03/NMSCI-WebGui/storage.jsp via the name parameter. A malicious user leveraging this vulnerability could inject arbitrary JavaScript. The malicious payload will then be triggered every time an authenticated user browses the page containing it.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-14350",
-      "published": "2026-09-04T17:16:51.710",
-      "description": "IBM Cloud Pak for Data System 11.3.0.2 through Interim Fix 001 could allow an unauthorized user to inject data into log messages due to improper neutralization of special elements when written to log files.",
+      "id": "CVE-2026-55512",
+      "published": "2026-09-04T20:17:23.717",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. From version 0.2.0 to before version 0.5.0, when OIDC is enabled, GET /ui/oidc/login is reachable without authentication and is registered outside the Web UI rate-limited auth routes. Every request creates a fresh random OIDC state value and stores it in an in-memory map for 10m. Expired states are swept lazily, but there is no rate limit or maximum live-state cap on the allocation path. An unauthenticated remote client can therefore grow OIDC.states for the full state TTL, bounded by request throughput rather than by configured auth rate limits. This issue has been patched in version 0.5.0.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-16660",
-      "published": "2026-09-04T17:16:52.117",
-      "description": "IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to cause a denial of service due to an out-of-bounds read.",
+      "id": "CVE-2026-85643",
+      "published": "2026-09-04T20:17:32.853",
+      "description": "A flaw has been found in code-projects Online Shopping System 1.0. Impacted is the function mysqli_query of the file admin/adduser.php. Executing a manipulation of the argument mobile can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-16826",
-      "published": "2026-09-04T17:16:52.517",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local attacker to execute arbitrary commands due to improper neutralization of special elements used in an OS command.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-53602",
+      "published": "2026-09-04T20:17:23.130",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.3.7, two related authorization gaps let a host that should no longer be trusted obtain a fresh, valid Nebula certificate, because nebula-mgmt does not re-evaluate revocation/authorization state at certificate issuance time — only at poll time. Firstly, the blocklist is not enforced at sign / re-enroll time. internal/api/enroll.go:128 calls caMgr.Sign(...) without consulting the blocklist. The blocklist is only checked in the poll path (internal/api/updates.go:57, fingerprintInBlocklist). The blocklist is keyed by certificate fingerprint (internal/store/sqlite.go), so a re-enrollment produces a new fingerprint that is not in the blocklist. Secondly, renewal does not re-validate operator / CA status. Auto-renewal at poll time (internal/api/updates.go:285-319, signHostCert) reads host.Name, host.Groups, host.NebulaIPs from the DB and re-signs without checking whether the owning operator is still active or the CA still valid. DisableOperator (internal/store/sqlite_operators.go) revokes sessions and API keys but does not retire the operator's CAs, and pki/signer.go checks only CA cert time-expiry, not operator/CA status. This issue has been patched in version 0.3.7.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-17443",
-      "published": "2026-09-04T17:16:54.170",
-      "description": "IBM App Connect Enterprise 13.0.1.0 through 13.0.8.1, and 12.0.1.0 through 12.0.12.28 and IBM Integration Bus for z/OS 10.1.0.0 through 10.1.0.7 could allow a remote authenticated attacker to obtain sensitive information due to an XML external entity (XXE) injection flaw.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-53603",
+      "published": "2026-09-04T20:17:23.287",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.3.8, Operator session tokens are stored in plaintext in the operator_sessions table (the token column is the PRIMARY KEY). The session token is a 32-byte random hex value sent directly in a cookie and valid for 24 hours. Anyone who can read the database (backup, snapshot, file copy, or SQL-level disclosure) obtains every active session token and can hijack operator sessions directly, with no further authentication. This issue has been patched in version 0.3.8.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-17442",
-      "published": "2026-09-04T17:16:54.020",
-      "description": "IBM App Connect Enterprise 13.0.1.0 through 13.0.8.1, and 12.0.1.0 through 12.0.12.28 and IBM Integration Bus for z/OS 10.1.0.0 through 10.1.0.7 could allow a local attacker to obtain sensitive information due to credentials being written to trace logs in cleartext.",
-      "severity": "MEDIUM",
-      "score": 5.1
+      "id": "CVE-2026-53604",
+      "published": "2026-09-04T20:17:23.437",
+      "description": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh VPN. Prior to version 0.3.8, the web handler renderMobileBundle passes the real *pki.CAResolver directly into mobilebundle.Build. Inside Build, resolver.LoadByID decrypts the CA's ed25519 private key into a *pki.CAManager, but Build never calls CAManager.Wipe() on any return path. As a result, when a mobile-bundle request goes through the web UI and Build returns — especially on error (missing network, invalid prefix, DB error, signing failure) — the plaintext CA private key remains on the Go heap, unwiped, until garbage collection. An attacker able to read process memory (core dump, swap, memory-scraping) can recover the CA signing key, which would allow minting arbitrary host certificates for the mesh. The API handler already does this correctly: it loads the CAManager, defer caMgr.Wipe(), and wraps it in caManagerResolver. Only the web path is affected. This issue has been patched in version 0.3.8.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-16693",
-      "published": "2026-09-04T17:16:52.390",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to obtain sensitive information due to the use of hardcoded cryptographic constants to obfuscate encryption keys.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-16941",
-      "published": "2026-09-04T17:16:52.770",
-      "description": "IBM i 7.6, 7.5, and 7.4 could allow a remote authenticated attacker to modify certain system messages due to improper authorization.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-17255",
-      "published": "2026-09-04T17:16:53.140",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service due to improper validation of the prefix length in ICMPv6 Router Advertisements.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-17259",
-      "published": "2026-09-04T17:16:53.267",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote authenticated attacker to cause a denial of service due to a stack-based buffer overflow.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-17270",
-      "published": "2026-09-04T17:16:53.400",
-      "description": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local attacker to cause a denial of service due to a stack-based buffer overflow.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-79389",
+      "published": "2026-09-04T20:17:28.133",
+      "description": "Trueview T18161 S 6.0.23.4 contains an improper verification in MQTT command processing. An attacker with network access can replay or modify captured MQTT messages, including security-related nonce, timestamp, and signature fields, and the device accepts the modified messages and executes the associated commands.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
