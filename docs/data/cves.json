@@ -1,5 +1,5 @@
 {
-  "totalResults": 3805,
+  "totalResults": 3802,
   "items": [
     {
       "id": "CVE-2026-13447",
@@ -23,11 +23,11 @@
       "score": 8.2
     },
     {
-      "id": "CVE-2026-86140",
-      "published": "2026-09-05T05:17:12.877",
-      "description": "In libxml2 before 2.15.4, xmlSnprintfElements in valid.c has a strcat stack-based buffer overflow.",
+      "id": "CVE-2026-19858",
+      "published": "2026-09-05T07:17:11.467",
+      "description": "The JetFormBuilder — Dynamic Blocks Form Builder WordPress plugin before 3.6.5.2 does not perform authorisation checks when resolving request-derived data during page rendering, allowing unauthenticated users to read arbitrary user, post and term properties and metadata, including password hashes, private and draft content, and secrets other JetFormBuilder — Dynamic Blocks Form Builder WordPress plugin before 3.6.5.2 store in metadata.",
       "severity": "HIGH",
-      "score": 8
+      "score": 7.5
     },
     {
       "id": "CVE-2026-77233",
@@ -44,32 +44,39 @@
       "score": 7.2
     },
     {
-      "id": "CVE-2026-86138",
-      "published": "2026-09-05T05:17:12.600",
-      "description": "In libxml2 before 2.15.4, xmlDictAddQString in dict.c has an integer overflow and resultant heap-based buffer overflow.",
-      "severity": "MEDIUM",
-      "score": 6.9
+      "id": "CVE-2026-15984",
+      "published": "2026-09-05T07:17:10.793",
+      "description": "The QuickCal plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Custom Field Parameters in all versions up to, and including, 1.0.20 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The nonce guarding the unauthenticated booked_add_appt AJAX action is publicly embedded on any page rendering the booking calendar shortcode, making it trivially obtainable by unauthenticated attackers without any prior account or privilege.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-86139",
-      "published": "2026-09-05T05:17:12.730",
-      "description": "In libxml2 before 2.15.4, xmlURIEscapeStr in uri.c has an integer overflow.",
-      "severity": "MEDIUM",
-      "score": 6.9
+      "id": "CVE-2026-16649",
+      "published": "2026-09-05T07:17:10.917",
+      "description": "The Gravity Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Post Body Field Value in all versions up to, and including, 2.10.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit survives save-time sanitization because wp_kses_post allows the required HTML tags and attributes, and the client-side tooltip script re-parses the browser-decoded aria-label value as innerHTML while only stripping script elements, leaving onerror and other event-handler attributes fully intact and executable.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-86142",
-      "published": "2026-09-05T05:17:13.133",
-      "description": "In libxml2 before 2.15.4, there is a heap-based buffer overflow in xmlXPtrEvalXPtrPart because of xmlXPtrEval xpointer length saturation.",
-      "severity": "MEDIUM",
-      "score": 6.9
+      "id": "CVE-2026-18406",
+      "published": "2026-09-05T07:17:11.040",
+      "description": "The SureForms – Contact Form Builder, AI Forms, Payment Form, Survey & Quiz plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Text Field Entity-Encoded Payload in all versions up to, and including, 2.12.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-86143",
-      "published": "2026-09-05T05:17:13.270",
-      "description": "In xmlIO in libxml2 before 2.15.4, an inconsistency in xmlOutputWriteCallback and xmlBufUse causes negative lengths to reach write callbacks, aka a lack of a check for integer overflow before calling writecallback. This has security relevance for many types of uses of that length value within a callback.",
+      "id": "CVE-2026-19769",
+      "published": "2026-09-05T07:17:11.333",
+      "description": "The Ninja Forms – The Contact Form Builder That Grows With You plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Repeater Child 'type' Confusion via Unmatched Array Key in all versions up to, and including, 3.15.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the Ninja Forms File Uploads add-on to be active, as the attack routes the unwhitelisted child entry through the File Uploads handler to write an attacker-supplied HTML file containing arbitrary JavaScript into any web-server-writable directory, including the site root, where it is served from the site's own origin.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-14975",
+      "published": "2026-09-05T07:17:10.560",
+      "description": "The WP File Download plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 6.3.8 via the 'remoteurl' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. An authenticated attacker with Subscriber-level access first poisons the _wpfd_file_metadata['file'] post-meta value via the unprotected file.save handler, after which the streaming endpoint — hooked on init with no authentication requirement — resolves and streams the traversed file path to any caller, including unauthenticated visitors.",
       "severity": "MEDIUM",
-      "score": 6.9
+      "score": 6.5
     },
     {
       "id": "CVE-2026-18404",
@@ -93,16 +100,23 @@
       "score": 6.4
     },
     {
-      "id": "CVE-2026-86144",
-      "published": "2026-09-05T05:17:13.407",
-      "description": "In xinclude in libxml2 before 2.15.4, xmlXIncludeProcess and xmlXIncludeProcessTree do not propagate parseFlags. This has security relevance for, for example, the XML_PARSE_NONET flag, if (without it) a custom resource loader accesses the internet and triggers XML external entity injection, SSRF, or a denial of service (e.g., for an attacker-controlled internet resource that is intentionally slow).",
+      "id": "CVE-2026-18843",
+      "published": "2026-09-05T07:17:11.207",
+      "description": "The Beaver Builder Plugin (Starter Version) plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via 'no_results_message' node_preview Parameter in all versions up to, and including, 2.11.0.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 6.1
     },
     {
       "id": "CVE-2025-14945",
       "published": "2026-09-05T06:17:09.017",
       "description": "The Events Manager - Calendar, Bookings, Tickets, and more! plugin for WordPress is vulnerable to Stored Cross-Site Scripting via event attribute values in all versions up to, and including, 7.3.3. This is due to insufficient input sanitization when storing attribute values (using only `wp_unslash()` without sanitization) and lack of output escaping when rendering the '#_ATT{key}' placeholder. This makes it possible for authenticated attackers, with Author-level access and above, or unauthenticated attackers when anonymous event submissions are enabled, to inject arbitrary web scripts that execute when any user views the affected event page.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-15247",
+      "published": "2026-09-05T07:17:10.693",
+      "description": "The Search Atlas SEO  WordPress plugin before 2.6.24 does not perform a nonce or capability check before processing a settings update in one of its early-priority handlers, allowing any authenticated user such as a Subscriber to overwrite or delete the site's stored Google service-account credentials.",
       "severity": "MEDIUM",
       "score": 5.4
     },
@@ -119,20 +133,6 @@
       "description": "The Joli Table Of Contents WordPress plugin before 2.8.1 does not sanitise and escape some of its settings before outputting them in an admin page, which could allow high-privilege users such as administrators to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed, for example in a multisite setup.",
       "severity": "LOW",
       "score": 3.5
-    },
-    {
-      "id": "CVE-2026-86137",
-      "published": "2026-09-05T05:17:11.490",
-      "description": "In libxml2 before 2.15.4, xmlFAParsePosCharGroup has an out-of-bounds read, aka an out-of-bounds read in the NXT macro in xmlregexp.",
-      "severity": "LOW",
-      "score": 2.9
-    },
-    {
-      "id": "CVE-2026-86141",
-      "published": "2026-09-05T05:17:13.007",
-      "description": "xmlregexp in libxml2 before 2.15.4 has a NULL pointer dereference in xmlRegNewParserCtxt after a strdup failure, i.e., it does not calculate a string length after NULL checking.",
-      "severity": "LOW",
-      "score": 2.9
     },
     {
       "id": "CVE-2025-15693",
