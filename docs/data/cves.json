@@ -1,68 +1,47 @@
 {
-  "totalResults": 3822,
+  "totalResults": 3805,
   "items": [
     {
-      "id": "CVE-2026-52766",
-      "published": "2026-09-05T00:17:19.393",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, the {{erasespamedcomments}} wiki action (actions/EraseSpamedCommentsAction.php) accepts a suppr[] array from POST and deletes every wiki page whose tag appears in that array, with no authorization check anywhere in the action body or in the page-deletion path it invokes. Combined with YesWiki's allow-by-default action ACL model, any user who has page write access, which is the default for everyone (default_write_acl='*') on a fresh install can permanently delete arbitrary wiki pages, including the front page, admin pages, and pages owned by other users. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2026-13447",
+      "published": "2026-09-05T06:17:09.403",
+      "description": "The Mstore Api plugin for WordPress is vulnerable to Authentication Bypass via JWT Forgery in versions up to, and including, 4.20.0 This is due to missing cryptographic signature verification in the FirebasePhoneAuthHelper::verify_id_token() function, which decodes and validates Firebase ID token claims (alg, kid, aud, iss) but never calls openssl_verify() or any equivalent to validate the JWT signature against Google's actual public key certificates. This makes it possible for unauthenticated attackers to forge a Firebase Phone Auth JWT signed with a self-generated RSA key pair and impersonate any phone number, resulting in unauthorized access to existing WordPress accounts or creation of new arbitrary accounts.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-48019",
-      "published": "2026-09-04T23:17:09.143",
-      "description": "Laravel is a web application framework. Prior to versions 12.60.0 and 13.10.0, a CRLF injection vulnerability in Laravel's email validation, in combination with how Symfony Mailer and Symfony Mime handle certain character sequences, may allow an unauthenticated attacker to interfere with outbound email processing in applications that send mail to user-supplied addresses. This issue has been patched in versions 12.60.0 and 13.10.0.",
-      "severity": "HIGH",
-      "score": 8.9
+      "id": "CVE-2026-83627",
+      "published": "2026-09-05T06:17:10.080",
+      "description": "The Hummingbird – Speed Optimization, Caching, Minify, Compress & CDN plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 3.21.0 via the log_msg() function in core/modules/class-page-cache.php. The page-cache debug log is written to wp-content/wphb-logs/page-caching-log.php, a directly web-accessible PHP file that is supposed to be protected by a leading '<?php die(); ?>' header. That header is guarded by class_exists( 'Filesystem' ), which can never match because class_exists() resolves string arguments in the global namespace while the class is Hummingbird\\Core\\Filesystem; when the log is created during a front-end request the header is therefore omitted entirely. get_cookies() then writes the raw name of any cookie matching the wphb_cache_ prefix into that file without sanitization. This makes it possible for unauthenticated attackers to write arbitrary PHP into the log file with a single anonymous request and execute it by requesting the file directly, resulting in full remote code execution. Exploitation requires the site administrator to have enabled Page Caching with the Debug Log option (non-default), and the log file to be created during a front-end request — a state reached by the plugin's own 'Clear logs' action, any cache flush, or unattended via the plugin's daily log-rotation cron, which can strip the protective header from an existing log file.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-52775",
-      "published": "2026-09-05T00:17:20.520",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki through the latest development branch contains a SQL injection vulnerability in ReactionManager::deleteUserReaction() that allows any authenticated user to inject arbitrary SQL via the {idreaction} and {id} URL path parameters. The parameters are concatenated directly into a SQL LIKE clause without escaping or parameterization. This issue has been patched in version 4.6.6.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-52769",
-      "published": "2026-09-05T00:17:19.683",
-      "description": "YesWiki is a wiki system written in PHP. From version 4.6.2 to before version 4.6.6, the POST /api/forms/{formId}/actor/inbox route - exposed publicly with acl:\"public\" - accepts an HTTP Signature header whose keyId parameter is a URL. HttpSignatureService::verifySignature() parses the header and immediately makes a server-side HTTP GET to that URL, before any cryptographic verification or URL validation. An unauthenticated remote attacker can therefore make YesWiki issue arbitrary outbound HTTP requests to any host the server can reach - internal services, cloud-metadata endpoints (169.254.169.254), intranet-only admin panels, etc. - and read enough back via timing and error-message oracles to scan ports, enumerate services, and (on a real cloud instance) reach IAM metadata. The only deployment-side precondition is that ActivityPub be enabled on at least one Bazar form. This issue has been patched in version 4.6.6.",
-      "severity": "HIGH",
-      "score": 8.3
-    },
-    {
-      "id": "CVE-2026-52771",
-      "published": "2026-09-05T00:17:19.963",
-      "description": "YesWiki is a wiki system written in PHP. From version 4.2.0 to before version 4.6.6, ApiController::deletePage() interpolates a page tag retrieved from the database into a DELETE FROM …_links WHERE to_tag = '$tag' query without escaping. The page tag is attacker-controlled — the POST /api/pages/{tag} API accepts arbitrary URL-encoded values, including single quotes, and stores them. A low-privilege authenticated user can therefore create a page whose tag is a SQL fragment, make the page non-orphaned via the standard {{include page=\"…\"}} link mechanism, and then invoke the delete endpoint to execute arbitrary SQL inside the wiki database - including time-based blind data exfiltration from any table. This issue has been patched in version 4.6.6.",
-      "severity": "HIGH",
-      "score": 8.3
-    },
-    {
-      "id": "CVE-2026-52767",
-      "published": "2026-09-05T00:17:19.540",
-      "description": "YesWiki is a wiki system written in PHP. From version 4.6.2 to before version 4.6.6, HttpSignatureService::verifySignature() checks the result of PHP's openssl_verify() with a loose boolean negation - if (!openssl_verify(...)) { throw ... }. PHP's openssl_verify has four possible return values: 1, 0, -1, and \"false\". The -1 row is the bypass: PHP's truthiness rules make -1 a truthy value, so !(-1) === false, the throw is skipped, and the controller proceeds to processActivity(). Any condition that makes OpenSSL's EVP_VerifyFinal() return -1 triggers the bypass. The reachable consequence is the controller silently treats a failed verification as success and processes the attacker's payload. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2026-86145",
+      "published": "2026-09-05T06:17:10.370",
+      "description": "PCRE2 before 10.48 allows a pcre2_dfa_match out-of-bounds write because reuse of a cached workspace block, in a recursive DFA matching workspace, lacks a size check (even though a newly allocated block, for the same purpose, does have a size check). This outcome requires an attacker-controlled regular expression, or a recursive pattern in conjunction with a small heap limit (this can be set through the API).",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-86095",
-      "published": "2026-09-04T23:18:03.220",
-      "description": "Unidata netcdf-c through 4.10.1 contains an out-of-bounds write vulnerability in NC4_HDF5_inq_attname() that copies HDF5 attribute names into a fixed 256-byte buffer without length validation. Attackers can craft HDF5 files with oversized attribute names to overflow the destination buffer, causing memory corruption and crashes when applications enumerate attribute names.",
+      "id": "CVE-2026-86140",
+      "published": "2026-09-05T05:17:12.877",
+      "description": "In libxml2 before 2.15.4, xmlSnprintfElements in valid.c has a strcat stack-based buffer overflow.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8
     },
     {
-      "id": "CVE-2026-52770",
-      "published": "2026-09-05T00:17:19.827",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki’s public Bazar entry-listing APIs are vulnerable to unauthenticated SQL injection in numeric query / queries filters. For Bazar fields whose value structure is numeric, YesWiki escapes the attacker-controlled filter value but inserts it into SQL without quotes or numeric validation. An unauthenticated attacker can inject boolean SQL expressions and infer database contents from whether entries are returned. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2026-77233",
+      "published": "2026-09-05T06:17:09.780",
+      "description": "The iubenda | All-in-one Compliance for GDPR / CCPA Cookie Consent + more plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via AdSense Regex Rewrite in all versions up to, and including, 3.13.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This vulnerability only manifests when the 'Secondary' parser engine is active (parser_engine=default); it does not exist under the default 'new' DOM-based parser engine.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-86098",
-      "published": "2026-09-04T23:18:03.687",
-      "description": "ntop nDPI versions before 6.0 contain a heap buffer overflow vulnerability in the ndpi_json_string_escape function that writes beyond caller-supplied buffer boundaries. Attackers can trigger the overflow by supplying crafted network packet data including TLS SNI, HTTP headers, or DNS names that reach the vulnerable function, causing heap corruption.",
+      "id": "CVE-2026-77263",
+      "published": "2026-09-05T06:17:09.950",
+      "description": "The iubenda | All-in-one Compliance for GDPR / CCPA Cookie Consent + more plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content in all versions up to, and including, 3.13.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit works by embedding KSES-allowed markup such as abbr title attributes and HTML comments in a submitted comment so that the global strtr() substitution strips substrings from an inert tag, mutating it into an executable element such as an img onerror handler that runs in the WordPress origin for any visitor, including logged-in administrators.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.2
     },
     {
       "id": "CVE-2026-86138",
@@ -72,53 +51,74 @@
       "score": 6.9
     },
     {
-      "id": "CVE-2026-86097",
-      "published": "2026-09-04T23:18:03.547",
-      "description": "PX4 Autopilot through 1.17.0 contains a null pointer dereference vulnerability in param_set_default_file() and param_set_backup_file() functions that allows attackers to crash the autopilot process. Attackers can invoke 'param select' or 'param select-backup' commands with no path argument from any PX4 shell to trigger the crash.",
+      "id": "CVE-2026-86139",
+      "published": "2026-09-05T05:17:12.730",
+      "description": "In libxml2 before 2.15.4, xmlURIEscapeStr in uri.c has an integer overflow.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.9
     },
     {
-      "id": "CVE-2026-52763",
-      "published": "2026-09-05T00:17:19.257",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, the recentchanges action (actions/recentchanges.php) accepts a period argument from two disjoint parameter spaces. A whitelist validates only the URL form against ['day','week','month']. The action-argument form takes the else branch with no validation, and the value flows into PageManager::getRecentlyChanged(), where it is interpolated into a WHERE time >= '...' ORDER BY time DESC clause without escaping or parameterization. UNION-based injection succeeds, the leaked rows render into the response page, so any visitor of the trigger page sees the exfiltrated data. The vulnerability provides arbitrary read of the YesWiki database to anyone who can save the trigger page. On a default install (default_write_acl='*'), this includes anonymous users, subject to the hashcash JS check on the page-edit form. Once the trigger page is saved, every subsequent view fires the injection as the SQLi is stored. Stored SQL injection is reachable through the page-edit flow, with arbitrary database read. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2026-86142",
+      "published": "2026-09-05T05:17:13.133",
+      "description": "In libxml2 before 2.15.4, there is a heap-based buffer overflow in xmlXPtrEvalXPtrPart because of xmlXPtrEval xpointer length saturation.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.9
     },
     {
-      "id": "CVE-2026-86100",
-      "published": "2026-09-05T00:17:20.810",
-      "description": "Camaleon CMS versions 2.7.5 through 2.9.1 fail to validate redirect targets when fetching remote files in the Upload from URL media feature. Authenticated attackers can supply URLs that pass initial validation but redirect to internal network addresses, allowing server-side request forgery to internal services.",
+      "id": "CVE-2026-86143",
+      "published": "2026-09-05T05:17:13.270",
+      "description": "In xmlIO in libxml2 before 2.15.4, an inconsistency in xmlOutputWriteCallback and xmlBufUse causes negative lengths to reach write callbacks, aka a lack of a check for integer overflow before calling writecallback. This has security relevance for many types of uses of that length value within a callback.",
+      "severity": "MEDIUM",
+      "score": 6.9
+    },
+    {
+      "id": "CVE-2026-18404",
+      "published": "2026-09-05T06:17:09.577",
+      "description": "The Social Chat – Click To Chat App Button plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'consent_message' JSON Attribute in .qlwapp data-box in all versions up to, and including, 8.6.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit requires no user interaction beyond page load, as setting auto_open and consent_enabled to 'yes' in the injected data-box JSON causes the consent box — and the embedded script — to execute immediately on page load.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-52773",
-      "published": "2026-09-05T00:17:20.243",
-      "description": "YesWiki is a wiki system written in PHP. From version 4.1.0 to before version 4.6.6, YesWiki's archived-revision view reflects the time GET parameter into a hidden HTML input in handlers/page/show.php without escaping. Because MySQL coerces malformed DATETIME strings, an attacker can append HTML or JavaScript to a valid archived revision timestamp, still load that archived revision, and execute arbitrary JavaScript in the victim's browser. The vulnerable form is only rendered when the victim can both read and edit the target page. In restricted deployments this requires a victim with read and write access to that page. On a default doryphore 4.6.5 install, public pages such as PagePrincipale were editable anonymously during validation, so the issue can also affect unauthenticated visitors in that configuration. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2026-8623",
+      "published": "2026-09-05T06:17:10.547",
+      "description": "The Dear Flipbook – PDF Flipbook, 3D Flipbook, PDF embed, PDF viewer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_content (class attribute of .dvcss element)' parameter in all versions up to, and including, 2.4.30 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload is embedded as a Base64-encoded JSON object in a CSS class name on a Custom HTML block; the frontend parseCSSElements() function decodes it client-side with atob() and JSON.parse() and renders the logo property as raw HTML, meaning no server-side or client-side sanitization intercepts the malicious script before DOM insertion.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-52774",
-      "published": "2026-09-05T00:17:20.380",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki's Bazar widget handler reflects the id GET parameter into HTML attributes using strip_tags() only. Because strip_tags() does not escape double quotes, an attacker can break out of the attribute value, inject an event handler such as onmouseover, and execute arbitrary JavaScript in the victim's browser. This issue is reachable without authentication. During validation, the vulnerable widget route returned the injected HTML for both /HomePage/widget?id=... and /NoSuchPage/widget?id=..., which shows that no login, no page ownership, no edit rights, and not even a valid page tag were required. The only routing prerequisite observed was that the Bazar extension is enabled and the request includes an id parameter. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2026-8625",
+      "published": "2026-09-05T06:17:10.690",
+      "description": "The Dear Flipbook – PDF Flipbook, 3D Flipbook, PDF embed, PDF viewer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_content (Custom HTML block inner HTML)' parameter in all versions up to, and including, 2.4.30 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. A Contributor-level attacker can insert a crafted .df-element div with data-df-lightbox='thumb' via a Custom HTML block, whose inner HTML is passed as the title argument to parseThumbs() at render time, enabling both innerHTML injection into a span element and attribute breakout via an onerror handler on a constructed img element.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-86096",
-      "published": "2026-09-04T23:18:03.377",
-      "description": "PX4 Autopilot through 1.17.0 contains a use-after-free vulnerability in TemperatureCalibration::start() due to a race condition between task spawning and object deletion. Attackers can trigger the calibration process via shell commands to write to freed heap memory, corrupting unrelated objects or allocator metadata and destabilizing heap operations.",
+      "id": "CVE-2026-86144",
+      "published": "2026-09-05T05:17:13.407",
+      "description": "In xinclude in libxml2 before 2.15.4, xmlXIncludeProcess and xmlXIncludeProcessTree do not propagate parseFlags. This has security relevance for, for example, the XML_PARSE_NONET flag, if (without it) a custom resource loader accesses the internet and triggers XML external entity injection, SSRF, or a denial of service (e.g., for an attacker-controlled internet resource that is intentionally slow).",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-52772",
-      "published": "2026-09-05T00:17:20.110",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, Bazar form-field templates still apply |raw('html') to field.label / field.hint in attribute and label-body contexts, resulting stored XSS in form renders. This issue has been patched in version 4.6.6.",
+      "id": "CVE-2025-14945",
+      "published": "2026-09-05T06:17:09.017",
+      "description": "The Events Manager - Calendar, Bookings, Tickets, and more! plugin for WordPress is vulnerable to Stored Cross-Site Scripting via event attribute values in all versions up to, and including, 7.3.3. This is due to insufficient input sanitization when storing attribute values (using only `wp_unslash()` without sanitization) and lack of output escaping when rendering the '#_ATT{key}' placeholder. This makes it possible for authenticated attackers, with Author-level access and above, or unauthenticated attackers when anonymous event submissions are enabled, to inject arbitrary web scripts that execute when any user views the affected event page.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-83628",
+      "published": "2026-09-05T06:17:10.230",
+      "description": "The Theme My Login plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 7.1.15 on Multisite installations. This is due to the `tml_ms_signup_handler()` function's `gimmeanotherblog` branch failing to enforce the network's `active_signup` registration policy, checking only `is_user_logged_in()` while sibling branches such as `validate-blog-signup` apply the full policy gate. This makes it possible for authenticated attackers, with Subscriber-level access and above, to directly POST `stage=gimmeanotherblog` to Theme My Login's signup route, bypassing the configured registration policy entirely — even when it is set to `none` or `user` — which causes `wpmu_create_blog()` to execute with the attacker's user ID, after which WordPress core assigns the Administrator role on the newly created subsite via `add_user_to_blog()`. The privilege gain is scoped to the newly created subsite only; the attacker's account retains Subscriber-level access on the main site and does not obtain Super Admin or network-level capabilities such as `manage_network` or `manage_sites`.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2025-15694",
+      "published": "2026-09-05T07:17:10.447",
+      "description": "The Joli Table Of Contents WordPress plugin before 2.8.1 does not sanitise and escape some of its settings before outputting them in an admin page, which could allow high-privilege users such as administrators to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed, for example in a multisite setup.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
       "id": "CVE-2026-86137",
@@ -128,18 +128,18 @@
       "score": 2.9
     },
     {
-      "id": "CVE-2026-52762",
-      "published": "2026-09-05T00:17:18.607",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, YesWiki Bazar contains a stored Server-Side Template Injection (SSTI) vulnerability in the semantic template feature that can be escalated to confirmed Remote Code Execution (RCE). An authenticated administrator can place arbitrary Twig expressions into the Semantic template (Twig) field (bn_sem_template), and that content is later executed server-side when public semantic endpoints are requested. This issue has been patched in version 4.6.6.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-86141",
+      "published": "2026-09-05T05:17:13.007",
+      "description": "xmlregexp in libxml2 before 2.15.4 has a NULL pointer dereference in xmlRegNewParserCtxt after a strdup failure, i.e., it does not calculate a string length after NULL checking.",
+      "severity": "LOW",
+      "score": 2.9
     },
     {
-      "id": "CVE-2026-52777",
-      "published": "2026-09-05T00:17:20.663",
-      "description": "YesWiki is a wiki system written in PHP. Prior to version 4.6.6, there is an authenticated PHP object injection vulnerability in BazarImportAction via unserialize. This issue has been patched in version 4.6.6.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2025-15693",
+      "published": "2026-09-05T07:17:10.343",
+      "description": "The JCH Optimize WordPress plugin before 5.0.1 does not properly restrict a directory path provided to one of its administrative image-browsing features to within the site, allowing high-privilege users, administrators on single-site and sub-site administrators on multisite, to enumerate directories and file names outside the web root.",
+      "severity": "LOW",
+      "score": 2.7
     }
   ]
 }
