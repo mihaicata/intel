@@ -1,145 +1,145 @@
 {
-  "totalResults": 3762,
+  "totalResults": 3771,
   "items": [
     {
-      "id": "CVE-2026-86242",
-      "published": "2026-09-06T12:17:15.583",
-      "description": "Bifrost HTTP transport before 2.0.0 accepts an enabled custom plugin whose path is an HTTP URL through unauthenticated POST /api/plugins when management authentication is disabled (the default, governance.auth_config.is_enabled=false). The shared-object loader treats an http-prefixed path as a download URL, writes the body to a temporary .so, and passes it to Go's plugin.Open. After a successful open, optional Init runs immediately with the supplied config as the Bifrost process user. On documented dynamically linked builds (DYNAMIC=1 / no static-link flags), which the vendor requires for custom Go plugins, plugin.Open is expected to succeed and this is unauthenticated remote code execution. On the published statically linked Docker image, plugin.Open fails with Dynamic loading not supported, so that build class is only server-side request forgery. Attack complexity is High because the attacker cannot force RCE on the default static image and a loadable plugin must match the host Go version, OS, architecture, and linkage. The 1.6.x HTTP transport line through 1.6.11 does not contain the fix.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-19931",
+      "published": "2026-09-06T18:17:20.733",
+      "description": "A flaw in libcurl makes it wrongly reuse an HTTP connection setup for a given\nhostname using Negotiate authentication, when the initial request is done\nusing empty credentials. This can make user B's request get sent over user A's\npreviously authenticated connection.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2022-51009",
-      "published": "2026-09-06T12:17:15.073",
-      "description": "PocketMine-MP before 4.7.2 fails to properly handle exceptions from the adhocore/json-comment library when parsing skin geometry data. Attackers can send login or skin packets with invalid geometry JSON to trigger an unhandled RuntimeException, causing server crash.",
+      "id": "CVE-2026-86219",
+      "published": "2026-09-06T18:17:23.027",
+      "description": "Authen::SASL::Perl::DIGEST_MD5 versions before 2.2100 for Perl accept replayed authentication responses via unverified nonce in server_step.\n\nserver_start generates a fresh nonce and sends it in the challenge, and nothing later compares that value against the nonce the client returns. server_step derives the expected digest from the client's own parameters, so a response verifies whenever its digest matches the nonce it carries. The count table it also checks is keyed on the client-supplied nonce and starts empty in each new server object, so a captured first response, carrying `nc=00000001`, passes that too. RFC 2831 defines the nonce in the response as the value the server sent in the preceding challenge.\n\nAn attacker who observes one successful `qop=auth` exchange can replay the captured response against a later session for the same service, host, realm and user, and authenticate as that user without knowing the password.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-18924",
+      "published": "2026-09-06T18:17:20.553",
+      "description": "A flaw in libcurl's handling of HTTP/2 Server Push streams, when the parent\nhandle is set to share connections with other handles, can lead to\nuse-after-free in the cleanup process.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-19633",
+      "published": "2026-09-06T16:16:49.583",
+      "description": "PostgreSQL Anonymizer contains a vulnerability that allows unprivileged masked users to execute arbitrary code by abusing operators, domain casts, or view subqueries that carry untrusted expressions. When these objects are evaluated in the context of the extension’s masking mechanisms, the malicious code can run with elevated privileges. The issue is fixed in PostgreSQL Anonymizer 3.1.4 and later versions",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-82209",
+      "published": "2026-09-06T18:17:22.847",
+      "description": "When libpsl support is enabled, libcurl fails to enforce the Public Suffix\nList boundary check when processing a `Set-Cookie` header where the `Domain`\nattribute explicitly matches an origin host that is itself a public suffix\n(e.g., `Domain=co.uk` set by `co.uk`).\n\nInstead of coercing it into a strict host-only cookie, libcurl saves the\ncookie with wildcard domain scope (`.co.uk`). Consequently, the cookie is\ninappropriately included in subsequent outbound requests or HTTP redirects to\narbitrary sibling subdomains under the same public suffix (e.g.,\n`attacker.co.uk`).",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-80229",
+      "published": "2026-09-06T18:17:22.217",
+      "description": "When performing transfers via libcurl’s multi interface, pooled TLS\nconnections can outlive their originating easy handles. In OpenSSL 3 provider\nconfigurations, libcurl attaches an allocated library context to the easy\nhandle's state and passes it to OpenSSL without acquiring an ownership\nreference; destroying the easy handle prematurely frees this context while the\nactive connection retains a dangling pointer, leading to a heap-use-after-free\nupon subsequent I/O or post-handshake operations.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-86250",
-      "published": "2026-09-06T12:17:15.767",
-      "description": "h3 versions before 2.0.1-rc.18 fail to validate the chunk count parsed from user-controlled cookie values in setChunkedCookie() and deleteChunkedCookie() functions. Attackers can send a crafted cookie header with an extremely large chunk count to trigger an O(n²) cleanup loop that hangs the server process.",
+      "id": "CVE-2026-80230",
+      "published": "2026-09-06T18:17:22.327",
+      "description": "When `CURLOPT_PINNEDPUBLICKEY` is configured alongside options that disable\nstandard peer verification (`CURLOPT_SSL_VERIFYPEER = 0` and\n`CURLOPT_SSL_VERIFYHOST = 0`), libcurl fails to enforce public key pinning on\nconnections established without a presented server certificate. Bypassing the\npinning check under these disabled-verification conditions allows\nunauthenticated connections to succeed when they should be rejected.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-86208",
-      "published": "2026-09-06T10:17:14.933",
-      "description": "A security flaw has been discovered in SourceCodester Class and Exam Timetabling System 1.0. This impacts an unknown function of the file /delete_teacher.php. The manipulation of the argument ID results in sql injection. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-80231",
+      "published": "2026-09-06T18:17:22.500",
+      "description": "A flaw in libcurl makes it wrongly reuse an existing HTTPS connection setup\nfor a given hostname even when using a different Native CA Store setting\n(`CURLSSLOPT_NATIVE_CA`) than when the connection was created.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-80255",
+      "published": "2026-09-06T18:17:22.623",
+      "description": "A `Set-Cookie:` header using tab (horizontal tab, ASCII code 9) instead of\nspace (ascii code 32) immediately before the `Secure` attribute causes curl to\nstore the cookie without its Secure flag. The cookie might then wrongfully be\nsent over plaintext HTTP on subsequent requests to the same host.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-82208",
+      "published": "2026-09-06T18:17:22.733",
+      "description": "With the wolfSSL backend, when CA caching is enabled and an\n`CURLOPT_SSL_CTX_FUNCTION` callback replaces the trust store, libcurl can\nsilently reinstall the cached store after the callback returns. A certificate\ntrusted by the cached store but rejected by the callback-selected store is\nthen incorrectly accepted.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-13608",
+      "published": "2026-09-06T18:17:19.810",
+      "description": "A flaw in the libcurl SASL negotiation for LDAP authentication allows an\nincomplete handshake sequence to be misinterpreted as a successful\ncryptographic verification. An attacker executing a Man-in-the-Middle (MITM)\nattack can inject a premature or shortcut response that bypasses complete peer\nvalidation.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-86220",
+      "published": "2026-09-06T18:17:23.150",
+      "description": "A vulnerability was detected in SourceCodester Class and Exam Timetabling System 1.0. The affected element is the function mysqli_query of the file /admin/modal_add_course.php. The manipulation of the argument course results in sql injection. The attack can be launched remotely. The exploit is now public and may be used.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-86209",
-      "published": "2026-09-06T10:17:15.163",
-      "description": "A weakness has been identified in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of the file /delete_user.php. This manipulation of the argument ID causes sql injection. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-86210",
-      "published": "2026-09-06T10:17:15.330",
-      "description": "A security vulnerability has been detected in SourceCodester Class and Exam Timetabling System 1.0. Affected by this vulnerability is an unknown functionality of the file /delete_user_account.php. Such manipulation of the argument ID leads to sql injection. The attack may be launched remotely. The exploit has been disclosed publicly and may be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-86211",
-      "published": "2026-09-06T11:18:06.427",
-      "description": "A flaw has been found in rabindralamsal inventory-management-system 1.0.0. This affects an unknown part of the file index.php of the component Login. Executing a manipulation of the argument username/password can lead to sql injection. The attack can be executed remotely. The exploit has been published and may be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-19859",
-      "published": "2026-09-06T10:17:13.577",
-      "description": "The JetFormBuilder WordPress plugin before 3.6.5.2 does not sanitize a request parameter before rendering it as message content, allowing unauthenticated users to execute arbitrary shortcodes registered on the site on any page displaying a form. Escaping is applied to that content before a later shortcode-expansion pass rather than after it, so the escaping can be bypassed.",
+      "id": "CVE-2026-19634",
+      "published": "2026-09-06T16:16:50.603",
+      "description": "PostgreSQL Anonymizer contains a SQL injection vulnerability in two import functions. A user can create a malicious JSON document containing specially crafted object names. If a superuser subsequently calls anon.import_database_rules() or anon.import_roles_rules(), the malicious code is executed with superuser privileges. The issue is fixed in PostgreSQL Anonymizer 3.1.4 and later",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2020-37277",
-      "published": "2026-09-06T12:17:13.547",
-      "description": "PocketMine-MP versions before 3.15.4 contain a denial of service vulnerability in the InventoryTransaction component's findResultItem() method. Malicious clients can send specially crafted InventoryTransactionPackets with multiple conflicting pathways to cause exponential processing complexity, freezing the server.",
+      "id": "CVE-2026-83534",
+      "published": "2026-09-06T16:16:50.753",
+      "description": "PostgreSQL Anonymizer contains a vulnerability in the anon.anonymize_database_parallel() function that allows the owner of a table to run arbitrary code with superuser privilege. The issue is fixed in PostgreSQL Anonymizer 3.2.0 and later versions",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2021-48007",
-      "published": "2026-09-06T12:17:14.783",
-      "description": "PocketMine-MP versions before 3.18.1 fail to validate NaN or INF values in MovePlayerPacket position and rotation fields. Malicious clients can send crafted movement packets with invalid floating-point values to crash servers through unhandled mathematical operations or prevent clients from rendering other players.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-86251",
-      "published": "2026-09-06T12:17:15.900",
-      "description": "h3 versions before 1.15.9 contain a path traversal vulnerability in the serveStatic utility. A double-decoding flaw allows a request path containing double-encoded dot sequences (e.g. %252e%252e) to be decoded to %2e%2e, which survives resolveDotSegments() because that function only checks for literal '.' characters. When the resulting asset ID is resolved by URL-based backends (CDN, S3, object storage), %2e%2e is interpreted as '..' per RFC 3986, enabling path traversal to read arbitrary files from the backend.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-86253",
-      "published": "2026-09-06T12:17:16.163",
-      "description": "h3 (npm package) versions <= 2.0.1-rc.14 contain a path traversal vulnerability in serveStatic(). On Node.js deployments, event.url.pathname is not normalized, so percent-encoded dot segments (%2e%2e) are passed to decodeURI() and decoded to ../ sequences without sanitization. An unauthenticated remote attacker can send crafted requests to endpoints served by serveStatic() to read arbitrary files outside the intended static directory. Fixed in 1.15.6 and 2.0.1-rc.15.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-86205",
-      "published": "2026-09-06T12:17:15.277",
-      "description": "h3 versions before 2.0.1-rc.18 contain an open redirect vulnerability in the redirectBack() utility that fails to sanitize protocol-relative paths in the Referer header pathname. Attackers can craft a same-origin URL with a double-slash path segment that passes origin validation but produces a Location header interpreted by browsers as a protocol-relative redirect to an external domain.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2022-51008",
-      "published": "2026-09-06T12:17:14.930",
-      "description": "PocketMine-MP before 4.12.3 fails to limit unauthenticated sessions, allowing attackers to exhaust player slots by creating sessions without sending LoginPacket. Attackers can flood the server with unauthenticated connections that occupy max-player slots, preventing legitimate players from joining.",
+      "id": "CVE-2026-86217",
+      "published": "2026-09-06T15:17:24.120",
+      "description": "A vulnerability was detected in code-projects Hotel and Tourism Reservation in PHP 1.0. Affected is an unknown function of the file /ht/hotel_db%20(1).sql of the component Database Backup Handler. The manipulation results in information disclosure. The attack may be launched remotely. The exploit is now public and may be used.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-86252",
-      "published": "2026-09-06T12:17:16.033",
-      "description": "h3 versions before 1.15.9 fail to sanitize carriage return characters in EventStream data and comment fields, allowing attackers to inject arbitrary SSE events by including unsanitized carriage returns. Attackers can inject event type directives, split single push calls into multiple browser-parsed events, or escape comment fields to inject data, bypassing the prior CVE fix that only addressed newline injection.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-19862",
-      "published": "2026-09-06T10:17:14.563",
-      "description": "The JetFormBuilder WordPress plugin before 3.6.5.2 does not validate or strip line breaks from address values it sources from submitted form fields before adding them to the headers of the e-mails it sends, allowing unauthenticated users to inject arbitrary e-mail headers, add hidden recipients and spoof the sender. Exploitation requires the site to be configured to take one of the message's addresses from a form field.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-80437",
-      "published": "2026-09-06T10:17:14.693",
-      "description": "The Ninja Forms WordPress plugin from 3.14.10 before 3.15.2 does not prevent shortcodes in request-derived values from being executed when it substitutes them into content it later processes for shortcodes, allowing unauthenticated users to run any shortcode registered on the site.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-80439",
-      "published": "2026-09-06T10:17:14.810",
-      "description": "The Redirection for Contact Form 7 WordPress plugin from 2.2.7 before 3.2.11 does not prevent shortcodes in submitted form values from being executed when it substitutes those values into an action's settings and then processes those settings for shortcodes, allowing unauthenticated users to run any shortcode registered on the site and read its output.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-86212",
-      "published": "2026-09-06T12:17:15.423",
-      "description": "A vulnerability has been found in Open5GS 2.7.7/2.8.0. This vulnerability affects unknown code of the component AMF/MME. The manipulation leads to improper authorization. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used. The identifier of the patch is 9468de94caed2fc940f4a23cbf734651896d0fde. To fix this issue, it is recommended to deploy a patch.",
+      "id": "CVE-2026-86215",
+      "published": "2026-09-06T14:17:24.773",
+      "description": "A vulnerability was identified in Mstfakts College-Management-System. The affected element is an unknown function of the file Front-end/server.php of the component Logout Handler. Such manipulation of the argument log_out leads to session expiration. It is possible to launch the attack remotely. The exploit is publicly available and might be used. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2021-48006",
-      "published": "2026-09-06T12:17:14.637",
-      "description": "PocketMine-MP before 4.0.3 does not perform case-insensitive matching when removing operator entries from ops.txt. The removeOp function lowercases the supplied name but only removes an exactly matching entry, so an operator name stored with non-lowercase letters cannot be revoked using the deop command, leaving the player as an operator until the entry is removed from ops.txt manually.",
-      "severity": "LOW",
-      "score": 3.3
+      "id": "CVE-2026-86216",
+      "published": "2026-09-06T14:17:25.760",
+      "description": "A security vulnerability has been detected in code-projects Hotel and Tourism Reservation in PHP 1.0. This impacts an unknown function of the file /ht/details.php. The manipulation of the argument room leads to cross site scripting. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-86283",
+      "published": "2026-09-06T15:17:24.813",
+      "description": "MISP's UiBeta theme collection view (app/View/Themed/UiBeta/Collections/view.ctp) performed a secondary query of member events by UUID without applying the caller's access control list (ACL). The CollectionsController::view() action correctly resolved collection element UUIDs through Event::fetchSimpleEvents($user, ...), which enforces per-user event ACL. However, the view template independently re-queried the same UUIDs using only an Event.uuid IN (...) condition, omitting the createEventConditions() authorization filter. Because collection element UUIDs are stored without server-side authorization against the referenced event (CollectionElementsController::add() accepts whatever UUID the collection owner posts), an authenticated user with view access to a collection could retrieve full details of events they are not permitted to read. The exposed data included event identifiers, info, dates, timestamps, creator organization, all event tags, and galaxy clusters (the latter attached via a cluster-scoped rather than event-scoped ACL check). This constitutes an authorization bypass at the presentation layer, allowing horizontal privilege escalation across event boundaries within the MISP instance.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82750",
+      "published": "2026-09-06T17:17:55.867",
+      "description": "Improper Validation of Specified Quantity in Input in ZenHive mpp allows an unauthenticated remote client to inflate the fee-payer's gas cost per sponsored payment by a large multiplier and to have the sponsor pay for EIP-7702 account delegations of the client's choosing.\n\nWhen the server sponsors Tempo payments, MPP.Methods.Tempo.FeePayerPolicy.measure/3 in lib/mpp/methods/tempo/fee_payer_policy.ex bounds the gas fields, the fee budget, the validity window and the access list of the client-signed 0x76 envelope, but never reads its aa_authorization_list field. Every signed delegation in that list is charged as intrinsic gas before the payment call runs, so a client attaching delegations from throwaway authority keys makes the sponsor pay for them within the default gas_limit ceiling. At the reporter's default of seven entries the sponsored cost rises from about 46,575 gas to about 1,884,087 gas. Because each entry is applied as a persistent set-code delegation, a client can also upgrade its own accounts to delegated code at the sponsor's expense.\n\nThis issue affects mpp: from 0.2.0 before 0.16.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82751",
+      "published": "2026-09-06T17:17:56.070",
+      "description": "Improper Validation of Specified Quantity in Input in ZenHive mpp allows an unauthenticated remote client to inflate the fee-payer's gas cost per sponsored payment by a large multiplier and to have the sponsor pay for provisioning an access key on the client's own account.\n\nWhen the server sponsors Tempo payments, MPP.Methods.Tempo.FeePayerPolicy.measure/3 in lib/mpp/methods/tempo/fee_payer_policy.ex bounds the gas fields, the fee budget, the validity window and the access list of the client-signed 0x76 envelope, but does not check whether the envelope carries the optional key_authorization field. A client can attach a fully signed key authorization, provisioning a new access key with token spending limits on its own account, alongside the normal payment call. The key and each limit entry are persistent storage writes billed as intrinsic gas to the sponsor, bounded only by the gas_limit ceiling. At the reporter's default of one key with three token limits the sponsored cost rises from about 46,587 gas to about 1,808,700 gas, and the client keeps a valid access key it paid nothing for.\n\nThis issue affects mpp: from 0.2.0 before 0.16.1.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
