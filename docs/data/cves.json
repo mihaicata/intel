@@ -1,145 +1,145 @@
 {
-  "totalResults": 3876,
+  "totalResults": 3962,
   "items": [
     {
-      "id": "CVE-2026-18922",
-      "published": "2026-09-07T15:17:31.157",
-      "description": "A flaw was found in 389 Directory Server. During SASL PLAIN authentication, a stale identity carried in a Cyrus SASL auxiliary property from a prior failed bind attempt can be installed on a connection following a subsequent, unrelated successful bind, regardless of which SASL mechanism completes that second bind. An attacker can send a SASL PLAIN bind as cn=Directory Manager with an incorrect password, then complete a SASL ANONYMOUS bind on the same connection, causing the server to grant Directory Manager authority without any valid credentials. A variant using a valid low-privileged account's own successful bind instead of an anonymous one is also possible.",
+      "id": "CVE-2026-75650",
+      "published": "2026-09-07T21:17:30.863",
+      "description": "Adobe Commerce is affected by an Improper Neutralization of Special Elements Used in a Template Engine vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-19843",
-      "published": "2026-09-07T15:17:31.287",
-      "description": "A flaw was found in 389-ds-base. The Cockpit 389 Console's LDAP editor constructs an ldapsearch command by embedding an LDAP entry's distinguished name (DN) into a shell command string without proper escaping. An LDAP user with delegated privileges to create or rename directory entries could craft a malicious DN containing shell metacharacters. When a Cockpit administrator subsequently views the entry in the 389 Console, the embedded shell command executes with root privileges on the directory server host.",
+      "id": "CVE-2026-86439",
+      "published": "2026-09-07T23:16:53.297",
+      "description": "knowns versions before 0.30.0 fail to validate filesystem paths in MCP tool arguments, allowing attackers to read, create, overwrite and delete files outside the project directory. Attackers can supply path arguments containing directory traversal sequences to access arbitrary Markdown files accessible to the server process.",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-14444",
-      "published": "2026-09-07T14:16:51.947",
-      "description": "The WP Fusion (Pro) plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.47.13. This is due to insufficient authorization checks on the role parameter in the ThriveCart Auto Login handler's thrivecart() function. This makes it possible for authenticated attackers, with Subscriber-level access and above, and who possess the access_key, to create a new user account with administrator privileges and gain full control over the WordPress site. The required access_key is intentionally shared with ThriveCart customers as part of the plugin's documented setup process, making it accessible to attackers who have made a purchase. The vulnerability is only exploitable when the ThriveCart Auto Login option is enabled.",
+      "id": "CVE-2026-86541",
+      "published": "2026-09-07T23:16:53.863",
+      "description": "knowns versions before 0.30.0 contain a path traversal vulnerability in the handleCodeReplace() function that allows attackers to overwrite arbitrary files outside the project root. Attackers can supply absolute paths or relative paths containing directory traversal sequences to write malicious content to sensitive files like shell startup scripts or SSH configuration files.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-76560",
-      "published": "2026-09-07T14:16:54.197",
-      "description": "A flaw was found in 389 Directory Server. The SELFDN ACI bind-rule evaluator incorrectly matches an anonymous LDAP client's empty bind DN against an empty stored attribute value, allowing an unauthenticated client to satisfy access control checks intended to require a matching authenticated identity. This can allow an anonymous LDAP client to perform an operation, such as adding or modifying a directory entry, that a SELFDN-based ACI intended to restrict to a specific authenticated user.",
+      "id": "CVE-2026-86540",
+      "published": "2026-09-07T23:16:53.723",
+      "description": "knowns versions before 0.30.0 fail to validate the settings.lsp.languages binary field in project configuration files, allowing attackers to execute arbitrary binaries by crafting a malicious .knowns/config.json file. When a repository with a crafted configuration is opened, the unvalidated binary path is executed twice under the user's account without any verification.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-86452",
-      "published": "2026-09-07T14:16:56.833",
-      "description": "Affected versions of MISP permit unauthenticated or weakly constrained request paths to perform persistent work without adequate input bounds or rate limiting.\n\n\nThe users/forgot password-reset endpoint accepted an attacker-controlled email value without first imposing a reasonable length bound or validating its format. That value was then used to create an audit log entry and queue a password-reset job, causing the supplied value to be persisted more than once per request. The commit explicitly states that an unbounded unauthenticated request field was stored twice per call with no throttle.\n\nThe fix adds:\n\n - a maximum email input length of 1024 bytes;\n - email-format validation before persistent work;\n - a per-source pre-authentication request budget;\n - HTTP 429 responses when that budget is exceeded;\n - a 15-minute cooldown for API-access request emails;\n - POST-only handling and CSRF protection for the API-access request endpoint.\n\n\n\nThe new flood filter is specifically intended to limit persistent storage costs from anonymous requests such as password resets, registrations, and failed REST authentication attempts.\n\nVersion affected: ≤2.5.45",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-18355",
-      "published": "2026-09-07T15:17:30.867",
-      "description": "A heap buffer overflow flaw was found in the SASL I/O layer of 389 Directory Server (389-ds-base). In sasl_io_start_packet(), the wrapped-record length read from the wire is validated only against an upper bound. A small wire length (0, 1, or 2) produces an encrypted_buffer_count below the already-consumed encrypted_buffer_offset, causing an unsigned subtraction underflow in sasl_io_read_packet(). PR_Recv is then requested to read approximately 4 GiB into a 1024-byte heap buffer, resulting in a heap buffer overflow with attacker-controlled content. After a successful SASL bind with integrity protection (SSF > 0), a remote authenticated attacker can cause a denial of service or potentially achieve remote code execution. This flaw is distinct from CVE-2026-11774, whose fix only guards against upper-bound overflow.",
+      "id": "CVE-2026-16028",
+      "published": "2026-09-07T19:17:25.927",
+      "description": "Protocol::HTTP2 versions before 1.14 for Perl allow memory exhaustion via closed streams that stream_state never removes from the connection stream table.\n\nWhen a stream reaches the CLOSED state, stream_state returns the concurrency slot and clears most of the stream's keys, but the entry itself stays in the connection stream table and nothing in the distribution removes it. Stream identifiers increase monotonically, so a peer can open and close streams on one connection indefinitely, each close leaving a residual entry that is retained for the life of the connection.\n\nSETTINGS_MAX_CONCURRENT_STREAMS does not bound this. That setting caps how many streams are live at once and is enforced, while the growth is made of streams the cap has already released, so it accumulates with concurrency never exceeding one. The client keeps the same table and grows the same way against a hostile server.\n\nMeasured against a server built on this module, roughly 920 bytes are retained per closed stream for about 19 bytes on the wire, so 100,000 sequential streams on one connection grow server resident memory by about 88 MiB. The streams are ordinary requests that the application accepts and completes.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-18453",
-      "published": "2026-09-07T15:17:31.017",
-      "description": "A flaw was found in 389 Directory Server. A missing NULL pointer check in the paged results handling of op_shared_search allows an unauthenticated remote attacker to crash the LDAP server by sending a crafted sequence of search requests using the USE_ONE_BACKEND control, resulting in denial of service.",
+      "id": "CVE-2026-86287",
+      "published": "2026-09-07T19:17:28.370",
+      "description": "Net::IP::LPM versions before 1.12 for Perl accept malformed prefix lengths.\n\nNon-numeric and non-ASCII prefix lengths are accepted and treated as 0. Integers over 31 bits are silently truncated.  A single malformed mask will poison the lookup table.\n\nThe result is that the lookup will silently succeed for every address. An allow-list will allow every address, and a deny-list will block every address.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-80131",
-      "published": "2026-09-07T14:16:54.933",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to remote execution.",
+      "id": "CVE-2026-86538",
+      "published": "2026-09-07T23:16:53.443",
+      "description": "knowns versions before 0.30.0 contain a path traversal vulnerability in the POST /api/templates/preview endpoint that allows unauthenticated attackers to read arbitrary files. Attackers can supply directory traversal sequences in the templateFile parameter to bypass path restrictions and read sensitive files like credentials and configuration through the JSON response.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-80164",
-      "published": "2026-09-07T14:16:55.060",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
+      "id": "CVE-2026-86437",
+      "published": "2026-09-07T22:17:22.003",
+      "description": "Lara Dashboard before 1.3.2 authorizes the POST /admin/settings/core-upgrades/upload endpoint with only the settings.edit permission, allowing non-Superadmin administrators to upload and extract arbitrary zip archives over the live application source code. Attackers can upload a malicious archive containing modified application files such as routes/web.php with embedded system commands, which execute as the web server user with access to environment secrets and database credentials.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-80130",
-      "published": "2026-09-07T14:16:54.813",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains a Relative Path Traversal vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to remote execution.",
+      "id": "CVE-2026-86438",
+      "published": "2026-09-07T22:17:22.163",
+      "description": "Lara Dashboard before 1.3.2 fails to authorize the MarketplaceModuleBrowser installModule Livewire action, allowing non-Superadmin administrators to install modules. Attackers can download and auto-activate arbitrary PHP modules from the marketplace over unsigned HTTP requests, achieving remote code execution.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-12757",
-      "published": "2026-09-07T14:16:51.053",
-      "description": "The The Email Subscribers & Newsletters – Email Marketing, Post Notifications & Newsletter Plugin for WordPress plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 5.9.27. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-86539",
+      "published": "2026-09-07T23:16:53.583",
+      "description": "knowns through 0.33.0 contains a server-side request forgery vulnerability in the POST /api/embedding-models/test endpoint that issues outbound requests to caller-supplied destinations without validation. Attackers can enumerate internal hosts and cloud metadata endpoints by observing transport error messages that reveal network reachability information.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-80129",
-      "published": "2026-09-07T14:16:54.697",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to remote execution.",
+      "id": "CVE-2026-86436",
+      "published": "2026-09-07T22:17:21.833",
+      "description": "Lara Dashboard before 1.3.2 fails to authorize access to the post-builder image and video upload endpoints, allowing authenticated accounts without content permissions to upload files. Attackers can upload polyglot files with attacker-chosen extensions to the public web root and execute code if the deployment permits execution of the uploaded file type.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-80170",
-      "published": "2026-09-07T14:16:55.173",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Use of Hard-coded Credentials vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to protection mechanism bypass.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-81638",
+      "published": "2026-09-07T23:16:51.757",
+      "description": "Improper Handling of Alternate Encoding vulnerability in ash-project ash_double_entry allows an attacker to submit several distinct string spellings of the same identifier.\n\nAshDoubleEntry.ULID renders a 128-bit ULID as 26 Crockford base-32 characters, but the first character encodes only 3 bits, so canonical values are 0 to 7. decode/1 in lib/ulid.ex masks the first character to its low 3 bits and valid?/1 accepts all 32 characters in that position, so 0..., 8..., G... and R... decode to the identical 16-byte value and resolve to the same row. When the type is exposed as a public ID over an HTTP or API boundary, an attacker-supplied ID can be spelled differently from the record it actually reads or writes, desynchronizing or bypassing string-level checks such as idempotency and deduplication keys, deny-lists, audit correlation, or signatures computed over the submitted ID.\n\nThis issue affects ash_double_entry: from 0.1.0 before 1.0.19.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-80128",
-      "published": "2026-09-07T14:16:54.580",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Authentication vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to protection mechanism bypass.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-82584",
+      "published": "2026-09-07T23:16:51.933",
+      "description": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in ash-project igniter allows a malicious package publisher to forge the mix igniter.install confirmation prompt.\n\nmix igniter.install prints a confirmation panel (an anti-typosquatting safeguard) listing a package's hex metadata before adding it. The panel builder in Igniter.Project.Deps wrote publisher-controlled fields (meta.description, owner usernames, requirement names, version) to the terminal with only newlines stripped. A malicious or typosquatted package can embed ANSI terminal escape sequences (cursor movement, line erase, carriage returns) in its metadata to overwrite the panel, forging trusted author names and download counts while concealing the real ones, so a developer relying on the panel to vet the package is deceived into approving a malicious dependency.\n\nThis issue affects igniter: from 0.8.1 before 0.8.4.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-86309",
-      "published": "2026-09-07T14:16:56.290",
-      "description": "A flaw has been found in itsourcecode Sales and Inventory System 1.0. Impacted is an unknown function of the file /pages/pro_searchfrm.php. This manipulation of the argument ID causes sql injection. The attack can be initiated remotely. The exploit has been published and may be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
+      "id": "CVE-2026-82586",
+      "published": "2026-09-07T23:16:52.093",
+      "description": "Improper Protection of Alternate Path vulnerability in ash-project ash_lua allows a user-supplied Lua script to read attributes that are not on the exposed-field allow-list.\n\nAshLua exposes Ash resources to Lua scripts, gated by a manifest declaring which fields are exposed. The read action's operation aggregate path in AshLua.Runtime took the field name straight from the Lua call and resolved it with only String.to_existing_atom and Ash.Query.Aggregate.new!, neither of which consults the exposed-field allow-list the normal fields path enforces. A script can therefore read the value of any attribute of any record the actor may read, including private sensitive?: true columns, via resource.read({ operation = {\"list\", \"hashed_password\"} }); min and max give a value oracle. Anyone able to submit or influence a Lua script can reach this.\n\nThis issue affects ash_lua: from 0.1.0 before 0.2.1.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-86310",
-      "published": "2026-09-07T14:16:56.457",
-      "description": "A vulnerability has been found in itsourcecode Sales and Inventory System 1.0. The affected element is an unknown function of the file /pages/cust_edit1.php. Such manipulation of the argument ID leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
+      "id": "CVE-2026-82753",
+      "published": "2026-09-07T23:16:52.227",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in ash-project ash_authentication_oauth2_server allows an unauthenticated attacker to exhaust database storage and memory.\n\nThe /authorize endpoint is unauthenticated by design. With Client ID Metadata Documents enabled, resolve_client/3 in AshAuthentication.Oauth2Server.CIMD fetches the document for each new URL-shaped client_id and upserts a client row, with no cap on the number of rows, no expiry or garbage collection, and no length bound on the fetched fields; the document was also placed in CIMD.Cache before validation, so even rejected documents held cache memory until their TTL. An attacker serving valid documents at many distinct URLs creates one permanent client row per URL, each able to carry multi-megabyte strings, growing storage and memory without bound.\n\nThis issue affects ash_authentication_oauth2_server: from 0.3.0 before 0.3.1.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-79734",
-      "published": "2026-09-07T14:16:54.460",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to protection mechanism bypass.",
-      "severity": "MEDIUM",
-      "score": 5.9
+      "id": "CVE-2026-82754",
+      "published": "2026-09-07T23:16:52.403",
+      "description": "Improper Protection of Alternate Path vulnerability in ash-project ash_authentication_oauth2_server exposes the state-changing OAuth endpoints under an unintended URL prefix, bypassing controls scoped to the canonical prefix.\n\noauth2_server_protocol_routes/1 in AshAuthentication.Phoenix.Oauth2Server.Router forwards the same ProtocolRouter at both the /oauth prefix and the /.well-known prefix. Phoenix forward strips the matched prefix before dispatch, so the full route table answers under both mounts, and POST /register, POST /token, and POST /revoke are reachable as /.well-known/register, /.well-known/token, and /.well-known/revoke. Edge controls such as WAF rules, rate limits, or authentication exemptions written against the /oauth paths, or that allow-list /.well-known as unauthenticated, do not apply to the alias.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.0 before 0.3.1.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-78487",
-      "published": "2026-09-07T14:16:54.340",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Use of Hard-coded Cryptographic Key vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to information disclosure.",
-      "severity": "MEDIUM",
-      "score": 5.5
+      "id": "CVE-2026-82755",
+      "published": "2026-09-07T23:16:52.580",
+      "description": "Use of Cache Containing Sensitive Information vulnerability in ash-project ash_authentication_oauth2_server allows a shared HTTP cache to serve one tenant's OAuth discovery metadata to another tenant's clients.\n\nThe RFC 8414 and RFC 9728 metadata endpoints in AshAuthentication.Phoenix.Oauth2Server.ProtocolRouter return tenant-specific values (issuer, authorization_endpoint, token_endpoint, jwks_uri) when a tenant is set, but sent them with Cache-Control: public, max-age=3600 and no Vary. When the tenant is derived from something other than the URL (a header or the Host) and a shared cache sits in front, the cache key is the URL alone, so a stored response for one tenant is served to another for up to an hour. Affected clients may then send authorization codes and secrets to the wrong tenant's token endpoint and validate tokens against the wrong keys.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.3 before 0.3.1.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-86308",
-      "published": "2026-09-07T14:16:56.120",
-      "description": "A vulnerability was detected in light0011 cms c774dce31c6df0055568a8d5c53d964d99be199d/f72cf46f601efb2a0618c3814cc2f61380b38930. This issue affects some unknown processing of the file App/Common/Conf/config.php of the component Debug Mode. The manipulation of the argument DB_DEBUG results in information disclosure. It is possible to launch the attack remotely. The exploit is now public and may be used. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-82756",
+      "published": "2026-09-07T23:16:52.770",
+      "description": "Improper Encoding or Escaping of Output vulnerability in ash-project ash_authentication_oauth2_server allows an unauthenticated attacker to inject arbitrary authentication parameters into the WWW-Authenticate challenge header.\n\nBearerPlug and RequireScopePlug built the Bearer resource_metadata=\"...\" challenge by interpolating a resource_metadata URL derived from the request tenant directly into the quoted value. In a multi-tenant application that sets the Ash tenant from request-controlled data (a subdomain, the Host, a path segment, or a header), a tenant containing a \" closes the quoted value and appends attacker-chosen auth-params, including a second resource_metadata URL pointing at an attacker-controlled authorization server that spec-following clients follow. Carriage returns and line feeds are rejected by Plug, so this is parameter injection within one header, not response splitting.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.3 before 0.3.1.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-86307",
-      "published": "2026-09-07T14:16:55.927",
-      "description": "A security vulnerability has been detected in light0011 cms c774dce31c6df0055568a8d5c53d964d99be199d/f72cf46f601efb2a0618c3814cc2f61380b38930. This vulnerability affects unknown code. The manipulation leads to cross-site request forgery. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-82757",
+      "published": "2026-09-07T23:16:52.957",
+      "description": "Server-Side Request Forgery (SSRF) vulnerability in ash-project ash_authentication_oauth2_server allows an attacker who controls a client metadata URL and its DNS to make the server connect to internal or loopback addresses.\n\npublic_ip?/1 in AshAuthentication.Oauth2Server.CIMD.ReqFetcher enforces the outbound policy for CIMD metadata fetches. It classified several address forms as publicly routable that are not: IPv4-compatible ::/96 (for example ::127.0.0.1), SIIT IPv4-translated ::ffff:0:0:0/96, and deprecated site-local fec0::/10. A returned AAAA record in one of these ranges passed the policy, so a fetch pinned to that address reached space the policy was meant to block.\n\nThis issue affects ash_authentication_oauth2_server: from 0.3.0 before 0.3.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-82758",
+      "published": "2026-09-07T23:16:53.123",
+      "description": "Improper Authentication vulnerability in ash-project ash_authentication_oauth2_server allows an unauthenticated attacker to register OAuth clients even when Dynamic Client Registration is gated by an initial access token.\n\nresolve_secret/3 in AshAuthentication.Oauth2Server (reached through __resolve_secret__!) treated any return other than {:ok, _} or :error from a configured {module, function, args} or 2-arity-function secret provider as a valid secret, wrapping nil, false, or \"\" as {:ok, value}. When the initial_access_token resolves to such an empty value, POST /oauth/register compares the presented bearer token against it and the comparison passes with no token supplied, so registration is open although it was configured closed. The same fail-open affected other resolved secrets such as signing_secret.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.0 before 0.3.1.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
