@@ -1,143 +1,143 @@
 {
-  "totalResults": 4165,
+  "totalResults": 4190,
   "items": [
     {
-      "id": "CVE-2026-30754",
-      "published": "2026-09-08T21:17:06.990",
-      "description": "A memory corruption vulnerability exists in FFmpeg before 8.1. The RTP encoding process. In the nal_send function in libavformat/rtpenc_h264_hevc.c, a negative size parameter (size=-3) is passed to memcpy when transmitting H.264/HEVC streams via RTP using a crafted input file. This was detected using AddressSanitizer.",
+      "id": "CVE-2026-87438",
+      "published": "2026-09-09T01:17:00.027",
+      "description": "Out of bounds write in WebGL in Google Chrome on on Android prior to 153.0.8010.36 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-53939",
+      "published": "2026-09-09T00:17:31.700",
+      "description": "OpenIDC/cjose is a C library implementing the Javascript Object Signing and Encryption (JOSE). In versions 0.6.1 through 0.6.2.5, when cjose encrypts a JWE using an AES-CBC-HMAC content-encryption algorithm (`A128CBC-HS256`, `A192CBC-HS384`, or `A256CBC-HS512`) together with any key-management algorithm that generates a fresh content-encryption key (CEK), the CEK is all zero bytes instead of being randomly generated. The resulting JWE is therefore encrypted and authenticated under a fixed, publicly known key, so anyone who obtains the JWE can recover the plaintext and forge or modify the content. This is fixed in version 0.6.2.6 by `_cjose_jwe_set_cek_aes_cbc()` generating the CEK from `RAND_bytes`. A regression test asserts that the `encrypted_key` differs across two encryptions for each AES-CBC-HMAC variant. Until upgrading, for data encrypted with cjose, three options are available. Use an AES-GCM `enc` (`A128GCM` / `A192GCM` / `A256GCM`) instead of an AES-CBC-HMAC `enc`,  use `alg=dir` with a caller-supplied CEK, or avoid using cjose for JWE encryption with the affected algorithm pair. These are mitigations for new ciphertexts only; data already encrypted under the zero key remains compromised and should be re-encrypted (and any secrets it contained rotated).",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-87430",
+      "published": "2026-09-09T01:16:59.130",
+      "description": "Buffer overflow in WebRTC in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Low)",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-79907",
-      "published": "2026-09-08T21:18:42.363",
-      "description": "Acrobat Reader is affected by a Double Free vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-87433",
+      "published": "2026-09-09T01:16:59.450",
+      "description": "Race condition in FileAPI in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to bypass site isolation via a crafted HTML page. (Chromium security severity: Medium)",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-79908",
-      "published": "2026-09-08T21:18:42.500",
-      "description": "Acrobat Reader is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-87440",
+      "published": "2026-09-09T01:17:00.240",
+      "description": "Out of bounds read in Media in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-79909",
-      "published": "2026-09-08T21:18:42.640",
-      "description": "Acrobat Reader is affected by a Use After Free vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "id": "CVE-2026-87444",
+      "published": "2026-09-09T01:17:00.677",
+      "description": "Memory corruption in Codecs in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-19651",
-      "published": "2026-09-08T21:17:06.777",
-      "description": "IBM Enterprise Build of Quarkus 3.27.1 through 3.27.5, and 3.33.1 through 3.33.3  could allow an attacker to bypass authorization by manipulating URL query parameters due to incorrect mapping of values to untrusted query string input.",
+      "id": "CVE-2026-53938",
+      "published": "2026-09-09T00:17:31.557",
+      "description": "OpenIDC/cjose is a C library implementing the Javascript Object Signing and Encryption (JOSE). Prior to version 0.6.2.5, cjose's JWE decryption path for the AES Key Wrap key-management algorithms (`alg` = `A128KW`, `A192KW`, `A256KW`) does not validate the length of the attacker-supplied `encrypted_key` (JWE Encrypted Key) before unwrapping it into a fixed-size, heap-allocated Content Encryption Key (CEK) buffer. A remote, unauthenticated attacker who can submit a crafted JWE to an application that decrypts it with an AES-KW symmetric key can trigger an out-of-bounds heap write, corrupting the heap. This leads at minimum to a crash (denial of service) and, depending on the heap layout and allocator, may be leverageable for further memory-corruption impact. `cjose_jwe_import()` / `cjose_jwe_decrypt()` are pre-authentication entry points: they parse and process fully attacker-controlled input. Upgrade to cjose 0.6.2.5 to receive a patch. If upgrading is not immediately possible, reject the AES Key Wrap algorithms (`A128KW`/`A192KW`/`A256KW`) for untrusted JWEs at the application layer.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-77827",
-      "published": "2026-09-08T21:18:39.143",
-      "description": "Maono Link 3.8.13 MaonoAiServices Windows service allows local privilege escalation for a standard user account via improper write privileges in 'C:\\ProgramData\\Maono'. Fixed in 4.0.80.",
+      "id": "CVE-2026-87431",
+      "published": "2026-09-09T01:16:59.240",
+      "description": "Missing authorization in Extensions in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to obtain sensitive information via a crafted Chrome extension. (Chromium security severity: Medium)",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-78630",
-      "published": "2026-09-08T21:18:41.457",
-      "description": "The Okta Access Gateway does not neutralize shell metacharacters in SNMP configuration values before a privileged script uses them to construct OS commands. An authenticated local user with access to the management interface can supply crafted values, resulting in the execution of arbitrary OS commands with root privileges.",
+      "id": "CVE-2026-87429",
+      "published": "2026-09-09T01:16:59.013",
+      "description": "Missing authorization in ServiceWorker in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to bypass system access restrictions via a crafted HTML page. (Chromium security severity: Low)",
       "severity": "MEDIUM",
-      "score": 6.7
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-78738",
-      "published": "2026-09-08T21:18:41.797",
-      "description": "Silverpeas Core 6.4.6 is vulnerable to Cross Site Scripting (XSS) via the Document management file upload feature.",
+      "id": "CVE-2026-87436",
+      "published": "2026-09-09T01:16:59.793",
+      "description": "Incomplete cleanup in Browser in Google Chrome prior to 153.0.8010.36 allowed a remote attacker leveraging social engineering to bypass web origin policy via a crafted Chrome extension. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-78741",
-      "published": "2026-09-08T21:18:41.903",
-      "description": "Silverpeas Core <=6.4.6 is vulnerable to Cross Site Scripting (XSS) in the wysiwyg-CKEditor image upload feature.",
+      "id": "CVE-2026-87437",
+      "published": "2026-09-09T01:16:59.920",
+      "description": "Information leak in Frames in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to leak sensitive information via a crafted HTML page. (Chromium security severity: Low)",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-78742",
-      "published": "2026-09-08T21:18:42.010",
-      "description": "Silverpeas Core <=6.4.6 is vulnerable to Cross Site Scripting (XSS) via the Multimedia library application introduction.",
+      "id": "CVE-2026-87441",
+      "published": "2026-09-09T01:17:00.350",
+      "description": "Missing authorization in Downloads in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to bypass system access restrictions via a crafted Chrome extension. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-78622",
-      "published": "2026-09-08T21:18:41.233",
-      "description": "The Okta Verify for Windows uninstaller does not verify whether the user data directory is a filesystem junction before deleting its contents with elevated privileges. The delete operation follows the junction target, resulting in recursive deletion of unintended directory contents.",
+      "id": "CVE-2026-87443",
+      "published": "2026-09-09T01:17:00.570",
+      "description": "Missing authorization in Actor in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
-      "score": 6
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-78629",
-      "published": "2026-09-08T21:18:41.347",
-      "description": "The Okta Hyperdrive agent plugin returns a success response without a signed SAML assertion when the organization's policy requires no MFA for a given user. The response contains only a bare boolean validation indicator with no cryptographic artifact, resulting in an unverifiable authentication verdict being delivered to the relying application.",
+      "id": "CVE-2026-53937",
+      "published": "2026-09-09T00:17:31.407",
+      "description": "MCP Kotlin SDK is the Kotlin Multiplatform software development kit for the Model Context Protocol. In versions 0.7.0 through 0.12.0, `ReadBuffer.append` in `kotlin-sdk-core/src/commonMain/kotlin/io/modelcontextprotocol/kotlin/sdk/shared/ReadBuffer.kt` writes every chunk of bytes received from the stdio transport into a `kotlinx.io.Buffer` with no size cap. Frames are extracted from that buffer only when a `\\n` (0x0a) byte is observed. A peer that streams bytes without ever sending a newline causes the internal buffer to grow indefinitely until the JVM (or the surrounding host process) is OOM-killed. The leak is amplified by `StdioServerTransport` and `StdioClientTransport`, which both queue raw chunks through a `kotlinx.coroutines.channels.Channel<ByteArray>(Channel.UNLIMITED)` and then call `readBuffer.append(chunk)` without backpressure or size guard. This is a remote-pre-auth denial of service whenever an SDK stdio server's stdin is fed by an untrusted or attacker-controlled producer (for example: a host program that exec's the MCP server as a subprocess and pipes through bytes received from a network peer, or a sidecar wrapper that proxies bytes from an HTTP endpoint to the stdio transport). Version 0.13.0 fixes the issue.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-79910",
-      "published": "2026-09-08T21:18:42.777",
-      "description": "Acrobat Reader is affected by an out-of-bounds read vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-19625",
-      "published": "2026-09-08T21:17:05.717",
-      "description": "When a Quarkus application has multiple endpoints secured by individual OIDC provider tenants, such as \"/oidc-provider1\" that is secured by the OIDC Provider 1 and \"/oidc-provider2\" that is secured by the OIDC Provider 2, and an optional token introspection cache is also enabled, then a valid token issued by the OIDC Provider 1 that can be used to access \"/oidc-provider1\" can also be used to access \"/oidc-provider2\" that is secured by another OIDC Provider 2.",
+      "id": "CVE-2026-87435",
+      "published": "2026-09-09T01:16:59.663",
+      "description": "Information leak in ControlledFrame in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-78631",
-      "published": "2026-09-08T21:18:41.570",
-      "description": "The Okta Hyperdrive Agent writes the decoded SAML bearer assertion to a local application log file at the default log level on every successful MFA completion. This insertion of sensitive information into the log file makes a live authentication credential readable by any local user with access to the log file.",
+      "id": "CVE-2026-87439",
+      "published": "2026-09-09T01:17:00.137",
+      "description": "Information leak in ServiceWorker in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-78635",
-      "published": "2026-09-08T21:18:41.680",
-      "description": "The Okta Privileged Access client URL handler does not insert an option terminator before appending the target value to the command-line arguments. When a scaleft:// protocol handler link contains a value beginning with a hyphen, the underlying CLI framework interprets it as a command-line flag, causing unintended modification of the SSH client's behavior.",
+      "id": "CVE-2026-87432",
+      "published": "2026-09-09T01:16:59.340",
+      "description": "Incorrect authorization in Navigation in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to spoof UI elements via a crafted HTML page. (Chromium security severity: Medium)",
       "severity": "MEDIUM",
-      "score": 5
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-78971",
-      "published": "2026-09-08T21:18:42.130",
-      "description": "In Halo <= 2.25.4, the plugin management feature allows users to install/update malicious plugins, which could let attackers execute any command with Halo process permissions.",
-      "severity": "MEDIUM",
-      "score": 4.6
+      "id": "CVE-2026-87434",
+      "published": "2026-09-09T01:16:59.557",
+      "description": "Missing authorization in CORS in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to bypass web origin policy via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "LOW",
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-79588",
-      "published": "2026-09-08T21:18:42.247",
-      "description": "U-speed WIFI4 N300 T1 Pro v1.0.0 is vulnerable to Cleartext transmission of administration credentials over HTTP.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-87442",
+      "published": "2026-09-09T01:17:00.463",
+      "description": "Confused deputy in Prerender in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to potentially bypass web origin policy via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "LOW",
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-45219",
-      "published": "2026-09-08T21:17:08.877",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-45220",
-      "published": "2026-09-08T21:17:08.947",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "id": "CVE-2026-19201",
+      "published": "2026-09-09T00:17:30.993",
+      "description": "An uncontrolled recursion vulnerability in the Windows SIPA event log parser of Google go-attestation versions up to and including 0.6.1 allows an attacker to cause a denial of service (DoS). The (*WinEvents).readELAMAggregation function recurses for every nested elamAggregation sub-event without enforcing a maximum recursion depth limit, while the size guard is bypassed on recursive execution paths. By submitting a crafted Windows event log containing deeply nested elamAggregation headers, an attacker can exhaust the goroutine call stack, triggering an unrecoverable fatal runtime error (stack overflow) that immediately crashes the verifier application.",
       "severity": "UNKNOWN",
       "score": null
     }
