@@ -1,143 +1,143 @@
 {
-  "totalResults": 4334,
+  "totalResults": 4327,
   "items": [
     {
-      "id": "CVE-2026-44756",
-      "published": "2026-09-08T01:17:30.840",
-      "description": "A memory safety vulnerability exists in the Extended Passport Protocol (EPP) processing library. Under specific conditions, an unauthenticated attacker could exploit a crafted network request containing a malformed EPP header, potentially resulting in undefined behavior and abnormal program termination. Successful exploitation may have a high impact on the confidentiality, integrity, and availability of the application.",
+      "id": "CVE-2026-86510",
+      "published": "2026-09-08T02:17:28.357",
+      "description": "A vulnerability has been found in D-Link DIR-822A A_101. Affected is the function tunnel_set_params of the component L2TP Control Message Parser. Such manipulation leads to out-of-bounds write. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-86543",
-      "published": "2026-09-07T23:16:54.160",
-      "description": "knowns versions before 0.30.0 serve the management API without authentication on all network interfaces by default, with no password required on fresh installations. Attackers can access the unauthenticated /api/tunnel/start endpoint to provision a public tunnel and republish the API at a publicly accessible address.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-86542",
-      "published": "2026-09-07T23:16:54.020",
-      "description": "knowns before 0.30.0 fails to validate import names in the import routes, allowing unauthenticated attackers to write files outside the imports directory. Attackers can supply traversal sequences in the name parameter to escape the imports directory and overwrite arbitrary files writable by the server process.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-86439",
-      "published": "2026-09-07T23:16:53.297",
-      "description": "knowns versions before 0.30.0 fail to validate filesystem paths in MCP tool arguments, allowing attackers to read, create, overwrite and delete files outside the project directory. Attackers can supply path arguments containing directory traversal sequences to access arbitrary Markdown files accessible to the server process.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-86541",
-      "published": "2026-09-07T23:16:53.863",
-      "description": "knowns versions before 0.30.0 contain a path traversal vulnerability in the handleCodeReplace() function that allows attackers to overwrite arbitrary files outside the project root. Attackers can supply absolute paths or relative paths containing directory traversal sequences to write malicious content to sensitive files like shell startup scripts or SSH configuration files.",
-      "severity": "HIGH",
-      "score": 8.3
-    },
-    {
-      "id": "CVE-2026-86544",
-      "published": "2026-09-07T23:16:54.303",
-      "description": "knowns versions before 0.30.0 contain an authorization bypass vulnerability where mutating code actions are incorrectly classified as read-only operations. Attackers with read-restricted sessions can exploit code.replace to modify permission configurations and escalate privileges on subsequent calls.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-86540",
-      "published": "2026-09-07T23:16:53.723",
-      "description": "knowns versions before 0.30.0 fail to validate the settings.lsp.languages binary field in project configuration files, allowing attackers to execute arbitrary binaries by crafting a malicious .knowns/config.json file. When a repository with a crafted configuration is opened, the unvalidated binary path is executed twice under the user's account without any verification.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-86538",
-      "published": "2026-09-07T23:16:53.443",
-      "description": "knowns versions before 0.30.0 contain a path traversal vulnerability in the POST /api/templates/preview endpoint that allows unauthenticated attackers to read arbitrary files. Attackers can supply directory traversal sequences in the templateFile parameter to bypass path restrictions and read sensitive files like credentials and configuration through the JSON response.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-86539",
-      "published": "2026-09-07T23:16:53.583",
-      "description": "knowns through 0.33.0 contains a server-side request forgery vulnerability in the POST /api/embedding-models/test endpoint that issues outbound requests to caller-supplied destinations without validation. Attackers can enumerate internal hosts and cloud metadata endpoints by observing transport error messages that reveal network reachability information.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-44766",
-      "published": "2026-09-08T01:17:30.997",
-      "description": "SAP S/4HANA (Intercompany Matching and Reconciliation) allows a low-privileged authenticated user to inject malicious input into certain functions, which may be processed by the database without proper validation. This could allow the user to access sensitive information, resulting in high impact on confidentiality, with no impact on integrity and availability of the application.",
+      "id": "CVE-2026-86512",
+      "published": "2026-09-08T03:17:19.433",
+      "description": "A vulnerability was identified in java-json-tools json-patch up to 1.13. This affects the function CopyOperation.apply/MoveOperation.apply of the file src/main/java/com/github/fge/jsonpatch/CopyOperation.java of the component Copy Move Operations. The manipulation leads to improper access controls. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-58234",
-      "published": "2026-09-08T01:17:50.953",
-      "description": "SAP Process Integration (SOAP Adapter) allows a privileged user to send specially crafted requests containing deeply nested entity definitions, which under certain conditions could temporarily increase processor load and degrade system responsiveness. Successful exploitation results in low impact on availability with no impact on confidentiality and integrity.",
-      "severity": "LOW",
-      "score": 2.2
+      "id": "CVE-2026-86514",
+      "published": "2026-09-08T03:17:19.790",
+      "description": "A weakness has been identified in vgmstream up to r2117. This issue affects the function sscanf of the file src/meta/txth.c of the component txth-txtp. This manipulation causes stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. Patch name: 4669d37a6af94866f6f0628678f9f90d46954e8b. To fix this issue, it is recommended to deploy a patch.",
+      "severity": "MEDIUM",
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-81638",
-      "published": "2026-09-07T23:16:51.757",
-      "description": "Improper Handling of Alternate Encoding vulnerability in ash-project ash_double_entry allows an attacker to submit several distinct string spellings of the same identifier.\n\nAshDoubleEntry.ULID renders a 128-bit ULID as 26 Crockford base-32 characters, but the first character encodes only 3 bits, so canonical values are 0 to 7. decode/1 in lib/ulid.ex masks the first character to its low 3 bits and valid?/1 accepts all 32 characters in that position, so 0..., 8..., G... and R... decode to the identical 16-byte value and resolve to the same row. When the type is exposed as a public ID over an HTTP or API boundary, an attacker-supplied ID can be spelled differently from the record it actually reads or writes, desynchronizing or bypassing string-level checks such as idempotency and deduplication keys, deny-lists, audit correlation, or signatures computed over the submitted ID.\n\nThis issue affects ash_double_entry: from 0.1.0 before 1.0.19.",
+      "id": "CVE-2026-86517",
+      "published": "2026-09-08T04:17:42.307",
+      "description": "A flaw has been found in itsourcecode Sales and Inventory System 1.0. The impacted element is the function mysqli_query of the file /pages/us_searchfrm.php. Executing a manipulation of the argument ID can lead to sql injection. It is possible to launch the attack remotely. The exploit has been published and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-86518",
+      "published": "2026-09-08T04:17:42.560",
+      "description": "A vulnerability has been found in code-projects Student Crud Operation 1.0. This affects an unknown function of the file /edit.php. The manipulation of the argument ID leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-86511",
+      "published": "2026-09-08T03:17:19.257",
+      "description": "A vulnerability was found in java-json-tools jackson-coreutils 2.0. Affected by this vulnerability is the function BigDecimal.toPlainString of the file src/main/java/com/github/fge/jackson/JacksonUtils.java. Performing a manipulation results in resource consumption. The attack may be initiated remotely. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-86513",
+      "published": "2026-09-08T03:17:19.613",
+      "description": "A security flaw has been discovered in java-json-tools jackson-coreutils 2.0. This vulnerability affects the function TreePointer.tokensFromInput of the file src/main/java/com/github/fge/jackson/jsonpointer/TreePointer.java of the component JSON Pointer parser. The manipulation results in allocation of resources. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-86516",
+      "published": "2026-09-08T04:17:42.030",
+      "description": "A vulnerability was detected in elenavanengelenmaslova mocknest-serverless 0.9.0. The affected element is an unknown function of the file deployment/aws/shared/github-oidc-role.yaml of the component AWS GitHub OIDC Deployment Helper Script. Performing a manipulation results in improper privilege management. It is possible to initiate the attack remotely. The patch is named 6ab3147282d867c1993f995272750db091c2290b. Applying a patch is the recommended action to fix this issue.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-86515",
+      "published": "2026-09-08T03:17:19.987",
+      "description": "A security vulnerability has been detected in vgmstream up to r2117. Impacted is the function add_entry of the file src/meta/txtp_parser.c of the component txtp. Such manipulation of the argument range_start/range_end leads to resource consumption. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The name of the patch is 4b6a02dd1aff6428255db912563d77d4cb0a143e. It is advisable to implement a patch to correct this issue.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-12962",
+      "published": "2026-09-08T03:17:17.383",
+      "description": "A Permissive Cross-domain Security Policy with Untrusted Domains in Armoury Crate allows a remote user to obtain a local user's NTLM hash by convincing the user to visit a crafted web page that sends a request containing a UNC path to the application's local service endpoint.Refer to the '\nSecurity Update for Armoury Crate App ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82584",
-      "published": "2026-09-07T23:16:51.933",
-      "description": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in ash-project igniter allows a malicious package publisher to forge the mix igniter.install confirmation prompt.\n\nmix igniter.install prints a confirmation panel (an anti-typosquatting safeguard) listing a package's hex metadata before adding it. The panel builder in Igniter.Project.Deps wrote publisher-controlled fields (meta.description, owner usernames, requirement names, version) to the terminal with only newlines stripped. A malicious or typosquatted package can embed ANSI terminal escape sequences (cursor movement, line erase, carriage returns) in its metadata to overwrite the panel, forging trusted author names and download counts while concealing the real ones, so a developer relying on the panel to vet the package is deceived into approving a malicious dependency.\n\nThis issue affects igniter: from 0.8.1 before 0.8.4.",
+      "id": "CVE-2026-16003",
+      "published": "2026-09-08T03:17:17.550",
+      "description": "Exposed IOCTL with Insufficient Access Control in Armoury Crate driver allows a local user to add an arbitrary process identifier to the driver's whitelist via a crafted IOCTL request by bypassing the driver's verification.Refer to the '\nSecurity Update for Armoury Crate App  ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82586",
-      "published": "2026-09-07T23:16:52.093",
-      "description": "Improper Protection of Alternate Path vulnerability in ash-project ash_lua allows a user-supplied Lua script to read attributes that are not on the exposed-field allow-list.\n\nAshLua exposes Ash resources to Lua scripts, gated by a manifest declaring which fields are exposed. The read action's operation aggregate path in AshLua.Runtime took the field name straight from the Lua call and resolved it with only String.to_existing_atom and Ash.Query.Aggregate.new!, neither of which consults the exposed-field allow-list the normal fields path enforces. A script can therefore read the value of any attribute of any record the actor may read, including private sensitive?: true columns, via resource.read({ operation = {\"list\", \"hashed_password\"} }); min and max give a value oracle. Anyone able to submit or influence a Lua script can reach this.\n\nThis issue affects ash_lua: from 0.1.0 before 0.2.1.",
+      "id": "CVE-2026-16004",
+      "published": "2026-09-08T03:17:17.680",
+      "description": "Exposed IOCTL with Insufficient Access Control in Armoury Crate driver allows a local user to read and write arbitrary PCI/PCIe configuration space via crafted IOCTL requests by bypassing the driver's verification.\nRefer to the '\nSecurity Update for Armoury Crate App' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82753",
-      "published": "2026-09-07T23:16:52.227",
-      "description": "Allocation of Resources Without Limits or Throttling vulnerability in ash-project ash_authentication_oauth2_server allows an unauthenticated attacker to exhaust database storage and memory.\n\nThe /authorize endpoint is unauthenticated by design. With Client ID Metadata Documents enabled, resolve_client/3 in AshAuthentication.Oauth2Server.CIMD fetches the document for each new URL-shaped client_id and upserts a client row, with no cap on the number of rows, no expiry or garbage collection, and no length bound on the fetched fields; the document was also placed in CIMD.Cache before validation, so even rejected documents held cache memory until their TTL. An attacker serving valid documents at many distinct URLs creates one permanent client row per URL, each able to carry multi-megabyte strings, growing storage and memory without bound.\n\nThis issue affects ash_authentication_oauth2_server: from 0.3.0 before 0.3.1.",
+      "id": "CVE-2026-16005",
+      "published": "2026-09-08T03:17:17.797",
+      "description": "Release of Invalid Pointer or Reference in Armoury Crate driver allows a local user to free arbitrary memory via a crafted IOCTL request by bypassing the driver's verification, which can corrupt data structures and cause a system crash (BSOD).Refer to the '\nSecurity Update for Armoury Crate App  ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82754",
-      "published": "2026-09-07T23:16:52.403",
-      "description": "Improper Protection of Alternate Path vulnerability in ash-project ash_authentication_oauth2_server exposes the state-changing OAuth endpoints under an unintended URL prefix, bypassing controls scoped to the canonical prefix.\n\noauth2_server_protocol_routes/1 in AshAuthentication.Phoenix.Oauth2Server.Router forwards the same ProtocolRouter at both the /oauth prefix and the /.well-known prefix. Phoenix forward strips the matched prefix before dispatch, so the full route table answers under both mounts, and POST /register, POST /token, and POST /revoke are reachable as /.well-known/register, /.well-known/token, and /.well-known/revoke. Edge controls such as WAF rules, rate limits, or authentication exemptions written against the /oauth paths, or that allow-list /.well-known as unauthenticated, do not apply to the alias.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.0 before 0.3.1.",
+      "id": "CVE-2026-16006",
+      "published": "2026-09-08T03:17:17.923",
+      "description": "Exposure of Sensitive System Information to an Unauthorized Control Sphere in Armoury Crate driver allows a local user to obtain kernel virtual addresses via a crafted IOCTL request by bypassing the driver's verification, potentially providing further insight into the kernel memory layout.Refer to the '\nSecurity Update for Armoury Crate App  ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82755",
-      "published": "2026-09-07T23:16:52.580",
-      "description": "Use of Cache Containing Sensitive Information vulnerability in ash-project ash_authentication_oauth2_server allows a shared HTTP cache to serve one tenant's OAuth discovery metadata to another tenant's clients.\n\nThe RFC 8414 and RFC 9728 metadata endpoints in AshAuthentication.Phoenix.Oauth2Server.ProtocolRouter return tenant-specific values (issuer, authorization_endpoint, token_endpoint, jwks_uri) when a tenant is set, but sent them with Cache-Control: public, max-age=3600 and no Vary. When the tenant is derived from something other than the URL (a header or the Host) and a shared cache sits in front, the cache key is the URL alone, so a stored response for one tenant is served to another for up to an hour. Affected clients may then send authorization codes and secrets to the wrong tenant's token endpoint and validate tokens against the wrong keys.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.3 before 0.3.1.",
+      "id": "CVE-2026-18023",
+      "published": "2026-09-08T03:17:18.050",
+      "description": "Sensitive Information in Resource Not Removed Before Reuse in ASUS Armoury Crate driver allows a local user to disclose sensitive information from uninitialized memory via a crafted IOCTL request that bypasses the driver's security verification mechanism.\nRefer to the '\nSecurity Update for Armoury Crate App ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82756",
-      "published": "2026-09-07T23:16:52.770",
-      "description": "Improper Encoding or Escaping of Output vulnerability in ash-project ash_authentication_oauth2_server allows an unauthenticated attacker to inject arbitrary authentication parameters into the WWW-Authenticate challenge header.\n\nBearerPlug and RequireScopePlug built the Bearer resource_metadata=\"...\" challenge by interpolating a resource_metadata URL derived from the request tenant directly into the quoted value. In a multi-tenant application that sets the Ash tenant from request-controlled data (a subdomain, the Host, a path segment, or a header), a tenant containing a \" closes the quoted value and appends attacker-chosen auth-params, including a second resource_metadata URL pointing at an attacker-controlled authorization server that spec-following clients follow. Carriage returns and line feeds are rejected by Plug, so this is parameter injection within one header, not response splitting.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.3 before 0.3.1.",
+      "id": "CVE-2026-19397",
+      "published": "2026-09-08T03:17:18.507",
+      "description": "Missing authentication for a critical function in ASUS Control Center Express Agent allows an unauthenticated nearby user to control the host via a direct connection to the agent when the host has an active login session.\nRefer to the ' \nSecurity Update for ASUS Control Center Express Agent ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82757",
-      "published": "2026-09-07T23:16:52.957",
-      "description": "Server-Side Request Forgery (SSRF) vulnerability in ash-project ash_authentication_oauth2_server allows an attacker who controls a client metadata URL and its DNS to make the server connect to internal or loopback addresses.\n\npublic_ip?/1 in AshAuthentication.Oauth2Server.CIMD.ReqFetcher enforces the outbound policy for CIMD metadata fetches. It classified several address forms as publicly routable that are not: IPv4-compatible ::/96 (for example ::127.0.0.1), SIIT IPv4-translated ::ffff:0:0:0/96, and deprecated site-local fec0::/10. A returned AAAA record in one of these ranges passed the policy, so a fetch pinned to that address reached space the policy was meant to block.\n\nThis issue affects ash_authentication_oauth2_server: from 0.3.0 before 0.3.1.",
+      "id": "CVE-2026-75808",
+      "published": "2026-09-08T03:17:18.643",
+      "description": "Allocation of Resources Without Limits or Throttling in ASUS Armoury Crate allows a local user to cause a denial-of-service condition through system memory exhaustion by bypassing driver authentication and allocating an unrestricted amount of memory.Refer to the '\nSecurity Update for Armoury Crate App ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-82758",
-      "published": "2026-09-07T23:16:53.123",
-      "description": "Improper Authentication vulnerability in ash-project ash_authentication_oauth2_server allows an unauthenticated attacker to register OAuth clients even when Dynamic Client Registration is gated by an initial access token.\n\nresolve_secret/3 in AshAuthentication.Oauth2Server (reached through __resolve_secret__!) treated any return other than {:ok, _} or :error from a configured {module, function, args} or 2-arity-function secret provider as a valid secret, wrapping nil, false, or \"\" as {:ok, value}. When the initial_access_token resolves to such an empty value, POST /oauth/register compares the presented bearer token against it and the comparison passes with no token supplied, so registration is open although it was configured closed. The same fail-open affected other resolved secrets such as signing_secret.\n\nThis issue affects ash_authentication_oauth2_server: from 0.1.0 before 0.3.1.",
+      "id": "CVE-2026-75809",
+      "published": "2026-09-08T03:17:18.763",
+      "description": "Exposed IOCTL with insufficient access control in ASUS Armoury Crate allows a local user to disclosure information and disabling device functionality by bypassing driver authentication and using IOCTLs to read from and write to PCIe configuration space.Refer to the '\nSecurity Update for Armoury Crate App ' section on the ASUS Security Advisory for more information.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-75810",
+      "published": "2026-09-08T03:17:18.880",
+      "description": "Exposed Dangerous Method or Function in ASUS Armoury Crate allow a local user to cause a brief system stall by bypassing driver authentication and sending requests to trigger system management interrupts (SMIs). Repeatedly triggering SMI may lead to a denial-of-service (DoS) condition.Refer to the '\nSecurity Update for Armoury Crate App ' section on the ASUS Security Advisory for more information.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-75811",
+      "published": "2026-09-08T03:17:19.007",
+      "description": "Improper Restriction of Software Interfaces to Hardware Features in ASUS Armoury Crate allows a local user to modify hardware configuration settings and potentially cause hardware damage by bypassing driver authentication and accessing critical model-specific registers.Refer to the '\nSecurity Update for Armoury Crate App' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     }
