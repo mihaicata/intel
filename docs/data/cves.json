@@ -1,143 +1,143 @@
 {
-  "totalResults": 3962,
+  "totalResults": 4192,
   "items": [
     {
-      "id": "CVE-2026-41871",
-      "published": "2026-09-09T11:17:14.570",
-      "description": "Missing Authorization, Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection') vulnerability in Apache Nutch Server  (Nutch REST API).\n\n\n\nThis issue affects Apache Nutch: from 1.10 through 1.22.\n\n\n\nUsers are recommended to upgrade to version 1.23, which removes the Nutch Server.\nIf an upgrade is not possible, user must restrict access to instances running the Nutch Service to trusted users only.\nPlease, also visit the  Apache Nutch security advisories https://nutch.apache.org/documentation/security/ .",
+      "id": "CVE-2026-67401",
+      "published": "2026-09-09T16:17:03.883",
+      "description": "A vulnerability in cPanel allows a mail-enabled account to achieve remote code execution as root through SQLi in EmailTrack component",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-56207",
-      "published": "2026-09-09T11:17:14.827",
-      "description": "Signature of Bearer token is not verified in last step of SAML2 authentication for Impala's hs2-http interface, allowing altering user name and acting as another user.\n\n\n\nThis issue affects Apache Impala: >=4.0.0.\n\n\n\nUsers are recommended to upgrade to version 4.5.2, which fixes this issue.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-41869",
-      "published": "2026-09-09T11:17:14.290",
-      "description": "Missing Authorization, Improper Resource Shutdown and Job Interruption vulnerability in Apache Nutch Server  (Nutch REST API).\n\n\n\nThis issue affects Apache Nutch: from 1.10 through 1.22.\n\n\n\nUsers are recommended to upgrade to version 1.23, which removes the Nutch Server.\nIf an upgrade is not possible, user must restrict access to instances running the Nutch Service to trusted users only.\nPlease, also visit the  Apache Nutch security advisories https://nutch.apache.org/documentation/security/ .",
+      "id": "CVE-2026-22590",
+      "published": "2026-09-09T16:17:02.387",
+      "description": "eprosima Fast DDS is a C++ implementation of the DDS (Data Distribution Service) standard of the OMG (Object Management Group). Versions prior to 2.6.12, 2.14.6, 3.2.4, 3.3.1, and 3.4.2 have a remotely triggerable Out-of-Bounds Read while processing RTPS `DATA_FRAG` submessages. An attacker can craft a `DATA_FRAG` with a large `sampleSize` but a small actual payload, and set `fragmentsInSubmessage` such that the receiver treats the packet as the LAST fragment**. In this LAST-fragment path, Fast-DDS computes `incoming_length` based on `sampleSize` and calls `memcpy()` without validating `incoming_data.length >= incoming_length`. As a result, `CacheChange_t::add_fragments()` reads past the received UDP datagram buffer and into adjacent heap memory, copying those bytes into the reassembly buffer. In a Discovery Server deployment, the resulting `CacheChange_t` can be relayed to other participants, meaning that a newly joining participant may receive leaked heap memory (e.g., pointer values that could aid ASLR bypass). Versions 2.6.12, 2.14.6, 3.2.4, 3.3.1, and 3.4.2 fix the issue.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-41870",
-      "published": "2026-09-09T11:17:14.433",
-      "description": "Missing Authorization, Improper Control of Generation of Code ('Code Injection'), Improper Control of Dynamically-Managed Code Resources, Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection') vulnerability in Apache Nutch Server  (Nutch REST API).\n\n\n\nThis issue affects Apache Nutch: from 1.11 through 1.22.\n\n\n\nUsers are recommended to upgrade to version 1.23, which removes the Nutch Server.\nIf an upgrade is not possible, user must restrict access to instances running the Nutch Service to trusted users only.\nPlease, also visit the  Apache Nutch security advisories https://nutch.apache.org/documentation/security/ .",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-57866",
-      "published": "2026-09-09T11:17:14.953",
-      "description": "Server side request forgery in Apache Impala versions 4.4.x and 4.5.x.  Authenticated Impala users with permissions to execute the ai_generate_text() function can exfiltrate secrets provided by the credential providers configured in the `hadoop.security.credential.provider.path` property of `core-site.xml`. The secret's key must be known to the user.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-87794",
-      "published": "2026-09-09T10:22:34.397",
-      "description": "bestzip versions 2.2.6 and 3.0.2 contain an argument injection vulnerability in the nativeZip function that allows attackers to inject arbitrary arguments to the Info-ZIP backend. Attackers can supply a malicious destination path combined with crafted source entries to execute arbitrary commands with Node.js process privileges. Fixed in 2.2.7 and 3.0.3.",
-      "severity": "HIGH",
-      "score": 8.4
-    },
-    {
-      "id": "CVE-2026-87795",
-      "published": "2026-09-09T10:22:34.557",
-      "description": "zstd-jni versions before 1.5.7-14 fail to validate offset and length parameters in the ZstdDictCompress constructor, allowing out-of-bounds memory reads. Attackers can supply untrusted offset or length values to read native heap memory into the compression dictionary, typically causing JVM crashes.",
+      "id": "CVE-2026-87823",
+      "published": "2026-09-09T15:17:27.583",
+      "description": "zstd-jni before 1.5.7-14 performs 32-bit signed bounds checks on three direct-ByteBuffer frame-size native methods, allowing out-of-bounds memory reads via negative or overflowing offsets. Attackers can supply negative offset values near Integer.MIN_VALUE to read unmapped memory, causing JVM termination or extracting arbitrary frame size data from unintended memory locations.",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-65181",
-      "published": "2026-09-09T11:17:15.087",
-      "description": "Insufficient authorization of Data Source tables in Impala 2.7-4.5 allows a client with privileges to upload a file to remote storage and create a table to execute arbitrary Java code.\nUsers are recommended to upgrade to version 4.5.2, which fixes this issue.",
+      "id": "CVE-2026-87825",
+      "published": "2026-09-09T15:17:27.903",
+      "description": "zstd-jni before 1.5.7-14 contains a use-after-free vulnerability where streams and contexts hold a dictionary's shared lock only during the load call, allowing the dictionary to be closed while still referenced. Attackers can close a dictionary after associating it with a stream or context, causing subsequent read or write operations to access freed native memory, resulting in silent data corruption or JVM crashes.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-73334",
-      "published": "2026-09-09T11:17:15.220",
-      "description": "Potential problem for users of the org.apache.parquet.crypto.keytools package in Apache Parquet, versions 1.12 to 1.18. \nThis package enables users to encrypt Parquet files via an envelope encryption mechanism that wraps (encrypts) data keys via a Key Management Service (KMS). \nOn the reader side, the KMS URL can be application-controlled or file-controlled.\nIf the user does not leverage application control for this parameter, a file-controlled KMS URL is forwarded to a pluggable KmsClient implementation. \nIf the pluggable implementation does not perform host validation, a KMS token can be sent to a malicious host set by an attacker in the file.\n\nBefore the problem is fixed, users are recommended to leverage application control for KMS URL parameter in readers (versions 1.12-1.18).\nAfter the problem is fixed (presumably in version 1.19), the upgrade will disable file-controlled KMS URL by default. Users of the KMS URL parameter \nwill have two options then: leverage application control for KMS URL parameter in readers, or enable file-controlled KMS URL (via a new app parameter).\nThe latter option will explicitly require (in the new parameter documentation) to validate the KMS URL and use authentication in the custom implementation of the KMS client plug in.",
+      "id": "CVE-2026-87877",
+      "published": "2026-09-09T15:17:28.070",
+      "description": "zstd-jni versions before 1.5.7-14 fail to validate closed state in setDict, setLongMax, setLevel and setRefMultipleDDicts methods of stream classes. Attackers can call these methods on closed streams to write through freed native pointers, corrupting unrelated objects or crashing the JVM.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-79641",
-      "published": "2026-09-09T11:17:15.500",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to elevation of privileges.",
+      "id": "CVE-2026-87822",
+      "published": "2026-09-09T15:17:27.427",
+      "description": "t-digest versions 3.1 through 3.3 fail to validate centroid means during deserialization in MergingDigest.fromBytes, allowing attackers to inject NaN values that bypass validation checks. Attackers can craft malicious serialized digests containing NaN centroids that degrade sorting performance from O(n log n) to O(n squared), causing severe processing delays during merge operations.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-79635",
-      "published": "2026-09-09T11:17:15.353",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains a Server-Side Request Forgery (SSRF) vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
+      "id": "CVE-2026-87824",
+      "published": "2026-09-09T15:17:27.753",
+      "description": "zstd-jni before 1.5.7-14 fails to validate the samples buffer capacity in Zstd.trainFromBufferDirect, allowing attackers to read past buffer boundaries by supplying oversized per-sample lengths. Attackers can trigger out-of-bounds memory access by providing crafted sample length arrays that cause the native implementation to walk past the buffer allocation, resulting in JVM termination.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-86547",
-      "published": "2026-09-09T10:22:33.803",
-      "description": "mrubyc through 4.0.0 contains a null pointer dereference vulnerability in the op_enter() handler in src/vm.c when processing untrusted bytecode. Attackers can craft malicious .mrb bytecode files with OP_ENTER instructions at the top level to crash the embedding application and cause denial of service.",
+      "id": "CVE-2026-22591",
+      "published": "2026-09-09T16:17:02.563",
+      "description": "eprosima Fast DDS is a C++ implementation of the DDS (Data Distribution Service) standard of the OMG (Object Management Group). Prior to versions 2.6.12, 2.14.6, 3.2.4, and 3.4.3, Fast DDS’s implementation of SQL‑based content filtering (DDSSQLFilter) allows any participant in a DDS domain to remotely crash other Fast DDS participants by sending a single crafted SEDP `DATA` submessage whose `PID_CONTENT_FILTER_PROPERTY.filterExpression` contains a deeply nested filter expression. Versions 2.6.12, 2.14.6, 3.2.4, and 3.4.3 fix the issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-26212",
+      "published": "2026-09-09T15:17:06.823",
+      "description": "Rara One Click Demo Import plugin for WordPress before 1.3.5 contains an arbitrary file upload vulnerability that allows authenticated attackers with Administrator privileges to upload arbitrary PHP files by passing a false value to wp_handle_upload() that disables WordPress core's file type validation checks across all three file parameters in the process_uploaded_files() function. Attackers can upload a malicious PHP file to the uploads directory and execute it over HTTP to achieve remote code execution in the web server process, with the uploaded file persisting on disk even after plugin deactivation and leaving no media library record to evade standard integrity checks.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-79617",
+      "published": "2026-09-09T15:17:09.543",
+      "description": "Incorrect Permission Assignment for Critical Resource vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute Pardus LightDM Greeter allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects Pardus LightDM Greeter: before 0.4.15.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-78482",
+      "published": "2026-09-09T15:17:08.763",
+      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to command execution.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-78377",
-      "published": "2026-09-09T10:21:34.813",
-      "description": "URL redirection to untrusted site ('open redirect') vulnerability in Yordam Informatics Technology Consulting, Training, and Electronic Systems Industry and Trade Inc. Library Information and Document Automation Program allows Phishing.\n\nThis issue affects Library Information and Document Automation Program: from v22.1 before v22.2.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-19733",
-      "published": "2026-09-09T10:17:04.990",
-      "description": "Server-Side request forgery (SSRF) vulnerability in Yordam Informatics Technology Consulting, Training, and Electronic Systems Industry and Trade Inc. Library Information and Document Automation Program allows Server Side Request Forgery.\n\nThis issue affects Library Information and Document Automation Program: before v22.2.",
+      "id": "CVE-2026-79941",
+      "published": "2026-09-09T15:17:10.363",
+      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Neutralization of Special Elements used in a Command ('Command Injection') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to script injection.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-86777",
-      "published": "2026-09-09T10:22:34.117",
-      "description": "AlchemyCMS versions before 7.4.16 and 8.x before 8.3.6 fail to authorize access to the GET /api/nodes endpoint, allowing unauthenticated attackers to retrieve all navigation nodes. Attackers can access the endpoint without authentication to disclose restricted page names, URL paths, and internal URLs from all sites and languages.",
+      "id": "CVE-2026-82530",
+      "published": "2026-09-09T15:17:11.967",
+      "description": "IP2Location Country Blocker plugin for WordPress before 2.45.0 contains an access control bypass vulnerability that allows unauthenticated remote attackers to circumvent IP-based restrictions by forging the X-Real-IP HTTP header. Attackers can set the X-Real-IP header to an allowlisted IP address to bypass page, link, or site-wide access restrictions and access otherwise-blocked resources.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-54048",
-      "published": "2026-09-09T11:17:14.700",
-      "description": "Specifying tblproperties('avro.schema.url'=' http://...' ) or with a 'file:///' URI on a table in Impala 2.0.0 to 4.5.1 on all platforms allows an attacker to trigger a GET request to internal endpoints they may not have access to but that Impala does and the response my be exposed via parsing error messages.\nUsers are recommended to upgrade to version 4.5.2, which fixes this issue.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-11838",
-      "published": "2026-09-09T10:17:03.910",
-      "description": "Missing authentication for critical function vulnerability in Yordam Informatics Technology Consulting, Training, and Electronic Systems Industry and Trade Inc. Library Reservation System allows Input Data Manipulation.\n\nThis issue affects Library Reservation System: before v22.2.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-86776",
-      "published": "2026-09-09T10:22:33.970",
-      "description": "KeePass versions 2.35 through 2.61.1 fail to validate KDBX header field sizes before memory allocation in the ReadHeaderField function. Attackers can craft a malicious KDBX file declaring excessive header field lengths to trigger allocation of gigabytes of memory, causing the application to consume resources and terminate.",
+      "id": "CVE-2026-79690",
+      "published": "2026-09-09T15:17:09.830",
+      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
       "severity": "LOW",
-      "score": 3.3
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-79727",
-      "published": "2026-09-09T11:17:15.640",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Exposure of Sensitive System Information Due to Uncleared Debug Information vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to information exposure.",
+      "id": "CVE-2026-79729",
+      "published": "2026-09-09T15:17:09.967",
+      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
       "severity": "LOW",
-      "score": 3.3
+      "score": 3.7
     },
     {
-      "id": "CVE-2025-3271",
-      "published": "2026-09-09T10:17:02.617",
-      "description": "Documentum Webtop versions prior to 16.7.1 software is vulnerable to an XSS",
+      "id": "CVE-2026-79732",
+      "published": "2026-09-09T15:17:10.100",
+      "description": "Dell Secure Connect Gateway (SCG) 5.0 Appliance, versions prior to 5.36.00.xx, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to protection mechanism bypass.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-79736",
+      "published": "2026-09-09T15:17:10.227",
+      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-83530",
+      "published": "2026-09-09T15:17:12.123",
+      "description": "A user could provide an expression whose string length is longer than the ParserExpressionSizeLimit() configured on the CEL environment, and a memory allocation would occur proportional to the size of the input before the limit would be checked / enforced.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-67403",
+      "published": "2026-09-09T16:17:04.030",
+      "description": "Cash Collect contains an improper authorization vulnerability in the Sage AR Automation API. Insufficient tenant-level authorization checks allow authenticated users to access administrative resources belonging to other tenants by specifying a valid non predictable tenant identifier.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-68484",
+      "published": "2026-09-09T16:17:04.157",
+      "description": "Cash Collect contains an improper authorization vulnerability in the Sage AR Automation API. Administrative functions do not properly verify user privileges, allowing authenticated low-privileged users to create administrator accounts and obtain elevated privileges.",
       "severity": "UNKNOWN",
       "score": null
     }
