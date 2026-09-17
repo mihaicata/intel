@@ -1,47 +1,40 @@
 {
-  "totalResults": 4408,
+  "totalResults": 4395,
   "items": [
     {
-      "id": "CVE-2026-19583",
-      "published": "2026-09-10T03:16:59.010",
-      "description": "Velociraptor allows some sensitive artifacts to be gated by additional permissions. For example, the Linux.Sys.BashShell artifact allows arbitrary command execution on endpoints, and so it requires the EXECVE permission to schedule. However, no such check was implemented for client monitoring artifacts. Additionally there was no requirement that client monitoring artifacts carry the CLIENT_EVENTS type. This allows any user who can schedule client monitoring artifacts to also schedule otherwise restricted artifacts (such as Linux.Sys.BashShell).",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-18351",
-      "published": "2026-09-10T02:16:34.180",
-      "description": "The Drag and Drop File Upload for Elementor Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.6.0 via the elementor_file_upload function. This is due to insufficient file type validation in the is_file_type_valid() function, which uses the attacker-controlled 'type' parameter as regex keys in the MIME allowlist, allowing blacklist bypass via a crafted extension that sanitize_file_name() later normalizes to a PHP extension. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
+      "id": "CVE-2026-57967",
+      "published": "2026-09-10T05:17:01.443",
+      "description": "An unauthenticated remote attacker can craft a CORE protocol SESSION_REATTACH packet to steal an existing session and assume ongoing execution of the previously authenticated session.\n\n\n\nThis issue affects Apache Artemis: from 2.50.0 through 2.56.0; Apache ActiveMQ Artemis: from 1.0.0 through 2.44.0.\n\n\n\nUsers are recommended to upgrade to version 2.57.0, which fixes the issue.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-87931",
-      "published": "2026-09-10T00:17:24.737",
-      "description": "A vulnerability has been found in Behavioral Technology Group Pavlok Behavioral Conditioning Wearable up to 20260707. Impacted is an unknown function of the component Apple Notification Center Service Event Handler. The manipulation leads to buffer overflow. The attack must be carried out from within the local network. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-49364",
+      "published": "2026-09-10T05:17:01.230",
+      "description": "An unauthenticated network-adjacent attacker can leverage discovery to capture cluster administrative credentials during the initial cluster connection handshake.\n\nThis issue affects Apache Artemis: from 2.50.0 through 2.56.0; Apache ActiveMQ Artemis: from 1.0.0 through 2.44.0.\n\n\n\nUsers are recommended to upgrade to version 2.57.0, which fixes the issue.",
       "severity": "CRITICAL",
-      "score": 9.6
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-14873",
-      "published": "2026-09-10T04:17:45.480",
-      "description": "The Bulk Password Reset plugin for WordPress is vulnerable to privilege escalation via account takeover in all versions up to, and including, 1.3.3. This is due to the plugin not properly validating a user's identity prior to updating their details like arbitrary user passwords, including administrator passwords, to a known plugin-configured custom value, enabling full account takeover of the site. This makes it possible for authenticated attackers, with subscriber-level access and above, to change arbitrary user's email addresses, including administrators, and leverage that to reset the user's password and gain access to their account.",
-      "severity": "HIGH",
-      "score": 8
+      "id": "CVE-2026-67593",
+      "published": "2026-09-10T05:17:01.560",
+      "description": "A remote attacker can craft an Openwire RemoveSubscriptionInfo command to cause the deletion of a queue on the Artemis broker before the connection authentication and authorization stage or at any time thereafter. \n\n\n\nThis issue affects Apache Artemis: from 2.50.0 through 2.56.0; Apache ActiveMQ Artemis: from 1.0.0 through 2.44.0.\n\n\n\nUsers are recommended to upgrade to version 2.57.0, which fixes the issue.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-19584",
-      "published": "2026-09-10T03:17:00.063",
-      "description": "Velociraptor allows for the creation of notebook backups in its default enabled daily backup feature. When Velociraptor restores the backup, the notebook cell content is interpolated into a template with no ACL checks. This allows a malicious user with NOTEBOOK_EDITOR permission to plant a VQL query which will be evaluated at elevated permissions if the notebook's backup is subsequently restored.",
-      "severity": "HIGH",
-      "score": 7.7
+      "id": "CVE-2026-84939",
+      "published": "2026-09-10T06:17:06.460",
+      "description": "Path traversal vulnerability in Apache FreeMarker template loading mechanism, if the attacker can specify an arbitrary malformed locale identifier to FreeMarker, and the localized lookup configuration setting is enabled (it's by default enabled).\n\nThis issue affects Apache FreeMarker from 2.2.0 through 2.3.34.\n\nUsers are recommended to upgrade to version 2.3.35. Disabling localized lookup in previous versions also mitigates this.\n\nNote that even in versions affected by this vulnerability, the files that can be loaded remain restricted by the TemplateLoader that FreeMarker is configured to use. In particular, FileTemplateLoader prevents attempts to traverse outside the baseDir specified in its constructor. Other TemplateLoader implementations may allow access outside their designated base directory, but they are still constrained by the underlying storage mechanism—for example, a loader wrapping a Java class loader can only access resources that the class loader can load, while one wrapping a web application context can only access resources available through that context.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-15019",
-      "published": "2026-09-10T04:17:45.967",
-      "description": "The Direct Download for WooCommerce plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 1.19 via the (top-level include) function. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. The product ownership check only verifies that some free, virtual, downloadable product exists on the site — not that the requested file path belongs to that product's configured downloads — making exploitation viable on any WooCommerce site with at least one such product.",
+      "id": "CVE-2026-82079",
+      "published": "2026-09-10T06:17:06.330",
+      "description": "A stack-based buffer overflow vulnerability in the Nintendo Switch local wireless networking functionality may allow an attacker within wireless range to execute arbitrary code using return-oriented programming (ROP) through crafted network traffic.\nThis issue affects Nintendo Switch: before 23.0.0.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.4
     },
     {
       "id": "CVE-2026-49362",
@@ -51,95 +44,102 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-87925",
-      "published": "2026-09-10T00:17:24.387",
-      "description": "A vulnerability was detected in Rizwan17 inventory-management-system up to bfe78a330d01bb26b9daec5dc9ecd5c77900e03f. This vulnerability affects the function storeCustomerOrderInvoice of the file includes/manage.php. Performing a manipulation of the argument pro_name[] results in sql injection. The attack can be initiated remotely. The exploit is now public and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-49363",
+      "published": "2026-09-10T05:17:01.123",
+      "description": "An unauthenticated remote attacker connecting with the CORE protocol can discover cluster node details by sending a SUBSCRIBE_TOPOLOGY request prior to authentication.\n\n\n\nThis issue affects Apache Artemis: from 2.50.0 through 2.56.0; Apache ActiveMQ Artemis: from 1.0.0 through 2.44.0.\n\n\n\nUsers are recommended to upgrade to version 2.57.0, which fixes the issue.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-87933",
-      "published": "2026-09-10T01:16:35.650",
-      "description": "A vulnerability was found in DaveGamble cJSON up to 1.7.19. The affected element is the function cJSONUtils_MergePatch of the file cJSON_Utils.c. The manipulation results in use after free. The attack may be launched remotely. The exploit has been made public and could be used. The pull request to fix this issue awaits acceptance.",
+      "id": "CVE-2026-19436",
+      "published": "2026-09-10T07:17:02.620",
+      "description": "The Ultimate Gift Cards for WooCommerce WordPress plugin before 3.2.10 does not reconcile the value of the gift card coupon it issues against the amount actually collected at checkout, allowing unauthenticated users to obtain store credit worth more than they paid.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-76562",
-      "published": "2026-09-10T04:18:16.643",
-      "description": "The Sidebar Manager Light plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'sbm_description' parameter in all versions up to, and including, 1.18 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-84063",
-      "published": "2026-09-10T03:17:00.370",
-      "description": "BurgerEditor 3.2.0 through 3.4.0 contains an issue with unrestricted upload of file with dangerous type. If this vulnerability is exploited, an arbitrary file may be uploaded by an attacker who can log in to the product, potentially allowing arbitrary PHP code to be executed may be caused.",
+      "id": "CVE-2026-57822",
+      "published": "2026-09-10T05:17:01.343",
+      "description": "When the broker is processing message-based management requests, sent by an authenticated messaging client that is authorized with MANAGE permission to perform management-via-messaging, the parameter processing can trigger Java deserialization of certain method parameters that the broker will not utilise. The permitted types allow to craft a payload causing excessive computation and pinning the processing thread, leading to denial of service.\n\n\n\n\nThis issue affects Apache Artemis: from 2.50.0 through 2.56.0; Apache ActiveMQ Artemis: from 1.3.0 through 2.44.0.\n\n\n\nUsers are recommended to upgrade to version 2.57.0, which fixes the issue.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-87870",
-      "published": "2026-09-10T03:17:00.497",
-      "description": "The Ninja Forms - Scheduled Exports plugin for WordPress is vulnerable to Stored Cross-Site Scripting via REST API Parameters (interval, format, emailTo) in all versions up to, and including, 3.0.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level privileges and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The REST endpoint is registered without a permission_callback and only validates a nonce without checking user capabilities.",
+      "id": "CVE-2026-75880",
+      "published": "2026-09-10T05:17:01.673",
+      "description": "An authenticated client could attach a consumer with a selector containing crafted wildcard usage that results in excessive evaluation during message delivery attempts, occupying a shared broker thread and leading to denial of service.\n\nThis issue affects Apache Artemis: from 2.50.0 through 2.56.0; Apache ActiveMQ Artemis: from 1.0.0 through 2.44.0.\n\n\nUsers are recommended to upgrade to version 2.57.0, which fixes this issue.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-15796",
-      "published": "2026-09-10T04:17:46.210",
-      "description": "The Builderall for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'bg_video_service_url' Setting in all versions up to, and including, 3.0.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-85645",
+      "published": "2026-09-10T06:17:06.607",
+      "description": "The Form Maker by 10Web – Mobile-Friendly Drag & Drop Contact Form Builder plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the bulk_action parameter in all versions up to, and including, 1.15.46 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-15820",
-      "published": "2026-09-10T04:17:48.130",
-      "description": "The Builderall for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Photo Module 'attributes' Setting in all versions up to, and including, 3.0.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-0305",
+      "published": "2026-09-10T06:17:02.733",
+      "description": "An information disclosure vulnerability in the Palo Alto Networks Prisma® Access Agent on Linux enables a local user to access sensitive configuration data and credentials.\n\n\n\nThe Prisma Access Agent on macOS, Windows, iOS, Android and Chrome OS is not affected.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-4657",
-      "published": "2026-09-10T04:18:04.410",
-      "description": "The Easy Google Fonts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the control_selectors meta field in all versions up to, and including, 2.0.4. This is due to the plugin registering the control_selectors meta field with show_in_rest enabled but without a sanitize_callback, and subsequently outputting this unsanitized data directly into <style> tags on the frontend without proper escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-0306",
+      "published": "2026-09-10T06:17:03.007",
+      "description": "A vulnerability in the EndPoint Data Loss Prevention (DLP) enforcement of Palo Alto Networks Prisma® Access Agent enables a local user to bypass configured DLP policy enforcement controls and exfiltrate sensitive data. \n\n\n\nThis Prisma Access Agent on macOS, Linux,  iOS, Android and Chrome OS is not affected.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-18386",
-      "published": "2026-09-10T04:17:48.437",
-      "description": "The WP BackItUp Community Edition plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 2.1.0 via the 'backup_file' parameter parameter. This makes it possible for authenticated attackers, with administrator-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. The basename() normalization present in the handler only executes when the traversed target path does not exist, providing no protection against reads of existing files.",
-      "severity": "MEDIUM",
-      "score": 4.9
+      "id": "CVE-2026-0307",
+      "published": "2026-09-10T06:17:03.170",
+      "description": "Multiple local privilege escalation vulnerabilities in the Palo Alto Networks GlobalProtect™ app allows a local user to escalate their privileges to NT AUTHORITY\\SYSTEM on Windows and root on macOS and Linux. This enables a non-administrative user to execute arbitrary commands with administrative privileges.\n\n\n\nThis GlobalProtect app on iOS, Android and ChromeOS is not impacted.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-87926",
-      "published": "2026-09-10T00:17:24.567",
-      "description": "A flaw has been found in Rizwan17 inventory-management-system up to bfe78a330d01bb26b9daec5dc9ecd5c77900e03f. This issue affects some unknown processing of the file index.php of the component Login Page. Executing a manipulation of the argument msg can lead to cross site scripting. The attack can be launched remotely. The exploit has been published and may be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-0308",
+      "published": "2026-09-10T06:17:03.513",
+      "description": "A stored cross-site scripting (XSS) vulnerability in Palo Alto Networks PAN-OS® software enables a malicious authenticated administrator to store or execute a JavaScript payload using the web interface. \n\nThis issue is applicable to PAN-OS software on PA-Series and VM-Series firewalls and on Panorama (virtual and M-Series). \n\nCloud NGFW and Prisma® Access are not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-84062",
-      "published": "2026-09-10T03:17:00.213",
-      "description": "BurgerEditor 3.0.0 through 3.4.0 contains an issue with authorization bypass through user-controlled key. If this vulnerability is exploited, the content of the page may be altered by an attacker who can log in to the product may be caused.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-0309",
+      "published": "2026-09-10T06:17:03.813",
+      "description": "A command injection vulnerability in Palo Alto Networks PAN-OS® software enables an authenticated administrator to bypass system restrictions and run arbitrary commands as a root user. To be able to exploit this issue, the user must have access to the PAN-OS CLI and the device must be configured with a Luna Hardware Security Module (HSM). \n\nThe security risk posed by this issue is significantly minimized when CLI access is restricted to a limited group of administrators.\n\nPanorama, Cloud NGFW, and Prisma® Access are not impacted by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-15823",
-      "published": "2026-09-10T04:17:48.280",
-      "description": "The Builderall Cheetah For Wp plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the disable() function in versions up to, and including, 3.0.2. The wp_ajax_ba_cheetah_disable AJAX handler is registered without any capability or nonce verification, and the target post_id is sourced directly from user-controlled $_POST['ba_cheetah_data']['post_id']. This makes it possible for authenticated attackers, with Subscriber-level access and above, to disable the page builder layout on arbitrary posts by setting the _ba_cheetah_enabled post meta to false, including on posts owned by other users.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-0310",
+      "published": "2026-09-10T06:17:04.450",
+      "description": "A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-18594",
-      "published": "2026-09-10T04:17:48.613",
-      "description": "The Advanced Contact form 7 DB plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.1.3. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to import forged CSV submission records into any Contact Form 7 form managed by the plugin.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-0302",
+      "published": "2026-09-10T07:17:00.843",
+      "description": "An OS command injection vulnerability in Palo Alto Networks Checkov by Prisma® Cloud enables a local user to execute arbitrary commands in the processes running Checkov.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0303",
+      "published": "2026-09-10T07:17:02.140",
+      "description": "A code execution vulnerability in Palo Alto Networks Checkov by Prisma® Cloud can allow arbitrary code execution when Checkov scans a directory that contains an attacker-controlled configuration file.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0304",
+      "published": "2026-09-10T07:17:02.470",
+      "description": "A privilege escalation vulnerability in Palo Alto Networks Cortex XDR Broker VM enables an authenticated low privileged user with man-in-the-middle (MitM) access to execute code with root privileges on the Broker VM.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
