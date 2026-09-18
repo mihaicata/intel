@@ -1,145 +1,145 @@
 {
-  "totalResults": 5048,
+  "totalResults": 5122,
   "items": [
     {
-      "id": "CVE-2026-14560",
-      "published": "2026-09-11T07:16:45.980",
-      "description": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-14559",
-      "published": "2026-09-11T07:16:45.877",
-      "description": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not verify a user's password before authenticating them, allowing unauthenticated attackers to log in as any registered user, including administrators, by supplying only that user's email address.",
+      "id": "CVE-2026-86793",
+      "published": "2026-09-11T12:16:52.427",
+      "description": "SGLang allows unauthenticated pickle deserialization through /update_weights_from_tensor when no auth keys are configured, and the SafeUnpickler policy can be bypassed because builtins.import and builtins.getattr are resolvable, enabling code execution via pickle REDUCE.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-14563",
-      "published": "2026-09-11T07:16:46.177",
-      "description": "The advanced-customized-prompts WordPress plugin through 1.0.1 does not verify the password before issuing an authenticated session for a supplied email address in an unauthenticated action, allowing unauthenticated attackers to log in as any registered user, including administrators, or to create arbitrary new accounts.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-73784",
-      "published": "2026-09-11T07:16:46.477",
-      "description": "A potential security vulnerability in HPE IceWall products could be exploited to tamper SAML response, allowing an attacker to impersonate another user.",
+      "id": "CVE-2026-89243",
+      "published": "2026-09-11T12:16:53.960",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in UserGroups::setGroup_name() that fails to sanitize group_name input. Administrators with canAdminUserGroups permission can inject malicious HTML and JavaScript that executes in the browser when other administrators access the user manager interface.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-85677",
-      "published": "2026-09-11T07:16:47.147",
-      "description": "The Gutenverse News  WordPress plugin before 3.3.3 does not restrict the extra HTML it adds to WordPress's allowed elements to the context it is meant for, applying the same relaxed list to every sanitisation context including untrusted comments, allowing unauthenticated users to store JavaScript that will execute in the browser of any administrator who reviews the comment queue, and of any visitor to the post once the comment is approved.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-73785",
-      "published": "2026-09-11T07:16:46.623",
-      "description": "A potential security vulnerability in HPE IceWall Federation Agent and Proxy could allow a remote unauthenticated attacker to cause a denial of service (DoS).",
+      "id": "CVE-2026-89146",
+      "published": "2026-09-11T11:16:57.867",
+      "description": "libp2p-rendezvous through 0.17.1 fails to validate registration TTL values in discovery responses, allowing attackers to trigger timer arithmetic overflow. A malicious rendezvous server can send a discovery response with an unbounded TTL value that causes the client node process to panic when computing the expiry timer.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-74925",
-      "published": "2026-09-11T07:16:46.740",
-      "description": "The MultiVendorX  WordPress plugin before 5.0.16 does not restrict who can update its role and capability settings, allowing users holding its vendor role to grant that role administrator-level capabilities and take over the site.",
+      "id": "CVE-2026-89147",
+      "published": "2026-09-11T11:16:58.040",
+      "description": "Net-SNMP through 5.9.5.2 contains a denial of service vulnerability in the SMUX module where smux_accept() performs an unauthenticated blocking read without timeout on newly accepted connections. An unauthenticated remote client can connect to the SMUX listener and send no data, causing the single-threaded snmpd main loop to block indefinitely and suspend all SNMP processing.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-87776",
+      "published": "2026-09-11T12:16:52.530",
+      "description": "compression is a Node.js and Express compression middleware. In versions before 1.8.2, when a client aborts the connection while a compressed response is still being sent, the zlib stream created to compress that response is never destroyed, so each aborted compressed response leaks its native zlib memory. A remote unauthenticated attacker can repeatedly open requests and disconnect early, exhausting the available memory and crashing the server. All applications using compression are affected. The issue is fixed in compression 1.8.2, and users should upgrade to 1.8.2 or later.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-89242",
+      "published": "2026-09-11T12:16:53.803",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a server-side request forgery vulnerability in the _json_decode function that fetches remote URLs and local file paths without SSRF validation. Unauthenticated attackers can POST file paths or HTTP URLs to login.json.php to read local files or access internal services, with results parsed as login credentials.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-83545",
-      "published": "2026-09-11T07:16:46.950",
-      "description": "The CoolClock WordPress plugin before 4.3.8 does not properly escape a custom skin setting before outputting it inside an inline script, allowing users with contributor-level access and above to inject arbitrary JavaScript that executes when the content is viewed.",
+      "id": "CVE-2026-85116",
+      "published": "2026-09-11T11:16:55.660",
+      "description": "The Simple CAPTCHA with Cloudflare Turnstile WordPress plugin from 1.2.2 before 1.42.3 runs the shortcode parser over the whole rendered Contact Form 7 form, including the values a visitor submitted, allowing unauthenticated users to execute arbitrary shortcodes registered on the site.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-83546",
-      "published": "2026-09-11T07:16:47.050",
-      "description": "The CoolClock WordPress plugin before 4.3.8 does not properly escape a skin setting before outputting it within an HTML attribute, allowing users with contributor-level access and above to inject arbitrary web scripts that execute when the content is viewed.",
+      "id": "CVE-2026-89245",
+      "published": "2026-09-11T12:16:54.270",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a cross-site request forgery vulnerability in playlistRemove.php that allows attackers to delete playlists by skipping CSRF protection checks. Attackers can craft a malicious form that submits a POST request to playlistRemove.php, causing a victim's playlist to be deleted when they visit the attacker's page while logged in.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-85678",
-      "published": "2026-09-11T07:16:47.247",
-      "description": "The AI Builder  WordPress plugin before 2.7.8 does not sanitise custom JavaScript saved against a post before echoing it inside a script tag on the front end, allowing users with contributor level access and above to store arbitrary JavaScript that will execute in the browser of anyone who views the post, including the editor or administrator who reviews it.",
+      "id": "CVE-2026-89239",
+      "published": "2026-09-11T12:16:53.327",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in the showAlertMessage() function that inserts the raw Referer header into a JavaScript comment without encoding. Attackers can craft a Referer header containing */ to close the comment and inject arbitrary JavaScript that executes in the site origin for visitors arriving from the attacker-controlled page.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-86780",
-      "published": "2026-09-11T07:16:47.450",
-      "description": "The Featured Image with URL WordPress plugin before 1.0.6 does not sanitise and escape a stored image attribute value before outputting it, which could allow users with a role as low as Contributor to perform Stored Cross-Site Scripting attacks that execute in the browser of any user viewing the affected post, including higher-privileged users such as Editors and Administrators.",
+      "id": "CVE-2026-89240",
+      "published": "2026-09-11T12:16:53.493",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in plugin/Live/confirmLivePassword.php. The script interpolates the unauthenticated GET parameter u (which is not covered by $securityFilter) directly into an <img src=\"...\"> attribute without URL- or HTML-encoding. A remote attacker can craft a link containing a double-quote character in u (with a non-empty key parameter and no valid c parameter) to close the src attribute and inject an additional tag with an onerror handler, executing arbitrary JavaScript in the site's origin in the browser of any user, including an administrator, who opens the link. No patched version was available at the time of the advisory.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-86782",
-      "published": "2026-09-11T07:16:47.643",
-      "description": "The Visualizer  WordPress plugin before 4.0.6 does not properly authorise access to its chart-building actions, allowing users with the Contributor role and above to publish, rename, and overwrite the content of posts and pages they do not own, including other users' private drafts.",
+      "id": "CVE-2026-89241",
+      "published": "2026-09-11T12:16:53.650",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in confirmLivePassword.php that copies REQUEST_URI into a form action attribute without encoding. Attackers can craft a malicious URL with a quote character to break out of the action attribute and inject event handlers that execute in the victim's browser within the site origin.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-89244",
+      "published": "2026-09-11T12:16:54.117",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in plugin/Gallery/view/Category.php when SubCategorys is enabled. The getBackURL parameter is echoed into an href attribute without HTML encoding, allowing attackers to inject malicious scripts that execute in visitors' browsers when they interact with the Back control.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-82215",
+      "published": "2026-09-11T11:16:55.077",
+      "description": "The Payment Gateway PayPay for WooCommerce WordPress plugin from 0.5 to 0.9.3 does not verify the authenticity of the payment notifications it receives before acting on them, allowing unauthenticated attackers who know the store's merchant identifier to mark arbitrary orders as paid, or to cancel or fail them.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-77159",
+      "published": "2026-09-11T11:16:54.677",
+      "description": "A symlink-following flaw was found in libvirt's qemuTPMEmulatorPrepareHost() function. The function uses a path-based chown() on the swtpm logfile without checking for symbolic links. A local attacker with access to the swtpm account can replace the logfile with a symlink, causing libvirtd (running as root) to transfer ownership of an arbitrary file to the swtpm user.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-14565",
-      "published": "2026-09-11T07:16:46.277",
-      "description": "The advanced-customized-prompts WordPress plugin through 1.0.1 does not perform any capability, ownership, or nonce check before saving popup configuration to a product, nor escape the stored values on output, allowing any authenticated user such as a subscriber to store JavaScript that executes in the browser of visitors viewing the affected product.",
+      "id": "CVE-2026-89148",
+      "published": "2026-09-11T12:16:53.170",
+      "description": "AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains an open redirect in objects/playlistSort.php. Because the endpoint is not a *.json.php script, AVideo's automatic CSRF guard (autoCSRFGuard()/forbidIfIsUntrustedRequest()) does not run, and when the request includes the sort parameter the script issues a Location header set to the unvalidated $_SERVER['HTTP_REFERER'] value without calling isSafeRedirectURL(). A remote unauthenticated attacker can therefore induce a logged-in user who can manage the targeted playlist to submit a cross-origin POST with a crafted Referer, causing the victim's playlist to be reordered and the victim's browser to be redirected from a trusted AVideo URL to an attacker-controlled site for phishing. No patched version is available.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-14562",
-      "published": "2026-09-11T07:16:46.080",
-      "description": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not perform any authorization or ownership checks before returning WooCommerce order metadata and the URLs of customer-uploaded attachments, allowing unauthenticated attackers to disclose other customers' order and attachment data.",
+      "id": "CVE-2026-89246",
+      "published": "2026-09-11T12:16:54.423",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a CSV formula injection vulnerability in the myComments.download.php endpoint that fails to sanitize spreadsheet formula prefixes in comment text. Authenticated users can inject formulas starting with =, +, -, or @ characters that execute when administrators or video owners open the exported CSV file in spreadsheet applications.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-82213",
+      "published": "2026-09-11T11:16:54.957",
+      "description": "The Nexi XPay Build WordPress plugin from 7.6.1 to 7.6.2 does not verify that the saved payment token being requested belongs to the current user, allowing unauthenticated attackers to retrieve other customers' stored card token references together with a valid authorisation signature.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-82305",
-      "published": "2026-09-11T07:16:46.850",
-      "description": "The YITH WooCommerce Wishlist WordPress plugin before 4.18.1 does not verify that a user is authorised to rename a given wishlist, allowing unauthenticated users to rename any wishlist on the site.",
+      "id": "CVE-2026-86809",
+      "published": "2026-09-11T11:16:57.150",
+      "description": "The Persian Elementor WordPress plugin from 2.7.10 before 2.8.2 does not verify that the payment authority returned to its ZarinPal payment callback belongs to the transaction being completed, allowing unauthenticated attackers to complete a pending order using a valid payment authority obtained from a different transaction.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-86781",
-      "published": "2026-09-11T07:16:47.547",
-      "description": "The SSL Zen — SSL Certificate Installer & HTTPS Redirects WordPress plugin before 4.7.40 does not perform capability or nonce checks on a certificate-file download routine that runs early in the WordPress admin request lifecycle, allowing any authenticated user, including Subscribers, to download the site's TLS private key, certificates, and diagnostic logs.",
+      "id": "CVE-2026-86813",
+      "published": "2026-09-11T11:16:57.267",
+      "description": "The MetForm WordPress plugin before 4.1.9 does not properly neutralize newline characters in user-submitted values that are placed into notification email headers, allowing unauthenticated attackers to inject additional email headers, such as Bcc, into the emails the site sends when a submitted field value is configured to populate a header.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-14566",
-      "published": "2026-09-11T07:16:46.373",
-      "description": "The advanced-customized-prompts WordPress plugin through 1.0.1 does not perform any capability, ownership, or nonce check before updating WooCommerce order item metadata for a supplied order, allowing any authenticated user such as a subscriber to tamper with the custom metadata of orders belonging to other customers.",
+      "id": "CVE-2024-12145",
+      "published": "2026-09-11T12:16:50.957",
+      "description": "The BuddyPress plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 14.3.3 via the bp_notifications_action_bulk_manage due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete/mark as read/mark as unread notifications of other users.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2025-15695",
-      "published": "2026-09-11T07:16:44.617",
-      "description": "The Translate WordPress with GTranslate WordPress plugin before 3.0.10 does not validate one of its settings before the bundled front-end scripts build markup from it, allowing users with a role as high as administrator to store JavaScript that runs in the session of any visitor to the site.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-86779",
-      "published": "2026-09-11T07:16:47.343",
-      "description": "The Visualizer  WordPress plugin before 4.0.6 does not properly authorise chart-deletion requests, performing only a site-wide capability check with no per-object ownership verification, allowing users with the Contributor role and above to permanently delete any chart on the site, including charts created by other users such as administrators.",
-      "severity": "LOW",
-      "score": 2.7
-    },
-    {
-      "id": "CVE-2026-13326",
-      "published": "2026-09-11T07:16:45.620",
-      "description": "An out-of-bounds read in Qt NFC's language code length parsing allows a physically proximate attacker to cause a denial of service or limited memory disclosure via a crafted NFC tag.",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
