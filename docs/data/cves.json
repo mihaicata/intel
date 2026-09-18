@@ -1,143 +1,143 @@
 {
-  "totalResults": 5229,
+  "totalResults": 4890,
   "items": [
     {
-      "id": "CVE-2026-82617",
-      "published": "2026-09-11T18:16:59.443",
-      "description": "The two built-in name-finder patterns exposed by\nopennlp.tools.namefind.RegexNameFinderFactory - DEFAULT_REGEX_NAME_FINDER.EMAIL\nand DEFAULT_REGEX_NAME_FINDER.URL - contain ambiguous nested quantifiers. An\napplication that obtains these finders through\nRegexNameFinderFactory.getDefaultRegexNameFinders(...) and then applies them to\nuntrusted text through RegexNameFinder.find(String[]) or RegexNameFinder.find(String)\ncan be driven into super-linear backtracking or into unbounded matcher recursion by a\nsmall crafted input.\n\n\n\n\n\nFor the EMAIL pattern, a long run of local-part characters that is never followed by an\n@ forces the matcher to re-scan to end-of-input from every starting offset. Cost grows\nquadratically with input length: an input of approximately 32 KB consumes several seconds\nof CPU in a single find() call and returns no match, and each doubling of the input\nmultiplies the cost roughly four-fold.\n\n\n\n\n\nFor the URL pattern, the query-string sub-expression nests a capturing repetition inside\nan outer repetition. The JDK matcher recurses once per query token, so an input of\napproximately 4 KB containing many &-separated tokens exhausts the thread stack and\ncauses java.lang.StackOverflowError to propagate out of find(), terminating the\ncalling thread. On a thread created with a smaller stack (for example -Xss512k, typical\nof server worker pools) approximately 1 KB is sufficient.\n\n\n\n\n\nIn both cases an attacker who can supply text for analysis can convert a single request\ninto seconds to minutes of pinned CPU, or into an abrupt thread death, denying service to\nthe embedding application. No authentication, special configuration, or model file is\nrequired beyond the application having selected one of the two built-in finders.\n\n\n\n\n\nThis issue affects Apache OpenNLP: from 2.0.0 through 2.5.11; from 3.0.0-M1 through\n3.0.0-M5.\n\n\n\n\n\n\n\n\n\nUsers are recommended to upgrade to version 2.5.12, or to 3.0.0-M6 for users tracking the\n3.0.0 milestone line, which fix the issue.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-54072",
-      "published": "2026-09-11T19:17:42.663",
-      "description": "Authorizer is an open-source, self-hostable authentication and authorization server. Prior to version 2.2.1, the `/authorize` endpoint accepts any `redirect_uri` without validating it against `AllowedOrigins`. When `response_type=token` or `response_type=id_token`, the server appends `access_token`, `id_token`, and `refresh_token` as query parameters and issues a 302 redirect to the attacker-supplied URL. An unauthenticated attacker can obtain the required `client_id` from the public `/graphql?query={meta{client_id}}` endpoint. A partial fix was applied in v2.0.1 to other handlers (`oauth_login`, `verify_email`, `magic_link_login`, `forgot_password`, `invite_members`, `oauth_callback`) but `/authorize` was not included. Version 2.2.1 contains a more complete fix.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-62102",
-      "published": "2026-09-11T19:17:43.073",
-      "description": "Subscriber Privilege Escalation in Gato GraphQL <= 19.2.3 versions.",
+      "id": "CVE-2026-54174",
+      "published": "2026-09-11T21:17:11.403",
+      "description": "melange allows users to build apk packages using declarative pipelines. Apko prior to version 1.2.9, corresponding to melange prior to version 0.50.4, verified the control section hash (`.PKGINFO` etc.) against the signed `APKINDEX`, but never verified the data section hash (the actual package files that get installed). An attacker who could compromise a mirror, poison a cache, or MITM a package fetch could substitute arbitrary file contents while the control hash check still passed. Apko version 1.2.9 and melange version 0.50.4 contain a fix.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-67211",
-      "published": "2026-09-11T18:16:57.470",
-      "description": "OOM Denial of Service via Unbounded Map Pre-Sizing in Apache OpenNLP SymSpellModelSerializer\n\nVersions Affected: \n\n- 3.0.0-M4\n- 3.0.0-M5\n\n(The opennlp-spellcheck extension was introduced in 3.0.0-M4. Releases 1.x and 2.x do not contain the affected code.)\n\nDescription:\n\nThe SymSpellModelSerializer.create() method reads two 32-bit signed integer count fields (unigramCount and bigramCount) from a binary SymSpell model stream and passes each value directly to LinkedHashMap.newLinkedHashMap() after validating only that it is non-negative. No upper bound is applied, so the count is fully attacker-controlled when the model file originates from an untrusted source.\n\nA crafted .bin model file in which either count field is set to Integer.MAX_VALUE (or any value large enough to exhaust the available heap) causes the map to be pre-sized to a capacity of 2^30 entries. The oversized backing array is allocated on the first put() into that map, requesting 4–8 GB depending on whether compressed oops are in effect, and the load fails with an OutOfMemoryError. Because the count fields sit immediately after a fixed-size header (magic, format version, three UTF strings, the configuration fields, and the edit-distance identifier) the attacker pays no meaningful size cost to weaponize a payload: a file of well under 100 bytes plus a single real entry is sufficient to crash a JVM that loads it.\n\nAny code path that deserializes a SymSpell model is affected, including SymSpellModels.deserialize(InputStream), SymSpellModels.fromBytes(byte[]), classpath model loading via SymSpellModelResolver.resolveByLanguage(String), the CorrectTextTool command-line tool, and model-archive loading through the registered ArtifactSerializer. The opennlp-spellcheck extension ships in the official OpenNLP binary distribution.\n\nThe practical impact is denial of service against processes that load SymSpell model files from untrusted or semi-trusted origins.\n\nMitigation:\n\n- 3.x users should upgrade to 3.0.0-M6.\n\nNote: The fix applies an upper bound to both count fields, checked before the map is pre-sized; counts that are negative or exceed the bound cause an IOException to be thrown and the read to fail fast with no large allocation. The bound is the existing AbstractModelReader.MAX_ENTRIES limit introduced earlie, which the current change promotes to public visibility so that serializers implementing their own binary format can share it. The default bound is 10,000,000, which is well above the entry counts of legitimate SymSpell dictionaries but far below any value that would threaten heap exhaustion. Deployments that legitimately need to load larger dictionaries can raise the limit at JVM startup by setting the OPENNLP_MAX_ENTRIES system property to the desired positive integer (e.g. -DOPENNLP_MAX_ENTRIES=50000000); invalid or non-positive values fall back to the default. Note that this property is shared with the model-reader limit and raising it relaxes both.\n\nUsers who cannot upgrade immediately should treat all SymSpell .bin model files as untrusted input unless their provenance is verified, and should avoid loading models supplied by end users or fetched from third-party repositories without integrity checks.",
+      "id": "CVE-2026-49464",
+      "published": "2026-09-11T21:17:10.523",
+      "description": "NL Portal Backend Libraries provide backend components for Dutch government portals that interact with residents, customers, suppliers, and partner organizations. The `nl.nl-portal:taak` package from version 1.5.0 through 3.0.0 fails to verify ownership when processing the `submitTaakV2` GraphQL mutation, allowing an authenticated user who knows or guesses another user’s task ID to read its form data, overwrite its submitted data, and mark the task as completed. Version 3.0.1 contains a patch. As a workaround, block the `submitTaakV2` mutation at the API gateway or restrict the `/graphql` endpoint to trusted networks",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-49846",
+      "published": "2026-09-11T22:16:37.537",
+      "description": "libks provides foundational support for signalwire C products. Prior to version 2.0.11, `clean_uri()` in libks's HTTP request parser fails to reject URIs whose path has more segments than its internal canonicalization buffer can hold. The canonicalization step silently passes such URIs through with embedded \"..\" sequences intact, enabling path traversal in any consumer that later joins the URI with a filesystem path. Version 2.0.11 patches the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-89099",
-      "published": "2026-09-11T18:17:00.360",
-      "description": "A race condition in the document value layer of MongoDB Server can allow concurrent server threads to operate on the same internal memory without synchronization, leading to memory corruption. An authenticated user holding ordinary read-write privileges on a database may be able to trigger this condition over the normal client protocol, resulting in server termination and potential corruption of process memory with user-influenced content. Successful use of this issue may impact the confidentiality, integrity, and availability of the affected server process.",
+      "id": "CVE-2026-50013",
+      "published": "2026-09-11T22:16:37.813",
+      "description": "Hoverfly is an open source API simulation tool. Prior to version 1.12.8, when Hoverfly is running in Diff mode, the `AddDiff()` function writes to the shared `responsesDiff` map without any synchronization (no mutex). When multiple proxy requests are processed concurrently (the normal case for any proxy), the concurrent map writes trigger Go's built-in race detector which causes a `fatal error: concurrent map read and map write`, immediately killing the entire Hoverfly process. This is trivially exploitable by sending multiple simultaneous requests. Version 1.12.8 patches the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-78807",
-      "published": "2026-09-11T18:16:58.120",
-      "description": "An issue in wpa_supplicant all versions before v.2.12 allows a local attacker to bypass proper network context and AKMP matching for PMKSA caching via missing validation in the driver based PMKSA selection path in wpa.c",
+      "id": "CVE-2026-54166",
+      "published": "2026-09-11T21:17:11.247",
+      "description": "Shelf is a platform for tracking physical assets. Prior to version 1.20.3, authenticated users with the `asset:import` permission can trigger server-side HTTP requests to attacker-controlled URLs through the Asset CSV Content Import feature. The `imageUrl` validation logic can be bypassed through multiple techniques, including image-extension suffixes, image-related path keywords, domain substring matching, and redirect chains. After validation, the server performs an unrestricted `fetch()` request to the supplied URL. This results in a Server-Side Request Forgery (SSRF) vulnerability that allows attackers to reach internal network services, cloud metadata endpoints, and arbitrary external hosts from the application's network context. Additionally, response bodies are fully buffered before size validation, creating a potential memory exhaustion vector. Version 1.20.3 patches the issue.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-62089",
-      "published": "2026-09-11T19:17:42.943",
-      "description": "Missing Authorization vulnerability in Pixar Labs Master Addons for Elementor allows Privilege Abuse.\n\nThis issue affects Master Addons for Elementor: from n/a through 3.2.2.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-18495",
-      "published": "2026-09-11T18:16:56.690",
-      "description": "A flaw was found in libtiff. A heap-buffer overflow vulnerability exists in the `tiff2pdf` utility due to an integer truncation error when processing crafted BigTIFF files. An attacker can provide a specially crafted BigTIFF file, causing a 64-bit `StripByteCounts` value to be truncated to a 32-bit integer. This leads to an undersized memory allocation and a subsequent out-of-bounds memory copy, resulting in a crash and severe memory corruption.",
+      "id": "CVE-2026-48496",
+      "published": "2026-09-11T22:16:37.400",
+      "description": "OpenTelemetry eBPF Profiler is a production-scale agent for profiling applications across multiple programming languages. Starting in version 0.0.202527 and prior to version 0.0.202622, an unprivileged process can cause the profiler to open a nonregular mapping file, such as a FIFO, and block indefinitely, preventing further ELF analysis and causing a denial of service. Version 0.0.202622 contains a patch. No known workarounds are available.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-7298",
-      "published": "2026-09-11T18:16:58.340",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in IdeaSoft Software Industry and Trade Inc. Smart E-Commerce allows Reflected XSS.\n\nThis issue affects Smart E-Commerce: through 11092026. NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-81917",
+      "published": "2026-09-11T21:17:20.747",
+      "description": "Concrete CMS below 9.5.3 does not apply HTML output escaping to the file description and tags fields when rendering the Document Library block, so a user with permission to edit file properties could store a script payload that executed in the browser of any visitor to a page displaying the block with the description or tags column enabled, including unauthenticated visitors. Successful exploitation could allow theft of session data or actions performed in the visitor's context. The block controller returned the description and tags values without the h() escaping already applied to the title column, and the block view template wrote the returned value directly into the results table The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.1 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:L/VI:L/VA:N/SC:H/SI:H/SA:N. Thanks Nguyen Manh Thuan for reporting.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-82535",
-      "published": "2026-09-11T18:16:59.290",
-      "description": "Chamilo LMS before 1.11.42 and 3.0.0 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject malicious script payloads into survey answers by computing deterministic invitation codes and bypassing authorization checks in the survey submission endpoint. Attackers can submit crafted answers containing unescaped HTML rendered in reporting views to execute arbitrary scripts in the browser sessions of teachers or administrators, enabling persistent backdoor account creation by exploiting the victim's authenticated session.",
+      "id": "CVE-2026-45057",
+      "published": "2026-09-11T21:17:09.517",
+      "description": "matrix-sdk-ui provides GUI-centric utilities on top of matrix-rust-sdk. The message edit validation logic in the  `matrix-sdk-ui` crate prior to 0.17.0 is missing a check: when replacing an encrypted event, the replacement event itself is not required to be encrypted. This enables a malicious homeserver administrators (or actors with equivalent power) to impersonate or spoof messages as if they were sent by a victim user. `matrix-sdk-ui` 0.17.0 fixes the message edit validation logic to align with the algorithm for replacement events[^1] described in the Matrix specification. No known workarounds are available.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 4.9
     },
     {
-      "id": "CVE-2026-89090",
-      "published": "2026-09-11T18:17:00.097",
-      "description": "An unrecovered panic in the event stream header decoder in Amazon AWS SDK for Go v2 before release-2026-03-23 might allow an unauthenticated remote actor to terminate the consuming application process via a crafted event stream response frame containing a header value type outside the valid range.\n\n\n\nTo remediate this issue, users should upgrade to release-2026-03-23 or later, and patch any forked or derivative code.",
+      "id": "CVE-2026-81918",
+      "published": "2026-09-11T21:17:21.063",
+      "description": "Concrete CMS below 9.5.3 is vulnerable to Stored XSS via the Date Format field in the Page Attribute Display block. A user with edit_page_contents permissions could store a payload which executes in the browser of any visitor who viewed a page where the block was configured to display a date-type attribute. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 4.8 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks Oriol Ortiz for reporting.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-27378",
-      "published": "2026-09-11T19:17:42.133",
-      "description": "Unauthenticated Broken Access Control in Deposits and Partial Payments for WooCommerce <= 3.1.0 versions.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-62088",
-      "published": "2026-09-11T19:17:42.813",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in 10up ElasticPress allows Retrieve Embedded Sensitive Data.\n\nThis issue affects ElasticPress: from n/a through 5.3.4.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-9160",
-      "published": "2026-09-11T18:17:00.497",
-      "description": "Improper neutralization of special elements used in a template engine vulnerability in Arma Digital Media Inc. Website Template allows Code Injection.\n\nThis issue affects Website Template: through 11092026. NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-49439",
+      "published": "2026-09-11T21:17:10.370",
+      "description": "OpenRemote is an open-source internet-of-things platform. Prior to version 1.24.1, the predicted datapoint write endpoint allows users with only `read:assets` privileges to write predicted datapoints. Version 1.24.1 fixes the issue.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-18122",
-      "published": "2026-09-11T18:16:56.567",
-      "description": "Concrete CMS 9.2.0 to 9.5.2 Express REST API list endpoint exposes restricted Express entries via Missing Authorization; the Concrete CMS REST API's Express entry collection endpoint disabled the per-entry view permission check. An OAuth token with read scope for an Express entity could enumerate entries that its user context lacked permission to view, disclosing each entry's public identifier, URL, label, dates, and any attribute or associated-entry data requested via the includes parameter. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.0 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N. Thanks riodrwn for reporting.",
+      "id": "CVE-2026-47773",
+      "published": "2026-09-11T21:17:09.940",
+      "description": "ArduinoBLE enables Bluetooth Low Energy connectivity on certain Arduino models. Versions prior to 2.0.2 contain a missing bounds check in the ATT layer write request handler that allows a remote, unauthenticated BLE client to corrupt memory in the ATTClass global object. Devices running ArduinoBLE with one or more characteristics configured with the BLEEncryption property are affected. The fix is included starting from the 2.0.2 release.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-68528",
-      "published": "2026-09-11T18:16:57.643",
-      "description": "Concrete CMS RSS Displayer block below version 9.5.3  rendered remote feed item titles without HTML escaping, resulting in stored cross-site scripting. An attacker able to control a title in a syndicated feed could execute script in the site origin for any visitor to the affected page, including administrators, without holding an account on that site. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.0 with vector CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:P/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks riodrwn for reporting.",
+      "id": "CVE-2026-48490",
+      "published": "2026-09-11T21:17:10.100",
+      "description": "ArduinoCore-avr contains the source code and configuration files of the Arduino AVR Boards platform. A vulnerability in versions prior to 1.8.8 allows an attacker to trigger a stack-based buffer overflow when concatenating floating-point values of sufficiently large magnitude onto an Arduino String object. By passing values near the extremes of the float or double range to `String::concat(float)`, `String::concat(double)`, `String::operator+=()`, or the `+` operator with a float/double operand, `dtostrf()` writes beyond the fixed-size stack buffer, causing memory corruption and denial of service. Under specific conditions, this could enable arbitrary code execution on AVR-based Arduino boards. The fix is included starting from the `1.8.8 `release.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-81908",
-      "published": "2026-09-11T18:16:58.810",
-      "description": "Concrete CMS 9.2.0 to 9.5.2 contain a missing authorization vulnerability in the REST API Groups list endpoint. The listGroups() method in concrete/src/Api/Controller/Groups.php registers a permissions checker callback that unconditionally returns true, so no per-object (tree node) authorization is enforced when the group collection is returned. An authenticated user whose API token carries the groups:read scope can call GET /ccm/api/1.0/groups and receive every group on the site regardless of the view permissions on those groups, disclosing the organization's group structure, roles, and access hierarchy. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.0 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N. Thanks Winston Crooker for reporting.",
+      "id": "CVE-2026-49865",
+      "published": "2026-09-11T21:17:10.783",
+      "description": "Kimai is an open-source time tracking application. Versions prior to 2.58.0 contain a server-side request forgery vulnerability in their invoice PDF preview and generation workflow. If an attacker can control Markdown content that is later rendered into an invoice PDF, such as `Customer.invoiceText`, the server-side PDF renderer will fetch remote image URLs embedded in Markdown image syntax. This allows the application server to issue outbound requests to attacker-controlled or internal targets during PDF rendering. The behavior can be used for internal network probing, server-side reachability checks, and potentially follow-on exploitation depending on deployment environment and accessible internal services. Version 2.58.0 patches the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-81909",
-      "published": "2026-09-11T18:16:58.930",
-      "description": "Concrete CMS 9 through 9.5.2 is vulnerable to Missing Authorization in the block alias route (Process::alias() in concrete/controllers/backend/block/process.php).It does not verify that the referenced block is genuinely orphaned on the target page, nor that the caller holds any permission over the source block. A user granted only an area-scoped add_block_to_area delegation on their own page can therefore pass any block ID on the site: the source block's content is duplicated into an area the rogue editor controls, disclosing that content, and the original block is then force-deleted in the same request, destroying arbitrary site content. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.9 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks Yonatan Drori from Tenzai for reporting.",
+      "id": "CVE-2026-50025",
+      "published": "2026-09-11T21:17:10.933",
+      "description": "Mousehole is a background service to update a seedbox IP for MAM and web app to manage it. Prior to version 0.4.05, Mousehole's HTTP/WebSocket management boundary is reachable without application-layer authentication or browser/LAN provenance checks. The service stores a MyAnonamouse (MAM) session cookie in state and reuses the same cookie-bearing serialization for persisted state, public API responses, and WebSocket state updates. Any client that can reach the published Mousehole port can read cookie-bearing state, connect to WebSocket state updates, replace the stored cookie, or force MAM update side effects. The deployment examples publish port 5010 broadly with Docker's `5010:5010` syntax, which can make the issue reachable on mixed-trust LAN/VPN interfaces. Version 0.4.0 patches the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-87910",
-      "published": "2026-09-11T18:16:59.800",
-      "description": "When tarfile extracts a link on a system that doesn't support links, it falls back to extracting a member from the archive. In this case, the filter function is run twice: once for the extracted member, and once with name set to the location of the link. For one of the calls, the return value was ignored. Instead, the member should be skipped if either call returns None.",
+      "id": "CVE-2026-54165",
+      "published": "2026-09-11T21:17:11.090",
+      "description": "Dobase is an open-source, self-hosted workspace with installable tools. Versions prior to 2026.06.03 have a one-click stored DOM-based cross-site scripting (XSS) vulnerability in the public, unauthenticated shared-folder image gallery. A file's `name` is fully attacker-controlled and is never sanitized. It is round-tripped through an ERB-escaped `data-name` attribute, decoded back to its raw value by `el.dataset.name`, and then re-injected into `innerHTML` by the `public-gallery` Stimulus controller with no escaping. Any authenticated workspace member who can share a Files folder can store a payload; the victim is anyone with the public share link (no authentication required). The global Content-Security-Policy is sent report-only (not enforcing), so an inline `onerror` handler executes — this is an executing XSS, not a CSP-mitigated injection. Version 2026.06.03 fixes the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-69904",
-      "published": "2026-09-11T19:17:41.217",
-      "description": "Linkstack v4.8.4 and earlier is vulnerable to Path Traversal, which allows an administrator to read arbitrary files on the server by manipulating file path input. Successful exploitation may lead to unauthorized access to sensitive system or application files.",
+      "id": "CVE-2026-68535",
+      "published": "2026-09-11T21:17:13.443",
+      "description": "Concrete CMS Area API's block-create endpoint in versions 9.2.0 to 9.5.2 did not invoke the block type controller's validate() method on submitted data, which, for file-referencing blocks such as hero_image and gallery, is where the referenced file is authorized against the user's file-manager visibility. As a result, an authenticated user holding the block-add scope could store, and cause the page to render, a reference to a file that the file-manager authorization policy would otherwise reject, disclosing that file's URL and preview to the editor and to visitors of the affected page. Under public file storage, the URL and thumbnail are exposed directly; under private storage, the disclosure is limited by the permission-checked download URL. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.1 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N. Thanks riodrwn for reporting.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-81907",
+      "published": "2026-09-11T21:17:20.433",
+      "description": "Concrete CMS 9.5.2 and below is vulnerable to Cross-Site Request Forgery (CSRF) in the Express \"Clear Entries\" function (POST /index.php/dashboard/system/express/entities/delete_entries) because the controller records but does not enforce a failed CSRF token check, allowing the destructive operation to proceed when the token is missing or invalid. A remote unauthenticated attacker can force an authenticated administrator who visits an attacker-controlled page to permanently delete all entries belonging to an attacker-selected Express entity on a web application to which the administrator is currently authenticated. Because the default Contact Express object ships with a fixed entity UUID, the target identifier can be obtained without dashboard access. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.1 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks Pratik Zanjurne for reporting.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-44715",
+      "published": "2026-09-11T22:16:37.113",
+      "description": "OpenMRS is an open source electronic medical record system platform. Prior to versions 1.23.0 and 2.10.0, an authenticated user can trigger administrative DWR services. Specifically, the `startHl7ArchiveMigration` method is accessible, which should be restricted to admin-level accounts. Versions 1.23.0 and 2.10.0 patch the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-45056",
+      "published": "2026-09-11T22:16:37.263",
+      "description": "matrix-sdk-crypto is a no-network-IO implementation of a state machine that handles end-to-end encryption for Matrix clients. Starting in version 0.12.0 and prior to version 0.17.0, the matrix-sdk-crypto crate was missing a check for the user ID when decrypting an Olm-encrypted event containing the `sender_device_keys` property. This could be exploited to forge an encrypted to-device event, but only if the attacker colludes with the homeserver operator. This issue is fixed in matrix-sdk-crypto 0.17.0. There are no known workarounds for the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-49992",
+      "published": "2026-09-11T22:16:37.673",
+      "description": "Kimai is an open-source time tracking application. Versions prior to 2.58.0 contain authenticated cross-site request forgery issues in their default team creation shortcuts for projects, customers, and activities. These endpoints are exposed through `GET` routes and directly create or reuse a `Team`, add the current user as teamlead, and bind the target object to that team. As a result, an attacker can trick a logged-in user with the required permissions into visiting a malicious page and cause unauthorized changes to team, teamlead, and object-binding relationships. This is a real authorization-structure modification issue rather than a harmless UI shortcut. Version 2.58.0 patches the issue.",
       "severity": "UNKNOWN",
       "score": null
     }
