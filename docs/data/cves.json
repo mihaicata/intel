@@ -1,13 +1,6 @@
 {
-  "totalResults": 5043,
+  "totalResults": 5066,
   "items": [
-    {
-      "id": "CVE-2026-77807",
-      "published": "2026-09-11T00:19:23.037",
-      "description": "The AcyMailing – An Ultimate Newsletter Plugin and Marketing Automation Solution for WordPress plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 11.0.4 via the `user[name]` Parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. Exploitation requires \"Embed images\" option in AcyMailing configuration being enabled.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
     {
       "id": "CVE-2026-78130",
       "published": "2026-09-11T02:18:34.353",
@@ -30,11 +23,25 @@
       "score": 7.5
     },
     {
+      "id": "CVE-2026-15462",
+      "published": "2026-09-11T04:17:20.173",
+      "description": "The Sticky Chat Widget plugin for WordPress is vulnerable to SQL Injection via the 'scw_form_fields' parameter array keys of the 'scw_save_form_data' AJAX action in versions up to, and including, 1.4.2. This is due to the save_form_data() function passing attacker-controlled POST array keys unsanitized to $wpdb->insert(), which wraps column identifiers in backticks without escaping them, allowing a backtick in an attacker-supplied key to break out of the column-identifier list into raw SQL; additionally, the use of filter_input() bypasses WordPress's wp_magic_quotes() protection, and the widget_id validation loop is skipped entirely when no valid widget_id is supplied, leaving $isValid at 1. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
       "id": "CVE-2026-78134",
       "published": "2026-09-11T02:18:34.910",
       "description": "strongSwan 4.5.0 through 6.0.7 has Incorrect Access Control in the eap-ttls and eap-peap plugins because there can be a missing or mismatched inner EAP identity.",
       "severity": "HIGH",
       "score": 7.1
+    },
+    {
+      "id": "CVE-2026-11496",
+      "published": "2026-09-11T04:17:19.807",
+      "description": "The Woo PDF Invoice Builder plugin (also distributed as \"PDF Builder for WooCommerce\") for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 2.0.8. This is due to the InspectOrder() AJAX handler (woocommerce-pdf-invoice-ajax.php:513), registered on wp_ajax_rednao_wcpdfinv_inspect_order, performing no capability check and no nonce verification before loading an arbitrary order by the attacker-supplied 'OrderNumber' POST field and serializing its full WC_Order::get_data() and meta to the response. This makes it possible for authenticated attackers with Subscriber-level access and above to read every WooCommerce order on the site — including billing/shipping address, email, phone number, payment method, gateway transaction ID, and order totals — by iterating order IDs.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
       "id": "CVE-2026-78123",
@@ -58,6 +65,27 @@
       "score": 5.9
     },
     {
+      "id": "CVE-2026-78135",
+      "published": "2026-09-11T03:16:23.160",
+      "description": "libcharon in strongSwan 5.9.7 through 6.0.7 mishandles behavioral workflow in the IKEv2 state machine. Because CREATE_CHILD_SA requests are mishandled, there can be an authentication bypass.",
+      "severity": "MEDIUM",
+      "score": 5.6
+    },
+    {
+      "id": "CVE-2026-11446",
+      "published": "2026-09-11T04:17:17.197",
+      "description": "The Booktics – Booking Calendar for Appointments and Service Businesses plugin for WordPress is vulnerable to unauthorized modification of data in all versions up to, and including, 1.0.23. This is due to the create_order_permission() permission callback on the POST /wp-json/booktics/v1/orders REST route unconditionally returning true, combined with find_and_update_guest() overwriting an existing customer record's stored name, phone, and wp_user_id whenever the caller-supplied email matches, with no proof of ownership. This makes it possible for unauthenticated attackers to overwrite the contact details (name and phone) of any existing customer whose email address they know, poisoning downstream reminder emails, SMS, calendar invites, and CRM data.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-12215",
+      "published": "2026-09-11T04:17:20.013",
+      "description": "The OTP Login & Register Woocommerce plugin for WordPress is vulnerable to Authentication Bypass via OTP Brute Force in all versions up to, and including, 2.7.2. The vulnerability exists because the OTP rate-limit attempt counter in `process_otp_form` is keyed exclusively on the attacker-controlled `xoo_ml_user_ip_data` cookie's `ip_address` field, allowing unlimited counter resets by simply rotating the cookie, while the OTP itself is generated with PHP's non-cryptographic `rand()` function over a default space of only 9,000 possible values (1000–9999), and both the OTP issuance endpoint (`xoo_ml_login_with_otp`) and verification endpoint (`xoo_ml_otp_form_submit`) are registered as unauthenticated `wp_ajax_nopriv` actions with no nonce or capability checks. This makes it possible for unauthenticated attackers to brute-force the OTP for any registered account and obtain a full WordPress authentication session — including for administrator accounts — via `wp_set_auth_cookie()` in `login_user_with_otp()`. Exploitation requires the attacker to know the target user's registered phone number, which is used to trigger OTP issuance via the unauthenticated `xoo_ml_login_with_otp` endpoint.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
       "id": "CVE-2026-88914",
       "published": "2026-09-11T02:18:35.300",
       "description": "A flaw was found in GStreamer's gst-plugins-good isomp4 plugin. When processing a specially crafted MP4 or MOV file containing CEA-608 closed-caption data, an integer overflow in 32-bit unsigned arithmetic can bypass a bounds check in the caption parser. This leads to an out-of-bounds heap read of up to 244 bytes, which is then included in the downstream caption output. An attacker could exploit this by tricking a user into opening a malicious media file, potentially resulting in disclosure of adjacent heap memory or application crash.",
@@ -68,6 +96,13 @@
       "id": "CVE-2026-89092",
       "published": "2026-09-11T02:18:35.460",
       "description": "The nscd service in the GNU C Library 2.3.4 onwards may crash due to a \nstack overflow when a malicious DNS server returns too large a response \nfor a DNS query, resulting in degraded DNS resolution for the system.\n\n\n\nExploitation of this bug needs a system that has nscd enabled and using \nan untrusted DNS server for name resolution, with the compromised DNS \nserver being capable of processing records large enough to result in a \nstack overflow in an nscd thread stack.  During experimentation, bind 9 \nwas unable to handle large records, but that could change in future or \nwith a different name server.  In typical installations, nscd is \nexecuted in an isolated context as its own user without a shell, due to \nwhich any compromise of that service is isolated.\n\n\n\nThere is a remote possibility of nscd cache corruption if an attacker \nmanages to get the stack pointer into a desired point in the heap, \npotentially resulting in other caches in nscd being overwritten with \ncorrupt data through the stack overflow, until the buggy code path \neventually results in a crash.\n\n\n\nFinally, a crash in nscd may result in performance degradation when \nresolving names, but it does not result in a denial of service.",
+      "severity": "MEDIUM",
+      "score": 4.2
+    },
+    {
+      "id": "CVE-2026-89145",
+      "published": "2026-09-11T02:18:35.617",
+      "description": "Flextype CMS versions 0.9.9 through 1.0.0-alpha.3 fail to HTML-escape plugin directory names in the dependency error page rendered by getValidPluginsDependencies(). Attackers with write access to the plugins directory can create a plugin with HTML characters in its name to execute arbitrary scripts in users' browsers when dependency validation fails.",
       "severity": "MEDIUM",
       "score": 4.2
     },
@@ -93,51 +128,16 @@
       "score": 3.7
     },
     {
-      "id": "CVE-2026-16172",
-      "published": "2026-09-10T23:16:36.380",
-      "description": "Netskope was notified of an out-of-bounds heap read affecting the Endpoint DLP (EPDLP) service of the Netskope Client. A local standard user could potentially send a specially crafted message that is not properly validated with a bounds check, likely crashing the kernel driver handler. Successful exploitation could potentially crash the EPDLP service, temporarily interrupting DLP enforcement. A successful exploit could potentially also reveal per-boot memory layout information to unauthorized users.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-89151",
+      "published": "2026-09-11T03:16:24.450",
+      "description": "Forgejo before 16.0.4 allows use of restricted API tokens for unintended access to the \"allow maintainer edit\" feature.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-16174",
-      "published": "2026-09-10T23:16:37.470",
-      "description": "Netskope was notified about a potential gap in Netskope Endpoint DLP (EPDLP) running on Windows systems. Successful exploitation of the gap could potentially allow a privileged user to send a crafted message to the EPDLP process port to trigger an integer overflow, leading to memory corruption. Successful exploitation would require the EPDLP module to be enabled in the client configuration, and that Memory Integrity is disabled. A successful exploit could potentially result in a denial-of-service, arbitrary code execution, or privilege escalation on the local machine.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-17176",
-      "published": "2026-09-11T00:17:26.707",
-      "description": "An OS\ncommand injection vulnerability in the TDDP module of Deco BE11000 allows an\nadjacent network attacker to execute arbitrary commands with root privileges by\nsending a crafted UDP packet.\n\n\n\nSuccessful exploitation may lead to complete\ndevice compromise, including unauthorized command execution, modification of\ndevice settings, and loss of confidentiality, integrity, and availability",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-18121",
-      "published": "2026-09-11T00:17:28.287",
-      "description": "Concrete CMS 9.5.2 and below is vulnerable to an authorization bypass (IDOR) because the frontend calendar lightbox endpoint (/ccm/calendar/view_event/{bID}/{occurrence_id}) does not verify that the caller is permitted to view the calendar that owns the requested event occurrence. The controller loads the occurrence directly from an attacker‑supplied, sequential identifier without confirming that it belongs to the calendar configured on the referenced block. An unauthenticated visitor who can render any public calendar block with lightbox properties enabled could therefore supply an arbitrary occurrence identifier and disclose event metadata — title, date, description, page link, and configured event attributes — from calendars they are not permitted to view. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.3 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N. Thanks riodrwn for reporting.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-81905",
-      "published": "2026-09-11T00:19:48.077",
-      "description": "Concrete CMS below 9.5.3 stores user validation hashes for multiple purposes (email/registration validation, password reset, and persistent login) in a single table with a type column, but the redemption path resolves a hash by value alone and does not verify its type. As a result, a hash issued for one purpose can be redeemed for another: a long-lived registration hash (60-day expiry) can be submitted to the password-change endpoint to set a new password on the target account, and a password-reset hash can be submitted to the email-validation endpoint to activate an account. Exploitation requires the attacker to first obtain a valid hash through a separate channel (for example email interception, log exposure, or SSRF against an internal mail relay), so the flaw amplifies the impact of any hash disclosure rather than creating a standalone entry point. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.3 with vector CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks Yonatan Drori from Tenzai for reporting.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-81906",
-      "published": "2026-09-11T00:19:48.977",
-      "description": "Concrete CMS OAuth callback login path prior to version 9.5.3 did not check whether an account was active or email-validated before establishing a session. A deactivated or unvalidated user with an existing OAuth binding could complete authentication and receive a session that was fully authenticated for the callback response, with the login recorded and login events dispatched. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.3 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks Yonatan Drori from Tenzai for reporting.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-84941",
-      "published": "2026-09-11T00:19:57.633",
-      "description": "An information disclosure vulnerability in the SAML Single Sign-On (SSO) functionality of Omada Controller allows an authenticated user with SAML configuration privileges to access sensitive information due to insufficient validation of user-supplied SAML metadata. Successful exploitation could result in unauthorized disclosure of sensitive information.",
+      "id": "CVE-2026-88260",
+      "published": "2026-09-11T03:16:24.303",
+      "description": "Authentication bypass using an alternate path or channel and Improper validation of syntactic correctness of input vulnerability in Brainzcompany Zenius EMS 8.0 allows Remote Code Inclusion.\n\nThis issue affects Zenius EMS 8.0: through OAM (Build 109).",
       "severity": "UNKNOWN",
       "score": null
     }
