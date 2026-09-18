@@ -1,145 +1,145 @@
 {
-  "totalResults": 4890,
+  "totalResults": 4874,
   "items": [
     {
-      "id": "CVE-2026-54174",
-      "published": "2026-09-11T21:17:11.403",
-      "description": "melange allows users to build apk packages using declarative pipelines. Apko prior to version 1.2.9, corresponding to melange prior to version 0.50.4, verified the control section hash (`.PKGINFO` etc.) against the signed `APKINDEX`, but never verified the data section hash (the actual package files that get installed). An attacker who could compromise a mirror, poison a cache, or MITM a package fetch could substitute arbitrary file contents while the control hash check still passed. Apko version 1.2.9 and melange version 0.50.4 contain a fix.",
-      "severity": "HIGH",
-      "score": 8.3
+      "id": "CVE-2026-85706",
+      "published": "2026-09-12T03:16:30.473",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.",
+      "severity": "CRITICAL",
+      "score": 10
     },
     {
-      "id": "CVE-2026-49464",
-      "published": "2026-09-11T21:17:10.523",
-      "description": "NL Portal Backend Libraries provide backend components for Dutch government portals that interact with residents, customers, suppliers, and partner organizations. The `nl.nl-portal:taak` package from version 1.5.0 through 3.0.0 fails to verify ownership when processing the `submitTaakV2` GraphQL mutation, allowing an authenticated user who knows or guesses another user’s task ID to read its form data, overwrite its submitted data, and mark the task as completed. Version 3.0.1 contains a patch. As a workaround, block the `submitTaakV2` mutation at the API gateway or restrict the `/graphql` endpoint to trusted networks",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-87719",
+      "published": "2026-09-12T03:16:31.477",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.3 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that under certain conditions could allow an authenticated user with Duo Chat access to obtain Advanced Search instance configurations and sensitive credentials using a specially crafted GraphQL subscription argument to bypass serialization and perform server object lookup.",
+      "severity": "CRITICAL",
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-49846",
-      "published": "2026-09-11T22:16:37.537",
-      "description": "libks provides foundational support for signalwire C products. Prior to version 2.0.11, `clean_uri()` in libks's HTTP request parser fails to reject URIs whose path has more segments than its internal canonicalization buffer can hold. The canonicalization step silently passes such URIs through with embedded \"..\" sequences intact, enabling path traversal in any consumer that later joins the URI with a filesystem path. Version 2.0.11 patches the issue.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-75800",
+      "published": "2026-09-12T06:16:23.340",
+      "description": "The Frontegg SAML SSO WordPress plugin through 1.0.1 does not verify the signature or issuer of SAML authentication responses before establishing a session, allowing unauthenticated attackers to log in as any user, including administrators, as well as to create arbitrary accounts.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-50013",
-      "published": "2026-09-11T22:16:37.813",
-      "description": "Hoverfly is an open source API simulation tool. Prior to version 1.12.8, when Hoverfly is running in Diff mode, the `AddDiff()` function writes to the shared `responsesDiff` map without any synchronization (no mutex). When multiple proxy requests are processed concurrently (the normal case for any proxy), the concurrent map writes trigger Go's built-in race detector which causes a `fatal error: concurrent map read and map write`, immediately killing the entire Hoverfly process. This is trivially exploitable by sending multiple simultaneous requests. Version 1.12.8 patches the issue.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-81402",
+      "published": "2026-09-12T06:16:25.730",
+      "description": "The DS Ad Rotator WordPress plugin through 0.8 does not perform any capability check, nonce verification, or file-type validation on its image upload handler, allowing unauthenticated attackers to upload arbitrary files, including PHP, to a web-accessible directory, which can lead to remote code execution.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-54166",
-      "published": "2026-09-11T21:17:11.247",
-      "description": "Shelf is a platform for tracking physical assets. Prior to version 1.20.3, authenticated users with the `asset:import` permission can trigger server-side HTTP requests to attacker-controlled URLs through the Asset CSV Content Import feature. The `imageUrl` validation logic can be bypassed through multiple techniques, including image-extension suffixes, image-related path keywords, domain substring matching, and redirect chains. After validation, the server performs an unrestricted `fetch()` request to the supplied URL. This results in a Server-Side Request Forgery (SSRF) vulnerability that allows attackers to reach internal network services, cloud metadata endpoints, and arbitrary external hosts from the application's network context. Additionally, response bodies are fully buffered before size validation, creating a potential memory exhaustion vector. Version 1.20.3 patches the issue.",
+      "id": "CVE-2026-77005",
+      "published": "2026-09-12T06:16:24.623",
+      "description": "The CODE MONKEYS PROPOSALS  WordPress plugin through 1.0.1 does not validate a user-supplied file path before deleting a file, and does not check the capability of the user making the request, allowing any authenticated user, such as a subscriber, to delete arbitrary files on the server, which can lead to a site takeover.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-77006",
+      "published": "2026-09-12T06:16:24.733",
+      "description": "The WebTotem Backups WordPress plugin through 1.0.1 does not validate a user-supplied file path, does not check the capability of the user making the request, and discards the result of its own CSRF check, allowing any authenticated user, such as a subscriber, to delete arbitrary files on the server, which can lead to a site takeover.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-81742",
+      "published": "2026-09-12T06:16:25.937",
+      "description": "The BE REST Endpoints WordPress plugin through 1.0.0 does not perform any authorization check before allowing widgets to be read, created, updated and deleted, and does not sanitize the values it stores in them, allowing unauthenticated users to inject arbitrary web scripts which will execute in the browser of any user visiting the site.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-80491",
+      "published": "2026-09-12T06:16:25.403",
+      "description": "The SAMO Forms WordPress plugin through 1.0.0 does not properly sanitise and escape user input before using it in SQL queries in several unauthenticated actions, allowing unauthenticated attackers to perform SQL injection attacks.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-80494",
+      "published": "2026-09-12T06:16:25.510",
+      "description": "The Yogeta WP Cloud WordPress plugin through 1.0 does not validate a user-supplied file path before passing it to a file-read function on a public endpoint that lacks any authorization check, allowing unauthenticated attackers to download arbitrary files from the server, including files containing sensitive credentials.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-89266",
+      "published": "2026-09-12T00:17:06.440",
+      "description": "stb_vorbis through 1.22 contains a heap buffer overflow in start_decoder() where the codebook multiplicands allocation size is truncated from size_t to int. Attackers can craft a malicious Ogg Vorbis file with large entries and dimensions values to trigger out-of-bounds writes, causing process crashes or heap corruption.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-77705",
+      "published": "2026-09-12T06:16:24.967",
+      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.10 does not verify that the user editing a customer or employee record is entitled to modify the WordPress account linked to it, allowing users holding Amelia's customer or employee management permissions to set the password and email address of other users' WordPress accounts and take them over.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-77752",
+      "published": "2026-09-12T06:16:25.070",
+      "description": "The Temporary Login Without Password WordPress plugin before 1.9.9 does not verify that the user requesting a temporary login holds network super admin rights before granting the new account those rights, allowing an administrator of a single site on a multisite network to take over the whole network. The same missing check also allows an existing account, including the attacker's own, to be promoted.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-81090",
+      "published": "2026-09-12T06:16:25.620",
+      "description": "The Gpx2Graphics WordPress plugin through 0.3 does not perform a CSRF check when handling file uploads, nor validate the type of the uploaded file, allowing attackers to make a logged-in administrator upload arbitrary files such as PHP via a CSRF attack, leading to Remote Code Execution.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-81429",
+      "published": "2026-09-12T06:16:25.833",
+      "description": "The Export & Import WPBakery Page Builder WordPress plugin through 1.0.2 does not perform any CSRF check on its template-import feature and does not sanitise the imported data before storing it and echoing it back, allowing attackers to make a logged-in administrator import a crafted template via a forged request that results in Stored Cross-Site Scripting executed in the administrator's session.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-48496",
-      "published": "2026-09-11T22:16:37.400",
-      "description": "OpenTelemetry eBPF Profiler is a production-scale agent for profiling applications across multiple programming languages. Starting in version 0.0.202527 and prior to version 0.0.202622, an unprivileged process can cause the profiler to open a nonregular mapping file, such as a FIFO, and block indefinitely, preventing further ELF analysis and causing a denial of service. Version 0.0.202622 contains a patch. No known workarounds are available.",
+      "id": "CVE-2026-77753",
+      "published": "2026-09-12T06:16:25.183",
+      "description": "The Temporary Login Without Password WordPress plugin before 1.9.9 does not prevent a temporary user from creating an Application Password, and does not revoke one when the temporary access expires or is disabled, allowing the recipient of a temporary login to retain working access to the site over REST and XML-RPC after the administrator believes it has been withdrawn. The retained access carries whatever role was granted, which for the Temporary Login Without Password WordPress plugin before 1.9.9's main use case is Administrator.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-81917",
-      "published": "2026-09-11T21:17:20.747",
-      "description": "Concrete CMS below 9.5.3 does not apply HTML output escaping to the file description and tags fields when rendering the Document Library block, so a user with permission to edit file properties could store a script payload that executed in the browser of any visitor to a page displaying the block with the description or tags column enabled, including unauthenticated visitors. Successful exploitation could allow theft of session data or actions performed in the visitor's context. The block controller returned the description and tags values without the h() escaping already applied to the title column, and the block view template wrote the returned value directly into the results table The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.1 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:L/VI:L/VA:N/SC:H/SI:H/SA:N. Thanks Nguyen Manh Thuan for reporting.",
+      "id": "CVE-2026-89268",
+      "published": "2026-09-12T02:16:24.623",
+      "description": "QloApps through 1.7.0 renders back-office list filter POST parameters into HTML input value attributes without escaping them in the list helper template. Attackers can induce authenticated users to submit crafted POST requests with malicious payloads to list controllers, executing arbitrary JavaScript in the victim's session to read administrative data and perform actions.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-45057",
-      "published": "2026-09-11T21:17:09.517",
-      "description": "matrix-sdk-ui provides GUI-centric utilities on top of matrix-rust-sdk. The message edit validation logic in the  `matrix-sdk-ui` crate prior to 0.17.0 is missing a check: when replacing an encrypted event, the replacement event itself is not required to be encrypted. This enables a malicious homeserver administrators (or actors with equivalent power) to impersonate or spoof messages as if they were sent by a victim user. `matrix-sdk-ui` 0.17.0 fixes the message edit validation logic to align with the algorithm for replacement events[^1] described in the Matrix specification. No known workarounds are available.",
+      "id": "CVE-2026-77689",
+      "published": "2026-09-12T06:16:24.860",
+      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 9.8.1 does not verify that a payment was actually taken before recording a booking as paid, trusting the payment gateway named in a public, unauthenticated booking request even when the site has never configured that gateway. This lets an unauthenticated attacker obtain confirmed, fully paid appointments and events without any payment being collected.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-81918",
-      "published": "2026-09-11T21:17:21.063",
-      "description": "Concrete CMS below 9.5.3 is vulnerable to Stored XSS via the Date Format field in the Page Attribute Display block. A user with edit_page_contents permissions could store a payload which executes in the browser of any visitor who viewed a page where the block was configured to display a date-type attribute. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 4.8 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks Oriol Ortiz for reporting.",
+      "id": "CVE-2026-78152",
+      "published": "2026-09-12T06:16:25.290",
+      "description": "The SureRank SEO  WordPress plugin before 1.10.1 does not exclude users' registered account email addresses from the structured data it outputs on public pages by default, allowing unauthenticated visitors to obtain the email address of any user who has published content.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-49439",
-      "published": "2026-09-11T21:17:10.370",
-      "description": "OpenRemote is an open-source internet-of-things platform. Prior to version 1.24.1, the predicted datapoint write endpoint allows users with only `read:assets` privileges to write predicted datapoints. Version 1.24.1 fixes the issue.",
+      "id": "CVE-2026-89267",
+      "published": "2026-09-12T02:16:23.580",
+      "description": "starlette-admin versions 0.16.1 through 0.17.1 fail to enforce the searchable_fields allowlist when configured as an empty list, allowing authenticated users to filter on non-searchable fields. Attackers can submit structured filter queries via the list API's where parameter to perform equality and comparison operations on excluded columns.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-47773",
-      "published": "2026-09-11T21:17:09.940",
-      "description": "ArduinoBLE enables Bluetooth Low Energy connectivity on certain Arduino models. Versions prior to 2.0.2 contain a missing bounds check in the ATT layer write request handler that allows a remote, unauthenticated BLE client to corrupt memory in the ATTClass global object. Devices running ArduinoBLE with one or more characteristics configured with the BLEEncryption property are affected. The fix is included starting from the 2.0.2 release.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-48490",
-      "published": "2026-09-11T21:17:10.100",
-      "description": "ArduinoCore-avr contains the source code and configuration files of the Arduino AVR Boards platform. A vulnerability in versions prior to 1.8.8 allows an attacker to trigger a stack-based buffer overflow when concatenating floating-point values of sufficiently large magnitude onto an Arduino String object. By passing values near the extremes of the float or double range to `String::concat(float)`, `String::concat(double)`, `String::operator+=()`, or the `+` operator with a float/double operand, `dtostrf()` writes beyond the fixed-size stack buffer, causing memory corruption and denial of service. Under specific conditions, this could enable arbitrary code execution on AVR-based Arduino boards. The fix is included starting from the `1.8.8 `release.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-49865",
-      "published": "2026-09-11T21:17:10.783",
-      "description": "Kimai is an open-source time tracking application. Versions prior to 2.58.0 contain a server-side request forgery vulnerability in their invoice PDF preview and generation workflow. If an attacker can control Markdown content that is later rendered into an invoice PDF, such as `Customer.invoiceText`, the server-side PDF renderer will fetch remote image URLs embedded in Markdown image syntax. This allows the application server to issue outbound requests to attacker-controlled or internal targets during PDF rendering. The behavior can be used for internal network probing, server-side reachability checks, and potentially follow-on exploitation depending on deployment environment and accessible internal services. Version 2.58.0 patches the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-50025",
-      "published": "2026-09-11T21:17:10.933",
-      "description": "Mousehole is a background service to update a seedbox IP for MAM and web app to manage it. Prior to version 0.4.05, Mousehole's HTTP/WebSocket management boundary is reachable without application-layer authentication or browser/LAN provenance checks. The service stores a MyAnonamouse (MAM) session cookie in state and reuses the same cookie-bearing serialization for persisted state, public API responses, and WebSocket state updates. Any client that can reach the published Mousehole port can read cookie-bearing state, connect to WebSocket state updates, replace the stored cookie, or force MAM update side effects. The deployment examples publish port 5010 broadly with Docker's `5010:5010` syntax, which can make the issue reachable on mixed-trust LAN/VPN interfaces. Version 0.4.0 patches the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-54165",
-      "published": "2026-09-11T21:17:11.090",
-      "description": "Dobase is an open-source, self-hosted workspace with installable tools. Versions prior to 2026.06.03 have a one-click stored DOM-based cross-site scripting (XSS) vulnerability in the public, unauthenticated shared-folder image gallery. A file's `name` is fully attacker-controlled and is never sanitized. It is round-tripped through an ERB-escaped `data-name` attribute, decoded back to its raw value by `el.dataset.name`, and then re-injected into `innerHTML` by the `public-gallery` Stimulus controller with no escaping. Any authenticated workspace member who can share a Files folder can store a payload; the victim is anyone with the public share link (no authentication required). The global Content-Security-Policy is sent report-only (not enforcing), so an inline `onerror` handler executes — this is an executing XSS, not a CSP-mitigated injection. Version 2026.06.03 fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-68535",
-      "published": "2026-09-11T21:17:13.443",
-      "description": "Concrete CMS Area API's block-create endpoint in versions 9.2.0 to 9.5.2 did not invoke the block type controller's validate() method on submitted data, which, for file-referencing blocks such as hero_image and gallery, is where the referenced file is authorized against the user's file-manager visibility. As a result, an authenticated user holding the block-add scope could store, and cause the page to render, a reference to a file that the file-manager authorization policy would otherwise reject, disclosing that file's URL and preview to the editor and to visitors of the affected page. Under public file storage, the URL and thumbnail are exposed directly; under private storage, the disclosure is limited by the permission-checked download URL. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.1 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N. Thanks riodrwn for reporting.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-81907",
-      "published": "2026-09-11T21:17:20.433",
-      "description": "Concrete CMS 9.5.2 and below is vulnerable to Cross-Site Request Forgery (CSRF) in the Express \"Clear Entries\" function (POST /index.php/dashboard/system/express/entities/delete_entries) because the controller records but does not enforce a failed CSRF token check, allowing the destructive operation to proceed when the token is missing or invalid. A remote unauthenticated attacker can force an authenticated administrator who visits an attacker-controlled page to permanently delete all entries belonging to an attacker-selected Express entity on a web application to which the administrator is currently authenticated. Because the default Contact Express object ships with a fixed entity UUID, the target identifier can be obtained without dashboard access. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.1 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks Pratik Zanjurne for reporting.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-44715",
-      "published": "2026-09-11T22:16:37.113",
-      "description": "OpenMRS is an open source electronic medical record system platform. Prior to versions 1.23.0 and 2.10.0, an authenticated user can trigger administrative DWR services. Specifically, the `startHl7ArchiveMigration` method is accessible, which should be restricted to admin-level accounts. Versions 1.23.0 and 2.10.0 patch the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-45056",
-      "published": "2026-09-11T22:16:37.263",
-      "description": "matrix-sdk-crypto is a no-network-IO implementation of a state machine that handles end-to-end encryption for Matrix clients. Starting in version 0.12.0 and prior to version 0.17.0, the matrix-sdk-crypto crate was missing a check for the user ID when decrypting an Olm-encrypted event containing the `sender_device_keys` property. This could be exploited to forge an encrypted to-device event, but only if the attacker colludes with the homeserver operator. This issue is fixed in matrix-sdk-crypto 0.17.0. There are no known workarounds for the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-49992",
-      "published": "2026-09-11T22:16:37.673",
-      "description": "Kimai is an open-source time tracking application. Versions prior to 2.58.0 contain authenticated cross-site request forgery issues in their default team creation shortcuts for projects, customers, and activities. These endpoints are exposed through `GET` routes and directly create or reuse a `Team`, add the current user as teamlead, and bind the target object to that team. As a result, an attacker can trick a logged-in user with the required permissions into visiting a malicious page and cause unauthorized changes to team, teamlead, and object-binding relationships. This is a real authorization-structure modification issue rather than a harmless UI shortcut. Version 2.58.0 patches the issue.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-90467",
+      "published": "2026-09-12T02:16:24.770",
+      "description": "aiosmtplib before 5.1.3 fails to properly validate email addresses supplied by callers, allowing attackers to inject ESMTP parameters into MAIL FROM and RCPT TO command lines. Attackers can craft malicious addresses containing spaces and angle brackets to append parameters like AUTH, NOTIFY, or ORCPT to envelope commands, forging authenticated identities or forcing delivery notifications to third parties.",
+      "severity": "MEDIUM",
+      "score": 4
     }
   ]
 }
