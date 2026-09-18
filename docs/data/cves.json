@@ -1,145 +1,145 @@
 {
-  "totalResults": 5122,
+  "totalResults": 5121,
   "items": [
     {
-      "id": "CVE-2026-86793",
-      "published": "2026-09-11T12:16:52.427",
-      "description": "SGLang allows unauthenticated pickle deserialization through /update_weights_from_tensor when no auth keys are configured, and the SafeUnpickler policy can be bypassed because builtins.import and builtins.getattr are resolvable, enabling code execution via pickle REDUCE.",
+      "id": "CVE-2026-89010",
+      "published": "2026-09-11T15:17:08.357",
+      "description": "WAVLINK WN535M1 and WN535M3 routers running firmware prior to M35M1_V250922 contain an unauthenticated OS command injection vulnerability that allows remote attackers to execute arbitrary commands as root by sending crafted filenames to the sync_server daemon on TCP port 13136. The daemon interpolates attacker-controlled filename input containing shell metacharacters into a shell command string via sprintf() and passes it to system() without sanitization, enabling root-level command execution on the device.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-89243",
-      "published": "2026-09-11T12:16:53.960",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in UserGroups::setGroup_name() that fails to sanitize group_name input. Administrators with canAdminUserGroups permission can inject malicious HTML and JavaScript that executes in the browser when other administrators access the user manager interface.",
+      "id": "CVE-2026-89009",
+      "published": "2026-09-11T15:17:08.190",
+      "description": "WAVLINK WN535M1 and WN535M3 routers running firmware prior to M35M1_V250922 contain an unauthenticated arbitrary file write vulnerability that allows remote attackers to overwrite any file on the device by sending a crafted payload to the sync_server daemon on TCP port 13136. The daemon, which runs as root and requires no authentication, accepts a 100-byte filename field in its protocol header without path canonicalization, allowing attackers to supply an absolute path and write arbitrary content to overwrite startup scripts or credential stores to achieve persistent system compromise.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-38056",
+      "published": "2026-09-11T15:17:01.070",
+      "description": "A local privilege escalation vulnerability exists in the iDirect iQ200 VSAT terminal running firmware 23.0.1.0. The iQ200 is a rackmount satellite modem deployed across oil and gas, maritime, defense, and remote infrastructure as the primary, and often sole communications link for offshore rigs, vessels, and remote sites. Important context: the device ships from the factory with a pre-configured low-privilege local user account. This account is intended for field technicians who need shell access for maintenance and diagnostics but should not have full administrative control over the device. This built-in account provides the initial access required to exploit this vulnerability. No additional credentials need to be obtained or brute-forced.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-82583",
+      "published": "2026-09-11T15:17:06.510",
+      "description": "NextGen Connect (Mirth Connect) versions 4.7.1 and earlier allow an authenticated user to execute arbitrary SQL through a Database Connector API, which could result in disclosure of stored credentials for connected systems, arbitrary file write, and a denial-of-service condition.",
+      "severity": "HIGH",
+      "score": 8.3
+    },
+    {
+      "id": "CVE-2026-78224",
+      "published": "2026-09-11T15:17:04.337",
+      "description": "The XSLT Transformer Step builds a bare TransformerFactory without the proper security options set, so XXE injection can allow data exfiltration and denial-of-service attacks.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-38058",
+      "published": "2026-09-11T15:17:01.407",
+      "description": "The endpoint on the iDirect iQ200 VSAT terminal returns the complete device configuration as JSON, including the SECURITY section which contains MD5-crypt password hashes for the root SSH and web administration accounts. Any user with valid web credentials can extract these hashes and crack them offline using commodity hardware.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-89146",
-      "published": "2026-09-11T11:16:57.867",
-      "description": "libp2p-rendezvous through 0.17.1 fails to validate registration TTL values in discovery responses, allowing attackers to trigger timer arithmetic overflow. A malicious rendezvous server can send a discovery response with an unbounded TTL value that causes the client node process to panic when computing the expiry timer.",
+      "id": "CVE-2026-87020",
+      "published": "2026-09-11T15:17:06.937",
+      "description": "An integer overflow in a specified pitch and buffer-size computation leads to a heap out-of-bounds write when Orthanc DICOM Server decodes an attacker-supplied PNG.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-8301",
+      "published": "2026-09-11T15:17:09.540",
+      "description": "Improper neutralization of special elements used in an OS command ('OS command injection') vulnerability in TUBITAK BILGEM Software Technologies Research Institute Pardus Boot Repair allows OS Command Injection.\n\nThis issue affects Pardus Boot Repair: before 1.0.8.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-8303",
+      "published": "2026-09-11T15:17:09.667",
+      "description": "Incorrect privilege assignment vulnerability in TUBITAK BILGEM Software Technologies Research Institute Pardus-software allows Privilege Escalation.\n\nThis issue affects Pardus-software: before 1.0.5.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-82578",
+      "published": "2026-09-11T15:17:06.357",
+      "description": "When XML batch processing is turned on and the XPath option is selected, the raw batch input goes through a default XPath/JAXP setup with no entity restrictions, so XXE injection can allow data exfiltration and denial-of-service attacks.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-89147",
-      "published": "2026-09-11T11:16:58.040",
-      "description": "Net-SNMP through 5.9.5.2 contains a denial of service vulnerability in the SMUX module where smux_accept() performs an unauthenticated blocking read without timeout on newly accepted connections. An unauthenticated remote client can connect to the SMUX listener and send no data, causing the single-threaded snmpd main loop to block indefinitely and suspend all SNMP processing.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-85083",
+      "published": "2026-09-11T15:17:06.660",
+      "description": "The ANJIA AJL33PC0801 IP camera uses a hard-coded credential for bootloader authentication. An attacker with physical access to the device may leverage this weakness to gain privileged bootloader access, allowing unauthorized modification of firmware and system configuration and potentially resulting in complete device compromise.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-87776",
-      "published": "2026-09-11T12:16:52.530",
-      "description": "compression is a Node.js and Express compression middleware. In versions before 1.8.2, when a client aborts the connection while a compressed response is still being sent, the zlib stream created to compress that response is never destroyed, so each aborted compressed response leaks its native zlib memory. A remote unauthenticated attacker can repeatedly open requests and disconnect early, exhausting the available memory and crashing the server. All applications using compression are affected. The issue is fixed in compression 1.8.2, and users should upgrade to 1.8.2 or later.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-89242",
-      "published": "2026-09-11T12:16:53.803",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a server-side request forgery vulnerability in the _json_decode function that fetches remote URLs and local file paths without SSRF validation. Unauthenticated attackers can POST file paths or HTTP URLs to login.json.php to read local files or access internal services, with results parsed as login credentials.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-85116",
-      "published": "2026-09-11T11:16:55.660",
-      "description": "The Simple CAPTCHA with Cloudflare Turnstile WordPress plugin from 1.2.2 before 1.42.3 runs the shortcode parser over the whole rendered Contact Form 7 form, including the values a visitor submitted, allowing unauthenticated users to execute arbitrary shortcodes registered on the site.",
+      "id": "CVE-2026-15439",
+      "published": "2026-09-11T16:17:05.597",
+      "description": "The GamiPress plugin for WordPress is vulnerable to authenticated (Subscriber+) SQL Injection via the 'q' parameter of the wpForo integration AJAX selector (action gamipress_wpforo_get_posts) in versions up to, and including, 7.9.7. The value is passed only through $wpdb->esc_like() and interpolated directly into a single-quoted LIKE clause with no %s placeholder. Because esc_like() runs after WordPress core magic quotes, it doubles the injected backslash (\\' -> \\\\'), which MySQL reads as one literal backslash followed by a live closing quote, allowing the attacker to break out of the string and inject boolean-based SQL. The wpForo plugin only needs to be active to register the callback; no wpForo vulnerability is used. Requires a Subscriber account, which can read the gamipress_admin nonce (exposed on every admin page, e.g. /wp-admin/profile.php). Note: the researcher's Simple:Press vectors (PoC 2 & 3) do not reproduce in current code, which uses $wpdb->prepare() with %s placeholders; only the wpForo selector is confirmed.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-89245",
-      "published": "2026-09-11T12:16:54.270",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a cross-site request forgery vulnerability in playlistRemove.php that allows attackers to delete playlists by skipping CSRF protection checks. Attackers can craft a malicious form that submits a POST request to playlistRemove.php, causing a victim's playlist to be deleted when they visit the attacker's page while logged in.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-85979",
+      "published": "2026-09-11T15:17:06.807",
+      "description": "Affected versions of Puppet Enterprise contain a command injection vulnerability. An authenticated user with Puppet administrative privileges can inject arbitrary shell commands by providing a specially crafted value for this parameter, which is passed to a shell execution context without sufficient sanitization. Because the resulting commands are executed with root privileges, successful exploitation can lead to full compromise of the affected system. \n\nIt affects Puppet Enterprise 2023.8.0 through 2023.8.10 and Puppet Enterprise 2025.0.0 through 2025.11.2.\n\n\n\nThis has been resolved in Puppet Enterprise 2023.8.11 and Puppet Enterprise 2025.11.3.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-89239",
-      "published": "2026-09-11T12:16:53.327",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in the showAlertMessage() function that inserts the raw Referer header into a JavaScript comment without encoding. Attackers can craft a Referer header containing */ to close the comment and inject arbitrary JavaScript that executes in the site origin for visitors arriving from the attacker-controlled page.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-87983",
+      "published": "2026-09-11T15:17:07.240",
+      "description": "An arbitrary file read vulnerability in Mistral Vibe, introduced in version 2.6.0, allows an attacker to bypass workspace restrictions using quoted absolute paths in allowlisted shell commands. Improper handling of quotation marks during path validation enables files outside the active workspace to be read without user approval.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-89240",
-      "published": "2026-09-11T12:16:53.493",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in plugin/Live/confirmLivePassword.php. The script interpolates the unauthenticated GET parameter u (which is not covered by $securityFilter) directly into an <img src=\"...\"> attribute without URL- or HTML-encoding. A remote attacker can craft a link containing a double-quote character in u (with a non-empty key parameter and no valid c parameter) to close the src attribute and inject an additional tag with an onerror handler, executing arbitrary JavaScript in the site's origin in the browser of any user, including an administrator, who opens the link. No patched version was available at the time of the advisory.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-87984",
+      "published": "2026-09-11T15:17:07.383",
+      "description": "An arbitrary file write vulnerability in Mistral Vibe, introduced in version 1.3.4, allows an attacker to create or overwrite files outside the active workspace without user approval. Shell redirection destinations are omitted from permission checks, enabling otherwise allowlisted commands to write to arbitrary paths accessible to the Vibe process.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-89241",
-      "published": "2026-09-11T12:16:53.650",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in confirmLivePassword.php that copies REQUEST_URI into a form action attribute without encoding. Attackers can craft a malicious URL with a quote character to break out of the action attribute and inject event handlers that execute in the victim's browser within the site origin.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-87985",
+      "published": "2026-09-11T15:17:07.520",
+      "description": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user's system without approval.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-89244",
-      "published": "2026-09-11T12:16:54.117",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a reflected cross-site scripting vulnerability in plugin/Gallery/view/Category.php when SubCategorys is enabled. The getBackURL parameter is echoed into an href attribute without HTML encoding, allowing attackers to inject malicious scripts that execute in visitors' browsers when they interact with the Back control.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-87986",
+      "published": "2026-09-11T15:17:07.653",
+      "description": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it's parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user's system without approval.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-82215",
-      "published": "2026-09-11T11:16:55.077",
-      "description": "The Payment Gateway PayPay for WooCommerce WordPress plugin from 0.5 to 0.9.3 does not verify the authenticity of the payment notifications it receives before acting on them, allowing unauthenticated attackers who know the store's merchant identifier to mark arbitrary orders as paid, or to cancel or fail them.",
-      "severity": "MEDIUM",
-      "score": 5.9
+      "id": "CVE-2026-87987",
+      "published": "2026-09-11T15:17:07.793",
+      "description": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using environment variable assignments preceding allowlisted commands. These assignments are excluded from inspection, enabling attacker-controlled environment variables to cause arbitrary code execution without user approval.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-77159",
-      "published": "2026-09-11T11:16:54.677",
-      "description": "A symlink-following flaw was found in libvirt's qemuTPMEmulatorPrepareHost() function. The function uses a path-based chown() on the swtpm logfile without checking for symbolic links. A local attacker with access to the swtpm account can replace the logfile with a symlink, causing libvirtd (running as root) to transfer ownership of an arbitrary file to the swtpm user.",
-      "severity": "MEDIUM",
-      "score": 5.5
+      "id": "CVE-2026-87988",
+      "published": "2026-09-11T15:17:07.930",
+      "description": "An arbitrary file access vulnerability in Mistral Vibe allows an attacker to bypass workspace restrictions through commands classified as unconditionally allowed. Missing path validation for these commands enables access to files outside the active workspace without user approval.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-89148",
-      "published": "2026-09-11T12:16:53.170",
-      "description": "AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains an open redirect in objects/playlistSort.php. Because the endpoint is not a *.json.php script, AVideo's automatic CSRF guard (autoCSRFGuard()/forbidIfIsUntrustedRequest()) does not run, and when the request includes the sort parameter the script issues a Location header set to the unvalidated $_SERVER['HTTP_REFERER'] value without calling isSafeRedirectURL(). A remote unauthenticated attacker can therefore induce a logged-in user who can manage the targeted playlist to submit a cross-origin POST with a crafted Referer, causing the victim's playlist to be reordered and the victim's browser to be redirected from a trusted AVideo URL to an attacker-controlled site for phishing. No patched version is available.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-89246",
-      "published": "2026-09-11T12:16:54.423",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a CSV formula injection vulnerability in the myComments.download.php endpoint that fails to sanitize spreadsheet formula prefixes in comment text. Authenticated users can inject formulas starting with =, +, -, or @ characters that execute when administrators or video owners open the exported CSV file in spreadsheet applications.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-82213",
-      "published": "2026-09-11T11:16:54.957",
-      "description": "The Nexi XPay Build WordPress plugin from 7.6.1 to 7.6.2 does not verify that the saved payment token being requested belongs to the current user, allowing unauthenticated attackers to retrieve other customers' stored card token references together with a valid authorisation signature.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-86809",
-      "published": "2026-09-11T11:16:57.150",
-      "description": "The Persian Elementor WordPress plugin from 2.7.10 before 2.8.2 does not verify that the payment authority returned to its ZarinPal payment callback belongs to the transaction being completed, allowing unauthenticated attackers to complete a pending order using a valid payment authority obtained from a different transaction.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-86813",
-      "published": "2026-09-11T11:16:57.267",
-      "description": "The MetForm WordPress plugin before 4.1.9 does not properly neutralize newline characters in user-submitted values that are placed into notification email headers, allowing unauthenticated attackers to inject additional email headers, such as Bcc, into the emails the site sends when a submitted field value is configured to populate a header.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2024-12145",
-      "published": "2026-09-11T12:16:50.957",
-      "description": "The BuddyPress plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 14.3.3 via the bp_notifications_action_bulk_manage due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete/mark as read/mark as unread notifications of other users.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-3869",
+      "published": "2026-09-11T16:17:06.200",
+      "description": "CWE-303 : Incorrect Implementation of Authentication Algorithm vulnerability exists that could cause loss of confidentiality, integrity and availability of the PLC provided an application project with a lower application level is running on the PLC.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
