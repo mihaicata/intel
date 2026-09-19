@@ -1,5 +1,5 @@
 {
-  "totalResults": 4893,
+  "totalResults": 4908,
   "items": [
     {
       "id": "CVE-2026-15451",
@@ -21,13 +21,6 @@
       "description": "Flowise versions before 3.1.4 contain an unauthenticated denial of service vulnerability in the /api/v1/text-to-speech/abort endpoint that accepts user-supplied chatflowId and chatId without ownership verification. Attackers can terminate active chatflow predictions for any user by submitting requests with known chatflow and chat identifiers, causing targeted service disruption.",
       "severity": "HIGH",
       "score": 7.5
-    },
-    {
-      "id": "CVE-2026-90474",
-      "published": "2026-09-12T11:16:34.483",
-      "description": "MCPHub before 1.0.32 contains an authentication bypass vulnerability in its embedded OAuth 2.0 authorization server where client authentication is disabled by default and PKCE enforcement is optional. Attackers who obtain an authorization code through interception can redeem it for access tokens without providing a client secret or PKCE verifier, gaining access to victim accounts and their privileges.",
-      "severity": "MEDIUM",
-      "score": 6.8
     },
     {
       "id": "CVE-2026-90533",
@@ -56,20 +49,6 @@
       "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate that logged-in users can access live schedules before creating reminders via remindMe.json.php. Authenticated attackers can create scheduler reminders for private live schedules they cannot view and learn the private schedule title from the generated email job.",
       "severity": "MEDIUM",
       "score": 5.4
-    },
-    {
-      "id": "CVE-2026-90472",
-      "published": "2026-09-12T11:16:34.180",
-      "description": "msgpack-java through 0.9.12 contains a stack overflow vulnerability in MessageUnpacker.unpackValue() that recursively deserializes arrays and maps without nesting depth limits. Attackers can craft payloads with deeply nested arrays to exhaust the deserializing thread's stack and trigger StackOverflowError, causing per-request deserialization failures.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-90473",
-      "published": "2026-09-12T11:16:34.347",
-      "description": "msgpack-java through 0.9.12 contains an integer overflow vulnerability in MessageUnpacker.skipValue() when processing MAP32 containers with large element counts. Attackers can supply a MAP32 element count at or above 0x40000000 that wraps when doubled, causing the parser cursor to desynchronize and attacker-controlled data to be returned in place of later fields.",
-      "severity": "MEDIUM",
-      "score": 5.3
     },
     {
       "id": "CVE-2026-90536",
@@ -107,6 +86,34 @@
       "score": 5.3
     },
     {
+      "id": "CVE-2026-90547",
+      "published": "2026-09-12T13:16:53.050",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate user permissions in the Bookmark plugin getBookmarks.json.php endpoint, allowing unauthenticated attackers to read chapter names from password-protected videos. Attackers can query the endpoint with a video ID parameter to retrieve sensitive chapter metadata without authentication or password verification.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90548",
+      "published": "2026-09-12T13:16:53.187",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate user permissions in the ImageGallery list.json.php endpoint, allowing unauthenticated access to list gallery files. Attackers can retrieve filenames and URLs of password-protected image galleries by directly accessing the endpoint, then fetch the exposed files without authentication.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90549",
+      "published": "2026-09-12T13:16:53.320",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to properly authorize access to the videosAndroid.json.php endpoint, allowing unauthenticated guests to list password-protected videos with sensitive owner information. Attackers can retrieve video metadata including owner email, lastLogin, filename, and hashId by sending an unauthenticated GET request to the endpoint.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90550",
+      "published": "2026-09-12T13:16:53.467",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to check user authorization in the PlayerSkins mediaSession.json.php endpoint before returning video metadata. Unauthenticated attackers can request the endpoint with a video ID parameter to retrieve password-protected video titles and owner email addresses without authentication.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
       "id": "CVE-2026-90540",
       "published": "2026-09-12T13:16:52.080",
       "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate watch permissions in the playListAddVideo.json.php endpoint when adding videos to playlists. Authenticated attackers can add password-protected videos they cannot watch to playlists they own by submitting the video ID and playlist ID parameters.",
@@ -133,13 +140,6 @@
       "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the like.json.php endpoint, allowing logged-in users to record likes on password-protected and group-restricted videos. Attackers can submit like requests for videos they cannot watch to increment like counters and bypass access controls.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-89172",
-      "published": "2026-09-12T10:16:36.317",
-      "description": "Improper protection of physical side channels vulnerability in Microchip AN1044, Microchip AN953, and Microchip SW300052.\n\nThis issue affects AN1044: through A; AN953: through A; SW300052: through 2.6.",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
