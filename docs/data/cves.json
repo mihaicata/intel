@@ -1,5 +1,5 @@
 {
-  "totalResults": 4883,
+  "totalResults": 4882,
   "items": [
     {
       "id": "CVE-2026-90493",
@@ -30,13 +30,6 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-90616",
-      "published": "2026-09-12T20:16:30.957",
-      "description": "In Flatpak before 1.18.1, a malicious sandboxed app can obtain arbitrary read and write access to files on the host, which can be escalated to arbitrary code execution on the host, a different vulnerability than CVE-2026-76925. Flatpak creates a few app data directories (e.g., /var/cache, /var/data, /var/config, and /var/tmp) in every sandbox on every app launch where, in some cases, components of the path are attacker-controlled. Missing symlink protection can redirect the directories. Some of these directories are bind-mounted by Flatpak by passing the path (e.g., /home/user/.var/app/APP_ID/cache/tmp), which contains attacker-controlled directories (tmp) to bwrap --bind SRC DST. bwrap passes the path on to the kernel, which then follows symlinks. A malicious symlink can point to arbitrary locations on the host and it will become mounted inside the sandbox.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
       "id": "CVE-2026-90647",
       "published": "2026-09-12T23:17:01.490",
       "description": "ASE/Kalkitech ASE2000 V2 Communication Test Set 2.35 through 2.37 on Windows contains an improper certificate validation vulnerability in the IEC 60870-5-104 TLS client (Task Mode). This allows a network-positioned attacker to bypass certificate validation via a certificate with multiple simultaneous faults, enabling a Man-in-the-Middle attack on protected communications.",
@@ -49,6 +42,13 @@
       "description": "A vulnerability has been found in Fengoffice Feng Office up to 3.11.13.11. This impacts the function Contacts::instance->findAll of the file application/models/CompanyWebsite.class.php of the component Legacy API. Such manipulation of the argument auth leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 7.3
+    },
+    {
+      "id": "CVE-2026-80071",
+      "published": "2026-09-13T06:16:24.947",
+      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not properly restrict who may author a membership plan or validate the plan a user attaches to their own account, allowing authenticated users with Author-level access and above to assign themselves an arbitrary role and escalate their privileges to Administrator.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
       "id": "CVE-2026-90486",
