@@ -1,145 +1,145 @@
 {
-  "totalResults": 4908,
+  "totalResults": 4887,
   "items": [
     {
-      "id": "CVE-2026-15451",
-      "published": "2026-09-12T13:16:50.940",
-      "description": "The MemberPress Corporate Accounts plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 1.5.39. This is due to a mass assignment vulnerability in the 'add_sub_account_user' function that passes the raw 'userdata' array to 'wp_insert_user' without filtering dangerous keys like role or ID. This makes it possible for authenticated attackers, with subscriber-level access and above who hold a corporate account, to create new administrator accounts or hijack existing administrator accounts by overwriting their email addresses. The vulnerability was partially patched in version 1.5.39.",
+      "id": "CVE-2026-90558",
+      "published": "2026-09-12T18:16:44.587",
+      "description": "sngrep through 1.8.4 contains stack buffer overflow vulnerabilities in SIP attribute formatting routines when header values exceed the 255-byte buffer limit. Attackers can craft malicious SIP packets with oversized Call-ID, X-Call-ID, or other header fields to overflow stack buffers and cause crashes or execute arbitrary code during packet parsing and rendering.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-90493",
+      "published": "2026-09-13T03:16:27.370",
+      "description": "A vulnerability was detected in Tonec Internet Download Manager up to 6.42 Build 63 on Windows. The impacted element is an unknown function of the file idmwfp.sys of the component Kernel Driver. The manipulation results in improper access controls. Attacking locally is a requirement. Internet Download Manager for Windows up to and including 6.42 Build 63 installs idmwfp.sys, a Windows kernel driver that exposes the \\.\\IDMWFP device interface to authenticated local users. The device object is created with an access control descriptor equivalent to D:P(A;;GA;;;AU), granting Authenticated Users generic access to the driver. The driver's IOCTL 0x12C028 handler accepts registry-operation subcommands 0x0C through 0x0F and processes caller-controlled registry paths and values. These handlers do not authenticate the caller, do not enforce the caller's registry permissions, and do not restrict operations to IDM-owned registry namespaces. A low-privileged local authenticated user can therefore read, create, modify, and delete arbitrary registry values under HKLM and HKU through the kernel driver. This includes registry configuration consumed by privileged Windows services and drivers and enables Local Privilege Escalation, high-privilege persistence, unauthorized system configuration disclosure or modification, and compromise of system confidentiality, integrity, and availability. Exploitation requires local access, low privileges, and no user interaction. A public proof of concept is available. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-90537",
-      "published": "2026-09-12T13:16:51.667",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a missing authorization vulnerability in plugin/Scheduler/sendEmail.json.php that allows unauthenticated attackers to access scheduler email jobs by providing a site-wide daily token. Attackers can enumerate scheduler jobs, read private live titles and email addresses, and trigger email sending by supplying any valid daily token obtained from Live pages.",
+      "id": "CVE-2026-90560",
+      "published": "2026-09-12T18:16:44.890",
+      "description": "zstd-jni versions 1.2.0 through 1.5.7-13 contain an out-of-bounds read vulnerability in the ZstdDictDecompress constructor because offset and length arguments are never validated against the dictionary array bounds. Attackers can supply arbitrary offset or length values to read memory past the end of the supplied array, potentially causing JVM termination.",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-90535",
-      "published": "2026-09-12T13:16:51.380",
-      "description": "Flowise versions before 3.1.4 contain an unauthenticated denial of service vulnerability in the /api/v1/text-to-speech/abort endpoint that accepts user-supplied chatflowId and chatId without ownership verification. Attackers can terminate active chatflow predictions for any user by submitting requests with known chatflow and chat identifiers, causing targeted service disruption.",
+      "id": "CVE-2026-90651",
+      "published": "2026-09-13T00:17:07.203",
+      "description": "Socket Firewall (socketdev/socket-registry-firewall) in registry mode before 2.0.0 does not verify upstream TLS certificates by default. When the api_ssl_verify and upstream_ssl_verify configuration keys are omitted from socket.yml, the generated configuration sets SOCKET_API_SSL_VERIFY='false' and UPSTREAM_SSL_VERIFY='false', and the OpenResty/Lua HTTP client used for outbound requests accepts any certificate, including self-signed and otherwise untrusted certificates, without validating the chain. An attacker positioned to intercept traffic between Socket Firewall and the Socket API or an upstream package registry can present a crafted certificate and modify responses in transit, including substituting malicious package content or altering the allow/block decisions the firewall enforces. Setting api_ssl_verify: true and upstream_ssl_verify: true enables verification; however, in versions before 1.1.334, the generated nginx configuration did not emit lua_ssl_trusted_certificate, and thus verification could not be used successfully without manually patching the generated configuration. Version 2.0.0 changes the default for both settings to true.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-90556",
+      "published": "2026-09-12T18:16:44.193",
+      "description": "Freeciv versions before 3.2.6 contain a heap buffer overflow in worklist_load() when processing savegame files with declared worklist lengths exceeding the fixed array bound of 64 elements. Attackers can craft malicious savegame files that write past the entries array into adjacent heap-allocated struct fields, potentially corrupting memory when a user or server operator loads the file.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-90559",
+      "published": "2026-09-12T18:16:44.743",
+      "description": "snappy-java through 1.1.10.8 contains an out-of-bounds write vulnerability in Snappy.uncompress(ByteBuffer, ByteBuffer) because destination buffer capacity is never validated against decompressed size. Attackers can supply valid compressed data that decompresses larger than the destination buffer, causing writes past buffer boundaries and JVM termination.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-90533",
-      "published": "2026-09-12T13:16:51.100",
-      "description": "Flowise before 3.1.4 contains a broken access control vulnerability in GET /api/v1/organizationuser that allows any authenticated organization member to retrieve the organization owner's full user record including bcrypt password hash and temporary tokens. Attackers can query the endpoint with any user ID to obtain the owner's credential hash for offline cracking, enabling account takeover of the highest-privileged account.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-90668",
+      "published": "2026-09-13T02:17:05.103",
+      "description": "The webserver in UnrealIRCd 6.0.5 through 6.2.6 before 6.2.7 does not limit the number of HTTP request headers, which allows remote attackers to cause a denial of service (memory consumption and unresponsive server) via an HTTP request with an unlimited number of headers, if a websocket or JSON-RPC listener is enabled (disabled by default).",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-90534",
-      "published": "2026-09-12T13:16:51.247",
-      "description": "Flowise is a low-code platform for building LLM applications. In versions up to and including 3.1.3, the POST /api/v1/node-load-method/:name endpoint is mounted without any route-level permission check and invokes component loadMethods with an attacker-controlled nodeName, loadMethod, inputs, and credential value. The selected credential is resolved by raw Credential.id via getCredentialData() and decrypted without verifying Credential.workspaceId against the caller's active or shared workspace, unlike other credential read paths which are workspace-scoped. As a result, an authenticated low-privilege user (or workspace API key) in one workspace can supply a credential ID owned by another workspace and cause Flowise to act as a confused deputy, performing third-party provider calls with the victim workspace's credential and returning provider metadata to the attacker. Statically identified affected load methods include Google Drive listFiles, Google Sheets listSpreadsheets, and AWS DynamoDB KV Storage listTables. The raw credential secret itself is not returned to the attacker. This issue is fixed in version 3.1.4.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-90616",
+      "published": "2026-09-12T20:16:30.957",
+      "description": "In Flatpak before 1.18.1, a malicious sandboxed app can obtain arbitrary read and write access to files on the host, which can be escalated to arbitrary code execution on the host, a different vulnerability than CVE-2026-76925. Flatpak creates a few app data directories (e.g., /var/cache, /var/data, /var/config, and /var/tmp) in every sandbox on every app launch where, in some cases, components of the path are attacker-controlled. Missing symlink protection can redirect the directories. Some of these directories are bind-mounted by Flatpak by passing the path (e.g., /home/user/.var/app/APP_ID/cache/tmp), which contains attacker-controlled directories (tmp) to bwrap --bind SRC DST. bwrap passes the path on to the kernel, which then follows symlinks. A malicious symlink can point to arbitrary locations on the host and it will become mounted inside the sandbox.",
+      "severity": "HIGH",
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-10148",
-      "published": "2026-09-12T13:16:50.193",
-      "description": "The Booking for Appointments and Events Calendar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via multiple Elementor widgets in versions up to and including 2.4.9. This is due to insufficient input sanitization and output escaping on the 'load_manually' parameter in the render() methods of classes. This makes it possible for authenticated attackers, with Contributor-level access and above who can use Elementor, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability was partially patched in version 2.4.8.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-90647",
+      "published": "2026-09-12T23:17:01.490",
+      "description": "ASE/Kalkitech ASE2000 V2 Communication Test Set 2.35 through 2.37 on Windows contains an improper certificate validation vulnerability in the IEC 60870-5-104 TLS client (Task Mode). This allows a network-positioned attacker to bypass certificate validation via a certificate with multiple simultaneous faults, enabling a Man-in-the-Middle attack on protected communications.",
+      "severity": "HIGH",
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-90542",
-      "published": "2026-09-12T13:16:52.353",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate that logged-in users can access live schedules before creating reminders via remindMe.json.php. Authenticated attackers can create scheduler reminders for private live schedules they cannot view and learn the private schedule title from the generated email job.",
+      "id": "CVE-2026-90486",
+      "published": "2026-09-12T23:17:01.073",
+      "description": "A vulnerability has been found in openstatusHQ openstatus up to f04c827112f30a11d571ebdad3892826034d6265. Affected by this vulnerability is an unknown functionality of the file apps/status-page/src/lib/proxy/resolve-custom-domain-rewrite.ts. The manipulation leads to server-side request forgery. The attack may be initiated remotely. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The identifier of the patch is 86f370c9c20074c3c3fdec53a359874b8e670fd4. It is suggested to install a patch to address this issue. This issue got fixed with a silent patch.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-90536",
-      "published": "2026-09-12T13:16:51.523",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to authorize access to the adsInfo API endpoint, allowing unauthenticated attackers to retrieve password-protected video owner identifiers. Attackers can call the adsInfo API with a videos_id parameter to obtain the owner's user ID and personalized ad creative URLs without authentication or permission checks.",
+      "id": "CVE-2026-90488",
+      "published": "2026-09-13T00:17:06.680",
+      "description": "A vulnerability was determined in Xuxueli xxl-job up to 3.4.2. This affects the function GroovyClassLoader.parseClass of the file xxl-job-core/src/main/java/com/xxl/job/core/glue/GlueFactory.java. This manipulation causes code injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-90538",
-      "published": "2026-09-12T13:16:51.807",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a missing authorization vulnerability in playlistsFromUser.json.php that allows unauthenticated attackers to read private playlists by requesting another user's identifier. Attackers can retrieve Favorite and Watch Later playlists belonging to other users due to improper cache keying that conflates requests across different user contexts.",
+      "id": "CVE-2026-90490",
+      "published": "2026-09-13T01:16:37.520",
+      "description": "A security flaw has been discovered in lenve vhr 1.0-SNAPSHOT. This issue affects some unknown processing of the component MailReceiver. Performing a manipulation results in deserialization. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-90539",
-      "published": "2026-09-12T13:16:51.943",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a missing authentication vulnerability in the plugin/TopMenu/menuItems.json.php endpoint that allows unauthenticated attackers to read inactive admin menu items by submitting a POST request with a menuId parameter. Attackers can retrieve hidden menu item URLs including embedded admin-tool secret query parameters not exposed in the public navbar.",
+      "id": "CVE-2026-90491",
+      "published": "2026-09-13T02:17:03.097",
+      "description": "A weakness has been identified in sanjevirau gsubs up to 1.0.3. Impacted is the function showQuerySuccessPage of the file renderer/index.js of the component Electron. Executing a manipulation of the argument filename can lead to code injection. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-90541",
-      "published": "2026-09-12T13:16:52.220",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to require authentication in the plugin/TopMenu/menus.json.php endpoint, allowing unauthenticated attackers to retrieve all menu data. Attackers can send GET requests to the endpoint to read inactive and admin-only menu names that are not displayed in the public navbar.",
+      "id": "CVE-2026-90492",
+      "published": "2026-09-13T02:17:04.930",
+      "description": "A security vulnerability has been detected in webgjc web_robot 2.4.0/2.5.0/2.8.0. The affected element is the function controller_listen/controller_recover of the file py/web.py. The manipulation of the argument case_name leads to os command injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-90543",
-      "published": "2026-09-12T13:16:52.497",
-      "description": "WWBN AVideo at commit c3edcc274c389816d434acadac07ee78eaf330c1 and earlier, with the Live plugin enabled, contains a missing authentication vulnerability in plugin/Live/socketMessageLiveOwner.json.php. The script reads the `key` and `msg` parameters from $_REQUEST, resolves the stream owner via LiveTransmition::keyExists, and verifies that the stream owner (not the caller) is an administrator; it performs no User::isLogged() check and enforces no CSRF token. As a result, an unauthenticated remote attacker who knows an administrator's Live stream key can call sendSocketSuccessMessageToUsers_id and deliver arbitrary in-app/socket notification messages to that administrator. The issue was unpatched at the time of publication.",
+      "id": "CVE-2026-90557",
+      "published": "2026-09-12T18:16:44.343",
+      "description": "Freeciv versions 3.1.0 through 3.2.5 contain an out-of-bounds read vulnerability in sg_load_player_unit() when processing savegame files with invalid unit activity indices. An attacker can craft a malicious savegame file with an out-of-range activity index that bypasses bounds checking and causes a crash or limited heap memory exposure when loaded.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-90547",
-      "published": "2026-09-12T13:16:53.050",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate user permissions in the Bookmark plugin getBookmarks.json.php endpoint, allowing unauthenticated attackers to read chapter names from password-protected videos. Attackers can query the endpoint with a video ID parameter to retrieve sensitive chapter metadata without authentication or password verification.",
+      "id": "CVE-2026-90485",
+      "published": "2026-09-12T22:16:30.783",
+      "description": "A flaw has been found in IOBit Uninstaller 15.5.0.11. Affected by this issue is the function sub_11838 of the file IURegistryFilter.sys of the component IOCTL Dispatch Handler. This manipulation causes null pointer dereference. The attack requires local access. The exploit has been published and may be used. Identical IURegistryFilter.sys ships across multiple IObit families. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-90548",
-      "published": "2026-09-12T13:16:53.187",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate user permissions in the ImageGallery list.json.php endpoint, allowing unauthenticated access to list gallery files. Attackers can retrieve filenames and URLs of password-protected image galleries by directly accessing the endpoint, then fetch the exposed files without authentication.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-90549",
-      "published": "2026-09-12T13:16:53.320",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to properly authorize access to the videosAndroid.json.php endpoint, allowing unauthenticated guests to list password-protected videos with sensitive owner information. Attackers can retrieve video metadata including owner email, lastLogin, filename, and hashId by sending an unauthenticated GET request to the endpoint.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-90550",
-      "published": "2026-09-12T13:16:53.467",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to check user authorization in the PlayerSkins mediaSession.json.php endpoint before returning video metadata. Unauthenticated attackers can request the endpoint with a video ID parameter to retrieve password-protected video titles and owner email addresses without authentication.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-90540",
-      "published": "2026-09-12T13:16:52.080",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate watch permissions in the playListAddVideo.json.php endpoint when adding videos to playlists. Authenticated attackers can add password-protected videos they cannot watch to playlists they own by submitting the video ID and playlist ID parameters.",
+      "id": "CVE-2026-90487",
+      "published": "2026-09-12T23:17:01.307",
+      "description": "A vulnerability was found in Xuxueli xxl-job up to 3.4.2. Affected by this issue is some unknown functionality of the file xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobGroupController.java. The manipulation results in improper privilege management. The attack may be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-90544",
-      "published": "2026-09-12T13:16:52.640",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the videoAddViewCount.json.php endpoint before updating view statistics. Authenticated attackers can increment view counts and watch-time on videos they cannot access by submitting requests with arbitrary video IDs.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-79300",
+      "published": "2026-09-12T23:17:00.893",
+      "description": "SEP sesam before 5.2.0.24 mishandles User Authorization with MFA. If AD authentication is configured and MFA is enforced, an attacker can create a second OTP access capability. SEP sesam and Active Directory handle username capitalization differently, which may allow multiple SEP sesam user accounts to be created for the same Active Directory (AD) account. Active Directory treats usernames as case-insensitive, while SEP sesam distinguishes between different letter casing. As a result, the same AD user can be represented by multiple SEP sesam user accounts that differ only in username capitalization. When Active Directory authentication is configured and multi-factor authentication (MFA) is enforced, this behavior may allow an additional OTP Authenticator to be registered for the same AD account, reducing the effectiveness of MFA protection.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-90545",
-      "published": "2026-09-12T13:16:52.777",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the commentAddNew.json.php endpoint, allowing authenticated users to post comments on password-protected and group-restricted videos. Attackers can submit POST requests with a valid session to add comments to videos they cannot watch, bypassing password and group access controls.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-90489",
+      "published": "2026-09-13T00:17:06.853",
+      "description": "A vulnerability was identified in Xuxueli xxl-job up to 3.5.0. This vulnerability affects unknown code of the file /jobinfo/insert. Such manipulation of the argument name/author leads to cross site scripting. The attack can be executed remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-90546",
-      "published": "2026-09-12T13:16:52.913",
-      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the like.json.php endpoint, allowing logged-in users to record likes on password-protected and group-restricted videos. Attackers can submit like requests for videos they cannot watch to increment like counters and bypass access controls.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-90648",
+      "published": "2026-09-13T00:17:07.023",
+      "description": "wasm2c in WebAssembly wabt through 1.0.41 allows sandbox escape in some situations that primarily involve 32-bit platforms, aka a \"table flip\" attack. It does not check the return value of calloc() in wasm_rt_allocate_funcref_table() (wasm2c/wasm-rt-impl-tableops.inc). When the funcref table allocation fails, table->data is left NULL while table->size keeps the guest-declared element count; thus, bounds checks still pass and table element accesses resolve to absolute memory addresses (i * sizeof(wasm_rt_funcref_t)). This gives arbitrary read and write of host process memory and - via table.get, table.set, and call_indirect - arbitrary code execution, defeating the isolation that wasm2c exists to provide (a full sandbox escape). wasm2c is used as an in-process sandboxing boundary by RLBox and WasmBoxC, including in Firefox, which compiles the Graphite, Hunspell, Ogg, Expat, and Woff2 libraries via wasm2c to contain untrusted font, media, and XML input. Therefore, sandboxing in these applications is potentially affected. Exploitation requires the funcref table allocation to fail, for example under an address-space limit (RLIMIT_AS), on 32-bit hosts, with vm.overcommit_memory=2, or under memory pressure. On 64-bit Linux with default overcommit the allocation succeeds and the defect is not triggered. The wasm2c memory allocator aborts on calloc failure in the same runtime; the table allocator lacks this abort behavior. This was introduced in commit ab9e0b55 (PR #813).",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
