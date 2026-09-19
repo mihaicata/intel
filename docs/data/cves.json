@@ -1,17 +1,10 @@
 {
-  "totalResults": 4874,
+  "totalResults": 4888,
   "items": [
     {
-      "id": "CVE-2026-85706",
-      "published": "2026-09-12T03:16:30.473",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-87719",
-      "published": "2026-09-12T03:16:31.477",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.3 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that under certain conditions could allow an authenticated user with Duo Chat access to obtain Advanced Search instance configurations and sensitive credentials using a specially crafted GraphQL subscription argument to bypass serialization and perform server object lookup.",
+      "id": "CVE-2026-82845",
+      "published": "2026-09-12T06:16:26.043",
+      "description": "The Masteriyo LMS  WordPress plugin before 3.4.1 does not prevent user-supplied values held as metadata from being deserialized when they are read back, allowing users with a minimal account to inject arbitrary PHP objects and, by way of a class shipped in a library bundled with the Masteriyo LMS  WordPress plugin before 3.4.1, write and execute arbitrary code on the server. A weaker form of the same issue is reachable without an account and yields an arbitrary file write rather than code execution.",
       "severity": "CRITICAL",
       "score": 9.9
     },
@@ -65,13 +58,6 @@
       "score": 8.6
     },
     {
-      "id": "CVE-2026-89266",
-      "published": "2026-09-12T00:17:06.440",
-      "description": "stb_vorbis through 1.22 contains a heap buffer overflow in start_decoder() where the codebook multiplicands allocation size is truncated from size_t to int. Attackers can craft a malicious Ogg Vorbis file with large entries and dimensions values to trigger out-of-bounds writes, causing process crashes or heap corruption.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
       "id": "CVE-2026-77705",
       "published": "2026-09-12T06:16:24.967",
       "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.10 does not verify that the user editing a customer or employee record is entitled to modify the WordPress account linked to it, allowing users holding Amelia's customer or employee management permissions to set the password and email address of other users' WordPress accounts and take them over.",
@@ -100,18 +86,32 @@
       "score": 7.1
     },
     {
+      "id": "CVE-2026-82847",
+      "published": "2026-09-12T06:16:26.147",
+      "description": "The Masteriyo LMS  WordPress plugin before 3.4.1 does not sanitise and escape one of its course fields before outputting it back in the course editor, allowing users with the instructor role to perform Stored Cross-Site Scripting attacks against higher privileged users such as administrators.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-83532",
+      "published": "2026-09-12T06:16:26.353",
+      "description": "The Custom Menu Wizard Widget WordPress plugin through 3.3.1 does not sanitize and escape several shortcode attributes before rendering them into HTML, allowing users with contributor-level access and above to inject arbitrary web scripts that execute when the affected content is viewed.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-84023",
+      "published": "2026-09-12T06:16:26.467",
+      "description": "The BEAR  WordPress plugin before 1.2.2 does not verify a CSRF nonce or check user capabilities before updating taxonomy terms, allowing an attacker to modify arbitrary terms by tricking a logged-in privileged user into visiting a crafted page.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-77753",
       "published": "2026-09-12T06:16:25.183",
       "description": "The Temporary Login Without Password WordPress plugin before 1.9.9 does not prevent a temporary user from creating an Application Password, and does not revoke one when the temporary access expires or is disabled, allowing the recipient of a temporary login to retain working access to the site over REST and XML-RPC after the administrator believes it has been withdrawn. The retained access carries whatever role was granted, which for the Temporary Login Without Password WordPress plugin before 1.9.9's main use case is Administrator.",
       "severity": "MEDIUM",
       "score": 5.5
-    },
-    {
-      "id": "CVE-2026-89268",
-      "published": "2026-09-12T02:16:24.623",
-      "description": "QloApps through 1.7.0 renders back-office list filter POST parameters into HTML input value attributes without escaping them in the list helper template. Attackers can induce authenticated users to submit crafted POST requests with malicious payloads to list controllers, executing arbitrary JavaScript in the victim's session to read administrative data and perform actions.",
-      "severity": "MEDIUM",
-      "score": 5.4
     },
     {
       "id": "CVE-2026-77689",
@@ -128,18 +128,18 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-89267",
-      "published": "2026-09-12T02:16:23.580",
-      "description": "starlette-admin versions 0.16.1 through 0.17.1 fail to enforce the searchable_fields allowlist when configured as an empty list, allowing authenticated users to filter on non-searchable fields. Attackers can submit structured filter queries via the list API's where parameter to perform equality and comparison operations on excluded columns.",
+      "id": "CVE-2026-84024",
+      "published": "2026-09-12T06:16:26.573",
+      "description": "The BEAR  WordPress plugin before 1.2.2 does not verify a CSRF nonce before saving its meta field configuration, allowing an attacker to overwrite that configuration by tricking a logged-in administrator into visiting a crafted page.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-90467",
-      "published": "2026-09-12T02:16:24.770",
-      "description": "aiosmtplib before 5.1.3 fails to properly validate email addresses supplied by callers, allowing attackers to inject ESMTP parameters into MAIL FROM and RCPT TO command lines. Attackers can craft malicious addresses containing spaces and angle brackets to append parameters like AUTH, NOTIFY, or ORCPT to envelope commands, forging authenticated identities or forcing delivery notifications to third parties.",
-      "severity": "MEDIUM",
-      "score": 4
+      "id": "CVE-2026-82851",
+      "published": "2026-09-12T06:16:26.253",
+      "description": "The Masteriyo LMS  WordPress plugin before 3.4.1 does not verify ownership of, or restrict the type of, the records a user requests for download, allowing users with the instructor role to retrieve the full content and metadata of arbitrary posts, including other instructors' private and draft courses.",
+      "severity": "LOW",
+      "score": 2.7
     }
   ]
 }
