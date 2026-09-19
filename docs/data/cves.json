@@ -1,26 +1,12 @@
 {
-  "totalResults": 4887,
+  "totalResults": 4883,
   "items": [
-    {
-      "id": "CVE-2026-90558",
-      "published": "2026-09-12T18:16:44.587",
-      "description": "sngrep through 1.8.4 contains stack buffer overflow vulnerabilities in SIP attribute formatting routines when header values exceed the 255-byte buffer limit. Attackers can craft malicious SIP packets with oversized Call-ID, X-Call-ID, or other header fields to overflow stack buffers and cause crashes or execute arbitrary code during packet parsing and rendering.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-90493",
       "published": "2026-09-13T03:16:27.370",
       "description": "A vulnerability was detected in Tonec Internet Download Manager up to 6.42 Build 63 on Windows. The impacted element is an unknown function of the file idmwfp.sys of the component Kernel Driver. The manipulation results in improper access controls. Attacking locally is a requirement. Internet Download Manager for Windows up to and including 6.42 Build 63 installs idmwfp.sys, a Windows kernel driver that exposes the \\.\\IDMWFP device interface to authenticated local users. The device object is created with an access control descriptor equivalent to D:P(A;;GA;;;AU), granting Authenticated Users generic access to the driver. The driver's IOCTL 0x12C028 handler accepts registry-operation subcommands 0x0C through 0x0F and processes caller-controlled registry paths and values. These handlers do not authenticate the caller, do not enforce the caller's registry permissions, and do not restrict operations to IDM-owned registry namespaces. A low-privileged local authenticated user can therefore read, create, modify, and delete arbitrary registry values under HKLM and HKU through the kernel driver. This includes registry configuration consumed by privileged Windows services and drivers and enables Local Privilege Escalation, high-privilege persistence, unauthorized system configuration disclosure or modification, and compromise of system confidentiality, integrity, and availability. Exploitation requires local access, low privileges, and no user interaction. A public proof of concept is available. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 8.8
-    },
-    {
-      "id": "CVE-2026-90560",
-      "published": "2026-09-12T18:16:44.890",
-      "description": "zstd-jni versions 1.2.0 through 1.5.7-13 contain an out-of-bounds read vulnerability in the ZstdDictDecompress constructor because offset and length arguments are never validated against the dictionary array bounds. Attackers can supply arbitrary offset or length values to read memory past the end of the supplied array, potentially causing JVM termination.",
-      "severity": "HIGH",
-      "score": 8.2
     },
     {
       "id": "CVE-2026-90651",
@@ -30,23 +16,16 @@
       "score": 8.1
     },
     {
-      "id": "CVE-2026-90556",
-      "published": "2026-09-12T18:16:44.193",
-      "description": "Freeciv versions before 3.2.6 contain a heap buffer overflow in worklist_load() when processing savegame files with declared worklist lengths exceeding the fixed array bound of 64 elements. Attackers can craft malicious savegame files that write past the entries array into adjacent heap-allocated struct fields, potentially corrupting memory when a user or server operator loads the file.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-90559",
-      "published": "2026-09-12T18:16:44.743",
-      "description": "snappy-java through 1.1.10.8 contains an out-of-bounds write vulnerability in Snappy.uncompress(ByteBuffer, ByteBuffer) because destination buffer capacity is never validated against decompressed size. Attackers can supply valid compressed data that decompresses larger than the destination buffer, causing writes past buffer boundaries and JVM termination.",
+      "id": "CVE-2026-90668",
+      "published": "2026-09-13T02:17:05.103",
+      "description": "The webserver in UnrealIRCd 6.0.5 through 6.2.6 before 6.2.7 does not limit the number of HTTP request headers, which allows remote attackers to cause a denial of service (memory consumption and unresponsive server) via an HTTP request with an unlimited number of headers, if a websocket or JSON-RPC listener is enabled (disabled by default).",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-90668",
-      "published": "2026-09-13T02:17:05.103",
-      "description": "The webserver in UnrealIRCd 6.0.5 through 6.2.6 before 6.2.7 does not limit the number of HTTP request headers, which allows remote attackers to cause a denial of service (memory consumption and unresponsive server) via an HTTP request with an unlimited number of headers, if a websocket or JSON-RPC listener is enabled (disabled by default).",
+      "id": "CVE-2026-90678",
+      "published": "2026-09-13T04:17:25.227",
+      "description": "An issue was discovered in HAProxy 3.3.0 through 3.4.4 and in 3.5-dev1 through 3.5-dev5. Exploitation requires an HTTP/3 frontend: HAProxy must be built with QUIC support and configured with a QUIC bind listener, and the affected traffic must reach a backend over HTTP/1.1 using chunked transfer coding on a reused connection. Under those conditions, when an HTTP/3 request carries no Content-Length header, the HTTP/3 multiplexer credits the length declared in a DATA frame header to the stream endpoint's known-input-payload estimate at the moment the frame header is decoded, before the payload has been received, and that declared length is emitted verbatim as the HTTP/1.1 chunk size. A remote unauthenticated client that declares more payload than it delivers and then ends the stream causes HAProxy to announce a chunk larger than the bytes it writes and to return the connection to the idle pool in a desynchronized state. The result is potential HTTP request smuggling on reused backend connections: an attacker can place a request past a frontend rule such as a path-based http-request deny, so that the smuggled request is never seen by HAProxy's HTTP analysis, and can cause concurrent clients' requests, including their request lines and Authorization headers, to be consumed as the attacker's request body and lost. Exploitation is not deterministic; it depends on a race with backend connection pooling, succeeding in a majority of but not all trials during testing, and can be retried freely. The mechanism was introduced in 3.3-dev10; releases 3.2.x and earlier are unaffected.",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -63,6 +42,13 @@
       "description": "ASE/Kalkitech ASE2000 V2 Communication Test Set 2.35 through 2.37 on Windows contains an improper certificate validation vulnerability in the IEC 60870-5-104 TLS client (Task Mode). This allows a network-positioned attacker to bypass certificate validation via a certificate with multiple simultaneous faults, enabling a Man-in-the-Middle attack on protected communications.",
       "severity": "HIGH",
       "score": 7.4
+    },
+    {
+      "id": "CVE-2026-90495",
+      "published": "2026-09-13T04:17:15.717",
+      "description": "A vulnerability has been found in Fengoffice Feng Office up to 3.11.13.11. This impacts the function Contacts::instance->findAll of the file application/models/CompanyWebsite.class.php of the component Legacy API. Such manipulation of the argument auth leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
       "id": "CVE-2026-90486",
@@ -100,13 +86,6 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-90557",
-      "published": "2026-09-12T18:16:44.343",
-      "description": "Freeciv versions 3.1.0 through 3.2.5 contain an out-of-bounds read vulnerability in sg_load_player_unit() when processing savegame files with invalid unit activity indices. An attacker can craft a malicious savegame file with an out-of-range activity index that bypasses bounds checking and causes a crash or limited heap memory exposure when loaded.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
       "id": "CVE-2026-90485",
       "published": "2026-09-12T22:16:30.783",
       "description": "A flaw has been found in IOBit Uninstaller 15.5.0.11. Affected by this issue is the function sub_11838 of the file IURegistryFilter.sys of the component IOCTL Dispatch Handler. This manipulation causes null pointer dereference. The attack requires local access. The exploit has been published and may be used. Identical IURegistryFilter.sys ships across multiple IObit families. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -114,9 +93,30 @@
       "score": 5.5
     },
     {
+      "id": "CVE-2026-90494",
+      "published": "2026-09-13T04:17:15.373",
+      "description": "A flaw has been found in restify node-restify up to 12.0.0. This affects the function serveStatic in the library /lib/plugins/static.js. This manipulation causes path traversal. The attack can be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-77773",
+      "published": "2026-09-13T06:16:24.680",
+      "description": "The Contact Form to Chat Apps | Click to Chat to Order  WordPress plugin before 2.15.8 does not perform any capability, nonce or session check on one of its public AJAX actions, allowing unauthenticated users to read the submitted entries of any form created with a supported third-party form Contact Form to Chat Apps | Click to Chat to Order  WordPress plugin before 2.15.8.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
       "id": "CVE-2026-90487",
       "published": "2026-09-12T23:17:01.307",
       "description": "A vulnerability was found in Xuxueli xxl-job up to 3.4.2. Affected by this issue is some unknown functionality of the file xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobGroupController.java. The manipulation results in improper privilege management. The attack may be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-90679",
+      "published": "2026-09-13T04:17:25.417",
+      "description": "Forgejo 13.0.0 through 16.0.4, when \"[federation] ENABLED = true\" is set, has a spoofing issue that affects identity integrity but does not allow account takeover or content modification. It does not verify that the HTTP Signature on an incoming ActivityPub activity was produced by the key belonging to the actor named in the activity body. The signature verification in routers/api/v1/activitypub/reqsignature.go validates the request signature, but the inbox activity handlers subsequently read the acting identity from the attacker-controlled JSON body without binding it to the verified signing key. Additionally, the signed Digest header is not recomputed against the received request body. A remote attacker who hosts a single valid ActivityPub actor and keypair can therefore submit signature-valid activities attributed to any actor identity they name.",
       "severity": "MEDIUM",
       "score": 4.3
     },
