@@ -1,145 +1,145 @@
 {
-  "totalResults": 4888,
+  "totalResults": 4893,
   "items": [
     {
-      "id": "CVE-2026-82845",
-      "published": "2026-09-12T06:16:26.043",
-      "description": "The Masteriyo LMS  WordPress plugin before 3.4.1 does not prevent user-supplied values held as metadata from being deserialized when they are read back, allowing users with a minimal account to inject arbitrary PHP objects and, by way of a class shipped in a library bundled with the Masteriyo LMS  WordPress plugin before 3.4.1, write and execute arbitrary code on the server. A weaker form of the same issue is reachable without an account and yields an arbitrary file write rather than code execution.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-75800",
-      "published": "2026-09-12T06:16:23.340",
-      "description": "The Frontegg SAML SSO WordPress plugin through 1.0.1 does not verify the signature or issuer of SAML authentication responses before establishing a session, allowing unauthenticated attackers to log in as any user, including administrators, as well as to create arbitrary accounts.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-81402",
-      "published": "2026-09-12T06:16:25.730",
-      "description": "The DS Ad Rotator WordPress plugin through 0.8 does not perform any capability check, nonce verification, or file-type validation on its image upload handler, allowing unauthenticated attackers to upload arbitrary files, including PHP, to a web-accessible directory, which can lead to remote code execution.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-77005",
-      "published": "2026-09-12T06:16:24.623",
-      "description": "The CODE MONKEYS PROPOSALS  WordPress plugin through 1.0.1 does not validate a user-supplied file path before deleting a file, and does not check the capability of the user making the request, allowing any authenticated user, such as a subscriber, to delete arbitrary files on the server, which can lead to a site takeover.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-77006",
-      "published": "2026-09-12T06:16:24.733",
-      "description": "The WebTotem Backups WordPress plugin through 1.0.1 does not validate a user-supplied file path, does not check the capability of the user making the request, and discards the result of its own CSRF check, allowing any authenticated user, such as a subscriber, to delete arbitrary files on the server, which can lead to a site takeover.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-81742",
-      "published": "2026-09-12T06:16:25.937",
-      "description": "The BE REST Endpoints WordPress plugin through 1.0.0 does not perform any authorization check before allowing widgets to be read, created, updated and deleted, and does not sanitize the values it stores in them, allowing unauthenticated users to inject arbitrary web scripts which will execute in the browser of any user visiting the site.",
+      "id": "CVE-2026-15451",
+      "published": "2026-09-12T13:16:50.940",
+      "description": "The MemberPress Corporate Accounts plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 1.5.39. This is due to a mass assignment vulnerability in the 'add_sub_account_user' function that passes the raw 'userdata' array to 'wp_insert_user' without filtering dangerous keys like role or ID. This makes it possible for authenticated attackers, with subscriber-level access and above who hold a corporate account, to create new administrator accounts or hijack existing administrator accounts by overwriting their email addresses. The vulnerability was partially patched in version 1.5.39.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-80491",
-      "published": "2026-09-12T06:16:25.403",
-      "description": "The SAMO Forms WordPress plugin through 1.0.0 does not properly sanitise and escape user input before using it in SQL queries in several unauthenticated actions, allowing unauthenticated attackers to perform SQL injection attacks.",
+      "id": "CVE-2026-90537",
+      "published": "2026-09-12T13:16:51.667",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a missing authorization vulnerability in plugin/Scheduler/sendEmail.json.php that allows unauthenticated attackers to access scheduler email jobs by providing a site-wide daily token. Attackers can enumerate scheduler jobs, read private live titles and email addresses, and trigger email sending by supplying any valid daily token obtained from Live pages.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-80494",
-      "published": "2026-09-12T06:16:25.510",
-      "description": "The Yogeta WP Cloud WordPress plugin through 1.0 does not validate a user-supplied file path before passing it to a file-read function on a public endpoint that lacks any authorization check, allowing unauthenticated attackers to download arbitrary files from the server, including files containing sensitive credentials.",
+      "id": "CVE-2026-90535",
+      "published": "2026-09-12T13:16:51.380",
+      "description": "Flowise versions before 3.1.4 contain an unauthenticated denial of service vulnerability in the /api/v1/text-to-speech/abort endpoint that accepts user-supplied chatflowId and chatId without ownership verification. Attackers can terminate active chatflow predictions for any user by submitting requests with known chatflow and chat identifiers, causing targeted service disruption.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-77705",
-      "published": "2026-09-12T06:16:24.967",
-      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 2.4.10 does not verify that the user editing a customer or employee record is entitled to modify the WordPress account linked to it, allowing users holding Amelia's customer or employee management permissions to set the password and email address of other users' WordPress accounts and take them over.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-77752",
-      "published": "2026-09-12T06:16:25.070",
-      "description": "The Temporary Login Without Password WordPress plugin before 1.9.9 does not verify that the user requesting a temporary login holds network super admin rights before granting the new account those rights, allowing an administrator of a single site on a multisite network to take over the whole network. The same missing check also allows an existing account, including the attacker's own, to be promoted.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-81090",
-      "published": "2026-09-12T06:16:25.620",
-      "description": "The Gpx2Graphics WordPress plugin through 0.3 does not perform a CSRF check when handling file uploads, nor validate the type of the uploaded file, allowing attackers to make a logged-in administrator upload arbitrary files such as PHP via a CSRF attack, leading to Remote Code Execution.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-81429",
-      "published": "2026-09-12T06:16:25.833",
-      "description": "The Export & Import WPBakery Page Builder WordPress plugin through 1.0.2 does not perform any CSRF check on its template-import feature and does not sanitise the imported data before storing it and echoing it back, allowing attackers to make a logged-in administrator import a crafted template via a forged request that results in Stored Cross-Site Scripting executed in the administrator's session.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-82847",
-      "published": "2026-09-12T06:16:26.147",
-      "description": "The Masteriyo LMS  WordPress plugin before 3.4.1 does not sanitise and escape one of its course fields before outputting it back in the course editor, allowing users with the instructor role to perform Stored Cross-Site Scripting attacks against higher privileged users such as administrators.",
+      "id": "CVE-2026-90474",
+      "published": "2026-09-12T11:16:34.483",
+      "description": "MCPHub before 1.0.32 contains an authentication bypass vulnerability in its embedded OAuth 2.0 authorization server where client authentication is disabled by default and PKCE enforcement is optional. Attackers who obtain an authorization code through interception can redeem it for access tokens without providing a client secret or PKCE verifier, gaining access to victim accounts and their privileges.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-83532",
-      "published": "2026-09-12T06:16:26.353",
-      "description": "The Custom Menu Wizard Widget WordPress plugin through 3.3.1 does not sanitize and escape several shortcode attributes before rendering them into HTML, allowing users with contributor-level access and above to inject arbitrary web scripts that execute when the affected content is viewed.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-84023",
-      "published": "2026-09-12T06:16:26.467",
-      "description": "The BEAR  WordPress plugin before 1.2.2 does not verify a CSRF nonce or check user capabilities before updating taxonomy terms, allowing an attacker to modify arbitrary terms by tricking a logged-in privileged user into visiting a crafted page.",
+      "id": "CVE-2026-90533",
+      "published": "2026-09-12T13:16:51.100",
+      "description": "Flowise before 3.1.4 contains a broken access control vulnerability in GET /api/v1/organizationuser that allows any authenticated organization member to retrieve the organization owner's full user record including bcrypt password hash and temporary tokens. Attackers can query the endpoint with any user ID to obtain the owner's credential hash for offline cracking, enabling account takeover of the highest-privileged account.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-77753",
-      "published": "2026-09-12T06:16:25.183",
-      "description": "The Temporary Login Without Password WordPress plugin before 1.9.9 does not prevent a temporary user from creating an Application Password, and does not revoke one when the temporary access expires or is disabled, allowing the recipient of a temporary login to retain working access to the site over REST and XML-RPC after the administrator believes it has been withdrawn. The retained access carries whatever role was granted, which for the Temporary Login Without Password WordPress plugin before 1.9.9's main use case is Administrator.",
+      "id": "CVE-2026-90534",
+      "published": "2026-09-12T13:16:51.247",
+      "description": "Flowise is a low-code platform for building LLM applications. In versions up to and including 3.1.3, the POST /api/v1/node-load-method/:name endpoint is mounted without any route-level permission check and invokes component loadMethods with an attacker-controlled nodeName, loadMethod, inputs, and credential value. The selected credential is resolved by raw Credential.id via getCredentialData() and decrypted without verifying Credential.workspaceId against the caller's active or shared workspace, unlike other credential read paths which are workspace-scoped. As a result, an authenticated low-privilege user (or workspace API key) in one workspace can supply a credential ID owned by another workspace and cause Flowise to act as a confused deputy, performing third-party provider calls with the victim workspace's credential and returning provider metadata to the attacker. Statically identified affected load methods include Google Drive listFiles, Google Sheets listSpreadsheets, and AWS DynamoDB KV Storage listTables. The raw credential secret itself is not returned to the attacker. This issue is fixed in version 3.1.4.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-77689",
-      "published": "2026-09-12T06:16:24.860",
-      "description": "The Booking for Appointments and Events Calendar  WordPress plugin before 9.8.1 does not verify that a payment was actually taken before recording a booking as paid, trusting the payment gateway named in a public, unauthenticated booking request even when the site has never configured that gateway. This lets an unauthenticated attacker obtain confirmed, fully paid appointments and events without any payment being collected.",
+      "id": "CVE-2026-10148",
+      "published": "2026-09-12T13:16:50.193",
+      "description": "The Booking for Appointments and Events Calendar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via multiple Elementor widgets in versions up to and including 2.4.9. This is due to insufficient input sanitization and output escaping on the 'load_manually' parameter in the render() methods of classes. This makes it possible for authenticated attackers, with Contributor-level access and above who can use Elementor, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability was partially patched in version 2.4.8.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-90542",
+      "published": "2026-09-12T13:16:52.353",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate that logged-in users can access live schedules before creating reminders via remindMe.json.php. Authenticated attackers can create scheduler reminders for private live schedules they cannot view and learn the private schedule title from the generated email job.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-90472",
+      "published": "2026-09-12T11:16:34.180",
+      "description": "msgpack-java through 0.9.12 contains a stack overflow vulnerability in MessageUnpacker.unpackValue() that recursively deserializes arrays and maps without nesting depth limits. Attackers can craft payloads with deeply nested arrays to exhaust the deserializing thread's stack and trigger StackOverflowError, causing per-request deserialization failures.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-78152",
-      "published": "2026-09-12T06:16:25.290",
-      "description": "The SureRank SEO  WordPress plugin before 1.10.1 does not exclude users' registered account email addresses from the structured data it outputs on public pages by default, allowing unauthenticated visitors to obtain the email address of any user who has published content.",
+      "id": "CVE-2026-90473",
+      "published": "2026-09-12T11:16:34.347",
+      "description": "msgpack-java through 0.9.12 contains an integer overflow vulnerability in MessageUnpacker.skipValue() when processing MAP32 containers with large element counts. Attackers can supply a MAP32 element count at or above 0x40000000 that wraps when doubled, causing the parser cursor to desynchronize and attacker-controlled data to be returned in place of later fields.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-84024",
-      "published": "2026-09-12T06:16:26.573",
-      "description": "The BEAR  WordPress plugin before 1.2.2 does not verify a CSRF nonce before saving its meta field configuration, allowing an attacker to overwrite that configuration by tricking a logged-in administrator into visiting a crafted page.",
+      "id": "CVE-2026-90536",
+      "published": "2026-09-12T13:16:51.523",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to authorize access to the adsInfo API endpoint, allowing unauthenticated attackers to retrieve password-protected video owner identifiers. Attackers can call the adsInfo API with a videos_id parameter to obtain the owner's user ID and personalized ad creative URLs without authentication or permission checks.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90538",
+      "published": "2026-09-12T13:16:51.807",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a missing authorization vulnerability in playlistsFromUser.json.php that allows unauthenticated attackers to read private playlists by requesting another user's identifier. Attackers can retrieve Favorite and Watch Later playlists belonging to other users due to improper cache keying that conflates requests across different user contexts.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90539",
+      "published": "2026-09-12T13:16:51.943",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a missing authentication vulnerability in the plugin/TopMenu/menuItems.json.php endpoint that allows unauthenticated attackers to read inactive admin menu items by submitting a POST request with a menuId parameter. Attackers can retrieve hidden menu item URLs including embedded admin-tool secret query parameters not exposed in the public navbar.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90541",
+      "published": "2026-09-12T13:16:52.220",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to require authentication in the plugin/TopMenu/menus.json.php endpoint, allowing unauthenticated attackers to retrieve all menu data. Attackers can send GET requests to the endpoint to read inactive and admin-only menu names that are not displayed in the public navbar.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90543",
+      "published": "2026-09-12T13:16:52.497",
+      "description": "WWBN AVideo at commit c3edcc274c389816d434acadac07ee78eaf330c1 and earlier, with the Live plugin enabled, contains a missing authentication vulnerability in plugin/Live/socketMessageLiveOwner.json.php. The script reads the `key` and `msg` parameters from $_REQUEST, resolves the stream owner via LiveTransmition::keyExists, and verifies that the stream owner (not the caller) is an administrator; it performs no User::isLogged() check and enforces no CSRF token. As a result, an unauthenticated remote attacker who knows an administrator's Live stream key can call sendSocketSuccessMessageToUsers_id and deliver arbitrary in-app/socket notification messages to that administrator. The issue was unpatched at the time of publication.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-90540",
+      "published": "2026-09-12T13:16:52.080",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate watch permissions in the playListAddVideo.json.php endpoint when adding videos to playlists. Authenticated attackers can add password-protected videos they cannot watch to playlists they own by submitting the video ID and playlist ID parameters.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-82851",
-      "published": "2026-09-12T06:16:26.253",
-      "description": "The Masteriyo LMS  WordPress plugin before 3.4.1 does not verify ownership of, or restrict the type of, the records a user requests for download, allowing users with the instructor role to retrieve the full content and metadata of arbitrary posts, including other instructors' private and draft courses.",
-      "severity": "LOW",
-      "score": 2.7
+      "id": "CVE-2026-90544",
+      "published": "2026-09-12T13:16:52.640",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the videoAddViewCount.json.php endpoint before updating view statistics. Authenticated attackers can increment view counts and watch-time on videos they cannot access by submitting requests with arbitrary video IDs.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-90545",
+      "published": "2026-09-12T13:16:52.777",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the commentAddNew.json.php endpoint, allowing authenticated users to post comments on password-protected and group-restricted videos. Attackers can submit POST requests with a valid session to add comments to videos they cannot watch, bypassing password and group access controls.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-90546",
+      "published": "2026-09-12T13:16:52.913",
+      "description": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate video access permissions in the like.json.php endpoint, allowing logged-in users to record likes on password-protected and group-restricted videos. Attackers can submit like requests for videos they cannot watch to increment like counters and bypass access controls.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-89172",
+      "published": "2026-09-12T10:16:36.317",
+      "description": "Improper protection of physical side channels vulnerability in Microchip AN1044, Microchip AN953, and Microchip SW300052.\n\nThis issue affects AN1044: through A; AN953: through A; SW300052: through 2.6.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
