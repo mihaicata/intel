@@ -1,5 +1,5 @@
 {
-  "totalResults": 4882,
+  "totalResults": 4891,
   "items": [
     {
       "id": "CVE-2026-90493",
@@ -30,11 +30,11 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-90647",
-      "published": "2026-09-12T23:17:01.490",
-      "description": "ASE/Kalkitech ASE2000 V2 Communication Test Set 2.35 through 2.37 on Windows contains an improper certificate validation vulnerability in the IEC 60870-5-104 TLS client (Task Mode). This allows a network-positioned attacker to bypass certificate validation via a certificate with multiple simultaneous faults, enabling a Man-in-the-Middle attack on protected communications.",
+      "id": "CVE-2026-86406",
+      "published": "2026-09-13T06:16:25.157",
+      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not check the capability of the user making a membership purchase, and does not validate the payment method or the plan submitted with it, allowing any authenticated user such as a subscriber to be granted the WordPress role attached to a paid plan without paying for it. Where the site owner has mapped a plan to a privileged role, this leads to privilege escalation up to administrator.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
       "id": "CVE-2026-90495",
@@ -49,13 +49,6 @@
       "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not properly restrict who may author a membership plan or validate the plan a user attaches to their own account, allowing authenticated users with Author-level access and above to assign themselves an arbitrary role and escalate their privileges to Administrator.",
       "severity": "HIGH",
       "score": 7.2
-    },
-    {
-      "id": "CVE-2026-90486",
-      "published": "2026-09-12T23:17:01.073",
-      "description": "A vulnerability has been found in openstatusHQ openstatus up to f04c827112f30a11d571ebdad3892826034d6265. Affected by this vulnerability is an unknown functionality of the file apps/status-page/src/lib/proxy/resolve-custom-domain-rewrite.ts. The manipulation leads to server-side request forgery. The attack may be initiated remotely. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The identifier of the patch is 86f370c9c20074c3c3fdec53a359874b8e670fd4. It is suggested to install a patch to address this issue. This issue got fixed with a silent patch.",
-      "severity": "MEDIUM",
-      "score": 6.3
     },
     {
       "id": "CVE-2026-90488",
@@ -86,11 +79,11 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-90485",
-      "published": "2026-09-12T22:16:30.783",
-      "description": "A flaw has been found in IOBit Uninstaller 15.5.0.11. Affected by this issue is the function sub_11838 of the file IURegistryFilter.sys of the component IOCTL Dispatch Handler. This manipulation causes null pointer dereference. The attack requires local access. The exploit has been published and may be used. Identical IURegistryFilter.sys ships across multiple IObit families. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-88764",
+      "published": "2026-09-13T06:16:25.350",
+      "description": "The Simple Membership WordPress plugin before 4.7.8 does not validate that the membership level supplied in a PayPal payment notification matches the level configured for the paid payment button, allowing members to pay for a lower-priced membership while being granted a higher, more privileged membership level.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.4
     },
     {
       "id": "CVE-2026-90494",
@@ -107,11 +100,11 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-90487",
-      "published": "2026-09-12T23:17:01.307",
-      "description": "A vulnerability was found in Xuxueli xxl-job up to 3.4.2. Affected by this issue is some unknown functionality of the file xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobGroupController.java. The manipulation results in improper privilege management. The attack may be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-80072",
+      "published": "2026-09-13T06:16:25.060",
+      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not validate the destination of a post-login redirect before redirecting, allowing unauthenticated attackers to redirect visitors to an arbitrary external URL, which can be abused for phishing.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.7
     },
     {
       "id": "CVE-2026-90679",
@@ -121,11 +114,18 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-79300",
-      "published": "2026-09-12T23:17:00.893",
-      "description": "SEP sesam before 5.2.0.24 mishandles User Authorization with MFA. If AD authentication is configured and MFA is enforced, an attacker can create a second OTP access capability. SEP sesam and Active Directory handle username capitalization differently, which may allow multiple SEP sesam user accounts to be created for the same Active Directory (AD) account. Active Directory treats usernames as case-insensitive, while SEP sesam distinguishes between different letter casing. As a result, the same AD user can be represented by multiple SEP sesam user accounts that differ only in username capitalization. When Active Directory authentication is configured and multi-factor authentication (MFA) is enforced, this behavior may allow an additional OTP Authenticator to be registered for the same AD account, reducing the effectiveness of MFA protection.",
+      "id": "CVE-2026-88912",
+      "published": "2026-09-13T06:16:25.447",
+      "description": "The rtMedia for WordPress, BuddyPress and bbPress WordPress plugin before 4.7.12 does not check ownership before changing the privacy level of an activity and its attached media, relying only on a nonce shared with every logged-in user, allowing users with a subscriber-level account or above to make another user's private activity public or hide it.",
+      "severity": "MEDIUM",
+      "score": 4.2
+    },
+    {
+      "id": "CVE-2026-86407",
+      "published": "2026-09-13T06:16:25.260",
+      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not verify that the visitor requesting its membership confirmation page owns the account named in the request, nor that any registration or purchase has taken place, allowing unauthenticated users to retrieve another user's email address, profile fields, role and membership order details. Exploitation requires the site owner to have added a user smart tag to that page's configurable message, which the shipped default does not contain.",
       "severity": "LOW",
-      "score": 3.5
+      "score": 3.7
     },
     {
       "id": "CVE-2026-90489",
