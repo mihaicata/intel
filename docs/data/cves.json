@@ -1,26 +1,61 @@
 {
-  "totalResults": 4889,
+  "totalResults": 4905,
   "items": [
     {
-      "id": "CVE-2026-86406",
-      "published": "2026-09-13T06:16:25.157",
-      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not check the capability of the user making a membership purchase, and does not validate the payment method or the plan submitted with it, allowing any authenticated user such as a subscriber to be granted the WordPress role attached to a paid plan without paying for it. Where the site owner has mapped a plan to a privileged role, this leads to privilege escalation up to administrator.",
+      "id": "CVE-2026-90770",
+      "published": "2026-09-13T11:17:01.453",
+      "description": "Spug through 3.4.0 contains a remote code execution vulnerability in the ping_check function that interpolates user-supplied monitor addresses directly into shell commands without validation. Authenticated users with monitor permissions can inject shell metacharacters via the /monitor/run_test/ endpoint to execute arbitrary commands as the Spug process user.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-89080",
-      "published": "2026-09-13T06:16:25.637",
-      "description": "The Really Simple Security  WordPress plugin before 9.8.1 does not prevent an unauthenticated request from resetting an account's completed email two-factor enrolment, allowing an attacker who already knows the account's password to bypass the second factor and obtain that user's session, up to administrator.",
+      "id": "CVE-2026-90561",
+      "published": "2026-09-13T11:17:00.613",
+      "description": "Strapi versions 4.x through 4.26.2 and 5.x before 5.48.1 contain a stored cross-site scripting vulnerability in the content manager WYSIWYG preview component that fails to strip script tags from rich text. An Author-role user can store malicious script tags in rich text fields that execute in an Editor or Super Admin's session when the preview pane is expanded, enabling account takeover.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-90498",
-      "published": "2026-09-13T07:17:41.533",
-      "description": "A vulnerability was identified in lenve vhr 1.0-SNAPSHOT. Affected by this issue is some unknown functionality of the file vhr.sql. The manipulation leads to use of default credentials. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-90510",
+      "published": "2026-09-13T11:16:59.827",
+      "description": "A security vulnerability has been detected in dromara orion-visor up to 2.5.7. This affects the function HostKeyServiceImpl.encryptKey of the file orion-visor-modules/orion-visor-module-asset/orion-visor-module-asset-service/src/main/java/org/dromara/visor/module/asset/service/impl/HostKeyServiceImpl.java. The manipulation leads to use of hard-coded cryptographic key\r . The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.3
+    },
+    {
+      "id": "CVE-2026-90562",
+      "published": "2026-09-13T11:17:00.780",
+      "description": "LangBot before 4.10.11 generates password recovery keys with only 24 bits of entropy and applies no rate limiting to the unauthenticated reset-password endpoint. Remote attackers knowing the administrator email can exhaust the keyspace through concurrent requests to reset the admin password and gain account access.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-90768",
+      "published": "2026-09-13T11:17:01.113",
+      "description": "CAPEv2 through commit 471ee4b fails to validate task ownership in REST API endpoints, allowing authenticated users to read and delete analyses submitted by other users. Attackers can enumerate all tasks in the system and delete arbitrary analyses by sending requests to task view and delete endpoints without ownership verification.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-90769",
+      "published": "2026-09-13T11:17:01.270",
+      "description": "Open Notebook before 1.11.0 fails to validate the URL parameter in POST /api/sources endpoint, allowing authenticated users to perform server-side requests to internal services. Attackers can supply arbitrary URLs to read cloud metadata, internal network services, and localhost-bound services through the application server's direct HTTP requests.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-90772",
+      "published": "2026-09-13T11:17:01.780",
+      "description": "Amundsen frontend through 4.3.0 renders table, dashboard, and feature descriptions with dangerouslySetInnerHTML without HTML sanitization in ResourceListItem components. Attackers can inject malicious markup like img elements with onerror handlers into descriptions via the metadata service or Elasticsearch, executing JavaScript in every user's browser that views search results.",
+      "severity": "HIGH",
+      "score": 7.6
+    },
+    {
+      "id": "CVE-2026-90774",
+      "published": "2026-09-13T11:17:02.163",
+      "description": "rustypaste before 0.18.1 validates the destination path before applying the optional custom filename HTTP header, allowing attackers to bypass directory-escape checks. Attackers can supply path traversal sequences in the filename header to write files outside the configured upload directory to arbitrary locations.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
       "id": "CVE-2026-90504",
@@ -30,53 +65,46 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-80071",
-      "published": "2026-09-13T06:16:24.947",
-      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not properly restrict who may author a membership plan or validate the plan a user attaches to their own account, allowing authenticated users with Author-level access and above to assign themselves an arbitrary role and escalate their privileges to Administrator.",
+      "id": "CVE-2026-90509",
+      "published": "2026-09-13T10:16:56.117",
+      "description": "A weakness has been identified in dromara orion-visor up to 2.5.7. Affected by this issue is the function ExposeApiAspect.beforeExposeApi of the file ExposeApiAspect.java. Executing a manipulation can lead to hard-coded credentials. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-90500",
-      "published": "2026-09-13T08:16:25.980",
-      "description": "A weakness has been identified in lenve vhr 1.0-SNAPSHOT. This vulnerability affects the function FastDFSUtils.upload of the file /hr/userface of the component Avatar Upload. This manipulation of the argument File causes unrestricted upload. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-90514",
+      "published": "2026-09-13T11:17:00.423",
+      "description": "A vulnerability has been found in SourceCodester School Registration and Fee System 1.0. Impacted is an unknown function of the file /bilal/normal/save_stud.php. Such manipulation of the argument Status leads to sql injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-90513",
+      "published": "2026-09-13T11:17:00.237",
+      "description": "A flaw has been found in simalexan api-lambda-send-email-ses up to bda6869aa81371d1e872242e74fe7d953edb818d. This issue affects the function SES.sendEmail of the file template.yml of the component API Gateway Endpoint. This manipulation of the argument toEmails/ccEmails/replyToEmails/subject/message causes missing authentication. It is possible to initiate the attack remotely. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-90767",
+      "published": "2026-09-13T11:17:00.947",
+      "description": "Froxlor before 2.3.12 fails to properly validate multi-line SSH public keys in the SshKeys::add() endpoint, allowing customers to inject arbitrary lines into authorized_keys files. Attackers can inject malicious SSH key entries with option directives to gain persistent unauthorized access that survives key deletion and SSH access revocation.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-90507",
+      "published": "2026-09-13T10:16:55.720",
+      "description": "A vulnerability was identified in vvbbnn00 WARP-Clash-API up to c7bf2360073959861219b422e51ae86411051b46. Affected is the function get_surge_subscription of the file services/subscription.py of the component Subscription Handler. Such manipulation of the argument key leads to improper access controls. The attack may be launched remotely. The exploit is publicly available and might be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-90501",
-      "published": "2026-09-13T08:16:27.017",
-      "description": "A security vulnerability has been detected in lenve vhr 1.0-SNAPSHOT. This issue affects the function HrInfoController.updateHr of the file HrMapper.xml. Such manipulation of the argument Password leads to improper privilege management. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-90511",
+      "published": "2026-09-13T11:17:00.050",
+      "description": "A vulnerability was detected in GongShengyue OnlineBooks up to dfc5eacc08d3b0396c266049548618f6fb9587ea. This vulnerability affects unknown code of the file src/cn/ylcto/book/servlet/BooksServlet.java of the component listSplit Interface. The manipulation of the argument column results in sql injection. The attack may be performed from remote. The exploit is now public and may be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed.",
       "severity": "MEDIUM",
       "score": 6.3
-    },
-    {
-      "id": "CVE-2026-88764",
-      "published": "2026-09-13T06:16:25.350",
-      "description": "The Simple Membership WordPress plugin before 4.7.8 does not validate that the membership level supplied in a PayPal payment notification matches the level configured for the paid payment button, allowing members to pay for a lower-priced membership while being granted a higher, more privileged membership level.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-90499",
-      "published": "2026-09-13T07:17:41.767",
-      "description": "A security flaw has been discovered in lenve vhr 1.0-SNAPSHOT. This affects the function HrInfoController.updatePass of the file /hr/pass of the component Password Update Handler. The manipulation of the argument hrid results in improper authorization. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-77773",
-      "published": "2026-09-13T06:16:24.680",
-      "description": "The Contact Form to Chat Apps | Click to Chat to Order  WordPress plugin before 2.15.8 does not perform any capability, nonce or session check on one of its public AJAX actions, allowing unauthenticated users to read the submitted entries of any form created with a supported third-party form Contact Form to Chat Apps | Click to Chat to Order  WordPress plugin before 2.15.8.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-88995",
-      "published": "2026-09-13T06:16:25.543",
-      "description": "The Bookit — Booking & Appointment Calendar WordPress plugin before 2.6.0.1 does not properly restrict the data returned by an availability-check request, allowing unauthenticated users to retrieve other customers' appointment details, including free-text booking comments and contact information.",
-      "severity": "MEDIUM",
-      "score": 5.3
     },
     {
       "id": "CVE-2026-90505",
@@ -93,53 +121,25 @@
       "score": 5
     },
     {
-      "id": "CVE-2026-80072",
-      "published": "2026-09-13T06:16:25.060",
-      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not validate the destination of a post-login redirect before redirecting, allowing unauthenticated attackers to redirect visitors to an arbitrary external URL, which can be abused for phishing.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-90496",
-      "published": "2026-09-13T06:16:25.750",
-      "description": "A vulnerability was found in Fengoffice Feng Office up to 3.11.13.11. Affected is the function update_system_module_order/update_dimension_order of the file application/controllers/MoreController.class.php of the component Reorder Handlers. Performing a manipulation of the argument modules/dims results in sql injection. The attack may be initiated remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-88912",
-      "published": "2026-09-13T06:16:25.447",
-      "description": "The rtMedia for WordPress, BuddyPress and bbPress WordPress plugin before 4.7.12 does not check ownership before changing the privacy level of an activity and its attached media, relying only on a nonce shared with every logged-in user, allowing users with a subscriber-level account or above to make another user's private activity public or hide it.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2026-86407",
-      "published": "2026-09-13T06:16:25.260",
-      "description": "The User Registration & Membership  WordPress plugin before 5.2.8 does not verify that the visitor requesting its membership confirmation page owns the account named in the request, nor that any registration or purchase has taken place, allowing unauthenticated users to retrieve another user's email address, profile fields, role and membership order details. Exploitation requires the site owner to have added a user smart tag to that page's configurable message, which the shipped default does not contain.",
+      "id": "CVE-2026-90771",
+      "published": "2026-09-13T11:17:01.613",
+      "description": "joi before versions 17.13.8 and 18.2.9 contains a prototype pollution vulnerability in the messages compilation function that accepts __proto__ as an error code. Attackers can supply __proto__ keys in custom messages to replace the returned object's prototype, breaking downstream code relying on Object.prototype methods.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-90497",
-      "published": "2026-09-13T06:16:25.980",
-      "description": "A vulnerability was determined in Fengoffice Feng Office up to 3.11.13.11. Affected by this vulnerability is the function getTitle of the file application/views/task/add_task.php of the component Task Title Output. Executing a manipulation of the argument og_objects.name can lead to cross site scripting. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-90508",
+      "published": "2026-09-13T10:16:55.900",
+      "description": "A security flaw has been discovered in Chengdu Qilu Technology Ludashi 6.1026.4715.714. Affected by this vulnerability is the function MessageNotifyCallback in the library ProtectFilter64.sys of the component Message Dispatch Handler. Performing a manipulation results in missing authorization. Attacking locally is a requirement. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
-      "score": 3.5
+      "score": 3.4
     },
     {
-      "id": "CVE-2026-90502",
-      "published": "2026-09-13T09:16:30.827",
-      "description": "A vulnerability was detected in stilleshan ServerStatus 1.0/2.0. Impacted is an unknown function of the file server/src/main.cpp of the component Stats Generation. Performing a manipulation of the argument custom results in cross site scripting. It is possible to initiate the attack remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-90773",
+      "published": "2026-09-13T11:17:01.967",
+      "description": "procs through 0.14.12 fails to sanitize escape sequences in process command lines before displaying them in the Command column. Local attackers can execute processes with malicious ANSI or OSC escape sequences in their command line arguments, which are written unmodified to other users' terminals for interpretation by terminal emulators.",
       "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-90503",
-      "published": "2026-09-13T09:16:31.933",
-      "description": "A flaw has been found in Chengdu Qilu Technology Ludashi 6.1026.4715.714. The affected element is the function sub_11008 in the library ComputerZ_x64.sys. Executing a manipulation of the argument PhysicalAddress can lead to information disclosure. The attack needs to be launched locally. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "LOW",
-      "score": 2.3
+      "score": 3.2
     }
   ]
 }
