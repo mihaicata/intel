@@ -1,143 +1,143 @@
 {
-  "totalResults": 4804,
+  "totalResults": 4696,
   "items": [
     {
-      "id": "CVE-2023-50461",
-      "published": "2026-09-14T07:17:15.653",
-      "description": "An issue was discovered in the direct_mail (aka Direct Mail) extension through 9.5.1 for TYPO3. The Configuration backend module of the extension allows an authenticated user to write to an arbitrary TSConfig page for folders configured as Direct Mail. Exploiting this may lead to Configuration Injection (TYPO3 10.4 and above) and to Arbitrary Code Execution (TYPO3 9.5 and below). A valid backend user account, with access to the Direct Mail Configuration backend module, is needed to exploit this.",
+      "id": "CVE-2026-57123",
+      "published": "2026-09-14T15:17:05.753",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, ToolsMCPServer.run_sse and launch_tools_mcp_server bind to 0.0.0.0 and create /sse and /messages/ routes without invoking the available SecurityConfig authentication, origin-validation, or DNS-rebinding controls. Any reachable client can list and invoke registered tools, and a browser can target a local instance through DNS rebinding, with impact determined by the registered file, shell, and code-execution tools. This vulnerability is fixed in praisonaiagents 1.6.59.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-57125",
+      "published": "2026-09-14T15:17:05.900",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.59 and praisonaiagents 1.6.59, the unauthenticated POST /api/v1/runs Jobs API accepts attacker-controlled agent_yaml, and the approve field can mark execute_command as YAML-approved before @require_approval checks critical tools. This chain allows a remote caller to cause a configured language model agent to invoke arbitrary operating-system commands without credentials or operator interaction. This vulnerability is fixed in praisonai 4.6.59 and praisonaiagents 1.6.59 as fixed versions.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-82428",
+      "published": "2026-09-14T15:17:09.673",
+      "description": "Description\n\nDependency artifacts uploaded with `storm jar --artifacts` were stored under a blob key derived only from\nthe Maven coordinate, for example `dep---.jar`. The key was therefore identical\nfor every user of the cluster and predictable in advance. When the blob already existed, the uploader\ncaught `KeyAlreadyExistsException` and silently reused it, with no check that the existing blob's content\nor owner matched the artifact the submitter had resolved.\n\nA user who uploaded a blob under such a key first therefore controlled the bytes that every later submitter\nof the same coordinate would receive on the worker classpath, resulting in code execution inside another\ntenant's topology.\n\nThis affects deployments where more than one principal may create blobs and where the `--artifacts`\ndependency feature is used.\n\nMitigation\n\nUpgrade to 3.1.0, where each uploaded artifact receives a key carrying a freshly generated UUID and a\npre-existing blob is no longer silently reused.\n\nNote that the corrected key generation is on the SUBMITTING CLIENT, so upgrading the cluster alone does not\nclose this; every client that runs `storm jar --artifacts` must also be upgraded. Operators should audit\nexisting `dep-` blobs for unexpected owners before upgrading. Users who cannot upgrade immediately should\navoid the `--artifacts` mechanism in multi-tenant clusters and distribute dependencies inside the topology\njar instead.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-82762",
-      "published": "2026-09-14T07:17:17.040",
-      "description": "Improper neutralization of special elements used in an OS command ('OS Command Injection') issue exists in Contec FX5000 series, FX4000 series, and FX3000 series. If this vulnerability is exploited, an arbitrary OS command may be executed by an attacker who can log in to the product.",
+      "id": "CVE-2026-57126",
+      "published": "2026-09-14T15:17:06.040",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, SpiderTools._validate_url calls _host_is_blocked, which checks literal host encodings but does not resolve DNS names before scrape_page, crawl, extract_links, extract_text, or URL-mention fetches connect. An attacker-controlled hostname resolving to a loopback, private, link-local, or cloud-metadata address therefore bypasses the SSRF policy without a rebinding race and can expose internal responses to the agent. This issue is fixed in praisonaiagents 1.6.58.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-82766",
-      "published": "2026-09-14T07:17:17.707",
-      "description": "Improper neutralization of special elements used in an OS command ('OS Command Injection') issue exists in SGA1000. If this vulnerability is exploited, an arbitrary OS command may be executed by an attacker who can log in to the product.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-82770",
-      "published": "2026-09-14T07:17:18.277",
-      "description": "Buffer overflow vulnerability exists in Contec RP-WAH-SR Series. If a remote attacker sends a specially crafted request to the product's web service, an arbitrary program may be executed.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-82765",
-      "published": "2026-09-14T07:17:17.553",
-      "description": "Path traversal vulnerability exists in Contec FX5000 series, FX4000 series, and FX3000 series. If this vulnerability is exploited, arbitrary files on the server may be viewed and/or altered by an attacker who can access the product via FTP.",
+      "id": "CVE-2026-25687",
+      "published": "2026-09-14T15:17:05.090",
+      "description": "A race condition in the ZPA tunnel handler of affected versions of Zscaler Client Connector (ZCC) allows a heap corruption, resulting in a denial of service (client crash) and potentially arbitrary code execution in the context of the ZCC process.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-82768",
-      "published": "2026-09-14T07:17:17.980",
-      "description": "Path traversal vulnerability exists in SGA1000. If this vulnerability is exploited, arbitrary files on the server may be viewed and/or altered by an attacker who can access the product via FTP.",
+      "id": "CVE-2026-57130",
+      "published": "2026-09-14T15:17:06.453",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, src/praisonai-agents/praisonaiagents/tools/email_tools.py interpolates LLM-controlled from_addr, subject, and query values directly into quoted IMAP SEARCH criteria. Embedded quote, backslash, newline, or null characters can escape the intended criterion and alter IMAP operations when search_emails, reply_email, or archive_email is exposed to an agent with configured email credentials, allowing mailbox data access, modification, deletion, or connection disruption. This issue is fixed in praisonaiagents 1.6.59.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-68955",
-      "published": "2026-09-14T07:17:16.663",
-      "description": "The installer for Rakuten Kobo Desktop Application (Windows version) insecurely loads Dynamic Link Libraries. If there is a crafted DLL at the same directory when invoking the affected installer, arbitrary code may be executed with the privileges of the user who performed the installation.",
+      "id": "CVE-2026-59569",
+      "published": "2026-09-14T15:17:06.603",
+      "description": "An improper input validation vulnerability in Zscaler Client Connector on Android and ChromeOS allows an attacker to potentially bypass Zscaler controls.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-82427",
+      "published": "2026-09-14T15:17:09.553",
+      "description": "Description\n\nA topology's `topology.blobstore.map` lets the submitter choose a local name for each blob that the\nsupervisor localises. That name was used to build a path under the topology's working directory without\nnormalisation, in both `AsyncLocalizer` and `Container.createBlobstoreLinks`, and the symlink helper\nforce-deletes whatever already exists at the target before creating the link.\n\nA submitter could therefore use `../` segments to direct that delete-and-symlink operation at an arbitrary\npath, as the supervisor user, on every node the topology is scheduled onto. The consequences include\nrecursive deletion of supervisor-owned content and planting a symlink that causes a subsequent worker\nlaunch to execute attacker-chosen code as another tenant's operating-system user, which defeats the\nisolation that `supervisor.run.worker.as.user` is intended to provide.\n\nMitigation\n\nUpgrade to 3.1.0, where the resolved target must lie inside the expected root at both call sites.\n\nUsers who cannot upgrade immediately should restrict topology submission to trusted principals, and may\nreject submissions whose `topology.blobstore.map` entries contain path separators or `..` segments before\nthey reach Nimbus.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2023-51769",
-      "published": "2026-09-14T07:17:15.933",
-      "description": "Frappe before 14.49.0 allows an XSS attack that is associated with blog pages and exception pages.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-82429",
+      "published": "2026-09-14T15:17:09.807",
+      "description": "Description\n\nThe setuid-root `worker-launcher` binary adjusts ownership and permissions of worker directories by walking\nthe tree with FTS and calling `lchown` and `chmod` on each entry's full pathname while running with an\neffective uid of 0. Both syscalls re-resolve the path at the time of the call, after FTS has classified the\nentry, and the trees being walked are owned and writable by the untrusted topology user.\n\nA tenant running code on a supervisor node could therefore replace an intermediate directory component with\na symbolic link between classification and the privileged operation, redirecting the root-owned `lchown` or\n`chmod` at an arbitrary file on the host. The operation is repeatable at will, since crashing a worker\nforces a relaunch and blob updates re-run the walk, so a failed attempt costs the attacker nothing.\n\nThis crosses the boundary that `supervisor.run.worker.as.user` and container isolation are intended to\nenforce. It is the same defect class as the Hadoop container-executor issues from which this code derives.\n\nMitigation\n\nUpgrade to 3.1.0, where the privileged walk operates on file descriptors it has already stat'd rather than\non pathnames re-resolved at call time.\n\nUsers who cannot upgrade immediately should not run untrusted topology code on supervisors configured with\n`supervisor.run.worker.as.user`, since the launcher is the boundary being crossed. Note that the launcher\nmust be rebuilt and reinstalled after upgrading; replacing the Java artifacts alone is not sufficient.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
-      "id": "CVE-2023-50459",
-      "published": "2026-09-14T07:17:15.353",
-      "description": "An issue was discovered in the femanager extension 7.x before 7.2.3 for TYPO3. It fails to check access permissions for the edit user component. An authenticated frontend user can exploit this to either edit data of various frontend users or delete various frontend user accounts.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-82430",
+      "published": "2026-09-14T15:17:09.930",
+      "description": "Description\n\nWhen launching a Docker or OCI worker, the setuid-root `worker-launcher` first changes ownership of the\nentire worker directory to the untrusted topology user, and only afterwards reads and acts on the command\nfile that the supervisor wrote into that same directory. The file is opened without `O_NOFOLLOW` and without\nre-verifying its owner, so between the ownership change and the read the tenant can replace its contents.\n\nFor the Docker path the parsed command is executed with real uid 0, and the command sanitiser is not a\nprivilege boundary: it admits `-v` with an arbitrary source, `--device`, `--cap-add`, `--security-opt`,\n`--user` and `--net`, and copies positional arguments through verbatim. A rewritten file therefore yields an\nattacker-authored, root-equivalent container invocation with the host filesystem available.\n\nFor the OCI path the same rewrite window applies, and mount validation is structural only, with no\nsource or destination allow-list, so arbitrary host paths can be bind-mounted read-write into the\ncontainer. The `username` field of the command file is likewise attacker-settable and is checked only\nagainst non-root and minimum-uid rules, permitting execution as another tenant's uid.\n\nMitigation\n\nUpgrade to 3.1.0, where the command file is validated before the ownership change and re-verified on open,\nand where mount sources and destinations are constrained by configuration.\n\nUsers who cannot upgrade immediately should disable Docker and OCI worker isolation, or restrict topology\nsubmission on affected supervisors to trusted principals. Note that the launcher must be rebuilt and\nreinstalled after upgrading.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
-      "id": "CVE-2023-50460",
-      "published": "2026-09-14T07:17:15.510",
-      "description": "An issue was discovered in the femanager extension 7.x before 7.2.3 for TYPO3. The backend module allows an authenticated backend user to perform various actions (userLogout, confirmUser, refuseUser, and resendUserConfirmation) for any frontend user in the system.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-57129",
+      "published": "2026-09-14T15:17:06.317",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, MentionsParser._process_file_mention accepts file-mention values and falls back from workspace-relative resolution to Path(file_path) without traversal, symlink, or workspace-boundary validation. Prompt input from users, bots, or workflows can therefore read arbitrary files accessible to the process, including credentials, keys, environment files, source code, and system configuration. This issue is fixed in praisonaiagents 1.6.59.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2024-23176",
-      "published": "2026-09-14T07:17:16.097",
-      "description": "An issue was discovered in the MassMessage extension in MediaWiki before 1.40.2. For a Special:MassMessage?uselang=x-xss URL, the i18n key massmessage-form-page-help allows XSS.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-59570",
+      "published": "2026-09-14T15:17:06.720",
+      "description": "On affected versions of Zscaler client connector, a pre-installed peer app can tear down the Zscaler tunnel, force user logout, and toggle packet capture.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-82763",
-      "published": "2026-09-14T07:17:17.210",
-      "description": "Cross-site scripting vulnerability exists in Contec FX5000 series, FX4000 series, and FX3000 series. If this vulnerability is exploited, an arbitrary script may be executed on a logged-in user's web browser.",
+      "id": "CVE-2026-12985",
+      "published": "2026-09-14T15:17:04.270",
+      "description": "Mattermost versions 11.9.x <= 11.9.0, 11.8.x <= 11.8.4, 11.7.x <= 11.7.7 Mattermost failed to validate Dynamic Client Registration redirect URIs by URL component (matching glob patterns against the raw URI string instead) which allows a remote unauthenticated attacker to register an OAuth client with an attacker-controlled callback host that bypasses the configured redirect URI allowlist via a crafted redirect URI that places an allowlisted host/path suffix inside the query string.. Mattermost Advisory ID: MMSA-2026-00700",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-82769",
-      "published": "2026-09-14T07:17:18.120",
-      "description": "Cross-site scripting vulnerability exists in Contec RP-WAH-SR Series. If this vulnerability is exploited, an arbitrary script may be executed on a logged-in user's web browser.",
+      "id": "CVE-2026-57115",
+      "published": "2026-09-14T15:17:05.450",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, SpiderTools.scrape_page validates only the initial URL and lets requests.Session.get follow redirects automatically, so a public-looking URL can redirect to a loopback, private, link-local, or metadata address without revalidation. The redirected response body is returned through scrape_page and its extract_links, crawl, and extract_text callers, allowing disclosure from otherwise blocked services. This issue is fixed in praisonaiagents 1.6.59.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-82771",
-      "published": "2026-09-14T07:17:18.413",
-      "description": "Cross-site scripting vulnerability exists in Contec EC1000 series. If this vulnerability is exploited, an arbitrary script may be executed on a logged-in user's web browser.",
+      "id": "CVE-2026-57120",
+      "published": "2026-09-14T15:17:05.607",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, execute_code sandbox mode permits runtime assembly of blocklisted dunder names and allows str.format or str.format_map to resolve dotted fields through C-level attribute access that bypasses _safe_getattr. This exposes class, qualified-name, base-class, globals, and object-dictionary attributes to prompt-influenced code when approval is automatically granted, producing a high-impact read primitive without establishing a complete in-process execution chain. This issue is fixed in praisonaiagents 1.6.59.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2023-50462",
-      "published": "2026-09-14T07:17:15.793",
-      "description": "An issue was discovered in the content_consent (aka Content Consent) extension through 2.0.1 for TYPO3. It fails to verify whether a specified content element identifier is permitted by the plugin. This enables an unauthenticated user to display various content elements, leading to an insecure direct object reference (IDOR) issue with the potential to expose internal content elements.",
+      "id": "CVE-2026-82426",
+      "published": "2026-09-14T15:17:09.410",
+      "description": "Description\n\nNimbus accepted the `uploadedJarLocation` argument of `submitTopology` / `submitTopologyWithOpts` as a\nserver-side path and opened it directly, without checking that it referred to a file the caller had\nactually uploaded. The intended flow is that a client first calls `beginFileUpload`, which returns a path\ninside the Nimbus inbox, and uploads the jar in chunks to that location; nothing bound submission to that\nflow, and the `uploaders` map populated by `beginFileUpload` was never consulted at submit time.\n\nAn authenticated user with topology submission rights could therefore submit any path readable by the\nNimbus daemon user as their topology jar. Nimbus copied the file into the topology's jar blob, and the\nblob ACL grants the submitting subject read access, so the contents could then be retrieved with the\nordinary blob download RPCs. Candidate targets include the Nimbus Kerberos keytab, Thrift and UI TLS\nprivate keys, and `storm.yaml` with the ZooKeeper authentication payload. Possession of the Nimbus keytab\nturns an ordinary tenant into a cluster administrator.\n\nIn a deployment configured as the documentation recommends, submission is available to every\nauthenticated principal when `nimbus.users` is unset, so no elevated privilege is required.\n\nMitigation\n\nUpgrade to 3.1.0, where the submitted location is canonicalised and must resolve inside the Nimbus inbox.\n\nUsers who cannot upgrade immediately should restrict topology submission to trusted principals via\n`nimbus.users` or `nimbus.groups`, and should treat any file readable by the Nimbus daemon user as\npotentially exposed to submitters: rotate the Nimbus keytab and any TLS private keys or ZooKeeper\ncredentials reachable from that account. Local mode is unaffected.\n\n\nCredit\n\nIndependently reported to the Apache Storm PMC by n0mi1k, with a proof of concept.\n\nAlso found by the ASF using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-82767",
-      "published": "2026-09-14T07:17:17.843",
-      "description": "Cross-site scripting vulnerability exists in SGA1000. If this vulnerability is exploited, an arbitrary script may be executed on a logged-in user's web browser.",
-      "severity": "MEDIUM",
-      "score": 5.2
-    },
-    {
-      "id": "CVE-2026-82764",
-      "published": "2026-09-14T07:17:17.363",
-      "description": "Cross-site request forgery vulnerability exists in multiple Contec products. If a user views a specially crafted page while logged in to the affected product, unintended operations may be performed.",
+      "id": "CVE-2026-57128",
+      "published": "2026-09-14T15:17:06.177",
+      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, the SSE server in src/praisonai-agents/praisonaiagents/server/server.py does not consult ServerConfig.auth_token before handling /publish, /events, or /info requests. A network client that can reach the server can broadcast arbitrary events to connected clients and obtain server configuration and client-count information. This issue is fixed in praisonaiagents 1.6.58.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2025-26790",
-      "published": "2026-09-14T07:17:16.267",
-      "description": "Withsecure Atlant with Capricorn engine before 2025-01-20_02 allows a Remote Denial of Service via an out-of-bounds memory read during processing of a document file by the antivirus engine.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-82019",
+      "published": "2026-09-14T15:17:09.223",
+      "description": "TripleLift's ad rendering script (video-bundle.js) contains a DOM-based cross-site scripting vulnerability that allows unauthenticated attackers to execute arbitrary JavaScript in a publisher's domain by sending crafted postMessage payloads without origin validation. Attackers can cause a victim to visit an attacker-controlled page that sends malicious postMessage events to a publisher page running the ad script, enabling session hijacking and unauthorized DOM manipulation.",
+      "severity": "MEDIUM",
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-25832",
-      "published": "2026-09-14T07:17:16.490",
-      "description": "In Mbed TLS 3.6.x before 3.6.7 and 4.1.x before 4.1.2, the TLS 1.3 client accepts HelloRetryRequest selecting an unadvertised group.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-15600",
+      "published": "2026-09-14T15:17:04.393",
+      "description": "Alior Bank PrestaShop module \"raty\" for commercial partners is vulnerable to SQL Injection in the toggleCategoryPromotionAction method. The module inserts value of the POST parameter \"status\" into SQL UPDATE queries without any sanitization or validation. An attacker with access to the product or category add/edit functionality in the PrestaShop backoffice can inject arbitrary SQL, potentially allowing unauthorized access to and modification of database contents.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-71198",
-      "published": "2026-09-14T07:17:16.867",
-      "description": "In OpenStack Glance before 32.0.1, the location API does not validate destination hosts when adding an HTTP location to an image. Unlike the web-download import path, the location API only checks the URL scheme and does not apply the import_filtering_opts host restrictions. An authenticated user can add a location pointing to internal endpoints such as the cloud metadata service (169.254.169.254), and retrieve the response by downloading the image data. This affects both the new POST /v2/images/{id}/locations API and the old PATCH API when show_multiple_locations is enabled. Deployments with the HTTP store backend enabled are affected.",
+      "id": "CVE-2026-7848",
+      "published": "2026-09-14T15:17:08.560",
+      "description": "Alior Bank PrestaShop module \"raty\" for commercial partners is vulnerable to SQL Injection in the \"hookActionObjectProductUpdateBefore\", \"hookActionObjectCategoryUpdateBefore\", and \"hookActionObjectCategoryAddAfter\" hook methods. The module inserts values of the POST parameters \"alior_product_promotion\",  \"alior_category_promotion\" and \"alior_category_enabled\" directly into SQL UPDATE queries without any sanitization or validation. An attacker with access to the product or category add/edit functionality in the PrestaShop backoffice can inject arbitrary SQL, potentially allowing unauthorized access to and modification of database contents. This issue was fixed in versions: 9.0.7 and 8.1.11",
       "severity": "UNKNOWN",
       "score": null
     }
