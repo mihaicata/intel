@@ -1,145 +1,145 @@
 {
-  "totalResults": 4696,
+  "totalResults": 4638,
   "items": [
     {
-      "id": "CVE-2026-57123",
-      "published": "2026-09-14T15:17:05.753",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, ToolsMCPServer.run_sse and launch_tools_mcp_server bind to 0.0.0.0 and create /sse and /messages/ routes without invoking the available SecurityConfig authentication, origin-validation, or DNS-rebinding controls. Any reachable client can list and invoke registered tools, and a browser can target a local instance through DNS rebinding, with impact determined by the registered file, shell, and code-execution tools. This vulnerability is fixed in praisonaiagents 1.6.59.",
+      "id": "CVE-2026-16338",
+      "published": "2026-09-14T20:16:40.410",
+      "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 IBM DataStage could allow a remote authenticated attacker to perform an arbitrary file write due to improper validation of file paths.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-57125",
-      "published": "2026-09-14T15:17:05.900",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.59 and praisonaiagents 1.6.59, the unauthenticated POST /api/v1/runs Jobs API accepts attacker-controlled agent_yaml, and the approve field can mark execute_command as YAML-approved before @require_approval checks critical tools. This chain allows a remote caller to cause a configured language model agent to invoke arbitrary operating-system commands without credentials or operator interaction. This vulnerability is fixed in praisonai 4.6.59 and praisonaiagents 1.6.59 as fixed versions.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-82428",
-      "published": "2026-09-14T15:17:09.673",
-      "description": "Description\n\nDependency artifacts uploaded with `storm jar --artifacts` were stored under a blob key derived only from\nthe Maven coordinate, for example `dep---.jar`. The key was therefore identical\nfor every user of the cluster and predictable in advance. When the blob already existed, the uploader\ncaught `KeyAlreadyExistsException` and silently reused it, with no check that the existing blob's content\nor owner matched the artifact the submitter had resolved.\n\nA user who uploaded a blob under such a key first therefore controlled the bytes that every later submitter\nof the same coordinate would receive on the worker classpath, resulting in code execution inside another\ntenant's topology.\n\nThis affects deployments where more than one principal may create blobs and where the `--artifacts`\ndependency feature is used.\n\nMitigation\n\nUpgrade to 3.1.0, where each uploaded artifact receives a key carrying a freshly generated UUID and a\npre-existing blob is no longer silently reused.\n\nNote that the corrected key generation is on the SUBMITTING CLIENT, so upgrading the cluster alone does not\nclose this; every client that runs `storm jar --artifacts` must also be upgraded. Operators should audit\nexisting `dep-` blobs for unexpected owners before upgrading. Users who cannot upgrade immediately should\navoid the `--artifacts` mechanism in multi-tenant clusters and distribute dependencies inside the topology\njar instead.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
+      "id": "CVE-2026-16428",
+      "published": "2026-09-14T20:16:40.537",
+      "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 IBM DataStage could allow a remote authenticated attacker to execute arbitrary code due to improper configuration of the XSLT transformation engine.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-57126",
-      "published": "2026-09-14T15:17:06.040",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, SpiderTools._validate_url calls _host_is_blocked, which checks literal host encodings but does not resolve DNS names before scrape_page, crawl, extract_links, extract_text, or URL-mention fetches connect. An attacker-controlled hostname resolving to a loopback, private, link-local, or cloud-metadata address therefore bypasses the SSRF policy without a rebinding race and can expose internal responses to the agent. This issue is fixed in praisonaiagents 1.6.58.",
+      "id": "CVE-2026-16466",
+      "published": "2026-09-14T20:16:40.917",
+      "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 IBM DataStage could allow a remote authenticated attacker to execute arbitrary commands due to os command injection.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-25687",
-      "published": "2026-09-14T15:17:05.090",
-      "description": "A race condition in the ZPA tunnel handler of affected versions of Zscaler Client Connector (ZCC) allows a heap corruption, resulting in a denial of service (client crash) and potentially arbitrary code execution in the context of the ZCC process.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-57130",
-      "published": "2026-09-14T15:17:06.453",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, src/praisonai-agents/praisonaiagents/tools/email_tools.py interpolates LLM-controlled from_addr, subject, and query values directly into quoted IMAP SEARCH criteria. Embedded quote, backslash, newline, or null characters can escape the intended criterion and alter IMAP operations when search_emails, reply_email, or archive_email is exposed to an agent with configured email credentials, allowing mailbox data access, modification, deletion, or connection disruption. This issue is fixed in praisonaiagents 1.6.59.",
+      "id": "CVE-2026-16335",
+      "published": "2026-09-14T20:16:40.270",
+      "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 IBM DataStage could allow a remote authenticated attacker to read, write, or delete arbitrary files due to a path traversal vulnerability.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-59569",
-      "published": "2026-09-14T15:17:06.603",
-      "description": "An improper input validation vulnerability in Zscaler Client Connector on Android and ChromeOS allows an attacker to potentially bypass Zscaler controls.",
+      "id": "CVE-2026-16432",
+      "published": "2026-09-14T20:16:40.663",
+      "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 IBM DataStage PxXMLInput operator could allow a remote authenticated attacker to obtain sensitive information due to an XML external entity (XXE) injection.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-82427",
-      "published": "2026-09-14T15:17:09.553",
-      "description": "Description\n\nA topology's `topology.blobstore.map` lets the submitter choose a local name for each blob that the\nsupervisor localises. That name was used to build a path under the topology's working directory without\nnormalisation, in both `AsyncLocalizer` and `Container.createBlobstoreLinks`, and the symlink helper\nforce-deletes whatever already exists at the target before creating the link.\n\nA submitter could therefore use `../` segments to direct that delete-and-symlink operation at an arbitrary\npath, as the supervisor user, on every node the topology is scheduled onto. The consequences include\nrecursive deletion of supervisor-owned content and planting a symlink that causes a subsequent worker\nlaunch to execute attacker-chosen code as another tenant's operating-system user, which defeats the\nisolation that `supervisor.run.worker.as.user` is intended to provide.\n\nMitigation\n\nUpgrade to 3.1.0, where the resolved target must lie inside the expected root at both call sites.\n\nUsers who cannot upgrade immediately should restrict topology submission to trusted principals, and may\nreject submissions whose `topology.blobstore.map` entries contain path separators or `..` segments before\nthey reach Nimbus.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-82429",
-      "published": "2026-09-14T15:17:09.807",
-      "description": "Description\n\nThe setuid-root `worker-launcher` binary adjusts ownership and permissions of worker directories by walking\nthe tree with FTS and calling `lchown` and `chmod` on each entry's full pathname while running with an\neffective uid of 0. Both syscalls re-resolve the path at the time of the call, after FTS has classified the\nentry, and the trees being walked are owned and writable by the untrusted topology user.\n\nA tenant running code on a supervisor node could therefore replace an intermediate directory component with\na symbolic link between classification and the privileged operation, redirecting the root-owned `lchown` or\n`chmod` at an arbitrary file on the host. The operation is repeatable at will, since crashing a worker\nforces a relaunch and blob updates re-run the walk, so a failed attempt costs the attacker nothing.\n\nThis crosses the boundary that `supervisor.run.worker.as.user` and container isolation are intended to\nenforce. It is the same defect class as the Hadoop container-executor issues from which this code derives.\n\nMitigation\n\nUpgrade to 3.1.0, where the privileged walk operates on file descriptors it has already stat'd rather than\non pathnames re-resolved at call time.\n\nUsers who cannot upgrade immediately should not run untrusted topology code on supervisors configured with\n`supervisor.run.worker.as.user`, since the launcher is the boundary being crossed. Note that the launcher\nmust be rebuilt and reinstalled after upgrading; replacing the Java artifacts alone is not sufficient.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-82430",
-      "published": "2026-09-14T15:17:09.930",
-      "description": "Description\n\nWhen launching a Docker or OCI worker, the setuid-root `worker-launcher` first changes ownership of the\nentire worker directory to the untrusted topology user, and only afterwards reads and acts on the command\nfile that the supervisor wrote into that same directory. The file is opened without `O_NOFOLLOW` and without\nre-verifying its owner, so between the ownership change and the read the tenant can replace its contents.\n\nFor the Docker path the parsed command is executed with real uid 0, and the command sanitiser is not a\nprivilege boundary: it admits `-v` with an arbitrary source, `--device`, `--cap-add`, `--security-opt`,\n`--user` and `--net`, and copies positional arguments through verbatim. A rewritten file therefore yields an\nattacker-authored, root-equivalent container invocation with the host filesystem available.\n\nFor the OCI path the same rewrite window applies, and mount validation is structural only, with no\nsource or destination allow-list, so arbitrary host paths can be bind-mounted read-write into the\ncontainer. The `username` field of the command file is likewise attacker-settable and is checked only\nagainst non-root and minimum-uid rules, permitting execution as another tenant's uid.\n\nMitigation\n\nUpgrade to 3.1.0, where the command file is validated before the ownership change and re-verified on open,\nand where mount sources and destinations are constrained by configuration.\n\nUsers who cannot upgrade immediately should disable Docker and OCI worker isolation, or restrict topology\nsubmission on affected supervisors to trusted principals. Note that the launcher must be rebuilt and\nreinstalled after upgrading.\n\nCredit\n\nThe ASF -- found using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-57129",
-      "published": "2026-09-14T15:17:06.317",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, MentionsParser._process_file_mention accepts file-mention values and falls back from workspace-relative resolution to Path(file_path) without traversal, symlink, or workspace-boundary validation. Prompt input from users, bots, or workflows can therefore read arbitrary files accessible to the process, including credentials, keys, environment files, source code, and system configuration. This issue is fixed in praisonaiagents 1.6.59.",
+      "id": "CVE-2026-15955",
+      "published": "2026-09-14T20:16:39.057",
+      "description": "IBM Db2 11.5.0 through 11.5.9, and 12.1.0 through 12.1.5 could allow a remote attacker to perform an arbitrary file write due to improper validation of file paths.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-59570",
-      "published": "2026-09-14T15:17:06.720",
-      "description": "On affected versions of Zscaler client connector, a pre-installed peer app can tear down the Zscaler tunnel, force user logout, and toggle packet capture.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-12985",
-      "published": "2026-09-14T15:17:04.270",
-      "description": "Mattermost versions 11.9.x <= 11.9.0, 11.8.x <= 11.8.4, 11.7.x <= 11.7.7 Mattermost failed to validate Dynamic Client Registration redirect URIs by URL component (matching glob patterns against the raw URI string instead) which allows a remote unauthenticated attacker to register an OAuth client with an attacker-controlled callback host that bypasses the configured redirect URI allowlist via a crafted redirect URI that places an allowlisted host/path suffix inside the query string.. Mattermost Advisory ID: MMSA-2026-00700",
+      "id": "CVE-2026-16147",
+      "published": "2026-09-14T20:16:39.207",
+      "description": "The ITE IT82xx2 USB device-controller driver (drivers/usb/udc/udc_it82xx2.c) mishandles multi-packet OUT transfers on non-control endpoints. In work_handler_out() the active transfer buffer is obtained with udc_buf_peek() (which does not dequeue it); when a full max-packet-size packet arrives but the buffer still has tailroom (the transfer is not yet complete), the pre-fix code both re-arms the endpoint to keep filling that same buf via work_handler_xfer_continue() and simultaneously hands the same, still-being-filled buffer to the upper stack with udc_submit_ep_event().\n\nBecause udc_submit_ep_event() transfers ownership of the buffer to the USB device stack (usbd_event_carrier() appends &buf->node to uds_ctx->ep_events, after which the class handler processes and net_buf_unref()s it), the driver continues to DMA subsequent host-controlled OUT packets into a buffer the upper stack may already have freed and recycled — a use-after-free write. In addition, since the buffer was never dequeued, the completing packet runs udc_buf_get() on the same object and submits it a second time, appending &buf->node to the event slist twice (singly-linked-list corruption) and causing a double net_buf_unref().\n\nThe IT82xx2 is a USB peripheral controller, so the untrusted USB host controls OUT-transfer packetization and can force this path against any non-control OUT endpoint whose queued buffer exceeds one packet — an ordinary bulk/interrupt pattern. The driver and USB device stack run in kernel context above the external host, giving the host a device-side kernel heap-corruption primitive: a reliable denial of service and, because the written bytes are attacker-controlled, plausible corruption of adjacent net_buf pool memory. The vector is physical (USB attach). The fix defers submission until the buffer is completely filled and lets xfer_work_handler() drive continuation, so each OUT buffer is submitted to the upper stack exactly once.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-57115",
-      "published": "2026-09-14T15:17:05.450",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, SpiderTools.scrape_page validates only the initial URL and lets requests.Session.get follow redirects automatically, so a public-looking URL can redirect to a loopback, private, link-local, or metadata address without revalidation. The redirected response body is returned through scrape_page and its extract_links, crawl, and extract_text callers, allowing disclosure from otherwise blocked services. This issue is fixed in praisonaiagents 1.6.59.",
+      "id": "CVE-2026-15396",
+      "published": "2026-09-14T20:16:38.153",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 and IBM WebSphere Application Server - Liberty are vulnerable to HTTP request smuggling, caused by improper parsing of the HTTP transfer-encoding request header. By sending a specially crafted HTTP transfer-encoding request header, an attacker could exploit this vulnerability to poison the web cache, bypass web application firewall protection, and conduct XSS attacks.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-57120",
-      "published": "2026-09-14T15:17:05.607",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, execute_code sandbox mode permits runtime assembly of blocklisted dunder names and allows str.format or str.format_map to resolve dotted fields through C-level attribute access that bypasses _safe_getattr. This exposes class, qualified-name, base-class, globals, and object-dictionary attributes to prompt-influenced code when approval is automatically granted, producing a high-impact read primitive without establishing a complete in-process execution chain. This issue is fixed in praisonaiagents 1.6.59.",
+      "id": "CVE-2026-15412",
+      "published": "2026-09-14T20:16:38.287",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 and IBM WebSphere Application Server - Liberty could allow a remote attacker to conduct phishing attacks, using an open redirect attack. By persuading a victim to visit a specially crafted Web site, a remote attacker could exploit this vulnerability to spoof the URL displayed to redirect a user to a malicious Web site that would appear to be trusted. This could allow the attacker to obtain highly sensitive information or conduct further attacks against the victim.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-82426",
-      "published": "2026-09-14T15:17:09.410",
-      "description": "Description\n\nNimbus accepted the `uploadedJarLocation` argument of `submitTopology` / `submitTopologyWithOpts` as a\nserver-side path and opened it directly, without checking that it referred to a file the caller had\nactually uploaded. The intended flow is that a client first calls `beginFileUpload`, which returns a path\ninside the Nimbus inbox, and uploads the jar in chunks to that location; nothing bound submission to that\nflow, and the `uploaders` map populated by `beginFileUpload` was never consulted at submit time.\n\nAn authenticated user with topology submission rights could therefore submit any path readable by the\nNimbus daemon user as their topology jar. Nimbus copied the file into the topology's jar blob, and the\nblob ACL grants the submitting subject read access, so the contents could then be retrieved with the\nordinary blob download RPCs. Candidate targets include the Nimbus Kerberos keytab, Thrift and UI TLS\nprivate keys, and `storm.yaml` with the ZooKeeper authentication payload. Possession of the Nimbus keytab\nturns an ordinary tenant into a cluster administrator.\n\nIn a deployment configured as the documentation recommends, submission is available to every\nauthenticated principal when `nimbus.users` is unset, so no elevated privilege is required.\n\nMitigation\n\nUpgrade to 3.1.0, where the submitted location is canonicalised and must resolve inside the Nimbus inbox.\n\nUsers who cannot upgrade immediately should restrict topology submission to trusted principals via\n`nimbus.users` or `nimbus.groups`, and should treat any file readable by the Nimbus daemon user as\npotentially exposed to submitters: rotate the Nimbus keytab and any TLS private keys or ZooKeeper\ncredentials reachable from that account. Local mode is unaffected.\n\n\nCredit\n\nIndependently reported to the Apache Storm PMC by n0mi1k, with a proof of concept.\n\nAlso found by the ASF using Claude agents to study the security of open-source projects, validated and reported by Apache Storm.",
+      "id": "CVE-2026-15634",
+      "published": "2026-09-14T20:16:38.540",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 and IBM WebSphere Application Server - Liberty are vulnerable to HTTP request smuggling, caused by improper parsing of the HTTP transfer-encoding request header. By sending a specially crafted HTTP transfer-encoding request header, an attacker could exploit this vulnerability to poison the web cache, bypass web application firewall protection, and conduct XSS attacks.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-57128",
-      "published": "2026-09-14T15:17:06.177",
-      "description": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, the SSE server in src/praisonai-agents/praisonaiagents/server/server.py does not consult ServerConfig.auth_token before handling /publish, /events, or /info requests. A network client that can reach the server can broadcast arbitrary events to connected clients and obtain server configuration and client-count information. This issue is fixed in praisonaiagents 1.6.58.",
+      "id": "CVE-2026-16187",
+      "published": "2026-09-14T20:16:39.757",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 could allow a remote attacker to bypass authentication and obtain sensitive information by sending a crafted unauthenticated request.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-82019",
-      "published": "2026-09-14T15:17:09.223",
-      "description": "TripleLift's ad rendering script (video-bundle.js) contains a DOM-based cross-site scripting vulnerability that allows unauthenticated attackers to execute arbitrary JavaScript in a publisher's domain by sending crafted postMessage payloads without origin validation. Attackers can cause a victim to visit an attacker-controlled page that sends malicious postMessage events to a publisher page running the ad script, enabling session hijacking and unauthorized DOM manipulation.",
+      "id": "CVE-2026-16185",
+      "published": "2026-09-14T20:16:39.500",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 could allow a remote attacker to bypass authentication on an admin console servlet.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-15600",
-      "published": "2026-09-14T15:17:04.393",
-      "description": "Alior Bank PrestaShop module \"raty\" for commercial partners is vulnerable to SQL Injection in the toggleCategoryPromotionAction method. The module inserts value of the POST parameter \"status\" into SQL UPDATE queries without any sanitization or validation. An attacker with access to the product or category add/edit functionality in the PrestaShop backoffice can inject arbitrary SQL, potentially allowing unauthorized access to and modification of database contents.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-15924",
+      "published": "2026-09-14T20:16:38.907",
+      "description": "Zephyr's TLS socket layer in subsys/net/lib/sockets/sockets_tls.c keeps a single process-global array, client_cache, of cached client sessions that is shared by every TLS socket context. The functions that mutate and read it — tls_session_save(), tls_session_get(), tls_session_cache_reset(), and the settings restore handler — allocate, free, and dereference each entry's heap buffer (entry->session). Before the fix these accesses were serialized only by the per-socket context mutex ctx->lock (assigned per socket in ctx_set_lock()), which provides no mutual exclusion between different sockets touching the shared cache.\n\nBecause CONFIG_NET_SOCKETS_TLS_MAX_CLIENT_SESSION_COUNT defaults to 1, any two concurrent client sockets contend for the same slot. A thread in tls_session_get() reading entry->session inside mbedtls_ssl_session_load() can run concurrently with another thread in tls_session_save() that selects the same entry for reuse and executes mbedtls_free(entry->session) before reallocating — a use-after-free read, and a double-free when two saves evict the same entry. Both corrupt the mbedTLS heap. The cache is reached on ordinary client paths: at connect time via tls_session_store()/tls_session_restore(), and (on main) whenever a TLS 1.3 session ticket arrives during recv()/poll() via tls_session_store_current().\n\nExploitation requires an application that opts into per-socket client session caching (the TLS_SESSION_CACHE socket option, off by default) and runs concurrent TLS client connections on multiple threads; the timing that opens the window is influenced by the remote peer(s), so a malicious or compromised server can raise session-ticket frequency to widen it. The reliably-demonstrable impact is memory corruption leading to a crash or heap corruption (denial of service). The fix adds a dedicated session_cache_lock mutex taken across every accessor of client_cache, serializing all reads and frees and closing the race.",
+      "severity": "MEDIUM",
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-7848",
-      "published": "2026-09-14T15:17:08.560",
-      "description": "Alior Bank PrestaShop module \"raty\" for commercial partners is vulnerable to SQL Injection in the \"hookActionObjectProductUpdateBefore\", \"hookActionObjectCategoryUpdateBefore\", and \"hookActionObjectCategoryAddAfter\" hook methods. The module inserts values of the POST parameters \"alior_product_promotion\",  \"alior_category_promotion\" and \"alior_category_enabled\" directly into SQL UPDATE queries without any sanitization or validation. An attacker with access to the product or category add/edit functionality in the PrestaShop backoffice can inject arbitrary SQL, potentially allowing unauthorized access to and modification of database contents. This issue was fixed in versions: 9.0.7 and 8.1.11",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-16435",
+      "published": "2026-09-14T20:16:40.790",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 is affected by an authentication bypass vulnerability when using XD or Intelligent-Management features.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-15887",
+      "published": "2026-09-14T20:16:38.663",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 is affected by blind server-side request forgery when processing SOAP requests.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-16186",
+      "published": "2026-09-14T20:16:39.623",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 is affected by a reflected cross-site scripting vulnerability.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-16188",
+      "published": "2026-09-14T20:16:39.887",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 could allow a remote attacker to inject forged log entries into the server's administrative log.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-16189",
+      "published": "2026-09-14T20:16:40.020",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 could allow a remote attacker to inject forged log entries into the server's administrative log.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-16148",
+      "published": "2026-09-14T20:16:39.360",
+      "description": "The ITE it82xx2 USB device-controller driver initialized its bus-suspend detection work with k_work_init_delayable(&priv->suspended_work, suspended_handler) inside it82xx2_enable() (the driver's .enable op) in drivers/usb/udc/udc_it82xx2.c. This work item is scheduled essentially continuously while the USB bus is active: the interrupt handler reschedules it on every SOF frame and suspended_handler() reschedules itself, so its timeout node is normally linked in the kernel timeout list / a workqueue pending queue.\n\nk_work_init_delayable() (kernel/work.c) unconditionally overwrites the entire k_work_delayable structure, including its timeout and queue linkage, with no busy check. Because it82xx2_disable() does not cancel the work, a normal disable-then-enable cycle re-runs api->enable() (udc_enable() only rejects a redundant enable, not a re-enable after disable) and re-initializes the still-pending work in place, corrupting the kernel timeout/workqueue linked lists and causing a kernel panic.\n\nAn external USB host — for example a host performing USB DFU detach (dfu-util --detach) or forcing repeated attach/reset/re-enumeration — drives the udc_disable()/udc_enable() transitions and controls suspend/resume timing, so it can arrange for the suspend work to be pending across a re-enable. This yields an unauthenticated denial of service (kernel panic) reachable across the USB boundary from a removable, physically-connected host, with no confidentiality or integrity impact demonstrated.\n\nThe fix moves the k_work_init_delayable() call into the one-time preinit function so the work is initialized exactly once, eliminating the re-initialization of an in-use item.",
+      "severity": "MEDIUM",
+      "score": 4.6
+    },
+    {
+      "id": "CVE-2026-16190",
+      "published": "2026-09-14T20:16:40.143",
+      "description": "IBM WebSphere Application Server 9.0, and 8.5 is affected by an authorization bypass vulnerability.",
+      "severity": "LOW",
+      "score": 3.1
     }
   ]
 }
