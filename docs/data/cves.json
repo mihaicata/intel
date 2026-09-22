@@ -1,143 +1,143 @@
 {
-  "totalResults": 4332,
+  "totalResults": 4238,
   "items": [
     {
-      "id": "CVE-2026-77853",
-      "published": "2026-09-15T09:16:44.067",
-      "description": "Improper neutralization of special elements used in an OS command ('OS Command Injection') issue exists in FF-RFI079I4 and FF-RFI078I4. A user who can log in to the product's M-Plane (NETCONF) may execute arbitrary OS commands.",
+      "id": "CVE-2026-39919",
+      "published": "2026-09-15T15:17:14.723",
+      "description": "Ghostscript before 10.08.0 contains a heap-based buffer overflow vulnerability in the JPEG 2000 output adapter (base/sjpx_openjpeg.c) that allows attackers to cause memory corruption by supplying a crafted PDF containing a JPEG 2000 image with mismatched component subsampling factors. When image components declare different subsampling values, the non-samescale sub-byte-depth output path allocates a row buffer sized for packed output but writes a full byte per output column regardless of bit depth, overflowing the allocation and corrupting internal chunk-allocator metadata to achieve code execution.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-16140",
+      "published": "2026-09-15T14:16:50.290",
+      "description": "OpenBMC's IPMI implementation, phosphor-net-ipmid, is vulnerable to a logic flaw where the authorization context of an existing session can be replaced with a target account while still maintaining the original integrity and encryption keys. Several downstream vendors implement phosphor-net-ipmid as their IPMI stack, such as NVIDIA and H3C. This issue effectively allows for privilege escalation without re-authentication.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-80217",
-      "published": "2026-09-15T09:16:44.233",
-      "description": "Hidden functionality issue exists in FF-RFI079I4 and FF-RFI078I4, which may allow a user who can log in via SSH and access the enable mode on the product to execute arbitrary OS commands.",
+      "id": "CVE-2026-54167",
+      "published": "2026-09-15T15:17:17.707",
+      "description": "Pipelines-as-Code is a CI/CD system that lets users define Tekton pipelines in source code repositories. Prior to 0.37.8, 0.39.6, 0.42.1, and 0.48.0, the GitHub App provider accepts X-GitHub-Enterprise-Host as the API host while processing webhook events containing an installation.id, before webhook signature validation or confirmation that the host matches the repository URL in the signed payload. An unauthenticated attacker who can reach the webhook endpoint can select an attacker-controlled host and cause the controller to send a locally signed GitHub App JWT to that service. The exposed JWT may be used to attempt to mint installation access tokens during its validity window, subject to the GitHub App installation and permissions. The incoming webhook installation-lookup path is also affected, but exploitation of that path requires the valid incoming webhook secret for the target Repository CR. This issue is fixed in versions 0.37.8, 0.39.6, 0.42.1, and 0.48.0.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-75092",
-      "published": "2026-09-15T09:16:43.727",
-      "description": "A privilege escalation flaw was found in the scan_mysql actor of leapp-upgrade-el9toel10 (provided by leapp-repository). During RHEL 9 to RHEL 10 upgrades, the actor runs:\nmysqld --validate-config --log-error-verbosity=2 directly as root in the Leapp actor context, bypassing the packaged MySQL systemd unit that normally starts the daemon as User=mysql.\n\nA process compromised as the mysql OS identity can write a version-2 persisted configuration (mysqld-auto.cnf) and a malicious shared object into /var/lib/mysql (a directory owned by mysql). That persisted map can set plugin_dir to /var/lib/mysql and early_plugin_load (or related loader options such as plugin_load / plugin_load_add) so MySQL loads the attacker-controlled object during configuration validation. Plugin loading can reach dlopen() before MySQL’s runtime-user check and before plugin-symbol validation.\n\nWhen an administrator subsequently runs the documented Leapp preupgrade or upgrade workflow, attacker-controlled code can execute as UID 0 with a full capability set in an unconfined SELinux domain (unconfined_t). The attack does not require write access to the default system plugin path under /usr; redirecting plugin_dir via mysql-owned persisted state is sufficient. Ordinary SQL privileges alone (including highly privileged SQL accounts) are not a sufficient startpoint — OS-level execution as the mysql service identity is required, plus later administrator invocation of Leapp.",
+      "id": "CVE-2026-16141",
+      "published": "2026-09-15T14:16:50.430",
+      "description": "OpenBMC's IPMI implementation, phosphor-net-ipmid, contains a logic flaw in which an unauthenticated client can force the RAKP Message 1 handler to return before it overwrites the authentication object's constructor defaults. The IPMI service then accepts a RAKP Message 3 whose HMAC is computed with the constant 20-byte 'userKey' initialized from the string '0penBmc' and an often-predictable 'bmcRandomNum'. Several downstream vendors implement phosphor-net-ipmid as their IPMI stack, such as NVIDIA and H3C.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-91089",
-      "published": "2026-09-15T08:17:06.617",
-      "description": "A vulnerability was found in GPAC up to f1219cde. Impacted is the function gf_node_get_name_and_id of the file scenegraph/base_scenegraph.c. The manipulation results in use after free. It is possible to launch the attack remotely. The exploit has been made public and could be used. Upgrading to version abi-16.23 is recommended to address this issue. The patch is identified as 49dee5cad329cfed310c1682703df7daa47df31a. You should upgrade the affected component.",
+      "id": "CVE-2026-53957",
+      "published": "2026-09-15T15:17:17.367",
+      "description": "Contentful MCP Server is a Model Context Protocol server for the Contentful Management API. Prior to @contentful/mcp-server 1.7.19 and @contentful/mcp-tools 0.4.5, export_space and import_space in packages/mcp-tools/src/tools/jobs/space-to-space-migration/exportSpace.ts and packages/mcp-tools/src/tools/jobs/space-to-space-migration/importSpace.ts expose host, proxy, rawProxy, and insecure network options to LLM-controlled tool arguments and combine those options with the server's CONTENTFUL_MANAGEMENT_TOKEN. After space_to_space_migration_handler enables the migration tools, a direct MCP call or prompt injection through attacker-controlled Contentful content can redirect Contentful Management API requests and their Authorization header to an attacker-controlled host or proxy. The regular tools that use createToolClient are unaffected because those tools pin the host from server configuration. Exposure of the personal access token permits persistent out-of-band access to every Contentful space within the token's scope. This issue is fixed in @contentful/mcp-server 1.7.19 and @contentful/mcp-tools 0.4.5.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-48987",
+      "published": "2026-09-15T15:17:16.397",
+      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, EventManager in src/pyload/core/managers/event_manager.py appends a Client object to the clients list for each unique uuid submitted to the authenticated getEvents API endpoint, but get_events does not invoke the available clean method to remove inactive clients. An authenticated user can repeatedly submit unique UUID values, causing retained client objects and process memory to grow without bound even after requests stop. The resulting memory exhaustion can trigger an operating-system out-of-memory termination of pyLoad or host-wide instability and denial of service. This issue is fixed in version 0.5.0b3.dev101.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2025-5802",
-      "published": "2026-09-15T10:17:02.640",
-      "description": "The self-registration flow accepts user-supplied input for usernames without adequately preventing the disclosure of username existence. When a user attempts to register with an existing username, the system responds with an error message that explicitly indicates the username is already in use.\n\nThis behavior allows an attacker to discover valid usernames within the system. The discovery of valid usernames can facilitate subsequent attacks such as brute force, social engineering, and targeted phishing campaigns.",
+      "id": "CVE-2026-54168",
+      "published": "2026-09-15T15:17:17.887",
+      "description": "Pipelines-as-Code is a CI/CD system that lets users define Tekton pipelines in source code repositories. Prior to 0.37.8, 0.39.6, 0.42.1, and 0.48.0, a GitHub App installation token created during webhook processing is not scoped to the repository that triggered the event when the App is installed across multiple repositories. A user with push access to one repository can submit a PipelineRun containing a pipelinesascode.tekton.dev/task remote task annotation that targets a private repository in the same installation. When ScopeTokenToListOfRepos returns no explicit scope, the missing triggering repository ID leaves the token able to access the entire installation. Pipelines-as-Code resolves and inlines the remote private task with that token, disclosing the repository's Tekton definitions. The demonstrated impact is read-only and does not provide write access. This issue is fixed in versions 0.37.8, 0.39.6, 0.42.1, and 0.48.0.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-91826",
-      "published": "2026-09-15T09:16:45.743",
-      "description": "Stack-based buffer overflow vulnerability in Samsung Opensource rLottie allows attackers to overflow buffers, leading to memory corruption when rendering crafted vector animations.\n\n\nThis issue affects rLottie: 480a2ad0c5d2e45458c545b8213279e9e8b71e39.",
+      "id": "CVE-2026-49446",
+      "published": "2026-09-15T15:17:16.747",
+      "description": "Cosmos provides users the ability self-host a home server by acting as a secure gateway to your application, as well as a server manager. Prior to 0.22.19, tokenMiddleware in src/proxy/routerGen.go can return through the Constellation tunnel bypass before removing x-cosmos-user, x-cosmos-role, x-cosmos-user-role, and x-cosmos-mfa headers and before invoking AdminOnlyWithRedirect. An attacker with a valid x-cstln-auth API key for an enrolled device who reaches Cosmos through the Constellation Nebula tunnel can supply a chosen x-cosmos-user value to a route with AuthEnabled enabled when the upstream application trusts that forward-auth header. The request can bypass Cosmos JWT, password, MFA, and AdminOnly checks, allowing user impersonation and admin-tier reads or writes exposed by the proxied application. This issue is fixed in version 0.22.19.",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-91091",
-      "published": "2026-09-15T08:17:07.000",
-      "description": "A vulnerability was identified in GPAC up to f1219cde. The impacted element is the function gf_node_list_insert_child of the file scenegraph/base_scenegraph.c of the component Node Insertion. Such manipulation leads to memory corruption. The attack can be launched remotely. The exploit is publicly available and might be used. Upgrading to version abi-16.23 is sufficient to resolve this issue. The name of the patch is 49dee5cad329cfed310c1682703df7daa47df31a. It is suggested to upgrade the affected component.",
+      "id": "CVE-2026-48722",
+      "published": "2026-09-15T15:17:16.020",
+      "description": "Nextflow is a DSL for data-driven computational pipelines. From 25.09.2-edge until 25.10.6 and 26.04.3, nextflow auth login writes Seqera Platform OIDC bearer tokens to ${NXF_HOME:-~/.nextflow}/seqera-auth.config through AuthCommandImpl.writeConfig in plugins/nf-tower/src/main/io/seqera/tower/plugin/auth/AuthCommandImpl.groovy without setting restrictive file permissions, allowing the default umask 022 to create the file with mode 0644. On a multi-user POSIX host, a local user who can traverse the victim's home directory can read seqera-auth.config and impersonate the victim against Seqera Platform within the token's scope. Single-user systems and headless CI runners that do not use the interactive login flow are not affected. This issue is fixed in 25.10.6 and 26.04.3.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-91090",
-      "published": "2026-09-15T08:17:06.807",
-      "description": "A vulnerability was determined in GPAC up to f1219cde. The affected element is the function gf_node_activate_ex of the file scenegraph/base_scenegraph.c. This manipulation causes stack-based buffer overflow. It is possible to launch the attack on the local host. The exploit has been publicly disclosed and may be utilized. Upgrading to version abi-16.23 is sufficient to fix this issue. Patch name: 9eb40df4448b88d6a6ce3454657c06f47eff0b24. The affected component should be upgraded.",
+      "id": "CVE-2026-48737",
+      "published": "2026-09-15T15:17:16.220",
+      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, is_global_address in src/pyload/core/utils/web/check.py relies on Python's global-address classification without examining IPv4 destinations embedded in 6to4 or NAT64 IPv6 addresses. A low-privileged user can submit an IPv6 literal through parse_urls to the pre-resolution is_global_host guard. Because host_to_ip is pinned to AF_INET, that guard does not evaluate a hostname's AAAA result. Separately, curl resolves hostnames before the pycurl PREREQFUNC in src/pyload/core/network/http/http_request.py applies the same vulnerable is_global_address check to the actual connection address, so a transition-form AAAA result can be permitted even when it terminates at an embedded loopback, private, CGNAT, or link-local IPv4 address. Exploitation requires the pyLoad host to route the applicable transition mechanism, including 6to4 on affected Python 3.9 through 3.11 deployments or NAT64 on a network with a NAT64 gateway. Successful exploitation can enable internal-network reconnaissance, timing-based confirmation, limited service disruption, or cloud metadata disclosure where the wrapped address is routable. This issue is fixed in version 0.5.0b3.dev101.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2026-25827",
+      "published": "2026-09-15T15:17:14.600",
+      "description": "An issue was discovered in Keyfactor SignServer before 7.6.0. A number of properties were identified to not have any restrictions to what path they can be set to by an admin user. Setting these properties to specific file paths can reveal information to the client side. Three specific properties were identified: The property ATTRIBUTESFILE in PKCS11CryotoToken can be set to a readable but not an accepted (i.e., recognized with attributes) file. In this case an error is thrown, confirming the existence of the file. The property KEYSTOREPATH in KeyStoreCryptoToken can be set to a non-existing file that will return an error confirming to the client side that the file does not exist. The property TRUSTSTOREPATH in RenewalWorker can be set to any path (without any restrictions) by an admin user. In the case that the provided path points to an existing file, readable by the user running the application server, but is not a recognized PEM format, it returns this as an error to the client side, confirming the existences of the file.",
       "severity": "LOW",
-      "score": 3.9
+      "score": 2.3
     },
     {
-      "id": "CVE-2025-13166",
-      "published": "2026-09-15T10:17:00.877",
-      "description": "The SMS OTP flow fails to adequately handle error messages, allowing an attacker to infer the existence of registered user accounts based on the responses received during the OTP initiation process.\n\nThis weakness can be exploited by an attacker to discover valid usernames within the system. The impact is amplified for accounts that have not configured a mobile number, as the enumeration is specifically tied to this condition. The discovery of these usernames can facilitate subsequent brute force attacks, social engineering attempts, and information leakage, potentially leading to reputational damage, loss of customer trust, and regulatory non-compliance.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-91779",
-      "published": "2026-09-15T09:16:44.760",
-      "description": "A security flaw has been discovered in GNU Binutils 2.47. This affects the function _bfd_elf_eh_frame_section_offset of the file bfd/elf-eh-frame.c of the component Eh Frame Handler. Performing a manipulation results in null pointer dereference. The attack must be initiated from a local position. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through a bug report but has not responded yet.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-91780",
-      "published": "2026-09-15T09:16:44.960",
-      "description": "A weakness has been identified in GNU Binutils 2.47. This impacts the function elf_link_add_object_symbols of the file bfd/elflink.c. Executing a manipulation can lead to null pointer dereference. The attack needs to be launched locally. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through a bug report but has not responded yet.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-91781",
-      "published": "2026-09-15T09:16:45.153",
-      "description": "A security vulnerability has been detected in GNU Binutils 2.47. Affected is the function elf_x86_64_common_section_index of the file bfd/elf64-x86-64.c of the component ELF Section Handler. The manipulation leads to null pointer dereference. The attack needs to be performed locally. The exploit has been disclosed publicly and may be used. Upgrading to version 2.48 is able to address this issue. The identifier of the patch is 7322e9bc30cb282575a701c307851fd3d66fee68. It is suggested to upgrade the affected component.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-91782",
-      "published": "2026-09-15T09:16:45.350",
-      "description": "A vulnerability was detected in GNU Binutils 2.47. Affected by this vulnerability is the function elf_x86_allocate_dynrelocs of the file bfd/elfxx-x86.c of the component Dynamic Relocation Allocation. The manipulation results in null pointer dereference. The attack requires a local approach. The exploit is now public and may be used. Upgrading to version 2.48 addresses this issue. The patch is identified as d1268210b6f6/471130b39c0/283d3198bed/0a84e560216/a692a633d40. Upgrading the affected component is recommended.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-91778",
-      "published": "2026-09-15T08:17:07.180",
-      "description": "In affected versions of Octopus Server, users with certain scoped permission sets could execute arbitrary scripts on a worker (including the Octopus Server built-in worker). Incorrect permission validation during script execution would allow the script to execute without the user possessing the required authorisation.",
+      "id": "CVE-2026-77179",
+      "published": "2026-09-15T14:17:11.273",
+      "description": "On macOS, the virtio-fs host server used by Docker Sandboxes improperly follows symlinks when reopening an unlinked file from a stored path. A malicious guest can replace a parent directory with a symlink, escape the shared workspace, and read or modify arbitrary host files as the VMM user, potentially achieving host code execution.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-91819",
-      "published": "2026-09-15T08:17:07.333",
-      "description": "Affected versions of MISP rely on CakePHP request-method override processing in a way that can disable CSRF and form-security validation.\n\nCakePHP honors a _method field or X-HTTP-Method-Override header by rewriting the effective request method. For override values outside the normal write verbs POST, PUT, PATCH, and DELETE, CakePHP also clears the parsed request body. MISP’s security component then determines whether to perform _validatePost() and _validateCsrf() based on whether request data remains. With a value such as:\n\n\n_method=GET\n\nthe body becomes empty before those checks run, so both protections are skipped. A cross-site form containing only that override can therefore reach actions whose parameters are taken from the URL rather than the request body\n\nVersion affected: ≤2.5.45",
+      "id": "CVE-2026-25825",
+      "published": "2026-09-15T15:17:14.347",
+      "description": "An issue was discovered in Keyfactor SignServer before 7.6.0. The output file to which SignerStatusReportWorker logs the report can be set to any path, even one that points to a file that already exists. This gives a user (with admin access) the possibility to write files in arbitrary directories in the server filesystem and potentially overwrite files accessible by the local user JBoss.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-76159",
-      "published": "2026-09-15T09:16:43.900",
-      "description": "Incorrect Permission Assignment for Critical Resource in the  configuration loader of Duplicati for Windows versions before v2.4.0.0 allows a local low-privileged attacker to escalate       privileges to NT AUTHORITY\\SYSTEM via an attacker-controlled preload.json file.",
+      "id": "CVE-2026-25826",
+      "published": "2026-09-15T15:17:14.480",
+      "description": "An issue was discovered in Keyfactor SignServer before 7.6.0. The attribute ATTRIBUTESFILE in PKCS11CryptoToken can be set to a readable file but not an accepted file (i.e., recognized with attributes). In this case, an error is thrown which - together with the error - also prints the content of the file to the application server log. This gives a user that has both SignServer admin access and access to read the output of the server log (i.e., if remote syslog shipping is configured), the possibility to read the content of files accessible by the local user JBoss.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-87730",
-      "published": "2026-09-15T09:16:44.533",
-      "description": "Rejected reason: this is rejected",
+      "id": "CVE-2026-46495",
+      "published": "2026-09-15T15:17:15.493",
+      "description": "OpenDJ is an LDAPv3 compliant directory service. Prior to 5.1.1, the JMX RMI connector in opendj-server-legacy/src/main/java/org/opends/server/protocols/jmx/RmiConnector.java processes attacker-controlled credential objects before authentication without a restrictive jmx.remote.rmi.server.credentials.filter.pattern, and RmiAuthenticator.authenticate in opendj-server-legacy/src/main/java/org/opends/server/protocols/jmx/RmiAuthenticator.java accepts an unconstrained Object array rather than a two-element String[]. When the JMX Connection Handler is enabled and its TCP listener is reachable, an unauthenticated remote attacker can submit a crafted serialized Java object and achieve code execution in the OpenDJ server process. The handler is disabled by default, and successful exploitation depends on the runtime classpath and Java version; remote code execution was demonstrated against OpenDJ 4.4.15 on JDK 11 with Jackson 2.12.6.1. This issue is fixed in 5.1.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-91825",
-      "published": "2026-09-15T09:16:45.540",
-      "description": "Affected versions of MISP fail to authorize a submitted sharing group in a specific event-edit path.\n\n\nThe vulnerable logic checked whether the acting user could use a sharing_group_id only when the request explicitly supplied distribution = 4. If the attacker instead omitted distribution but supplied a different sharing_group_id, that authorization branch was skipped. Later, MISP’s field-recovery logic restored the existing event distribution from storage. For events already configured with sharing-group distribution, the unauthorized sharing-group ID could therefore be saved.\n\n\nThe fix adds authorization checks in both the controller and Event::_edit() whenever a non-empty sharing_group_id is supplied without distribution. The model now calls SharingGroup::checkIfAuthorised() before persisting the change.\n\n\n\nVersion affected: ≤2.5.45",
+      "id": "CVE-2026-47780",
+      "published": "2026-09-15T15:17:15.843",
+      "description": "free5GC is an open-source implementation of the 5G core network. In 4.2.3 and earlier, HandleCreateEeSubscriptions and HandleQueryeesubscriptions in free5gc/udr internal/sbi/api_datarepository.go validate the ueId path value with a regular expression whose final .+ alternative accepts every non-empty string instead of restricting identifiers to supported SUPI and GPSI formats. An actor with network reachability to the UDR SBI can submit a non-3GPP identifier to /nudr-dr/v2/subscription-data/{ueId}/context-data/ee-subscriptions, causing the identifier to pass validation and enter the normal create or query flow. The advisory does not independently establish whether authentication is required. Invalid identifiers can be persisted and retrieved as subscription records, enabling unauthorized data creation, UDR namespace pollution, persistent subscriber-metadata corruption, and interference with downstream components that trust stored identifiers to use valid 3GPP formats. The exposure is most relevant in lab, test, or loosely segmented service-based-interface deployments where direct UDR access is possible.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-91846",
-      "published": "2026-09-15T09:16:45.897",
-      "description": "Affected versions of MISP allow a collection element to be created from a bare UUID without consistently checking whether the acting user is allowed to access the referenced object.\n\n\nThe commit explains that collection elements themselves only store UUIDs, while the collection view later resolves those UUIDs into their underlying objects. Before this fix, the generic add() path could therefore persist a UUID for an Event or Galaxy Cluster that the caller could not normally read. The patch explicitly notes that this made collections a way to reference another organisation’s private data and had caused disclosure of organisation-only events in the beta collection view.\n\n\nThe fix centralizes authorization in __assertCanUseElements(). Event UUIDs are validated through Event::fetchSimpleEvent() under the current user’s ACL, while Galaxy Cluster UUIDs are checked through GalaxyCluster::fetchGalaxyClusters(). The check is applied both to the CRUD add() path and to addElementToCollection().\n\nVersion affected: ≤2.5.45",
+      "id": "CVE-2026-49254",
+      "published": "2026-09-15T15:17:16.577",
+      "description": "Dragonfly is an open source P2P-based file distribution and image acceleration system. Prior to 2.4.4, manager/router/router.go registers GET /api/v1/oauth and GET /api/v1/oauth/:id without jwt.MiddlewareFunc() or RBAC(), while manager/handlers/oauth.go returns models.Oauth records and manager/models/oauth.go exposes Oauth.ClientSecret as client_secret in JSON. When an administrator has configured a GitHub or Google OAuth provider, an unauthenticated network client can reach GetOauth or GetOauths, load the stored models.Oauth record, and obtain the provider's client secret, client identifier, and redirect URL. The earlier GHSA-j8hf-cp34-g4j7 remediation protected the /jobs group only and did not protect these OAuth GET handlers. Disclosure of client_secret can enable abuse of the configured identity-provider integration, subject to the provider's redirect URI restrictions. This issue is fixed in 2.4.4.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-91851",
-      "published": "2026-09-15T09:16:46.110",
-      "description": "Affected versions of MISP incorrectly filter dashboard templates that are restricted to a specific permission flag.\n\n\nDashboardsController::listTemplates() allowed a template when either:\n\n\n\n - its restrict_to_permission_flag matched one of the current user’s permission flags, or\n\n - restrict_to_permission_flag equaled integer 0\n\n\n\n\n\n\nHowever, restrict_to_permission_flag is a varchar. MySQL therefore performed numeric coercion when comparing the column against integer 0. Strings such as perm_site_admin convert numerically to zero, making expressions such as perm_site_admin = 0 evaluate true and causing the “unrestricted” branch to match permission-restricted templates as well.\n\n\n\nVersion affected: ≤2.5.45",
+      "id": "CVE-2026-50166",
+      "published": "2026-09-15T15:17:16.950",
+      "description": "Kuma is a modern Envoy-based service mesh that can run on every cloud across both Kubernetes and VMs. Prior to 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7, a kumactl profile manually configured for an HTTPS control plane without --ca-cert-file disables TLS peer verification and sends API tokens over the unverified connection. An attacker on the network path can intercept user or administrator API tokens and act against the control plane as the compromised user. The default local profile is unaffected because it uses plain HTTP. This issue is fixed in versions 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-52724",
+      "published": "2026-09-15T15:17:17.110",
+      "description": "Kuma is a modern Envoy-based service mesh that can run on every cloud across both Kubernetes and VMs. Prior to 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7, Universal mode kuma-dp connections to an HTTPS control plane disable TLS peer verification when --ca-cert-file is not supplied and KUMA_CONTROL_PLANE_CA_CERT is unset. The dataplane authentication token is sent over the unverified connection, allowing an on-path attacker to intercept the token, impersonate the control plane, inject a forged bootstrap configuration, and take over the proxy. Standard Kubernetes installations created by kumactl install control-plane or the official Helm chart are unaffected because the mutating admission webhook injects KUMA_CONTROL_PLANE_CA_CERT into each sidecar. This issue is fixed in versions 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53966",
+      "published": "2026-09-15T15:17:17.533",
+      "description": "XWiki Platform is a generic wiki platform. From 13.4-rc-1 until 16.10.17, 17.4.10, 17.10.4, and 18.1.0-rc-1, the Live Data edit REST API allows a user who can edit a page to change that page's rights without executing the normal document-saving authorization checks. The user can grant script right and then execute potentially dangerous Velocity scripts or send unfiltered HTML and JavaScript to clients. The same missing checks can circumvent extension security controls implemented as listeners for UserUpdatingDocumentEvent and related user document events. This issue is fixed in versions 16.10.17, 17.4.10, 17.10.4, and 18.1.0-rc-1.",
       "severity": "UNKNOWN",
       "score": null
     }
