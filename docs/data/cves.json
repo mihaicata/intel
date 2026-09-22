@@ -1,145 +1,145 @@
 {
-  "totalResults": 4238,
+  "totalResults": 4188,
   "items": [
     {
-      "id": "CVE-2026-39919",
-      "published": "2026-09-15T15:17:14.723",
-      "description": "Ghostscript before 10.08.0 contains a heap-based buffer overflow vulnerability in the JPEG 2000 output adapter (base/sjpx_openjpeg.c) that allows attackers to cause memory corruption by supplying a crafted PDF containing a JPEG 2000 image with mismatched component subsampling factors. When image components declare different subsampling values, the non-samescale sub-byte-depth output path allocates a row buffer sized for packed output but writes a full byte per output column regardless of bit depth, overflowing the allocation and corrupting internal chunk-allocator metadata to achieve code execution.",
+      "id": "CVE-2026-11928",
+      "published": "2026-09-15T18:17:13.180",
+      "description": "IBM Verify Identity Access is vulnerable to a buffer overflow attack.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-16140",
-      "published": "2026-09-15T14:16:50.290",
-      "description": "OpenBMC's IPMI implementation, phosphor-net-ipmid, is vulnerable to a logic flaw where the authorization context of an existing session can be replaced with a target account while still maintaining the original integrity and encryption keys. Several downstream vendors implement phosphor-net-ipmid as their IPMI stack, such as NVIDIA and H3C. This issue effectively allows for privilege escalation without re-authentication.",
+      "id": "CVE-2026-12351",
+      "published": "2026-09-15T18:17:13.727",
+      "description": "IBM MQ 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 LTS, and 10.0.0.0 could allow a remote attacker to execute arbitrary code due to unsafe JNDI lookup processing when the IVT application is deployed.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-11921",
+      "published": "2026-09-15T18:17:12.797",
+      "description": "IBM Verify Identity Access containers may not apply management password change operations correctly.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-12728",
+      "published": "2026-09-15T18:17:14.547",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to execute arbitrary code due to a deserialization of untrusted data.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-54167",
-      "published": "2026-09-15T15:17:17.707",
-      "description": "Pipelines-as-Code is a CI/CD system that lets users define Tekton pipelines in source code repositories. Prior to 0.37.8, 0.39.6, 0.42.1, and 0.48.0, the GitHub App provider accepts X-GitHub-Enterprise-Host as the API host while processing webhook events containing an installation.id, before webhook signature validation or confirmation that the host matches the repository URL in the signed payload. An unauthenticated attacker who can reach the webhook endpoint can select an attacker-controlled host and cause the controller to send a locally signed GitHub App JWT to that service. The exposed JWT may be used to attempt to mint installation access tokens during its validity window, subject to the GitHub App installation and permissions. The incoming webhook installation-lookup path is also affected, but exploitation of that path requires the valid incoming webhook secret for the target Repository CR. This issue is fixed in versions 0.37.8, 0.39.6, 0.42.1, and 0.48.0.",
+      "id": "CVE-2026-11729",
+      "published": "2026-09-15T18:17:12.393",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to execute arbitrary code in client applications due to unsafe deserialization that enables JNDI injection attacks.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-16141",
-      "published": "2026-09-15T14:16:50.430",
-      "description": "OpenBMC's IPMI implementation, phosphor-net-ipmid, contains a logic flaw in which an unauthenticated client can force the RAKP Message 1 handler to return before it overwrites the authentication object's constructor defaults. The IPMI service then accepts a RAKP Message 3 whose HMAC is computed with the constant 20-byte 'userKey' initialized from the string '0penBmc' and an often-predictable 'bmcRandomNum'. Several downstream vendors implement phosphor-net-ipmid as their IPMI stack, such as NVIDIA and H3C.",
+      "id": "CVE-2026-11728",
+      "published": "2026-09-15T18:17:12.257",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow a remote attacker to cause a denial of service or potentially execute arbitrary code in the client due to a heap buffer overflow when receiving messages from a malicious queue manager or through a man-in-the-middle attack.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-53957",
-      "published": "2026-09-15T15:17:17.367",
-      "description": "Contentful MCP Server is a Model Context Protocol server for the Contentful Management API. Prior to @contentful/mcp-server 1.7.19 and @contentful/mcp-tools 0.4.5, export_space and import_space in packages/mcp-tools/src/tools/jobs/space-to-space-migration/exportSpace.ts and packages/mcp-tools/src/tools/jobs/space-to-space-migration/importSpace.ts expose host, proxy, rawProxy, and insecure network options to LLM-controlled tool arguments and combine those options with the server's CONTENTFUL_MANAGEMENT_TOKEN. After space_to_space_migration_handler enables the migration tools, a direct MCP call or prompt injection through attacker-controlled Contentful content can redirect Contentful Management API requests and their Authorization header to an attacker-controlled host or proxy. The regular tools that use createToolClient are unaffected because those tools pin the host from server configuration. Exposure of the personal access token permits persistent out-of-band access to every Contentful space within the token's scope. This issue is fixed in @contentful/mcp-server 1.7.19 and @contentful/mcp-tools 0.4.5.",
+      "id": "CVE-2026-12101",
+      "published": "2026-09-15T18:17:13.487",
+      "description": "IBM Verify Identity Access could allow an administrator to execute additional commands they are not entitled to due to improper validation of user supplied requests.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-48987",
-      "published": "2026-09-15T15:17:16.397",
-      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, EventManager in src/pyload/core/managers/event_manager.py appends a Client object to the clients list for each unique uuid submitted to the authenticated getEvents API endpoint, but get_events does not invoke the available clean method to remove inactive clients. An authenticated user can repeatedly submit unique UUID values, causing retained client objects and process memory to grow without bound even after requests stop. The resulting memory exhaustion can trigger an operating-system out-of-memory termination of pyLoad or host-wide instability and denial of service. This issue is fixed in version 0.5.0b3.dev101.",
+      "id": "CVE-2026-12355",
+      "published": "2026-09-15T18:17:13.980",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an attacker to perform JNDI injection attacks due to insufficient input validation, potentially leading to information disclosure or remote code execution.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-12666",
+      "published": "2026-09-15T18:17:14.290",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 Classes for Java could allow an authenticated attacker to obtain sensitive information or cause a denial of service due to XML external entity injection in MQRFH2 header processing.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2025-66974",
+      "published": "2026-09-15T18:17:12.033",
+      "description": "An issue in Prolink 13A Smart Plug Model Version: DS-3202M-UKv3 Wi-Fi and Application Version mEzee 2.6.7 allows attackers to cause a Denial of Service (DoS) or connection to an attacker-controlled device via supplying a crafted packet during the provisioning phase.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-11926",
+      "published": "2026-09-15T18:17:12.903",
+      "description": "IBM Verify Identity Access could allow a remote attacker to cause a denial of service due to insufficient validation of incoming request resources.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-11929",
+      "published": "2026-09-15T18:17:13.283",
+      "description": "IBM Security Verify Identity Access Reverse Proxy in certain configurations may provide weaker than expected cryptographic validation of user supplied data.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-12354",
+      "published": "2026-09-15T18:17:13.847",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to execute arbitrary code on the application server due to improper validation of JNDI names in the Resource Adapter Installation Verification Test application.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-12358",
+      "published": "2026-09-15T18:17:14.123",
+      "description": "IBM Verify Identity Access could allow a remote attacker to cause a denial of service due to insufficient validation of incoming request resources.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-11934",
+      "published": "2026-09-15T18:17:13.380",
+      "description": "IBM Verify Identity Access could allow an administrator to execute additional commands they are not entitled to due to improper validation of user supplied input.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-12667",
+      "published": "2026-09-15T18:17:14.420",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to read files from a vulnerable .NET client or cause limited denial of service due to improper handling of XML external entities in RFH2 folder parsing.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-12150",
+      "published": "2026-09-15T18:17:13.597",
+      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow a remote attacker with a trusted TLS client certificate to cause a denial of service and potentially affect memory contents due to improper validation of deeply nested certificate data during TLS certificate processing.",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-11864",
+      "published": "2026-09-15T18:17:12.527",
+      "description": "IBM Cloud Pak for Business Automation 26.0.0 through 26.0.0 Interim Fix 001, 25.0.0 through 25.0.0 Interim Fix 005, 24.0.1 through 24.0.1 Interim Fix 008, and 24.0.0 through 24.0.0 Interim Fix 009 is vulnerable to an XPath injection vulnerability, which could allow an authenticated attacker to exfiltrate sensitive application data and/or determine the structure of the XML document.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-54168",
-      "published": "2026-09-15T15:17:17.887",
-      "description": "Pipelines-as-Code is a CI/CD system that lets users define Tekton pipelines in source code repositories. Prior to 0.37.8, 0.39.6, 0.42.1, and 0.48.0, a GitHub App installation token created during webhook processing is not scoped to the repository that triggered the event when the App is installed across multiple repositories. A user with push access to one repository can submit a PipelineRun containing a pipelinesascode.tekton.dev/task remote task annotation that targets a private repository in the same installation. When ScopeTokenToListOfRepos returns no explicit scope, the missing triggering repository ID leaves the token able to access the entire installation. Pipelines-as-Code resolves and inlines the remote private task with that token, disclosing the repository's Tekton definitions. The demonstrated impact is read-only and does not provide write access. This issue is fixed in versions 0.37.8, 0.39.6, 0.42.1, and 0.48.0.",
+      "id": "CVE-2026-11927",
+      "published": "2026-09-15T18:17:13.070",
+      "description": "IBM Security Verify Identity Access reverse proxy may allow parameters to be injected in requests to third party services.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-49446",
-      "published": "2026-09-15T15:17:16.747",
-      "description": "Cosmos provides users the ability self-host a home server by acting as a secure gateway to your application, as well as a server manager. Prior to 0.22.19, tokenMiddleware in src/proxy/routerGen.go can return through the Constellation tunnel bypass before removing x-cosmos-user, x-cosmos-role, x-cosmos-user-role, and x-cosmos-mfa headers and before invoking AdminOnlyWithRedirect. An attacker with a valid x-cstln-auth API key for an enrolled device who reaches Cosmos through the Constellation Nebula tunnel can supply a chosen x-cosmos-user value to a route with AuthEnabled enabled when the upstream application trusts that forward-auth header. The request can bypass Cosmos JWT, password, MFA, and AdminOnly checks, allowing user impersonation and admin-tier reads or writes exposed by the proxied application. This issue is fixed in version 0.22.19.",
+      "id": "CVE-2026-11918",
+      "published": "2026-09-15T18:17:12.677",
+      "description": "IBM ContextForge MCP Gateway <= v1.0.4 IBM mcp-context-forge could allow an authenticated user to bypass protection mechanisms due to incomplete recursive inspection of nested payload content.",
       "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-48722",
-      "published": "2026-09-15T15:17:16.020",
-      "description": "Nextflow is a DSL for data-driven computational pipelines. From 25.09.2-edge until 25.10.6 and 26.04.3, nextflow auth login writes Seqera Platform OIDC bearer tokens to ${NXF_HOME:-~/.nextflow}/seqera-auth.config through AuthCommandImpl.writeConfig in plugins/nf-tower/src/main/io/seqera/tower/plugin/auth/AuthCommandImpl.groovy without setting restrictive file permissions, allowing the default umask 022 to create the file with mode 0644. On a multi-user POSIX host, a local user who can traverse the victim's home directory can read seqera-auth.config and impersonate the victim against Seqera Platform within the token's scope. Single-user systems and headless CI runners that do not use the interactive login flow are not affected. This issue is fixed in 25.10.6 and 26.04.3.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-48737",
-      "published": "2026-09-15T15:17:16.220",
-      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, is_global_address in src/pyload/core/utils/web/check.py relies on Python's global-address classification without examining IPv4 destinations embedded in 6to4 or NAT64 IPv6 addresses. A low-privileged user can submit an IPv6 literal through parse_urls to the pre-resolution is_global_host guard. Because host_to_ip is pinned to AF_INET, that guard does not evaluate a hostname's AAAA result. Separately, curl resolves hostnames before the pycurl PREREQFUNC in src/pyload/core/network/http/http_request.py applies the same vulnerable is_global_address check to the actual connection address, so a transition-form AAAA result can be permitted even when it terminates at an embedded loopback, private, CGNAT, or link-local IPv4 address. Exploitation requires the pyLoad host to route the applicable transition mechanism, including 6to4 on affected Python 3.9 through 3.11 deployments or NAT64 on a network with a NAT64 gateway. Successful exploitation can enable internal-network reconnaissance, timing-based confirmation, limited service disruption, or cloud metadata disclosure where the wrapped address is routable. This issue is fixed in version 0.5.0b3.dev101.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-25827",
-      "published": "2026-09-15T15:17:14.600",
-      "description": "An issue was discovered in Keyfactor SignServer before 7.6.0. A number of properties were identified to not have any restrictions to what path they can be set to by an admin user. Setting these properties to specific file paths can reveal information to the client side. Three specific properties were identified: The property ATTRIBUTESFILE in PKCS11CryotoToken can be set to a readable but not an accepted (i.e., recognized with attributes) file. In this case an error is thrown, confirming the existence of the file. The property KEYSTOREPATH in KeyStoreCryptoToken can be set to a non-existing file that will return an error confirming to the client side that the file does not exist. The property TRUSTSTOREPATH in RenewalWorker can be set to any path (without any restrictions) by an admin user. In the case that the provided path points to an existing file, readable by the user running the application server, but is not a recognized PEM format, it returns this as an error to the client side, confirming the existences of the file.",
-      "severity": "LOW",
-      "score": 2.3
-    },
-    {
-      "id": "CVE-2026-77179",
-      "published": "2026-09-15T14:17:11.273",
-      "description": "On macOS, the virtio-fs host server used by Docker Sandboxes improperly follows symlinks when reopening an unlinked file from a stored path. A malicious guest can replace a parent directory with a symlink, escape the shared workspace, and read or modify arbitrary host files as the VMM user, potentially achieving host code execution.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-25825",
-      "published": "2026-09-15T15:17:14.347",
-      "description": "An issue was discovered in Keyfactor SignServer before 7.6.0. The output file to which SignerStatusReportWorker logs the report can be set to any path, even one that points to a file that already exists. This gives a user (with admin access) the possibility to write files in arbitrary directories in the server filesystem and potentially overwrite files accessible by the local user JBoss.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-25826",
-      "published": "2026-09-15T15:17:14.480",
-      "description": "An issue was discovered in Keyfactor SignServer before 7.6.0. The attribute ATTRIBUTESFILE in PKCS11CryptoToken can be set to a readable file but not an accepted file (i.e., recognized with attributes). In this case, an error is thrown which - together with the error - also prints the content of the file to the application server log. This gives a user that has both SignServer admin access and access to read the output of the server log (i.e., if remote syslog shipping is configured), the possibility to read the content of files accessible by the local user JBoss.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-46495",
-      "published": "2026-09-15T15:17:15.493",
-      "description": "OpenDJ is an LDAPv3 compliant directory service. Prior to 5.1.1, the JMX RMI connector in opendj-server-legacy/src/main/java/org/opends/server/protocols/jmx/RmiConnector.java processes attacker-controlled credential objects before authentication without a restrictive jmx.remote.rmi.server.credentials.filter.pattern, and RmiAuthenticator.authenticate in opendj-server-legacy/src/main/java/org/opends/server/protocols/jmx/RmiAuthenticator.java accepts an unconstrained Object array rather than a two-element String[]. When the JMX Connection Handler is enabled and its TCP listener is reachable, an unauthenticated remote attacker can submit a crafted serialized Java object and achieve code execution in the OpenDJ server process. The handler is disabled by default, and successful exploitation depends on the runtime classpath and Java version; remote code execution was demonstrated against OpenDJ 4.4.15 on JDK 11 with Jackson 2.12.6.1. This issue is fixed in 5.1.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-47780",
-      "published": "2026-09-15T15:17:15.843",
-      "description": "free5GC is an open-source implementation of the 5G core network. In 4.2.3 and earlier, HandleCreateEeSubscriptions and HandleQueryeesubscriptions in free5gc/udr internal/sbi/api_datarepository.go validate the ueId path value with a regular expression whose final .+ alternative accepts every non-empty string instead of restricting identifiers to supported SUPI and GPSI formats. An actor with network reachability to the UDR SBI can submit a non-3GPP identifier to /nudr-dr/v2/subscription-data/{ueId}/context-data/ee-subscriptions, causing the identifier to pass validation and enter the normal create or query flow. The advisory does not independently establish whether authentication is required. Invalid identifiers can be persisted and retrieved as subscription records, enabling unauthorized data creation, UDR namespace pollution, persistent subscriber-metadata corruption, and interference with downstream components that trust stored identifiers to use valid 3GPP formats. The exposure is most relevant in lab, test, or loosely segmented service-based-interface deployments where direct UDR access is possible.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-49254",
-      "published": "2026-09-15T15:17:16.577",
-      "description": "Dragonfly is an open source P2P-based file distribution and image acceleration system. Prior to 2.4.4, manager/router/router.go registers GET /api/v1/oauth and GET /api/v1/oauth/:id without jwt.MiddlewareFunc() or RBAC(), while manager/handlers/oauth.go returns models.Oauth records and manager/models/oauth.go exposes Oauth.ClientSecret as client_secret in JSON. When an administrator has configured a GitHub or Google OAuth provider, an unauthenticated network client can reach GetOauth or GetOauths, load the stored models.Oauth record, and obtain the provider's client secret, client identifier, and redirect URL. The earlier GHSA-j8hf-cp34-g4j7 remediation protected the /jobs group only and did not protect these OAuth GET handlers. Disclosure of client_secret can enable abuse of the configured identity-provider integration, subject to the provider's redirect URI restrictions. This issue is fixed in 2.4.4.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-50166",
-      "published": "2026-09-15T15:17:16.950",
-      "description": "Kuma is a modern Envoy-based service mesh that can run on every cloud across both Kubernetes and VMs. Prior to 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7, a kumactl profile manually configured for an HTTPS control plane without --ca-cert-file disables TLS peer verification and sends API tokens over the unverified connection. An attacker on the network path can intercept user or administrator API tokens and act against the control plane as the compromised user. The default local profile is unaffected because it uses plain HTTP. This issue is fixed in versions 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-52724",
-      "published": "2026-09-15T15:17:17.110",
-      "description": "Kuma is a modern Envoy-based service mesh that can run on every cloud across both Kubernetes and VMs. Prior to 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7, Universal mode kuma-dp connections to an HTTPS control plane disable TLS peer verification when --ca-cert-file is not supplied and KUMA_CONTROL_PLANE_CA_CERT is unset. The dataplane authentication token is sent over the unverified connection, allowing an on-path attacker to intercept the token, impersonate the control plane, inject a forged bootstrap configuration, and take over the proxy. Standard Kubernetes installations created by kumactl install control-plane or the official Helm chart are unaffected because the mutating admission webhook injects KUMA_CONTROL_PLANE_CA_CERT into each sidecar. This issue is fixed in versions 2.7.26, 2.9.16, 2.11.14, 2.12.11, and 2.13.7.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-53966",
-      "published": "2026-09-15T15:17:17.533",
-      "description": "XWiki Platform is a generic wiki platform. From 13.4-rc-1 until 16.10.17, 17.4.10, 17.10.4, and 18.1.0-rc-1, the Live Data edit REST API allows a user who can edit a page to change that page's rights without executing the normal document-saving authorization checks. The user can grant script right and then execute potentially dangerous Velocity scripts or send unfiltered HTML and JavaScript to clients. The same missing checks can circumvent extension security controls implemented as listeners for UserUpdatingDocumentEvent and related user document events. This issue is fixed in versions 16.10.17, 17.4.10, 17.10.4, and 18.1.0-rc-1.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 5.4
     }
   ]
 }
