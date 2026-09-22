@@ -1,145 +1,145 @@
 {
-  "totalResults": 4188,
+  "totalResults": 3432,
   "items": [
     {
-      "id": "CVE-2026-11928",
-      "published": "2026-09-15T18:17:13.180",
-      "description": "IBM Verify Identity Access is vulnerable to a buffer overflow attack.",
+      "id": "CVE-2026-54337",
+      "published": "2026-09-15T21:16:36.920",
+      "description": "Fireshare facilitates self-hosted media and link sharing. Prior to version 1.6.14, an argument Injection in the video upload function allows unauthenticated attacker to write/overwrite system files. Version 1.6.14 fixes the issue.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-12351",
-      "published": "2026-09-15T18:17:13.727",
-      "description": "IBM MQ 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 LTS, and 10.0.0.0 could allow a remote attacker to execute arbitrary code due to unsafe JNDI lookup processing when the IVT application is deployed.",
+      "id": "CVE-2026-61559",
+      "published": "2026-09-15T21:16:41.390",
+      "description": "`@zereight/mcp-gitlab` is a Model Context Protocol server for GitLab. Starting in version 0.0.1 and prior to version 2.1.27, when the environment variable `ENABLE_DYNAMIC_API_URL=true` is set, the server reads the `X-GitLab-API-URL` HTTP request header and uses it as the base URL for all outbound GitLab API calls made within that request. The server validates that the value is a well-formed URL (`new URL(dynamicApiUrl)`) but applies no allowlist or hostname restriction. The server then attaches the victim's `Private-Token` to every outbound fetch that uses the redirected URL. Any caller who can reach the HTTP transport can set `X-GitLab-API-URL` to an attacker-controlled host. The next GitLab API call the server makes delivers the victim's token to that host. Version 2.1.27 contains a patch.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-11921",
-      "published": "2026-09-15T18:17:12.797",
-      "description": "IBM Verify Identity Access containers may not apply management password change operations correctly.",
+      "id": "CVE-2026-61568",
+      "published": "2026-09-15T21:16:41.570",
+      "description": "`@zereight/mcp-gitlab` is a Model Context Protocol server for GitLab. Versions prior to 2.1.30 expose the Streamable HTTP MCP endpoint without an effective Host or Origin allowlist. A malicious web page can use DNS rebinding to route browser requests to a victim's local MCP listener while preserving an attacker-controlled `Host` and `Origin`. The server accepts those headers and reaches the MCP initialization path instead of rejecting the request at the HTTP boundary. Version 2.1.30 contains a patch.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-12728",
-      "published": "2026-09-15T18:17:14.547",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to execute arbitrary code due to a deserialization of untrusted data.",
+      "id": "CVE-2026-66887",
+      "published": "2026-09-15T21:16:41.930",
+      "description": "The affected products are missing authorization on state-changing CGIs and session checks are not performed.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-66890",
+      "published": "2026-09-15T21:16:42.090",
+      "description": "The affected products use hard-coded credentials, which could allow remote access to files with root privileges where FTP is reachable.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-68070",
+      "published": "2026-09-15T21:16:42.253",
+      "description": "The affected products are missing authentication for a critical function, which could allow an attacker to run as root and pass received bytes directly to a system command.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-11729",
-      "published": "2026-09-15T18:17:12.393",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to execute arbitrary code in client applications due to unsafe deserialization that enables JNDI injection attacks.",
+      "id": "CVE-2026-68950",
+      "published": "2026-09-15T21:16:42.580",
+      "description": "The affected products use hard-coded credentials, which could allow an attacker to run the ftpd service as root, providing remote root file access where FTP is reachable.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-11728",
-      "published": "2026-09-15T18:17:12.257",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow a remote attacker to cause a denial of service or potentially execute arbitrary code in the client due to a heap buffer overflow when receiving messages from a malicious queue manager or through a man-in-the-middle attack.",
+      "id": "CVE-2026-91709",
+      "published": "2026-09-15T21:16:43.673",
+      "description": "Type confusion in ServiceWorker in Google Chrome prior to 153.0.8010.47 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-12101",
-      "published": "2026-09-15T18:17:13.487",
-      "description": "IBM Verify Identity Access could allow an administrator to execute additional commands they are not entitled to due to improper validation of user supplied requests.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-12355",
-      "published": "2026-09-15T18:17:13.980",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an attacker to perform JNDI injection attacks due to insufficient input validation, potentially leading to information disclosure or remote code execution.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-12666",
-      "published": "2026-09-15T18:17:14.290",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 Classes for Java could allow an authenticated attacker to obtain sensitive information or cause a denial of service due to XML external entity injection in MQRFH2 header processing.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2025-66974",
-      "published": "2026-09-15T18:17:12.033",
-      "description": "An issue in Prolink 13A Smart Plug Model Version: DS-3202M-UKv3 Wi-Fi and Application Version mEzee 2.6.7 allows attackers to cause a Denial of Service (DoS) or connection to an attacker-controlled device via supplying a crafted packet during the provisioning phase.",
+      "id": "CVE-2026-61554",
+      "published": "2026-09-15T21:16:41.223",
+      "description": "emp3r0r is a C2 designed by Linux users for Linux environments. Prior to version 4.2.5, the `http_poll` C2 transport accepts attacker-controlled HTTP polling sessions before CBOR `MsgAuth` authentication is completed. A remote unauthenticated attacker can create arbitrary polling sessions and send request bodies that are forwarded into the C2 dispatch path. This can consume server resources and trigger pre-auth C2 processing. Version 4.2.5 patches the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-11926",
-      "published": "2026-09-15T18:17:12.903",
-      "description": "IBM Verify Identity Access could allow a remote attacker to cause a denial of service due to insufficient validation of incoming request resources.",
+      "id": "CVE-2026-88065",
+      "published": "2026-09-15T21:16:43.367",
+      "description": "`tts-be` is a backend for a timetable selector that aims to help students better choose their class schedules. Versions prior to 2.1.0 have a Broken Access Control vulnerability across several API endpoints (such as `/api/student/{id}/photo` and `/api/course_unit/{id}/exchange/metadata`). By chaining these unauthenticated endpoints, a remote attacker can use the backend as an open proxy to bypass authorization checks, allowing for the enumeration and extraction of sensitive Personally Identifiable Information (PII) from upstream university systems. The exposed data includes full names, student IDs, class schedules, and photos. This issue was fixed in version 2.1.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-11929",
-      "published": "2026-09-15T18:17:13.283",
-      "description": "IBM Security Verify Identity Access Reverse Proxy in certain configurations may provide weaker than expected cryptographic validation of user supplied data.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-12354",
-      "published": "2026-09-15T18:17:13.847",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to execute arbitrary code on the application server due to improper validation of JNDI names in the Resource Adapter Installation Verification Test application.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-12358",
-      "published": "2026-09-15T18:17:14.123",
-      "description": "IBM Verify Identity Access could allow a remote attacker to cause a denial of service due to insufficient validation of incoming request resources.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-11934",
-      "published": "2026-09-15T18:17:13.380",
-      "description": "IBM Verify Identity Access could allow an administrator to execute additional commands they are not entitled to due to improper validation of user supplied input.",
+      "id": "CVE-2026-54544",
+      "published": "2026-09-15T21:16:37.083",
+      "description": "Fireshare facilitates self-hosted media and link sharing. Prior to version 1.6.16, two API endpoints that trigger outbound HTTP requests are missing the @login_required decorator. An unauthenticated attacker can call POST /api/test-discord-webhook or POST /api/test-webhook and cause the Fireshare server to issue an arbitrary HTTP POST to any URL the attacker supplies, including internal network addresses and cloud metadata services. No credentials, session cookies, or prior access are required. Version 1.6.16 contains a patch.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-12667",
-      "published": "2026-09-15T18:17:14.420",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow an authenticated attacker to read files from a vulnerable .NET client or cause limited denial of service due to improper handling of XML external entities in RFH2 folder parsing.",
-      "severity": "HIGH",
-      "score": 7.1
+      "id": "CVE-2026-66372",
+      "published": "2026-09-15T21:16:41.743",
+      "description": "The affected products use insufficiently random values, which allows web session tokens to be predictable, bounding token entropy to the seed space.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-12150",
-      "published": "2026-09-15T18:17:13.597",
-      "description": "IBM MQ 9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, and 10.0.0.0 could allow a remote attacker with a trusted TLS client certificate to cause a denial of service and potentially affect memory contents due to improper validation of deeply nested certificate data during TLS certificate processing.",
-      "severity": "HIGH",
-      "score": 7
-    },
-    {
-      "id": "CVE-2026-11864",
-      "published": "2026-09-15T18:17:12.527",
-      "description": "IBM Cloud Pak for Business Automation 26.0.0 through 26.0.0 Interim Fix 001, 25.0.0 through 25.0.0 Interim Fix 005, 24.0.1 through 24.0.1 Interim Fix 008, and 24.0.0 through 24.0.0 Interim Fix 009 is vulnerable to an XPath injection vulnerability, which could allow an authenticated attacker to exfiltrate sensitive application data and/or determine the structure of the XML document.",
+      "id": "CVE-2026-18426",
+      "published": "2026-09-15T21:16:36.230",
+      "description": "Concrete CMS 9.0.0 through 9.5.2 did not enforce a block-level edit-permission check on the Express Form block's control-management actions, which relied solely on CSRF token validation. Because the token is bound to the user and action rather than to a specific block, page, or form, an authenticated user with edit access to one Express Form could reuse a validly obtained token to add, modify, or delete controls on Express Forms they were not authorized to edit, including injecting a control whose value is later rendered as HTML to achieve stored XSS. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 2.0 with vector CVSS:4.0/AV:N/AC:H/AT:P/PR:H/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N. Thanks Yat Wu for reporting.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-11927",
-      "published": "2026-09-15T18:17:13.070",
-      "description": "IBM Security Verify Identity Access reverse proxy may allow parameters to be injected in requests to third party services.",
+      "id": "CVE-2026-19655",
+      "published": "2026-09-15T21:16:36.380",
+      "description": "On affected platforms running Arista EOS with Dynamic Host Configuration Protocol (DHCP) relay/snooping configured with the information option (Option 82), or with the DHCP server configured with match criteria based on the information option, an unauthenticated attacker connected to a client-facing VLAN(s) where the relay is configured can send a specially crafted packet that causes the DHCP Relay service to restart.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-11918",
-      "published": "2026-09-15T18:17:12.677",
-      "description": "IBM ContextForge MCP Gateway <= v1.0.4 IBM mcp-context-forge could allow an authenticated user to bypass protection mechanisms due to incomplete recursive inspection of nested payload content.",
+      "id": "CVE-2026-68953",
+      "published": "2026-09-15T21:16:42.743",
+      "description": "The affected products are vulnerable to an authentication bypass that allows unauthenticated remote attackers to disclose sensitive device information, including administrator credentials in plaintext, by sending crafted HTTP(S) requests.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-81926",
+      "published": "2026-09-15T21:16:43.067",
+      "description": "Concrete CMS 9.4.0 through 9.5.2 did not escape colliding page paths before rendering them in the location panel's duplicate-path confirmation dialog. The panel's check endpoint returned the submitted path unmodified in its JSON response, and client-side JavaScript inserted each value into the dialog as raw HTML, so a crafted page path executed script in the editor's authenticated browser session. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 2.0 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:P/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N. Thanks Yonatan Drori from Tenzai for reporting.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-81927",
+      "published": "2026-09-15T21:16:43.220",
+      "description": "Concrete CMS before 9.5.3 contained a stored cross-site scripting vulnerability in SVG file handling. When SVG processing was set to the non-default \"Reject files containing potentially harmful elements\" mode (concrete.file_manager.images.svg_sanitization.action = reject), uploaded SVGs were checked only against a small built-in blocklist covering the script element and on* event-handler attributes; the broader enshrined/svg-sanitize pass still ran, but its result was discarded, so vectors it would have stripped, such as a javascript: URI in an xlink:href, were stored unmodified and executed when the file was opened directly. A user able to upload files could thereby run arbitrary JavaScript in the browser of any user who viewed the file. The default sanitize mode was not affected. The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 1.8 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:A/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks Oriol Ortiz for reporting.",
       "severity": "MEDIUM",
       "score": 5.4
+    },
+    {
+      "id": "CVE-2026-91708",
+      "published": "2026-09-15T21:16:43.540",
+      "description": "Race condition in Network in Google Chrome prior to 153.0.8010.47 allowed a remote attacker who had compromised the renderer process to obtain cross-origin data via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-68491",
+      "published": "2026-09-15T21:16:42.423",
+      "description": "An insufficient check allowed for the overwrite of arbitrary files via a symlink.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-79994",
+      "published": "2026-09-15T21:16:42.913",
+      "description": "The guest-to-host Unix-domain socket relay in Docker Sandboxes validates that a socket path is inside an authorized workspace, but later reconnects using the pathname. A malicious guest can replace an intermediate directory with a symlink between validation and connection, causing the host to connect to an arbitrary AF_UNIX socket outside the shared workspace. This can expose data or host-side capabilities provided by the targeted socket.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
