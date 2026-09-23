@@ -1,143 +1,143 @@
 {
-  "totalResults": 3055,
+  "totalResults": 3027,
   "items": [
     {
-      "id": "CVE-2026-76825",
-      "published": "2026-09-16T15:17:46.000",
-      "description": "RestrictedPython is a tool that helps define a subset of the Python language for accepting program input in a trusted environment. Prior to 8.4, RestrictedPython could allow a sandbox escape when a custom import policy or globals exposed the standard library string module, the string.Formatter class, a Formatter instance, or a Formatter subclass to restricted code. The string.Formatter methods format, get_field, get_value, and vformat performed attribute and item traversal internally without passing through RestrictedPython's safer_getattr protections. Restricted code could use those live object references to reach function globals, builtins, file access, or code execution primitives, affecting confidentiality, integrity, and availability in the host environment. This issue is fixed in version 8.4.",
+      "id": "CVE-2026-73456",
+      "published": "2026-09-16T19:17:32.270",
+      "description": "Under certain circumstances on affected platforms running Arista EOS with gRPC Network Packet Sampling Interface (gNPSI) enabled, an unauthenticated gNPSI client can craft a malicious request to allow arbitrary code execution, granting an attacker full administrative control over the compromised switch.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-68536",
+      "published": "2026-09-16T19:17:25.143",
+      "description": "Server-Side Request Forgery / Local File Inclusion in Apache MyFace Core.\n\nOlder unsupported versions may also be affected. \n\nUsers are recommended to upgrade to versions 2.3.12, 2.3-next-M9, 3.0.4, 4.0.4, or 4.1.4, which fix this issue.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-79298",
+      "published": "2026-09-16T19:17:41.113",
+      "description": "An issue in Howyar Technologies Inc SysReturn Versions prior to 11.3.034 and fixed in v.11.3.0.34 allows a local attcker to execute arbitrary code via the BOOTia32.efi and a crafted cloak32.dat file on the ESP.",
       "severity": "HIGH",
       "score": 8.4
     },
     {
-      "id": "CVE-2026-63127",
-      "published": "2026-09-16T15:17:39.817",
-      "description": "RMCP is an official Rust SDK for the Model Context Protocol. Prior to 2.0.0, the rmcp crate's OAuth implementation in crates/rmcp/src/transport/auth.rs omits the RFC 9728 resource field from ResourceServerMetadata and allows discover_oauth_server_via_resource_metadata to use protected-resource metadata without confirming that the returned resource identifier exactly matches the configured MCP server. A malicious MCP server can publish metadata for a different legitimate MCP resource and its authorization server, causing a victim who connects and completes the authorization flow to obtain a legitimate access token that the client subsequently sends to the malicious server. The attacker can capture the token and impersonate the victim against the legitimate MCP resource within the token's granted scopes. This issue is fixed in version 2.0.0.",
+      "id": "CVE-2026-63325",
+      "published": "2026-09-16T19:17:24.317",
+      "description": "Redocly CLI makes OpenAPI validation, linting, and documentation workflows easier. Prior to version 2.33.0 of @redocly/respect-core and @redocly/cli, the respect command dynamically evaluates $faker runtime expressions in Arazzo descriptions. A crafted expression can traverse constructor, prototype, or __proto__ properties in packages/respect-core/src/modules/context-parser/get-value-from-context.ts, reach the JavaScript Function constructor, and execute arbitrary code when a user processes an untrusted description. The executed code runs with the privileges of the CLI process and can execute shell commands or read CI secrets. Users processing only trusted, self-authored workflows are not affected. This issue is fixed in @redocly/respect-core and @redocly/cli version 2.33.0.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-63671",
-      "published": "2026-09-16T15:17:40.100",
-      "description": "MDC is a tool to take regular Markdown and write documents interacting deeply with a Vue component. Prior to 0.22.1, @nuxtjs/mdc uses parseMarkdown with allowDangerousHtml enabled by default and relies on validateProps, validateProp, and unsafeLinkPrefix to remove executable URLs from untrusted Markdown. validateProp checks only attributes named href or src, allowing an SVG xlink:href value represented as xLinkHref to retain a javascript: URL that executes in the page origin when selected. The data:text/html denylist entries are also compared against url.protocol, which is only data:, so an iframe src containing data:text/html survives sanitization and executes in an opaque origin when loaded. Plain href javascript: URLs, srcdoc, object, script, and base elements are already blocked, making these two paths specific sibling gaps in the sanitizer. This issue is fixed in version 0.22.1.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-74909",
-      "published": "2026-09-16T15:17:43.447",
-      "description": "Keycloak provides a policy enforcer to protect applications by matching incoming web requests against defined security policies. A flaw was found where the enforcer fails to correctly normalize web addresses that contain special encoded characters, such as those representing semicolons or directory traversal segments. An authenticated user can use these encoded characters to trick the enforcer into applying a less restrictive security policy than intended, potentially gaining unauthorized access to sensitive administrative or private application endpoints.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-18212",
-      "published": "2026-09-16T15:17:33.257",
-      "description": "A flaw was found in the SAML Redirect Binding implementation of Keycloak, an open-source identity and access management solution. The issue occurs because the custom DEFLATE compression and decompression helpers fail to release native zlib memory after use. An unauthenticated attacker can exploit this by sending repeated malformed SAML requests, leading to native memory exhaustion and a denial of service.",
+      "id": "CVE-2026-38999",
+      "published": "2026-09-16T19:17:14.660",
+      "description": "A Null Pointer Dereference in the mk_sched_event_close function (mk_server/mk_scheduler.c) of Monkey through commit 4fb0c16 allows attackers to cause a Denial of Service (DoS) via sending a crafted HTTP request to the server.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-19666",
-      "published": "2026-09-16T15:17:33.520",
-      "description": "On a resolver configured to use ``dns64``, if an applicable answer from the authoritative server is malformed in a specific way, the resolver `named` process will exit unexpectedly.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
+      "id": "CVE-2026-46352",
+      "published": "2026-09-16T19:17:17.897",
+      "description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Starting in version 8.0.0 and prior to version 8.0.5, Suricata's IP defragmentation code could deadlock when processing fragmented traffic containing an encapsulated tunnel protocol whose payload is itself fragmented. Version 8.0.5 contains a fix. No known workarounds are available.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-63128",
-      "published": "2026-09-16T15:17:39.960",
-      "description": "RMCP is an official Rust SDK for the Model Context Protocol. Prior to 2.0.0, the rmcp crate's stateful Streamable HTTP server in crates/rmcp/src/transport/streamable_http_server/tower.rs allows an unauthenticated client to send a well-formed JSON-RPC POST that is not an initialization request, or an initialization request with a mismatched protocol header, causing StreamableHttpService::handle_post to call LocalSessionManager.create_session before validating the message. An early validation failure returns without removing the inserted LocalSessionHandle from LocalSessionManager.sessions, permanently retaining session and channel state for the server process lifetime. Repeated requests can grow the shared session table without bound, degrade legitimate-client latency through lock contention, exhaust memory, and terminate the server. This issue is fixed in version 2.0.0.",
+      "id": "CVE-2026-63126",
+      "published": "2026-09-16T19:17:24.013",
+      "description": "Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.4.5 and 7.0.0-alpha04, Wire protobuf readers do not consistently validate attacker-controlled lengths against the current logical message boundary before advancing cursors, pointers, limits, slices, or allocations. In Kotlin, ProtoAdapter.decode(ByteArray) and ProtoAdapter.decode(ByteString) use ByteArrayProtoReader32.internalNextLengthDelimited(), where a positive oversized length can wrap pos + length to a negative limit and escape the existing negative-length check. Related ProtoReader, ReadBuffer.readVarint(), ReadBuffer.verifyAdditional(count:), packed-repeated, nested-message, and ProtoDecoder.decodeSizeDelimited(_:from:) paths can cross logical boundaries, perform pointer arithmetic, reserve capacity, or convert an unrepresentable size before proving the requested bytes exist. An attacker who supplies malformed protobuf bytes can cause unchecked exceptions, traps, out-of-bounds behavior, or excessive allocation, resulting in denial of service without known confidentiality, integrity, or code-execution impact. This issue is fixed in versions 6.4.5 and 7.0.0-alpha04.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-76163",
-      "published": "2026-09-16T15:17:43.847",
-      "description": "If BIND is loaded with a \"`named.conf`\" file that contains no global \"`options`\" block, an attacker can send a query of QTYPE TKEY which may cause an assertion failure and subsequent unexpected program exit.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, and 9.20.9-S1 through 9.20.27-S1.",
+      "id": "CVE-2026-81875",
+      "published": "2026-09-16T19:17:44.250",
+      "description": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to version 6.9.12, SHCParser in org.hl7.fhir.r5/src/main/java/org/hl7/fhir/r5/elementmodel/SHCParser.java can consume attacker-controlled Smart Health Card JWT content whose header contains zip: \"DEF\" and whose small raw-DEFLATE payload expands to a very large value. SHCParser.decodeJWT() passes the decoded payload to SHCParser.inflate(), which accumulates all decompressed bytes in a ByteArrayOutputStream without an output-size limit before JSON parsing, and SHCParser.decompress() contains the same unbounded pattern. An application or validator service that accepts attacker-supplied SHC content can therefore suffer excessive heap allocation, severe garbage-collection pressure, request failure, process instability, or process termination. This issue is fixed in version 6.9.12.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-77401",
-      "published": "2026-09-16T15:17:46.617",
-      "description": "Zope AccessControl provides a general security framework for use in Zope. Prior to 7.4, applications that allow untrusted users to create and execute AccessControl-controlled Python code do not safely guard str.format and str.format_map when those methods are reached through a str subclass. In both ImplPython.py and cAccessControl.c, Python formatting can recursively access attributes and subscriptions using unrestricted getattr and getitem behavior instead of the policy-restricted getattr and getitem operations. A controlled format string can therefore disclose objects reachable from values available to the formatting operation. This issue is fixed in version 7.4.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-81876",
+      "published": "2026-09-16T19:17:44.450",
+      "description": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to version 6.9.12, SHCParser in org.hl7.fhir.r5/src/main/java/org/hl7/fhir/r5/elementmodel/SHCParser.java can enter an infinite loop while processing attacker-controlled Smart Health Card JWT content whose header contains zip: \"DEF\" and whose raw-DEFLATE payload is empty or truncated. SHCParser.decodeJWT() reaches SHCParser.inflate(), where Inflater.inflate() can return zero while Inflater.finished() remains false and Inflater.needsInput() is true. The loop also lacks an Inflater.needsDictionary() termination check, SHCParser.decompress() contains the same zero-progress pattern, and ResourceChecker.java can reach SHC parsing during file-format detection. A malformed validation request can pin a JVM worker thread indefinitely, and concurrent requests can exhaust all validation workers. This issue is fixed in version 6.9.12.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-19033",
-      "published": "2026-09-16T15:17:33.393",
-      "description": "For a secondary zone with transfers restricted by TSIG, `named` may start to serve the data provided in a zone transfer before the final message with the TSIG signature arrives. This could allow an attacker that does not actually possess a valid TSIG signature to send unauthorized zone contents to a secondary server. Although no TSIG signature ever arrives, `named` does not rollback to the pre-transfer state. To exploit the vulnerability, the transfer must be a multi-message TCP IXFR, as described by RFC 8945.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
+      "id": "CVE-2026-82399",
+      "published": "2026-09-16T19:17:44.627",
+      "description": "CoreDNS is a DNS server written in Go. Prior to 1.14.7, the DNS-over-HTTPS, DNS-over-HTTP/3, DNS-over-QUIC, and DNS-over-gRPC request paths in plugin/pkg/doh/doh.go, core/dnsserver/server_quic.go, and core/dnsserver/server_grpc.go call dns.Msg.Unpack on attacker-controlled DNS section counts before dns.DefaultMsgAcceptFunc validates the fixed header. An unauthenticated client can use DNS name compression and excessive section counts to amplify allocation before the plugin chain, so plugin-level rate limiting cannot prevent concurrent requests from exhausting memory and terminating CoreDNS. The ordinary UDP and TCP listeners are not affected because they validate the header first. This issue is fixed in version 1.14.7.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-73462",
+      "published": "2026-09-16T19:17:32.630",
+      "description": "On affected platforms running Arista EOS with IGMP (Internet Group Management Protocol) snooping configured (enabled by default on all VLANs), a network-adjacent unauthenticated attacker can send malformed network packets on an affected VLAN to cause the IGMP snooping agent to terminate unexpectedly. This results in a temporary disruption of multicast traffic management, which may cause multicast traffic to be flooded to all ports of the affected VLAN until the service recovers. Repeated exploitation could result in a prolonged loss of intended multicast forwarding behavior.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-77119",
-      "published": "2026-09-16T15:17:46.427",
-      "description": "A validly signed NSEC3 from an unrelated sibling zone may be accepted as an insecurity proof, downgrading a secure delegation and letting a forged unsigned answer through.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-19668",
-      "published": "2026-09-16T15:17:33.633",
-      "description": "A BIND recursive resolver may experience excessive resource consumption if it encounters large numbers of a particular kind of invalid DNSSEC record.  Default limits on \"max-records-per-type\" and \"max-types-per-name\" help mitigate the exposure.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
+      "id": "CVE-2026-73457",
+      "published": "2026-09-16T19:17:32.453",
+      "description": "Under certain circumstances on affected platforms running Arista EOS with gRPC Network Packet Sampling Interface (gNPSI) enabled, the gNPSI client credentials might be logged in clear text in local or remote accounting logs to authenticated users.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-61709",
-      "published": "2026-09-16T15:17:39.660",
-      "description": "OpenFGA is an authorization and permission engine built for developers. Prior to 1.18.1, the ListUsers API could return a user that should have been excluded when an authorization relation used an intersection containing a base but not excluded operand, the base was granted through a type-bound public wildcard, and the excluded user also had a concrete tuple through another intersection operand. In pkg/server/commands/listusers/list_users_rpc.go, expandIntersection counted the concrete tuple and wildcard without first rejecting entries in excludedUsersMap. Applications that used ListUsers to enumerate or enforce access could therefore treat an excluded user as authorized. This issue is fixed in version 1.18.1.",
+      "id": "CVE-2026-81176",
+      "published": "2026-09-16T19:17:43.437",
+      "description": "Svelte devalue is a JavaScript library that serializes values into strings when JSON.stringify isn't sufficient for the job. Prior to 5.9.2, devalue.parse does not reject out-of-bounds indices that are greater than or equal to values.length in src/parse.js. A specially crafted untrusted payload can make the parser alternate between array representations, producing quadratic work as the payload grows and causing denial of service in applications that parse untrusted devalue data. This issue is fixed in version 5.9.2.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-75029",
-      "published": "2026-09-16T15:17:43.577",
-      "description": "In a query response, an attacker may send `named` multiple copies of a record that should only exist once (such as an SOA record). If the RDATA is the same on all the copies, the record is appended to the in-memory RDATA set, which can cause increased memory usage of the negative cache and possibly lead to other memory attack vectors.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
+      "id": "CVE-2026-73443",
+      "published": "2026-09-16T19:17:31.330",
+      "description": "On affected platforms running Arista EOS with VRRPv2 IP-AH authentication configured, an unauthenticated attacker within the same layer 2 network segment on which VRRP is running can capture a legitimate authenticated VRRP advertisement and replay it indefinitely. Replayed advertisements can be used to advertise stale VRRP state, for example to prevent a backup router from taking over the virtual gateway after the original master has gone down, resulting in a denial of service for hosts using the virtual gateway address.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.7
     },
     {
-      "id": "CVE-2025-36591",
-      "published": "2026-09-16T15:17:32.867",
-      "description": "Dell ECS versions 3.8.1.0 through 3.8.1.7, and Dell ObjectScale versions prior to 4.4.0.0, contains an Use of a Broken or Risky Cryptographic Algorithm vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Information exposure.",
+      "id": "CVE-2026-75025",
+      "published": "2026-09-16T19:17:33.430",
+      "description": "Mattermost Desktop App versions <=6.2 6.2.2.0 Fixed an issue where Mattermost Desktop did not sufficiently restrict server-rendered content from accessing local or private network resources. Thanks to game0v3r for contributing to this improvement under the Mattermost responsible disclosure policy. Mattermost Advisory ID: MMSA-2026-00698",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-63225",
+      "published": "2026-09-16T19:17:24.163",
+      "description": "Redocly CLI makes OpenAPI validation, linting, and documentation workflows easier. Prior to @redocly/cli 2.33.2, the split command constructs output paths under --outDir from untrusted OpenAPI or AsyncAPI component names and x-codeSamples lang values without verifying that the resolved target remains inside the selected directory. A description containing literal ../ traversal segments in those fields can cause the split command to place or overwrite files outside --outDir. Component data remains constrained to YAML or JSON, and code-sample filenames remain based on the HTTP method, so this is not an unrestricted arbitrary-content file write. This issue is fixed in @redocly/cli version 2.33.2.",
       "severity": "MEDIUM",
       "score": 4.4
     },
     {
-      "id": "CVE-2026-77403",
-      "published": "2026-09-16T15:17:46.847",
-      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, Connection.openTune in connection.go accepts a server-advertised FrameMax below the AMQP frameMinSize value of 4096 bytes because the connection negotiation loop does not enforce the protocol minimum. A malicious or compromised AMQP broker can therefore advertise an extremely small FrameMax, causing later client publications to be fragmented into excessive numbers of frames and write operations. This can consume CPU and stall the client or its host. This issue is fixed in version 1.13.0.",
+      "id": "CVE-2026-73442",
+      "published": "2026-09-16T19:17:31.080",
+      "description": "On affected platforms running Arista EOS with VRRP enabled, the peer device VRRP authentication credentials are logged in cleartext on the switch, allowing an authenticated user with sufficient privileges to view agent trace logs (or a system receiving forwarded log output) to obtain the peer device VRRP authentication credentials without having access to the network segment on which VRRP is running.",
+      "severity": "LOW",
+      "score": 3
+    },
+    {
+      "id": "CVE-2026-59823",
+      "published": "2026-09-16T19:17:21.377",
+      "description": "LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. Prior to 1.83.9, an authenticated LiteLLM Proxy caller with a valid virtual key can place api_base inside the user_config request body to bypass is_request_body_safe, which blocks top-level api_base and base_url but previously did not inspect or reject user_config. Because user_config constructs the outbound router, the nested destination redirects a server-side request to an internal or external host selected by the caller and can expose endpoints the caller cannot otherwise access. This issue is fixed in version 1.83.9.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-77404",
-      "published": "2026-09-16T15:17:47.067",
-      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, URI.String in uri.go concatenates CertFile, KeyFile, CACertFile, and ServerName values directly into an AMQPS query string instead of encoding them as URL query parameters with url.Values. If an application accepts a TLS asset path containing ampersand or equals delimiters and later reparses the serialized URI with ParseURI, the embedded delimiters can create or overwrite connection options, including paths to TLS certificate, key, or CA files. This can corrupt connection configuration or select unintended local cryptographic assets. This issue is fixed in version 1.13.0.",
+      "id": "CVE-2026-75516",
+      "published": "2026-09-16T19:17:33.560",
+      "description": "The RabbitMQ Java client library allows Java and JVM-based applications to connect to and interact with RabbitMQ nodes. Prior to 5.34.0, AMQConnection.start() applies Math.min(maxInboundMessageBodySize, frameMax) after Connection.Tune negotiation even though AMQP defines frameMax value zero as unlimited and ConnectionFactory.DEFAULT_FRAME_MAX is zero. When the client default and server-negotiated value are both zero, the result is passed to Utils.framePayloadLimit(int), which interprets zero as Integer.MAX_VALUE and disables the configured maxInboundMessageBodySize cap. A malicious AMQP server, or a man-in-the-middle attacker able to modify Connection.Tune and inject frames into the connection, can then send an oversized frame of any frame type, causing Frame.readFrom() to allocate a large byte array before content-level validation and potentially terminate the client process through memory exhaustion. This issue is fixed in version 5.34.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-77405",
-      "published": "2026-09-16T15:17:47.980",
-      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, tlsConfigFromURI in uri.go creates tls.Config values without setting MinVersion to tls.VersionTLS12. Builds using a Go runtime whose default permits TLS 1.0 or TLS 1.1 can therefore negotiate an obsolete protocol version when connecting through an amqps URI. A network attacker able to influence TLS negotiation with such a legacy build may weaken transport protection for AMQP messages and credentials. This issue is fixed in version 1.13.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77406",
-      "published": "2026-09-16T15:17:49.070",
-      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, Channel.Qos in channel.go accepts negative prefetchCount and prefetchSize integers and casts them directly to uint16 and uint32 fields in the basic.qos method because validateQos is absent. Values such as -1 therefore wrap to 65535 or 4294967295 instead of being rejected. An application that permits untrusted configuration of these Qos values can unintentionally request extremely large prefetch limits, allowing a broker to deliver enough queued messages to exhaust client memory and disrupt processing. This issue is fixed in version 1.13.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77407",
-      "published": "2026-09-16T15:17:49.210",
-      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, PlainAuth values defined in auth.go retain passwords as exported plaintext fields in Connection.Config.SASL after a successful PLAIN authentication handshake. The Connection.openComplete method in connection.go does not clear those values. Code with access to the Connection object, including reflective loggers, application performance monitoring agents, debugging utilities, and panic handlers, can traverse the configuration and expose the credentials to logs or state captures. The credential remains available for the lifetime of the connection instead of being cleared after authentication. This issue is fixed in version 1.13.0.",
+      "id": "CVE-2026-77360",
+      "published": "2026-09-16T19:17:38.020",
+      "description": "oRPC is an tool that helps build APIs that are end-to-end type-safe and adhere to OpenAPI standards. Prior to 1.14.8, the @orpc/server CORS plugin in packages/server/src/plugins/cors.ts copies a client's incoming Vary request header into the response instead of controlling Vary as a response-only header and using Origin for request-origin variation. In deployments behind a shared cache, CDN, or reverse proxy that keys responses using Vary, a client can inject arbitrary variation values, pollute cache keys, and cause inconsistent CORS enforcement for other clients. Default non-cached configurations have no established direct confidentiality, integrity, or availability impact. This issue is fixed in version 1.14.8.",
       "severity": "UNKNOWN",
       "score": null
     }
