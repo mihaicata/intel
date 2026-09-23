@@ -1,143 +1,143 @@
 {
-  "totalResults": 3393,
+  "totalResults": 3392,
   "items": [
     {
-      "id": "CVE-2026-86108",
-      "published": "2026-09-16T03:17:00.077",
-      "description": "Insufficient validation of inputs supplied through affected VeloCloud Edge management and configuration workflows may allow an authorized management request or configuration value to be interpreted as an operating-system command. Successful exploitation may allow command execution with elevated privileges on the affected VeloCloud Edge.",
+      "id": "CVE-2026-76552",
+      "published": "2026-09-16T06:16:32.080",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not validate the type, extension or content of files it retrieves from a user-supplied URL during import, allowing users granted its import permission to store arbitrary files, including executable ones, on the server and achieve remote code execution.",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-73446",
-      "published": "2026-09-16T00:17:05.000",
-      "description": "On affected platforms running Arista EOS with IS-IS configured on a broadcast interface, an unauthenticated attacker can send a crafted IS-IS Hello Protocol Data Unit (PDU) that causes the device to tear down an established IS-IS adjacency. This may result in traffic disruption and loss of IP reachability for prefixes advertised through that adjacency.",
+      "id": "CVE-2026-78472",
+      "published": "2026-09-16T06:16:32.827",
+      "description": "The Ni WooCommerce Sales Report  WordPress plugin before 4.2.0 does not sanitise and escape a parameter before using it in a SQL statement, allowing unauthenticated users to perform SQL injection attacks.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-73459",
-      "published": "2026-09-16T00:17:05.213",
-      "description": "On affected platforms running Arista EOS with IS-IS configured, an unauthenticated attacker who can inject a specially crafted IS-IS LSP PDU can cause the legitimate LSP to be unexpectedly purged from the IS-IS link-state database. This may result in traffic loss.",
+      "id": "CVE-2026-89063",
+      "published": "2026-09-16T05:16:47.313",
+      "description": "The Online Scheduling and Appointment Booking System – Bookly plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 28.1 via the 'conversation_id' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to read the full AI booking conversation transcript of any customer — leaking names, email addresses, phone numbers, and appointment details echoed by the assistant — and inject arbitrary messages into any victim conversation that are subsequently replayed to the Cloud AI worker along with the full private history. Because AI conversations are stored with no owner, user, or session identifier and conversation IDs are sequential integers, an unauthenticated attacker can enumerate all customer conversations simply by incrementing the conversation_id parameter.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-92299",
-      "published": "2026-09-16T02:17:39.317",
-      "description": "@jitsi/electron-sdk before 10.0.5 exposes getDesktopSources() via contextBridge without requiring an active getDisplayMedia() picker, allowing any script in the meeting page to enumerate screens and windows. Attackers can call the jitsi-screen-sharing-get-sources IPC route to retrieve desktop thumbnails at arbitrary resolution without user consent or operating system permission prompts.",
+      "id": "CVE-2026-76550",
+      "published": "2026-09-16T06:16:31.883",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.34 does not validate a user-supplied output path when writing export files, allowing users granted its export permission to write files with arbitrary names to arbitrary locations on the server, leading to remote code execution.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-92215",
-      "published": "2026-09-16T02:17:38.650",
-      "description": "A vulnerability has been found in a2ui-project a2ui up to 0.10.7. Affected by this vulnerability is the function httpx.get of the file agent_sdks/python/a2ui_agent/src/a2ui/extensions/file_resolve/file_resolver.py of the component FileResolver. The manipulation leads to server-side request forgery. It is possible to initiate the attack remotely. The identifier of the patch is 2bb8423060308bbdea8ba468dabed4fc256d18ea. To fix this issue, it is recommended to deploy a patch.",
+      "id": "CVE-2026-76551",
+      "published": "2026-09-16T06:16:31.987",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not restrict which PHP function may be applied to exported field values, allowing users granted its export permission to have arbitrary functions invoked on values they control, leading to remote code execution.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-73450",
-      "published": "2026-09-16T03:16:59.437",
-      "description": "On affected platforms running Arista EOS with MLAG Dual Primary Detection configured, an unauthenticated attacker with access to the Dual Primary Detection network segment can send specially crafted packets to interfere with the dual-primary state. If the MLAG primary switch fails while these packets are present, the secondary switch incorrectly concludes it is in a dual-primary condition and err-disables its interfaces, leading to a traffic interruption.",
+      "id": "CVE-2026-74926",
+      "published": "2026-09-16T06:16:31.397",
+      "description": "The MultiVendorX  WordPress plugin before 5.0.16 does not verify that a user owns the store they are acting on in one of its REST API routes, allowing any authenticated user, such as a subscriber, to overwrite any store's details and payout settings and to replace the record of who owns it.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-76555",
+      "published": "2026-09-16T06:16:32.263",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not validate a user-supplied file path before reading it and copying it into a publicly accessible directory, allowing any user whose role an administrator has granted the WP Import Export Lite WordPress plugin before 3.9.33's import permission to disclose sensitive files from the server, including files located outside the web root. The same code path also relaxes the file-system permissions of any path it is given, whether or not the copy succeeds.",
       "severity": "MEDIUM",
-      "score": 6.9
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-86109",
-      "published": "2026-09-16T03:17:00.250",
-      "description": "The VeloCloud Edge software update workflow may accept update bundles without properly validating their signatures because the workflow does not restrict the digest algorithm used for artifact verification. An attacker with either sufficient privileges to upload packages to VeloCloud Orchestrator or credentials permitting direct access to an Edge may be able to install unauthorized software.",
+      "id": "CVE-2026-76556",
+      "published": "2026-09-16T06:16:32.357",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not properly sanitise and escape some export filter values before using them in SQL statements, allowing users holding its export permission, which administrators have by default and may also grant to lower roles, to perform SQL injection attacks.",
       "severity": "MEDIUM",
-      "score": 6.6
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-92184",
-      "published": "2026-09-16T00:17:30.080",
-      "description": "A security flaw has been discovered in ag-ui-protocol ag-ui 0.3.0. Affected is the function urllib.request.urlopen of the file integrations/aws-strands/python/src/ag_ui_strands/utils.py of the component Multimodal Content. The manipulation of the argument Value results in server-side request forgery. The attack can be executed remotely. The patch is identified as bf0c34df34cbb4b1992bc37c9bfffe6dd54bb189. It is advisable to implement a patch to correct this issue.",
+      "id": "CVE-2026-76557",
+      "published": "2026-09-16T06:16:32.450",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not properly sanitise and escape some import configuration values before using them in SQL statements, allowing users whose role an administrator has granted the WP Import Export Lite WordPress plugin before 3.9.33's import permission to perform SQL injection attacks.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-92217",
-      "published": "2026-09-16T02:17:38.997",
-      "description": "A vulnerability was determined in a2ui-project a2ui up to 0.10.6. This affects the function processMessages of the file renderers/web_core/src/v0_9/processing/message-processor.ts of the component Message Parsing. This manipulation causes dynamically-determined object attributes. The attack can be initiated remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-76558",
+      "published": "2026-09-16T06:16:32.543",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not escape custom field names retrieved from the database before inserting them into the DOM of one of its administration screens, allowing users with a role as low as contributor to perform Stored XSS attacks which will trigger in the browser of a high privileged user, such as an administrator, viewing that screen.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-73460",
-      "published": "2026-09-16T00:17:05.397",
-      "description": "On affected platforms running Arista EOS with IS-IS graceful restart enabled, an unauthenticated attacker who can inject a malformed IS-IS LSP PDU packet can cause the IS-IS graceful restart procedure to terminate prematurely. This may result in traffic loss following a restart event.",
+      "id": "CVE-2026-76553",
+      "published": "2026-09-16T06:16:32.173",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not validate a path taken from stored, user-supplied data before recursively deleting the directory it resolves to, allowing users to whom an administrator has delegated a WP Import Export Lite WordPress plugin before 3.9.33 capability to delete arbitrary directories, and every file within them, including outside the web root.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-5920",
+      "published": "2026-09-16T05:16:46.913",
+      "description": "The Bold Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'shortcode_content' parameter of the bt_bb_shortcode shortcode in all versions up to, and including, 5.9.6. This is due to a bypassable security filter (bt_bb_save_pre) that can be circumvented via null byte injection, combined with insufficient output sanitization of base64-decoded content in the bt_bb_raw_content shortcode handler. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-18555",
+      "published": "2026-09-16T05:16:45.217",
+      "description": "The Better Messages – Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'icn' parameter in all versions up to, and including, 2.15.22 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "severity": "MEDIUM",
       "score": 6.1
     },
     {
-      "id": "CVE-2026-92213",
-      "published": "2026-09-16T01:16:29.247",
-      "description": "A vulnerability was detected in a2ui-project a2ui up to 0.10.6. This impacts the function z.any of the file renderers/web_core/src/v0_9/schema/server-to-client.ts of the component Angular Renderer. Performing a manipulation of the argument primaryColor results in injection. The attack is possible to be carried out remotely. The patch is named fb8e85aec78d04e81feb9992a57638ca1ec4dc1b. It is suggested to install a patch to address this issue.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-92220",
-      "published": "2026-09-16T03:17:00.407",
-      "description": "A vulnerability was found in vllm-project vLLM 0.26.0/0.27.0. Affected is the function MoRIIOConnectorScheduler.request_finished/MoRIIOConnectorWorker.get_finished/MoRIIOWrapper._handle_release_message of the file vllm/distributed/kv_transfer/kv_connector/v1/moriio/moriio_connector.py of the component MoRIIO Acknowledgement Handler. Performing a manipulation of the argument request_id/kv_transfer_params results in resource consumption. It is possible to initiate the attack remotely. The project was informed of the problem early through a pull request but has not reacted yet.",
+      "id": "CVE-2026-77702",
+      "published": "2026-09-16T06:16:32.727",
+      "description": "The Eventin  WordPress plugin before 4.1.24 does not prevent the token issued to a guest at checkout from being used to change that order's tickets afterwards, allowing unauthenticated users to replace a paid ticket with a free one and complete the order at no charge.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-92298",
-      "published": "2026-09-16T02:17:39.170",
-      "description": "EspoCRM through 10.0.8 uses PHP's rand() function to generate tokens for lead-capture opt-in, event invitation, and campaign URLs instead of a cryptographically secure generator. Remote unauthenticated attackers can guess these roughly 31-bit tokens to confirm opt-ins, accept or decline event invitations on behalf of other contacts, and access event details.",
+      "id": "CVE-2026-78474",
+      "published": "2026-09-16T06:16:32.923",
+      "description": "The Ni WooCommerce Sales Report  WordPress plugin before 4.2.0 does not have any authentication or authorisation checks on one of its report-printing routines, allowing unauthenticated users to retrieve WooCommerce order details and customer contact information, to target an individual order, and to search the store's orders by customer name or email address.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-92221",
-      "published": "2026-09-16T03:17:00.590",
-      "description": "A vulnerability was determined in gedelumbung HospitalManagement up to c2d45543789a3887067d3915f69d44cfc2cf76a8. Affected by this vulnerability is the function generate_index_pasien of the file application/models/app_global_admin_model.php. Executing a manipulation of the argument cari can lead to sql injection. It is possible to launch the attack remotely. The exploit has been publicly disclosed and may be utilized. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-82124",
+      "published": "2026-09-16T06:16:33.167",
+      "description": "The Schema & Structured Data for WP & AMP WordPress plugin before 1.66 does not check whether a post is password protected before including its content in the structured data it generates, allowing unauthenticated users to obtain the content of password protected posts via more than one public output route.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-92247",
-      "published": "2026-09-16T03:17:00.777",
-      "description": "A security vulnerability has been detected in synaptikcms synaptik-cms up to 1.3.4.4. This affects the function rename of the file admin/file-manager.php of the component Admin File Manager. The manipulation leads to unrestricted upload. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. Upgrading to version 1.3.5 is able to mitigate this issue. It is suggested to upgrade the affected component.",
+      "id": "CVE-2026-82125",
+      "published": "2026-09-16T06:16:33.270",
+      "description": "The Schema & Structured Data for WP & AMP WordPress plugin before 1.66 does not correctly verify the ownership or the moderation status of a comment before returning its content, allowing unauthenticated users to read the content of comments still awaiting moderation or marked as spam.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-92216",
-      "published": "2026-09-16T02:17:38.827",
-      "description": "A vulnerability was found in a2ui-project a2ui up to 0.10.7. Affected by this issue is the function openUrl of the file renderers/web_core/src/v0_9/rendering/generic-binder.ts of the component Binder. The manipulation results in open redirect. It is possible to launch the attack remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-76559",
+      "published": "2026-09-16T06:16:32.633",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.33 does not properly validate URLs before requesting them during the import process, allowing users with the import capability, which administrators hold by default, to make the site issue requests to internal hosts and services and read their responses. This is an incomplete fix for CVE-2026-11397.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.1
     },
     {
-      "id": "CVE-2026-92214",
-      "published": "2026-09-16T02:17:37.547",
-      "description": "A flaw has been found in a2ui-project a2ui up to 0.10.7. Affected is an unknown function of the file samples/community/client/angular/projects/a2a-chat-canvas/src/lib/services/sanitizer-markdown-renderer-service.ts of the component a2a-chat-canvas. Executing a manipulation can lead to cross site scripting. The attack may be performed from remote.",
+      "id": "CVE-2026-82126",
+      "published": "2026-09-16T06:16:33.360",
+      "description": "The Schema & Structured Data for WP & AMP WordPress plugin before 1.66 does not check that a user is allowed to edit the specific post they request schema generation for, allowing users with the contributor role and above to obtain the content of other users' draft, pending, private and password protected posts.",
       "severity": "LOW",
-      "score": 3.5
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-15638",
-      "published": "2026-09-16T00:17:02.600",
-      "description": "An unauthenticated user with access to Secret Server could leverage a padding oracle to decrypt or encrypt data using one of the server's cryptographic keys. The key itself is not exposed.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-15639",
-      "published": "2026-09-16T00:17:03.453",
-      "description": "An attacker can craft a malicious link that, if used by a legitimate user, may cause the user's browser to run JavaScript supplied by the attacker.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-15640",
-      "published": "2026-09-16T00:17:03.577",
-      "description": "Under certain conditions a valid SAML IdP response may be used to impersonate another Secret Server user.",
+      "id": "CVE-2026-61396",
+      "published": "2026-09-16T06:16:30.557",
+      "description": "Rejected reason: Did not need CVE ID",
       "severity": "UNKNOWN",
       "score": null
     }
