@@ -1,143 +1,143 @@
 {
-  "totalResults": 3351,
+  "totalResults": 3055,
   "items": [
     {
-      "id": "CVE-2026-73453",
-      "published": "2026-09-16T10:16:52.043",
-      "description": "An unauthenticated P4Runtime (Programming Protocol-Independent Packet Processors Runtime) client can achieve arbitrary code execution under certain conditions on affected platforms running Arista EOS configured with P4Runtime. P4Runtime is disabled by default in Arista EOS. By crafting a malicious packet during the initiation of a P4Runtime session, an attacker can obtain complete administrative control over the compromised switch.\n\nThis issue was discovered internally by Arista, and the company is not aware of any malicious exploitation of this vulnerability in customer networks.",
-      "severity": "CRITICAL",
-      "score": 10
+      "id": "CVE-2026-76825",
+      "published": "2026-09-16T15:17:46.000",
+      "description": "RestrictedPython is a tool that helps define a subset of the Python language for accepting program input in a trusted environment. Prior to 8.4, RestrictedPython could allow a sandbox escape when a custom import policy or globals exposed the standard library string module, the string.Formatter class, a Formatter instance, or a Formatter subclass to restricted code. The string.Formatter methods format, get_field, get_value, and vformat performed attribute and item traversal internally without passing through RestrictedPython's safer_getattr protections. Restricted code could use those live object references to reach function globals, builtins, file access, or code execution primitives, affecting confidentiality, integrity, and availability in the host environment. This issue is fixed in version 8.4.",
+      "severity": "HIGH",
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-76187",
-      "published": "2026-09-16T10:16:52.910",
-      "description": "Apache Airflow Keycloak provider: the unauthenticated token endpoint accepts a client-credentials grant for any confidential client registered in the Keycloak realm, not only the client configured for Airflow. No allowlist restricts which client ids may authenticate, so the credentials of an unrelated application that happens to share the realm are valid Airflow login credentials, and Airflow mints a signed session token for that application's service account. The endpoint also answers unauthenticated credential guesses against Keycloak under Airflow's identity.\n\nAffects deployments using the Keycloak auth manager whose realm is shared with other confidential clients. The attacker needs valid credentials for any one of those clients, not for Airflow. Resource authorization is still evaluated per subject, so the access gained is whatever that service account holds, plus any endpoint gated only on being authenticated.\n\nUsers of apache-airflow-providers-keycloak are recommended to upgrade to version 0.10.0 or later, which accepts only the configured client on that grant.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-76186",
-      "published": "2026-09-16T10:16:52.793",
-      "description": "Apache Airflow Keycloak provider: from Airflow 3.3 the Keycloak auth manager takes a user's identity from the signed Airflow session token but takes the Keycloak access and refresh tokens used for every authorization decision from separate, unauthenticated cookies, and never checks that the two describe the same subject. A user who holds any valid Airflow login of their own, together with another subject's Keycloak access or refresh token obtained out of band, can pair the two: Airflow then authorizes requests with the foreign token's privileges while the session identity, audit log and cache keys continue to name the attacker's own account. The refresh path re-issues an Airflow session token for the original identity carrying the foreign tokens, so the mismatched pairing survives across sessions.\n\nAffects deployments running Airflow 3.3 or later with the Keycloak auth manager. Earlier versions carried the Keycloak tokens inside the signed session token, so the binding existed and was lost when they moved into separate cookies.\n\nUsers of apache-airflow-providers-keycloak are recommended to upgrade to version 0.10.0 or later, which binds the cookie-supplied tokens to the session identity.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-73435",
-      "published": "2026-09-16T10:16:51.363",
-      "description": "On affected platforms running Arista EOS with Open Shortest Path First version 2 (OSPFv2) configured, a specially crafted OSPFv2 packet from an unauthenticated attacker on the same broadcast segment, with OSPFv2 authentication configured can cause adjacency flapping and packet loss. The disruption can affect routing across the broader OSPF domain.",
+      "id": "CVE-2026-63127",
+      "published": "2026-09-16T15:17:39.817",
+      "description": "RMCP is an official Rust SDK for the Model Context Protocol. Prior to 2.0.0, the rmcp crate's OAuth implementation in crates/rmcp/src/transport/auth.rs omits the RFC 9728 resource field from ResourceServerMetadata and allows discover_oauth_server_via_resource_metadata to use protected-resource metadata without confirming that the returned resource identifier exactly matches the configured MCP server. A malicious MCP server can publish metadata for a different legitimate MCP resource and its authorization server, causing a victim who connects and completes the authorization flow to obtain a legitimate access token that the client subsequently sends to the malicious server. The attacker can capture the token and impersonate the victim against the legitimate MCP resource within the token's granted scopes. This issue is fixed in version 2.0.0.",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-59739",
-      "published": "2026-09-16T10:16:51.097",
-      "description": "Information disclosure via SetWatches reconnect replay in Apache ZooKeeper due to missing ACL check. An attacker can discover ACL-restricted paths by registering exists-watches on non-existent paths, then reconnecting after the paths are created with restricted ACLs. Issue is caused by incomplete fix for CVE-2024-23944 (ZOOKEEPER-4799). The fix added ACL checking to WatchManager.triggerWatch(). However, DataTree.setWatches() — the SetWatches/SetWatches2 reconnect replay handler — still calls watcher.process(event) with null ACL, bypassing the check entirely. It's important to note that only the path is exposed by this vulnerability, not the data of znode, but since znode path can contain sensitive information like user name or login ID, this issue is potentially critical.\n\nUsers are recommended to upgrade to version 3.9.6, 3.8.7 which fixes the issue.",
+      "id": "CVE-2026-63671",
+      "published": "2026-09-16T15:17:40.100",
+      "description": "MDC is a tool to take regular Markdown and write documents interacting deeply with a Vue component. Prior to 0.22.1, @nuxtjs/mdc uses parseMarkdown with allowDangerousHtml enabled by default and relies on validateProps, validateProp, and unsafeLinkPrefix to remove executable URLs from untrusted Markdown. validateProp checks only attributes named href or src, allowing an SVG xlink:href value represented as xLinkHref to retain a javascript: URL that executes in the page origin when selected. The data:text/html denylist entries are also compared against url.protocol, which is only data:, so an iframe src containing data:text/html survives sanitization and executes in an opaque origin when loaded. Plain href javascript: URLs, srcdoc, object, script, and base elements are already blocked, making these two paths specific sibling gaps in the sanitizer. This issue is fixed in version 0.22.1.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-74909",
+      "published": "2026-09-16T15:17:43.447",
+      "description": "Keycloak provides a policy enforcer to protect applications by matching incoming web requests against defined security policies. A flaw was found where the enforcer fails to correctly normalize web addresses that contain special encoded characters, such as those representing semicolons or directory traversal segments. An authenticated user can use these encoded characters to trick the enforcer into applying a less restrictive security policy than intended, potentially gaining unauthorized access to sensitive administrative or private application endpoints.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-18212",
+      "published": "2026-09-16T15:17:33.257",
+      "description": "A flaw was found in the SAML Redirect Binding implementation of Keycloak, an open-source identity and access management solution. The issue occurs because the custom DEFLATE compression and decompression helpers fail to release native zlib memory after use. An unauthenticated attacker can exploit this by sending repeated malformed SAML requests, leading to native memory exhaustion and a denial of service.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-59969",
-      "published": "2026-09-16T10:16:51.220",
-      "description": "Apache ZooKeeper quorum TLS fails to enforce peer hostname verification in FIPS-mode deployments. When sslQuorum=true, zookeeper.fips-mode=true, ssl.quorum.hostnameVerification=true, and ssl.quorum.clientHostnameVerification=true are enabled, the Java SSLSocket quorum path accepts a CA-trusted peer certificate whose SAN does not match the connected host. A malicious or misissued peer certificate can therefore join quorum traffic, participate in leader election, and enter replication flows.\n\n\n\nUsers are recommended to upgrade to version 3.8.7 or 3.9.6, which fixes the issue.",
+      "id": "CVE-2026-19666",
+      "published": "2026-09-16T15:17:33.520",
+      "description": "On a resolver configured to use ``dns64``, if an applicable answer from the authoritative server is malformed in a specific way, the resolver `named` process will exit unexpectedly.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-73455",
-      "published": "2026-09-16T10:16:52.243",
-      "description": "On affected platforms running Arista EOS with Open Shortest Path First version 3 (OSPFv3) configured, a specially crafted packet can cause the OSPFv3 agent to restart unexpectedly.",
+      "id": "CVE-2026-63128",
+      "published": "2026-09-16T15:17:39.960",
+      "description": "RMCP is an official Rust SDK for the Model Context Protocol. Prior to 2.0.0, the rmcp crate's stateful Streamable HTTP server in crates/rmcp/src/transport/streamable_http_server/tower.rs allows an unauthenticated client to send a well-formed JSON-RPC POST that is not an initialization request, or an initialization request with a mismatched protocol header, causing StreamableHttpService::handle_post to call LocalSessionManager.create_session before validating the message. An early validation failure returns without removing the inserted LocalSessionHandle from LocalSessionManager.sessions, permanently retaining session and channel state for the server process lifetime. Repeated requests can grow the shared session table without bound, degrade legitimate-client latency through lock contention, exhaust memory, and terminate the server. This issue is fixed in version 2.0.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-79993",
-      "published": "2026-09-16T10:16:53.190",
-      "description": "The `deleteContainer` opcode (0x14/20) is processed without verifying the caller's ACL permissions, allowing any authenticated client to delete specific znodes in the data tree regardless of the ACL restrictions on the znode or its parent. This opcode is considered internal-only and the official client doesn't have API for it, but a client that can open a plain TCP session on the ZooKeeper client port (2181 by default) - with NO authentication and NO ACL permissions - can delete any empty persistent znode (including regular persistent nodes, container nodes, and TTL nodes) by issuing the raw protocol OpCode deleteContainer (20). The deleteContainer request path completely skips both the session check and the DELETE ACL check that are enforced by the regular delete (OpCode 2) path. This is an authorization bypass / ACL enforcement bug.\n\nThis issue affects Apache ZooKeeper: from 3.9.0 through 3.9.5, from 3.8.0 through 3.8.6.\n\nUsers are recommended to upgrade to version 3.9.6 or 3.8.7, which fixes the issue.",
+      "id": "CVE-2026-76163",
+      "published": "2026-09-16T15:17:43.847",
+      "description": "If BIND is loaded with a \"`named.conf`\" file that contains no global \"`options`\" block, an attacker can send a query of QTYPE TKEY which may cause an assertion failure and subsequent unexpected program exit.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, and 9.20.9-S1 through 9.20.27-S1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-82310",
-      "published": "2026-09-16T10:16:53.307",
-      "description": "Apache Airflow FAB provider: deactivating a user account does not stop tokens issued to that account before deactivation. Password authentication correctly rejects the disabled account, but the Core API continues to accept an existing, unexpired token naming it, and lets that token mint a replacement — so the account keeps its role-scoped access indefinitely after an administrator has disabled it. The user replays their own legitimate credential; no signature forgery or privilege escalation is involved, and the access stays within the roles the account already held.\n\nAffects deployments using Airflow 3 with the FAB auth manager and Core API token authentication, where an administrator deactivates an account whose row remains in the database and whose previously issued token has not expired. The trigger is administrative deactivation as a containment action, which silently fails to contain.\n\nUsers of apache-airflow-providers-fab are recommended to upgrade to version 3.9.0 or later, which rejects tokens naming a deactivated account.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-77401",
+      "published": "2026-09-16T15:17:46.617",
+      "description": "Zope AccessControl provides a general security framework for use in Zope. Prior to 7.4, applications that allow untrusted users to create and execute AccessControl-controlled Python code do not safely guard str.format and str.format_map when those methods are reached through a str subclass. In both ImplPython.py and cAccessControl.c, Python formatting can recursively access attributes and subscriptions using unrestricted getattr and getitem behavior instead of the policy-restricted getattr and getitem operations. A controlled format string can therefore disclose objects reachable from values available to the formatting operation. This issue is fixed in version 7.4.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-73436",
-      "published": "2026-09-16T10:16:51.550",
-      "description": "On affected platforms running Arista EOS with OSPFv2 and OSPFv2 segment routing configured, a specially crafted OSPFv2 packet from an adjacent OSPF neighbor may cause OSPF to restart unexpectedly.",
+      "id": "CVE-2026-19033",
+      "published": "2026-09-16T15:17:33.393",
+      "description": "For a secondary zone with transfers restricted by TSIG, `named` may start to serve the data provided in a zone transfer before the final message with the TSIG signature arrives. This could allow an attacker that does not actually possess a valid TSIG signature to send unauthorized zone contents to a secondary server. Although no TSIG signature ever arrives, `named` does not rollback to the pre-transfer state. To exploit the vulnerability, the transfer must be a multi-message TCP IXFR, as described by RFC 8945.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-73468",
-      "published": "2026-09-16T10:16:52.383",
-      "description": "A specially crafted packet can cause the premature expiry of multicast forwarding state on affected interfaces, potentially resulting in temporary multicast traffic loss during the affected period.",
+      "id": "CVE-2026-77119",
+      "published": "2026-09-16T15:17:46.427",
+      "description": "A validly signed NSEC3 from an unrelated sibling zone may be accepted as an insecurity proof, downgrading a secure delegation and letting a forged unsigned answer through.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-77190",
-      "published": "2026-09-16T10:16:53.030",
-      "description": "On affected platforms running Arista EOS, an unauthenticated attacker who is network-adjacent to the switch and able to connect to a device with PIM Sparse Mode and MLAG configured, can send malformed messages that cause the Pimsm agent to terminate unexpectedly. The Pimsm agent is automatically restarted, but repeated attacks can cause the agent to restart continuously, resulting in a sustained denial of service.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-73469",
-      "published": "2026-09-16T10:16:52.510",
-      "description": "When specific platforms are using Arista EOS with a loose Unicast Reverse Path Forwarding (uRPF) configuration, certain traffic may not be subjected to the intended verification drop. Consequently, traffic that should be dropped based on these routes could still be processed and forwarded by the device.\n\nThis issue was discovered internally by Arista and the company is not aware of any malicious uses of this issue in customer networks.",
-      "severity": "MEDIUM",
-      "score": 5.8
-    },
-    {
-      "id": "CVE-2026-73438",
-      "published": "2026-09-16T10:16:51.690",
-      "description": "On affected platforms running Arista EOS with Open Shortest Path First version 3 (OSPFv3) configured, an unauthenticated attacker on the same OSPFv3 broadcast domain can send a specially crafted set of packets that can cause the Ospf3 agent to restart unexpectedly. The crash results in the loss of all OSPFv3 adjacencies on the affected device and may disrupt routing across the broader OSPF domain until the agent recovers.\n\nThis issue was reported externally by Dravanet Inc., and Arista is not aware of any malicious exploitation of this vulnerability in customer networks.",
+      "id": "CVE-2026-19668",
+      "published": "2026-09-16T15:17:33.633",
+      "description": "A BIND recursive resolver may experience excessive resource consumption if it encounters large numbers of a particular kind of invalid DNSSEC record.  Default limits on \"max-records-per-type\" and \"max-types-per-name\" help mitigate the exposure.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-84439",
-      "published": "2026-09-16T10:16:53.433",
-      "description": "When audit logging is enabled (zookeeper.audit.enable=true), an unauthenticated attacker can inject arbitrary fields into Apache ZooKeeper's audit log by sending a digest authentication request with tab characters (\\t) embedded in the username. Because the audit log uses tab-separated key=value format, the injected tabs are parsed as legitimate field separators, allowing the attacker to spoof audit results (e.g., injecting result=success), forge operation types, and corrupt forensic evidence.\n\nA log injection vulnerability in Apache ZooKeeper allows a client that can call setACL to inject forged key-value fields into zookeeper_audit.log. When audit logging is enabled, the server serializes attacker-controlled digest ACL ids into the acl= audit field without escaping tab characters. Because audit events are emitted as tab-separated key=value records, a crafted ACL id can make one successful setAcl event appear to contain forged fields such as operation=delete and znode=/forged. This undermines the integrity of downstream audit parsing, alerting, and incident response.\n\nThis issue affects Apache ZooKeeper: from 3.9.0 through 3.9.5, from 3.8.0 through 3.8.6.\n\nUsers are recommended to upgrade to version 3.9.6 or 3.8.7, which fixes the issue.",
+      "id": "CVE-2026-61709",
+      "published": "2026-09-16T15:17:39.660",
+      "description": "OpenFGA is an authorization and permission engine built for developers. Prior to 1.18.1, the ListUsers API could return a user that should have been excluded when an authorization relation used an intersection containing a base but not excluded operand, the base was granted through a type-bound public wildcard, and the excluded user also had a concrete tuple through another intersection operand. In pkg/server/commands/listusers/list_users_rpc.go, expandIntersection counted the concrete tuple and wildcard without first rejecting entries in excludedUsersMap. Applications that used ListUsers to enumerate or enforce access could therefore treat an excluded user as authorized. This issue is fixed in version 1.18.1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-84501",
-      "published": "2026-09-16T10:16:53.557",
-      "description": "An unauthenticated attacker can inject arbitrary fake log lines into Apache ZooKeeper's operational log by sending a crafted add_auth(\"ensemble\", ...) request containing newline characters (\\n). When the ensemble name doesn't match, EnsembleAuthenticationProvider.handleAuthentication() logs the raw, unsanitized name via LOG.warn(). Because SLF4J's {} placeholder preserves embedded newlines, the attacker can forge complete log entries — with arbitrary timestamps, log levels, class names, and messages — that are visually indistinguishable from genuine ZooKeeper log output.\n\nThis issue affects Apache ZooKeeper: from 3.9.0 through 3.9.5, from 3.8.0 through 3.8.6.\n\nUsers are recommended to upgrade to version 3.8.7 or 3.9.6, which fixes the issue.",
+      "id": "CVE-2026-75029",
+      "published": "2026-09-16T15:17:43.577",
+      "description": "In a query response, an attacker may send `named` multiple copies of a record that should only exist once (such as an SOA record). If the RDATA is the same on all the copies, the record is appended to the in-memory RDATA set, which can cause increased memory usage of the negative cache and possibly lead to other memory attack vectors.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.27, 9.21.0 through 9.21.25, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.27-S1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-19640",
-      "published": "2026-09-16T10:16:50.943",
-      "description": "On affected platforms running Arista EOS, an authenticated user with access to the gNMI (gRPC Network Management Interface) may receive incorrect authorization results, potentially allowing access beyond their currently assigned permissions.\n\nThis issue was discovered internally by Arista and the company is not aware of any malicious uses of this issue in customer networks.",
+      "id": "CVE-2025-36591",
+      "published": "2026-09-16T15:17:32.867",
+      "description": "Dell ECS versions 3.8.1.0 through 3.8.1.7, and Dell ObjectScale versions prior to 4.4.0.0, contains an Use of a Broken or Risky Cryptographic Algorithm vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Information exposure.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-73440",
-      "published": "2026-09-16T10:16:51.870",
-      "description": "On affected platforms running Arista EOS with Simple Network Management Protocol (SNMP) configured, SNMPv3 local or remote user credentials may be exposed as a one-way hashed, localized key value within the device's running and sanitized configurations. An authenticated user who gains access to this sensitive information could leverage it to perform unauthorized read operations on SNMP tables or to send fraudulent trap notifications to the Network Management System (NMS).\n\nThis issue was discovered internally by Arista, and the company is not aware of any malicious exploitation of this vulnerability in customer networks.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2026-14917",
-      "published": "2026-09-16T10:16:48.373",
-      "description": "A SAML authentication bypass vulnerability affects the Kong SAML plugin when the validate_assertion_signature option is explicitly set to false. This option is enabled by default. When disabled, the plugin may extract the SAML identity from an unsigned assertion and authenticate the user without verifying a valid cryptographic signature.\n\n\n\nAs a result, an unauthenticated remote attacker may be able to submit a crafted SAML response and impersonate arbitrary users, including administrators",
+      "id": "CVE-2026-77403",
+      "published": "2026-09-16T15:17:46.847",
+      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, Connection.openTune in connection.go accepts a server-advertised FrameMax below the AMQP frameMinSize value of 4096 bytes because the connection negotiation loop does not enforce the protocol minimum. A malicious or compromised AMQP broker can therefore advertise an extremely small FrameMax, causing later client publications to be fragmented into excessive numbers of frames and write operations. This can consume CPU and stall the client or its host. This issue is fixed in version 1.13.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-76151",
-      "published": "2026-09-16T10:16:52.660",
-      "description": "Out-of-bounds read (buffer over-read) in the HTTP Cache-Control response header parsing in the QtNetwork module in Qt Group Qt 6.0.0 through 6.8.8, and 6.9.0 through 6.11.1, allows remote attackers to cause a denial of service (application crash) via an excessively large Cache-Control header value returned by an untrusted or compromised HTTP server to an application using QNetworkAccessManager. Only the client side of the connection is affected and 32-bit builds are not affected; the out-of-bounds access is read-only, with no information disclosure and no code execution.",
+      "id": "CVE-2026-77404",
+      "published": "2026-09-16T15:17:47.067",
+      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, URI.String in uri.go concatenates CertFile, KeyFile, CACertFile, and ServerName values directly into an AMQPS query string instead of encoding them as URL query parameters with url.Values. If an application accepts a TLS asset path containing ampersand or equals delimiters and later reparses the serialized URI with ParseURI, the embedded delimiters can create or overwrite connection options, including paths to TLS certificate, key, or CA files. This can corrupt connection configuration or select unintended local cryptographic assets. This issue is fixed in version 1.13.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-77405",
+      "published": "2026-09-16T15:17:47.980",
+      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, tlsConfigFromURI in uri.go creates tls.Config values without setting MinVersion to tls.VersionTLS12. Builds using a Go runtime whose default permits TLS 1.0 or TLS 1.1 can therefore negotiate an obsolete protocol version when connecting through an amqps URI. A network attacker able to influence TLS negotiation with such a legacy build may weaken transport protection for AMQP messages and credentials. This issue is fixed in version 1.13.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-77406",
+      "published": "2026-09-16T15:17:49.070",
+      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, Channel.Qos in channel.go accepts negative prefetchCount and prefetchSize integers and casts them directly to uint16 and uint32 fields in the basic.qos method because validateQos is absent. Values such as -1 therefore wrap to 65535 or 4294967295 instead of being rejected. An application that permits untrusted configuration of these Qos values can unintentionally request extremely large prefetch limits, allowing a broker to deliver enough queued messages to exhaust client memory and disrupt processing. This issue is fixed in version 1.13.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-77407",
+      "published": "2026-09-16T15:17:49.210",
+      "description": "RabbitMQ amqp091-go is a Go AMQP 0.9.1 client. Prior to 1.13.0, PlainAuth values defined in auth.go retain passwords as exported plaintext fields in Connection.Config.SASL after a successful PLAIN authentication handshake. The Connection.openComplete method in connection.go does not clear those values. Code with access to the Connection object, including reflective loggers, application performance monitoring agents, debugging utilities, and panic handlers, can traverse the configuration and expose the credentials to logs or state captures. The credential remains available for the lifetime of the connection instead of being cleared after authentication. This issue is fixed in version 1.13.0.",
       "severity": "UNKNOWN",
       "score": null
     }
