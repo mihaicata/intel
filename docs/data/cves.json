@@ -1,143 +1,143 @@
 {
-  "totalResults": 2607,
+  "totalResults": 2520,
   "items": [
     {
-      "id": "CVE-2025-55787",
-      "published": "2026-09-17T21:17:10.900",
-      "description": "In MailData Email Archiving System v4.2 and earlier, a SQL injection vulnerability exists.",
+      "id": "CVE-2026-62874",
+      "published": "2026-09-18T00:16:57.930",
+      "description": "Insufficient verification of data authenticity in Azure Billing allows an unauthorized attacker to elevate privileges over a network.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-45140",
-      "published": "2026-09-17T21:17:12.440",
-      "description": "Chamilo LMS is an open-source learning management system. Prior to 2.0.1, Chamilo LMS allows an unauthenticated remote attacker to execute arbitrary code on the server. The authoritative advisory does not identify the affected endpoint, component, input, or exploitation mechanism. This issue is fixed in version 2.0.1.",
+      "id": "CVE-2026-69843",
+      "published": "2026-09-18T00:17:24.923",
+      "description": "Authentication bypass by spoofing in Microsoft Fabric allows an unauthorized attacker to elevate privileges over a network.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-54460",
-      "published": "2026-09-17T21:17:15.557",
-      "description": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to 1.1.1, POST /api/auth/passkeys accepts a request-body userId and attacker-supplied passkey without an authenticated session, does not call WebAuthnService.verifyRegistration, and does not bind enrollment to locals.user.id. An unauthenticated attacker who knows the public tenant ID and the target staff email can use the public booking bootstrap and GET /api/tenants/[id]/appointments/staff-public-keys to obtain candidate userId values. The attacker first causes UserService.addAdditionalPasskey to store a controlled public key for a candidate userId, then attempts login with the target email; the login check compares verificationResult.userId with the email-resolved account and reveals whether the injected credential belongs to that target. Repeating this injection-before-login sequence identifies the matching userId, and the normal login endpoint accepts the attacker's assertion for the stored key and creates a STAFF session. The session can expose tenant data and reveal TENANT_ADMIN identifiers for further takeover; GLOBAL_ADMIN accounts are not reachable through this tenant-scoped path. A hijacked TENANT_ADMIN can modify or delete tenant resources and key shares, potentially making appointment data permanently undecryptable and taking booking services offline. This issue is fixed in version 1.1.1.",
+      "id": "CVE-2026-85878",
+      "published": "2026-09-18T00:17:47.777",
+      "description": "Improper authorization in Azure Database for PostgreSQL allows an authorized attacker to elevate privileges over a network.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-45143",
-      "published": "2026-09-17T21:17:12.600",
-      "description": "Chamilo LMS is an open-source learning management system. From 2.0.0 through at least 2.1.0, Chamilo LMS stores private Message.content without server-side sanitization and renders it as HTML in assets/vue/views/message/MessageShow.vue and public/main/template/default/message/view_message.html.twig. An authenticated low-privilege user, including a student, can directly address crafted message content to an administrator because the message creation flow permits a sender to select another user as the recipient. The content executes in the recipient's browser when the recipient opens the routine inbox or message view, without requiring a link click, and can expose session credentials or permit actions as the administrator. This vulnerability is fixed in 2.0.1.",
-      "severity": "CRITICAL",
-      "score": 9
-    },
-    {
-      "id": "CVE-2026-15815",
-      "published": "2026-09-17T21:17:11.210",
-      "description": "Grafana OSS and Grafana Enterprise did not safely resolve symbolic links when\nextracting plugin archives. A crafted plugin archive can chain relative symbolic link\nentries to escape the plugin installation directory, writing arbitrary files and an\nexecutable backend binary outside that directory. The dropped executable runs with the\nprivileges of the Grafana server process, resulting in remote code execution.\n\nPlugin archives are extracted before their signature is verified, so a valid plugin\nsignature does not prevent the write. An operator can therefore be affected by\ninstalling a plugin that appears legitimate, as well as by installing a plugin from an\narbitrary archive using grafana-cli, the GF_INSTALL_PLUGINS environment variable, or\npreinstall configuration.\n\nGrafana Enterprise is affected because it includes the same plugin extraction code as\nGrafana OSS.",
+      "id": "CVE-2026-93453",
+      "published": "2026-09-18T00:17:49.693",
+      "description": "SOGo before 5.12.11 constructs password-reset links using the client-supplied Origin header as the authority, allowing unauthenticated attackers to redirect recovery tokens to attacker-controlled domains. Attackers can submit password recovery requests with a malicious Origin header to have valid password-reset tokens mailed to victim recovery addresses within links pointing to attacker infrastructure, enabling account takeover.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-52483",
-      "published": "2026-09-17T21:17:14.870",
-      "description": "The ping diagnostics and other similar functions of the MitraStar GPT-2741GNAC-N2-SV router with firmware BR_g8.10_1.11(WVK.0)b46 allow authenticated users execute arbitrary OS command via concatenated params on a crafted POST request for the endpoint /cgi-bin/device-management-utilities-internet.cgi.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-54354",
-      "published": "2026-09-17T21:17:15.260",
-      "description": "MapServer is a system for developing web-based GIS applications. Prior to 8.6.4, MapServer's PostGIS runtime filter translation in src/mappostgis.cpp and msPostGISLayerTranslateFilter() treats a filteritem as numeric when CONNECTIONTYPE POSTGIS and metadata such as gml_<item>_type=Integer are configured, but it does not verify that attacker-controlled CGI qstring or OGC API Features featureId input is a numeric literal. The unquoted input is concatenated into the generated PostgreSQL/PostGIS predicate, allowing an unauthenticated remote attacker with access to an affected query endpoint to bypass predicates, enumerate unintended records, perform boolean-based or time-based SQL injection, and increase database load. The issue does not by itself establish database modification capabilities. This issue is fixed in version 8.6.4.",
+      "id": "CVE-2026-83946",
+      "published": "2026-09-18T00:17:44.960",
+      "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Azure Portal allows an unauthorized attacker to perform spoofing over a network.",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-54339",
-      "published": "2026-09-17T21:17:15.123",
-      "description": "Glean is a self-hosted RSS reader and personal knowledge management tool. Prior to 0.2.6, POST /api/feeds/discover passes an attacker-supplied feed_url to discover_feed(feed_url), creates a subscription through FeedService.create_subscription(), and enqueues fetch_feed_task. The background path calls fetch_feed(feed.url) and parse_feed(), which assigns each RSS item link to ParsedEntry.url. The task then passes ParsedEntry.url to fetch_and_extract_fulltext(parsed_entry.url) without network-level validation in backend/packages/rss/glean_rss/extractor.py and backend/apps/worker/glean_worker/tasks/feed_fetcher.py. A malicious feed can therefore make the server request private, loopback, link-local, or cloud-metadata resources. The fetched response is stored in Entry.content and can be retrieved through GET /api/entries/{id}, producing non-blind server-side request forgery with full response disclosure. This can bypass network perimeters, probe internal services and ports, expose internal configuration or web content, and potentially disclose cloud metadata access tokens. This issue is fixed in version 0.2.6.",
+      "id": "CVE-2026-85887",
+      "published": "2026-09-18T00:17:47.920",
+      "description": "Incorrect permission assignment for critical resource in M365 Copilot allows an authorized attacker to disclose information over a network.",
       "severity": "HIGH",
       "score": 7.7
     },
     {
-      "id": "CVE-2026-50275",
-      "published": "2026-09-17T21:17:14.073",
-      "description": "The Datadog PHP Tracer provides application performance monitoring and distributed tracing for PHP. Prior to 1.19.2, ddtrace_deserialize_baggage in ext/distributed_tracing_headers.c parses incoming W3C baggage HTTP headers without enforcing DD_TRACE_BAGGAGE_MAX_ITEMS or DD_TRACE_BAGGAGE_MAX_BYTES. A remote unauthenticated client can send an arbitrarily large number of comma-separated key-value pairs or a single oversized value, causing the tracer to allocate hash-map entries and consume unbounded CPU and memory on each request. Baggage extraction is enabled by default in most affected deployments unless baggage is removed from DD_TRACE_PROPAGATION_STYLE or DD_TRACE_PROPAGATION_STYLE_EXTRACT. This issue is fixed in version 1.19.2.",
+      "id": "CVE-2026-93450",
+      "published": "2026-09-18T00:17:49.230",
+      "description": "go-openapi/swag jsonutils before 0.27.1 contains a stack overflow vulnerability in ordered JSON parsing and serialization due to unbounded recursion with no depth limit. Remote unauthenticated attackers can submit deeply nested JSON documents to services accepting OpenAPI specifications, causing fatal stack overflow that terminates the process and all in-flight requests.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-50277",
-      "published": "2026-09-17T21:17:14.243",
-      "description": "dd-trace-cpp is the Datadog distributed tracing library for C++. Prior to 2.1.0, dd-trace-cpp parses incoming W3C baggage headers without enforcing DD_TRACE_BAGGAGE_MAX_ITEMS or DD_TRACE_BAGGAGE_MAX_BYTES on the extraction path, even though those limits are enforced during injection. A remote unauthenticated attacker can send a header containing many comma-separated key-value pairs or one very large value, causing per-request hash-map allocation and unbounded CPU and memory consumption. Baggage extraction is enabled by default in most affected tracers unless baggage is removed from DD_TRACE_PROPAGATION_STYLE or DD_TRACE_PROPAGATION_STYLE_EXTRACT, so affected internet-facing services can be denied service. This issue is fixed in version 2.1.0.",
+      "id": "CVE-2026-93452",
+      "published": "2026-09-18T00:17:49.540",
+      "description": "snappy-java through 1.1.10.8 contains a buffer overflow vulnerability in Snappy.compress(ByteBuffer, ByteBuffer) that writes past the end of the destination buffer. Attackers can supply incompressible data that exceeds the destination buffer's remaining capacity, corrupting off-heap memory and causing JVM termination.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2021-3030",
-      "published": "2026-09-17T21:17:10.213",
-      "description": "Cute Editor for ASP.NET 6.4 is vulnerable to reflected cross-site scripting caused by improper validation of the Theme GET parameter in colorpicker_more.aspx. A remote, unauthenticated attacker can craft a URL that, once opened by a victim in a browser session authenticated to a site running the vulnerable component, executes arbitrary JavaScript in the security context of that site.",
+      "id": "CVE-2026-93451",
+      "published": "2026-09-18T00:17:49.380",
+      "description": "snappy-java through 1.1.10.8 contains a buffer overflow vulnerability in typed Snappy.uncompress*Array methods that allocate output arrays by dividing uncompressed length by element size but pass the undivided length to native code. Attackers controlling compressed input can cause misaligned length values to write past array bounds with attacker-controlled bytes, corrupting heap memory.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-50022",
-      "published": "2026-09-17T21:17:13.537",
-      "description": "Metacat is data repository software that helps researchers preserve, share, and discover data. Prior to 3.4.2, MetacatSolrIndex.query forwards the client-controlled qt parameter through Apache SolrJ from search endpoints such as /d1/mn/v2/query/solr/ to its privileged Solr backend. An unauthenticated client can select the /admin/file handler, and SolrJ reformats the parameter into a request accepted even when handleSelect=false is configured on Solr 7.0 or later. When Solr returns the selected core configuration file, Metacat embeds the raw content in an XML processing error response, disclosing internal files such as solrconfig.xml and enabling infrastructure profiling. This issue is fixed in version 3.4.2.",
+      "id": "CVE-2026-2585",
+      "published": "2026-09-18T00:16:57.450",
+      "description": "The Brizy – Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘rootAttributes’ parameter in all versions up to, and including, 2.8.14 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 5.8
+      "score": 6.4
     },
     {
-      "id": "CVE-2025-62167",
-      "published": "2026-09-17T21:17:11.020",
-      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2026-33626. Reason: This candidate is a duplicate of CVE-2026-33626. Notes: All CVE users should reference CVE-2026-33626 instead of this candidate.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-77164",
+      "published": "2026-09-18T02:17:07.510",
+      "description": "Circles' remote-instance signature verification fetches the attacker-supplied keyId URL before trust in the remote instance is established, and explicitly allows local/private addresses for this request, bypassing Nextcloud's core SSRF protections. The public, unauthenticated endpoints POST /apps/circles/event/ and POST /apps/circles/incoming/ reach this code path, allowing any unauthenticated user to force the server to issue a GET request to an internal address.\n\nThe response body of the internal request is never returned to the requester, so this is blind SSRF: an attacker can determine whether an internal service is reachable, but cannot read its response contents through this endpoint alone.",
+      "severity": "MEDIUM",
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-10594",
-      "published": "2026-09-17T21:17:11.097",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-93454",
+      "published": "2026-09-18T00:17:49.853",
+      "description": "Aureus ERP through 1.6.0 stores the Payment Term note field unsanitized and renders it as raw HTML in the Accounting plugin. Authenticated users with payment-term create permission can submit arbitrary JavaScript to the payment-terms endpoint, which persists to the database and executes in browsers of all users viewing that Payment Term record.",
+      "severity": "MEDIUM",
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-11314",
-      "published": "2026-09-17T21:17:11.153",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-93310",
+      "published": "2026-09-18T01:16:56.363",
+      "description": "A vulnerability was identified in O-RAN-SC SMO OAM 2025-06-10. This affects an unknown part of the component VES Collector. The manipulation leads to allocation of resources. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The project was informed of the problem early through a bug report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-48977",
-      "published": "2026-09-17T21:17:13.323",
-      "description": "OpenSlide is a C library for reading whole slide image files. From 3.4.1 until 4.0.1, OpenSlide's parse_level0_xml() processing in src/openslide-vendor-ventana.c accepts nonpositive row or column tile counts from a crafted Ventana BIF file. The invalid counts produce attacker-controlled relative memory offsets and allow arbitrary values to be written at those offsets, affecting all supported platforms and configurations and resulting in a crash or potential arbitrary code execution. This issue is fixed in version 4.0.1.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-18441",
+      "published": "2026-09-18T00:16:57.297",
+      "description": "The Appointment Booking Plugin – LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 5.6.9  via the set_customer_object due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to enumerate arbitrary customer records and disclose personally identifiable information -  including first name, last name, email address, and phone number - by iterating the customer[id] parameter. This issue is exploitable only when the site is configured with customer authentication disabled (guest checkout enabled).",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-49137",
-      "published": "2026-09-17T21:17:13.480",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-93308",
+      "published": "2026-09-18T00:17:48.830",
+      "description": "A vulnerability was found in O-RAN-SC SMO OAM 2025-06-10. Affected by this vulnerability is an unknown functionality of the component VES Collector. Performing a manipulation results in allocation of resources. The attack may be initiated remotely. The exploit has been made public and could be used. The project was informed of the problem early through a bug report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-54237",
-      "published": "2026-09-17T21:17:14.980",
-      "description": "Wavelog is web-based amateur radio logging software. From 1.8 until 2.4.2, Wavelog exposes /install/ajax.php and /install/includes/interface_assets/triggers.php after installation without an installation lock or permission check. Unsanitized input reaches write_config() and write_configfile() in install/includes/core/core_class.php, allowing a remote unauthenticated attacker to read or write log files and place attacker-controlled content into PHP configuration files. The resulting PHP configuration content can execute on the server. This issue is fixed in version 2.4.2.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-93309",
+      "published": "2026-09-18T00:17:49.010",
+      "description": "A vulnerability was determined in O-RAN-SC SMO OAM 2025-06-10. Affected by this issue is some unknown functionality of the component VES Collector. Executing a manipulation can lead to allocation of resources. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through a bug report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-54355",
-      "published": "2026-09-17T21:17:15.410",
-      "description": "MapServer is a system for developing web-based GIS applications. From 6.0 until 8.6.4, MapServer's OpenLayers HTML output for SERVICE=WMS&REQUEST=GetMap&FORMAT=application/openlayers reflects an attacker-controlled X-Forwarded-Host value received as HTTP_X_FORWARDED_HOST through msBuildOnlineResource(), processLine(), and the [mapserv_onlineresource] substitution in src/maputil.c and src/maptemplate.c without escaping it for a single-quoted JavaScript string. When the deployment trusts the forwarded header and does not configure a fixed ows_onlineresource or MS_ONLINERESOURCE value, embedded single quotes can escape the generated URL string. An unauthenticated attacker can craft a URL that executes arbitrary JavaScript in the MapServer site origin when opened by a victim, enabling access to sessions or tokens, same-origin data and requests, and actions as the victim. This issue is fixed in version 8.6.4.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-93311",
+      "published": "2026-09-18T01:16:56.533",
+      "description": "A vulnerability was detected in Freedesktop Poppler 26.07.0. This issue affects the function SampledFunction::SampledFunction of the file poppler/Function.cc of the component SampledFunction. The manipulation of the argument BitsPerSample results in integer overflow. The attack may be performed from remote. The exploit is now public and may be used. The project was informed of the problem early through a bug report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-54501",
-      "published": "2026-09-17T21:17:15.707",
-      "description": "Browsertrix is a high-fidelity, browser-based crawling service for web archiving that can be self-hosted or used through Webrecorder's hosted instance. From 1.15.0 until 1.22.8, Browsertrix improperly sanitizes Git URLs specified as Custom Behaviors, allowing command injection through /api/orgs/*/crawlconfigs/validate/custom-behavior. A user with crawler or administrator permission on the specific instance can supply a crafted Git URL that executes arbitrary operating-system commands in the backend pod. Open registration or hosted free-trial access can make the required role broadly obtainable. Successful exploitation can expose, modify, or delete application database records, archived items, browser profiles, storage data, proxy credentials, and other configured service data. This issue is fixed in version 1.22.8.",
+      "id": "CVE-2026-93312",
+      "published": "2026-09-18T01:16:56.710",
+      "description": "A flaw has been found in Freedesktop Poppler 26.07.0. Impacted is the function JBIG2Stream::rewind of the file poppler/JBIG2Stream.cc. This manipulation causes null pointer dereference. It is possible to initiate the attack remotely. The exploit has been published and may be used. Upgrading to version 26.08.0 is recommended to address this issue. Patch name: 5e49250f13b0390edeb3f90eb4c02c9941f97067. Upgrading the affected component is advised.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-68493",
+      "published": "2026-09-18T02:17:07.350",
+      "description": "After guessing a 62^15 complex unique identifier, a malicious logged in user was able to retrieve a list of memberships for a circle they are not a member of.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-79954",
+      "published": "2026-09-18T01:16:56.120",
+      "description": "NASA CryptoLib 1.5.0 contains an authentication downgrade vulnerability in the Telecommand (TC) receive path. The receiver selects the Security Association used for SDLS processing solely from the SPI field inside the incoming frame, but it does not verify that the selected SA is authorized for the frame's GVCID.",
       "severity": "UNKNOWN",
       "score": null
     }
