@@ -1,143 +1,143 @@
 {
-  "totalResults": 3006,
+  "totalResults": 3000,
   "items": [
     {
-      "id": "CVE-2026-61594",
-      "published": "2026-09-16T22:17:03.047",
-      "description": "djust provides Phoenix LiveView-style reactive server-side rendering for Django with Rust-powered performance. Prior to version 1.0.7, the live (WebSocket) transport authorizes a mount via `check_view_auth`, not Django's `View.dispatch()` chain. As a result, standard Django authorization — `LoginRequiredMixin`, `PermissionRequiredMixin`, `UserPassesTestMixin`, `@method_decorator(login_required, name=\"dispatch\")`, and custom `dispatch()` guards — and the djust admin extension's staff gate (applied only in the HTTP `as_view` wrapper) were enforced on the initial HTTP GET but silently bypassed over WebSocket, where all events and state flow. An anonymous or under-privileged client could open a WebSocket and mount such a view — including admin list/create/change/delete — and dispatch its handlers. This is fixed in djust 1.0.7. `check_view_auth` now honors the Django `AccessMixin` family on every transport; a new system check S004 fails loud at startup on auth patterns the runtime cannot safely replay (decorator/overridden-`dispatch` forms); and the admin base mixin declares `login_required = True` + an active-staff `check_permissions` gate. As a workaround, gate views using djust's `login_required` / `permission_required` / `check_permissions` attributes (honored on all transports) rather than HTTP-only mixins/decorators.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-92580",
-      "published": "2026-09-16T22:18:28.333",
-      "description": "In AVideo through 29.0, the CloneSite plugin is vulnerable to stored OS command injection. In plugin/CloneSite/cloneClient.json.php (line ~270) the stored SSH password is substituted into the command string `sshpass -p '{password}' rsync ...` with a plain str_replace and no escaping, so a single quote in the password breaks out of the quoted word and injects arbitrary shell. The password is written through the admin-only endpoint objects/pluginAddDataObject.json.php, whose only CSRF defense (isUntrustedRequest()/forbidIfIsUntrustedRequest()) is a no-op when the request source appears to be loopback — as happens behind a same-host TLS-terminating reverse proxy with $global['trustedProxies'] unset — or when an attacker-controlled application is co-hosted on the same hostname; on HTTPS the session cookie is issued with SameSite=None, so a cross-site POST carries it. An unauthenticated remote attacker can therefore lure an authenticated administrator into planting a malicious password (and an attacker-controlled cloneSiteURL), after which the plugin's documented crontab entry executes the injected command with no further administrator action, as the crontab owner (commonly root or www-data). Exploitation requires the CloneSite plugin to be enabled with the documented crontab installed and one of the above CSRF channels; default single-process Apache deployments are reported as not CSRF-exploitable. This is a residual sink of CVE-2026-41304. The issue is confirmed at master HEAD (8963b6a1); no patched version is available.",
+      "id": "CVE-2026-25283",
+      "published": "2026-09-17T05:17:01.390",
+      "description": "Memory Corruption when copying unverified data from an external source exceeds the allocated buffer size.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-92576",
-      "published": "2026-09-16T22:18:27.757",
-      "description": "HKUDS nanobot before 0.3.0 contains a server-side request forgery vulnerability in the WebFetchTool component where the _validate_url() function fails to block internal IP ranges and private addresses. Attackers can send messages instructing the bot to fetch cloud metadata endpoints, localhost services, and RFC 1918 addresses to extract IAM credentials and internal service data.",
+      "id": "CVE-2026-25282",
+      "published": "2026-09-17T05:17:01.253",
+      "description": "Transient DOS when processing unverified data from a neighboring system causes out of bound memory access.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 7.9
     },
     {
-      "id": "CVE-2026-61591",
-      "published": "2026-09-16T22:17:02.763",
-      "description": "djust provides Phoenix LiveView-style reactive server-side rendering for Django with Rust-powered performance. Prior to version 1.0.7, for views that opt into state snapshots, the snapshot `state_json` embedded in the client page was restored on reconnect as trusted view state with no integrity check. A client could edit the unsigned `state_json` in their page and return it in the reconnect mount frame to inject arbitrary view attributes — e.g. flip `is_admin` to `True`, or change `account_id` / `balance` — escalating privilege or tampering with business state held in public view attributes (the normal djust pattern). This issue is fixed in djust 1.0.7. State snapshots are signed; unsigned or forged snapshots are rejected on the back-navigation restore path. As a workaround, do not enable state snapshots; do not hold authorization/ownership state in public view attributes.",
+      "id": "CVE-2026-92838",
+      "published": "2026-09-17T02:16:28.610",
+      "description": "A DLL hijacking\nvulnerability exists in the GeoVision GV-Remote E-Map desktop\napplication. The application loads one or more dynamic-link libraries (DLLs)\nfrom an unsafe search path, allowing a local attacker to place a malicious DLL\nin a location searched before the legitimate library location. If\nsuccessfully exploited, an attacker with local write access to the affected\ndirectory could achieve arbitrary code execution in the security context of\nthe GV-Remote E-Map process.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-92578",
-      "published": "2026-09-16T22:18:28.053",
-      "description": "WWBN AVideo through 29.0 contains an authentication bypass vulnerability where the stored password hash is accepted as a valid login credential through two independent code paths in loginFromRequest() and encryptPasswordVerify(). Attackers who obtain the stored users.password hash value can authenticate as any user by submitting the hash directly to login endpoints, completely bypassing password verification.",
+      "id": "CVE-2025-59607",
+      "published": "2026-09-17T05:16:58.060",
+      "description": "Memory Corruption when copying large input data exceeds normal allocation limits.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-85469",
-      "published": "2026-09-16T22:18:27.037",
-      "description": "A flaw was found in quay-builder-qemu. A remote attacker could exploit this by compromising the upstream `Noelware/docker-manifest-action` used in the release workflow, which is pinned to a mutable branch. This allows the attacker to inject arbitrary code, leading to the exfiltration of sensitive registry credentials or the publication of malicious images. The workflow also exposes the default GitHub token, increasing the severity of the compromise.",
+      "id": "CVE-2026-24073",
+      "published": "2026-09-17T05:16:59.760",
+      "description": "Memory corruption when processing decode statistics due to insufficient validation of offset against structure size.",
       "severity": "HIGH",
-      "score": 8
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-92577",
-      "published": "2026-09-16T22:18:27.910",
-      "description": "In AVideo through 29.0, the API get_api_video endpoint contains a broken access control vulnerability in the clean_title branch that returns user-group-restricted videos with owner PII to anonymous callers. Attackers can query videos by their public slug to bypass group restrictions and retrieve sensitive user fields including email, phone, address, birth date, and administrator status.",
+      "id": "CVE-2026-24074",
+      "published": "2026-09-17T05:16:59.893",
+      "description": "Memory Corruption when processing data with large offset and length values exceeds buffer limits during data copy operations.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-24075",
+      "published": "2026-09-17T05:17:00.033",
+      "description": "Memory Corruption when multiple threads issue concurrent IOCTL requests to the device control handler due to improper synchronization and race conditions.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-25278",
+      "published": "2026-09-17T05:17:00.847",
+      "description": "Memory Corruption when processing I2C transfer requests due to a race condition between memory allocation and data copying.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-25280",
+      "published": "2026-09-17T05:17:00.987",
+      "description": "Memory corruption when processing escape handling flow with insufficient user buffer sizes.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-25290",
+      "published": "2026-09-17T05:17:01.650",
+      "description": "Memory Corruption when validating large data buffers from external sources using addition to check buffer length.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-81546",
+      "published": "2026-09-17T02:16:27.537",
+      "description": "The Affinity by Canva application before 3.3.0 (September 2026 release) did not perform adequate bounds checking when parsing Affinity document files leading to a stack-based buffer overflow. A threat actor could craft a Affinity document that when opened by a user in Affinity could result in arbitrary code execution.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-25275",
+      "published": "2026-09-17T05:17:00.510",
+      "description": "Transient DOS when processing authentication frames with invalid FILS information element header lengths.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-61592",
-      "published": "2026-09-16T22:17:02.900",
-      "description": "djust provides Phoenix LiveView-style reactive server-side rendering for Django with Rust-powered performance. Prior to version 1.0.7, SSE sessions were keyed solely by a client-chosen `session_id` with no binding to the authenticated user — a control the WebSocket transport has but that was dropped on SSE. An attacker who learns (or a victim who leaks) a `session_id` could connect to the message endpoint and dispatch event handlers that execute with the victim's identity and state. This is fixed in djust 1.0.7. Each SSE session is bound to its owning principal at creation and cross-principal access is rejected; SSE session creation is additionally capped per principal. As a workaround, disable the SSE transport.",
+      "id": "CVE-2026-24081",
+      "published": "2026-09-17T05:17:00.170",
+      "description": "Transient DOS when processing a channel map with insufficient used channels and adaptive frequency hopping is fully enabled.",
       "severity": "HIGH",
       "score": 7.4
     },
     {
-      "id": "CVE-2026-92582",
-      "published": "2026-09-16T22:18:28.600",
-      "description": "AVideo (WWBN/AVideo) through 29.0 (commit e01e41ecc) is vulnerable to cross-site request forgery. objects/videoAddNew.json.php disables AVideo's automatic CSRF guard ($global['skipAutoCSRFCheck']) and the untrusted-request check ($global['bypassSameDomainCheck']) merely because 'user' and 'pass' parameters are present in the request; the values are never validated and are read from $_REQUEST, so an attacker can supply them in the query string of a cross-site request. Because User::loginFromRequestIfNotLogged() returns immediately when a session already exists, a victim who is authenticated by cookie satisfies the check while the attacker-supplied credentials are discarded. An attacker who lures an authenticated user with upload rights to visit a crafted page can therefore submit cross-origin requests that modify video records — including ownership transfer (setUsers_id), deletion of user-group access restrictions, can_download, can_share, only_for_paid, video_password, rating, status, creation date, and view count. For a victim with administrator or Permissions::canAdminVideos() rights, any video on the site can be altered, including removing group restrictions from private content. No patched version was available at the time of the advisory.",
+      "id": "CVE-2026-25281",
+      "published": "2026-09-17T05:17:01.120",
+      "description": "Transient DOS when processing large or numerous request buffers without sufficient memory allocation validation.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-64684",
-      "published": "2026-09-16T22:17:04.577",
-      "description": "RMCP is an official Rust SDK for the Model Context Protocol. Prior to 2.1.0, the rmcp crate's StreamableHttpClientTransport in crates/rmcp/src/transport/common/reqwest/streamable_http_client.rs builds its default_http_client with reqwest's automatic redirect policy and applies caller-supplied values from StreamableHttpClientTransportConfig.custom_headers without marking them as sensitive. When a malicious or compromised MCP endpoint returns a cross-origin 307 or 308 redirect, reqwest follows the redirect and apply_custom_headers causes custom API keys or authentication tokens to be replayed to the new origin, where an attacker can capture and reuse them. The separate auth_header path is not affected because it uses the standard Authorization header, which reqwest strips on cross-origin redirects. This issue is fixed in version 2.1.0.",
+      "id": "CVE-2026-25284",
+      "published": "2026-09-17T05:17:01.517",
+      "description": "Information Disclosure when a pointer is reused after being deallocated.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-25261",
+      "published": "2026-09-17T05:17:00.370",
+      "description": "Memory corruption while processing rear sensor IOCTL calls.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.7
     },
     {
-      "id": "CVE-2026-89034",
-      "published": "2026-09-16T22:18:27.613",
-      "description": "TCH QRing smart ring model R20_B006 running firmware RT09R20_1.00.00_250318 contains an unauthenticated Bluetooth Low Energy access vulnerability that allows any nearby attacker to connect to the device without pairing, authentication, or user approval by exploiting the exposed Nordic UART Service which enforces no client authentication or command authorization. Attackers within Bluetooth Low Energy range can connect directly to the ring, bypassing the official application and cloud authentication, to read battery levels, activate live heart rate monitoring, and retrieve stored historical heart rate and blood oxygen records.",
+      "id": "CVE-2026-86311",
+      "published": "2026-09-17T04:18:02.827",
+      "description": "The Photo Gallery by 10Web – Mobile-Friendly Image Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Shortcode Attributes in all versions up to, and including, 1.8.44 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-92583",
-      "published": "2026-09-16T22:18:28.747",
-      "description": "AVideo through 29.0 contains a race condition in the enforceRateLimit() function that fails to atomically increment rate limit counters, allowing attackers to bypass all rate limits including login brute-force protection by issuing concurrent requests. Attackers can submit parallel credential attempts to exceed the documented 30-attempts-per-5-minutes login limit by an arbitrary factor determined only by their connection concurrency.",
+      "id": "CVE-2026-89064",
+      "published": "2026-09-17T03:16:32.500",
+      "description": "The All-in-One WP Migration and Backup plugin for WordPress is vulnerable to Insufficient Credential Protection in versions up to, and including, 7.110. This is due to the `Ai1wm_Main_Controller::init()` method — registered on the `admin_init` hook, which fires unauthenticated on `admin-ajax.php` and `admin-post.php` requests — reading `$_SERVER['PHP_AUTH_USER']` and `$_SERVER['PHP_AUTH_PW']` from any incoming request and writing them to the `ai1wm_auth_header` option via `update_option()` as a reversible base64-encoded string, with no capability check, nonce verification, `is_user_logged_in()` check, or confirmation that Basic authentication actually succeeded. This makes it possible for unauthenticated attackers to capture into the database, in reversible base64 form, any WordPress Application Password or HTTP Basic credential presented to `/wp-admin/` by a legitimate integration, or to overwrite the stored credential with an attacker-chosen value by sending an anonymous request carrying a crafted `Authorization: Basic` header. This is particularly impactful in environments using WordPress Application Passwords for REST API or third-party integrations, as those credentials are transmitted as HTTP Basic auth to `/wp-admin/` and will be silently harvested via this unauthenticated write path.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-92584",
-      "published": "2026-09-16T22:18:28.890",
-      "description": "AVideo through 29.0 (current revision e01e41ecc) contains a stored cross-site scripting vulnerability. The unauthenticated view-counter endpoint objects/videoAddViewCount.json.php reaches VideoStatistic::save(), which writes the caller's User-Agent (via getUserAgentInfo(), which returns unrecognized agent strings verbatim) directly into the `app` column of the videos_statistics table without invoking the sanitizing setter setApp(); normalizeApp() only truncates the value to 45 characters. The video owner's and administrator's statistics page (view/videoViewsInfo.php) renders this field in a DataTables 1.12.1 column with an unescaped renderer, and DataTables assigns cell content using innerHTML, so attacker-supplied HTML is parsed and executed in the privileged user's authenticated session when the statistics page is viewed. No patched version was available at the time of the advisory.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-92579",
-      "published": "2026-09-16T22:18:28.193",
-      "description": "In AVideo through 29.0, the autoCSRFGuard() function maintains a hardcoded allowlist of exempt basenames tested without directory context, allowing plugin files matching core filenames to inherit CSRF exemptions. The LoginWordPress plugin file login.json.php inherits an exemption and unconditionally logs out authenticated users on cross-site POST requests before validating credentials.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-92587",
-      "published": "2026-09-16T22:18:29.293",
-      "description": "n8n is a workflow automation platform. In versions before 1.123.76, 2.37.7, and 2.38.2, the Git node validated a relative remote URL against the configured repositoryPath but then invoked git with that path as its working directory; git walked up to the enclosing repository's top level and resolved the same relative URL from there. An authenticated user (member) who nested the repository one level below the configured path could therefore make an identical URL string pass the file-access check while git resolved it outside the sandbox. A subsequent fetch or pull read a git repository outside N8N_RESTRICT_FILE_ACCESS_TO and merged its objects into the user's own repository, where their contents could be read back. The issue is fixed in n8n 1.123.76, 2.37.7, and 2.38.2, which resolve the remote reference from the directory git actually operates in before applying the sandbox check. As a workaround, the Git node can be disabled by adding n8n-nodes-base.git to NODES_EXCLUDE.",
-      "severity": "MEDIUM",
-      "score": 5
-    },
-    {
-      "id": "CVE-2026-92588",
-      "published": "2026-09-16T22:18:29.447",
-      "description": "n8n is a workflow automation platform. In n8n versions before 1.123.76, 2.37.7, and 2.38.2, the source control push endpoint derived the set of files to push from the file paths and status supplied in the client request payload instead of from the server-side status computed for the requesting user. An authenticated project-scoped user (e.g., a project admin) could therefore reference files belonging to projects they have no access to and push a deletion of those projects' workflows and credentials, resulting in cross-project data destruction. Exploitation requires the Source Control (Environments) enterprise feature to be licensed, enabled, and connected to a remote repository. The issue is fixed in 1.123.76, 2.37.7, and 2.38.2.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-92581",
-      "published": "2026-09-16T22:18:28.470",
-      "description": "In AVideo through 29.0, Like::__construct() performs counter arithmetic on raw request values before validation, allowing array-typed parameters to desynchronize stored votes from counters. Authenticated attackers can send array-typed like parameters followed by ordinary requests to drive video like counts arbitrarily negative, with the corruption persisting in the denormalized counter until manual repair.",
+      "id": "CVE-2026-92839",
+      "published": "2026-09-17T04:18:10.870",
+      "description": "Canva Desktop before v1.125.0 performed double decoding in the deeplink handler. A threat actor could cause the application to load arbitrary same-origin content under the user’s session.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-92585",
-      "published": "2026-09-16T22:18:29.027",
-      "description": "AVideo through 29.0 (commit c3edcc274c389816d434acadac07ee78eaf330c1) fails to validate video access permissions in the API like endpoint, allowing logged-in users to vote on password-protected and group-restricted videos. Attackers can submit like and dislike requests to increment vote counters on videos they cannot watch by calling the set.json.php endpoint with APIName parameters.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-92586",
-      "published": "2026-09-16T22:18:29.157",
-      "description": "AVideo through 29.0 (commit c3edcc274c389816d434acadac07ee78eaf330c1) fails to verify video access permissions in the set_api_comment function, allowing authenticated users to post comments on password-protected and group-restricted videos. Attackers can submit POST requests to the comment API endpoint with arbitrary video IDs to write comments on videos they cannot watch.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-61597",
-      "published": "2026-09-16T22:17:03.187",
-      "description": "djust provides Phoenix LiveView-style reactive server-side rendering for Django with Rust-powered performance. Prior to version 1.0.7, many djust built-in component template tags (`djust.components.templatetags.*`) render a developer/user-supplied URL into an `href` / `action` attribute, HTML-escaping it with `conditional_escape` but never validating the URL scheme. HTML escaping prevents attribute breakout but does not neutralize a `javascript:` URI (which needs no escapable characters), so a URL value of `javascript:alert(document.cookie)` lands verbatim in `<a href=\"javascript:alert(document.cookie)\">` and executes in the victim's session on click. Version 1.0.7 contains a fix. As a workaround, do not pass user-controllable URLs to the affected built-in component tags; pre-validate URL schemes in application code before binding them to component arguments.",
+      "id": "CVE-2026-50603",
+      "published": "2026-09-17T04:17:46.930",
+      "description": "A vulnerability has been identified in the Acer Agent Service component included with NitroSense and PredatorSense. The vulnerability is caused by the use of a hard-coded AES encryption key within the software. Under certain circumstances, a local attacker may be able to use the embedded key to access protected information or perform unauthorized actions.",
       "severity": "UNKNOWN",
       "score": null
     }
