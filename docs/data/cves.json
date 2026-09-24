@@ -1,143 +1,143 @@
 {
-  "totalResults": 3000,
+  "totalResults": 2607,
   "items": [
     {
-      "id": "CVE-2026-28326",
-      "published": "2026-09-17T17:16:39.960",
-      "description": "SolarWinds Access Rights Manager was reported to be affected by an unauthenticated remote code execution vulnerability. The issue stems from a hardcoded static key.",
+      "id": "CVE-2025-55787",
+      "published": "2026-09-17T21:17:10.900",
+      "description": "In MailData Email Archiving System v4.2 and earlier, a SQL injection vulnerability exists.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-45140",
+      "published": "2026-09-17T21:17:12.440",
+      "description": "Chamilo LMS is an open-source learning management system. Prior to 2.0.1, Chamilo LMS allows an unauthenticated remote attacker to execute arbitrary code on the server. The authoritative advisory does not identify the affected endpoint, component, input, or exploitation mechanism. This issue is fixed in version 2.0.1.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-54460",
+      "published": "2026-09-17T21:17:15.557",
+      "description": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to 1.1.1, POST /api/auth/passkeys accepts a request-body userId and attacker-supplied passkey without an authenticated session, does not call WebAuthnService.verifyRegistration, and does not bind enrollment to locals.user.id. An unauthenticated attacker who knows the public tenant ID and the target staff email can use the public booking bootstrap and GET /api/tenants/[id]/appointments/staff-public-keys to obtain candidate userId values. The attacker first causes UserService.addAdditionalPasskey to store a controlled public key for a candidate userId, then attempts login with the target email; the login check compares verificationResult.userId with the email-resolved account and reveals whether the injected credential belongs to that target. Repeating this injection-before-login sequence identifies the matching userId, and the normal login endpoint accepts the attacker's assertion for the stored key and creates a STAFF session. The session can expose tenant data and reveal TENANT_ADMIN identifiers for further takeover; GLOBAL_ADMIN accounts are not reachable through this tenant-scoped path. A hijacked TENANT_ADMIN can modify or delete tenant resources and key shares, potentially making appointment data permanently undecryptable and taking booking services offline. This issue is fixed in version 1.1.1.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-45143",
+      "published": "2026-09-17T21:17:12.600",
+      "description": "Chamilo LMS is an open-source learning management system. From 2.0.0 through at least 2.1.0, Chamilo LMS stores private Message.content without server-side sanitization and renders it as HTML in assets/vue/views/message/MessageShow.vue and public/main/template/default/message/view_message.html.twig. An authenticated low-privilege user, including a student, can directly address crafted message content to an administrator because the message creation flow permits a sender to select another user as the recipient. The content executes in the recipient's browser when the recipient opens the routine inbox or message view, without requiring a link click, and can expose session credentials or permit actions as the administrator. This vulnerability is fixed in 2.0.1.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-15815",
+      "published": "2026-09-17T21:17:11.210",
+      "description": "Grafana OSS and Grafana Enterprise did not safely resolve symbolic links when\nextracting plugin archives. A crafted plugin archive can chain relative symbolic link\nentries to escape the plugin installation directory, writing arbitrary files and an\nexecutable backend binary outside that directory. The dropped executable runs with the\nprivileges of the Grafana server process, resulting in remote code execution.\n\nPlugin archives are extracted before their signature is verified, so a valid plugin\nsignature does not prevent the write. An operator can therefore be affected by\ninstalling a plugin that appears legitimate, as well as by installing a plugin from an\narbitrary archive using grafana-cli, the GF_INSTALL_PLUGINS environment variable, or\npreinstall configuration.\n\nGrafana Enterprise is affected because it includes the same plugin extraction code as\nGrafana OSS.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-90051",
-      "published": "2026-09-17T17:16:53.490",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntcp: reject non zerocopy devmem tx\n\nDevmem tcp tx doesn't work without zero-copy, however it's not currently\nenforced if NETIF_F_SG isn't present. In this case, tcp_sendmsg_locked()\nwill try the copy path and try to copy data from an iovec which consists\nof offsets into the dma-buf and would normally fail. Moreover,\nd9c56501c72fd (\"net: tcp: block mixing readable and unreadable frags\")\nrelies on that and assumes that the devmem binding is present IFF we're\nusing the zero-copy path, which can be used to mix net-iov and pages in\na single skb, and break invariants. Let's reject devmem tx without\nzero-copy.\n\nNote, the parameter check the patch is modifying is too loose, we can\ncreate an io_uring request with dmabuf_id and all ZC flags, but which\nwon't have the binding. We replace it with stricter validation.",
+      "id": "CVE-2026-52483",
+      "published": "2026-09-17T21:17:14.870",
+      "description": "The ping diagnostics and other similar functions of the MitraStar GPT-2741GNAC-N2-SV router with firmware BR_g8.10_1.11(WVK.0)b46 allow authenticated users execute arbitrary OS command via concatenated params on a crafted POST request for the endpoint /cgi-bin/device-management-utilities-internet.cgi.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-90052",
-      "published": "2026-09-17T17:16:53.610",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndm-integrity: fix buffer overflow with keyed discard\n\nSince commit 68c5c42567bc (\"dm-integrity: replace forgeable discard\nfiller with a keyed sector marker\"), integrity_metadata computes a\nchecksum for every discarded block into the \"checksums\" buffer.\nintegrity_sector_checksum always writes the whole digest. So if the tag\nsize is smaller than the digest size, the checksum of the last block\nthat fits into the buffer is written past the end of it. For example,\nwith hmac(sha256) and tag size 16, a 4MiB discard writes 16 bytes past\nthe kmalloc'ed page.\n\nFix this by subtracting extra_space from the buffer size when computing\nmax_blocks, like we do for writes.",
+      "id": "CVE-2026-54354",
+      "published": "2026-09-17T21:17:15.260",
+      "description": "MapServer is a system for developing web-based GIS applications. Prior to 8.6.4, MapServer's PostGIS runtime filter translation in src/mappostgis.cpp and msPostGISLayerTranslateFilter() treats a filteritem as numeric when CONNECTIONTYPE POSTGIS and metadata such as gml_<item>_type=Integer are configured, but it does not verify that attacker-controlled CGI qstring or OGC API Features featureId input is a numeric literal. The unquoted input is concatenated into the generated PostgreSQL/PostGIS predicate, allowing an unauthenticated remote attacker with access to an affected query endpoint to bypass predicates, enumerate unintended records, perform boolean-based or time-based SQL injection, and increase database load. The issue does not by itself establish database modification capabilities. This issue is fixed in version 8.6.4.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-85720",
-      "published": "2026-09-17T17:16:51.200",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 2.0.0 until 2.16.1 and 3.0.12, a request using an HTTP proxy to reach an HTTPS origin can expose preemptive origin credentials because NettyRequestFactory and NettyRequestSender.sendRequestWithNewChannel attach Authorization to the plaintext CONNECT request before the TLS tunnel exists. Basic or Digest credentials and per-connection NTLM, Kerberos, or SPNEGO tokens intended for the origin are therefore visible to the proxy and to observers on the client-to-proxy hop. The tunneled request still receives origin Authorization after the tunnel is established, while Proxy-Authorization remains on CONNECT for its intended proxy recipient. This issue is fixed in versions 2.16.1 and 3.0.12.",
+      "id": "CVE-2026-54339",
+      "published": "2026-09-17T21:17:15.123",
+      "description": "Glean is a self-hosted RSS reader and personal knowledge management tool. Prior to 0.2.6, POST /api/feeds/discover passes an attacker-supplied feed_url to discover_feed(feed_url), creates a subscription through FeedService.create_subscription(), and enqueues fetch_feed_task. The background path calls fetch_feed(feed.url) and parse_feed(), which assigns each RSS item link to ParsedEntry.url. The task then passes ParsedEntry.url to fetch_and_extract_fulltext(parsed_entry.url) without network-level validation in backend/packages/rss/glean_rss/extractor.py and backend/apps/worker/glean_worker/tasks/feed_fetcher.py. A malicious feed can therefore make the server request private, loopback, link-local, or cloud-metadata resources. The fetched response is stored in Entry.content and can be retrieved through GET /api/entries/{id}, producing non-blind server-side request forgery with full response disclosure. This can bypass network perimeters, probe internal services and ports, expose internal configuration or web content, and potentially disclose cloud metadata access tokens. This issue is fixed in version 0.2.6.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-50275",
+      "published": "2026-09-17T21:17:14.073",
+      "description": "The Datadog PHP Tracer provides application performance monitoring and distributed tracing for PHP. Prior to 1.19.2, ddtrace_deserialize_baggage in ext/distributed_tracing_headers.c parses incoming W3C baggage HTTP headers without enforcing DD_TRACE_BAGGAGE_MAX_ITEMS or DD_TRACE_BAGGAGE_MAX_BYTES. A remote unauthenticated client can send an arbitrarily large number of comma-separated key-value pairs or a single oversized value, causing the tracer to allocate hash-map entries and consume unbounded CPU and memory on each request. Baggage extraction is enabled by default in most affected deployments unless baggage is removed from DD_TRACE_PROPAGATION_STYLE or DD_TRACE_PROPAGATION_STYLE_EXTRACT. This issue is fixed in version 1.19.2.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-50277",
+      "published": "2026-09-17T21:17:14.243",
+      "description": "dd-trace-cpp is the Datadog distributed tracing library for C++. Prior to 2.1.0, dd-trace-cpp parses incoming W3C baggage headers without enforcing DD_TRACE_BAGGAGE_MAX_ITEMS or DD_TRACE_BAGGAGE_MAX_BYTES on the extraction path, even though those limits are enforced during injection. A remote unauthenticated attacker can send a header containing many comma-separated key-value pairs or one very large value, causing per-request hash-map allocation and unbounded CPU and memory consumption. Baggage extraction is enabled by default in most affected tracers unless baggage is removed from DD_TRACE_PROPAGATION_STYLE or DD_TRACE_PROPAGATION_STYLE_EXTRACT, so affected internet-facing services can be denied service. This issue is fixed in version 2.1.0.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2021-3030",
+      "published": "2026-09-17T21:17:10.213",
+      "description": "Cute Editor for ASP.NET 6.4 is vulnerable to reflected cross-site scripting caused by improper validation of the Theme GET parameter in colorpicker_more.aspx. A remote, unauthenticated attacker can craft a URL that, once opened by a victim in a browser session authenticated to a site running the vulnerable component, executes arbitrary JavaScript in the security context of that site.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-8674",
-      "published": "2026-09-17T17:16:53.220",
-      "description": "Initializing the DNS stub resolver from an /etc/resolv.conf file, or a LOCALDOMAIN environment variable, whose search list contains a domain of roughly 200 characters or more in the GNU C Library version 2.26 to 2.44 results in an assertion failure which aborts the process.\n\nThe resolver truncates the search list when copying it into the fixed-size _res.defdname buffer, then asserts that the copy is consistent with the full configuration.  The consistency check compared against the wrong size and did not handle a first entry that does not fit, so a correctly truncated list failed the assertion.  Any process that resolves names through the library is affected, including long-running processes that reload /etc/resolv.conf on the next query after it changes.  Search domains are commonly written to /etc/resolv.conf from data received over DHCP or from a VPN server, so an attacker on the local network may be able to trigger this without privileges on the target system, subject to validation by the network configuration software.",
+      "id": "CVE-2026-50022",
+      "published": "2026-09-17T21:17:13.537",
+      "description": "Metacat is data repository software that helps researchers preserve, share, and discover data. Prior to 3.4.2, MetacatSolrIndex.query forwards the client-controlled qt parameter through Apache SolrJ from search endpoints such as /d1/mn/v2/query/solr/ to its privileged Solr backend. An unauthenticated client can select the /admin/file handler, and SolrJ reformats the parameter into a request accepted even when handleSelect=false is configured on Solr 7.0 or later. When Solr returns the selected core configuration file, Metacat embeds the raw content in an XML processing error response, disclosing internal files such as solrconfig.xml and enabling infrastructure profiling. This issue is fixed in version 3.4.2.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-85716",
-      "published": "2026-09-17T17:16:50.943",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 3.0.8 until 3.0.12, processScramAuthenticationInfo and processAuthenticationInfo compute the SCRAM ServerSignature or Digest rspauth verification result but log a mismatch and still deliver the response as authenticated. On a non-TLS or compromised transport, a peer that has not proved knowledge of the shared secret can therefore be accepted as the server. The fix rejects a present invalid value and computes Digest rspauth from the Authorization parameters actually sent, but verification remains unenforced when the value is absent, the sent parameters cannot be recovered, or Digest uses qop=auth-int. This issue is fixed in version 3.0.12.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-54575",
-      "published": "2026-09-17T17:16:42.420",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, privileged package fetch and cache-cleaning operations used race-prone path handling across libmport/fetch.c, libmport/clean.c, libmport/util.c, libmport/bundle_read_install_pkg.c, libmport/delete_primative.c, and libexec/mport.create/mport.create.c. A local attacker with write access to a participating package cache or staging path could race path checks and replacement operations to redirect package downloads, cleanup, or install-related side effects outside the intended cache. The affected lifecycle helper paths also used shell-form invocation, increasing command-line interpretation risk during privileged helper execution. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2025-62167",
+      "published": "2026-09-17T21:17:11.020",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2026-33626. Reason: This candidate is a duplicate of CVE-2026-33626. Notes: All CVE users should reference CVE-2026-33626 instead of this candidate.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54576",
-      "published": "2026-09-17T17:16:42.570",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, do_actual_install() in libmport/bundle_read_install_pkg.c used path-based lstat(), chown(), stat(), and chmod() operations while installing package files. A local attacker with write access to a target directory could replace a checked file with a symlink before privileged ownership or mode changes were applied, redirecting those changes to an attacker-selected path and compromising filesystem integrity or permissions. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2026-10594",
+      "published": "2026-09-17T21:17:11.097",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54577",
-      "published": "2026-09-17T17:16:42.710",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, the audit command in mport/mport.c computed option-adjusted local_argv and local_argc values but passed the original argument entry to audit_package(). When an operator or automation used an option such as -r before a package name, stale optind state and the unadjusted argument could cause mport to audit the option token instead of the requested package, producing a false-negative or useless result that could leave a vulnerable package unidentified. The corrected parsing resets optind and optreset before using the adjusted local arguments. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2026-11314",
+      "published": "2026-09-17T21:17:11.153",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54578",
-      "published": "2026-09-17T17:16:42.853",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, mport_verify_package() in libmport/verify.c could continue after MD5File() or SHA256_File() failed and compare an expected checksum with stale data in the hash buffer rather than a newly computed digest. An attacker able to influence an installed file or the conditions that make hashing fail could receive a misleading integrity result or hide a checksum failure. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2026-48977",
+      "published": "2026-09-17T21:17:13.323",
+      "description": "OpenSlide is a C library for reading whole slide image files. From 3.4.1 until 4.0.1, OpenSlide's parse_level0_xml() processing in src/openslide-vendor-ventana.c accepts nonpositive row or column tile counts from a crafted Ventana BIF file. The invalid counts produce attacker-controlled relative memory offsets and allow arbitrary values to be written at those offsets, affecting all supported platforms and configurations and resulting in a crash or potential arbitrary code execution. This issue is fixed in version 4.0.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54579",
-      "published": "2026-09-17T17:16:43.000",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, ping() in libmport/ping.c accepted ICMP replies without validating icmp_id or icmp_seq and parsed the reply using a fixed IP-header offset instead of ip_hl. A network attacker able to inject or spoof visible ICMP replies could influence mirror latency selection, while a malformed packet carrying IP options could shift the ICMP header and trigger an out-of-bounds read. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2026-49137",
+      "published": "2026-09-17T21:17:13.480",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54580",
-      "published": "2026-09-17T17:16:43.150",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, libmport/util.c did not make every truncated, corrupt, or failed zstd stream fatal in mport_decompress_zstd(), and libmport/fetch.c did not consistently propagate those failures to index-fetch callers. A malicious or faulty mirror could supply compressed package index data that caused ZSTD_decompressStream() or an output write to fail while leaving partial index output available for later use, resulting in package-index integrity loss or denial of service. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2026-54237",
+      "published": "2026-09-17T21:17:14.980",
+      "description": "Wavelog is web-based amateur radio logging software. From 1.8 until 2.4.2, Wavelog exposes /install/ajax.php and /install/includes/interface_assets/triggers.php after installation without an installation lock or permission check. Unsanitized input reaches write_config() and write_configfile() in install/includes/core/core_class.php, allowing a remote unauthenticated attacker to read or write log files and place attacker-controlled content into PHP configuration files. The resulting PHP configuration content can execute on the server. This issue is fixed in version 2.4.2.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54581",
-      "published": "2026-09-17T17:16:43.290",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, the mport_fetch_bootstrap_index() function in libmport/fetch.c could return success when bootstrap index hash verification encountered a missing or invalid hash because the failure path did not preserve a fatal result. A network attacker or compromised mirror able to alter bootstrap index content or its transport path could therefore cause mport to proceed with an unverified or tampered bootstrap package index. This issue is fixed in version 2.7.8.",
+      "id": "CVE-2026-54355",
+      "published": "2026-09-17T21:17:15.410",
+      "description": "MapServer is a system for developing web-based GIS applications. From 6.0 until 8.6.4, MapServer's OpenLayers HTML output for SERVICE=WMS&REQUEST=GetMap&FORMAT=application/openlayers reflects an attacker-controlled X-Forwarded-Host value received as HTTP_X_FORWARDED_HOST through msBuildOnlineResource(), processLine(), and the [mapserv_onlineresource] substitution in src/maputil.c and src/maptemplate.c without escaping it for a single-quoted JavaScript string. When the deployment trusts the forwarded header and does not configure a fixed ows_onlineresource or MS_ONLINERESOURCE value, embedded single quotes can escape the generated URL string. An unauthenticated attacker can craft a URL that executes arbitrary JavaScript in the MapServer site origin when opened by a victim, enabling access to sessions or tokens, same-origin data and requests, and actions as the victim. This issue is fixed in version 8.6.4.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-54582",
-      "published": "2026-09-17T17:16:43.440",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, package installation lacked a preflight check for incoming non-directory assets that already existed on disk. The affected logic across libmport/check_preconditions.c, libmport/install_primative.c, and libmport/mport_private.h did not apply MPORT_PRECHECK_FILE_CONFLICTS, so a crafted or conflicting package could overwrite a file owned by another package or unmanaged by mport. The check is bypassed only when the operator explicitly enables mport->force. Privileged installation without that override could compromise local filesystem integrity and package database consistency. This issue is fixed in version 2.7.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-54583",
-      "published": "2026-09-17T17:16:43.593",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, libmport/fetch.c did not consistently reject empty, dot, dot-dot, or slash-containing bundle filenames before composing package download and write paths. Malicious package index data could place an unsafe value in indexEntry->bundlefile, and the missing is_valid_bundle_filename() checks allowed downloaded package data to be written outside the intended cache location or to an unsafe destination name. This issue is fixed in version 2.7.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-54585",
-      "published": "2026-09-17T17:16:43.747",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, create_sample_file() in libmport/bundle_read_install_pkg.c did not constrain absolute source and destination paths from the sample-file manifest directive to mport->root. A malicious or malformed package manifest could therefore direct privileged sample-file handling to copy or write outside the configured installation root, compromising local filesystem integrity. This issue is fixed in version 2.7.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-54586",
-      "published": "2026-09-17T17:16:43.883",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, the mport_fetch_index(), mport_fetch_bootstrap_index(), and mport_fetch_bundle() paths in libmport/fetch.c accepted non-HTTPS repository and package mirror URLs without a url_is_https() enforcement check. When a cleartext URL was configured or returned by mirror data, a network-positioned attacker could tamper with package index or package download traffic and compromise package selection or integrity. This issue is fixed in version 2.7.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-54587",
-      "published": "2026-09-17T17:16:44.020",
-      "description": "mport is the MidnightBSD Package Manager. Prior to 2.7.8, directory assets handled as ASSET_DIR or ASSET_DIR_OWNER_MODE in libmport/bundle_read_install_pkg.c used path-based mport_mkdirp(), ownership, and permission operations. A local attacker able to modify part of the target installation tree could use dot-dot traversal or substitute symlinks during privileged package installation, causing directory creation or attribute changes to affect attacker-selected paths outside the intended package directories. This issue is fixed in version 2.7.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-90050",
-      "published": "2026-09-17T17:16:53.363",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: fq: clamp quantum and initial_quantum in change path\n\nThe fq change path accepts TCA_FQ_QUANTUM in [1, INT_MAX] and\nTCA_FQ_INITIAL_QUANTUM up to INT_MAX, while fq_init() already clamps to\n[1, 1<<20]. A user can override the init clamp via tc qdisc change,\nrestoring the small-quantum deficit spin that the init clamp prevents.\n\nNarrow iq_range.max to 1<<20 so TCA_FQ_INITIAL_QUANTUM is rejected at\nparse time. Clamp TCA_FQ_QUANTUM to [256, 1<<20] in fq_change() and\nfq_init() quantum to [256, 1<<20] for tiny-MTU devices.\n\nConditions to recreate the bug:\n  CONFIG_NET_SCH_FQ=y. Requires CAP_NET_ADMIN (namespace-local via\n  unshare -Urn suffices).\n\n  tc qdisc add dev dummy0 root fq\n  tc qdisc change dev dummy0 root fq quantum 1 stab data 32768 size_log 15 cell_log 0",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-90053",
-      "published": "2026-09-17T17:16:53.723",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: sch_htb: limit htb_classify inner-class filter hops\n\nhtb_classify() follows each filter-selected inner class by switching\nto cl->filter_list, but never bounds the number of hops. A filter on\nan inner class can point back to itself or to another inner class that\npoints back, creating an infinite loop in the packet classification\npath with the qdisc lock held and BH disabled — a soft lockup / panic\nfrom a single packet.\n\nBound the traversal with a hop counter and drop the packet with a\nrate-limited warning once the bound is exceeded. The counter is\nincremented at the point the inner filter chain is picked up, after the\nTC_ACT_* switch has consumed the classifier verdict, so a terminal\nTC_ACT_QUEUED/STOLEN/TRAP on the last permitted chain still sets *qerr\nto __NET_XMIT_STOLEN and the packet is not charged as a drop by this\nqdisc or its parent.\n\nThe bound is TC_HTB_MAXDEPTH, taken from HTB's own parameters rather than\nfrom the qdisc hierarchy depth limit. Class levels run from 0 to\nTC_HTB_MAXDEPTH - 1, so a traversal that strictly descends in level can\ntake at most TC_HTB_MAXDEPTH hops. That descent is what a sane\nconfiguration does, but it is assumed here rather than enforced:\nhtb_find() resolves a classid against every class in the qdisc, so a\nfilter may equally select a sibling or an ancestor. The normal\nroot -> inner -> leaf path takes a single hop, so the bound does not\naffect legitimate classification.\n\nhtb_classify() can now return NULL irrespective of CONFIG_NET_CLS_ACT,\nwhereas previously every NULL return sat inside that ifdef. The NULL\nhandler in htb_enqueue() therefore cannot stay conditional either, so\ndrop the ifdef around it. This matches hfsc_enqueue(), which has always\nhandled a NULL class unconditionally. Without it, a kernel built\nwithout actions would dereference a NULL class instead of dropping.\n\nConditions to recreate the bug:\n- CONFIG_NET_SCHED, CONFIG_NET_SCH_HTB, CONFIG_NET_CLS_U32,\n  CONFIG_LOCKUP_DETECTOR.\n- Create an HTB qdisc on a device (e.g. lo), add an inner class\n  1:1 with a leaf child 1:10, install a root u32 filter selecting\n  1:1, and an inner-class u32 filter on 1:1 also selecting 1:1.\n- Send one packet (ping). On the unfixed kernel the classify loop\n  spins with the qdisc lock held; with softlockup_panic=1 it panics.\n- Reachable from unprivileged user via unshare -Urn (CAP_NET_ADMIN).",
+      "id": "CVE-2026-54501",
+      "published": "2026-09-17T21:17:15.707",
+      "description": "Browsertrix is a high-fidelity, browser-based crawling service for web archiving that can be self-hosted or used through Webrecorder's hosted instance. From 1.15.0 until 1.22.8, Browsertrix improperly sanitizes Git URLs specified as Custom Behaviors, allowing command injection through /api/orgs/*/crawlconfigs/validate/custom-behavior. A user with crawler or administrator permission on the specific instance can supply a crafted Git URL that executes arbitrary operating-system commands in the backend pod. Open registration or hosted free-trial access can make the required role broadly obtainable. Successful exploitation can expose, modify, or delete application database records, archived items, browser profiles, storage data, proxy credentials, and other configured service data. This issue is fixed in version 1.22.8.",
       "severity": "UNKNOWN",
       "score": null
     }
