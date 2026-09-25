@@ -1,145 +1,145 @@
 {
-  "totalResults": 2815,
+  "totalResults": 2732,
   "items": [
     {
-      "id": "CVE-2026-93019",
-      "published": "2026-09-18T14:19:04.480",
-      "description": "Imager versions before 1.036 for Perl exit the process reading a TGA with a colour map length of 32768 or more in tga_palette_read.\n\nThe reader unpacks the two-byte colour map length into a signed short, so a length of 32768 or more becomes negative. tga_palette_read() casts that value to size_t and asks mymalloc() for a size near SIZE_MAX. The allocation fails and Imager's allocator calls exit(3).\n\nReading an attacker-supplied file through Imager->read() triggers an uncatchable exit.",
+      "id": "CVE-2023-54399",
+      "published": "2026-09-18T19:16:40.757",
+      "description": "Hongjing e-HR before 8.2 contains a SQL injection vulnerability in the /servlet/codesettree endpoint where the categories query parameter is passed to a database query without sanitization after HRMS-encoding is stripped. An unauthenticated remote attacker can supply a crafted UNION SELECT payload to read arbitrary database content, including credential tables such as operuser. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-88622",
-      "published": "2026-09-18T14:19:02.480",
-      "description": "NUUO Network Video Recorder 2.0.0 is vulnerable to Command Injection in handle_import_privilege.php.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-93593",
-      "published": "2026-09-18T14:19:10.413",
-      "description": "ArcadeDB before 26.9.1 fails to enforce security-group types ACL entries for TimeSeries types because the ACL resolver builds permissions from bucket IDs, but TimeSeries types do not own normal record buckets. An authenticated low-privilege user can read or insert TimeSeries samples despite explicit deny rules by exploiting the missing type-name-based access check that causes permission lookups to fail open.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-93594",
-      "published": "2026-09-18T14:19:10.587",
-      "description": "ArcadeDB (Maven artifact com.arcadedb:arcadedb-engine) through 26.8.1 enforces its per-type/per-record access-control rules only in LocalBucket, keyed on file id. Query-execution paths that reach record data through LSM index files or the TimeSeries engine never invoke that permission check, so an authenticated user who is denied readRecord/deleteRecord on a type can still, with a single ordinary SQL statement, read the type's indexed key values and record IDs (e.g. SELECT key, rid FROM INDEX:Type[field]), read MAX/MIN values via the index shortcut, read and count TimeSeries samples, learn the type's record count, and delete index entries (DELETE FROM INDEX:Type[field]), which desynchronizes the index from the data and can defeat unique constraints. Index and type names needed for exploitation are discoverable because SELECT FROM schema:indexes is unfiltered. The issue affects both embedded and server deployments and all transports (HTTP, Bolt, Postgres, Gremlin) once a principal is bound. Fixed in 26.9.1.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-93591",
-      "published": "2026-09-18T14:19:10.097",
-      "description": "SiYuan versions before 3.8.3 contain an SQL injection vulnerability in the graph.go query2Stmt function where tag values are concatenated raw into SQL string literals without escaping single quotes. A publish-mode reader or anonymous visitor can inject SQL via inline HTML span tags in the getGraph endpoint to execute arbitrary queries on the read-write database and exfiltrate private data across notebooks.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2023-5778",
-      "published": "2026-09-18T14:17:14.870",
-      "description": "Improper handling of length parameter inconsistency vulnerability in ABB Freelance Controller DCP, ABB Freelance Controller AC700, ABB Freelance Controller AC800, and ABB Freelance Controller AC900.\n\nThis issue affects Freelance Controller DCP: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1; Freelance Controller AC700: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1; Freelance Controller AC800: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1; Freelance Controller AC900: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1.",
+      "id": "CVE-2019-25776",
+      "published": "2026-09-18T19:16:39.420",
+      "description": "Weaver E-cology contains an unauthenticated SQL injection vulnerability that allows remote attackers to execute arbitrary SQL queries by submitting malicious input through the userIdentifiers GET parameter in the mobile plugin endpoint. Attackers can bypass space-based filter controls by wrapping SQL keywords in parentheses to perform UNION-based injection and extract sensitive data including administrator credential hashes from the database. Exploitation evidence was first observed by the Shadowserver Foundation on 2022-07-28.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-88623",
-      "published": "2026-09-18T14:19:02.617",
-      "description": "NUUO Network Video Recorder 2.0.0 is vulnerable to arbitrary file read. In up.php, the url parameter submitted by the user via POST is received, and fopen() is used to open the URL in binary read-only mode. The content is then written to the /tmp/ directory, with the filename derived from basename() of the URL. This operation requires no authentication.",
+      "id": "CVE-2021-48008",
+      "published": "2026-09-18T19:16:40.563",
+      "description": "Chanjet CRM contains an unauthenticated SQL injection vulnerability that allows remote attackers to execute arbitrary SQL queries by manipulating the site_id GET parameter in the webservice endpoint. Attackers can exploit the lack of input sanitization or parameterization through UNION-based injection techniques to extract sensitive data from the underlying database. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-93560",
-      "published": "2026-09-18T14:19:08.210",
-      "description": "A flaw was found in the Netty STOMP codec. A remote attacker could send a specially crafted STOMP frame with a content-length header exceeding the maximum integer value. This integer truncation vulnerability could lead to an infinite decode loop, causing a Denial of Service (DoS) by exhausting memory and CPU resources.",
+      "id": "CVE-2026-75893",
+      "published": "2026-09-18T19:16:45.860",
+      "description": "In osmo-bsc from 1.0.1 through 1.14.1 a heap based buffer overflow issue was found in the ipaccess_proxy_read_msg()  function via IPA frame lengths.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-93592",
-      "published": "2026-09-18T14:19:10.267",
-      "description": "vLLM versions before 0.28.0 fail to validate the lower bound of token IDs in the /v1/embeddings and /pooling endpoints, allowing unauthenticated attackers to crash the engine by submitting negative token IDs. A single request with a negative token ID triggers a CUDA device-side assertion that poisons the GPU context, causing all subsequent requests to fail until the process restarts.",
+      "id": "CVE-2026-75894",
+      "published": "2026-09-18T19:16:45.967",
+      "description": "In osmo-iuh from 0.1.0 through 1.8.0 a reachable assertion was found in the ranap_handle_co_dt() function via a arbitrarily sized NAS-PDU that leads to process crash and remote denial of service.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-62282",
-      "published": "2026-09-18T14:17:19.500",
-      "description": "OpenCVE is a vulnerability intelligence platform. Prior to 3.0.0, OpenCVE notification testing for Webhook and Slack integrations does not sufficiently validate user-supplied HTTP or HTTPS destinations. An authenticated user with permission to configure notification channels can trigger requests to hosts reachable from the OpenCVE server, including internal network resources, localhost interfaces, link-local addresses, and cloud metadata services, and retrieve information from reachable HTTP services. This issue is fixed in version 3.0.0.",
+      "id": "CVE-2017-20284",
+      "published": "2026-09-18T20:16:58.540",
+      "description": "Caucho Resin contains a path traversal vulnerability in the documentation webapp (resin-doc) that allows remote unauthenticated attackers to read arbitrary files by supplying a relative path through the inputFile request parameter of the jndi-appconfig tutorial servlet. Attackers can craft requests with directory traversal sequences to the servlet endpoint to read files outside the intended tutorial directory on the underlying system. Exploitation evidence was first observed by the Shadowserver Foundation on 2021-12-10.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-11716",
+      "published": "2026-09-18T20:17:02.837",
+      "description": "IBM MQ for HPE NonStop 8.1.0 through 8.1.0.40 could allow an authenticated attacker to cause a denial of service or potentially execute arbitrary code during queue manager startup due to improper validation of cluster migration data.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-75892",
+      "published": "2026-09-18T19:16:45.747",
+      "description": "In osmo-ggsn 1.14.0 an out of bounds write issue was found in the gtp_decode_pdp_ctx() function through the PDP context GSN-Address sub-field, leading to memory corruption.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-93595",
-      "published": "2026-09-18T14:19:10.757",
-      "description": "ArcadeDB before 26.9.1 contains an access control bypass vulnerability in the query_database tool exposed through the AI chat endpoints. The tool executes queries without binding the authenticated principal to DatabaseContext, causing per-type and per-bucket ACL checks to silently no-op and allowing authenticated users to read data they are explicitly denied at the per-type level. Attackers can prompt the AI assistant to execute queries against restricted types or buckets to retrieve sensitive data that would be rejected through normal query endpoints.",
+      "id": "CVE-2026-11549",
+      "published": "2026-09-18T20:17:00.923",
+      "description": "IBM WebSphere Application Server and WebSphere Application Server Liberty are affected by a virtual host bypass vulnerability.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-93504",
-      "published": "2026-09-18T14:19:08.027",
-      "description": "A vulnerability has been found in SveltyCMS 0.0.6. This affects an unknown part of the file src/routes/api/[...path]/+server.ts of the component User Attribute Update Endpoint. Such manipulation leads to improper access controls. It is possible to launch the attack remotely. The name of the patch is 05b4f9efeb79e9d72a693232334d7529687f896f. It is advisable to implement a patch to correct this issue.",
+      "id": "CVE-2026-11710",
+      "published": "2026-09-18T20:17:01.097",
+      "description": "IBM WebSphere Application Server 8.5 is affected by an HTTP request smuggling vulnerability due to improper handling of Content-Length headers.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-79294",
-      "published": "2026-09-18T14:18:48.077",
-      "description": "Cross Site Scripting vulnerability in Moonshot AI Kimi version as of 2026-07-18 allows a remote attacker to execute arbitrary code via the HTML artifact Preview rendering; public Share view component",
+      "id": "CVE-2026-11711",
+      "published": "2026-09-18T20:17:01.280",
+      "description": "IBM WebSphere Application Server 9.0 and 8.5 is affected by a deserialization vulnerability in the Name Service component.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-93018",
-      "published": "2026-09-18T14:19:04.363",
-      "description": "Imager versions before 1.036 for Perl disclose uninitialised heap memory reading a paletted image with pixel indexes past its colour map in i_gpix_p and i_glin_p.\n\nThe palette is allocated uninitialised, and only the entries a reader adds count as populated. The TGA reader stores pixel indexes without checking them against the colour map. i_gpix_p() rejects only an index greater than the count, so an index equal to it reads the first unpopulated entry, and getpixel() returns it.\n\ni_glin_p() skips any index at or beyond the count without writing that pixel to the caller's buffer. The palette-to-RGB conversion reads each row through an uninitialised buffer, so those pixels of the converted image hold prior heap contents.\n\nReading an attacker-supplied image through Imager->read() and then fetching its pixels or converting it to RGB discloses process heap memory.",
+      "id": "CVE-2026-11539",
+      "published": "2026-09-18T20:17:00.340",
+      "description": "IBM WebSphere Application Server 9.0 and 8.5 is affected by an authentication bypass vulnerability in the SOAP/JMX connector.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-93596",
-      "published": "2026-09-18T14:19:10.917",
-      "description": "ArcadeDB before 26.9.1 (com.arcadedb:arcadedb-engine <= 26.8.1) fails to bind the authenticated principal onto the DatabaseAsyncTransaction async worker threads used by the parallel edge-connect phase of POST /api/v1/batch/{database}. Because those workers have no current user, LocalDatabase.checkPermissionsOnFile returns early and allows the write, bypassing per-type CREATE_RECORD/UPDATE_RECORD ACL enforcement. In deployments that rely on per-type or per-group ACLs, an authenticated low-privilege user holding CREATE_RECORD on an edge type E but with CREATE_RECORD/UPDATE_RECORD revoked on a vertex type V can submit a graph edge-load batch request (with parallelFlush at its default value of true) and durably append edges to protected vertices of type V by writing records into V's <V>_out_edges/<V>_in_edges buckets, resulting in unauthorized modification of graph adjacency. Setting parallelFlush=false causes the request to be correctly rejected. This is an incomplete fix of GHSA-c23x-pqcj-7hfm, which bound the principal only on the HTTP handler thread.",
+      "id": "CVE-2026-11540",
+      "published": "2026-09-18T20:17:00.493",
+      "description": "IBM WebSphere Application Server 9.0 and 8.5 could allow a remote attacker to obtain sensitive information about the file system through the FileTransfer servlet.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-93589",
-      "published": "2026-09-18T14:19:09.760",
-      "description": "ImageMagick before 7.1.2-31 and 6.9.13-56 contains a division-by-zero flaw in the FLIF encoder. An incorrect value for ticks per second in the image being encoded causes a divide-by-zero and crashes the encoder, resulting in a denial of service. The issue is fixed in 7.1.2-31 and 6.9.13-56.",
+      "id": "CVE-2026-11548",
+      "published": "2026-09-18T20:17:00.783",
+      "description": "IBM WebSphere Application Server and WebSphere Application Server Liberty are affected by an HTTP request smuggling vulnerability.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-11722",
+      "published": "2026-09-18T20:17:03.020",
+      "description": "IBM WebSphere Application Server and WebSphere Application Server Liberty are affected by an HTTP request smuggling vulnerability.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-11538",
+      "published": "2026-09-18T19:16:40.957",
+      "description": "IBM WebSphere Application Server 9.0 and 8.5 is affected by a log injection vulnerability through crafted LTPA token cookies.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-93590",
-      "published": "2026-09-18T14:19:09.943",
-      "description": "ImageMagick before 7.1.2-31 contains a policy bypass vulnerability in the UHDR encoder that fails to perform policy checks during buffer allocation for image pixels. Attackers can bypass resource policies by processing specially crafted UHDR images, potentially causing denial of service through excessive memory allocation.",
+      "id": "CVE-2026-93650",
+      "published": "2026-09-18T19:17:24.973",
+      "description": "A vulnerability was determined in Saleor up to 3.20.118/3.21.54/3.22.47/3.23.14. This vulnerability affects the function get_client_ip of the file saleor/account/throttling.py. Executing a manipulation can lead to improper restriction of excessive authentication attempts. The attack can be executed remotely. The attack requires a high level of complexity. It is stated that the exploitability is difficult. The exploit has been publicly disclosed and may be utilized. The projects own issue #19203 internal ticket admits \"IP can be spoofed in most deployments\" and that its REAL_IP_ENVIRON-type setting bypasses get_client_ip; fix (right-to-left RFC 7239 hop selection) proposed but still unmerged. The vendor explains within an email, that \"[t]his is not a vulnerability, this is working at intended, Saleor expects XFF to be configured properly\".",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-93587",
-      "published": "2026-09-18T14:19:09.410",
-      "description": "ImageMagick before 7.1.2-31 and before 6.9.13-56 contains a policy bypass in the PCD (and, per the upstream advisory, CUBE and HALD) coder: when a specific command line option is supplied, the decoder does not check a configured resource limit, which can result in extra memory allocation. A local user able to pass command line options to ImageMagick can therefore exceed the intended memory policy limit, causing a limited availability impact. The issue is fixed in 7.1.2-31 and 6.9.13-56.",
+      "id": "CVE-2026-11545",
+      "published": "2026-09-18T20:17:00.637",
+      "description": "IBM WebSphere Application Server 8.5 and 9.0 could allow a remote attacker to obtain sensitive information from the administrative console due to missing authorization checks.",
       "severity": "LOW",
-      "score": 3.3
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-93588",
-      "published": "2026-09-18T14:19:09.590",
-      "description": "ImageMagick before 7.1.2-31 and before 6.9.13-56 contains a NULL pointer dereference in the PNM coder. When the coder reaches a memory (resource) limit at a specific point during processing, the failed allocation is not handled and a NULL pointer is dereferenced, which can lead to a denial of service (application crash) when processing a specially crafted or sufficiently large PNM image.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-93852",
+      "published": "2026-09-18T19:17:25.267",
+      "description": "In OpenStack Blazar before 17.0.1, the V2 lease listing operation (GET /v2/leases) returns leases for every project without enforcing project scoping or an administrator-only policy. Any authenticated user with access to the Blazar REST API can enumerate leases belonging to other tenants, exposing lease IDs, reservation IDs, resource IDs, and reservation metadata. The exposed lease IDs also enable the object-level authorization bypass tracked in the companion request, allowing an attacker to then modify or delete the enumerated leases.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-93586",
-      "published": "2026-09-18T14:19:09.207",
-      "description": "ImageMagick before 7.1.2-31 and before 6.9.13-56 contains a use-after-free vulnerability in the ImagesToBlob method, caused by a pointer that is not updated correctly. Exploitation may result in a limited availability impact (e.g., a crash of the affected process). The issue is fixed in versions 7.1.2-31 and 6.9.13-56.",
-      "severity": "LOW",
-      "score": 2.9
+      "id": "CVE-2026-93854",
+      "published": "2026-09-18T19:17:25.440",
+      "description": "In OpenStack Blazar before 17.0.1, the V2 lease API does not enforce object-level authorization on its update and delete operations (PUT /v2/leases/{lease_id} and DELETE /v2/leases/{lease_id}). The policy authorize() wrapper attempts to load the target lease to build the authorization target from its owner, but it looks up the lease under the keyword \"lease_id\" whereas the controller methods name the parameter \"id\" (and the wsme_pecan.wsexpose wrapper delivers it positionally). The lookup returns None, and thus authorization falls back to the requesting user's own project_id/user_id instead of the target lease owner. Any authenticated user who knows a lease ID can therefore modify or delete leases belonging to other users and projects, bypassing the intended ownership check.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
