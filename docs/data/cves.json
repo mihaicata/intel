@@ -1,143 +1,143 @@
 {
-  "totalResults": 2732,
+  "totalResults": 2676,
   "items": [
     {
-      "id": "CVE-2023-54399",
-      "published": "2026-09-18T19:16:40.757",
-      "description": "Hongjing e-HR before 8.2 contains a SQL injection vulnerability in the /servlet/codesettree endpoint where the categories query parameter is passed to a database query without sanitization after HRMS-encoding is stripped. An unauthenticated remote attacker can supply a crafted UNION SELECT payload to read arbitrary database content, including credential tables such as operuser. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "id": "CVE-2026-93740",
+      "published": "2026-09-18T22:17:10.890",
+      "description": "A vulnerability was identified in Totolink A3002MU Hh-B20211125.1046. Affected is the function formWlEncrypt of the file /boafrm/formWlEncrypt. The manipulation of the argument submit-url leads to buffer overflow. It is possible to initiate the attack remotely. The exploit is publicly available and might be used.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-93739",
+      "published": "2026-09-18T22:17:10.710",
+      "description": "A vulnerability was determined in Totolink A3002MU Hh-B20211125.1046. This impacts the function formWlAc of the file /boafrm/formWlAc. Executing a manipulation of the argument submit-url can lead to buffer overflow. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-84434",
+      "published": "2026-09-19T03:17:15.573",
+      "description": "The Gravity Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 3.1.0.4 via the upload_file function. This is due to a mismatch between the field validation pipeline and the file persistence pipeline, where hidden file upload fields bypass extension validation and a rejected file's intact upload state is later passed to upload_file() without re-validation. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible. Exploitation requires the targeted form to contain a File Upload field with its Visibility set to 'Hidden'; the vulnerability is reachable by unauthenticated attackers on any publicly accessible form meeting this condition.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2019-25776",
-      "published": "2026-09-18T19:16:39.420",
-      "description": "Weaver E-cology contains an unauthenticated SQL injection vulnerability that allows remote attackers to execute arbitrary SQL queries by submitting malicious input through the userIdentifiers GET parameter in the mobile plugin endpoint. Attackers can bypass space-based filter controls by wrapping SQL keywords in parentheses to perform UNION-based injection and extract sensitive data including administrator credential hashes from the database. Exploitation evidence was first observed by the Shadowserver Foundation on 2022-07-28.",
+      "id": "CVE-2026-75885",
+      "published": "2026-09-18T22:17:10.313",
+      "description": "A flaw was found in the OpenShift console. Unauthenticated access to the `/api/devfile/` and `/api/devfile/samples/` endpoints allows a remote attacker to send crafted devfile payloads. This can lead to Server-Side Request Forgery (SSRF), where the console pod makes requests to internal services and reflects partial responses to the attacker. Additionally, by sending repeated large requests without a specified content length, an attacker can cause unbounded memory growth, leading to a Denial of Service (DoS).",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-89274",
+      "published": "2026-09-19T03:17:16.587",
+      "description": "The WP Recipe Maker plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in all versions up to, and including, 10.8.1. The vulnerability exists because `WPRM_Metadata::sanitize_metadata()` recursively calls `do_shortcode()` on every scalar field of the recipe's structured metadata array — including the `reviewBody` field, which is populated verbatim from the `comment_content` of approved `wprm-comment-rating` comments — without sanitizing or stripping shortcode tokens before execution; the subsequent `wp_strip_all_tags()` and `strip_shortcodes()` calls operate only on the output string after execution has already fully occurred, providing no protection against server-side shortcode invocation. This makes it possible for unauthenticated attackers to execute arbitrary registered WordPress shortcodes server-side on every recipe page render, causing shortcode output — such as attachment captions, private post fields, or other data exposed by installed shortcodes — to be embedded in the page's JSON-LD `reviewBody` metadata and disclosed to all visitors who load the recipe page. Successful exploitation requires the attacker's rated comment to pass the site's comment approval threshold, either via auto-approval or moderator action, before the injected shortcode begins executing on page loads.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-93922",
+      "published": "2026-09-19T00:16:57.783",
+      "description": "SiYuan through 3.8.4 renders notebook names as raw HTML in the Daily Note picker dialog without escaping, allowing stored cross-site scripting in the Electron renderer. Attackers can create notebooks with HTML payloads in names that execute JavaScript with Node.js access when the picker opens, enabling operating system command execution.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-93923",
+      "published": "2026-09-19T00:16:57.963",
+      "description": "SiYuan through 3.8.4 fails to escape heading style attributes when rendering outline and bookmark dock HTML, allowing stored cross-site scripting. Attackers can supply crafted notebooks or call administrative endpoints to inject malicious style values that execute in the Electron renderer with full system access.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-87909",
+      "published": "2026-09-19T03:17:15.853",
+      "description": "The WP Photo Album Plus plugin for WordPress is vulnerable to Remote Code Execution in all versions via the wppa_image_magick function. This is due to insufficient sanitization of the multipart upload filename before concatenation into an ImageMagick command string executed via exec(), with only escapeshellcmd() applied to the whole command rather than quoting individual arguments. This makes it possible for authenticated attackers, with subscriber-level access and above, to execute code on the server. escapeshellcmd() escapes shell metacharacters but does not prevent argument injection because spaces remain as argument separators, and the filename sanitization applied at the database layer is never applied to the physical temporary file path used for ImageMagick processing.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2021-48008",
-      "published": "2026-09-18T19:16:40.563",
-      "description": "Chanjet CRM contains an unauthenticated SQL injection vulnerability that allows remote attackers to execute arbitrary SQL queries by manipulating the site_id GET parameter in the webservice endpoint. Attackers can exploit the lack of input sanitization or parameterization through UNION-based injection techniques to extract sensitive data from the underlying database. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
+      "id": "CVE-2026-13354",
+      "published": "2026-09-19T03:17:13.553",
+      "description": "The Asset CleanUp: Page Speed Booster plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content in all versions up to, and including, 1.4.0.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is only exploitable on instances where combine_loaded_css has been enabled.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-75893",
-      "published": "2026-09-18T19:16:45.860",
-      "description": "In osmo-bsc from 1.0.1 through 1.14.1 a heap based buffer overflow issue was found in the ipaccess_proxy_read_msg()  function via IPA frame lengths.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-75894",
-      "published": "2026-09-18T19:16:45.967",
-      "description": "In osmo-iuh from 0.1.0 through 1.8.0 a reachable assertion was found in the ranap_handle_co_dt() function via a arbitrarily sized NAS-PDU that leads to process crash and remote denial of service.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2017-20284",
-      "published": "2026-09-18T20:16:58.540",
-      "description": "Caucho Resin contains a path traversal vulnerability in the documentation webapp (resin-doc) that allows remote unauthenticated attackers to read arbitrary files by supplying a relative path through the inputFile request parameter of the jndi-appconfig tutorial servlet. Attackers can craft requests with directory traversal sequences to the servlet endpoint to read files outside the intended tutorial directory on the underlying system. Exploitation evidence was first observed by the Shadowserver Foundation on 2021-12-10.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-11716",
-      "published": "2026-09-18T20:17:02.837",
-      "description": "IBM MQ for HPE NonStop 8.1.0 through 8.1.0.40 could allow an authenticated attacker to cause a denial of service or potentially execute arbitrary code during queue manager startup due to improper validation of cluster migration data.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-75892",
-      "published": "2026-09-18T19:16:45.747",
-      "description": "In osmo-ggsn 1.14.0 an out of bounds write issue was found in the gtp_decode_pdp_ctx() function through the PDP context GSN-Address sub-field, leading to memory corruption.",
+      "id": "CVE-2026-15760",
+      "published": "2026-09-19T03:17:13.867",
+      "description": "The Divi Essential plugin for WordPress is vulnerable to sensitive information exposure in versions up to, and including, 5.8.1 via the dnxte_get_database_tables and dnxte_get_database_data AJAX actions. The handlers  only conditionally verify a nonce (the check runs solely when the 'nonce' POST parameter is present and can be trivially bypassed by omitting the parameter) and never call current_user_can() or otherwise enforce a capability. This makes it possible for authenticated attackers, with Subscriber-level access and above, to enumerate every table in the WordPress database and read up to a caller-controlled number of rows from any table — including wp_users (usernames, emails, hashed passwords), wp_usermeta (session tokens, secret keys), and wp_options (privileged settings, API keys, credentials stored by other plugins).",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-11549",
-      "published": "2026-09-18T20:17:00.923",
-      "description": "IBM WebSphere Application Server and WebSphere Application Server Liberty are affected by a virtual host bypass vulnerability.",
+      "id": "CVE-2026-89333",
+      "published": "2026-09-19T03:17:16.743",
+      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 4.0.8 via the 'student_id' parameter due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with subscriber-level access and above, to disclose the email address and Tutor profile phone number of arbitrary WordPress users, including Administrators, by iterating over user IDs via the student_id parameter.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-11710",
-      "published": "2026-09-18T20:17:01.097",
-      "description": "IBM WebSphere Application Server 8.5 is affected by an HTTP request smuggling vulnerability due to improper handling of Content-Length headers.",
+      "id": "CVE-2026-89334",
+      "published": "2026-09-19T03:17:16.893",
+      "description": "The Better Messages – Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.15.33. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to access the full message transcript, thread metadata, and user data of any chat-room thread without authentication. This is only exploitable when the chat room's only_joined_can_read setting retains its default value of '0'.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-11711",
-      "published": "2026-09-18T20:17:01.280",
-      "description": "IBM WebSphere Application Server 9.0 and 8.5 is affected by a deserialization vulnerability in the Name Service component.",
+      "id": "CVE-2026-77820",
+      "published": "2026-09-19T02:16:54.257",
+      "description": "The WPComplete plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'empty' Shortcode Attribute in all versions up to, and including, 2.9.9.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the premium version of the software in order to exploit. Please note this only affects the pro version.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-11539",
-      "published": "2026-09-18T20:17:00.340",
-      "description": "IBM WebSphere Application Server 9.0 and 8.5 is affected by an authentication bypass vulnerability in the SOAP/JMX connector.",
+      "id": "CVE-2026-89081",
+      "published": "2026-09-19T03:17:16.303",
+      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'search' parameter in all versions up to, and including, 4.0.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-89093",
+      "published": "2026-09-19T03:17:16.443",
+      "description": "The Better Messages – Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to Information Exposure by Spoofing in all versions up to, and including, 2.15.33. This is due to the `is_ai_bot_user()` function identifying privileged internal AI bot accounts by performing a prefix check for `'ai-chat-bot-'` against a guest record's stored IP address, which is populated verbatim from the client-controlled `X-Real-IP` request header during unauthenticated guest registration. This makes it possible for unauthenticated attackers to register a guest identity that the plugin treats as its own internal AI bot, bypassing the per-room role allowlist, draft-status check, and join filters — which are all short-circuited by the bot check in `user_can_join()` and `user_can_read()` — to join administrator-restricted chat rooms, post messages into them, and read the private message history of other users.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-11540",
-      "published": "2026-09-18T20:17:00.493",
-      "description": "IBM WebSphere Application Server 9.0 and 8.5 could allow a remote attacker to obtain sensitive information about the file system through the FileTransfer servlet.",
+      "id": "CVE-2026-12042",
+      "published": "2026-09-19T03:17:12.997",
+      "description": "The WP2Social Auto Publish plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 2.4.12 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-11548",
-      "published": "2026-09-18T20:17:00.783",
-      "description": "IBM WebSphere Application Server and WebSphere Application Server Liberty are affected by an HTTP request smuggling vulnerability.",
+      "id": "CVE-2026-93921",
+      "published": "2026-09-19T00:16:57.553",
+      "description": "SiYuan versions through 3.8.4 fail to enforce publish access control in the getDynamicIcon endpoint, allowing read-only token holders to access document metadata. Attackers can call the endpoint with type=8 and crafted content to read block titles, names, aliases, and hierarchical paths of restricted documents via template injection.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-11722",
-      "published": "2026-09-18T20:17:03.020",
-      "description": "IBM WebSphere Application Server and WebSphere Application Server Liberty are affected by an HTTP request smuggling vulnerability.",
+      "id": "CVE-2026-15660",
+      "published": "2026-09-19T03:17:13.717",
+      "description": "The SEO Booster plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 7.4.7. This is due to a missing capability check on the handle_oauth_callback() function which is hooked to admin_init and processes $_GET['access_token'] and $_GET['google_email'] without verifying the caller's role. This makes it possible for authenticated attackers, with Subscriber-level access and above, to overwrite the seobooster_access_token, seobooster_google_email, and seobooster_gsc_sites options and delete the seobooster_needs_reauth flag by visiting a crafted /wp-admin/ URL, disrupting the Google Search Console integration and injecting attacker-chosen data into site options via the attacker-supplied token that drives an outbound Google API request whose response is stored.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-11538",
-      "published": "2026-09-18T19:16:40.957",
-      "description": "IBM WebSphere Application Server 9.0 and 8.5 is affected by a log injection vulnerability through crafted LTPA token cookies.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-88944",
+      "published": "2026-09-19T03:17:16.000",
+      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.0.8. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to permanently delete arbitrary WordPress posts — including pages, courses, quizzes, and WooCommerce products — via wp_delete_post( $id, true ). The exploit chain requires the attacker to first trigger the profile-photo upload flow to obtain an authored wp_posts attachment row, then create a Tutor topic reparented to that attachment, before invoking the lesson deletion handler against any target post ID.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-93650",
-      "published": "2026-09-18T19:17:24.973",
-      "description": "A vulnerability was determined in Saleor up to 3.20.118/3.21.54/3.22.47/3.23.14. This vulnerability affects the function get_client_ip of the file saleor/account/throttling.py. Executing a manipulation can lead to improper restriction of excessive authentication attempts. The attack can be executed remotely. The attack requires a high level of complexity. It is stated that the exploitability is difficult. The exploit has been publicly disclosed and may be utilized. The projects own issue #19203 internal ticket admits \"IP can be spoofed in most deployments\" and that its REAL_IP_ENVIRON-type setting bypasses get_client_ip; fix (right-to-left RFC 7239 hop selection) proposed but still unmerged. The vendor explains within an email, that \"[t]his is not a vulnerability, this is working at intended, Saleor expects XFF to be configured properly\".",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-11545",
-      "published": "2026-09-18T20:17:00.637",
-      "description": "IBM WebSphere Application Server 8.5 and 9.0 could allow a remote attacker to obtain sensitive information from the administrative console due to missing authorization checks.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-93852",
-      "published": "2026-09-18T19:17:25.267",
-      "description": "In OpenStack Blazar before 17.0.1, the V2 lease listing operation (GET /v2/leases) returns leases for every project without enforcing project scoping or an administrator-only policy. Any authenticated user with access to the Blazar REST API can enumerate leases belonging to other tenants, exposing lease IDs, reservation IDs, resource IDs, and reservation metadata. The exposed lease IDs also enable the object-level authorization bypass tracked in the companion request, allowing an attacker to then modify or delete the enumerated leases.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-93854",
-      "published": "2026-09-18T19:17:25.440",
-      "description": "In OpenStack Blazar before 17.0.1, the V2 lease API does not enforce object-level authorization on its update and delete operations (PUT /v2/leases/{lease_id} and DELETE /v2/leases/{lease_id}). The policy authorize() wrapper attempts to load the target lease to build the authorization target from its owner, but it looks up the lease under the keyword \"lease_id\" whereas the controller methods name the parameter \"id\" (and the wsme_pecan.wsexpose wrapper delivers it positionally). The lookup returns None, and thus authorization falls back to the requesting user's own project_id/user_id instead of the target lease owner. Any authenticated user who knows a lease ID can therefore modify or delete leases belonging to other users and projects, bypassing the intended ownership check.",
+      "id": "CVE-2026-77875",
+      "published": "2026-09-19T00:16:57.193",
+      "description": "The application protects access through its calculator-style vault passcode, but the stored data is not bound to that authentication boundary. A local actor who can access shared external storage, such as through an authorized non-root ADB shell or another local file-reading context with suitable storage access, can copy the SQLite database and media files directly without entering the vault passcode.",
       "severity": "UNKNOWN",
       "score": null
     }
