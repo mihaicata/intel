@@ -1,145 +1,145 @@
 {
-  "totalResults": 2480,
+  "totalResults": 2815,
   "items": [
     {
-      "id": "CVE-2026-67100",
-      "published": "2026-09-18T08:17:00.603",
-      "description": "HCL BigFix Service Management is affected by SQL Injection flaw and a Cross-Tenant Data Exposure flaw vulnerabilities. which could allow an authenticated attacker to inject database commands to extract sensitive system details, as well as manipulate request values to gain unauthorized access to full personal profile data and PII across different organizations.",
+      "id": "CVE-2026-93019",
+      "published": "2026-09-18T14:19:04.480",
+      "description": "Imager versions before 1.036 for Perl exit the process reading a TGA with a colour map length of 32768 or more in tga_palette_read.\n\nThe reader unpacks the two-byte colour map length into a signed short, so a length of 32768 or more becomes negative. tga_palette_read() casts that value to size_t and asks mymalloc() for a size near SIZE_MAX. The allocation fails and Imager's allocator calls exit(3).\n\nReading an attacker-supplied file through Imager->read() triggers an uncatchable exit.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-67101",
-      "published": "2026-09-18T08:17:00.740",
-      "description": "HCL BigFix Service Management is affected by a Server-Side Request Forgery (SSRF) vulnerability in its search functionality, which could allow an attacker to force the application server to send requests to internal systems that are not accessible from the internet.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-12384",
-      "published": "2026-09-18T08:16:58.813",
-      "description": "Authorization bypass through User-Controlled key vulnerability in TECHIN2B TECHIN2B Application allows Privilege Abuse.\n\nThis issue affects TECHIN2B Application: from V1.0.7676.13 through 18092026.\nNOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-88622",
+      "published": "2026-09-18T14:19:02.480",
+      "description": "NUUO Network Video Recorder 2.0.0 is vulnerable to Command Injection in handle_import_privilege.php.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-12954",
-      "published": "2026-09-18T08:16:59.100",
-      "description": "The Mapster WP Maps plugin for WordPress is vulnerable to Arbitrary User Meta Write in all versions up to, and including, 1.23.0 via the `my_profile_update()` function. This is due to the function performing no nonce verification, no capability check, and no allowlist validation on the meta key supplied via the `acf-photo-gallery-groups` POST parameter before passing both the meta key and its corresponding value directly to `update_user_meta()`. This makes it possible for authenticated attackers, with Subscriber-level access and above, to update arbitrary user meta values, though privilege escalation is not possible.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-67102",
-      "published": "2026-09-18T08:17:00.857",
-      "description": "HCL BigFix Service Management is affected by a high-severity Broken Access Control vulnerability, which could allow a low-privileged user to gain unauthorized access to administrative screens and functions reserved for higher-privileged roles.",
+      "id": "CVE-2026-93593",
+      "published": "2026-09-18T14:19:10.413",
+      "description": "ArcadeDB before 26.9.1 fails to enforce security-group types ACL entries for TimeSeries types because the ACL resolver builds permissions from bucket IDs, but TimeSeries types do not own normal record buckets. An authenticated low-privilege user can read or insert TimeSeries samples despite explicit deny rules by exploiting the missing type-name-based access check that causes permission lookups to fail open.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-67103",
-      "published": "2026-09-18T08:17:00.977",
-      "description": "HCL BigFix Service Management is affected by Cross-Site Scripting (XSS) vulnerability, which could allow an attacker to inject unsanitized malicious scripts that execute in a victim's browser, enabling session hijacking, account takeover, and unauthorized actions on behalf of affected users.",
+      "id": "CVE-2026-93594",
+      "published": "2026-09-18T14:19:10.587",
+      "description": "ArcadeDB (Maven artifact com.arcadedb:arcadedb-engine) through 26.8.1 enforces its per-type/per-record access-control rules only in LocalBucket, keyed on file id. Query-execution paths that reach record data through LSM index files or the TimeSeries engine never invoke that permission check, so an authenticated user who is denied readRecord/deleteRecord on a type can still, with a single ordinary SQL statement, read the type's indexed key values and record IDs (e.g. SELECT key, rid FROM INDEX:Type[field]), read MAX/MIN values via the index shortcut, read and count TimeSeries samples, learn the type's record count, and delete index entries (DELETE FROM INDEX:Type[field]), which desynchronizes the index from the data and can defeat unique constraints. Index and type names needed for exploitation are discoverable because SELECT FROM schema:indexes is unfiltered. The issue affects both embedded and server deployments and all transports (HTTP, Bolt, Postgres, Gremlin) once a principal is bound. Fixed in 26.9.1.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-93591",
+      "published": "2026-09-18T14:19:10.097",
+      "description": "SiYuan versions before 3.8.3 contain an SQL injection vulnerability in the graph.go query2Stmt function where tag values are concatenated raw into SQL string literals without escaping single quotes. A publish-mode reader or anonymous visitor can inject SQL via inline HTML span tags in the getGraph endpoint to execute arbitrary queries on the read-write database and exfiltrate private data across notebooks.",
       "severity": "HIGH",
       "score": 7.6
     },
     {
-      "id": "CVE-2026-14323",
-      "published": "2026-09-18T08:16:59.403",
-      "description": "The Printcart Web to Print Product Designer for WooCommerce plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 2.8.5 via the 'mockups' parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. A valid nonce is obtainable by unauthenticated users via the companion nbd_check_use_logged_in nopriv AJAX endpoint, which freely mints and returns a nbdesigner-get-data nonce to any visitor; additionally, if the NBDESIGNER_ENABLE_NONCE constant is disabled, even this nonce gate is bypassed entirely.",
+      "id": "CVE-2023-5778",
+      "published": "2026-09-18T14:17:14.870",
+      "description": "Improper handling of length parameter inconsistency vulnerability in ABB Freelance Controller DCP, ABB Freelance Controller AC700, ABB Freelance Controller AC800, and ABB Freelance Controller AC900.\n\nThis issue affects Freelance Controller DCP: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1; Freelance Controller AC700: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1; Freelance Controller AC800: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1; Freelance Controller AC900: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, and 2019 SP1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-15275",
-      "published": "2026-09-18T08:16:59.870",
-      "description": "The WP Multi Store Locator Pro plugin for WordPress is vulnerable to generic SQL Injection via the 'store_locatore_search_radius' parameter in all versions up to, and including, 4.5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The injection occurs in a numeric, unquoted SQL context, meaning WordPress's wp_magic_quotes() addslashes-based protection cannot neutralize the payload, and the AJAX handler is registered on wp_ajax_nopriv_make_search_request with no nonce or capability check, making it fully accessible without authentication.",
+      "id": "CVE-2026-88623",
+      "published": "2026-09-18T14:19:02.617",
+      "description": "NUUO Network Video Recorder 2.0.0 is vulnerable to arbitrary file read. In up.php, the url parameter submitted by the user via POST is received, and fopen() is used to open the URL in binary read-only mode. The content is then written to the /tmp/ directory, with the filename derived from basename() of the URL. This operation requires no authentication.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-18442",
-      "published": "2026-09-18T08:17:00.443",
-      "description": "The WCFM Marketplace – Multivendor Marketplace for WooCommerce plugin for WordPress is vulnerable to generic SQL Injection via the 'wcfmmp_user_location_lng' parameter in all versions up to, and including, 3.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-93560",
+      "published": "2026-09-18T14:19:08.210",
+      "description": "A flaw was found in the Netty STOMP codec. A remote attacker could send a specially crafted STOMP frame with a content-length header exceeding the maximum integer value. This integer truncation vulnerability could lead to an infinite decode loop, causing a Denial of Service (DoS) by exhausting memory and CPU resources.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-75157",
-      "published": "2026-09-18T08:17:01.093",
-      "description": "Apache Airflow's asset queued-events DELETE endpoints checked the caller's Dag-axis permission with `READ` instead of `EDIT`. Any authenticated user who could read a Dag could therefore delete that Dag's queued asset events, silently suppressing asset-triggered scheduling for it — a state-changing action gated on a read-only permission. Deployments are affected whenever asset-triggered scheduling is in use and Dag read access is granted more widely than Dag edit access, which is the normal RBAC arrangement; no special configuration is required. Upgrade to apache-airflow 3.3.2 or later.",
+      "id": "CVE-2026-93592",
+      "published": "2026-09-18T14:19:10.267",
+      "description": "vLLM versions before 0.28.0 fail to validate the lower bound of token IDs in the /v1/embeddings and /pooling endpoints, allowing unauthenticated attackers to crash the engine by submitting negative token IDs. A single request with a negative token ID triggers a CUDA device-side assertion that poisons the GPU context, causing all subsequent requests to fail until the process restarts.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-17607",
-      "published": "2026-09-18T08:17:00.303",
-      "description": "The WP Inventory Manager plugin for WordPress is vulnerable to SQL Injection via the 'where' shortcode attribute of the [wpinventory] shortcode in versions up to, and including, 2.5.1. This is due to insufficient escaping on the user-supplied parameter and lack of sufficient preparation on the existing SQL query in the WPIMItem::get_all() function — parse_custom_where() only performs html_entity_decode(), strips semicolons, and does field-label name replacements, without using $wpdb->prepare() or a whitelist. The resulting string is concatenated into a raw SELECT statement that is executed via $wpdb->get_results(). This makes it possible for authenticated attackers, with Contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-62282",
+      "published": "2026-09-18T14:17:19.500",
+      "description": "OpenCVE is a vulnerability intelligence platform. Prior to 3.0.0, OpenCVE notification testing for Webhook and Slack integrations does not sufficiently validate user-supplied HTTP or HTTPS destinations. An authenticated user with permission to configure notification channels can trigger requests to hosts reachable from the OpenCVE server, including internal network resources, localhost interfaces, link-local addresses, and cloud metadata services, and retrieve information from reachable HTTP services. This issue is fixed in version 3.0.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-85652",
-      "published": "2026-09-18T08:17:01.373",
-      "description": "The Photo Gallery by 10Web – Mobile-Friendly Image Gallery plugin for WordPress is vulnerable to time-based SQL Injection via 'album_id' Shortcode Attribute in all versions up to, and including, 1.8.44 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. An Author-level user can store a SQL injection payload inside a published post's shortcode attribute, causing the payload to execute when any visitor renders the post; notably, the unsanitized value appears on both sides of a UNION query, potentially doubling the observable time-based delay.",
+      "id": "CVE-2026-93595",
+      "published": "2026-09-18T14:19:10.757",
+      "description": "ArcadeDB before 26.9.1 contains an access control bypass vulnerability in the query_database tool exposed through the AI chat endpoints. The tool executes queries without binding the authenticated principal to DatabaseContext, causing per-type and per-bucket ACL checks to silently no-op and allowing authenticated users to read data they are explicitly denied at the per-type level. Attackers can prompt the AI assistant to execute queries against restricted types or buckets to retrieve sensitive data that would be rejected through normal query endpoints.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-14472",
-      "published": "2026-09-18T08:16:59.567",
-      "description": "The Kubio AI Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via kubio/copyright Block Content in all versions up to, and including, 2.8.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This bypasses both the WordPress core kses-on-save filter and the plugin's own wp_kses_post() call, because entity-encoded script tags are treated as inert text by kses but are decoded into live HTML by the subsequent html_entity_decode() call in CopyrightBlock::render_template().",
+      "id": "CVE-2026-93504",
+      "published": "2026-09-18T14:19:08.027",
+      "description": "A vulnerability has been found in SveltyCMS 0.0.6. This affects an unknown part of the file src/routes/api/[...path]/+server.ts of the component User Attribute Update Endpoint. Such manipulation leads to improper access controls. It is possible to launch the attack remotely. The name of the patch is 05b4f9efeb79e9d72a693232334d7529687f896f. It is advisable to implement a patch to correct this issue.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-17586",
-      "published": "2026-09-18T08:17:00.160",
-      "description": "The VK All in One Expansion Unit plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'vkExUnit_cta_img_position' Post Meta in all versions up to, and including, 9.118.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The sanitize_text_field callback applied on save does not strip double-quote characters or on* event-handler attributes, and the output filter Vk_Call_To_Action::safe_kses_post() only rewrites disallowed iframe elements while returning all other content verbatim, leaving the injected payload intact in the rendered HTML.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-11757",
-      "published": "2026-09-18T08:16:57.710",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in KA Informatics Technologies Ltd. Co. Bar Association Website allows Reflected XSS.\n\nThis issue affects Bar Association Website: through 18092026. \nNOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-79294",
+      "published": "2026-09-18T14:18:48.077",
+      "description": "Cross Site Scripting vulnerability in Moonshot AI Kimi version as of 2026-07-18 allows a remote attacker to execute arbitrary code via the HTML artifact Preview rendering; public Share view component",
       "severity": "MEDIUM",
       "score": 6.1
     },
     {
-      "id": "CVE-2026-15004",
-      "published": "2026-09-18T08:16:59.730",
-      "description": "The FileBird – WordPress Media Library Folders & File Manager plugin for WordPress is vulnerable to Stored Cross-Site Scripting via image alt text in all versions up to, and including, 6.5.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-93018",
+      "published": "2026-09-18T14:19:04.363",
+      "description": "Imager versions before 1.036 for Perl disclose uninitialised heap memory reading a paletted image with pixel indexes past its colour map in i_gpix_p and i_glin_p.\n\nThe palette is allocated uninitialised, and only the entries a reader adds count as populated. The TGA reader stores pixel indexes without checking them against the colour map. i_gpix_p() rejects only an index greater than the count, so an index equal to it reads the first unpopulated entry, and getpixel() returns it.\n\ni_glin_p() skips any index at or beyond the count without writing that pixel to the caller's buffer. The palette-to-RGB conversion reads each row through an uninitialised buffer, so those pixels of the converted image hold prior heap contents.\n\nReading an attacker-supplied image through Imager->read() and then fetching its pixels or converting it to RGB discloses process heap memory.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-16777",
-      "published": "2026-09-18T08:17:00.017",
-      "description": "The Store Exporter – Export WooCommerce Products, Orders, Subscriptions, Customers plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 2.8.0 via the 'filename' parameter parameter. This makes it possible for authenticated attackers, with shop manager-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-75961",
-      "published": "2026-09-18T08:17:01.227",
-      "description": "The NEX-Forms – Ultimate Forms Plugin for WordPress plugin for WordPress is vulnerable to generic SQL Injection via the 'additional_params' parameter in all versions up to, and including, 9.3.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The operator allowlist applied by get_table_records() when building its own WHERE fragment is not enforced on the same tainted additional_params array when it is forwarded to get_total_records(), leaving the SQL sink unprotected.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-12739",
-      "published": "2026-09-18T08:16:58.937",
-      "description": "The WP Easy Pay – Payment and Donation form Builder for Square plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.5.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to permanently delete arbitrary posts, pages, and custom post types (bypassing the trash via force deletion) or change any published post to draft status.",
+      "id": "CVE-2026-93596",
+      "published": "2026-09-18T14:19:10.917",
+      "description": "ArcadeDB before 26.9.1 (com.arcadedb:arcadedb-engine <= 26.8.1) fails to bind the authenticated principal onto the DatabaseAsyncTransaction async worker threads used by the parallel edge-connect phase of POST /api/v1/batch/{database}. Because those workers have no current user, LocalDatabase.checkPermissionsOnFile returns early and allows the write, bypassing per-type CREATE_RECORD/UPDATE_RECORD ACL enforcement. In deployments that rely on per-type or per-group ACLs, an authenticated low-privilege user holding CREATE_RECORD on an edge type E but with CREATE_RECORD/UPDATE_RECORD revoked on a vertex type V can submit a graph edge-load batch request (with parallelFlush at its default value of true) and durably append edges to protected vertices of type V by writing records into V's <V>_out_edges/<V>_in_edges buckets, resulting in unauthorized modification of graph adjacency. Setting parallelFlush=false causes the request to be correctly rejected. This is an incomplete fix of GHSA-c23x-pqcj-7hfm, which bound the principal only on the HTTP handler thread.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-13471",
-      "published": "2026-09-18T08:16:59.243",
-      "description": "The LatePoint – Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 5.6.3 via the LatePointAbilityDeleteBooking::execute due to missing validation on a user controlled key. This makes it possible for attackers, with  LatePoint Agent-level access and above, to read bookings and customer PII (full name, email, phone, and notes) assigned to other LatePoint agents, and delete arbitrary bookings by supplying any booking ID. This vulnerability is only exploitable when an administrator has enabled the Abilities API toggles (latepoint_abilities_api, latepoint_abilities_api_delete, and/or latepoint_abilities_api_edit) in the plugin settings.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-93589",
+      "published": "2026-09-18T14:19:09.760",
+      "description": "ImageMagick before 7.1.2-31 and 6.9.13-56 contains a division-by-zero flaw in the FLIF encoder. An incorrect value for ticks per second in the image being encoded causes a divide-by-zero and crashes the encoder, resulting in a denial of service. The issue is fixed in 7.1.2-31 and 6.9.13-56.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-93590",
+      "published": "2026-09-18T14:19:09.943",
+      "description": "ImageMagick before 7.1.2-31 contains a policy bypass vulnerability in the UHDR encoder that fails to perform policy checks during buffer allocation for image pixels. Attackers can bypass resource policies by processing specially crafted UHDR images, potentially causing denial of service through excessive memory allocation.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-93587",
+      "published": "2026-09-18T14:19:09.410",
+      "description": "ImageMagick before 7.1.2-31 and before 6.9.13-56 contains a policy bypass in the PCD (and, per the upstream advisory, CUBE and HALD) coder: when a specific command line option is supplied, the decoder does not check a configured resource limit, which can result in extra memory allocation. A local user able to pass command line options to ImageMagick can therefore exceed the intended memory policy limit, causing a limited availability impact. The issue is fixed in 7.1.2-31 and 6.9.13-56.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-93588",
+      "published": "2026-09-18T14:19:09.590",
+      "description": "ImageMagick before 7.1.2-31 and before 6.9.13-56 contains a NULL pointer dereference in the PNM coder. When the coder reaches a memory (resource) limit at a specific point during processing, the failed allocation is not handled and a NULL pointer is dereferenced, which can lead to a denial of service (application crash) when processing a specially crafted or sufficiently large PNM image.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-93586",
+      "published": "2026-09-18T14:19:09.207",
+      "description": "ImageMagick before 7.1.2-31 and before 6.9.13-56 contains a use-after-free vulnerability in the ImagesToBlob method, caused by a pointer that is not updated correctly. Exploitation may result in a limited availability impact (e.g., a crash of the affected process). The issue is fixed in versions 7.1.2-31 and 6.9.13-56.",
+      "severity": "LOW",
+      "score": 2.9
     }
   ]
 }
