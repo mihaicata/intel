@@ -1,75 +1,110 @@
 {
-  "totalResults": 2520,
+  "totalResults": 2509,
   "items": [
     {
-      "id": "CVE-2026-62874",
-      "published": "2026-09-18T00:16:57.930",
-      "description": "Insufficient verification of data authenticity in Azure Billing allows an unauthorized attacker to elevate privileges over a network.",
+      "id": "CVE-2026-93467",
+      "published": "2026-09-18T03:16:33.753",
+      "description": "The OAKlouds developed by HGiga has a Insecure Deserialization vulnerability. Unauthenticated remote attackers can execute arbitrary code on the server by sending maliciously crafted serialized content.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-69843",
-      "published": "2026-09-18T00:17:24.923",
-      "description": "Authentication bypass by spoofing in Microsoft Fabric allows an unauthorized attacker to elevate privileges over a network.",
-      "severity": "CRITICAL",
-      "score": 10
+      "id": "CVE-2026-17086",
+      "published": "2026-09-18T04:17:28.900",
+      "description": "The ShortPixel Image Optimizer – Optimize Images, Convert WebP & AVIF plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 6.5.5 via deserialization of untrusted input . This makes it possible for authenticated attackers, with author-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-85878",
-      "published": "2026-09-18T00:17:47.777",
-      "description": "Improper authorization in Azure Database for PostgreSQL allows an authorized attacker to elevate privileges over a network.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-93453",
-      "published": "2026-09-18T00:17:49.693",
-      "description": "SOGo before 5.12.11 constructs password-reset links using the client-supplied Origin header as the authority, allowing unauthenticated attackers to redirect recovery tokens to attacker-controlled domains. Attackers can submit password recovery requests with a malicious Origin header to have valid password-reset tokens mailed to victim recovery addresses within links pointing to attacker infrastructure, enabling account takeover.",
+      "id": "CVE-2026-93371",
+      "published": "2026-09-18T03:16:33.563",
+      "description": "A security vulnerability has been detected in marcopiovanello yt-dlp-web-ui up to v4. This issue affects the function NewGenericDownload of the file server/internal/downloaders/generic.go. Such manipulation of the argument params leads to command injection. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. The name of the patch is c7ad3bd79c7c520a7d17e7f2ba19d962be8e7897. A patch should be applied to remediate this issue.",
       "severity": "HIGH",
       "score": 8.3
     },
     {
-      "id": "CVE-2026-83946",
-      "published": "2026-09-18T00:17:44.960",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Azure Portal allows an unauthorized attacker to perform spoofing over a network.",
+      "id": "CVE-2026-93456",
+      "published": "2026-09-18T02:17:09.113",
+      "description": "django-page-cms through 2.0.13 exempts five admin mutation views from CSRF protection in pages/admin/views.py, allowing attackers to forge requests that modify page content. Signed-in editors visiting a malicious page can be tricked into storing unescaped content that renders to all visitors, enabling stored cross-site scripting attacks.",
       "severity": "HIGH",
       "score": 8.2
     },
     {
-      "id": "CVE-2026-85887",
-      "published": "2026-09-18T00:17:47.920",
-      "description": "Incorrect permission assignment for critical resource in M365 Copilot allows an authorized attacker to disclose information over a network.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-93450",
-      "published": "2026-09-18T00:17:49.230",
-      "description": "go-openapi/swag jsonutils before 0.27.1 contains a stack overflow vulnerability in ordered JSON parsing and serialization due to unbounded recursion with no depth limit. Remote unauthenticated attackers can submit deeply nested JSON documents to services accepting OpenAPI specifications, causing fatal stack overflow that terminates the process and all in-flight requests.",
+      "id": "CVE-2026-93468",
+      "published": "2026-09-18T03:16:33.920",
+      "description": "The OAKlouds developed by HGiga has an Arbitrary File Read vulnerability. Unauthenticated remote attackers can exploit Relative Path Traversal to read arbitrary system files.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-93452",
-      "published": "2026-09-18T00:17:49.540",
-      "description": "snappy-java through 1.1.10.8 contains a buffer overflow vulnerability in Snappy.compress(ByteBuffer, ByteBuffer) that writes past the end of the destination buffer. Attackers can supply incompressible data that exceeds the destination buffer's remaining capacity, corrupting off-heap memory and causing JVM termination.",
+      "id": "CVE-2026-18911",
+      "published": "2026-09-18T06:16:31.727",
+      "description": "ManageEngine DataSecurity Plus versions before 6310 are vulnerable to an agent authentication bypass, allowing unenrolled agents to send requests without proper authentication.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-93451",
-      "published": "2026-09-18T00:17:49.380",
-      "description": "snappy-java through 1.1.10.8 contains a buffer overflow vulnerability in typed Snappy.uncompress*Array methods that allocate output arrays by dividing uncompressed length by element size but pass the undivided length to native code. Attackers controlling compressed input can cause misaligned length values to write past array bounds with attacker-controlled bytes, corrupting heap memory.",
+      "id": "CVE-2026-93331",
+      "published": "2026-09-18T02:17:08.780",
+      "description": "A vulnerability was identified in GPAC 26.08-DEV. This vulnerability affects the function gf_rtp_parse_ttxt of the file src/ietf/rtp_depacketizer.c of the component RTP Depacketizer. Such manipulation of the argument size leads to out-of-bounds read. It is possible to launch the attack remotely. Upgrading to version abi-16.26 is able to resolve this issue. The name of the patch is 6bb0f64b4d1039c0fecd14ee2c1ee861d8661a68. The affected component should be upgraded.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-77169",
+      "published": "2026-09-18T02:17:07.647",
+      "description": "A vulnerability in the team folders (formerly group folders) app when used in combination with the workspace app allowed API/REST-only delegated administrators to bypass folder-level authorization controls. The workspace app enables organizations to delegate limited administrative privileges for team folder management via API/REST only, restricting access to folders for which the admin has advanced permissions.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-2585",
-      "published": "2026-09-18T00:16:57.450",
-      "description": "The Brizy – Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘rootAttributes’ parameter in all versions up to, and including, 2.8.14 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-82985",
+      "published": "2026-09-18T02:17:08.153",
+      "description": "The Photos app's filter-based \"smart albums\" build their file listing using the search configuration (photosSourceFolders) of the user viewing the album, rather than the album owner's configuration. When an album owner shares a smart album with another user, that user's own folder configuration is used to determine which of the owner's files are searched — allowing them to discover files (name, file ID, and other metadata) in folders the album owner never intended to include in the shared album.\n\nThis requires the album owner to have shared a filter-based smart album with the attacker; it does not allow access to arbitrary users' files without such a share.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-93455",
+      "published": "2026-09-18T02:17:08.960",
+      "description": "django-page-cms through 2.0.13 fails to properly validate page permissions in admin helper views, allowing any staff account to read arbitrary page content and stored media paths. Attackers with low-privilege staff credentials can enumerate content identifiers and access unpublished drafts, page listings, and file paths without proper authorization checks.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-14855",
+      "published": "2026-09-18T03:16:33.040",
+      "description": "The RT Mega Menu plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'css[left]' parameter in all versions up to, and including, 1.5.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 6.4
+    },
+    {
+      "id": "CVE-2026-15650",
+      "published": "2026-09-18T03:16:33.220",
+      "description": "The RT Mega Menu – Mega Menu Builder for Elementor & Gutenberg plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'pointer_menu_item' Block Attribute in all versions up to, and including, 1.5.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload bypasses wp_kses_post filtering applied to post content on save because it contains no HTML tags and survives intact inside the block comment's JSON attributes, reaching the walker unescaped at render time.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-82980",
+      "published": "2026-09-18T02:17:07.910",
+      "description": "Any authenticated user can lock or unlock files they do not own by targeting absolute WebDAV paths of other users. The DAV plugin resolves files from the absolute request URI without verifying that the path segment matches the authenticated session user. This enables:\n\nCross-user manual locks : attacker locks a victim's files, blocking writes (PUT/MOVE/DELETE, editor saves).\nLock-token disclosure: the app returns the lock token to unauthorized callers, enabling them to remove token-based locks (client locks) of other users.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-93313",
+      "published": "2026-09-18T02:17:08.420",
+      "description": "A vulnerability was found in Freedesktop Poppler 26.07.0. The impacted element is the function JBIG2Stream::readCodeTableSeg of the file poppler/JBIG2Stream.cc. Performing a manipulation results in integer overflow. The attack can be initiated remotely. The exploit has been made public and could be used. The patch is named eb87cf711563894649bd0c365baa479401dc6d51. To fix this issue, it is recommended to deploy a patch.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-93314",
+      "published": "2026-09-18T02:17:08.600",
+      "description": "A vulnerability was determined in Freedesktop Poppler 26.07.0. This affects the function FoFiTrueType::mapCodeToGID of the file fofi/FoFiTrueType.cc. Executing a manipulation of the argument segCnt can lead to integer overflow. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. This patch is called ed2a5538cf0a8d3ff908191eda9b73f91a5f952a. It is advisable to implement a patch to correct this issue.",
+      "severity": "MEDIUM",
+      "score": 6.3
     },
     {
       "id": "CVE-2026-77164",
@@ -79,51 +114,23 @@
       "score": 6.2
     },
     {
-      "id": "CVE-2026-93454",
-      "published": "2026-09-18T00:17:49.853",
-      "description": "Aureus ERP through 1.6.0 stores the Payment Term note field unsanitized and renders it as raw HTML in the Accounting plugin. Authenticated users with payment-term create permission can submit arbitrary JavaScript to the payment-terms endpoint, which persists to the database and executes in browsers of all users viewing that Payment Term record.",
+      "id": "CVE-2026-92991",
+      "published": "2026-09-18T03:16:33.380",
+      "description": "The Biggop Library is vulnerable to Cross-Site Scripting via the ‘display_id’ parameter from the Sigmative API in various versions due to insufficient output escaping. This makes it possible for attackers who can compromise the Sigmative API server to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-93310",
-      "published": "2026-09-18T01:16:56.363",
-      "description": "A vulnerability was identified in O-RAN-SC SMO OAM 2025-06-10. This affects an unknown part of the component VES Collector. The manipulation leads to allocation of resources. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The project was informed of the problem early through a bug report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-18441",
-      "published": "2026-09-18T00:16:57.297",
-      "description": "The Appointment Booking Plugin – LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 5.6.9  via the set_customer_object due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to enumerate arbitrary customer records and disclose personally identifiable information -  including first name, last name, email address, and phone number - by iterating the customer[id] parameter. This issue is exploitable only when the site is configured with customer authentication disabled (guest checkout enabled).",
+      "id": "CVE-2026-77170",
+      "published": "2026-09-18T02:17:07.783",
+      "description": "The Deck config API allows authenticated users to set board-scoped configuration keys for arbitrary board IDs without validating whether the user owns or has permission to manage the referenced board.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-93308",
-      "published": "2026-09-18T00:17:48.830",
-      "description": "A vulnerability was found in O-RAN-SC SMO OAM 2025-06-10. Affected by this vulnerability is an unknown functionality of the component VES Collector. Performing a manipulation results in allocation of resources. The attack may be initiated remotely. The exploit has been made public and could be used. The project was informed of the problem early through a bug report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-93309",
-      "published": "2026-09-18T00:17:49.010",
-      "description": "A vulnerability was determined in O-RAN-SC SMO OAM 2025-06-10. Affected by this issue is some unknown functionality of the component VES Collector. Executing a manipulation can lead to allocation of resources. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through a bug report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-93311",
-      "published": "2026-09-18T01:16:56.533",
-      "description": "A vulnerability was detected in Freedesktop Poppler 26.07.0. This issue affects the function SampledFunction::SampledFunction of the file poppler/Function.cc of the component SampledFunction. The manipulation of the argument BitsPerSample results in integer overflow. The attack may be performed from remote. The exploit is now public and may be used. The project was informed of the problem early through a bug report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-93312",
-      "published": "2026-09-18T01:16:56.710",
-      "description": "A flaw has been found in Freedesktop Poppler 26.07.0. Impacted is the function JBIG2Stream::rewind of the file poppler/JBIG2Stream.cc. This manipulation causes null pointer dereference. It is possible to initiate the attack remotely. The exploit has been published and may be used. Upgrading to version 26.08.0 is recommended to address this issue. Patch name: 5e49250f13b0390edeb3f90eb4c02c9941f97067. Upgrading the affected component is advised.",
+      "id": "CVE-2026-82982",
+      "published": "2026-09-18T02:17:08.030",
+      "description": "The Approval app's approve/reject endpoint is meant to require the file's current etag as a freshness check, preventing an approver from approving or rejecting a file whose contents changed after they reviewed it. The backend only enforced this check when the etag parameter was present and non-empty in the request. An attacker able to intercept and modify the approval request could omit the etag field entirely, bypassing the freshness check and approving or rejecting a file version they never reviewed.",
       "severity": "MEDIUM",
       "score": 4.3
     },
@@ -133,13 +140,6 @@
       "description": "After guessing a 62^15 complex unique identifier, a malicious logged in user was able to retrieve a list of memberships for a circle they are not a member of.",
       "severity": "LOW",
       "score": 3.1
-    },
-    {
-      "id": "CVE-2026-79954",
-      "published": "2026-09-18T01:16:56.120",
-      "description": "NASA CryptoLib 1.5.0 contains an authentication downgrade vulnerability in the Telecommand (TC) receive path. The receiver selects the Security Association used for SDLS processing solely from the SPI field inside the incoming frame, but it does not verify that the selected SA is authorized for the frame's GVCID.",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
