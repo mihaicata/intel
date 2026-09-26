@@ -1,19 +1,12 @@
 {
-  "totalResults": 2676,
+  "totalResults": 2702,
   "items": [
     {
-      "id": "CVE-2026-93740",
-      "published": "2026-09-18T22:17:10.890",
-      "description": "A vulnerability was identified in Totolink A3002MU Hh-B20211125.1046. Affected is the function formWlEncrypt of the file /boafrm/formWlEncrypt. The manipulation of the argument submit-url leads to buffer overflow. It is possible to initiate the attack remotely. The exploit is publicly available and might be used.",
+      "id": "CVE-2026-93741",
+      "published": "2026-09-19T06:16:30.557",
+      "description": "A security flaw has been discovered in Totolink A3002MU Hh-B20211125.1046. Affected by this vulnerability is the function formWlWds of the file /boafrm/formWlWds. The manipulation of the argument submit-url results in buffer overflow. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks.",
       "severity": "CRITICAL",
       "score": 10
-    },
-    {
-      "id": "CVE-2026-93739",
-      "published": "2026-09-18T22:17:10.710",
-      "description": "A vulnerability was determined in Totolink A3002MU Hh-B20211125.1046. This impacts the function formWlAc of the file /boafrm/formWlAc. Executing a manipulation of the argument submit-url can lead to buffer overflow. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "CRITICAL",
-      "score": 9.9
     },
     {
       "id": "CVE-2026-84434",
@@ -23,13 +16,6 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-75885",
-      "published": "2026-09-18T22:17:10.313",
-      "description": "A flaw was found in the OpenShift console. Unauthenticated access to the `/api/devfile/` and `/api/devfile/samples/` endpoints allows a remote attacker to send crafted devfile payloads. This can lead to Server-Side Request Forgery (SSRF), where the console pod makes requests to internal services and reflects partial responses to the attacker. Additionally, by sending repeated large requests without a specified content length, an attacker can cause unbounded memory growth, leading to a Denial of Service (DoS).",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
       "id": "CVE-2026-89274",
       "published": "2026-09-19T03:17:16.587",
       "description": "The WP Recipe Maker plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in all versions up to, and including, 10.8.1. The vulnerability exists because `WPRM_Metadata::sanitize_metadata()` recursively calls `do_shortcode()` on every scalar field of the recipe's structured metadata array — including the `reviewBody` field, which is populated verbatim from the `comment_content` of approved `wprm-comment-rating` comments — without sanitizing or stripping shortcode tokens before execution; the subsequent `wp_strip_all_tags()` and `strip_shortcodes()` calls operate only on the output string after execution has already fully occurred, providing no protection against server-side shortcode invocation. This makes it possible for unauthenticated attackers to execute arbitrary registered WordPress shortcodes server-side on every recipe page render, causing shortcode output — such as attachment captions, private post fields, or other data exposed by installed shortcodes — to be embedded in the page's JSON-LD `reviewBody` metadata and disclosed to all visitors who load the recipe page. Successful exploitation requires the attacker's rated comment to pass the site's comment approval threshold, either via auto-approval or moderator action, before the injected shortcode begins executing on page loads.",
@@ -37,16 +23,16 @@
       "score": 9.1
     },
     {
-      "id": "CVE-2026-93922",
-      "published": "2026-09-19T00:16:57.783",
-      "description": "SiYuan through 3.8.4 renders notebook names as raw HTML in the Daily Note picker dialog without escaping, allowing stored cross-site scripting in the Electron renderer. Attackers can create notebooks with HTML payloads in names that execute JavaScript with Node.js access when the picker opens, enabling operating system command execution.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-92229",
+      "published": "2026-09-19T03:17:17.040",
+      "description": "The The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 1.57.2. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-93923",
-      "published": "2026-09-19T00:16:57.963",
-      "description": "SiYuan through 3.8.4 fails to escape heading style attributes when rendering outline and bookmark dock HTML, allowing stored cross-site scripting. Attackers can supply crafted notebooks or call administrative endpoints to inject malicious style values that execute in the Electron renderer with full system access.",
+      "id": "CVE-2026-92807",
+      "published": "2026-09-19T03:17:17.723",
+      "description": "The Save as PDF Plugin by PDFCrowd plugin for WordPress is vulnerable to Arbitrary Function Invocation in all versions up to, and including, 4.6.1 via the `pdf_created_callback` shortcode attribute. The `eval_shortcode()` function copies any non-`button_`/non-`email_` shortcode attribute verbatim into a custom options array without sanitization, allowlist enforcement, or capability checks, and `create_button()` AES-encrypts that array — including the attacker-supplied callback value — and embeds the resulting blob in the rendered button HTML; when the blob is later POSTed to the unauthenticated `wp_ajax_nopriv_save_as_pdf_pdfcrowd` endpoint, `save_as_pdf_pdfcrowd()` decrypts it and invokes `$options['pdf_created_callback']` as a PHP callable at line 1722 with no `is_callable()` guard, no allowlist, and no capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to invoke arbitrary PHP functions or static class methods with plugin option data as the sole argument, enabling disclosure of the site's stored PDFCrowd API key and username or further server-side abuse. Note that the encryption boundary does not mitigate this vector because the server itself encrypts the attacker-chosen callback during shortcode rendering, supplying any authenticated Contributor with a cryptographically valid blob that any unauthenticated visitor can subsequently replay to trigger invocation.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -100,6 +86,20 @@
       "score": 6.1
     },
     {
+      "id": "CVE-2026-92967",
+      "published": "2026-09-19T03:17:18.717",
+      "description": "The Pochipp plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'keyword' parameter in versions up to, and including, 1.20.2. This is due to insufficient output escaping , which reads $_GET['keyword'], applies only sanitize_text_field() (which strips tags but leaves double quotes intact) and interpolates the value directly into the value attribute of the search input via a PHP heredoc, without esc_attr(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user with upload_files capability (Author or above) into performing an action such as clicking on a specially crafted link to /wp-admin/media-upload.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-19860",
+      "published": "2026-09-19T07:16:32.417",
+      "description": "The JetFormBuilder — Dynamic Blocks Form Builder WordPress plugin before 3.6.5.3 does not sufficiently restrict which PHP functions can be used as a custom field-validation callback, relying on a blocklist that omits a file-deletion function, allowing users able to manage forms to cause arbitrary files on the server to be deleted. The deletion itself is carried out when the form is submitted, which requires no authentication.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
       "id": "CVE-2026-89093",
       "published": "2026-09-19T03:17:16.443",
       "description": "The Better Messages – Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to Information Exposure by Spoofing in all versions up to, and including, 2.15.33. This is due to the `is_ai_bot_user()` function identifying privileged internal AI bot accounts by performing a prefix check for `'ai-chat-bot-'` against a guest record's stored IP address, which is populated verbatim from the client-controlled `X-Real-IP` request header during unauthenticated guest registration. This makes it possible for unauthenticated attackers to register a guest identity that the plugin treats as its own internal AI bot, bypassing the per-room role allowlist, draft-status check, and join filters — which are all short-circuited by the bot check in `user_can_join()` and `user_can_read()` — to join administrator-restricted chat rooms, post messages into them, and read the private message history of other users.",
@@ -112,13 +112,6 @@
       "description": "The WP2Social Auto Publish plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 2.4.12 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
       "severity": "MEDIUM",
       "score": 4.4
-    },
-    {
-      "id": "CVE-2026-93921",
-      "published": "2026-09-19T00:16:57.553",
-      "description": "SiYuan versions through 3.8.4 fail to enforce publish access control in the getDynamicIcon endpoint, allowing read-only token holders to access document metadata. Attackers can call the endpoint with type=8 and crafted content to read block titles, names, aliases, and hierarchical paths of restricted documents via template injection.",
-      "severity": "MEDIUM",
-      "score": 4.3
     },
     {
       "id": "CVE-2026-15660",
@@ -135,11 +128,18 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-77875",
-      "published": "2026-09-19T00:16:57.193",
-      "description": "The application protects access through its calculator-style vault passcode, but the stored data is not bound to that authentication boundary. A local actor who can access shared external storage, such as through an authorized non-root ADB shell or another local file-reading context with suitable storage access, can copy the SQLite database and media files directly without entering the vault passcode.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-16557",
+      "published": "2026-09-19T07:16:32.303",
+      "description": "The Nimble Page Builder WordPress plugin through 3.3.8 does not perform an authorization check when returning page-builder content through an authenticated AJAX action, allowing any authenticated user (Subscriber+) to disclose the page-builder content of arbitrary non-public (draft, pending, private, scheduled) posts and pages.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2025-15698",
+      "published": "2026-09-19T07:16:31.313",
+      "description": "The Business Name Generator WordPress plugin through 1.3 does not sanitise and escape some of its settings, which could allow high privilege users such as admin to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed (for example in multisite setup).",
+      "severity": "LOW",
+      "score": 3.5
     }
   ]
 }
