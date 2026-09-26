@@ -1,145 +1,145 @@
 {
-  "totalResults": 2769,
+  "totalResults": 2727,
   "items": [
     {
-      "id": "CVE-2026-93741",
-      "published": "2026-09-19T06:16:30.557",
-      "description": "A security flaw has been discovered in Totolink A3002MU Hh-B20211125.1046. Affected by this vulnerability is the function formWlWds of the file /boafrm/formWlWds. The manipulation of the argument submit-url results in buffer overflow. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-93985",
+      "published": "2026-09-19T12:16:41.873",
+      "description": "OpenPanel js-runtime through commit bad75bdd contains a sandbox escape vulnerability in the JavaScript webhook template validator that fails to block computed member access to constructor chains. Attackers with project write access can create webhook templates using computed property notation to access Function constructor and execute arbitrary code in the worker process.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-86591",
-      "published": "2026-09-19T07:16:33.063",
-      "description": "The Botiga Pro WordPress plugin before 1.6.5 does not perform any authorisation checks on one of its REST routes, allowing unauthenticated users to update arbitrary WordPress options with arbitrary values, which could lead to privilege escalation and a full site takeover.\nThe same route also allows unauthenticated users to store arbitrary web scripts which are then executed on every page of the site's front end, as well as to move arbitrary posts to the trash.",
+      "id": "CVE-2026-78030",
+      "published": "2026-09-19T11:16:37.667",
+      "description": "DBI versions before 1.653 for Perl load arbitrary modules via unvalidated dbm_type and dbm_mldbm attributes in DBD::DBM.\n\nDBD::DBM passes the dbm_type and dbm_mldbm connect attributes to require without checking that the value names a module. require treats a path-shaped string as a literal filename and does not consult @INC, so the attribute chooses the file that Perl loads and runs.\n\nThe MLDBM::Serializer:: prefix that DBD::DBM prepends to dbm_mldbm is not a boundary: only the :: separators are rewritten to /, so a value containing / traverses out of the serializer directory. The value is also assigned to $MLDBM::Serializer, which MLDBM requires the same way when it ties the table.\n\nA caller that lets an untrusted party influence either attribute, for example through a DSN fragment or a parameter that selects a storage backend, runs the file-scope code of whatever module the value names.\n\nFor example,\n\n    my $dsn = \"dbi:DBM:f_dir=/var/db;dbm_type=../../Untrusted.pm\"\n    my $dbh = DBI->connect( $dsn );\n\nNote that DBD::Gofer forwards connect attributes to the server side, and DBI::ProxyServer checks only that a DSN starts with a driver prefix.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-85680",
-      "published": "2026-09-19T07:16:32.960",
-      "description": "The Ultimate Member  WordPress plugin before 2.13.1 does not escape a value derived from user supplied profile names before outputting it in the page title, and decodes HTML entities in it after its own sanitisation has already run, allowing unauthenticated attackers who register an account to store JavaScript that will execute when any visitor, including an administrator, views their profile.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-88824",
-      "published": "2026-09-19T07:16:33.273",
-      "description": "The Master Blocks  WordPress plugin before 1.5.0 does not have authorisation on one of its REST routes, allowing unauthenticated users to update its settings, including a value that is output unescaped in the admin area, leading to Stored XSS that executes in the session of any administrator visiting a wp-admin page.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-88926",
-      "published": "2026-09-19T07:16:33.377",
-      "description": "The VikRentItems Flexible Rental Management System WordPress plugin before 1.2.4 does not sanitise and escape some of its parameters before using them in SQL statements, allowing unauthenticated users to perform SQL injection attacks.",
-      "severity": "HIGH",
-      "score": 8.6
-    },
-    {
-      "id": "CVE-2026-86814",
-      "published": "2026-09-19T07:16:33.167",
-      "description": "The UsersWP  WordPress plugin before 1.5.10 does not verify that a social login provider has confirmed ownership of an email address before using it to resolve an existing account, allowing unauthenticated attackers to log in as any user, including administrators, whose email address they can assert through a provider account of their own.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-85574",
-      "published": "2026-09-19T07:16:32.860",
-      "description": "The Unbounce Landing Pages WordPress plugin before 1.1.5 does not perform any authorisation check when updating the configuration its front-end proxy relies on, allowing any authenticated user, such as a subscriber, to point that proxy at a host they control and have arbitrary content served from the site's own origin.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-92404",
-      "published": "2026-09-19T07:16:33.790",
-      "description": "The MgoSync  WordPress plugin before 2.1.7 does not have authorization controls on one of its REST API endpoints, allowing unauthenticated users to retrieve the stored WooCommerce API credentials, including a read/write consumer key and secret, from a configured site.",
+      "id": "CVE-2026-82560",
+      "published": "2026-09-19T16:16:32.140",
+      "description": "Pod::Text versions before 6.1.1 for Perl allow CPU and memory exhaustion formatting a POD document whose =over nesting drives the margin to the output width.\n\nEach =over adds its indent to the margin, which wrap() subtracts from the output width to get the space available for text. When that space reaches zero, the line-splitting substitution matches the empty string, and the loop consumes no input while appending the margin padding on every pass.\n\nFormatting an attacker-supplied POD document never returns, and the output grows until memory is exhausted.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-76554",
-      "published": "2026-09-19T07:16:32.540",
-      "description": "The WP Import Export Lite WordPress plugin before 3.9.35 does not verify that the user running an import is permitted to create or modify user accounts and assign roles, allowing users granted a delegated WP Import Export Lite WordPress plugin before 3.9.35 permission, who cannot otherwise manage users, to create administrator accounts and to overwrite the credentials and role of existing accounts, including administrators.",
+      "id": "CVE-2026-93990",
+      "published": "2026-09-19T23:17:10.203",
+      "description": "Expat through 2.8.4 fails to validate low surrogates following high surrogates in UTF-16 input, allowing malformed UTF-16 sequences to be accepted. Attackers can craft UTF-16 encoded XML with lone high surrogates that consume following code units, hiding markup characters from the parser and enabling XML injection attacks.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-76790",
-      "published": "2026-09-19T07:16:32.650",
-      "description": "The Estatik Real Estate Plugin WordPress plugin before 4.3.5 does not sanitise and escape several values decoded from a request parameter before reflecting them back in an unauthenticated AJAX response, leading to Reflected Cross-Site Scripting.",
-      "severity": "HIGH",
-      "score": 7.1
+      "id": "CVE-2026-94000",
+      "published": "2026-09-19T15:17:08.763",
+      "description": "A flaw was found in the Admin REST API of Keycloak, an open-source identity and access management solution. The issue occurs in the group-membership endpoints where the system fails to check if a group grants administrative privileges before allowing a user to be added. This allows a delegated administrator with limited permissions to add themselves to a high-privilege group, potentially gaining full control over the entire realm.",
+      "severity": "MEDIUM",
+      "score": 6.6
     },
     {
-      "id": "CVE-2026-84750",
-      "published": "2026-09-19T07:16:32.753",
-      "description": "The Ultra Addons for Contact Form 7 WordPress plugin before 3.5.51 does not validate the type or extension of files uploaded through one of its form fields, and stores them at a predictable public path with the attacker-chosen extension intact, allowing unauthenticated users to upload arbitrary files. The PHP handler shipped by default with the Debian and Ubuntu Apache packages maps .phar to PHP alongside .php and .phtml, so on that stack the uploaded file is executed and the issue leads to Remote Code Execution and full site takeover. Where the host routes only .php to the PHP handler, the same file is instead served from the site's own origin with its script intact, leading to Stored Cross-Site Scripting.",
+      "id": "CVE-2026-94001",
+      "published": "2026-09-19T15:17:08.903",
+      "description": "A flaw was found in the Admin REST API of Keycloak, an open-source identity and access management solution. The endpoint used for deleting user credentials does not correctly check for fine-grained reset-password permissions. This allows a delegated administrator, who should be restricted from resetting passwords, to delete a user's password credentials, resulting in the user being unable to log in.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-92099",
-      "published": "2026-09-19T07:16:33.583",
-      "description": "The WPGraphQL Smart Cache WordPress plugin before 2.3.2 does not require authorisation or validate a caller-supplied query identifier before storing a persisted query from a request, allowing unauthenticated users to publish arbitrary query documents and claim query aliases before a site's own frontend registers them.",
+      "id": "CVE-2026-93988",
+      "published": "2026-09-19T23:17:09.890",
+      "description": "QloApps through 1.7.0 contains a path traversal vulnerability in the getEmailHTML action of admin/ajax.php that allows authenticated back-office users to read arbitrary files. Attackers can supply relative path sequences in the email parameter to bypass directory restrictions and access sensitive files including database credentials and configuration data.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-19860",
-      "published": "2026-09-19T07:16:32.417",
-      "description": "The JetFormBuilder — Dynamic Blocks Form Builder WordPress plugin before 3.6.5.3 does not sufficiently restrict which PHP functions can be used as a custom field-validation callback, relying on a blocklist that omits a file-deletion function, allowing users able to manage forms to cause arbitrary files on the server to be deleted. The deletion itself is carried out when the form is submitted, which requires no authentication.",
+      "id": "CVE-2026-93984",
+      "published": "2026-09-19T12:16:41.723",
+      "description": "OpenPanel tracking API through commit bad75bddc74d12d36cfb843f4531d3b830a8d994 fails to verify client secret cryptographic hash before authorizing revenue events and bot filtering. Attackers with only a public client ID can supply arbitrary dummy secrets to inject forged revenue metrics and bypass bot detection filters.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-92425",
-      "published": "2026-09-19T07:16:34.100",
-      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.4 does not perform object-level authorisation checks on several of its host-management operations, allowing users who hold its own administrator-assigned custom role to read, modify and permanently delete other hosts' records and the WordPress user accounts linked to them.",
+      "id": "CVE-2026-93983",
+      "published": "2026-09-19T12:16:41.493",
+      "description": "OpenPanel through commit bad75bdd fails to escape property keys in ClickHouse SQL queries, allowing authenticated users to inject boolean SQL terms. Attackers can supply crafted filter names to bypass project isolation and access metrics from other projects.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5
     },
     {
-      "id": "CVE-2026-91847",
-      "published": "2026-09-19T07:16:33.480",
-      "description": "The Online Scheduling and Appointment Booking System  WordPress plugin before 28.2 does not verify that the requester owns the AI booking-assistant conversation named in its unauthenticated conversation actions, allowing any unauthenticated visitor to read another visitor's assistant messages and to inject messages into their in-progress conversation.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-92421",
-      "published": "2026-09-19T07:16:34.000",
-      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.3 does not verify that the host record being modified belongs to the user making the request, allowing authenticated users holding a Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.3-assigned host role to modify other hosts' profile data and reassign ownership of another host's record to themselves.",
+      "id": "CVE-2026-93981",
+      "published": "2026-09-19T12:16:41.080",
+      "description": "hono before 4.13.7 fails to HTML-escape plain strings rendered by hono/jsx as a child or fallback of Suspense, as a string child of ErrorBoundary alongside an asynchronous sibling, as the single child of a Context.Provider, or as the root value passed to renderToString() or renderToReadableStream() from hono/jsx/dom/server. These paths stringify their input and treat the result as already-escaped markup, so an attacker who controls such a string during server-side rendering can inject arbitrary HTML and execute script under the application's origin.",
       "severity": "MEDIUM",
       "score": 4.7
     },
     {
-      "id": "CVE-2026-16557",
-      "published": "2026-09-19T07:16:32.303",
-      "description": "The Nimble Page Builder WordPress plugin through 3.3.8 does not perform an authorization check when returning page-builder content through an authenticated AJAX action, allowing any authenticated user (Subscriber+) to disclose the page-builder content of arbitrary non-public (draft, pending, private, scheduled) posts and pages.",
+      "id": "CVE-2026-93954",
+      "published": "2026-09-19T22:16:28.453",
+      "description": "A security vulnerability has been detected in grimmory-tools grimmory up to 3.3.3/3.4.1. Affected is the function AppSettingController.getAppSettings of the file backend/src/main/java/org/booklore/controller/AppSettingController.java of the component Settings API Endpoint. Such manipulation leads to incorrect authorization. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The name of the patch is 2b66ca6df8110f6b512e030b54c16b9fbe318f17. Applying a patch is advised to resolve this issue. PR #2558, merged as 53abc8b, moved the OIDC secret into a dedicated setting, but did not by itself restrict GET /api/v1/settings.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-92420",
-      "published": "2026-09-19T07:16:33.893",
-      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.2 does not verify that a booking belongs to the requesting user before modifying or deleting it on two of its booking endpoints, allowing a booking-provider-level user to cancel and permanently delete other providers' bookings on the same site.",
-      "severity": "LOW",
-      "score": 3.8
+      "id": "CVE-2026-93955",
+      "published": "2026-09-19T23:17:09.077",
+      "description": "A vulnerability was detected in grimmory-tools grimmory up to 3.3.3/3.4.1. Affected by this vulnerability is the function streamFileToResponse of the file backend/src/main/java/org/booklore/controller/KoboController.java of the component Download Endpoint. Performing a manipulation of the argument bookId results in authorization bypass. The attack may be initiated remotely. The exploit is now public and may be used. Issue #2431 is closed as completed, but its only comment states that the issue “has already been reported elsewhere.” No fixing commit or pull request is identified there.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-92403",
-      "published": "2026-09-19T07:16:33.683",
-      "description": "The Secure Custom Fields WordPress plugin before 6.9.4 does not properly verify that a front-end form submission corresponds to the form that was rendered to the visitor, allowing unauthenticated users to submit against a different registered form and modify the title and content of the post that form is bound to.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-93999",
+      "published": "2026-09-19T15:17:08.627",
+      "description": "A flaw was found in the OIDC protocol implementation of Keycloak, an open-source identity and access management solution. The issue occurs during the token refresh process when the server restores requested audiences from stored client IDs. Keycloak fails to verify if the target audience client is still enabled before issuing a new access token. This allows an application with an existing refresh token to continue obtaining valid access tokens for a disabled client, potentially bypassing administrative access controls for resource servers that rely on offline JWT validation.",
+      "severity": "MEDIUM",
+      "score": 4.2
     },
     {
-      "id": "CVE-2025-15698",
-      "published": "2026-09-19T07:16:31.313",
-      "description": "The Business Name Generator WordPress plugin through 1.3 does not sanitise and escape some of its settings, which could allow high privilege users such as admin to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed (for example in multisite setup).",
+      "id": "CVE-2026-93956",
+      "published": "2026-09-19T23:17:09.707",
+      "description": "A flaw has been found in olivier-ls PHP-FTS up to 1.1.2. Affected by this issue is the function SearchEngine::buildHighlights of the file src/SearchEngine.php of the component Search Engine. Executing a manipulation of the argument Query can lead to cross site scripting. The attack may be launched remotely. The exploit has been published and may be used. Upgrading to version 1.1.3 can resolve this issue. This patch is called 0b2fae333d6b022da7ed4c43e2d41aa03f91dff3. The affected component should be upgraded. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
       "severity": "LOW",
       "score": 3.5
+    },
+    {
+      "id": "CVE-2026-93987",
+      "published": "2026-09-19T12:16:42.187",
+      "description": "rclone versions 1.56.0 through 1.75.0 contain a path traversal vulnerability in the `rclone serve docker` volume plugin. newVolume() in cmd/serve/docker/volume.go computes a volume's mountpoint as filepath.Join(drv.root, name) from the attacker-supplied `name` field of a Docker VolumeDriver.Create request without verifying that the result stays within drv.root (default /var/lib/docker-volumes/rclone), and checkMountpoint() then creates that directory with file.MkdirAll before mounting. A volume name containing enough `..` components (e.g. \"../../../../../../etc\") therefore resolves outside the base directory, allowing anyone able to submit a VolumeDriver.Create request to the plugin socket — normally the Docker daemon, or a workload that can request named volumes in a multi-tenant orchestration setup — to make the privileged rclone plugin process create a directory and mount a remote filesystem specified in the same request at an arbitrary host path, shadowing or disrupting system directories. The advisory notes Volume.restoreState() had the same missing validation when reloading persisted volume state. Fixed in 1.75.1.",
+      "severity": "LOW",
+      "score": 3.4
+    },
+    {
+      "id": "CVE-2026-93982",
+      "published": "2026-09-19T12:16:41.310",
+      "description": "OpenPanel through commit bad75bdd writes Model Context Protocol authentication tokens from URL query parameters to plaintext application logs without redaction. Attackers with access to application stdout or centralized logging systems can capture base64-encoded credentials to replay MCP requests and access project analytics.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-93986",
+      "published": "2026-09-19T12:16:42.027",
+      "description": "rclone before 1.75.1 fails to confine names from server and third-party listing responses to the listed directory, allowing path traversal sequences in object names. Attackers can craft special names containing forward slashes and parent directory references to potentially write outside the destination root, though downstream protections in the local backend currently block actual file escape.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-93989",
+      "published": "2026-09-19T23:17:10.043",
+      "description": "vLLM through 0.29.0 fails to properly validate bad_words token indices against the model's generation output width in SamplingParams.update_from_tokenizer(). Attackers can supply out-of-bounds token indices that corrupt logits memory of concurrent requests, causing different in-flight HTTP requests to return incorrect tokens.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-82672",
+      "published": "2026-09-19T17:16:35.710",
+      "description": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in elixir-mint mint allows a malicious HTTP/1 server to desynchronize a strict intermediary and the Mint client on a pooled connection, enabling response-queue poisoning against subsequent requests that share the connection.\n\nMint.HTTP1.Parse.chunk_size/1 in lib/mint/http1/parse.ex stops at the first non-hexadecimal byte of a chunked response's chunk-size line and returns the remainder unexamined. Mint.HTTP1.decode_body/5 in lib/mint/http1.ex then discards every byte up to the CRLF with Parse.ignore_until_crlf/1, so the accepted grammar is a run of hex digits followed by arbitrary bytes, where RFC 9112 permits only a ;-introduced chunk extension. Lines such as 5ZZZZZ and 5 9 are accepted as chunk size 5, and 0ZZZZ is accepted as the terminating chunk that ends the message body. An RFC-strict intermediary rejects such a line while Mint accepts it, so the two disagree on chunk boundaries and on where the response ends.\n\nThis issue affects mint: from 0.1.0 before 1.10.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-89155",
+      "published": "2026-09-19T23:17:08.450",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
