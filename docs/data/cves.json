@@ -1,5 +1,5 @@
 {
-  "totalResults": 2859,
+  "totalResults": 2846,
   "items": [
     {
       "id": "CVE-2026-94083",
@@ -23,39 +23,18 @@
       "score": 9.1
     },
     {
-      "id": "CVE-2026-93993",
-      "published": "2026-09-19T23:17:10.673",
-      "description": "Mistral Vibe before 2.25.5 contains a remote code execution vulnerability in the worktree creation process that executes git hooks before trust validation. Attackers can supply a repository with a crafted post-checkout hook that executes arbitrary shell commands with the privileges of the user running Vibe.",
+      "id": "CVE-2026-86553",
+      "published": "2026-09-20T04:17:06.240",
+      "description": "SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-93992",
-      "published": "2026-09-19T23:17:10.517",
-      "description": "Gopeed through 2.0.0-beta.3 contains a path traversal vulnerability in archive extraction that allows attackers to write arbitrary files outside the extraction directory. Attackers can craft malicious archives with entries containing directory traversal sequences that bypass validation, enabling file write operations when users download and extract archives with AutoExtract enabled.",
+      "id": "CVE-2026-93962",
+      "published": "2026-09-20T05:16:29.067",
+      "description": "A weakness has been identified in Kamailio up to 5.8.8/6.0.7/6.1.4/6.2.0-dev1. The impacted element is the function shm_malloc of the file src/modules/cdp/receiver.c of the component CDP Diameter Receiver. Executing a manipulation can lead to heap-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 6.0.8 is sufficient to resolve this issue. This patch is called 38711a3e788de0130d48cb485578c482b57d9351/4f62235b6f477b649c5cc18b0c81b4e26c949b98/4f62235b6f477b649c5cc18b0c81b4e26c949b98. You should upgrade the affected component.",
       "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-93991",
-      "published": "2026-09-19T23:17:10.360",
-      "description": "Argo Workflows versions 4.1.0 through 4.1.3 contain an authorization bypass vulnerability in ListArchivedWorkflows that fails to apply cluster-scoped access review when the metadata.namespace field selector uses the NotEquals operator. Attackers with namespace-scoped list permissions can use a negated namespace field selector to retrieve archived workflows from all other namespaces, exposing spec arguments, parameter values, and annotations.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-93990",
-      "published": "2026-09-19T23:17:10.203",
-      "description": "Expat through 2.8.4 fails to validate low surrogates following high surrogates in UTF-16 input, allowing malformed UTF-16 sequences to be accepted. Attackers can craft UTF-16 encoded XML with lone high surrogates that consume following code units, hiding markup characters from the parser and enabling XML injection attacks.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-94056",
-      "published": "2026-09-19T23:17:11.113",
-      "description": "Exim before 4.100.1, when Proxy-Protocol is used with an attacker-controlled proxy, allows attackers to read certain uninitialized data from stack memory.",
-      "severity": "HIGH",
-      "score": 7.5
+      "score": 8.3
     },
     {
       "id": "CVE-2026-93959",
@@ -65,32 +44,53 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-94054",
-      "published": "2026-09-19T23:17:10.827",
-      "description": "Exim before 4.100.1, when Proxy-Protocol is used with an attacker-controlled proxy, has an out-of-bounds write.",
+      "id": "CVE-2026-81650",
+      "published": "2026-09-20T07:16:49.590",
+      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not correctly validate the extensions of files extracted from an uploaded archive, due to a variable being reused as a loop counter so that the check always passes, allowing users granted its gallery-management capability by an administrator to write arbitrary files into a web-accessible directory and, on hosts that execute them, run arbitrary code.",
       "severity": "HIGH",
-      "score": 7
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-93988",
-      "published": "2026-09-19T23:17:09.890",
-      "description": "QloApps through 1.7.0 contains a path traversal vulnerability in the getEmailHTML action of admin/ajax.php that allows authenticated back-office users to read arbitrary files. Attackers can supply relative path sequences in the email parameter to bypass directory restrictions and access sensitive files including database credentials and configuration data.",
+      "id": "CVE-2026-14844",
+      "published": "2026-09-20T07:16:48.533",
+      "description": "The Master Slider  WordPress plugin through 3.11.2 does not sanitise and escape some of its shortcode attributes before outputting them in an inline script context, which could allow users with the Contributor role and above to perform Stored Cross-Site Scripting attacks that execute when the affected post is viewed.\n\nNo fixed version is available. Until one ships, restrict the Contributor role to trusted users, or deactivate the Master Slider  WordPress plugin through 3.11.2. Site owners who need to keep it active can block the ms_slider shortcode for roles below Editor, for example with a shortcode-restriction Master Slider  WordPress plugin through 3.11.2, which prevents the attack without removing the Master Slider  WordPress plugin through 3.11.2.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-93954",
-      "published": "2026-09-19T22:16:28.453",
-      "description": "A security vulnerability has been detected in grimmory-tools grimmory up to 3.3.3/3.4.1. Affected is the function AppSettingController.getAppSettings of the file backend/src/main/java/org/booklore/controller/AppSettingController.java of the component Settings API Endpoint. Such manipulation leads to incorrect authorization. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The name of the patch is 2b66ca6df8110f6b512e030b54c16b9fbe318f17. Applying a patch is advised to resolve this issue. PR #2558, merged as 53abc8b, moved the OIDC secret into a dedicated setting, but did not by itself restrict GET /api/v1/settings.",
+      "id": "CVE-2026-93965",
+      "published": "2026-09-20T06:16:50.713",
+      "description": "A flaw has been found in aiyiyi121 SxDevOps 1.0/1.1. Affected is the function subprocess.Popen of the file backend/aiops/services.py of the component MCP STDIO Server Management. This manipulation of the argument endpoint_or_command causes command injection. The attack may be initiated remotely. Patch name: 2b4bf8585c3e731e7a8af30801ea46680bc783f9. To fix this issue, it is recommended to deploy a patch. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 6.6
     },
     {
-      "id": "CVE-2026-93955",
-      "published": "2026-09-19T23:17:09.077",
-      "description": "A vulnerability was detected in grimmory-tools grimmory up to 3.3.3/3.4.1. Affected by this vulnerability is the function streamFileToResponse of the file backend/src/main/java/org/booklore/controller/KoboController.java of the component Download Endpoint. Performing a manipulation of the argument bookId results in authorization bypass. The attack may be initiated remotely. The exploit is now public and may be used. Issue #2431 is closed as completed, but its only comment states that the issue “has already been reported elsewhere.” No fixing commit or pull request is identified there.",
+      "id": "CVE-2026-93963",
+      "published": "2026-09-20T06:16:49.003",
+      "description": "A security vulnerability has been detected in itsourcecode Leave Management System 1.0. This affects an unknown function of the file /module/department/controller.php. The manipulation of the argument DEPTID leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-86552",
+      "published": "2026-09-20T04:17:02.840",
+      "description": "SmartLife app dynamically generates brand‑new SmartLife application authentication parameters at runtime. With the acquired SmartLife application authentication credentials, an attacker can directly complete registration using any arbitrary email address via the backend interface /account/person/signup.serv. Email ownership is not verified prior to registration.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-93961",
+      "published": "2026-09-20T05:16:28.093",
+      "description": "A security flaw has been discovered in Dromara UJCMS up to 12.3.1. The affected element is the function usernameExist of the file ujcms-cms/src/main/java/com/ujcms/cms/core/web/api/UserController.java of the component UserController. Performing a manipulation of the argument Username results in improper authorization. It is possible to initiate the attack remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-93964",
+      "published": "2026-09-20T06:16:50.477",
+      "description": "A vulnerability was detected in NginxProxyManager nginx-proxy-manager up to 2.15.1. This impacts the function internalCertificate.validate of the file backend/internal/certificate.js of the component Validate Route. The manipulation results in missing authentication. The attack can be launched remotely. The exploit is now public and may be used. Endpoint only processes and echoes back the certificate the caller submits (no stored data leaked); the real risk is unauthenticated openssl processing of attacker input. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
       "id": "CVE-2026-93957",
@@ -100,25 +100,25 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-94057",
-      "published": "2026-09-19T23:17:11.257",
-      "description": "Exim before 4.100.1 allows SMTP smuggling in which the received message does not match any sent message, and instead depends on crafted data sent after a rejection during DATA processing.",
+      "id": "CVE-2026-93960",
+      "published": "2026-09-20T04:17:55.540",
+      "description": "A vulnerability was identified in Pixelfed up to 0.12.11. Impacted is the function instancePeers of the file app/Http/Controllers/Api/ApiV1Controller.php of the component OAuth Scope Handler. Such manipulation of the argument ID leads to missing authentication. The attack may be performed from remote. The exploit is publicly available and might be used. Upgrading to version 0.12.10 is recommended to address this issue. The name of the patch is 68dca5097305fa0065d029587b2233524636025a. Upgrading the affected component is advised.",
       "severity": "MEDIUM",
-      "score": 4
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-94055",
-      "published": "2026-09-19T23:17:10.973",
-      "description": "Exim before 4.100.1, when certain non-default TLS settings are used with GnuTLS, has a use-after-free.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-81653",
+      "published": "2026-09-20T07:16:49.900",
+      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the user acting on an image owns the gallery it belongs to, allowing users granted its gallery-management capability by an administrator to delete, copy and re-tag any image on the site, including images in galleries belonging to other users.",
+      "severity": "MEDIUM",
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-93956",
-      "published": "2026-09-19T23:17:09.707",
-      "description": "A flaw has been found in olivier-ls PHP-FTS up to 1.1.2. Affected by this issue is the function SearchEngine::buildHighlights of the file src/SearchEngine.php of the component Search Engine. Executing a manipulation of the argument Query can lead to cross site scripting. The attack may be launched remotely. The exploit has been published and may be used. Upgrading to version 1.1.3 can resolve this issue. This patch is called 0b2fae333d6b022da7ed4c43e2d41aa03f91dff3. The affected component should be upgraded. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-16542",
+      "published": "2026-09-20T07:16:49.467",
+      "description": "The Import and export users and customers WordPress plugin before 2.4.5 does not validate a user-supplied URL before requesting it server-side during a CSV import, allowing high-privileged users to perform Server-Side Request Forgery attacks.",
+      "severity": "MEDIUM",
+      "score": 4.1
     },
     {
       "id": "CVE-2026-86551",
@@ -128,18 +128,18 @@
       "score": 3.3
     },
     {
-      "id": "CVE-2026-93989",
-      "published": "2026-09-19T23:17:10.043",
-      "description": "vLLM through 0.29.0 fails to properly validate bad_words token indices against the model's generation output width in SamplingParams.update_from_tokenizer(). Attackers can supply out-of-bounds token indices that corrupt logits memory of concurrent requests, causing different in-flight HTTP requests to return incorrect tokens.",
+      "id": "CVE-2026-81651",
+      "published": "2026-09-20T07:16:49.700",
+      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the user saving a gallery owns it, allowing any user granted its gallery-management capability by an administrator to overwrite the stored settings of any gallery on the site, including its filesystem path, and including galleries belonging to other users.",
       "severity": "LOW",
       "score": 3.1
     },
     {
-      "id": "CVE-2026-89155",
-      "published": "2026-09-19T23:17:08.450",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-81652",
+      "published": "2026-09-20T07:16:49.803",
+      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the requesting user is entitled to a given image record before returning it, allowing users with the Contributor role and above to read the stored metadata of any image on the site, including images in galleries belonging to other users. The disclosed data includes the image's stored EXIF subset, covering camera make and model and capture timestamp, along with internal checksums and identifiers that the Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0's own capability-gated read path reserves to administrators.",
+      "severity": "LOW",
+      "score": 2.7
     }
   ]
 }
