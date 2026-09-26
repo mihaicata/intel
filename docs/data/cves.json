@@ -1,5 +1,5 @@
 {
-  "totalResults": 2702,
+  "totalResults": 2769,
   "items": [
     {
       "id": "CVE-2026-93741",
@@ -9,88 +9,81 @@
       "score": 10
     },
     {
-      "id": "CVE-2026-84434",
-      "published": "2026-09-19T03:17:15.573",
-      "description": "The Gravity Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 3.1.0.4 via the upload_file function. This is due to a mismatch between the field validation pipeline and the file persistence pipeline, where hidden file upload fields bypass extension validation and a rejected file's intact upload state is later passed to upload_file() without re-validation. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible. Exploitation requires the targeted form to contain a File Upload field with its Visibility set to 'Hidden'; the vulnerability is reachable by unauthenticated attackers on any publicly accessible form meeting this condition.",
+      "id": "CVE-2026-86591",
+      "published": "2026-09-19T07:16:33.063",
+      "description": "The Botiga Pro WordPress plugin before 1.6.5 does not perform any authorisation checks on one of its REST routes, allowing unauthenticated users to update arbitrary WordPress options with arbitrary values, which could lead to privilege escalation and a full site takeover.\nThe same route also allows unauthenticated users to store arbitrary web scripts which are then executed on every page of the site's front end, as well as to move arbitrary posts to the trash.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-89274",
-      "published": "2026-09-19T03:17:16.587",
-      "description": "The WP Recipe Maker plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in all versions up to, and including, 10.8.1. The vulnerability exists because `WPRM_Metadata::sanitize_metadata()` recursively calls `do_shortcode()` on every scalar field of the recipe's structured metadata array — including the `reviewBody` field, which is populated verbatim from the `comment_content` of approved `wprm-comment-rating` comments — without sanitizing or stripping shortcode tokens before execution; the subsequent `wp_strip_all_tags()` and `strip_shortcodes()` calls operate only on the output string after execution has already fully occurred, providing no protection against server-side shortcode invocation. This makes it possible for unauthenticated attackers to execute arbitrary registered WordPress shortcodes server-side on every recipe page render, causing shortcode output — such as attachment captions, private post fields, or other data exposed by installed shortcodes — to be embedded in the page's JSON-LD `reviewBody` metadata and disclosed to all visitors who load the recipe page. Successful exploitation requires the attacker's rated comment to pass the site's comment approval threshold, either via auto-approval or moderator action, before the injected shortcode begins executing on page loads.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-92229",
-      "published": "2026-09-19T03:17:17.040",
-      "description": "The The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 1.57.2. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-92807",
-      "published": "2026-09-19T03:17:17.723",
-      "description": "The Save as PDF Plugin by PDFCrowd plugin for WordPress is vulnerable to Arbitrary Function Invocation in all versions up to, and including, 4.6.1 via the `pdf_created_callback` shortcode attribute. The `eval_shortcode()` function copies any non-`button_`/non-`email_` shortcode attribute verbatim into a custom options array without sanitization, allowlist enforcement, or capability checks, and `create_button()` AES-encrypts that array — including the attacker-supplied callback value — and embeds the resulting blob in the rendered button HTML; when the blob is later POSTed to the unauthenticated `wp_ajax_nopriv_save_as_pdf_pdfcrowd` endpoint, `save_as_pdf_pdfcrowd()` decrypts it and invokes `$options['pdf_created_callback']` as a PHP callable at line 1722 with no `is_callable()` guard, no allowlist, and no capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to invoke arbitrary PHP functions or static class methods with plugin option data as the sole argument, enabling disclosure of the site's stored PDFCrowd API key and username or further server-side abuse. Note that the encryption boundary does not mitigate this vector because the server itself encrypts the attacker-chosen callback during shortcode rendering, supplying any authenticated Contributor with a cryptographically valid blob that any unauthenticated visitor can subsequently replay to trigger invocation.",
+      "id": "CVE-2026-85680",
+      "published": "2026-09-19T07:16:32.960",
+      "description": "The Ultimate Member  WordPress plugin before 2.13.1 does not escape a value derived from user supplied profile names before outputting it in the page title, and decodes HTML entities in it after its own sanitisation has already run, allowing unauthenticated attackers who register an account to store JavaScript that will execute when any visitor, including an administrator, views their profile.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-87909",
-      "published": "2026-09-19T03:17:15.853",
-      "description": "The WP Photo Album Plus plugin for WordPress is vulnerable to Remote Code Execution in all versions via the wppa_image_magick function. This is due to insufficient sanitization of the multipart upload filename before concatenation into an ImageMagick command string executed via exec(), with only escapeshellcmd() applied to the whole command rather than quoting individual arguments. This makes it possible for authenticated attackers, with subscriber-level access and above, to execute code on the server. escapeshellcmd() escapes shell metacharacters but does not prevent argument injection because spaces remain as argument separators, and the filename sanitization applied at the database layer is never applied to the physical temporary file path used for ImageMagick processing.",
+      "id": "CVE-2026-88824",
+      "published": "2026-09-19T07:16:33.273",
+      "description": "The Master Blocks  WordPress plugin before 1.5.0 does not have authorisation on one of its REST routes, allowing unauthenticated users to update its settings, including a value that is output unescaped in the admin area, leading to Stored XSS that executes in the session of any administrator visiting a wp-admin page.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-88926",
+      "published": "2026-09-19T07:16:33.377",
+      "description": "The VikRentItems Flexible Rental Management System WordPress plugin before 1.2.4 does not sanitise and escape some of its parameters before using them in SQL statements, allowing unauthenticated users to perform SQL injection attacks.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-86814",
+      "published": "2026-09-19T07:16:33.167",
+      "description": "The UsersWP  WordPress plugin before 1.5.10 does not verify that a social login provider has confirmed ownership of an email address before using it to resolve an existing account, allowing unauthenticated attackers to log in as any user, including administrators, whose email address they can assert through a provider account of their own.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-85574",
+      "published": "2026-09-19T07:16:32.860",
+      "description": "The Unbounce Landing Pages WordPress plugin before 1.1.5 does not perform any authorisation check when updating the configuration its front-end proxy relies on, allowing any authenticated user, such as a subscriber, to point that proxy at a host they control and have arbitrary content served from the site's own origin.",
+      "severity": "HIGH",
+      "score": 8
+    },
+    {
+      "id": "CVE-2026-92404",
+      "published": "2026-09-19T07:16:33.790",
+      "description": "The MgoSync  WordPress plugin before 2.1.7 does not have authorization controls on one of its REST API endpoints, allowing unauthenticated users to retrieve the stored WooCommerce API credentials, including a read/write consumer key and secret, from a configured site.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-13354",
-      "published": "2026-09-19T03:17:13.553",
-      "description": "The Asset CleanUp: Page Speed Booster plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content in all versions up to, and including, 1.4.0.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is only exploitable on instances where combine_loaded_css has been enabled.",
+      "id": "CVE-2026-76554",
+      "published": "2026-09-19T07:16:32.540",
+      "description": "The WP Import Export Lite WordPress plugin before 3.9.35 does not verify that the user running an import is permitted to create or modify user accounts and assign roles, allowing users granted a delegated WP Import Export Lite WordPress plugin before 3.9.35 permission, who cannot otherwise manage users, to create administrator accounts and to overwrite the credentials and role of existing accounts, including administrators.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-15760",
-      "published": "2026-09-19T03:17:13.867",
-      "description": "The Divi Essential plugin for WordPress is vulnerable to sensitive information exposure in versions up to, and including, 5.8.1 via the dnxte_get_database_tables and dnxte_get_database_data AJAX actions. The handlers  only conditionally verify a nonce (the check runs solely when the 'nonce' POST parameter is present and can be trivially bypassed by omitting the parameter) and never call current_user_can() or otherwise enforce a capability. This makes it possible for authenticated attackers, with Subscriber-level access and above, to enumerate every table in the WordPress database and read up to a caller-controlled number of rows from any table — including wp_users (usernames, emails, hashed passwords), wp_usermeta (session tokens, secret keys), and wp_options (privileged settings, API keys, credentials stored by other plugins).",
+      "id": "CVE-2026-76790",
+      "published": "2026-09-19T07:16:32.650",
+      "description": "The Estatik Real Estate Plugin WordPress plugin before 4.3.5 does not sanitise and escape several values decoded from a request parameter before reflecting them back in an unauthenticated AJAX response, leading to Reflected Cross-Site Scripting.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-84750",
+      "published": "2026-09-19T07:16:32.753",
+      "description": "The Ultra Addons for Contact Form 7 WordPress plugin before 3.5.51 does not validate the type or extension of files uploaded through one of its form fields, and stores them at a predictable public path with the attacker-chosen extension intact, allowing unauthenticated users to upload arbitrary files. The PHP handler shipped by default with the Debian and Ubuntu Apache packages maps .phar to PHP alongside .php and .phtml, so on that stack the uploaded file is executed and the issue leads to Remote Code Execution and full site takeover. Where the host routes only .php to the PHP handler, the same file is instead served from the site's own origin with its script intact, leading to Stored Cross-Site Scripting.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-89333",
-      "published": "2026-09-19T03:17:16.743",
-      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 4.0.8 via the 'student_id' parameter due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with subscriber-level access and above, to disclose the email address and Tutor profile phone number of arbitrary WordPress users, including Administrators, by iterating over user IDs via the student_id parameter.",
+      "id": "CVE-2026-92099",
+      "published": "2026-09-19T07:16:33.583",
+      "description": "The WPGraphQL Smart Cache WordPress plugin before 2.3.2 does not require authorisation or validate a caller-supplied query identifier before storing a persisted query from a request, allowing unauthenticated users to publish arbitrary query documents and claim query aliases before a site's own frontend registers them.",
       "severity": "MEDIUM",
       "score": 6.5
-    },
-    {
-      "id": "CVE-2026-89334",
-      "published": "2026-09-19T03:17:16.893",
-      "description": "The Better Messages – Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.15.33. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to access the full message transcript, thread metadata, and user data of any chat-room thread without authentication. This is only exploitable when the chat room's only_joined_can_read setting retains its default value of '0'.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-77820",
-      "published": "2026-09-19T02:16:54.257",
-      "description": "The WPComplete plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'empty' Shortcode Attribute in all versions up to, and including, 2.9.9.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the premium version of the software in order to exploit. Please note this only affects the pro version.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-89081",
-      "published": "2026-09-19T03:17:16.303",
-      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'search' parameter in all versions up to, and including, 4.0.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-92967",
-      "published": "2026-09-19T03:17:18.717",
-      "description": "The Pochipp plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'keyword' parameter in versions up to, and including, 1.20.2. This is due to insufficient output escaping , which reads $_GET['keyword'], applies only sanitize_text_field() (which strips tags but leaves double quotes intact) and interpolates the value directly into the value attribute of the search input via a PHP heredoc, without esc_attr(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user with upload_files capability (Author or above) into performing an action such as clicking on a specially crafted link to /wp-admin/media-upload.",
-      "severity": "MEDIUM",
-      "score": 6.1
     },
     {
       "id": "CVE-2026-19860",
@@ -100,32 +93,25 @@
       "score": 5.5
     },
     {
-      "id": "CVE-2026-89093",
-      "published": "2026-09-19T03:17:16.443",
-      "description": "The Better Messages – Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to Information Exposure by Spoofing in all versions up to, and including, 2.15.33. This is due to the `is_ai_bot_user()` function identifying privileged internal AI bot accounts by performing a prefix check for `'ai-chat-bot-'` against a guest record's stored IP address, which is populated verbatim from the client-controlled `X-Real-IP` request header during unauthenticated guest registration. This makes it possible for unauthenticated attackers to register a guest identity that the plugin treats as its own internal AI bot, bypassing the per-room role allowlist, draft-status check, and join filters — which are all short-circuited by the bot check in `user_can_join()` and `user_can_read()` — to join administrator-restricted chat rooms, post messages into them, and read the private message history of other users.",
+      "id": "CVE-2026-92425",
+      "published": "2026-09-19T07:16:34.100",
+      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.4 does not perform object-level authorisation checks on several of its host-management operations, allowing users who hold its own administrator-assigned custom role to read, modify and permanently delete other hosts' records and the WordPress user accounts linked to them.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-12042",
-      "published": "2026-09-19T03:17:12.997",
-      "description": "The WP2Social Auto Publish plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 2.4.12 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
+      "id": "CVE-2026-91847",
+      "published": "2026-09-19T07:16:33.480",
+      "description": "The Online Scheduling and Appointment Booking System  WordPress plugin before 28.2 does not verify that the requester owns the AI booking-assistant conversation named in its unauthenticated conversation actions, allowing any unauthenticated visitor to read another visitor's assistant messages and to inject messages into their in-progress conversation.",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-15660",
-      "published": "2026-09-19T03:17:13.717",
-      "description": "The SEO Booster plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 7.4.7. This is due to a missing capability check on the handle_oauth_callback() function which is hooked to admin_init and processes $_GET['access_token'] and $_GET['google_email'] without verifying the caller's role. This makes it possible for authenticated attackers, with Subscriber-level access and above, to overwrite the seobooster_access_token, seobooster_google_email, and seobooster_gsc_sites options and delete the seobooster_needs_reauth flag by visiting a crafted /wp-admin/ URL, disrupting the Google Search Console integration and injecting attacker-chosen data into site options via the attacker-supplied token that drives an outbound Google API request whose response is stored.",
+      "id": "CVE-2026-92421",
+      "published": "2026-09-19T07:16:34.000",
+      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.3 does not verify that the host record being modified belongs to the user making the request, allowing authenticated users holding a Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.3-assigned host role to modify other hosts' profile data and reassign ownership of another host's record to themselves.",
       "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-88944",
-      "published": "2026-09-19T03:17:16.000",
-      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.0.8. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to permanently delete arbitrary WordPress posts — including pages, courses, quizzes, and WooCommerce products — via wp_delete_post( $id, true ). The exploit chain requires the attacker to first trigger the profile-photo upload flow to obtain an authored wp_posts attachment row, then create a Tutor topic reparented to that attachment, before invoking the lesson deletion handler against any target post ID.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.7
     },
     {
       "id": "CVE-2026-16557",
@@ -133,6 +119,20 @@
       "description": "The Nimble Page Builder WordPress plugin through 3.3.8 does not perform an authorization check when returning page-builder content through an authenticated AJAX action, allowing any authenticated user (Subscriber+) to disclose the page-builder content of arbitrary non-public (draft, pending, private, scheduled) posts and pages.",
       "severity": "MEDIUM",
       "score": 4.3
+    },
+    {
+      "id": "CVE-2026-92420",
+      "published": "2026-09-19T07:16:33.893",
+      "description": "The Hydra Booking — Appointment Scheduling & Booking Calendar WordPress plugin before 1.2.2 does not verify that a booking belongs to the requesting user before modifying or deleting it on two of its booking endpoints, allowing a booking-provider-level user to cancel and permanently delete other providers' bookings on the same site.",
+      "severity": "LOW",
+      "score": 3.8
+    },
+    {
+      "id": "CVE-2026-92403",
+      "published": "2026-09-19T07:16:33.683",
+      "description": "The Secure Custom Fields WordPress plugin before 6.9.4 does not properly verify that a front-end form submission corresponds to the form that was rendered to the visitor, allowing unauthenticated users to submit against a different registered form and modify the title and content of the post that form is bound to.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
       "id": "CVE-2025-15698",
