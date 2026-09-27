@@ -1,33 +1,12 @@
 {
-  "totalResults": 2846,
+  "totalResults": 2884,
   "items": [
     {
-      "id": "CVE-2026-94083",
-      "published": "2026-09-20T02:16:53.520",
-      "description": "Suricata before 8.0.7 has a DoH2 type confusion that can cause an invalid free, because cleanup code for the HTTP2 state is executed even though the actual state is HTTP1 (when there is a DoH2 request with an HTTP1 to HTTP2 upgrade). This requires app-layer.protocols.doh2 to be enabled, which is the default in 8.x versions.",
-      "severity": "CRITICAL",
-      "score": 9.4
-    },
-    {
-      "id": "CVE-2026-94084",
-      "published": "2026-09-20T02:16:53.717",
-      "description": "Suricata before 8.0.7 has an Http2ThreadMultiBuf use-after-free when a transaction is inspected by rules that use http.response_header with and without a transform.",
-      "severity": "CRITICAL",
-      "score": 9.4
-    },
-    {
-      "id": "CVE-2026-93958",
-      "published": "2026-09-20T02:16:53.307",
-      "description": "A vulnerability was found in D-Link R95 BE9500_1.00.16. This vulnerability affects the function system of the file /bin/ssi of the component DHMAPI. The manipulation of the argument NTPServer results in os command injection. The attack can be executed remotely. The exploit has been made public and could be used.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-86553",
-      "published": "2026-09-20T04:17:06.240",
-      "description": "SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.",
+      "id": "CVE-2026-87067",
+      "published": "2026-09-20T07:16:50.430",
+      "description": "The Forminator Forms  WordPress plugin before 1.57.2.1 does not restrict which classes may be instantiated when it deserialises a value taken from an XML-RPC request, allowing users who hold its forms-management permission to write a file of their choosing and execute arbitrary code. That permission belongs to an administrator by default, and to any role the site has granted it through the Forminator Forms  WordPress plugin before 1.57.2.1's own settings, so the issue is reachable well below administrator on sites that use that feature.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
       "id": "CVE-2026-93962",
@@ -37,11 +16,25 @@
       "score": 8.3
     },
     {
-      "id": "CVE-2026-93959",
-      "published": "2026-09-20T03:16:31.513",
-      "description": "A vulnerability was determined in SourceCodester Online Reviewer Management System 1.0. This issue affects some unknown processing of the file /reviewer_0/admins/assessments/course/btn_functions.php. This manipulation of the argument Course causes sql injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
+      "id": "CVE-2026-82842",
+      "published": "2026-09-20T07:16:50.093",
+      "description": "The SAML Single Sign On  WordPress plugin before 6.0.0 does not honour the configured criterion for linking an incoming single sign-on identity to a WordPress account, always resolving the identity by login name whatever the site has chosen, which allows an attacker who can have the site's identity provider assert a login name of their choosing to authenticate as any account, including an administrator, without proving ownership of that account.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-85017",
+      "published": "2026-09-20T07:16:50.303",
+      "description": "The Unlimited Elements For Elementor WordPress plugin before 2.0.20 does not perform a capability check on an AJAX action and deserializes attacker-controlled stored data through it, which makes it possible for authenticated attackers with subscriber-level access to inject arbitrary PHP objects. A partial fix in the 2.0.18 to 2.0.19 releases raised the privilege required to reach the vulnerable action to editor-level, and the issue was fully resolved in 2.0.20.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-87839",
+      "published": "2026-09-20T07:16:50.760",
+      "description": "The Tripzzy  WordPress plugin before 1.5.1 does not have authorisation checks, and does not validate the identifier of the object being removed, in an AJAX action available to unauthenticated users, allowing them to permanently delete arbitrary comments on the site.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
       "id": "CVE-2026-81650",
@@ -58,9 +51,23 @@
       "score": 6.8
     },
     {
+      "id": "CVE-2026-84223",
+      "published": "2026-09-20T07:16:50.200",
+      "description": "The Kirki  WordPress plugin before 6.3.1 does not sanitize uploaded SVG files while making them uploadable site-wide, allowing users with author-level access and above to upload a file containing JavaScript which is then served from the site's own origin and runs in the session of anyone who opens it.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
       "id": "CVE-2026-93965",
       "published": "2026-09-20T06:16:50.713",
       "description": "A flaw has been found in aiyiyi121 SxDevOps 1.0/1.1. Affected is the function subprocess.Popen of the file backend/aiops/services.py of the component MCP STDIO Server Management. This manipulation of the argument endpoint_or_command causes command injection. The attack may be initiated remotely. Patch name: 2b4bf8585c3e731e7a8af30801ea46680bc783f9. To fix this issue, it is recommended to deploy a patch. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "severity": "MEDIUM",
+      "score": 6.6
+    },
+    {
+      "id": "CVE-2026-87068",
+      "published": "2026-09-20T07:16:50.643",
+      "description": "The Forminator Forms  WordPress plugin before 1.57.2.1 does not apply the role validation it enforces elsewhere when a registration form is nested inside an imported quiz, allowing a user who may import quizzes to publish a live, publicly reachable form that grants any role, including administrator, to anyone who submits it. The same user is refused an identical form through both the ordinary form editor and the ordinary form import.",
       "severity": "MEDIUM",
       "score": 6.6
     },
@@ -70,13 +77,6 @@
       "description": "A security vulnerability has been detected in itsourcecode Leave Management System 1.0. This affects an unknown function of the file /module/department/controller.php. The manipulation of the argument DEPTID leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
       "severity": "MEDIUM",
       "score": 6.3
-    },
-    {
-      "id": "CVE-2026-86552",
-      "published": "2026-09-20T04:17:02.840",
-      "description": "SmartLife app dynamically generates brand‑new SmartLife application authentication parameters at runtime. With the acquired SmartLife application authentication credentials, an attacker can directly complete registration using any arbitrary email address via the backend interface /account/person/signup.serv. Email ownership is not verified prior to registration.",
-      "severity": "MEDIUM",
-      "score": 5.4
     },
     {
       "id": "CVE-2026-93961",
@@ -93,16 +93,16 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-93957",
-      "published": "2026-09-20T02:16:52.973",
-      "description": "A vulnerability has been found in olivier-ls PHP-FTS up to 1.1.3. This affects the function SearchEngine::matchesSingleFilter of the file src/SearchEngine.php of the component Filter Matching. The manipulation leads to incorrect comparison. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. Upgrading to version 1.1.4 is able to mitigate this issue. The identifier of the patch is 0b2fae333d6b022da7ed4c43e2d41aa03f91dff3. It is suggested to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "id": "CVE-2026-87840",
+      "published": "2026-09-20T07:16:50.860",
+      "description": "The Tripzzy  WordPress plugin before 1.5.1 does not perform any capability or ownership checks on its administrative booking-management actions, which are additionally exposed to unauthenticated users and gated only by a token the Tripzzy  WordPress plugin before 1.5.1 issues to any anonymous visitor on request, allowing unauthenticated attackers to alter the contents, stored totals and notes of arbitrary bookings.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-93960",
-      "published": "2026-09-20T04:17:55.540",
-      "description": "A vulnerability was identified in Pixelfed up to 0.12.11. Impacted is the function instancePeers of the file app/Http/Controllers/Api/ApiV1Controller.php of the component OAuth Scope Handler. Such manipulation of the argument ID leads to missing authentication. The attack may be performed from remote. The exploit is publicly available and might be used. Upgrading to version 0.12.10 is recommended to address this issue. The name of the patch is 68dca5097305fa0065d029587b2233524636025a. Upgrading the affected component is advised.",
+      "id": "CVE-2026-92410",
+      "published": "2026-09-20T07:16:50.957",
+      "description": "The Sign-up Sheets WordPress plugin before 2.4.0 does not properly validate the CSRF nonce that protects its sign-up deletion action, allowing attackers to delete sign-up records via a forged request handled in the session of a logged-in user with the required capability.",
       "severity": "MEDIUM",
       "score": 4.3
     },
@@ -121,16 +121,16 @@
       "score": 4.1
     },
     {
-      "id": "CVE-2026-86551",
-      "published": "2026-09-20T02:16:51.310",
-      "description": "The Z80Ultra (NX741J) product contains a vulnerability where non-privileged programs can retrieve the Wi-Fi MAC address by querying the read-only field factory_mac_address in the Settings.Secure database.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
       "id": "CVE-2026-81651",
       "published": "2026-09-20T07:16:49.700",
       "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the user saving a gallery owns it, allowing any user granted its gallery-management capability by an administrator to overwrite the stored settings of any gallery on the site, including its filesystem path, and including galleries belonging to other users.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-81654",
+      "published": "2026-09-20T07:16:49.997",
+      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not check that a user holds its options capability before saving image sizing settings, allowing users granted only its gallery-management capability by an administrator to change settings that apply across the whole site.",
       "severity": "LOW",
       "score": 3.1
     },
