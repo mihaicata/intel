@@ -1,145 +1,145 @@
 {
-  "totalResults": 2884,
+  "totalResults": 2877,
   "items": [
     {
-      "id": "CVE-2026-87067",
-      "published": "2026-09-20T07:16:50.430",
-      "description": "The Forminator Forms  WordPress plugin before 1.57.2.1 does not restrict which classes may be instantiated when it deserialises a value taken from an XML-RPC request, allowing users who hold its forms-management permission to write a file of their choosing and execute arbitrary code. That permission belongs to an administrator by default, and to any role the site has granted it through the Forminator Forms  WordPress plugin before 1.57.2.1's own settings, so the issue is reachable well below administrator on sites that use that feature.",
-      "severity": "HIGH",
-      "score": 8.5
+      "id": "CVE-2026-94003",
+      "published": "2026-09-20T12:17:05.403",
+      "description": "A vulnerability has been found in Comfast CF-N1-S 2.6.0.1. Impacted is the function get_css_path_from_uri of the file /cgi-bin/mbox-config of the component Web Management Interface. The manipulation leads to stack-based buffer overflow. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "severity": "CRITICAL",
+      "score": 10
     },
     {
-      "id": "CVE-2026-93962",
-      "published": "2026-09-20T05:16:29.067",
-      "description": "A weakness has been identified in Kamailio up to 5.8.8/6.0.7/6.1.4/6.2.0-dev1. The impacted element is the function shm_malloc of the file src/modules/cdp/receiver.c of the component CDP Diameter Receiver. Executing a manipulation can lead to heap-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 6.0.8 is sufficient to resolve this issue. This patch is called 38711a3e788de0130d48cb485578c482b57d9351/4f62235b6f477b649c5cc18b0c81b4e26c949b98/4f62235b6f477b649c5cc18b0c81b4e26c949b98. You should upgrade the affected component.",
-      "severity": "HIGH",
-      "score": 8.3
+      "id": "CVE-2026-90817",
+      "published": "2026-09-20T13:17:44.973",
+      "description": "An unauthenticated Remote Code Execution vulnerability was found in the survey passthrough routing and Data Import processing logic, in which a malicious user could potentially exploit it by manipulating HTTP requests to access an unintended controller route from a public survey context and by supplying a crafted file-path/stream parameter during import handling. If successfully exploited, this could allow the attacker to remotely execute arbitrary code on the REDCap server. The attacker does not have to be authenticated in order to exploit this, but exploitation requires knowledge of a valid public survey hash. This vulnerability exists in REDCap 13.3.0 and higher.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-82842",
-      "published": "2026-09-20T07:16:50.093",
-      "description": "The SAML Single Sign On  WordPress plugin before 6.0.0 does not honour the configured criterion for linking an incoming single sign-on identity to a WordPress account, always resolving the identity by login name whatever the site has chosen, which allows an attacker who can have the site's identity provider assert a login name of their choosing to authenticate as any account, including an administrator, without proving ownership of that account.",
+      "id": "CVE-2026-94104",
+      "published": "2026-09-20T12:17:05.777",
+      "description": "NivoCart through 2.4.0 contains an arbitrary file upload vulnerability in the File Manager multi() endpoint that fails to validate file extensions for new filenames or when chunks parameter is 2 or higher. Attackers with view-only back-office access can upload PHP files to the web-accessible image/data/ directory and execute them for remote code execution.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-94106",
+      "published": "2026-09-20T12:17:06.110",
+      "description": "getID3 before 1.9.26 contains an OS command injection vulnerability in shell-out handlers that fail to escape filenames in command strings. Attackers can craft malicious filenames containing shell metacharacters to inject arbitrary commands executed with the privileges of the process embedding getID3.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-94107",
+      "published": "2026-09-20T12:17:06.277",
+      "description": "NivoCart through 2.4.0 contains a predictable password reset token vulnerability in the forgotten.php endpoint that generates recovery codes using substr(md5(mt_rand()), 0, 10). Attackers who know an administrator's email address can request a password reset and predict the token to gain administrative account access without rate limiting or expiration.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-85017",
-      "published": "2026-09-20T07:16:50.303",
-      "description": "The Unlimited Elements For Elementor WordPress plugin before 2.0.20 does not perform a capability check on an AJAX action and deserializes attacker-controlled stored data through it, which makes it possible for authenticated attackers with subscriber-level access to inject arbitrary PHP objects. A partial fix in the 2.0.18 to 2.0.19 releases raised the privilege required to reach the vulnerable action to editor-level, and the issue was fully resolved in 2.0.20.",
+      "id": "CVE-2026-94109",
+      "published": "2026-09-20T12:17:06.620",
+      "description": "openEQUELLA before 2026.1.0 contains an authenticated stored server-side template injection vulnerability in FreemarkerPortletRenderer.renderHtml() that allows any authenticated non-guest user to achieve remote code execution by storing a malicious FreeMarker payload through a POST request to the RemotePortletService invoker endpoint. The markup field from stored portlet configuration is passed directly to custFactory.createResult() without a TemplateClassResolver restriction or FreeMarker sandboxing in BasicConfiguration, leaving built-ins such as ?new and freemarker.template.utility.Execute available, causing the payload to execute in the application server process context when any user renders a dashboard containing the affected portlet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8
     },
     {
-      "id": "CVE-2026-87839",
-      "published": "2026-09-20T07:16:50.760",
-      "description": "The Tripzzy  WordPress plugin before 1.5.1 does not have authorisation checks, and does not validate the identifier of the object being removed, in an AJAX action available to unauthenticated users, allowing them to permanently delete arbitrary comments on the site.",
+      "id": "CVE-2026-93978",
+      "published": "2026-09-20T11:16:57.953",
+      "description": "A vulnerability was identified in code-projects Internship Management System 1.0. Affected by this issue is some unknown functionality of the file /login.php. Such manipulation of the argument Password leads to sql injection. The attack can be executed remotely. The exploit is publicly available and might be used.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-81650",
-      "published": "2026-09-20T07:16:49.590",
-      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not correctly validate the extensions of files extracted from an uploaded archive, due to a variable being reused as a loop counter so that the check always passes, allowing users granted its gallery-management capability by an administrator to write arbitrary files into a web-accessible directory and, on hosts that execute them, run arbitrary code.",
+      "id": "CVE-2026-93979",
+      "published": "2026-09-20T11:16:58.130",
+      "description": "A security flaw has been discovered in code-projects Internship Management System 1.0. This affects an unknown part of the file /employer/login.php. Performing a manipulation of the argument Password results in sql injection. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-14844",
-      "published": "2026-09-20T07:16:48.533",
-      "description": "The Master Slider  WordPress plugin through 3.11.2 does not sanitise and escape some of its shortcode attributes before outputting them in an inline script context, which could allow users with the Contributor role and above to perform Stored Cross-Site Scripting attacks that execute when the affected post is viewed.\n\nNo fixed version is available. Until one ships, restrict the Contributor role to trusted users, or deactivate the Master Slider  WordPress plugin through 3.11.2. Site owners who need to keep it active can block the ms_slider shortcode for roles below Editor, for example with a shortcode-restriction Master Slider  WordPress plugin through 3.11.2, which prevents the attack without removing the Master Slider  WordPress plugin through 3.11.2.",
+      "id": "CVE-2026-93980",
+      "published": "2026-09-20T11:16:58.307",
+      "description": "A weakness has been identified in code-projects Internship Management System 1.0. This vulnerability affects unknown code of the file /admin/login.php of the component Admin Login Form. Executing a manipulation of the argument Password can lead to sql injection. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-93997",
+      "published": "2026-09-20T12:17:05.217",
+      "description": "A weakness has been identified in SourceCodester Drug Recommendation System 1.0. Affected by this issue is some unknown functionality of the file /Admin/edit_symptom.php. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-94004",
+      "published": "2026-09-20T12:17:05.593",
+      "description": "A vulnerability was found in DedeCMS up to 5.7.118. The affected element is an unknown function of the file plus/mytag_js.php. The manipulation of the argument aid results in code injection. The attack can be launched remotely. The exploit has been made public and could be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-94112",
+      "published": "2026-09-20T12:17:06.953",
+      "description": "mayswind ezBookkeeping before 2.0.0 fails to invalidate TOTP passcodes after use, allowing attackers to replay captured codes within the acceptance window. Attackers with stolen credentials can authenticate and reuse a captured passcode against multiple authorization attempts for approximately 90 seconds without detection.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-84223",
-      "published": "2026-09-20T07:16:50.200",
-      "description": "The Kirki  WordPress plugin before 6.3.1 does not sanitize uploaded SVG files while making them uploadable site-wide, allowing users with author-level access and above to upload a file containing JavaScript which is then served from the site's own origin and runs in the session of anyone who opens it.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-93965",
-      "published": "2026-09-20T06:16:50.713",
-      "description": "A flaw has been found in aiyiyi121 SxDevOps 1.0/1.1. Affected is the function subprocess.Popen of the file backend/aiops/services.py of the component MCP STDIO Server Management. This manipulation of the argument endpoint_or_command causes command injection. The attack may be initiated remotely. Patch name: 2b4bf8585c3e731e7a8af30801ea46680bc783f9. To fix this issue, it is recommended to deploy a patch. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "id": "CVE-2026-94111",
+      "published": "2026-09-20T12:17:06.787",
+      "description": "Tencent BrowserSkill through 0.3.0 contains an authentication bypass vulnerability in the local daemon WebSocket origin validation that accepts any chrome-extension origin with 32 characters in range a-p. Attackers can register a malicious extension as a browser client to intercept and manipulate page content, DOM, and screenshots returned to the AI agent.",
       "severity": "MEDIUM",
       "score": 6.6
     },
     {
-      "id": "CVE-2026-87068",
-      "published": "2026-09-20T07:16:50.643",
-      "description": "The Forminator Forms  WordPress plugin before 1.57.2.1 does not apply the role validation it enforces elsewhere when a registration form is nested inside an imported quiz, allowing a user who may import quizzes to publish a live, publicly reachable form that grants any role, including administrator, to anyone who submits it. The same user is refused an identical form through both the ordinary form editor and the ordinary form import.",
+      "id": "CVE-2026-94108",
+      "published": "2026-09-20T12:17:06.427",
+      "description": "getID3 through 1.9.26 contains an XML external entity injection vulnerability in the XML2array helper function that fails to properly disable entity loading on PHP before 8.0. Attackers can craft malicious XML metadata in media files to disclose local files, perform server-side request forgery, or cause denial of service through entity expansion.",
       "severity": "MEDIUM",
-      "score": 6.6
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-93963",
-      "published": "2026-09-20T06:16:49.003",
-      "description": "A security vulnerability has been detected in itsourcecode Leave Management System 1.0. This affects an unknown function of the file /module/department/controller.php. The manipulation of the argument DEPTID leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "id": "CVE-2026-94113",
+      "published": "2026-09-20T12:17:07.117",
+      "description": "Frappe ERPNext versions before 15.121.0 and 16.x before 16.34.0 contain an information disclosure vulnerability in whitelisted timesheet endpoints that fail to enforce doctype permissions. Authenticated attackers can call get_projectwise_timesheet_data, get_timesheet_detail_rate, and get_timesheet endpoints to enumerate and retrieve billable time logs including project names, billing amounts, and work descriptions without proper authorization checks.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-93961",
-      "published": "2026-09-20T05:16:28.093",
-      "description": "A security flaw has been discovered in Dromara UJCMS up to 12.3.1. The affected element is the function usernameExist of the file ujcms-cms/src/main/java/com/ujcms/cms/core/web/api/UserController.java of the component UserController. Performing a manipulation of the argument Username results in improper authorization. It is possible to initiate the attack remotely. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-93964",
-      "published": "2026-09-20T06:16:50.477",
-      "description": "A vulnerability was detected in NginxProxyManager nginx-proxy-manager up to 2.15.1. This impacts the function internalCertificate.validate of the file backend/internal/certificate.js of the component Validate Route. The manipulation results in missing authentication. The attack can be launched remotely. The exploit is now public and may be used. Endpoint only processes and echoes back the certificate the caller submits (no stored data leaked); the real risk is unauthenticated openssl processing of attacker input. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-94105",
+      "published": "2026-09-20T12:17:05.940",
+      "description": "NivoCart through 2.4.0 contains a destructive configuration write vulnerability in the admin password reset controller that allows unauthenticated attackers to disable password recovery by supplying an invalid code parameter. Attackers can send a GET request with a missing or incorrect code to rewrite the config_password setting to 0, disabling self-service password recovery until an administrator manually re-enables it.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-87840",
-      "published": "2026-09-20T07:16:50.860",
-      "description": "The Tripzzy  WordPress plugin before 1.5.1 does not perform any capability or ownership checks on its administrative booking-management actions, which are additionally exposed to unauthenticated users and gated only by a token the Tripzzy  WordPress plugin before 1.5.1 issues to any anonymous visitor on request, allowing unauthenticated attackers to alter the contents, stored totals and notes of arbitrary bookings.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-92410",
-      "published": "2026-09-20T07:16:50.957",
-      "description": "The Sign-up Sheets WordPress plugin before 2.4.0 does not properly validate the CSRF nonce that protects its sign-up deletion action, allowing attackers to delete sign-up records via a forged request handled in the session of a logged-in user with the required capability.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-81653",
-      "published": "2026-09-20T07:16:49.900",
-      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the user acting on an image owns the gallery it belongs to, allowing users granted its gallery-management capability by an administrator to delete, copy and re-tag any image on the site, including images in galleries belonging to other users.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2026-16542",
-      "published": "2026-09-20T07:16:49.467",
-      "description": "The Import and export users and customers WordPress plugin before 2.4.5 does not validate a user-supplied URL before requesting it server-side during a CSV import, allowing high-privileged users to perform Server-Side Request Forgery attacks.",
-      "severity": "MEDIUM",
-      "score": 4.1
-    },
-    {
-      "id": "CVE-2026-81651",
-      "published": "2026-09-20T07:16:49.700",
-      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the user saving a gallery owns it, allowing any user granted its gallery-management capability by an administrator to overwrite the stored settings of any gallery on the site, including its filesystem path, and including galleries belonging to other users.",
+      "id": "CVE-2026-93977",
+      "published": "2026-09-20T11:16:57.750",
+      "description": "A vulnerability was determined in code-projects Assessment Management 1.0. Affected by this vulnerability is an unknown functionality of the file lecturer/add-single-mark.php. This manipulation of the argument mark causes cross site scripting. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
       "severity": "LOW",
-      "score": 3.1
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-81654",
-      "published": "2026-09-20T07:16:49.997",
-      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not check that a user holds its options capability before saving image sizing settings, allowing users granted only its gallery-management capability by an administrator to change settings that apply across the whole site.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-92252",
+      "published": "2026-09-20T13:17:46.063",
+      "description": "Incorrect default permissions in the installation directory of WatchDog Anti-Virus on Windows allow local, low-privileged users to modify, replace, or delete antivirus binaries and configuration files, because the installer grants the Users group Full Control over C:\\Program Files (x86)\\Watchdog Anti-Virus. This may disable antivirus protection or enable privileged code execution if modified binaries are loaded by an elevated WatchDog process.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-81652",
-      "published": "2026-09-20T07:16:49.803",
-      "description": "The Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0 does not verify that the requesting user is entitled to a given image record before returning it, allowing users with the Contributor role and above to read the stored metadata of any image on the site, including images in galleries belonging to other users. The disclosed data includes the image's stored EXIF subset, covering camera make and model and capture timestamp, along with internal checksums and identifiers that the Photo Gallery, Sliders, Proofing and   WordPress plugin before 4.5.0's own capability-gated read path reserves to administrators.",
-      "severity": "LOW",
-      "score": 2.7
+      "id": "CVE-2026-92253",
+      "published": "2026-09-20T13:17:46.243",
+      "description": "Improper link resolution before file access in the quarantine restoration process of WatchDog Anti-Virus 1.8.640 on Windows allows local, low-privileged attackers to cause a quarantined file to be written to an arbitrary filesystem location by creating a directory junction at the original file path and persuading an administrator to restore the file. This may enable modification of protected files or SYSTEM-level code execution through DLL hijacking.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-92254",
+      "published": "2026-09-20T13:17:46.390",
+      "description": "Missing Authorization in the IOCTL handlers of the wsdkd.sys kernel drivers in Watchdog WatchDog Antivirus 1.8.640 (driver versions 1.3.0.0 and earlier) on Microsoft Windows allows local, low-privileged attackers to delete arbitrary files with SYSTEM privileges, bypassing NTFS access controls and potentially disabling security products or destabilizing the operating system, via crafted IOCTL requests sent to the \\Device\\wsdk device.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
