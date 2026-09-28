@@ -1,145 +1,145 @@
 {
-  "totalResults": 2943,
+  "totalResults": 2901,
   "items": [
     {
-      "id": "CVE-2026-79920",
-      "published": "2026-09-21T17:18:59.567",
-      "description": "Ajenti is a Linux & BSD modular server admin panel. Prior to version 2.2.16, any authenticated user can call /api/core/tasks/start to enqueue InstallPlugin, UnInstallPlugin, or UpgradeAll from plugins/plugins/tasks.py without plugin-management authorization. InstallPlugin and UnInstallPlugin construct a pip package specification from unvalidated name and version fields, and the task worker invokes pip while running as root. A low-privileged user can therefore select or manipulate a package installed with root privileges and can install, remove, or upgrade plugins without administrative permission, resulting in root code execution and full host compromise. This issue is fixed in version 2.2.16.",
+      "id": "CVE-2026-94493",
+      "published": "2026-09-22T01:16:56.437",
+      "description": "A vulnerability was detected in Gigatech PDV5701 1.0.31_240305_112640. This issue affects some unknown processing of the file /index.html of the component WebSocket Service. The manipulation results in missing authentication. The attack can be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "CRITICAL",
-      "score": 9.9
+      "score": 10
     },
     {
-      "id": "CVE-2026-62371",
-      "published": "2026-09-21T17:17:37.150",
-      "description": "KubeEdge is an open source system for extending native containerized application orchestration capabilities to hosts at Edge. From 1.12.0 until 1.21.2, 1.22.2, and 1.23.1, the v1alpha2 NodeUpgradeJob handler in edge/pkg/taskmanager/actions/nodeupgradejob.go concatenates authenticated user-controlled spec.version and spec.image values into the keadm upgrade edge shell command. A user with permission to create or update NodeUpgradeJob resources can supply shell metacharacters in either field, causing arbitrary commands to execute on targeted edge nodes with the privileges of the upgrade process and compromising node confidentiality, integrity, and availability. This issue is fixed in versions 1.21.2, 1.22.2, and 1.23.1.",
+      "id": "CVE-2026-13355",
+      "published": "2026-09-22T05:16:54.960",
+      "description": "The Meta Box AIO plugin for WordPress is vulnerable to Privilege Escalation to Administrator in versions up to, and including, 3.11.0. This is due to a chained flaw: the populate_via_query_string() function in the mb-frontend-submission component unconditionally overrides the form's target object_id from the GET parameter 'rwmb_frontend_field_object_id' without any authorization check, and Form::process() lacks the user_can_edit() check present in render(), allowing unauthenticated attackers to overwrite the post_content of any page with an arbitrary shortcode via wp_update_post(); the mb-user-profile component then directly trusts the 'role' and 'auto_login' shortcode attributes in the injected [mb_user_profile_register] shortcode with no role validation. This makes it possible for unauthenticated attackers to elevate their privileges to Administrator. The standalone plugins Meta Box Frontend Submission (in versions up to 4.5.6) and Meta Box User Profile (versions up to 3.11.0) are also affected.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-19658",
+      "published": "2026-09-22T05:16:55.167",
+      "description": "The Give Tributes plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.3.1 via deserialization of untrusted input . This makes it possible for unauthenticated attackers to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present. This vulnerability is only reachable when the \"Allow Multiple Recipients\" option is enabled for the donation form, as the single-recipient code path applies sanitize_textarea_field() which would neutralize the payload. Exploitation additionally requires the eCard \"Custom Message\" option to be disabled, which is the plugin default: when it is enabled the personalized message becomes a required field and GiveWP's give_clean() blanks serialized input during validation, causing the donation to be rejected before it is stored.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-94425",
+      "published": "2026-09-21T23:16:56.697",
+      "description": "A vulnerability was found in Moore Threads MTT S80 Driver Package 340.150. The affected element is the function sub_140006F0C in the library mtdispkm64.sys of the component IOCTL Handler. The manipulation results in improper privilege management. Attacking locally is a requirement. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-63116",
-      "published": "2026-09-21T17:17:38.510",
-      "description": "deepstream is a server that allows clients and backend services to sync data, send messages and make rpcs at scale. From 10.1.0 until 10.1.1, src/services/permission/valve/rules-map.ts omits RECORD_ACTION.PATCH_MULTI from RULES_MAP. When an authenticated user sends a PATCH_MULTI record operation while permission.type is config, getRulesForMessage returns a null rule specification and ConfigPermission.canPerformAction treats the missing specification as an unconditional allow instead of applying RULE_TYPES.WRITE. Any authenticated user can therefore modify arbitrary protected records, corrupt application state, or cause service disruption; deployments using the default permission type none already allow all operations and are not additionally affected. This issue is fixed in version 10.1.1.",
+      "id": "CVE-2026-93710",
+      "published": "2026-09-22T01:16:55.730",
+      "description": "Dancer2 versions from 2.0.0 before 2.2.0 for Perl dispatch a route that a dying hook refused when the exception handler halts the response in compile_hooks.\n\nA hook that dies fires core.app.hook_exception, then calls cleanup unless the failing hook is the exception handler. A handler that halts does not stop that cleanup, which discards the request, response and session the dispatcher has yet to read, so the refused route runs.\n\nThe handler has to halt the response object by calling its halt method or setting is_halted: the halt keyword unwinds through with_return before cleanup runs.\n\nA check in a before hook is not enforced: the caller gets the refusal, while the route body runs and its writes land.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-84990",
-      "published": "2026-09-21T17:19:13.340",
-      "description": "ntopng is a web-based network traffic monitoring application. Prior to 6.7.260718, scripts/lua/rest/v2/get/system/configurations/list_available_backups.lua and scripts/lua/rest/v2/get/system/configurations/download_backup.lua allow any authenticated non-admin user to list and download system-configuration backups without an administrator check. The download path reaches backup_config.export_backup, and prefs_dump_utils.build_prefs_dump_table includes the ntopng.user.* Redis key space in the backup. A downloaded backup can therefore disclose password hashes for local users and, when configured, API tokens, TOTP secrets, and WebAuthn credential data, enabling account compromise through usable or recoverable credentials. This issue is fixed in version 6.7.260718.",
+      "id": "CVE-2026-93712",
+      "published": "2026-09-22T01:16:55.957",
+      "description": "Dancer2 versions from 2.1.0 before 2.2.0 for Perl serve files from outside public_dir via relative path segments in the File route handler.\n\nThe handler joins the request path onto public_dir without collapsing relative segments, and checks only that the result is a readable regular file. A request for `/../outside.txt` escapes public_dir, and percent-encoding the dots reaches the same file.\n\nThe handler is off by default. An application is affected once it names File in route_handlers and sets static_handler to 0, which otherwise refuses a dot segment before the route runs.\n\nAny file the worker process can read is served to an unauthenticated request, including the application's config.yml above public_dir.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-77560",
-      "published": "2026-09-21T17:18:52.770",
-      "description": "Tinyauth is an authentication and authorization server. Prior to 5.1.2, Tinyauth compares forwarded hostnames case-sensitively while reverse proxies route equivalent hostnames case-insensitively, allowing an authenticated low-privilege user to bypass per-app access controls with a differently cased hostname. The lookup in internal/service/access_controls_service.go through lookupStaticACLs and GetAccessControls, and the Docker-label fallback in internal/service/docker_service.go through GetLabels, can miss the configured app and return an empty access-control object. internal/controller/proxy_controller.go proxyHandler then treats the empty user, group, OAuth, LDAP, and IP restrictions as permissive and returns an authenticated result for an app that should exclude the user. Unauthenticated users remain subject to login, and global login-time allowlists are not bypassed. This issue is fixed in version 5.1.2.",
+      "id": "CVE-2026-91827",
+      "published": "2026-09-22T07:16:31.093",
+      "description": "The Ninja Forms WordPress plugin 3.15.3 does not prevent user-submitted form field values from being deserialised when an administrator later exports form submissions to CSV, allowing unauthenticated attackers to perform PHP Object Injection; if a suitable POP chain is present via another installed plugin or theme, this can lead to actions such as arbitrary file operations or remote code execution.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-83621",
-      "published": "2026-09-21T17:19:08.590",
-      "description": "ntopng is a web-based network traffic monitoring application. Prior to 6.7.260717, POST /lua/rest/v2/edit/system/edit_blacklist.lua in scripts/lua/rest/v2/edit/system/edit_blacklist.lua lacks an administrator check and calls lists_utils.editList for any authenticated user. The list_name, list_enabled, url, and list_update parameters allow a non-admin user to redirect threat-intelligence downloads to attacker-controlled content, disable blocklists, or prevent scheduled updates. The changes are persisted through Redis and reloaded without a lower-level authorization guard, undermining the integrity and availability of ntopng's threat-intelligence monitoring. This issue is fixed in version 6.7.260717.",
+      "id": "CVE-2026-94491",
+      "published": "2026-09-22T01:16:56.077",
+      "description": "A weakness has been identified in Yonyou KSOA 9.0. This affects an unknown part of the file /cardcase/search_list.jsp. Executing a manipulation of the argument address can lead to sql injection. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-63334",
-      "published": "2026-09-21T17:17:39.220",
-      "description": "draw.io is a configurable diagramming and whiteboarding application. Prior to version 30.2.7, deployments with ENABLE_DRAWIO_PROXY=1 are vulnerable to server-side request forgery because src/main/java/com/mxgraph/online/Utils.java performs the private-address check in Utils.sanitizeUrl() using one DNS resolution, while src/main/java/com/mxgraph/online/ProxyServlet.java later calls URL.openConnection() and performs a second resolution. An attacker-controlled hostname can resolve to a public address during validation and then to a private, link-local, or cloud metadata address when the connection is opened. Successful exploitation can return cloud instance metadata or responses from internal HTTP services through the proxy. This issue is fixed in version 30.2.7.",
+      "id": "CVE-2026-12470",
+      "published": "2026-09-22T06:16:48.700",
+      "description": "The CMP – Coming Soon & Maintenance Plugin by NiteoThemes plugin for WordPress is vulnerable to unauthorized modification of data that can lead to privilege escalation due to a missing capability check on the 'cmp_ajax_import_settings' AJAX action in all versions up to, and including, 4.1.17. This makes it possible for authenticated attackers, with Editor-level access and above, to update arbitrary options on the WordPress site. This can be leveraged to update the default role for registration to administrator and enable user registration for attackers to gain administrative user access to a vulnerable site.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-89412",
+      "published": "2026-09-22T07:16:29.927",
+      "description": "The TranslatePress – Translate Multilingual sites with AI Translation plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Translation Memory Suggestion Panel (v-html on suggestion.original) in all versions up to, and including, 3.3.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Unauthenticated attackers can seed the translation dictionary's original column with executable HTML because the front-end rendering pipeline decodes entity-encoded payloads via html_entity_decode() before persistence, and the original column is deliberately exempt from kses filtering — meaning no save-time sanitizer neutralizes the stored payload before it is later rendered in an administrator's session.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-88788",
+      "published": "2026-09-22T06:16:49.777",
+      "description": "The Text Styler WordPress plugin through 1.1.1 does not sanitise and escape user-supplied styling values before outputting them within a front-end style block, and does not verify that a user may edit the target post, allowing users with contributor-level access or above to store JavaScript that executes in the browser of anyone viewing the affected post, including administrators.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-62370",
-      "published": "2026-09-21T17:17:36.957",
-      "description": "KubeEdge is an open source system for extending native containerized application orchestration capabilities to hosts at Edge. From 1.0.0 until 1.21.2, 1.22.2, and 1.23.1, Reader.Read in pkg/viaduct/pkg/packer trusts the 32-bit PackageHeader.PayloadLen received through the CloudHub viaduct message-processing path and allocates that amount of memory before validating an upper bound. An authenticated malicious or compromised edge peer can repeatedly send crafted headers with excessive declared lengths, causing memory exhaustion, CloudHub process termination or restart loops, and temporary disruption of cloud-edge communication. This issue does not provide unauthenticated access or direct code execution. This issue is fixed in versions 1.21.2, 1.22.2, and 1.23.1.",
+      "id": "CVE-2026-93711",
+      "published": "2026-09-22T01:16:55.847",
+      "description": "Dancer2 versions before 2.2.0 for Perl do not strip CR and LF from response header names in headers_to_array.\n\nThe routine removes CR and LF from each header value but not from the name. A name carrying them therefore reaches the PSGI server intact. A server that does not validate keys writes it to the wire, so the bytes after the CRLF arrive as their own header line.\n\nThe application has to derive the header name from request data, not just the value.\n\nAn attacker who controls that data adds their own headers and splits the response.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-59168",
-      "published": "2026-09-21T17:17:36.500",
-      "description": "Dasel is a command-line tool and library for querying, modifying, and transforming data structures. From 3.0.0 until 3.11.1, parsing/json/json_reader.go decodeValue, decodeObject, and decodeArray, and parsing/xml/reader.go parseElement, recurse once per input nesting level without a depth guard. Deeply nested attacker-controlled JSON or XML supplied through parsing.Format(...).NewReader(...).Read(data), the command-line interface, or the parse selector function can exhaust the Go goroutine stack and raise an unrecoverable fatal error that terminates the entire process. The XML input-size limit does not prevent depth exhaustion, and defer or recover cannot intercept the failure. This issue is fixed in version 3.11.1.",
+      "id": "CVE-2026-85653",
+      "published": "2026-09-22T06:16:49.597",
+      "description": "The Contextual Related Posts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'other_attributes' Block Parameter in all versions up to, and including, 4.4.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-62866",
-      "published": "2026-09-21T17:17:38.053",
-      "description": "Dasel is a command-line tool and library for querying, modifying, and transforming data structures. From 3.0.0 until 3.11.2, selector/lexer/tokenize.go parseCurRune advances the input index across trailing whitespace and then reads the source at the exhausted index without an end-of-input check. A selector ending in whitespace, including input passed through lexer.NewTokenizer(...).Tokenize() or dasel.Query, can therefore cause an index-out-of-range panic and terminate the process. This issue is fixed in version 3.11.2.",
+      "id": "CVE-2026-94492",
+      "published": "2026-09-22T01:16:56.253",
+      "description": "A security vulnerability has been detected in Yonyou U8cloud 5.x. This vulnerability affects unknown code of the file /u8cloud/openapi/so.saleorder.sendaudit of the component OpenAPI. The manipulation of the argument operator leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-58504",
-      "published": "2026-09-21T17:17:36.077",
-      "description": "draw.io is a configurable diagramming and whiteboarding application. Prior to version 30.2.5, opening or importing a crafted .drawio file can execute attacker-controlled JavaScript in the draw.io origin when selected cells are processed by TextFormatPanel.addFont() in src/main/webapp/js/grapheditor/Format.js. An HTML sibling cell keeps the formatted-label path enabled while an editable=0 plain-text sibling is excluded from the merged selection style but remains in the iteration set. graph.cellRenderer.getLabelValue() returns that plain-text label without HTML encoding, and mxUtils.canConvertHtmlToSvg() parses it as HTML, bypassing the earlier CVE-2026-46642 remediation. Successful exploitation can expose diagram data, browser storage, non-HttpOnly cookies, and same-origin actions available to the victim. This issue is fixed in version 30.2.5.",
+      "id": "CVE-2026-93655",
+      "published": "2026-09-22T06:16:49.893",
+      "description": "The Booking Calendar plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'wpbc_auto_fill' parameter in all versions up to, and including, 11.8.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "severity": "MEDIUM",
       "score": 6.1
     },
     {
-      "id": "CVE-2026-17051",
-      "published": "2026-09-21T17:17:34.207",
-      "description": "The Intel SEDI IPM (inter-processor mailbox) driver in drivers/ipm/ipm_sedi.c handles an inbound message interrupt in ipm_event_dispose(). It read the peer-written doorbell register, extracted the payload length with IPC_HEADER_GET_LENGTH(), and passed that length straight to sedi_ipc_read_msg() to copy the message into struct ipm_sedi_context.incoming_data_buf, without checking it against the buffer size. The doorbell length field is 10 bits wide (IPC_HEADER_LENGTH_MASK is 0x03FF), so it can encode up to 1023 bytes, while incoming_data_buf is IPC_DATA_LEN_MAX (128) bytes. The bounds check in the underlying HAL sedi_ipc_read_msg() is a DBG_CHECK that compiles away unless CONFIG_DEBUG is set, so no check remained in a production image.\n\nThe doorbell register is written by the peer processor on the other side of the IPC link — for the intel_ish_5_* targets, the host CPU's ISH driver, reached through the device's memory-mapped register window. Host-side software with driver-level or raw BAR access can therefore set a length of up to 1023 and cause the interrupt handler to copy far past the destination buffer. The affected path requires an application to have registered an IPM receive callback via ipm_register_callback(), which is the driver's normal mode of use.\n\nThe result is an out-of-bounds write of up to 895 bytes into static (.bss) memory, performed in interrupt context. The overflow first clobbers the rest of struct ipm_sedi_context — including the k_sem and k_mutex used by the transmit path, whose wait queues contain self-referential list pointers — and then adjacent static data, giving a kernel data-structure corruption and crash primitive. The overflowing bytes are read from registers following the message window, a portion of which are themselves peer-programmable. The fix rejects any doorbell whose encoded length exceeds IPC_DATA_LEN_MAX, logging it and acknowledging the doorbell so the peer is not left waiting.",
-      "severity": "MEDIUM",
-      "score": 6
-    },
-    {
-      "id": "CVE-2026-62987",
-      "published": "2026-09-21T17:17:38.340",
-      "description": "Fabio is an HTTP(S) and TCP router for deploying applications managed by consul. From 1.6.6 until 1.7.2, the CVE-2025-48865 fix in proxy/http_headers.go uses protectHeaders for a hardcoded set of forwarded headers but omits the operator-configured ClientIPHeader, TLSHeader, and RequestID names. In proxy/http_proxy.go, HTTPProxy.ServeHTTP calls addHeaders to set these trust headers before Go ReverseProxy processes the inbound Connection header, allowing an unauthenticated client to name and remove the configured headers before the request reaches the backend. Deployments that enable the corresponding proxy.header options can therefore lose client-IP, TLS-termination, or request-correlation signals used by backend authorization and auditing; the options are empty by default, and the hardcoded protected forwarded headers are unaffected. This issue is fixed in version 1.7.2.",
-      "severity": "MEDIUM",
-      "score": 5.8
-    },
-    {
-      "id": "CVE-2026-17050",
-      "published": "2026-09-21T17:17:34.020",
-      "description": "The experimental USB host stack allocates a per-device configuration-descriptor buffer, udev->cfg_desc, from the dedicated usb_device_heap in usbh_device_set_configuration() (subsys/usb/host/usbh_device.c). On three failure paths — a failed full-length GET_DESCRIPTOR(CONFIGURATION) read, a mismatch between the short and full descriptor reads, and a rejected descriptor in parse_configuration_descriptor() — the buffer was released with k_heap_free() but the pointer was left dangling. The cleanup in usbh_device_free() is guarded only by if (udev->cfg_desc != NULL), so it frees the same block a second time.\n\nThe path is driven entirely by the attached peripheral: usbh_device_connect() calls usbh_device_init(), which ends in usbh_device_set_configuration(), and on failure usbh_device_connect() calls usbh_device_free(). On v4.4.x this happens during the same enumeration, with no unplug required; on v4.1.0–v4.3.x the second free instead arrives via dev_removed_handler()/dev_connected_handler() in subsys/usb/host/usbh_core.c, so it requires a removal or duplicate-connect event after the failed enumeration — a sequence the attached device fully controls. A malicious or malformed USB device only has to answer the first 9-byte configuration-descriptor request with a well-formed header and then fail any of the three checks, for example by returning a full descriptor whose interface count disagrees with bNumInterfaces, or by answering the second read with different bytes.\n\nThe result is a double free on usb_device_heap. On builds where lib/heap hardening is active (the current default CONFIG_SYS_HEAP_HARDENING_BASIC), sys_heap_free() detects the already-free chunk and calls k_panic(), giving a deterministic, peripheral-triggered denial of service of the USB host. On builds without that detection — earlier releases, or CONFIG_SYS_HEAP_HARDENING_NONE — the second free manipulates a chunk already on the free list, corrupting the heap's free list so that later allocations can return overlapping or invalid blocks.\n\nExploitation beyond denial of service is bounded by the fact that usb_device_heap is a small dedicated heap (CONFIG_USBH_USB_DEVICE_HEAP, default 1024 bytes) whose only client is this descriptor buffer, and by CONFIG_USB_HOST_STACK being marked experimental and disabled by default. The fix sets udev->cfg_desc = NULL after every k_heap_free(), making the cleanup guard sound.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-77561",
-      "published": "2026-09-21T17:18:52.943",
-      "description": "Tinyauth is an authentication and authorization server. Prior to 5.1.0, an unauthenticated remote attacker can send POST /api/user/login requests with 257 distinct nonexistent usernames to fill MaxLoginAttemptRecords and activate a global login lockdown. internal/controller/user_controller.go loginHandler passes each attacker-controlled identifier to internal/service/auth_service.go RecordLoginAttempt, which invokes lockdownMode after the map reaches its cap. IsAccountLocked checks that global state before validating unrelated accounts, causing valid users to receive HTTP 429 until auth.loginTimeout expires, approximately 300 seconds by default. The attack can be repeated, but existing authenticated sessions are not invalidated. This issue is fixed in version 5.1.0.",
+      "id": "CVE-2026-76974",
+      "published": "2026-09-22T01:16:53.837",
+      "description": "SAP Fiori Launchpad does not sufficiently validate certain user-controlled input. An unauthenticated attacker could craft a malicious link that, when clicked by an authenticated user, causes the browser to load attacker-controlled content from an external location. This could be used to exfiltrate sensitive information from the victim's session, resulting in a high impact on confidentiality. There is no impact on integrity and availability.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-63373",
-      "published": "2026-09-21T17:17:39.367",
-      "description": "draw.io is a configurable diagramming and whiteboarding application. Prior to version 30.2.7, the OAuth callback handler in src/main/java/com/mxgraph/online/AbsAuth.java skips comparison of stateToken and cookieToken whenever IS_GAE is false, which affects self-hosted Docker and WAR deployments. An attacker can provide an authorization code for the attacker's cloud-storage identity and induce a victim to visit a callback URL, causing the victim's draw.io session to become authenticated as the attacker identity without a valid state binding. The shared handler affects Google Drive, OneDrive, GitHub, GitLab, and Dropbox integrations. The victim can then unknowingly perform cloud-storage actions under the attacker's identity, causing session integrity loss and misattribution, but the identity binding does not itself grant access to existing victim cloud files. This issue is fixed in version 30.2.7.",
+      "id": "CVE-2026-93709",
+      "published": "2026-09-22T01:16:55.610",
+      "description": "Dancer2 versions before 2.2.0 for Perl serve a layout as a page when an equivalent spelling of its path misses the guard in the AutoPage handler.\n\nThe handler compares the request path against the layout directory name as text, while the lookup that follows canonicalises it. A doubled slash, a dot segment, a percent-encoded slash, or a different capitalisation on a case-insensitive filesystem therefore misses the guard.\n\nThe handler is off by default, enabled with auto_page. The layout wrapping every page is already public, so this discloses one of the application's other layouts.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-63416",
-      "published": "2026-09-21T17:17:39.503",
-      "description": "draw.io is a configurable diagramming and whiteboarding application. Prior to version 30.2.7, src/main/java/com/mxgraph/online/ExportProxyServlet.java uses request.getPathInfo() to build a proxyPath and appends it directly to EXPORT_URL without rejecting dot segments or confirming that the normalized destination remains under the configured export path. An unauthenticated request containing traversal segments can therefore address unintended routes on the internal export server, and the servlet forwards all request headers and the request body to that destination, allowing arbitrary header injection. Depending on the export service configuration, exploitation can expose administration, debugging, health, or configuration endpoints and can permit unintended internal actions. This issue is fixed in version 30.2.7.",
+      "id": "CVE-2026-94490",
+      "published": "2026-09-22T00:16:32.360",
+      "description": "A security flaw has been discovered in OctoPrint 1.0.0. Affected by this issue is the function executeSystemCommand of the file src/octoprint/server/api/system.py of the component Command API. Performing a manipulation of the argument command results in os command injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-94489",
+      "published": "2026-09-22T00:16:32.187",
+      "description": "A vulnerability was identified in OctoPrint 1.0.0. Affected by this vulnerability is the function _validate of the file src/octoprint/server/api/files.py of the component File Download API. Such manipulation of the argument filename leads to path traversal. The attack may be performed from remote. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-94426",
+      "published": "2026-09-21T23:16:57.917",
+      "description": "A vulnerability was determined in xuxueli xxl-job up to 3.5.0. The impacted element is an unknown function of the file /jobgroup/insert. This manipulation of the argument Name causes cross site scripting. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-61674",
-      "published": "2026-09-21T17:17:36.663",
-      "description": "Fluent Bit is a fast and lightweight logs, metrics, and traces processor for Linux, BSD, macOS, and Windows. From 0.11.0 until 5.0.8, plugins/out_forward/forward.c secure_forward_pong copies the server-controlled PONG[2] reason into the 32-byte stack buffer msg with memcpy without checking its MessagePack type or length. An attacker who controls or can impersonate an out_forward Secure Forward destination configured with Shared_Key or Empty_Shared_Key can send an oversized reason during the first handshake and overwrite stack control data. Protected builds reliably terminate, while builds without a stack canary or with a disclosure can allow remote code execution as the Fluent Bit process user. When the opt-in --supervisor mode is used, fork-only respawns preserve the canary and address layout, allowing repeated crash-or-survive probes to support code execution on a hardened build; ordinary exec-based or service-manager restarts do not preserve that state. This issue is fixed in version 5.0.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76898",
-      "published": "2026-09-21T17:18:50.350",
-      "description": "draw.io is a configurable diagramming and whiteboarding application. Prior to version 30.3.8, src/main/java/com/mxgraph/online/Utils.java checks IPv6 Unique Local Addresses in Utils.sanitizeUrl() by comparing the text prefixes fc00:: and fd00::, but the JDK returns the expanded address form, so the fc00::/7 range, including the AWS metadata range fd00:ec2::/32, is not blocked. An unauthenticated request to /embed2.js?fetch= can therefore make src/main/java/com/mxgraph/online/EmbedServlet2.java fetch an IPv6 ULA internal resource and reflect the response to the requester. Utils.validatedAddress() uses the same private-address check for the separate ProxyServlet path, which requires ENABLE_DRAWIO_PROXY=1. The primary /embed2.js path requires no proxy feature flag or DNS rebinding, and it can disclose cloud metadata credentials or data from other IPv6-reachable internal services. This issue is fixed in version 30.3.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77582",
-      "published": "2026-09-21T17:18:53.110",
-      "description": "Tinyauth is an authentication and authorization server. Prior to 5.1.0, Tinyauth exposes a remotely observable timing difference between authentication attempts for existing and nonexistent local usernames. internal/controller/user_controller.go loginHandler and internal/middleware/context_middleware.go basicAuth return quickly after internal/service/auth_service.go reports a missing user, while an existing user causes bcrypt password verification work. Repeated measurements can therefore disclose valid usernames and support targeted credential attacks. This issue is fixed in version 5.1.0.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 3.5
     }
   ]
 }
