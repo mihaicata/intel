@@ -1,143 +1,143 @@
 {
-  "totalResults": 2907,
+  "totalResults": 2997,
   "items": [
     {
-      "id": "CVE-2026-25254",
-      "published": "2026-09-22T10:17:08.583",
-      "description": "Improper authorization leads to Remote Code Execution via SocketIO interface.",
+      "id": "CVE-2026-80143",
+      "published": "2026-09-22T16:17:57.543",
+      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a command injection vulnerability that allows authenticated attackers to execute arbitrary shell commands as root by exploiting an undocumented mfc eeprom read command that passes unsanitized user input to a system() call. Attackers can authenticate as any user to the terminal or CLI interface and inject malicious commands through the unsanitized parameter to achieve complete loss of confidentiality, integrity, and availability on the affected device and potentially impact downstream serial-attached devices.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-25255",
-      "published": "2026-09-22T10:17:08.847",
-      "description": "Exposed dangerous function lead to privilege escalation via gRPC server.",
+      "id": "CVE-2026-80144",
+      "published": "2026-09-22T16:17:59.303",
+      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a command injection vulnerability that allows authenticated attackers to execute arbitrary shell commands as root by exploiting an undocumented mfc eeprom write command that passes unsanitized user input to a system() call. Attackers can authenticate as any user to the terminal or CLI interface and inject malicious commands through the unsanitized parameter to achieve complete loss of confidentiality, integrity, and availability on the affected device and potentially impact downstream serial-attached devices.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-80146",
+      "published": "2026-09-22T16:18:00.720",
+      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a stack-based buffer overflow vulnerability that allows authenticated attackers to potentially execute arbitrary code by exploiting an undocumented mfc eeprom read command that copies unbounded user input into a bounded stack buffer before passing it to a system() call. Attackers can authenticate as any user to the terminal or CLI interface and supply an oversized input to trigger the overflow, potentially achieving complete loss of confidentiality, integrity, and availability on the affected device and impacting downstream serial-attached devices.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-80145",
+      "published": "2026-09-22T16:18:00.570",
+      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a command injection vulnerability that allows authenticated attackers with the services permission to execute arbitrary shell commands as root by exploiting the set cifs password command that passes unsanitized user input to a system() call. Attackers with the services permission can authenticate to the terminal or CLI interface and inject malicious commands through the unsanitized parameter to achieve complete loss of confidentiality, integrity, and availability on the affected device and potentially impact downstream serial-attached devices.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-70410",
+      "published": "2026-09-22T16:17:52.930",
+      "description": "Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection') vulnerability in Apache Calcite Avatica. Plugin instantiation (via AvaticaUtils#instantiatePlugin and other methods) initializes arbitrary classes via unrestricted calls to Class.forName(String) which by default triggers initialization. This may lead to the execution of static initializer blocks in arbitrary classes present in the classpath. The instantiation APIs should initialize and instantiate only classes implementing the specified plugin interface passed as input in conjunction with the desired classname. At the moment of writing, there are no well-known or widely used classes with dangerous static initializer blocks so the severity is low.\n\n\n\nThis issue affects Apache Calcite Avatica: before 1.29.0.\n\n\n\nUsers are recommended to upgrade to version 1.29.0, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-25264",
-      "published": "2026-09-22T10:17:09.110",
-      "description": "Privilege escalation due to weak configuration during package extraction process.",
+      "id": "CVE-2026-75607",
+      "published": "2026-09-22T16:17:54.430",
+      "description": "Frigate is an open source network video recorder. Prior to 0.17.2, the WebSocket handler in frigate/comms/ws.py forwards attacker-selected message topics to the dispatcher without checking the authenticated user's role because the nginx authentication subrequest does not provide role-aware authorization to the handler. Any authenticated viewer can send admin-only topics such as restart, notifications/set, and camera detection, recording, snapshot, audio, motion, and enablement settings, causing service restarts or disabling security monitoring functions. Authentication must be enabled and valid viewer credentials are required. This issue is fixed in version 0.17.2.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-25265",
-      "published": "2026-09-22T10:17:09.243",
-      "description": "Privilege escalation due to weak configuration while temporary file handling.",
+      "id": "CVE-2026-75608",
+      "published": "2026-09-22T16:17:54.607",
+      "description": "Frigate is an open source network video recorder. Prior to 0.18.0, the prefix-matched location /api/go2rtc/api in docker/main/rootfs/usr/local/nginx/conf/nginx.conf requires authentication but does not require an administrator role for GET requests, exposing the proxied go2rtc API to viewer users. An authenticated viewer can request the streams, config, log, and stack subpaths to obtain internal addresses, configuration paths, application logs, goroutine stack data, and RTSP stream URLs that may contain camera credentials. Non-GET methods remain blocked by limit_except GET. This issue is fixed in version 0.18.0.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-94117",
-      "published": "2026-09-22T10:17:10.167",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in DevItems HashBar – WordPress Notification Bar allows Blind SQL Injection.\n\nThis issue affects HashBar – WordPress Notification Bar: from n/a through 2.0.3.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2026-9231",
-      "published": "2026-09-22T09:17:06.353",
-      "description": "The WP Travel Engine – Tour Booking Plugin – Tour Operator Software plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 6.8.0 via the wte_get_template function. This makes it possible for authenticated attackers, with contributor-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-95508",
-      "published": "2026-09-22T09:17:06.073",
-      "description": "A heap-based buffer overflow was found in the DHCPv6 and TFTP response builders of libslirp. When the host is configured with a small interface MTU, a guest-supplied DHCPv6 CLIENTID option or TFTP blksize option can overflow the reply buffer with attacker-controlled content and length, resulting in denial of service and potentially arbitrary code execution in the host process. The default interface MTU is not affected.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-93928",
-      "published": "2026-09-22T09:17:05.940",
-      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Magepeople inc. Taxi Booking Manager for WooCommerce allows Authentication Bypass.\n\nThis issue affects Taxi Booking Manager for WooCommerce: from n/a before 2.0.8.",
+      "id": "CVE-2026-56681",
+      "published": "2026-09-22T16:17:48.350",
+      "description": "9Router is an AI router & token saver. Prior to 0.5.6, 9Router deployments that allow requests to reach Next.js without the sanitizing custom-server.js wrapper trust the client-supplied X-9r-Real-Ip header in src/dashboardGuard.js when isLocalRequest decides whether canAccessPublicLlmApi may skip API-key validation for /api/v1/* routes. A remote unauthenticated attacker can set X-9r-Real-Ip to 127.0.0.1 and be classified as a local client, including on the verified GET /api/v1/models route. This permits unauthorized use of the instance owner's configured LLM providers, consumption of paid credits, and enumeration of configured providers and models. This issue is fixed in version 0.5.6.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-25262",
-      "published": "2026-09-22T10:17:08.973",
-      "description": "Memory corruption while processing a crafted ELF file in the Primary Bootloader.",
+      "id": "CVE-2026-77633",
+      "published": "2026-09-22T16:17:55.817",
+      "description": "Cloudreve is a self-hosted file management and sharing system. Prior to 4.18.0, PrepareUpload in pkg/filemanager/fs/dbfs/upload.go checks a stale in-memory user storage value through validateUserCapacity and later applies an unconditional storage charge outside the same quota-enforcing transaction. An authenticated user with Files.Write permission can issue concurrent upload-session requests that read the same capacity snapshot, all pass the MaxStorage check, and reserve their declared sizes through CommitWithStorageDiff. The resulting reservations can exceed the account quota and can be materialized as chunked uploads that exhaust host storage and deny uploads to other users. The default local-storage policy and default User group are affected. This issue is fixed in version 4.18.0.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-79312",
+      "published": "2026-09-22T16:17:56.630",
+      "description": "webpy web.py 0.76 is vulnerable to Session Fixation. The component Session._load() reads session_id directly from the request cookie and loads that session from the store, and _save() writes back under the same session_id; no rotation after authentication, so a fixed session_id keeps the authenticated state.",
       "severity": "MEDIUM",
-      "score": 6.9
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-95623",
-      "published": "2026-09-22T11:17:27.357",
-      "description": "The Tauri HTTP plugin validates requested URLs against the application's configured scope allowlist only once, on the initial request. When the remote server responds with an HTTP 3xx redirect, reqwest follows the redirect internally without re-checking the new target URL against the scope. This allows an attacker who controls an allowed URL (or finds an open redirect on an allowed host) to reach disallowed destinations such as cloud metadata endpoints, localhost services, or internal network hosts.",
+      "id": "CVE-2026-75517",
+      "published": "2026-09-22T16:17:54.280",
+      "description": "Novu provides an API for sending notifications through multiple channels. Prior to 3.18.0, Novu integration mutation use cases including remove-integration, update-integration, auto-configure-integration, and set-integration-as-primary look up an integration by integrationId and organizationId without consistently enforcing environmentId. A caller with access to one environment in an organization can target an integration identifier from another environment and delete the integration, modify its credentials, change the primary provider, or trigger auto-configuration. The repository advisory defines both environment API keys and dashboard sessions as affected. The 3.18.0 change enforces the environment boundary only for environment-scoped API-key authentication, while its tests intentionally retain cross-environment dashboard-session behavior, so it does not completely remediate the advisory-defined scope. Version 3.18.0 is a partial fix attempt, and the dashboard-session behavior requires curator resolution.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-15095",
-      "published": "2026-09-22T09:17:04.333",
-      "description": "The Product Feed Manager for WooCommerce – CTX Feed – Support 220+ Shopping & Social Channels plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 6.6.43 via the 'provider' parameter. This makes it possible for authenticated attackers, with shop manager-level access and above, to delete arbitrary files on the server, which can lead to remote code execution when critical files are deleted. Exploitation requires two sequential REST API calls: first to /wp-json/ctxfeed/v1/make_feed/save_feed_config to persist the traversal payload in wp_options, then to /wp-json/ctxfeed/v1/manage_feeds/delete_feed to trigger the unlink(); deletion is further constrained to files whose extensions match the plugin's validated whitelist (csv, xml, tsv, xls, xlsx, json, txt).",
+      "id": "CVE-2026-79913",
+      "published": "2026-09-22T16:17:57.033",
+      "description": "Cloudreve is a self-hosted file management and sharing system. Prior to 4.18.0, the ValidateExternalURL server-side request forgery guard in pkg/request/ssrf.go passes resolved addresses to checkIP without decoding NAT64, IPv4-compatible, and 6to4 IPv4-in-IPv6 transition forms. An authenticated user with remote-download access can provide SrcUri through RemoteDownloadTask.createDownloadTask so a wrapper embedding a loopback, private, link-local, or cloud metadata IPv4 address is classified as public and fetched, exposing internal service responses and cloud instance credentials. IPv4-mapped IPv6 addresses remain blocked because Go converts that form with net.IP.To4. This issue is fixed in version 4.18.0.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-65634",
-      "published": "2026-09-22T09:17:05.090",
-      "description": "Inefficient algorithmic complexity in the Erlang/OTP asn1 OBJECT IDENTIFIER decoder allows a remote unauthenticated attacker to cause denial of service by sending a crafted OID during the TLS handshake.\n\nThe BER OID decoder asn1rtt_ber:dec_subidentifiers/3 in lib/asn1/src/asn1rtt_ber.erl and the equivalent PER helper asn1rtt_per_common:dec_subidentifiers/3 in lib/asn1/src/asn1rtt_per_common.erl accumulate a base-128 subidentifier into an unbounded integer using (Av bsl 7) + H per continuation byte. Each shift and addition on the growing accumulator is linear in the number of bits already accumulated, giving quadratic total work in the size of a single subidentifier. The JER helper asn1rtt_jer:json2oid/1 in lib/asn1/src/asn1rtt_jer.erl exhibits the same class of unbounded-integer parsing when decoding a dot-separated OID from JSON. A DER-encoded OBJECT IDENTIFIER with one very large arc (approximately 262 KB of continuation bytes) consumes roughly 13 seconds of CPU on typical hardware.\n\nThe vulnerable decoder is generated into every ASN.1 module that contains an OBJECT IDENTIFIER, including OTP-PUB-KEY which is reached during X.509 certificate parsing via public_key:pkix_decode_cert/2. This decoder runs before any signature or trust chain verification, so any Erlang service that parses peer TLS certificates is exposed: the default for TLS clients (which always parse the server certificate) and for mutual-TLS servers (which parse client certificates).\n\nThis vulnerability is associated with program files lib/asn1/src/asn1rtt_ber.erl, lib/asn1/src/asn1rtt_per_common.erl and lib/asn1/src/asn1rtt_jer.erl and program routines asn1rtt_ber:dec_subidentifiers/3, asn1rtt_per_common:dec_subidentifiers/3 and asn1rtt_jer:json2oid/1.\n\nThis issue affects OTP from OTP 17.0 before OTP 27.3.4.18, OTP 28.5.0.7, and OTP 29.1.1, corresponding to asn1 from 3.0 before 5.3.4.3, 5.4.3.1, and 5.5.2. Whether OTP before OTP 17.0, corresponding to asn1 before 3.0, is affected is unknown.",
+      "id": "CVE-2026-77637",
+      "published": "2026-09-22T16:17:55.990",
+      "description": "Cloudreve is a self-hosted file management and sharing system. Prior to 4.18.0, tool.GET(\"wopi\") and tool.POST(\"mail\") in routers/router.go inherit ScopeAdminRead but omit the RequiredScopes(types.ScopeAdminWrite) middleware applied to neighboring state-changing admin tool routes. An OAuth application or API key limited to Admin.Read can therefore probe configured WOPI service endpoints and send arbitrary test email through the server SMTP configuration, exceeding the token's intended read-only authorization boundary. This issue is fixed in version 4.18.0.",
+      "severity": "LOW",
+      "score": 3.8
+    },
+    {
+      "id": "CVE-2026-63374",
+      "published": "2026-09-22T16:17:50.680",
+      "description": "AnyIO is a high level asynchronous concurrency and networking framework that works on top of either Trio or asyncio. Prior to 4.14.2, connect_tcp() and TLSStream.wrap() can validate internationalized host names after the standard library converts them with IDNA 2003 instead of IDNA 2008. When a connection to a non-ASCII domain is hijacked or redirected, an attacker can obtain a legitimate certificate for the different ASCII hostname produced by IDNA 2003 and present it to the client, causing the malicious endpoint's certificate to validate. This issue is fixed in version 4.14.2.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-68956",
-      "published": "2026-09-22T09:17:05.313",
-      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Erlang/OTP ssh allows an authenticated remote attacker to exhaust node memory by repeatedly opening session channels that are never assigned a handler.\n\nThe \"session\" clause of ssh_connection:handle_msg/4 checks only minimal_remote_max_packet_size before calling setup_session/5, which unconditionally builds a #channel{} record and stores it in the ETS channel cache. The max_channels daemon option is consulted only by ssh_channel_sup:max_num_channels_not_exceeded/2, which counts supervisor children, so a channel that never gets a shell, exec, or subsystem handler is invisible to the limit and setting the option to a finite value does not mitigate the attack. RFC 4254 section 5.1 permits many session channels per connection, and each record costs only a few hundred bytes, so a single authenticated connection can accumulate channels until the node runs out of memory and the emulator terminates, affecting every application on it. No file contents, credentials, or write access are obtainable.\n\nThis issue affects OTP from OTP 18.1.2 before OTP 27.3.4.18, OTP 28.5.0.7, and OTP 29.1.1, corresponding to ssh from 4.1.1 before 5.2.11.13, 5.5.2.6, and 6.0.6. Whether OTP before OTP 18.1.2, corresponding to ssh before 4.1.1, is affected is unknown.",
+      "id": "CVE-2026-75510",
+      "published": "2026-09-22T16:17:53.950",
+      "description": "Novu provides an API for sending notifications through multiple channels. Prior to 3.18.0, Novu's @novu/js In-App Inbox and the @novu/react Inbox component accept a notification call-to-action redirect.url from the v1 cta.data object and pass it through apps/api/src/app/inbox/utils/notification-mapper.ts and packages/js/src/ui/components/Notification/DefaultNotification.tsx to the navigate function in packages/js/src/ui/context/InboxContext.tsx without validating its URL scheme. An authenticated organization member or environment API-key holder can store a javascript: redirect with target _self in an in-app workflow. When a recipient using a Chromium-based browser clicks the notification, window.open executes the redirect in the current inbox-hosting origin, which can expose session material and permit authenticated actions in a customer application or the self-hosted Novu dashboard. This issue is fixed in version 3.18.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-89422",
-      "published": "2026-09-22T09:17:05.540",
-      "description": "Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer that answers a TLS 1.3 client connection to impersonate the intended server. A pre_shared_key extension in the ServerHello that the client never offered causes the client to complete the handshake without validating the server's certificate, so ssl:connect returns {ok, Socket} against a peer holding no certificate, no private key and no prior session.\n\ntls_client_connection_1_3:handle_server_hello/2 passes the received extension to tls_gen_connection_1_3:handle_resumption/2, which sets resumption = true on its mere presence without checking that the client offered a PSK. tls_handshake_1_3:get_pre_shared_key/4 meanwhile falls back to the all-zero \"no PSK\" value and keys the handshake with the ordinary non-PSK schedule, so the attacker's own ephemeral key suffices. The resumption flag then routes maybe_resumption/1 straight to wait_finished, skipping the certificate-handling states, so certificate path validation, verify_fun, hostname verification, partial_chain, CRL checking and OCSP stapling are all bypassed. The default client configuration is affected; clients restricted to TLS 1.2 are not.\n\nThis issue affects OTP from OTP 22.2 before OTP 27.3.4.18, OTP 28.5.0.7, and OTP 29.1.1, corresponding to ssl from 9.5 before 11.2.12.13, 11.6.0.6, and 11.7.7.",
+      "id": "CVE-2026-75511",
+      "published": "2026-09-22T16:17:54.110",
+      "description": "Novu provides an API for sending notifications through multiple channels. Prior to 3.18.0, Novu accepts chat webhook URLs from subscriber credentials.webhookUrl, channel endpoint endpoint.url, event payload.webhookUrl, and event overrides.webhookUrl, then passes the selected endpoint.url through send-message-chat.usecase.ts to raw HTTP requests in the Slack, Discord, Mattermost, Microsoft Teams, Grafana On-Call, Ryver, Rocket.Chat, GetStream, and Zulip providers. An authenticated user can supply an internal or otherwise restricted destination because these paths do not apply normalizeOutboundHttpUrl, assertSafeOutboundUrl, or the DNS-pinned safeOutboundJsonRequest protection used by the generic webhook providers. The Novu worker can consequently issue attacker-directed POST requests to internal network services and cause interactions or actions supported by those services. This issue is fixed in version 3.18.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-93556",
-      "published": "2026-09-22T09:17:05.800",
-      "description": "The ‘/password/guardarClau/recover’ endpoint accepts the ‘usuariId’ parameter, which specifies the account whose password is to be changed. The JWT token for the recovery process is not validated against the user specified in that parameter. An unauthenticated attacker could manipulate the identifier and reset the password for any account, including administrative accounts, which could allow them to take control of the account.",
+      "id": "CVE-2026-77619",
+      "published": "2026-09-22T16:17:55.333",
+      "description": "Vector is a high-performance observability data pipeline. From 0.15.0 until 0.57.0, the logstash source reads a 32-bit compressed-frame length from the network and uses it to size an in-memory buffer without an upper bound. An unauthenticated remote peer that can reach the default 0.0.0.0:5044 listener can send a minimal frame declaring a multi-gigabyte payload, causing an excessive allocation that can abort Vector or invoke the host OOM killer. Because the allocation follows the declared length rather than bytes transmitted, the attacker has low resource cost, and process termination can halt log ingestion for every tenant on a shared pipeline. This issue is fixed in version 0.57.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-95511",
-      "published": "2026-09-22T09:17:06.217",
-      "description": "Rejected reason: Not a vulnerability. Creating a serial queue that overwrites cups-files.conf requires membership in SystemGroups (lpadmin), which is an opt-in cupsd admin role granted by a superuser. No privilege boundary is crossed.",
+      "id": "CVE-2026-77620",
+      "published": "2026-09-22T16:17:55.500",
+      "description": "Vector is a high-performance observability data pipeline. From 0.15.0 until 0.57.0, the logstash source feeds each decompressed frame back into its decoder without limiting nested compression depth. An unauthenticated remote peer that can reach the default 0.0.0.0:5044 listener can send many nested compressed frames, causing recursive decoding that exhausts the worker thread stack and aborts the process. The same nested construction amplifies decompressed input, and process termination can halt log ingestion for every tenant on a shared pipeline. This issue is fixed in version 0.57.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-90882",
-      "published": "2026-09-22T10:17:10.000",
-      "description": "The open-vsx.org deployment returned Access-Control-Allow-Origin reflecting the requesting origin together with Access-Control-Allow-Credentials: true on the authenticated /user/ endpoints. A page on any origin could therefore issue credentialed requests to the service in a logged-in user's browser and read the responses.\n\n\n\nThis exposed /user (login name, avatar, homepage, tokens URL), /user/tokens, /user/namespaces, /user/extensions, /user/search/{name} and /user/namespace/{name}/members, and — because /user/csrf was readable the same way — allowed the CSRF protection on write endpoints to be defeated. Chaining the two, an attacker page could call /user/token/create and exfiltrate a personal access token carrying publish and delete rights over the victim's namespaces.\n\n\n\nThe headers were emitted by the CDN/edge layer, not by the application: the Open VSX software sets allowCredentials(true) in exactly one place, against a single exact origin derived from ovsx.webui.url, and defines no CORS mapping on /user/ beyond it. No configuration of the software produces origin reflection with credentials.",
+      "id": "CVE-2026-77621",
+      "published": "2026-09-22T16:17:55.670",
+      "description": "Vector is a high-performance observability data pipeline. From 0.10.0 until 0.57.0, the file sink renders its templated path from event fields and opens the result without confining it to an intended directory. When an untrusted source supplies an event field used by the path template, the value can contain an absolute path or parent-directory traversal, causing Vector to create parent directories and create or overwrite files outside the intended location with the Vector process privileges. The resulting file write can modify sensitive files and can lead to code execution when a scheduled task, authorization file, or subsequently executed script is targeted. This issue is fixed in version 0.57.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-90990",
-      "published": "2026-09-22T11:17:25.960",
-      "description": "Improper neutralization of newlines in filter values in the monitoring host and service list APIs in Checkmk <2.5.0p14 allows an authenticated user to inject additional Livestatus query headers, bypassing object visibility restrictions in count queries to infer information about hosts and services outside their contact groups and occupying web server and Livestatus workers for an attacker-controlled duration.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-92882",
-      "published": "2026-09-22T11:17:26.497",
-      "description": "Insufficiently protected credentials in the host and folder configuration endpoints of the REST API in Checkmk <2.5.0p15, <2.4.0p37, <2.3.0p51 and 2.2.0 (EOL) allows an authenticated user who may view a host's configuration to read stored SNMP community strings, SNMPv3 auth and privacy pass phrases and IPMI passwords in clear text from GET responses, although the setup GUI never displays these values.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-63272",
-      "published": "2026-09-22T12:17:11.853",
-      "description": "LibreOffice can import WMF graphics, which may be embedded in documents. A heap buffer overflow existed when importing a text record that carries its own character advance widths. The count of advance values and the length of the text were read separately from the file and were not required to agree, so drawing the text walked the advance array by character position and ran past its end when the array was the shorter of the two. In fixed versions an advance array shorter than its text is ignored.",
+      "id": "CVE-2026-79311",
+      "published": "2026-09-22T16:17:56.513",
+      "description": "webpy web.py 0.76 is vulnerable to Cross Site Scripting (XSS) via render_jinja.__init__().",
       "severity": "UNKNOWN",
       "score": null
     }
