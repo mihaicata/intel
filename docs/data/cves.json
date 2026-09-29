@@ -1,143 +1,143 @@
 {
-  "totalResults": 2997,
+  "totalResults": 3086,
   "items": [
     {
-      "id": "CVE-2026-80143",
-      "published": "2026-09-22T16:17:57.543",
-      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a command injection vulnerability that allows authenticated attackers to execute arbitrary shell commands as root by exploiting an undocumented mfc eeprom read command that passes unsanitized user input to a system() call. Attackers can authenticate as any user to the terminal or CLI interface and inject malicious commands through the unsanitized parameter to achieve complete loss of confidentiality, integrity, and availability on the affected device and potentially impact downstream serial-attached devices.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-80144",
-      "published": "2026-09-22T16:17:59.303",
-      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a command injection vulnerability that allows authenticated attackers to execute arbitrary shell commands as root by exploiting an undocumented mfc eeprom write command that passes unsanitized user input to a system() call. Attackers can authenticate as any user to the terminal or CLI interface and inject malicious commands through the unsanitized parameter to achieve complete loss of confidentiality, integrity, and availability on the affected device and potentially impact downstream serial-attached devices.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-80146",
-      "published": "2026-09-22T16:18:00.720",
-      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a stack-based buffer overflow vulnerability that allows authenticated attackers to potentially execute arbitrary code by exploiting an undocumented mfc eeprom read command that copies unbounded user input into a bounded stack buffer before passing it to a system() call. Attackers can authenticate as any user to the terminal or CLI interface and supply an oversized input to trigger the overflow, potentially achieving complete loss of confidentiality, integrity, and availability on the affected device and impacting downstream serial-attached devices.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-80145",
-      "published": "2026-09-22T16:18:00.570",
-      "description": "Lantronix SLC8000/SLC9000 before firmware v9.7.0.2, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain a command injection vulnerability that allows authenticated attackers with the services permission to execute arbitrary shell commands as root by exploiting the set cifs password command that passes unsanitized user input to a system() call. Attackers with the services permission can authenticate to the terminal or CLI interface and inject malicious commands through the unsanitized parameter to achieve complete loss of confidentiality, integrity, and availability on the affected device and potentially impact downstream serial-attached devices.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-70410",
-      "published": "2026-09-22T16:17:52.930",
-      "description": "Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection') vulnerability in Apache Calcite Avatica. Plugin instantiation (via AvaticaUtils#instantiatePlugin and other methods) initializes arbitrary classes via unrestricted calls to Class.forName(String) which by default triggers initialization. This may lead to the execution of static initializer blocks in arbitrary classes present in the classpath. The instantiation APIs should initialize and instantiate only classes implementing the specified plugin interface passed as input in conjunction with the desired classname. At the moment of writing, there are no well-known or widely used classes with dangerous static initializer blocks so the severity is low.\n\n\n\nThis issue affects Apache Calcite Avatica: before 1.29.0.\n\n\n\nUsers are recommended to upgrade to version 1.29.0, which fixes the issue.",
+      "id": "CVE-2026-67615",
+      "published": "2026-09-22T21:17:31.100",
+      "description": "openEQUELLA before 2026.1.0 contains an authenticated remote code execution vulnerability that allows any authenticated non-guest user to execute arbitrary code by exploiting Java deserialization in the HTTP invoker endpoint at /invoker/*. Attackers can bypass the class-name denylist enforced by PluginAwareObjectInputStream by nesting a serialized payload inside a java.security.SignedObject, causing the inner stream to be deserialized by a separate ObjectInputStream that does not apply the denylist, ultimately reaching a JNDI sink and enabling code execution.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-75607",
-      "published": "2026-09-22T16:17:54.430",
-      "description": "Frigate is an open source network video recorder. Prior to 0.17.2, the WebSocket handler in frigate/comms/ws.py forwards attacker-selected message topics to the dispatcher without checking the authenticated user's role because the nginx authentication subrequest does not provide role-aware authorization to the handler. Any authenticated viewer can send admin-only topics such as restart, notifications/set, and camera detection, recording, snapshot, audio, motion, and enablement settings, causing service restarts or disabling security monitoring functions. Authentication must be enabled and valid viewer credentials are required. This issue is fixed in version 0.17.2.",
+      "id": "CVE-2026-91018",
+      "published": "2026-09-22T21:17:33.290",
+      "description": "lwIP (Lightweight IP) has a double free vulnerability, which could crash the system, cause a DoS, memory corruption, or allow code execution on the victim system.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-95814",
+      "published": "2026-09-22T21:17:34.417",
+      "description": "Vaultwarden through 1.37.3 omits organization membership status validation from three cipher access-restriction queries, allowing revoked and not-yet-confirmed members to retain read, write, delete, and attachment access to organization ciphers. Attackers with revoked or pending membership can exploit missing status filters in get_user_collections_access_flags, get_group_collections_access_flags, and is_in_full_access_group to access protected cipher data server-side.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-75608",
-      "published": "2026-09-22T16:17:54.607",
-      "description": "Frigate is an open source network video recorder. Prior to 0.18.0, the prefix-matched location /api/go2rtc/api in docker/main/rootfs/usr/local/nginx/conf/nginx.conf requires authentication but does not require an administrator role for GET requests, exposing the proxied go2rtc API to viewer users. An authenticated viewer can request the streams, config, log, and stack subpaths to obtain internal addresses, configuration paths, application logs, goroutine stack data, and RTSP stream URLs that may contain camera credentials. Non-GET methods remain blocked by limit_except GET. This issue is fixed in version 0.18.0.",
+      "id": "CVE-2026-94450",
+      "published": "2026-09-22T21:17:33.867",
+      "description": "Improper validation of the Destination Connection ID length in s2n-quic 1.88.0 and earlier may allow an unauthenticated remote user to cause a denial of service by shutting down a server endpoint via a single crafted UDP datagram. Only server endpoints specifically configured to send Retry packets are affected.\n\n\n\nTo remediate this issue, users should upgrade to version v1.89.0 or later.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-56681",
-      "published": "2026-09-22T16:17:48.350",
-      "description": "9Router is an AI router & token saver. Prior to 0.5.6, 9Router deployments that allow requests to reach Next.js without the sanitizing custom-server.js wrapper trust the client-supplied X-9r-Real-Ip header in src/dashboardGuard.js when isLocalRequest decides whether canAccessPublicLlmApi may skip API-key validation for /api/v1/* routes. A remote unauthenticated attacker can set X-9r-Real-Ip to 127.0.0.1 and be classified as a local client, including on the verified GET /api/v1/models route. This permits unauthorized use of the instance owner's configured LLM providers, consumption of paid credits, and enumeration of configured providers and models. This issue is fixed in version 0.5.6.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-77633",
-      "published": "2026-09-22T16:17:55.817",
-      "description": "Cloudreve is a self-hosted file management and sharing system. Prior to 4.18.0, PrepareUpload in pkg/filemanager/fs/dbfs/upload.go checks a stale in-memory user storage value through validateUserCapacity and later applies an unconditional storage charge outside the same quota-enforcing transaction. An authenticated user with Files.Write permission can issue concurrent upload-session requests that read the same capacity snapshot, all pass the MaxStorage check, and reserve their declared sizes through CommitWithStorageDiff. The resulting reservations can exceed the account quota and can be materialized as chunked uploads that exhaust host storage and deny uploads to other users. The default local-storage policy and default User group are affected. This issue is fixed in version 4.18.0.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-79312",
-      "published": "2026-09-22T16:17:56.630",
-      "description": "webpy web.py 0.76 is vulnerable to Session Fixation. The component Session._load() reads session_id directly from the request cookie and loads that session from the store, and _save() writes back under the same session_id; no rotation after authentication, so a fixed session_id keeps the authenticated state.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-75517",
-      "published": "2026-09-22T16:17:54.280",
-      "description": "Novu provides an API for sending notifications through multiple channels. Prior to 3.18.0, Novu integration mutation use cases including remove-integration, update-integration, auto-configure-integration, and set-integration-as-primary look up an integration by integrationId and organizationId without consistently enforcing environmentId. A caller with access to one environment in an organization can target an integration identifier from another environment and delete the integration, modify its credentials, change the primary provider, or trigger auto-configuration. The repository advisory defines both environment API keys and dashboard sessions as affected. The 3.18.0 change enforces the environment boundary only for environment-scoped API-key authentication, while its tests intentionally retain cross-environment dashboard-session behavior, so it does not completely remediate the advisory-defined scope. Version 3.18.0 is a partial fix attempt, and the dashboard-session behavior requires curator resolution.",
+      "id": "CVE-2026-96260",
+      "published": "2026-09-22T21:17:35.027",
+      "description": "Mattermost versions 11.9.x <= 11.9.1, 11.8.x <= 11.8.5, 11.7.x <= 11.7.10, 11.10.x <= 11.10.1 fail to enforce a request body size limit during CSRF validation of plugin requests which allows an authenticated user to exhaust server memory and cause a denial of service via a large request body sent to a plugin endpoint.. Mattermost Advisory ID: MMSA-2026-00775",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-79913",
-      "published": "2026-09-22T16:17:57.033",
-      "description": "Cloudreve is a self-hosted file management and sharing system. Prior to 4.18.0, the ValidateExternalURL server-side request forgery guard in pkg/request/ssrf.go passes resolved addresses to checkIP without decoding NAT64, IPv4-compatible, and 6to4 IPv4-in-IPv6 transition forms. An authenticated user with remote-download access can provide SrcUri through RemoteDownloadTask.createDownloadTask so a wrapper embedding a loopback, private, link-local, or cloud metadata IPv4 address is classified as public and fetched, exposing internal service responses and cloud instance credentials. IPv4-mapped IPv6 addresses remain blocked because Go converts that form with net.IP.To4. This issue is fixed in version 4.18.0.",
+      "id": "CVE-2026-95815",
+      "published": "2026-09-22T21:17:34.583",
+      "description": "OpenClaw iOS before 2026.8.11 logs complete agent deep-link URLs including persistent bearer keys to unified logs as public diagnostic data. Attackers who obtain diagnostic archives can recover unrotated keys and replay them in forged deep links to submit agent requests without local confirmation prompts.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-77637",
-      "published": "2026-09-22T16:17:55.990",
-      "description": "Cloudreve is a self-hosted file management and sharing system. Prior to 4.18.0, tool.GET(\"wopi\") and tool.POST(\"mail\") in routers/router.go inherit ScopeAdminRead but omit the RequiredScopes(types.ScopeAdminWrite) middleware applied to neighboring state-changing admin tool routes. An OAuth application or API key limited to Admin.Read can therefore probe configured WOPI service endpoints and send arbitrary test email through the server SMTP configuration, exceeding the token's intended read-only authorization boundary. This issue is fixed in version 4.18.0.",
+      "id": "CVE-2026-88020",
+      "published": "2026-09-22T21:17:33.057",
+      "description": "Autonomy Logic OpenPLC 3 is susceptible to an improper neutralization of input during web page generation vulnerability when the web interface attempts to route the program based on a query string parameter with no encoding.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-95812",
+      "published": "2026-09-22T21:17:34.030",
+      "description": "ClipBucket v5 before 5.5.3-#182 contains a reflected cross-site scripting vulnerability in the sort_link() helper function that fails to sanitize cat, sort, and time query parameters. Attackers can craft malicious requests with injected script payloads in these parameters to execute arbitrary JavaScript in victims' browsers under the application origin.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-95813",
+      "published": "2026-09-22T21:17:34.217",
+      "description": "e621ng versions before 26.09.16 pass untrusted request parameters directly to Rails url_for in PaginatorComponent and controller navigation links, allowing attackers to redirect pagination and navigation controls to attacker-controlled origins. Attackers can supply host, protocol, and port query parameters that are interpreted as URL generation options, causing pagination links to point to malicious domains while the initial page loads from the legitimate site.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-96259",
+      "published": "2026-09-22T21:17:34.910",
+      "description": "Mattermost versions 11.9.x <= 11.9.1, 11.8.x <= 11.8.5, 11.7.x <= 11.7.10, 11.10.x <= 11.10.1 fail to apply the internal-connection filter to OAuth endpoint requests, which allows a System Administrator to make the server issue requests to internal network addresses and read the responses via the configured OAuth token and userinfo endpoints.. Mattermost Advisory ID: MMSA-2026-00776",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-77425",
+      "published": "2026-09-22T21:17:32.177",
+      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, POST /api/admin/projects/:projectId/features/:featureName/environments/:environment/strategies/set-sort-order passes attacker-controlled strategy IDs to unprotectedUpdateStrategiesSortOrder and updateSortOrder without verifying that the IDs belong to the project, feature, and environment authorized by the URL. In a multi-project Pro or Enterprise deployment, an authenticated user with UPDATE_FEATURE_STRATEGY in one project who knows another project's strategy IDs can reorder those strategies, changing feature evaluation precedence while the operation is attributed to the attacker's URL context rather than the affected project. The single-project OSS edition lacks the cross-project dimension, although the missing context binding still permits unauthorized reordering across features or environments in the default project. The endpoint changes only sort_order and does not modify strategy parameters, constraints, or segments. This issue is fixed in version 8.0.3.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-62364",
+      "published": "2026-09-22T21:17:30.743",
+      "description": "wlc is a Weblate command-line client using Weblate's REST API. Prior to 2.0.1, automatically discovered configuration from .weblate, .weblate.ini, or weblate.ini can select the API URL while an unscoped API token is supplied through WLC_KEY or --key without a matching WLC_URL or --url. When wlc runs in an untrusted repository, pull request checkout, or directory with untrusted ancestor configuration, it can send the token to an attacker-controlled project-configured URL. URL-scoped keys in [keys] are not affected. This issue is fixed in version 2.0.1.",
       "severity": "LOW",
-      "score": 3.8
+      "score": 2.3
     },
     {
-      "id": "CVE-2026-63374",
-      "published": "2026-09-22T16:17:50.680",
-      "description": "AnyIO is a high level asynchronous concurrency and networking framework that works on top of either Trio or asyncio. Prior to 4.14.2, connect_tcp() and TLSStream.wrap() can validate internationalized host names after the standard library converts them with IDNA 2003 instead of IDNA 2008. When a connection to a non-ASCII domain is hijacked or redirected, an attacker can obtain a legitimate certificate for the different ASCII hostname produced by IDNA 2003 and present it to the client, causing the malicious endpoint's certificate to validate. This issue is fixed in version 4.14.2.",
+      "id": "CVE-2026-75101",
+      "published": "2026-09-22T21:17:31.253",
+      "description": "An authorization bypass vulnerability was identified in GitHub Enterprise Server that allowed any authenticated user of the instance to read the raw diff or patch of pull requests in private repositories without authorization. Access tokens for raw pull request diffs and patches were scoped to the repository name and pull request number rather than to a globally unique repository identifier, so an attacker who created a repository and pull request matching a target's repository name and pull request number could use a token for their own repository to retrieve the private pull request's contents. Exploitation required the attacker to know the target repository's name and a valid pull request number. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.22 and was fixed in versions 3.17.21, 3.18.15, 3.19.12, 3.20.8, and 3.21.6. This vulnerability was reported via the GitHub Bug Bounty program.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-75510",
-      "published": "2026-09-22T16:17:53.950",
-      "description": "Novu provides an API for sending notifications through multiple channels. Prior to 3.18.0, Novu's @novu/js In-App Inbox and the @novu/react Inbox component accept a notification call-to-action redirect.url from the v1 cta.data object and pass it through apps/api/src/app/inbox/utils/notification-mapper.ts and packages/js/src/ui/components/Notification/DefaultNotification.tsx to the navigate function in packages/js/src/ui/context/InboxContext.tsx without validating its URL scheme. An authenticated organization member or environment API-key holder can store a javascript: redirect with target _self in an in-app workflow. When a recipient using a Chromium-based browser clicks the notification, window.open executes the redirect in the current inbox-hosting origin, which can expose session material and permit authenticated actions in a customer application or the self-hosted Novu dashboard. This issue is fixed in version 3.18.0.",
+      "id": "CVE-2026-76909",
+      "published": "2026-09-22T21:17:31.880",
+      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, the change-request approval email template at src/mailtemplates/requested-cr-approval/requested-cr-approval.html.mustache renders the user-controlled changeRequestTitle, requesterName, and requesterEmail values without HTML escaping, and sendRequestedCRApprovalEmail passes those values to Mustache rendering. A project member who can create a change request when approval emails are enabled can inject HTML into an approver's notification, allowing forged links, tracking content, or visually altered email content. This issue is fixed in version 8.0.3.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-75511",
-      "published": "2026-09-22T16:17:54.110",
-      "description": "Novu provides an API for sending notifications through multiple channels. Prior to 3.18.0, Novu accepts chat webhook URLs from subscriber credentials.webhookUrl, channel endpoint endpoint.url, event payload.webhookUrl, and event overrides.webhookUrl, then passes the selected endpoint.url through send-message-chat.usecase.ts to raw HTTP requests in the Slack, Discord, Mattermost, Microsoft Teams, Grafana On-Call, Ryver, Rocket.Chat, GetStream, and Zulip providers. An authenticated user can supply an internal or otherwise restricted destination because these paths do not apply normalizeOutboundHttpUrl, assertSafeOutboundUrl, or the DNS-pinned safeOutboundJsonRequest protection used by the generic webhook providers. The Novu worker can consequently issue attacker-directed POST requests to internal network services and cause interactions or actions supported by those services. This issue is fixed in version 3.18.0.",
+      "id": "CVE-2026-76910",
+      "published": "2026-09-22T21:17:32.037",
+      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, cloneFeatureToggle and POST /api/admin/projects/:projectId/features/:featureName/clone authorize creation in the destination project but do not verify access to the source project. Because feature names are globally unique, a user with create or clone permission in one project who knows or guesses another project's feature name can copy that feature into the authorized project and inspect its strategy parameters, constraints, variants, and variant payloads. This issue is fixed in version 8.0.3.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-77619",
-      "published": "2026-09-22T16:17:55.333",
-      "description": "Vector is a high-performance observability data pipeline. From 0.15.0 until 0.57.0, the logstash source reads a 32-bit compressed-frame length from the network and uses it to size an in-memory buffer without an upper bound. An unauthenticated remote peer that can reach the default 0.0.0.0:5044 listener can send a minimal frame declaring a multi-gigabyte payload, causing an excessive allocation that can abort Vector or invoke the host OOM killer. Because the allocation follows the declared length rather than bytes transmitted, the attacker has low resource cost, and process termination can halt log ingestion for every tenant on a shared pipeline. This issue is fixed in version 0.57.0.",
+      "id": "CVE-2026-77426",
+      "published": "2026-09-22T21:17:32.327",
+      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, the Unleash admin API contains five authorization vulnerabilities. POST /api/admin/segments/strategies assigns the Promise returned by hasPermission without awaiting it, allowing authenticated users to modify segment assignments without UPDATE_FEATURE_STRATEGY permission for the target project and environment. GET /api/admin/projects/:projectId/features/:featureName/environments/:environment/variants does not bind the requested feature to projectId, allowing cross-project variant configuration disclosure. GET .../strategies/:strategyId uses strategyId without validating the project and feature context, allowing cross-project strategy configuration disclosure. getEnvironmentInfo does not validate that the requested feature belongs to the supplied project, allowing cross-project environment information disclosure. PUT /:projectId/tags accepts feature identifiers without verifying that they belong to the URL project, allowing cross-project tag modification. This issue is fixed in version 8.0.3.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-77620",
-      "published": "2026-09-22T16:17:55.500",
-      "description": "Vector is a high-performance observability data pipeline. From 0.15.0 until 0.57.0, the logstash source feeds each decompressed frame back into its decoder without limiting nested compression depth. An unauthenticated remote peer that can reach the default 0.0.0.0:5044 listener can send many nested compressed frames, causing recursive decoding that exhausts the worker thread stack and aborts the process. The same nested construction amplifies decompressed input, and process termination can halt log ingestion for every tenant on a shared pipeline. This issue is fixed in version 0.57.0.",
+      "id": "CVE-2026-77912",
+      "published": "2026-09-22T21:17:32.483",
+      "description": "A stored cross-site scripting (XSS) vulnerability was identified in GitHub Enterprise Server that allowed an authenticated attacker to inject arbitrary HTML attributes into rendered Markdown because the Markdown rendering pipeline rewrote quote characters in already-sanitized HTML without re-sanitizing the result. Crafted Markdown could abuse same-origin JavaScript gadgets to bypass Content Security Policy and gain control of the page DOM when viewed by another user. Successful exploitation could allow an attacker to read content visible to the victim, extract embedded CSRF tokens, perform state-changing actions as the victim, and exfiltrate data through same-origin writes. The payload could also propagate to repositories and organizations where the victim had write access. This vulnerability affected supported GitHub Enterprise Server releases in the 3.17, 3.18, 3.19, 3.20, 3.21, and 3.22 series and was fixed in versions 3.22.1, 3.21.6, 3.20.8, 3.19.12, 3.18.15, and 3.17.21. This vulnerability was reported via the GitHub Bug Bounty program.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-77621",
-      "published": "2026-09-22T16:17:55.670",
-      "description": "Vector is a high-performance observability data pipeline. From 0.10.0 until 0.57.0, the file sink renders its templated path from event fields and opens the result without confining it to an intended directory. When an untrusted source supplies an event field used by the path template, the value can contain an absolute path or parent-directory traversal, causing Vector to create parent directories and create or overwrite files outside the intended location with the Vector process privileges. The resulting file write can modify sensitive files and can lead to code execution when a scheduled task, authorization file, or subsequently executed script is targeted. This issue is fixed in version 0.57.0.",
+      "id": "CVE-2026-77987",
+      "published": "2026-09-22T21:17:32.653",
+      "description": "A server-side request forgery (SSRF) vulnerability was identified in the notebook viewer of GitHub Enterprise Server. The notebook viewer validated the scheme and host of a user-supplied URL but did not validate the port, allowing requests to be directed to internal services listening on other ports of the same appliance. Response bodies were not returned to the requester, but response timing acted as an oracle that allowed instance secrets to be extracted character by character. An extracted secret could then be used in a separate interaction with an internal service to obtain remote code execution on the appliance. Exploitation required network access to the instance and was unauthenticated when private mode was disabled, or required any authenticated user when private mode was enabled. This vulnerability affected GitHub Enterprise Server versions 3.17 through 3.22 and was fixed in versions 3.22.1, 3.21.6, 3.20.8, 3.19.12, 3.18.15, and 3.17.21. This vulnerability was reported through the GitHub Bug Bounty program.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-79311",
-      "published": "2026-09-22T16:17:56.513",
-      "description": "webpy web.py 0.76 is vulnerable to Cross Site Scripting (XSS) via render_jinja.__init__().",
+      "id": "CVE-2026-89019",
+      "published": "2026-09-22T21:17:33.207",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-96269",
+      "published": "2026-09-22T21:17:35.150",
+      "description": "GNU Emacs 28.1 through 31.1 allows arbitrary code execution upon opening a file, because an untrusted value of read-symbol-shorthands affects the intern and unintern functions. This affects the default configuration; no particular user settings are required to trigger it.",
       "severity": "UNKNOWN",
       "score": null
     }
