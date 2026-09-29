@@ -1,145 +1,145 @@
 {
-  "totalResults": 2917,
+  "totalResults": 2907,
   "items": [
     {
-      "id": "CVE-2026-13355",
-      "published": "2026-09-22T05:16:54.960",
-      "description": "The Meta Box AIO plugin for WordPress is vulnerable to Privilege Escalation to Administrator in versions up to, and including, 3.11.0. This is due to a chained flaw: the populate_via_query_string() function in the mb-frontend-submission component unconditionally overrides the form's target object_id from the GET parameter 'rwmb_frontend_field_object_id' without any authorization check, and Form::process() lacks the user_can_edit() check present in render(), allowing unauthenticated attackers to overwrite the post_content of any page with an arbitrary shortcode via wp_update_post(); the mb-user-profile component then directly trusts the 'role' and 'auto_login' shortcode attributes in the injected [mb_user_profile_register] shortcode with no role validation. This makes it possible for unauthenticated attackers to elevate their privileges to Administrator. The standalone plugins Meta Box Frontend Submission (in versions up to 4.5.6) and Meta Box User Profile (versions up to 3.11.0) are also affected.",
+      "id": "CVE-2026-25254",
+      "published": "2026-09-22T10:17:08.583",
+      "description": "Improper authorization leads to Remote Code Execution via SocketIO interface.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-19658",
-      "published": "2026-09-22T05:16:55.167",
-      "description": "The Give Tributes plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.3.1 via deserialization of untrusted input . This makes it possible for unauthenticated attackers to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present. This vulnerability is only reachable when the \"Allow Multiple Recipients\" option is enabled for the donation form, as the single-recipient code path applies sanitize_textarea_field() which would neutralize the payload. Exploitation additionally requires the eCard \"Custom Message\" option to be disabled, which is the plugin default: when it is enabled the personalized message becomes a required field and GiveWP's give_clean() blanks serialized input during validation, causing the donation to be rejected before it is stored.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2016-15059",
-      "published": "2026-09-22T08:16:34.520",
-      "description": "Net::IDN::Punycode versions before 2.301 for Perl allow a heap buffer overflow via unchecked writes past the output buffer in encode_punycode.\n\nThe XS backend builds the encoded label in the string buffer of the scalar it returns, sized from the input length. The loop that emits the digits of each code point checks for room before every write, but the write of the last digit of each round and the write of the terminating NUL do not, so an input whose encoded form fills the buffer writes past its end.\n\nOnly the XS backend is affected.\n\nEncoding an attacker-supplied string corrupts the heap.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-92438",
-      "published": "2026-09-22T07:16:31.220",
-      "description": "The Ninja Forms WordPress plugin 3.15.3 does not escape submitted form field values before outputting them on the submission edit screen in the admin area, which could allow unauthenticated users to submit values through a public form that then execute in the browser of any high-privileged user who reviews the submission.",
+      "id": "CVE-2026-25255",
+      "published": "2026-09-22T10:17:08.847",
+      "description": "Exposed dangerous function lead to privilege escalation via gRPC server.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2025-1281",
-      "published": "2026-09-22T08:16:36.250",
-      "description": "The BM Content Builder plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the ux_cb_remove_layout_ajax() and ux_cb_tools_export_ajax() functions in all versions up to, and excluding, 3.17.1. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php).",
+      "id": "CVE-2026-25264",
+      "published": "2026-09-22T10:17:09.110",
+      "description": "Privilege escalation due to weak configuration during package extraction process.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-91827",
-      "published": "2026-09-22T07:16:31.093",
-      "description": "The Ninja Forms WordPress plugin 3.15.3 does not prevent user-submitted form field values from being deserialised when an administrator later exports form submissions to CSV, allowing unauthenticated attackers to perform PHP Object Injection; if a suitable POP chain is present via another installed plugin or theme, this can lead to actions such as arbitrary file operations or remote code execution.",
+      "id": "CVE-2026-25265",
+      "published": "2026-09-22T10:17:09.243",
+      "description": "Privilege escalation due to weak configuration while temporary file handling.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-94117",
+      "published": "2026-09-22T10:17:10.167",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in DevItems HashBar – WordPress Notification Bar allows Blind SQL Injection.\n\nThis issue affects HashBar – WordPress Notification Bar: from n/a through 2.0.3.",
+      "severity": "HIGH",
+      "score": 7.6
+    },
+    {
+      "id": "CVE-2026-9231",
+      "published": "2026-09-22T09:17:06.353",
+      "description": "The WP Travel Engine – Tour Booking Plugin – Tour Operator Software plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 6.8.0 via the wte_get_template function. This makes it possible for authenticated attackers, with contributor-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-12470",
-      "published": "2026-09-22T06:16:48.700",
-      "description": "The CMP – Coming Soon & Maintenance Plugin by NiteoThemes plugin for WordPress is vulnerable to unauthorized modification of data that can lead to privilege escalation due to a missing capability check on the 'cmp_ajax_import_settings' AJAX action in all versions up to, and including, 4.1.17. This makes it possible for authenticated attackers, with Editor-level access and above, to update arbitrary options on the WordPress site. This can be leveraged to update the default role for registration to administrator and enable user registration for attackers to gain administrative user access to a vulnerable site.",
+      "id": "CVE-2026-95508",
+      "published": "2026-09-22T09:17:06.073",
+      "description": "A heap-based buffer overflow was found in the DHCPv6 and TFTP response builders of libslirp. When the host is configured with a small interface MTU, a guest-supplied DHCPv6 CLIENTID option or TFTP blksize option can overflow the reply buffer with attacker-controlled content and length, resulting in denial of service and potentially arbitrary code execution in the host process. The default interface MTU is not affected.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-89412",
-      "published": "2026-09-22T07:16:29.927",
-      "description": "The TranslatePress – Translate Multilingual sites with AI Translation plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Translation Memory Suggestion Panel (v-html on suggestion.original) in all versions up to, and including, 3.3.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Unauthenticated attackers can seed the translation dictionary's original column with executable HTML because the front-end rendering pipeline decodes entity-encoded payloads via html_entity_decode() before persistence, and the original column is deliberately exempt from kses filtering — meaning no save-time sanitizer neutralizes the stored payload before it is later rendered in an administrator's session.",
+      "id": "CVE-2026-93928",
+      "published": "2026-09-22T09:17:05.940",
+      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Magepeople inc. Taxi Booking Manager for WooCommerce allows Authentication Bypass.\n\nThis issue affects Taxi Booking Manager for WooCommerce: from n/a before 2.0.8.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-94504",
-      "published": "2026-09-22T07:16:31.340",
-      "description": "Ninja Forms 3.15.3 stores an anonymous non-RTE textarea value and renders it without safe HTML encoding in the legacy submission editor. An attacker can break out of the textarea with stored script. When an Administrator opens the attacker-known direct submission URL, the script runs in the WordPress admin origin.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-88788",
-      "published": "2026-09-22T06:16:49.777",
-      "description": "The Text Styler WordPress plugin through 1.1.1 does not sanitise and escape user-supplied styling values before outputting them within a front-end style block, and does not verify that a user may edit the target post, allowing users with contributor-level access or above to store JavaScript that executes in the browser of anyone viewing the affected post, including administrators.",
+      "id": "CVE-2026-25262",
+      "published": "2026-09-22T10:17:08.973",
+      "description": "Memory corruption while processing a crafted ELF file in the Primary Bootloader.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.9
     },
     {
-      "id": "CVE-2025-1280",
-      "published": "2026-09-22T08:16:36.113",
-      "description": "The BM Content Builder plugin for WordPress is vulnerable to Directory Traversal in all versions up to 3.17.1 (exclusive) via the ux_cb_page_customize_save_layout_ajax() function. This makes it possible for authenticated attackers, with Subscriber-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information.",
+      "id": "CVE-2026-95623",
+      "published": "2026-09-22T11:17:27.357",
+      "description": "The Tauri HTTP plugin validates requested URLs against the application's configured scope allowlist only once, on the initial request. When the remote server responds with an HTTP 3xx redirect, reqwest follows the redirect internally without re-checking the new target URL against the scope. This allows an attacker who controls an allowed URL (or finds an open redirect on an allowed host) to reach disallowed destinations such as cloud metadata endpoints, localhost services, or internal network hosts.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-85653",
-      "published": "2026-09-22T06:16:49.597",
-      "description": "The Contextual Related Posts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'other_attributes' Block Parameter in all versions up to, and including, 4.4.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-15095",
+      "published": "2026-09-22T09:17:04.333",
+      "description": "The Product Feed Manager for WooCommerce – CTX Feed – Support 220+ Shopping & Social Channels plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 6.6.43 via the 'provider' parameter. This makes it possible for authenticated attackers, with shop manager-level access and above, to delete arbitrary files on the server, which can lead to remote code execution when critical files are deleted. Exploitation requires two sequential REST API calls: first to /wp-json/ctxfeed/v1/make_feed/save_feed_config to persist the traversal payload in wp_options, then to /wp-json/ctxfeed/v1/manage_feeds/delete_feed to trigger the unlink(); deletion is further constrained to files whose extensions match the plugin's validated whitelist (csv, xml, tsv, xls, xlsx, json, txt).",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 4.9
     },
     {
-      "id": "CVE-2026-16778",
-      "published": "2026-09-22T08:16:38.800",
-      "description": "The Live Composer – Free WordPress Website Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'dslc_module_downloads_output' Shortcode Content in all versions up to, and including, 2.1.21 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The save-time wp_kses_post check is bypassed because the payload is stored as a serialized string containing no HTML tags for kses to tokenize, and the shortcode callback re-emits attacker-controlled values — including view_all_link (href attribute), main_heading_title (h2 body), button_text (anchor body), and button_inline_svg (anchor body) — without any escaping at render time.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-65634",
+      "published": "2026-09-22T09:17:05.090",
+      "description": "Inefficient algorithmic complexity in the Erlang/OTP asn1 OBJECT IDENTIFIER decoder allows a remote unauthenticated attacker to cause denial of service by sending a crafted OID during the TLS handshake.\n\nThe BER OID decoder asn1rtt_ber:dec_subidentifiers/3 in lib/asn1/src/asn1rtt_ber.erl and the equivalent PER helper asn1rtt_per_common:dec_subidentifiers/3 in lib/asn1/src/asn1rtt_per_common.erl accumulate a base-128 subidentifier into an unbounded integer using (Av bsl 7) + H per continuation byte. Each shift and addition on the growing accumulator is linear in the number of bits already accumulated, giving quadratic total work in the size of a single subidentifier. The JER helper asn1rtt_jer:json2oid/1 in lib/asn1/src/asn1rtt_jer.erl exhibits the same class of unbounded-integer parsing when decoding a dot-separated OID from JSON. A DER-encoded OBJECT IDENTIFIER with one very large arc (approximately 262 KB of continuation bytes) consumes roughly 13 seconds of CPU on typical hardware.\n\nThe vulnerable decoder is generated into every ASN.1 module that contains an OBJECT IDENTIFIER, including OTP-PUB-KEY which is reached during X.509 certificate parsing via public_key:pkix_decode_cert/2. This decoder runs before any signature or trust chain verification, so any Erlang service that parses peer TLS certificates is exposed: the default for TLS clients (which always parse the server certificate) and for mutual-TLS servers (which parse client certificates).\n\nThis vulnerability is associated with program files lib/asn1/src/asn1rtt_ber.erl, lib/asn1/src/asn1rtt_per_common.erl and lib/asn1/src/asn1rtt_jer.erl and program routines asn1rtt_ber:dec_subidentifiers/3, asn1rtt_per_common:dec_subidentifiers/3 and asn1rtt_jer:json2oid/1.\n\nThis issue affects OTP from OTP 17.0 before OTP 27.3.4.18, OTP 28.5.0.7, and OTP 29.1.1, corresponding to asn1 from 3.0 before 5.3.4.3, 5.4.3.1, and 5.5.2. Whether OTP before OTP 17.0, corresponding to asn1 before 3.0, is affected is unknown.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-93655",
-      "published": "2026-09-22T06:16:49.893",
-      "description": "The Booking Calendar plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'wpbc_auto_fill' parameter in all versions up to, and including, 11.8.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-68956",
+      "published": "2026-09-22T09:17:05.313",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Erlang/OTP ssh allows an authenticated remote attacker to exhaust node memory by repeatedly opening session channels that are never assigned a handler.\n\nThe \"session\" clause of ssh_connection:handle_msg/4 checks only minimal_remote_max_packet_size before calling setup_session/5, which unconditionally builds a #channel{} record and stores it in the ETS channel cache. The max_channels daemon option is consulted only by ssh_channel_sup:max_num_channels_not_exceeded/2, which counts supervisor children, so a channel that never gets a shell, exec, or subsystem handler is invisible to the limit and setting the option to a finite value does not mitigate the attack. RFC 4254 section 5.1 permits many session channels per connection, and each record costs only a few hundred bytes, so a single authenticated connection can accumulate channels until the node runs out of memory and the emulator terminates, affecting every application on it. No file contents, credentials, or write access are obtainable.\n\nThis issue affects OTP from OTP 18.1.2 before OTP 27.3.4.18, OTP 28.5.0.7, and OTP 29.1.1, corresponding to ssh from 4.1.1 before 5.2.11.13, 5.5.2.6, and 6.0.6. Whether OTP before OTP 18.1.2, corresponding to ssh before 4.1.1, is affected is unknown.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2025-14484",
-      "published": "2026-09-22T08:16:35.643",
-      "description": "The Image Buzz plugin for WordPress is vulnerable to unauthorized API key modification due to missing authorization checks in all versions up to, and including, 1.0.3. This makes it possible for unauthenticated attackers to modify arbitrary API keys (Pixabay, Unsplash, Pixels) configured by site administrators via the 'pixabay_api', 'unsplash_api', or 'pixels_api' parameters.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-89422",
+      "published": "2026-09-22T09:17:05.540",
+      "description": "Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer that answers a TLS 1.3 client connection to impersonate the intended server. A pre_shared_key extension in the ServerHello that the client never offered causes the client to complete the handshake without validating the server's certificate, so ssl:connect returns {ok, Socket} against a peer holding no certificate, no private key and no prior session.\n\ntls_client_connection_1_3:handle_server_hello/2 passes the received extension to tls_gen_connection_1_3:handle_resumption/2, which sets resumption = true on its mere presence without checking that the client offered a PSK. tls_handshake_1_3:get_pre_shared_key/4 meanwhile falls back to the all-zero \"no PSK\" value and keys the handshake with the ordinary non-PSK schedule, so the attacker's own ephemeral key suffices. The resumption flag then routes maybe_resumption/1 straight to wait_finished, skipping the certificate-handling states, so certificate path validation, verify_fun, hostname verification, partial_chain, CRL checking and OCSP stapling are all bypassed. The default client configuration is affected; clients restricted to TLS 1.2 are not.\n\nThis issue affects OTP from OTP 22.2 before OTP 27.3.4.18, OTP 28.5.0.7, and OTP 29.1.1, corresponding to ssl from 9.5 before 11.2.12.13, 11.6.0.6, and 11.7.7.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2025-14486",
-      "published": "2026-09-22T08:16:35.857",
-      "description": "The PixelPlay plugin for WordPress is vulnerable to unauthorized API key deletion due to missing authorization checks in all versions up to, and including, 1.0.2. This makes it possible for unauthenticated attackers to delete arbitrary API keys (Pixabay, Unsplash, Pixels, OpenAI) configured by site administrators via the 'clear_api_type' parameter.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-93556",
+      "published": "2026-09-22T09:17:05.800",
+      "description": "The ‘/password/guardarClau/recover’ endpoint accepts the ‘usuariId’ parameter, which specifies the account whose password is to be changed. The JWT token for the recovery process is not validated against the user specified in that parameter. An unauthenticated attacker could manipulate the identifier and reset the password for any account, including administrative accounts, which could allow them to take control of the account.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2025-14487",
-      "published": "2026-09-22T08:16:35.987",
-      "description": "The Handily plugin for WordPress is vulnerable to unauthorized payment settings modification due to missing authorization checks in all versions up to, and including, 1.0.3. This makes it possible for unauthenticated attackers to modify Stripe payment configuration settings, including publishable keys, secret keys, email addresses, success URLs, and cancel URLs via the payment settings parameters. This could allow attackers to redirect payments to their own Stripe accounts.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-95511",
+      "published": "2026-09-22T09:17:06.217",
+      "description": "Rejected reason: Not a vulnerability. Creating a serial queue that overwrites cups-files.conf requires membership in SystemGroups (lpadmin), which is an opt-in cupsd admin role granted by a superuser. No privilege boundary is crossed.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-12995",
-      "published": "2026-09-22T08:16:36.400",
-      "description": "The Custom Field Template plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 2.7.8 via the edit_meta_value due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with contributor-level access and above, to delete arbitrary media attachments site-wide by supplying any numeric attachment ID in the file-field parameter alongside the corresponding delete flag, causing content loss and broken pages. Exploitation requires that the attacker's post is governed by a Custom Field Template containing at least one file-type field with the mediaRemove option not enabled, which is the default configuration for file fields.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-90882",
+      "published": "2026-09-22T10:17:10.000",
+      "description": "The open-vsx.org deployment returned Access-Control-Allow-Origin reflecting the requesting origin together with Access-Control-Allow-Credentials: true on the authenticated /user/ endpoints. A page on any origin could therefore issue credentialed requests to the service in a logged-in user's browser and read the responses.\n\n\n\nThis exposed /user (login name, avatar, homepage, tokens URL), /user/tokens, /user/namespaces, /user/extensions, /user/search/{name} and /user/namespace/{name}/members, and — because /user/csrf was readable the same way — allowed the CSRF protection on write endpoints to be defeated. Chaining the two, an attacker page could call /user/token/create and exfiltrate a personal access token carrying publish and delete rights over the victim's namespaces.\n\n\n\nThe headers were emitted by the CDN/edge layer, not by the application: the Open VSX software sets allowCredentials(true) in exactly one place, against a single exact origin derived from ovsx.webui.url, and defines no CORS mapping on /user/ beyond it. No configuration of the software produces origin reflection with credentials.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-18345",
-      "published": "2026-09-22T08:16:38.940",
-      "description": "The WP User Manager plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the Connect::complete() function in versions up to, and including, 2.9.18. The function is registered on the admin_init hook (which fires for every authenticated user that reaches /wp-admin/, including Subscribers) and performs no current_user_can() or nonce verification before fetching Stripe credentials from the external WPUM connect service and writing them (publishable key, secret key, gateway mode, and connected Stripe account ID) into the wpum_settings option via wpum_update_option()/update_option(). This makes it possible for authenticated attackers, with Subscriber-level access and above, to hijack the site's Stripe integration by completing their own Stripe Connect OAuth flow and then invoking the callback on the target site, causing all subsequent Stripe payments to be routed to the attacker's Stripe account.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-90990",
+      "published": "2026-09-22T11:17:25.960",
+      "description": "Improper neutralization of newlines in filter values in the monitoring host and service list APIs in Checkmk <2.5.0p14 allows an authenticated user to inject additional Livestatus query headers, bypassing object visibility restrictions in count queries to infer information about hosts and services outside their contact groups and occupying web server and Livestatus workers for an attacker-controlled duration.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-18439",
-      "published": "2026-09-22T08:16:39.080",
-      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to, and including, 4.0.7 via the tutor_quiz_builder_save AJAX action due to missing validation that nested question_id, answer_id, deleted_question_ids[], and deleted_answer_ids[] values in the submitted payload belong to a quiz/topic/course the requester is authorized to manage. The handler only validates the top-level course_id, topic_id, and (when supplied) payload['ID'], but the nested identifiers are passed straight into $wpdb->update/DELETE statements in QuizBuilder::save_questions(), QuizBuilder::save_question_answers(), and QuizBuilder::handle_delete(). This makes it possible for authenticated attackers, with Instructor-level access and above, to overwrite the content and re-parent arbitrary quiz questions/answers belonging to other instructors or administrators, and to delete arbitrary quiz question and answer rows.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-92882",
+      "published": "2026-09-22T11:17:26.497",
+      "description": "Insufficiently protected credentials in the host and folder configuration endpoints of the REST API in Checkmk <2.5.0p15, <2.4.0p37, <2.3.0p51 and 2.2.0 (EOL) allows an authenticated user who may view a host's configuration to read stored SNMP community strings, SNMPv3 auth and privacy pass phrases and IPMI passwords in clear text from GET responses, although the setup GUI never displays these values.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-63272",
+      "published": "2026-09-22T12:17:11.853",
+      "description": "LibreOffice can import WMF graphics, which may be embedded in documents. A heap buffer overflow existed when importing a text record that carries its own character advance widths. The count of advance values and the length of the text were read separately from the file and were not required to agree, so drawing the text walked the advance array by character position and ran past its end when the array was the shorter of the two. In fixed versions an advance array shorter than its text is ignored.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
