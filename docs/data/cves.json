@@ -1,145 +1,145 @@
 {
-  "totalResults": 3086,
+  "totalResults": 3061,
   "items": [
     {
-      "id": "CVE-2026-67615",
-      "published": "2026-09-22T21:17:31.100",
-      "description": "openEQUELLA before 2026.1.0 contains an authenticated remote code execution vulnerability that allows any authenticated non-guest user to execute arbitrary code by exploiting Java deserialization in the HTTP invoker endpoint at /invoker/*. Attackers can bypass the class-name denylist enforced by PluginAwareObjectInputStream by nesting a serialized payload inside a java.security.SignedObject, causing the inner stream to be deserialized by a separate ObjectInputStream that does not apply the denylist, ultimately reaching a JNDI sink and enabling code execution.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-91018",
-      "published": "2026-09-22T21:17:33.290",
-      "description": "lwIP (Lightweight IP) has a double free vulnerability, which could crash the system, cause a DoS, memory corruption, or allow code execution on the victim system.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-95814",
-      "published": "2026-09-22T21:17:34.417",
-      "description": "Vaultwarden through 1.37.3 omits organization membership status validation from three cipher access-restriction queries, allowing revoked and not-yet-confirmed members to retain read, write, delete, and attachment access to organization ciphers. Attackers with revoked or pending membership can exploit missing status filters in get_user_collections_access_flags, get_group_collections_access_flags, and is_in_full_access_group to access protected cipher data server-side.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-94450",
-      "published": "2026-09-22T21:17:33.867",
-      "description": "Improper validation of the Destination Connection ID length in s2n-quic 1.88.0 and earlier may allow an unauthenticated remote user to cause a denial of service by shutting down a server endpoint via a single crafted UDP datagram. Only server endpoints specifically configured to send Retry packets are affected.\n\n\n\nTo remediate this issue, users should upgrade to version v1.89.0 or later.",
+      "id": "CVE-2026-96272",
+      "published": "2026-09-23T01:16:32.633",
+      "description": "ClipBucket v5 before 5.5.3-#182 contains a blind SQL injection vulnerability in the photo search endpoint where the query parameter is passed unsanitized into SQL WHERE and ORDER BY clauses. Unauthenticated attackers can exploit time-based blind SQL injection techniques to extract user credentials, email addresses, and administrator password hashes for account takeover.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-96260",
-      "published": "2026-09-22T21:17:35.027",
-      "description": "Mattermost versions 11.9.x <= 11.9.1, 11.8.x <= 11.8.5, 11.7.x <= 11.7.10, 11.10.x <= 11.10.1 fail to enforce a request body size limit during CSRF validation of plugin requests which allows an authenticated user to exhaust server memory and cause a denial of service via a large request body sent to a plugin endpoint.. Mattermost Advisory ID: MMSA-2026-00775",
+      "id": "CVE-2026-89425",
+      "published": "2026-09-23T03:17:04.357",
+      "description": "UTF8DataInputJsonParser._reportInvalidToken() in FasterXML jackson-core builds the offending-token text for its error message by appending Java identifier characters to a StringBuilder in a loop that has no upper bound. Unlike the three sibling parser implementations, including UTF8StreamJsonParser, it never consults ErrorReportConfiguration.getMaxErrorTokenLength() (default 256). A malformed token supplied to a parser created through JsonFactory.createParser(DataInput) is therefore accumulated in full. No StreamReadConstraints setting mitigates this: maxDocumentLength cannot be applied to DataInput sources at all, and maxStringLength does not cover this path because the accumulation bypasses ReadConstrainedTextBuffer. The reporter measured a 20,000,109-character exception message from a 20-million-character malformed token on the DataInput path, against 367 characters for identical input on the InputStream path. Scaling the payload drives the StringBuilder, which also incurs byte-to-char expansion and internal array doubling, to many times the raw payload size and can trigger OutOfMemoryError for the whole JVM. UTF8DataInputJsonParser was introduced in 2.8.0 together with createParser(DataInput); releases before 2.8.0 do not contain the affected class.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-91776",
+      "published": "2026-09-23T03:17:04.620",
+      "description": "TypeDeserializerBase._findDeserializer() in FasterXML jackson-databind caches the resolved deserializer under the raw, attacker-supplied type ID. When name-based polymorphism is configured with a fallback, for example @JsonTypeInfo(use = Id.NAME, defaultImpl = ...), every distinct unrecognized type ID resolves to the same fallback deserializer but is retained as its own key in the _deserializers map. That map has no configurable bound and lives for the lifetime of the type deserializer, so an attacker who can repeatedly supply fresh unknown type IDs causes monotonic memory retention across requests. The reporter observed 10,000 retained entries from 10,000 distinct unknown IDs, against a single entry for a control that repeated one unknown ID the same number of times, isolating attacker-controlled key cardinality from request volume. Exploitation requires an application that enables name-based polymorphism with a defaultImpl or equivalent fallback, accepts attacker-influenced type IDs, and reuses a long-lived ObjectMapper across requests. The fix stops caching fallback resolutions for unrecognized IDs and bounds both the number of cached entries and the length of a cacheable type ID.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-91777",
+      "published": "2026-09-23T03:17:04.783",
+      "description": "Forward-reference completion for @JsonIdentityInfo object IDs in FasterXML jackson-databind performs a linear scan of the pending-reference accumulator for every resolved ID. The affected paths are CollectionDeserializer.CollectionReferringAccumulator.resolveForwardReference() and the equivalent implementation in MapDeserializer. When a document first creates N unresolved object-ID references in an identity-enabled collection or map and then defines those same IDs in reverse order, completion performs on the order of N * (N + 1) / 2 identity comparisons, so a shallow document whose size grows linearly causes quadratic CPU work during deserialization. The reporter instrumented equals() calls on the ID class and measured exactly 2,003,000 comparisons at N = 2,000, against zero comparisons in the pending-reference lookup path for an equally sized control in which every reference was already resolved. The input requires no deep nesting and no syntactically unusual JSON. Exploitation requires an application that deserializes attacker-influenced JSON into an identity-enabled collection or map. The fix replaces the repeated linear lookup with a keyed pending-reference structure.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-95924",
+      "published": "2026-09-23T01:16:32.110",
+      "description": "A vulnerability has been found in SourceCodester Online Reviewer Management System 1.0. Impacted is an unknown function of the file /reviewer_0/admins/assessments/databank/btn_functions.php?action=add. The manipulation of the argument difficulty_id leads to sql injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-95925",
+      "published": "2026-09-23T01:16:32.293",
+      "description": "A vulnerability was found in SourceCodester Online Reviewer Management System 1.0. The affected element is an unknown function of the file /reviewer_0/admins/assessments/databank/btn_functions.php?action=update. The manipulation of the argument difficulty_id results in sql injection. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-95926",
+      "published": "2026-09-23T02:16:54.527",
+      "description": "A vulnerability was determined in SourceCodester Online Reviewer Management System 1.0. The impacted element is an unknown function of the file /reviewer_0/admins/assessments/pretest/btn_functions.php?action=update. This manipulation of the argument test_id causes sql injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-95927",
+      "published": "2026-09-23T02:16:55.537",
+      "description": "A vulnerability was identified in SourceCodester Online Reviewer Management System 1.0. This affects an unknown function of the file /reviewer_0/admins/assessments/pretest/exam-delete.php. Such manipulation of the argument test_id leads to sql injection. The attack may be performed from remote. The exploit is publicly available and might be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-94367",
+      "published": "2026-09-23T00:17:01.200",
+      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 contains an OS command injection vulnerability in recbackup. An authenticated administrator can supply crafted backup-area configuration input that is passed to a shell command, allowing commands to execute with the privileges of the nvr user. The underlying design has been present since at least firmware 2.2.3.4.\n\nThis vulnerability is resolved in OpenEye Apex version 3.4.3.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-96271",
+      "published": "2026-09-23T01:16:32.477",
+      "description": "Photoview through 2.4.0 contains an authorization bypass vulnerability in the shareAlbum GraphQL mutation that allows authenticated users to create share links for albums owned by other users. Attackers can supply arbitrary album IDs to generate working share tokens for victim albums, exposing photos and sub-albums to anyone with the link while retaining indefinite control over token settings.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-92928",
+      "published": "2026-09-23T00:16:59.773",
+      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 contains a hardcoded, undocumented recovery account with a shared credential that cannot be changed, disabled, or rotated. An unauthenticated remote attacker can use the account to authenticate to the password-reset workflow. The account does not provide normal administrator access; additional vulnerabilities are required to obtain an administrator takeover. The underlying design has been present since at least firmware 2.2.3.4.\n\nUpgrade to version 3.5.4.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-95815",
-      "published": "2026-09-22T21:17:34.583",
-      "description": "OpenClaw iOS before 2026.8.11 logs complete agent deep-link URLs including persistent bearer keys to unified logs as public diagnostic data. Attackers who obtain diagnostic archives can recover unrotated keys and replay them in forged deep links to submit agent requests without local confirmation prompts.",
+      "id": "CVE-2026-95829",
+      "published": "2026-09-23T00:17:01.333",
+      "description": "A vulnerability was identified in TDuckCloud tduck-platform up to 5.3. This vulnerability affects the function PaginationInnerInterceptor.concatOrderBy of the file tduck-api/src/main/java/com/tduck/cloud/api/config/MybatisPlusConfig.java of the component Pagination Inner Interceptor. The manipulation of the argument orders[0].column leads to sql injection. The attack can be initiated remotely. The exploit is publicly available and might be used. The identifier of the patch is ea7f0fae7cb0fd998a3284c11addce689350cd69. It is suggested to install a patch to address this issue.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-88020",
-      "published": "2026-09-22T21:17:33.057",
-      "description": "Autonomy Logic OpenPLC 3 is susceptible to an improper neutralization of input during web page generation vulnerability when the web interface attempts to route the program based on a query string parameter with no encoding.",
+      "id": "CVE-2026-95830",
+      "published": "2026-09-23T00:17:01.537",
+      "description": "A security flaw has been discovered in theRealSain Pixtream up to 866afd4f0cea812b918780fb74b67dccf8c4d6a0. This issue affects some unknown processing of the file /post_upload.php. The manipulation of the argument media results in unrestricted upload. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-95812",
-      "published": "2026-09-22T21:17:34.030",
-      "description": "ClipBucket v5 before 5.5.3-#182 contains a reflected cross-site scripting vulnerability in the sort_link() helper function that fails to sanitize cat, sort, and time query parameters. Attackers can craft malicious requests with injected script payloads in these parameters to execute arbitrary JavaScript in victims' browsers under the application origin.",
+      "id": "CVE-2026-95833",
+      "published": "2026-09-23T00:17:01.743",
+      "description": "A weakness has been identified in itsourcecode Leave Management System 1.0. Impacted is an unknown function of the file /module/leavetype/index.php. This manipulation of the argument ID causes sql injection. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-95813",
-      "published": "2026-09-22T21:17:34.217",
-      "description": "e621ng versions before 26.09.16 pass untrusted request parameters directly to Rails url_for in PaginatorComponent and controller navigation links, allowing attackers to redirect pagination and navigation controls to attacker-controlled origins. Attackers can supply host, protocol, and port query parameters that are interpreted as URL generation options, causing pagination links to point to malicious domains while the initial page loads from the legitimate site.",
+      "id": "CVE-2026-95868",
+      "published": "2026-09-23T00:17:01.937",
+      "description": "A weakness has been identified in AdithyaYelloju Restaurant-Management-System up to 7f0e7e84255e8fcfd488e83f8f91451bbbff6b9c. Affected by this issue is the function mysqli_query of the file admin/display_menu.php of the component Search Form. This manipulation of the argument s1 causes sql injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-96259",
-      "published": "2026-09-22T21:17:34.910",
-      "description": "Mattermost versions 11.9.x <= 11.9.1, 11.8.x <= 11.8.5, 11.7.x <= 11.7.10, 11.10.x <= 11.10.1 fail to apply the internal-connection filter to OAuth endpoint requests, which allows a System Administrator to make the server issue requests to internal network addresses and read the responses via the configured OAuth token and userinfo endpoints.. Mattermost Advisory ID: MMSA-2026-00776",
+      "id": "CVE-2026-92930",
+      "published": "2026-09-23T00:17:01.080",
+      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 uses an administrator password-reset unlock-code design that lacks a per-device secret or other server-side cryptographic material. An attacker with physical-console access and access to the privileged password-reset workflow can forge a valid unlock code offline and use it to reset the administrator password. The underlying design has been present since at least firmware 2.2.3.4.\n\nUpgrade to version 3.5.4.",
+      "severity": "MEDIUM",
+      "score": 6.2
+    },
+    {
+      "id": "CVE-2026-95897",
+      "published": "2026-09-23T01:16:31.920",
+      "description": "A security vulnerability has been detected in Dask up to 2026.8.0. This affects the function from_npy_stack of the file dask/array/core.py of the component Loader. Such manipulation leads to deserialization. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-77425",
-      "published": "2026-09-22T21:17:32.177",
-      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, POST /api/admin/projects/:projectId/features/:featureName/environments/:environment/strategies/set-sort-order passes attacker-controlled strategy IDs to unprotectedUpdateStrategiesSortOrder and updateSortOrder without verifying that the IDs belong to the project, feature, and environment authorized by the URL. In a multi-project Pro or Enterprise deployment, an authenticated user with UPDATE_FEATURE_STRATEGY in one project who knows another project's strategy IDs can reorder those strategies, changing feature evaluation precedence while the operation is attributed to the attacker's URL context rather than the affected project. The single-project OSS edition lacks the cross-project dimension, although the missing context binding still permits unauthorized reordering across features or environments in the default project. The endpoint changes only sort_order and does not modify strategy parameters, constraints, or segments. This issue is fixed in version 8.0.3.",
+      "id": "CVE-2026-96273",
+      "published": "2026-09-23T01:16:32.790",
+      "description": "Ghidra before 12.1.4 fails to validate the TYPE_COL byte in OptionsDB.createUnregisteredOption(), causing an ArrayIndexOutOfBoundsException that leaves domain objects permanently locked. Attackers can craft a malicious program database file that, when imported, causes the application to stall and prevents resource cleanup or graceful shutdown.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-62364",
-      "published": "2026-09-22T21:17:30.743",
-      "description": "wlc is a Weblate command-line client using Weblate's REST API. Prior to 2.0.1, automatically discovered configuration from .weblate, .weblate.ini, or weblate.ini can select the API URL while an unscoped API token is supplied through WLC_KEY or --key without a matching WLC_URL or --url. When wlc runs in an untrusted repository, pull request checkout, or directory with untrusted ancestor configuration, it can send the token to an attacker-controlled project-configured URL. URL-scoped keys in [keys] are not affected. This issue is fixed in version 2.0.1.",
-      "severity": "LOW",
-      "score": 2.3
+      "id": "CVE-2026-95928",
+      "published": "2026-09-23T02:16:55.717",
+      "description": "A security flaw has been discovered in recommenders-team recommenders up to 1.2.1. This impacts the function pickle.load of the file recommenders/models/newsrec/io/mind_iterator.py of the component Dict Loading. Performing a manipulation results in deserialization. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-75101",
-      "published": "2026-09-22T21:17:31.253",
-      "description": "An authorization bypass vulnerability was identified in GitHub Enterprise Server that allowed any authenticated user of the instance to read the raw diff or patch of pull requests in private repositories without authorization. Access tokens for raw pull request diffs and patches were scoped to the repository name and pull request number rather than to a globally unique repository identifier, so an attacker who created a repository and pull request matching a target's repository name and pull request number could use a token for their own repository to retrieve the private pull request's contents. Exploitation required the attacker to know the target repository's name and a valid pull request number. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.22 and was fixed in versions 3.17.21, 3.18.15, 3.19.12, 3.20.8, and 3.21.6. This vulnerability was reported via the GitHub Bug Bounty program.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76909",
-      "published": "2026-09-22T21:17:31.880",
-      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, the change-request approval email template at src/mailtemplates/requested-cr-approval/requested-cr-approval.html.mustache renders the user-controlled changeRequestTitle, requesterName, and requesterEmail values without HTML escaping, and sendRequestedCRApprovalEmail passes those values to Mustache rendering. A project member who can create a change request when approval emails are enabled can inject HTML into an approver's notification, allowing forged links, tracking content, or visually altered email content. This issue is fixed in version 8.0.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76910",
-      "published": "2026-09-22T21:17:32.037",
-      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, cloneFeatureToggle and POST /api/admin/projects/:projectId/features/:featureName/clone authorize creation in the destination project but do not verify access to the source project. Because feature names are globally unique, a user with create or clone permission in one project who knows or guesses another project's feature name can copy that feature into the authorized project and inspect its strategy parameters, constraints, variants, and variant payloads. This issue is fixed in version 8.0.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77426",
-      "published": "2026-09-22T21:17:32.327",
-      "description": "Unleash is an open-source feature management platform. Prior to 8.0.3, the Unleash admin API contains five authorization vulnerabilities. POST /api/admin/segments/strategies assigns the Promise returned by hasPermission without awaiting it, allowing authenticated users to modify segment assignments without UPDATE_FEATURE_STRATEGY permission for the target project and environment. GET /api/admin/projects/:projectId/features/:featureName/environments/:environment/variants does not bind the requested feature to projectId, allowing cross-project variant configuration disclosure. GET .../strategies/:strategyId uses strategyId without validating the project and feature context, allowing cross-project strategy configuration disclosure. getEnvironmentInfo does not validate that the requested feature belongs to the supplied project, allowing cross-project environment information disclosure. PUT /:projectId/tags accepts feature identifiers without verifying that they belong to the URL project, allowing cross-project tag modification. This issue is fixed in version 8.0.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77912",
-      "published": "2026-09-22T21:17:32.483",
-      "description": "A stored cross-site scripting (XSS) vulnerability was identified in GitHub Enterprise Server that allowed an authenticated attacker to inject arbitrary HTML attributes into rendered Markdown because the Markdown rendering pipeline rewrote quote characters in already-sanitized HTML without re-sanitizing the result. Crafted Markdown could abuse same-origin JavaScript gadgets to bypass Content Security Policy and gain control of the page DOM when viewed by another user. Successful exploitation could allow an attacker to read content visible to the victim, extract embedded CSRF tokens, perform state-changing actions as the victim, and exfiltrate data through same-origin writes. The payload could also propagate to repositories and organizations where the victim had write access. This vulnerability affected supported GitHub Enterprise Server releases in the 3.17, 3.18, 3.19, 3.20, 3.21, and 3.22 series and was fixed in versions 3.22.1, 3.21.6, 3.20.8, 3.19.12, 3.18.15, and 3.17.21. This vulnerability was reported via the GitHub Bug Bounty program.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77987",
-      "published": "2026-09-22T21:17:32.653",
-      "description": "A server-side request forgery (SSRF) vulnerability was identified in the notebook viewer of GitHub Enterprise Server. The notebook viewer validated the scheme and host of a user-supplied URL but did not validate the port, allowing requests to be directed to internal services listening on other ports of the same appliance. Response bodies were not returned to the requester, but response timing acted as an oracle that allowed instance secrets to be extracted character by character. An extracted secret could then be used in a separate interaction with an internal service to obtain remote code execution on the appliance. Exploitation required network access to the instance and was unauthenticated when private mode was disabled, or required any authenticated user when private mode was enabled. This vulnerability affected GitHub Enterprise Server versions 3.17 through 3.22 and was fixed in versions 3.22.1, 3.21.6, 3.20.8, 3.19.12, 3.18.15, and 3.17.21. This vulnerability was reported through the GitHub Bug Bounty program.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-89019",
-      "published": "2026-09-22T21:17:33.207",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-96269",
-      "published": "2026-09-22T21:17:35.150",
-      "description": "GNU Emacs 28.1 through 31.1 allows arbitrary code execution upon opening a file, because an untrusted value of read-symbol-shorthands affects the intern and unintern functions. This affects the default configuration; no particular user settings are required to trigger it.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-92929",
+      "published": "2026-09-23T00:17:00.897",
+      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 trusts an X-Forwarded-For header supplied by an arbitrary client when determining the request source address. An unauthenticated remote attacker can spoof a loopback address to bypass local-connection-only security controls exposed on the affected non-TLS web interfaces and disclose configuration information. The underlying design has been present since at least firmware 2.2.3.4.\n\nUpgrade to version 3.5.4.",
+      "severity": "MEDIUM",
+      "score": 5.3
     }
   ]
 }
