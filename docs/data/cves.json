@@ -1,143 +1,143 @@
 {
-  "totalResults": 3301,
+  "totalResults": 3238,
   "items": [
     {
-      "id": "CVE-2026-86930",
-      "published": "2026-09-23T18:17:09.720",
-      "description": "An out-of-bounds read vulnerability in FileMaker Server for Linux allowed an attacker uploading a specially crafted image file to a container field to disclose process memory during thumbnail generation in FileMaker WebDirect. This vulnerability is addressed in FileMaker Server version 26.0.3.",
+      "id": "CVE-2026-89078",
+      "published": "2026-09-24T00:17:22.060",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to execute arbitrary code on the GitLab server due to a double free issue when parsing a specially crafted regular expression in a CI/CD configuration.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-86934",
-      "published": "2026-09-23T18:17:09.847",
-      "description": "An authorization bypass vulnerability in the FileMaker Server Web Publishing Engine allowed requests containing an extended privilege header to bypass the disabled Custom Web Publishing with XML setting and access the XML Web Publishing interface. This vulnerability is addressed in FileMaker Server version 26.0.3.",
+      "id": "CVE-2026-93577",
+      "published": "2026-09-24T00:17:22.850",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to execute arbitrary code on the GitLab server due to an integer overflow issue when compiling a specially crafted regular expression in a CI/CD configuration.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-86926",
-      "published": "2026-09-23T18:17:09.587",
-      "description": "A heap buffer overflow vulnerability in the FileMaker Server database engine block parsing routine allowed a maliciously crafted .fmp12 database file to cause memory corruption, potentially leading to arbitrary code execution. This vulnerability is addressed in FileMaker Server version 26.0.3.",
+      "id": "CVE-2026-70125",
+      "published": "2026-09-23T23:18:12.510",
+      "description": "Microsoft Office Outlook Remote Code Execution Vulnerability",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-59990",
-      "published": "2026-09-23T19:17:32.637",
-      "description": "Jawn is an open source JSON parser. Prior to 1.7.0, Jawn parse methods accept arbitrarily deep JSON array and object nesting without a depth limit, allowing a remote attacker who can submit untrusted JSON to grow parser contexts until the JVM heap is exhausted. The resulting java.lang.OutOfMemoryError is a fatal Scala error that is not ordinarily handled by scala.util.Try or cats.effect.IO, causing denial of service. This issue is fixed in version 1.7.0.",
+      "id": "CVE-2026-92470",
+      "published": "2026-09-24T00:17:22.193",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.7 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to access sensitive CI/CD variable values from debug-mode job traces through the Duo AI troubleshooting feature due to missing authorization checks.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-61695",
-      "published": "2026-09-23T19:17:32.810",
-      "description": "Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.4.1 and 7.0.0-alpha04, Wire's Swift runtime ProtoReader.skipGroup(expectedEndTag:unknownFieldsWriter:) accepts a negative length for a LENGTH_DELIMITED field inside an unknown START_GROUP field. ProtoReader.readData() forwards the negative count to ReadBuffer.readData(count:), whose upper-bound-only check permits the value to reach Foundation Data(bytes:count:) and trigger an unrecoverable process trap instead of a catchable ProtoDecoder.Error. Any Swift process decoding untrusted protobuf bytes can be crashed without authentication, user interaction, or knowledge of the target schema. This issue is fixed in versions 6.4.1 and 7.0.0-alpha04.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-61814",
-      "published": "2026-09-23T19:17:32.970",
-      "description": "Jawn is an open source JSON parser. Prior to 1.7.0, Jawn's AsyncParser can perform quadratic work when a single JSON token is delivered across many small chunks because each absorb call rescans the incomplete token from the start. A remote attacker who controls untrusted JSON input and its chunk sizes can exhaust CPU resources and cause denial of service in applications using AsyncParser. This issue is fixed in version 1.7.0.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-86938",
-      "published": "2026-09-23T18:17:09.960",
-      "description": "A DLL hijacking vulnerability in the FileMaker Pro installer for Windows allowed a local user to execute arbitrary code with elevated administrator privileges by placing a malicious DLL file in the installer directory. This vulnerability is addressed in FileMaker Pro version 26.0.3.",
+      "id": "CVE-2026-96751",
+      "published": "2026-09-24T00:17:23.170",
+      "description": "A vulnerability has been found in pmTicket Project-Management-Software up to 078fa56a782490c5059a0814f84df27984f4d7e2. This affects the function setSync of the file /ajax/add_project.php. Such manipulation of the argument conn_settings leads to sql injection. The attack may be launched remotely. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-88839",
-      "published": "2026-09-23T18:17:10.640",
-      "description": "BusyBox passwd/group tokenize() references a stale endpoint pointer after trimming, causing an out-of-bounds write of heap pointers.",
-      "severity": "MEDIUM",
-      "score": 6.7
+      "id": "CVE-2026-96762",
+      "published": "2026-09-24T00:17:23.353",
+      "description": "A vulnerability was determined in kvcache-ai mooncake up to 0.3.12/0.3.13.post1. This affects the function UnmountSegment of the component RPC Path Handler. This manipulation of the argument client_id/segment_id causes authorization bypass. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-86867",
-      "published": "2026-09-23T18:17:09.323",
-      "description": "Cinnamon's Kotaemon (all versions up to and including v0.12.0) multi-user chat interface contains multiple vulnerabilities due to incorrect authorization and improper access controls. There are four handler methods in `libs/ktem/ktem/pages/chat/control.py` that load a Conversation record by its ID without comparing the requester's `user_id` to the conversation's owner `Conversation.user`. This allows any authenticated user to perform the following actions:\r\n1. Read other user's chat transcripts, RAG retrieval history, AI-generated plots, and chat suggestions.\r\n2. Permanently delete another user's conversation.\r\n3. Rename another user's conversation.\r\n4. Overwrite another user's conversation's chat suggestion list.",
+      "id": "CVE-2026-96676",
+      "published": "2026-09-23T23:18:49.723",
+      "description": "A vulnerability was identified in Fast FAC1900R 20190827_2.0.2. The impacted element is the function get_alias_name of the component uhttpd. Such manipulation leads to stack-based buffer overflow. The attack may be performed from remote. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-88837",
-      "published": "2026-09-23T18:17:10.493",
-      "description": "BusyBox httpd treats yescrypt ($y$) password hashes as plaintext during Basic Authentication, inverting the authentication check.",
+      "id": "CVE-2026-96678",
+      "published": "2026-09-23T23:18:49.923",
+      "description": "A security vulnerability has been detected in weiqingwen spring-boot-forum up to 538eecc3c6b85fdf0768ab4e8354b48c0c17d94f. Affected is the function validate of the file src/main/java/com/qingwenwei/util/NewUserFormValidator.java of the component Avatar Upload. The manipulation of the argument Username leads to path traversal. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-88835",
-      "published": "2026-09-23T18:17:10.350",
-      "description": "BusyBox dpkg read_package_field() steps past a NUL terminator on malformed .deb packages, causing an out-of-bounds heap read.",
+      "id": "CVE-2026-92874",
+      "published": "2026-09-24T00:17:22.713",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.3 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with an MCP-scoped token to perform actions beyond the intended scope of that token due to improper authorization checks.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-88831",
-      "published": "2026-09-23T18:17:10.080",
-      "description": "BusyBox httpd IP deny rules with invalid CIDR prefix lengths fail open, leaving a parsed IP with a zeroed mask so the rule matches no clients.",
+      "id": "CVE-2026-96763",
+      "published": "2026-09-24T01:16:59.627",
+      "description": "A security flaw has been discovered in kvcache-ai mooncake up to 0.3.12/0.3.13.post1/0.3.14-rc1. This issue affects the function ScopedSegmentAccess::MountSegment of the file segment.cpp of the component MountSegment Request Processing. Performing a manipulation results in improper access controls. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-96606",
+      "published": "2026-09-23T23:18:49.530",
+      "description": "A security flaw has been discovered in LB-Link BL-CPE600EU 5.8.13. This vulnerability affects unknown code of the file Mifi_config.bin of the component Configuration Backup Handler. The manipulation results in information disclosure. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-88840",
-      "published": "2026-09-23T18:17:10.790",
-      "description": "BusyBox TLS get_client_hello() reads past the end of the input buffer when parsing a truncated ClientHello message.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-55632",
-      "published": "2026-09-23T19:17:31.733",
-      "description": "GoCD is a continuous deliver server. From 20.2.0 until 26.1.0, the internal pipeline structure API used for autocompletion while editing pipeline, template, environment, and user-preference configuration returns its users-and-roles mode to regular authenticated users without requiring an administrator role. A lower-privileged user can enumerate configured user names and available role names, which can facilitate attacks against those users. The response does not reveal which roles are assigned to each user, and the endpoint cannot modify data. This issue is fixed in version 26.1.0.",
+      "id": "CVE-2026-96680",
+      "published": "2026-09-23T23:18:50.117",
+      "description": "A vulnerability was detected in ByteDance Coze Scraper Extension up to 2.0.2. Affected by this vulnerability is the function chrome.runtime.onMessageExternal.addListener of the file static/background/index.js of the component External Message Handler. The manipulation of the argument body.url/paginationConfig/xPathConfig/body.urls/xPaths results in missing authorization. The attack can be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-18944",
-      "published": "2026-09-23T18:17:08.590",
-      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2026-18944. Reason: This candidate is a reservation duplicate of CVE-2026-18944. Notes: All CVE users should reference CVE-2026-18944 instead of this candidate. All references and descriptions in this candidate have been removed to prevent accidental usage.",
+      "id": "CVE-2026-92529",
+      "published": "2026-09-24T00:17:22.323",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with developer-role permissions to bypass admin-configured AI tool governance controls for workflows in namespaces they do not control due to improper authorization checks.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-92530",
+      "published": "2026-09-24T00:17:22.453",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.1 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to spoof merge request authorship and attribute content to arbitrary existing users on the target instance due to improper reliance on ephemeral cache state during Direct Transfer imports.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-96739",
+      "published": "2026-09-24T00:17:22.990",
+      "description": "A flaw has been found in SEMCMS up to 4.2. Affected by this issue is some unknown functionality of the file /Edit/php/upload_json.php of the component KindEditor Upload Interface. This manipulation of the argument imgFile causes cross site scripting. The attack may be initiated remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-96764",
+      "published": "2026-09-24T01:16:59.813",
+      "description": "A weakness has been identified in kvcache-ai mooncake up to 0.3.12/0.3.14-rc1. Impacted is the function MasterService::GetReplicaListByRegex of the component Regular Expression Handler. Executing a manipulation can lead to allocation of resources. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-92628",
+      "published": "2026-09-24T00:17:22.583",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.6 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under a race condition, the MCP search tool's shared state handling could have caused search results to be returned under an incorrect user context.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-57168",
+      "published": "2026-09-23T23:17:11.087",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2026-56120. Reason: This candidate is a duplicate of CVE-2026-56120. Notes: All CVE users should reference CVE-2026-56120 instead of this candidate.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-91775",
-      "published": "2026-09-23T18:17:11.097",
-      "description": "LimeSurvey fails to safely encode attacker-controlled content from a crafted .lss survey file when displaying import warnings, resulting in XSS in the administrative interface.",
+      "id": "CVE-2026-59980",
+      "published": "2026-09-23T23:17:11.473",
+      "description": "hpack is an HTTP/2 Header Encoding for Python. Prior to version 4.2.0, unbounded variable integer decoding can cause run-away computation on malformed input leading to O(n^2) runtime, effectively blocking further processing with large enough unsanitized input. A fix is available in python-hyper/hpack v4.2.0 to restricted variable integer decoding to uint32 to prevent run-away computation. As a workaround, sanitize input to hpack decoder for long sequences of `0xFF` values to prevent malicious use.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-52744",
-      "published": "2026-09-23T19:17:30.377",
-      "description": "GoCD is a continuous deliver server. From 20.2.0 until 26.1.0, the internal GoCD UI fetch-artifact auto-suggestion API at /go/api/internal/pipelines/**/upstream does not adequately authorize access to upstream dependency data. An authenticated user can retrieve inter-pipeline dependency hierarchy details and user-defined pipeline, stage, job, and artifact plugin reference names that the user cannot otherwise view in the UI. The endpoint is read-only and does not permit modification of pipeline data. This issue is fixed in version 26.1.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-55456",
-      "published": "2026-09-23T19:17:31.657",
-      "description": "Rejected reason: This CVE is a duplicate of another CVE.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-63131",
-      "published": "2026-09-23T19:17:34.497",
-      "description": "OpenBao is an open source identity-based secrets management system. Prior to 2.6.0, OpenBao's vault/policy/acl.go could evaluate a broader wildcard ACL grant before more-specific trailing-wildcard ACL paths with capabilities = [\"deny\"] for a LIST operation. When a parent path permitted LIST and a child path was denied, the trailing-slash lookup could therefore allow listing the denied path. Other operation types are outside the repository advisory's affected scope. This issue is fixed in version 2.6.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-63132",
-      "published": "2026-09-23T19:17:34.663",
-      "description": "OpenBao is an open source identity-based secrets management system. Prior to 2.6.0, OpenBao's handleLogicalRecovery path in http/logical.go compared the highly privileged recovery token with ordinary string equality. A remote unauthenticated attacker able to make repeated recovery mode requests and measure response timing could infer the recovery token. The recovered token could then authorize recovery mode operations that read or modify OpenBao data. This issue is fixed in version 2.6.0.",
+      "id": "CVE-2026-82370",
+      "published": "2026-09-24T00:17:21.777",
+      "description": "Unauthenticated remote command injection in the Brocade SANnav orchestrator HTTP service permits network-adjacent attackers to execute arbitrary administrative switch CLI commands and issue container management instructions. This could allow an attacker to alter Fibre Channel fabric switch configurations or manipulate application container runtimes. This vulnerability affects Brocade SANnav versions before 3.0.1a.",
       "severity": "UNKNOWN",
       "score": null
     }
