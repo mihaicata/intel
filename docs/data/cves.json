@@ -1,145 +1,145 @@
 {
-  "totalResults": 3061,
+  "totalResults": 3095,
   "items": [
     {
-      "id": "CVE-2026-96272",
-      "published": "2026-09-23T01:16:32.633",
-      "description": "ClipBucket v5 before 5.5.3-#182 contains a blind SQL injection vulnerability in the photo search endpoint where the query parameter is passed unsanitized into SQL WHERE and ORDER BY clauses. Unauthenticated attackers can exploit time-based blind SQL injection techniques to extract user credentials, email addresses, and administrator password hashes for account takeover.",
+      "id": "CVE-2026-75799",
+      "published": "2026-09-23T06:17:01.710",
+      "description": "The YAHMAN Add-ons WordPress plugin before 0.9.31 does not validate the type of the remote files it caches in a publicly accessible directory, allowing unauthenticated attackers to write arbitrary PHP files on the server and achieve RCE when the relevant feature is enabled.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2026-82843",
+      "published": "2026-09-23T06:17:02.363",
+      "description": "The WP OAuth Server ( Login with WordPress ) WordPress plugin before 6.4.0 does not bind the OpenID Connect identity assertion it issues to the authorization grant being exchanged, returning instead the assertion belonging to whichever user authenticated most recently, which allows users with the Subscriber role and above to obtain a validly signed identity assertion for another user, including an administrator, and authenticate as them at any application that uses the site for single sign-on.",
+      "severity": "CRITICAL",
+      "score": 9
+    },
+    {
+      "id": "CVE-2022-4997",
+      "published": "2026-09-23T06:16:59.060",
+      "description": "The jet-form-builder-stripe-gateway WordPress plugin before 1.1.0 does not sanitise and escape a payment token before using it in a SQL statement, allowing unauthenticated users to extract arbitrary data from the database, including password hashes.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-14321",
+      "published": "2026-09-23T06:17:00.850",
+      "description": "The divi-dash WordPress plugin before 1.0.7 does not validate the source of the client IP address it uses for rate limiting and banning, allowing unauthenticated attackers to spoof arbitrary IP addresses in order to bypass rate limiting, ban chosen addresses from the feature, and grow a stored option without bound, resulting in denial of service.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-19438",
+      "published": "2026-09-23T06:17:01.310",
+      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in ABB Mint Workbench I.\n\nThis issue affects Mint Workbench I: through 5876.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-89425",
-      "published": "2026-09-23T03:17:04.357",
-      "description": "UTF8DataInputJsonParser._reportInvalidToken() in FasterXML jackson-core builds the offending-token text for its error message by appending Java identifier characters to a StringBuilder in a loop that has no upper bound. Unlike the three sibling parser implementations, including UTF8StreamJsonParser, it never consults ErrorReportConfiguration.getMaxErrorTokenLength() (default 256). A malformed token supplied to a parser created through JsonFactory.createParser(DataInput) is therefore accumulated in full. No StreamReadConstraints setting mitigates this: maxDocumentLength cannot be applied to DataInput sources at all, and maxStringLength does not cover this path because the accumulation bypasses ReadConstrainedTextBuffer. The reporter measured a 20,000,109-character exception message from a 20-million-character malformed token on the DataInput path, against 367 characters for identical input on the InputStream path. Scaling the payload drives the StringBuilder, which also incurs byte-to-char expansion and internal array doubling, to many times the raw payload size and can trigger OutOfMemoryError for the whole JVM. UTF8DataInputJsonParser was introduced in 2.8.0 together with createParser(DataInput); releases before 2.8.0 do not contain the affected class.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2025-15696",
+      "published": "2026-09-23T06:17:00.710",
+      "description": "The Real3D Flipbook  WordPress plugin before 5.4 does not sanitize or escape several flipbook editor fields before rendering them back in the admin editor, allowing users with the Author role and above to inject arbitrary web scripts that execute in the browser of any user who later opens the affected flipbook for editing, including administrators.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-91776",
-      "published": "2026-09-23T03:17:04.620",
-      "description": "TypeDeserializerBase._findDeserializer() in FasterXML jackson-databind caches the resolved deserializer under the raw, attacker-supplied type ID. When name-based polymorphism is configured with a fallback, for example @JsonTypeInfo(use = Id.NAME, defaultImpl = ...), every distinct unrecognized type ID resolves to the same fallback deserializer but is retained as its own key in the _deserializers map. That map has no configurable bound and lives for the lifetime of the type deserializer, so an attacker who can repeatedly supply fresh unknown type IDs causes monotonic memory retention across requests. The reporter observed 10,000 retained entries from 10,000 distinct unknown IDs, against a single entry for a control that repeated one unknown ID the same number of times, isolating attacker-controlled key cardinality from request volume. Exploitation requires an application that enables name-based polymorphism with a defaultImpl or equivalent fallback, accepts attacker-influenced type IDs, and reuses a long-lived ObjectMapper across requests. The fix stops caching fallback resolutions for unrecognized IDs and bounds both the number of cached entries and the length of a cacheable type ID.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-91777",
-      "published": "2026-09-23T03:17:04.783",
-      "description": "Forward-reference completion for @JsonIdentityInfo object IDs in FasterXML jackson-databind performs a linear scan of the pending-reference accumulator for every resolved ID. The affected paths are CollectionDeserializer.CollectionReferringAccumulator.resolveForwardReference() and the equivalent implementation in MapDeserializer. When a document first creates N unresolved object-ID references in an identity-enabled collection or map and then defines those same IDs in reverse order, completion performs on the order of N * (N + 1) / 2 identity comparisons, so a shallow document whose size grows linearly causes quadratic CPU work during deserialization. The reporter instrumented equals() calls on the ID class and measured exactly 2,003,000 comparisons at N = 2,000, against zero comparisons in the pending-reference lookup path for an equally sized control in which every reference was already resolved. The input requires no deep nesting and no syntactically unusual JSON. Exploitation requires an application that deserializes attacker-influenced JSON into an identity-enabled collection or map. The fix replaces the repeated linear lookup with a keyed pending-reference structure.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-95924",
-      "published": "2026-09-23T01:16:32.110",
-      "description": "A vulnerability has been found in SourceCodester Online Reviewer Management System 1.0. Impacted is an unknown function of the file /reviewer_0/admins/assessments/databank/btn_functions.php?action=add. The manipulation of the argument difficulty_id leads to sql injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-95925",
-      "published": "2026-09-23T01:16:32.293",
-      "description": "A vulnerability was found in SourceCodester Online Reviewer Management System 1.0. The affected element is an unknown function of the file /reviewer_0/admins/assessments/databank/btn_functions.php?action=update. The manipulation of the argument difficulty_id results in sql injection. The attack can be executed remotely. The exploit has been made public and could be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-95926",
-      "published": "2026-09-23T02:16:54.527",
-      "description": "A vulnerability was determined in SourceCodester Online Reviewer Management System 1.0. The impacted element is an unknown function of the file /reviewer_0/admins/assessments/pretest/btn_functions.php?action=update. This manipulation of the argument test_id causes sql injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-95927",
-      "published": "2026-09-23T02:16:55.537",
-      "description": "A vulnerability was identified in SourceCodester Online Reviewer Management System 1.0. This affects an unknown function of the file /reviewer_0/admins/assessments/pretest/exam-delete.php. Such manipulation of the argument test_id leads to sql injection. The attack may be performed from remote. The exploit is publicly available and might be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-94367",
-      "published": "2026-09-23T00:17:01.200",
-      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 contains an OS command injection vulnerability in recbackup. An authenticated administrator can supply crafted backup-area configuration input that is passed to a shell command, allowing commands to execute with the privileges of the nvr user. The underlying design has been present since at least firmware 2.2.3.4.\n\nThis vulnerability is resolved in OpenEye Apex version 3.4.3.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-96271",
-      "published": "2026-09-23T01:16:32.477",
-      "description": "Photoview through 2.4.0 contains an authorization bypass vulnerability in the shareAlbum GraphQL mutation that allows authenticated users to create share links for albums owned by other users. Attackers can supply arbitrary album IDs to generate working share tokens for victim albums, exposing photos and sub-albums to anyone with the link while retaining indefinite control over token settings.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-92928",
-      "published": "2026-09-23T00:16:59.773",
-      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 contains a hardcoded, undocumented recovery account with a shared credential that cannot be changed, disabled, or rotated. An unauthenticated remote attacker can use the account to authenticate to the password-reset workflow. The account does not provide normal administrator access; additional vulnerabilities are required to obtain an administrator takeover. The underlying design has been present since at least firmware 2.2.3.4.\n\nUpgrade to version 3.5.4.",
+      "id": "CVE-2026-16264",
+      "published": "2026-09-23T06:17:00.963",
+      "description": "The Newsletters WordPress plugin before 4.18.1 does not perform an ownership check on some of its subscriber management actions, and issues a management session to unauthenticated visitors on request, allowing attackers to read any subscriber's personal data and overwrite any subscriber's record including their email address.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-95829",
-      "published": "2026-09-23T00:17:01.333",
-      "description": "A vulnerability was identified in TDuckCloud tduck-platform up to 5.3. This vulnerability affects the function PaginationInnerInterceptor.concatOrderBy of the file tduck-api/src/main/java/com/tduck/cloud/api/config/MybatisPlusConfig.java of the component Pagination Inner Interceptor. The manipulation of the argument orders[0].column leads to sql injection. The attack can be initiated remotely. The exploit is publicly available and might be used. The identifier of the patch is ea7f0fae7cb0fd998a3284c11addce689350cd69. It is suggested to install a patch to address this issue.",
+      "id": "CVE-2026-80342",
+      "published": "2026-09-23T06:17:02.040",
+      "description": "The Payment Plugins for PayPal WooCommerce WordPress plugin before 2.0.27 does not verify that a PayPal order supplied in a payment request belongs to the WooCommerce order being paid unless that PayPal order has already been completed, allowing unauthenticated attackers to have another buyer's approved but uncaptured payment captured against an order of their own.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-95830",
-      "published": "2026-09-23T00:17:01.537",
-      "description": "A security flaw has been discovered in theRealSain Pixtream up to 866afd4f0cea812b918780fb74b67dccf8c4d6a0. This issue affects some unknown processing of the file /post_upload.php. The manipulation of the argument media results in unrestricted upload. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-84098",
+      "published": "2026-09-23T06:17:03.070",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads WordPress plugin before 8.9.5 does not properly verify a listing's ownership before deleting it, allowing authenticated attackers with Subscriber-level access and above to delete arbitrary listings, including ones belonging to other users.\n\nThis is an incomplete fix of CVE-2023-1889 / CVE-2023-35052: a separate, unaddressed listing-deletion path allows the same impact, from at least version 3.1.0 through the current release.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-95833",
-      "published": "2026-09-23T00:17:01.743",
-      "description": "A weakness has been identified in itsourcecode Leave Management System 1.0. Impacted is an unknown function of the file /module/leavetype/index.php. This manipulation of the argument ID causes sql injection. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "id": "CVE-2026-84150",
+      "published": "2026-09-23T06:17:03.173",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads WordPress plugin before 8.9.5 does not verify that the target user of a REST route matches the authenticated caller before reading and modifying that user's saved favorites, allowing any authenticated user with subscriber-level access to view and alter another user's favorites.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-95868",
-      "published": "2026-09-23T00:17:01.937",
-      "description": "A weakness has been identified in AdithyaYelloju Restaurant-Management-System up to 7f0e7e84255e8fcfd488e83f8f91451bbbff6b9c. Affected by this issue is the function mysqli_query of the file admin/display_menu.php of the component Search Form. This manipulation of the argument s1 causes sql injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-92930",
-      "published": "2026-09-23T00:17:01.080",
-      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 uses an administrator password-reset unlock-code design that lacks a per-device secret or other server-side cryptographic material. An attacker with physical-console access and access to the privileged password-reset workflow can forge a valid unlock code offline and use it to reset the administrator password. The underlying design has been present since at least firmware 2.2.3.4.\n\nUpgrade to version 3.5.4.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-95897",
-      "published": "2026-09-23T01:16:31.920",
-      "description": "A security vulnerability has been detected in Dask up to 2026.8.0. This affects the function from_npy_stack of the file dask/array/core.py of the component Loader. Such manipulation leads to deserialization. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-96273",
-      "published": "2026-09-23T01:16:32.790",
-      "description": "Ghidra before 12.1.4 fails to validate the TYPE_COL byte in OptionsDB.createUnregisteredOption(), causing an ArrayIndexOutOfBoundsException that leaves domain objects permanently locked. Attackers can craft a malicious program database file that, when imported, causes the application to stall and prevents resource cleanup or graceful shutdown.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-95928",
-      "published": "2026-09-23T02:16:55.717",
-      "description": "A security flaw has been discovered in recommenders-team recommenders up to 1.2.1. This impacts the function pickle.load of the file recommenders/models/newsrec/io/mind_iterator.py of the component Dict Loading. Performing a manipulation results in deserialization. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-92929",
-      "published": "2026-09-23T00:17:00.897",
-      "description": "OpenEye Apex Network Video Recorder (NVR) firmware 3.2.9.376 trusts an X-Forwarded-For header supplied by an arbitrary client when determining the request source address. An unauthenticated remote attacker can spoof a loopback address to bypass local-connection-only security controls exposed on the affected non-TLS web interfaces and disclose configuration information. The underlying design has been present since at least firmware 2.2.3.4.\n\nUpgrade to version 3.5.4.",
+      "id": "CVE-2026-77765",
+      "published": "2026-09-23T06:17:01.827",
+      "description": "The Better Payment  WordPress plugin before 2.3.4 does not validate the submitted payment amount server-side against the merchant's configured fixed price before building the gateway charge, allowing unauthenticated users to pay an arbitrary reduced amount for a fixed-price item.",
       "severity": "MEDIUM",
       "score": 5.3
+    },
+    {
+      "id": "CVE-2026-83555",
+      "published": "2026-09-23T06:17:02.483",
+      "description": "The Email Subscribers & Newsletters  WordPress plugin before 5.9.35 does not verify the per-subscriber management token before changing a subscriber's subscription status, allowing unauthenticated users to force-unsubscribe or force-confirm an arbitrary subscriber whose email address they know.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84026",
+      "published": "2026-09-23T06:17:02.667",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads WordPress plugin before 8.9.5 does not restrict access to a REST endpoint that returns user records, allowing unauthenticated attackers to read registered users' private contact details.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-84046",
+      "published": "2026-09-23T06:17:02.967",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads WordPress plugin before 8.9.5 does not validate a user-supplied URL before fetching it server-side, allowing users with the subscriber role and above to make the server issue requests to internal addresses.",
+      "severity": "MEDIUM",
+      "score": 5
+    },
+    {
+      "id": "CVE-2026-81338",
+      "published": "2026-09-23T06:17:02.150",
+      "description": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not properly sanitise and restrict HTML in user-submitted content before storing it and rendering it to other users, allowing users with subscriber-level accounts and above to perform stored HTML injection, such as embedding iframes, that can be leveraged for phishing and content spoofing against other users viewing the content.",
+      "severity": "MEDIUM",
+      "score": 4.6
+    },
+    {
+      "id": "CVE-2026-18364",
+      "published": "2026-09-23T06:17:01.073",
+      "description": "The zportals WordPress plugin before 6.4.2 does not perform any capability or nonce check on several of its AJAX actions, allowing users with a subscriber-level account to modify the zportals WordPress plugin before 6.4.2's stored integration settings.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-18365",
+      "published": "2026-09-23T06:17:01.193",
+      "description": "The zportals WordPress plugin before 6.4.2 does not perform any capability or nonce check on one of its AJAX actions, allowing users with a subscriber-level account to disclose the display name and email address of every registered user, including administrators.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-77766",
+      "published": "2026-09-23T06:17:01.933",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads WordPress plugin before 8.9.5 does not scope one of its REST collection endpoints to the requesting user, allowing users with a subscriber-level account to read every customer's order and payment records.\n\nVersions 8.8.1 to 8.9 are not affected. The endpoint was scoped correctly in 8.8.1 and the unscoped behaviour was reintroduced in 8.9.1.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-81339",
+      "published": "2026-09-23T06:17:02.263",
+      "description": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not perform a per-object ownership check when returning a quiz attempt result, allowing any authenticated user with a minimal (subscriber) role to read other students' quiz grades, pass/fail status and attempt timestamps by referencing an attempt identifier belonging to another user.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-84027",
+      "published": "2026-09-23T06:17:02.840",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads WordPress plugin before 8.9.5 does not check user capabilities when creating orders through its REST API, allowing users with the subscriber role and above to create paid order and payment records with arbitrary amounts and attribute them to other users.",
+      "severity": "MEDIUM",
+      "score": 4.3
     }
   ]
 }
