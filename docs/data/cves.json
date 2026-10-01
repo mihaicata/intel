@@ -1,143 +1,143 @@
 {
-  "totalResults": 3225,
+  "totalResults": 3248,
   "items": [
     {
-      "id": "CVE-2026-18467",
-      "published": "2026-09-24T02:16:52.943",
-      "description": "The Paytium: Mollie payment forms & donations plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.3. The 5.0.3 patch introduced a wp_hash()/hash_equals() signature gate on the pt-paytium-user-data field, but left a second filter — pt_cf_checkout_meta(), registered on the pt_meta_values hook after the signed builder — that copies every $_POST['pt_form_field'][*] key verbatim into the payment meta array without any signature verification; this allows the pt-user-role value it copies to overwrite the signed path's output, after which paytium_user_data_processing() reads the persisted _pt-user-role post meta and passes it directly as the role argument to wp_insert_user(). This makes it possible for unauthenticated attackers to register a new WordPress account with the administrator role and fully take over the site. Exploitation requires submitting a payment through a publicly-exposed [paytium] shortcode form and completing the resulting payment flow, after which the attacker can seize the new administrator account via the standard lost-password flow on their supplied email address.",
+      "id": "CVE-2026-78308",
+      "published": "2026-09-24T09:17:08.043",
+      "description": "Improper Authentication vulnerability in DIAEnergie allows Authentication Bypass.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-96891",
-      "published": "2026-09-24T03:16:58.950",
-      "description": "A vulnerability was identified in D-Link DIR-825 3.00b32. Affected is the function tunnel_set_params of the file tunnel.c of the component rp-l2tp. The manipulation of the argument peer_hostname  leads to out-of-bounds write. The attack may be initiated remotely.",
+      "id": "CVE-2026-12227",
+      "published": "2026-09-24T10:17:32.623",
+      "description": "The Visual Composer Website Builder plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 45.16.0 via the `vcv-template` parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-97055",
-      "published": "2026-09-24T02:16:54.333",
-      "description": "SigNoz from v0.8.0 before v0.143.0 defaults the JWT tokenizer signing secret (tokenizer::jwt::secret, set via SIGNOZ_TOKENIZER_JWT_SECRET or the deprecated SIGNOZ_JWT_SECRET) to an empty string, and Config.Validate() does not reject the empty value, so a deployment that does not configure a secret starts up and both signs and verifies session tokens with an empty HMAC key. Because the JWT tokenizer was the default provider, any such deployment is affected. An unauthenticated attacker who knows the ID of an existing user can forge a valid session token for that user — including an administrator — by signing the id, orgId and email claims with an empty key; the organization ID (and whether an email is registered) can be obtained without authentication from /api/v2/sessions/context. A forged refresh token can be exchanged at /api/v2/sessions/rotate for a new token pair and cannot be revoked, so it remains usable for its full lifetime (30 days by default). Fixed in v0.143.0, which requires a JWT secret when the jwt provider is selected and changes the default provider to opaque.",
+      "id": "CVE-2026-78312",
+      "published": "2026-09-24T09:17:08.553",
+      "description": "Path Traversal in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-78309",
+      "published": "2026-09-24T09:17:08.187",
+      "description": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-78311",
+      "published": "2026-09-24T09:17:08.440",
+      "description": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-85682",
+      "published": "2026-09-24T09:17:08.797",
+      "description": "The YOP Poll plugin for WordPress is vulnerable to Origin Validation Error in all versions up to, and including, 7.0.10. This is due to the plugin transmitting a wp_rest nonce to window.opener via postMessage() with a wildcard targetOrigin. This makes it possible for unauthenticated attackers to steal a REST nonce scoped to a logged-in Administrator and use it to change the Administrator's email address and password, resulting in full account takeover. The Administrator must open an attacker-controlled page in order to exploit this vulnerability.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-57590",
+      "published": "2026-09-24T10:17:38.010",
+      "description": "A missing authorization vulnerability exists in the Task Group APIs of Apache DolphinScheduler. The affected APIs do not properly verify whether the authenticated user has permission to access the project associated with the target Task Group.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-96803",
-      "published": "2026-09-24T02:16:53.770",
-      "description": "A vulnerability was identified in java110 MicroCommunity up to 2.0. Affected is the function QueryServiceSMOImpl.fallBack of the file BusinessApi.java of the component fallBack API Endpoint. Such manipulation of the argument fallBackSql leads to sql injection. The attack may be launched remotely. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-97185",
+      "published": "2026-09-24T09:17:08.937",
+      "description": "A flaw was found in GIMP. When processing a specially crafted GIMPressionist preset file, the plug-in does not properly validate vector indices before writing into fixed-size arrays. This can lead to an out-of-bounds write, corrupting memory. An attacker could exploit this by convincing a user to load a malicious preset file, potentially causing a crash or enabling arbitrary code execution.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-96898",
-      "published": "2026-09-24T04:18:05.833",
-      "description": "A vulnerability was detected in yhx070424 ShopXO up to 2.2.7. Affected by this vulnerability is an unknown functionality of the file config/ueditor.php of the component Ueditor Upload Interface. The manipulation of the argument path_type results in path traversal. It is possible to launch the attack remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-77193",
+      "published": "2026-09-24T09:17:07.877",
+      "description": "The eesy_ID2WP – Publish InDesign HTML5 plugin for WordPress is vulnerable to Path Traversal in all versions up to, and including, 1.0.3 via the `id2wp_path` parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-97056",
-      "published": "2026-09-24T02:16:54.500",
-      "description": "SigNoz versions from v0.98.0 up to (but not including) v0.143.0, when configured to use the opaque session tokenizer (which was not the default before v0.143.0), do not revoke a user's existing login sessions when the user's password is reset with a reset token (UpdatePasswordByResetPasswordToken, reachable via POST /api/v2/factor_password/reset) or when the user is deleted (DeleteUser, reachable via DELETE /api/v2/users/{id}). Neither code path calls the tokenizer's DeleteTokensByUserID, so cached tokens and identities are left in place. An attacker who already holds a session token for the account — for example from a stolen browser session or from a user being offboarded — retains the account's full access, up to administrator, after a password reset until the token reaches its configured maximum lifetime (30 days by default), and after user deletion until the token next rotates (30 minutes by default). This defeats password reset and user deletion as a means of terminating access. The issue is fixed in v0.143.0.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-74991",
-      "published": "2026-09-24T06:17:00.943",
-      "description": "The WPForms  WordPress plugin before 2.0.2 does not verify that a Stripe payment object supplied during a public form submission belongs to it before acting on it, allowing unauthenticated users to trigger a full refund and an immediate subscription cancellation against payments created by other applications on the site owner's Stripe account.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-80338",
-      "published": "2026-09-24T06:17:01.317",
-      "description": "The CMB2 WordPress plugin before 2.13.0 does not perform any capability check on one of its AJAX actions, allowing users with a role as low as Subscriber to create arbitrary WordPress options and corrupt existing ones, which can break core site settings and take the site offline.\nExploitation requires the site's  or another CMB2 WordPress plugin before 2.13.0 to have declared an oEmbed field, as the CMB2 WordPress plugin before 2.13.0 registers none of its own. The stored value is never attacker-controlled, so the issue does not lead to privilege escalation.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-97155",
-      "published": "2026-09-24T04:18:06.397",
-      "description": "Fabasoft Folio Client before 2026, a locally installed component that communicates with the Fabasoft browser extension via web messaging, does not restrict which web origins may invoke its functions by default. The registry value VALIDDOMAINS, which limits permitted origins, was optional and empty by default, resulting in all domains being trusted. As a consequence, any website visited by a user with the Folio Client and browser extension installed could invoke client functions, e.g., related to downloading documents, opening documents, and synchronizing files. The first fixed builds are Fabasoft Folio Client 2026 (Build 26.0.0.10) and Fabasoft Folio Client 2026 April Release (Build 26.4.0.76). This client is, for example, shipped with Fabasoft eGov-Suite.",
+      "id": "CVE-2026-78313",
+      "published": "2026-09-24T09:17:08.673",
+      "description": "Improper Access Control in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-96777",
-      "published": "2026-09-24T02:16:53.563",
-      "description": "A vulnerability was determined in Forma LMS up to 4.1.43. This impacts the function UserselectorAdmController::getDataTask of the file /appCore/ajax.adm_server.php?r=adm/userselector/getData of the component Multi-User-Selector AJAX Endpoint. This manipulation of the argument Name causes sql injection. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-15731",
+      "published": "2026-09-24T10:17:36.433",
+      "description": "The WP Multilang – Translation and Multilingual Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the post content in all versions up to, and including, 2.4.31 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-96884",
-      "published": "2026-09-24T03:16:58.760",
-      "description": "A security flaw has been discovered in MantisZip up to 0.4.5. Affected by this issue is the function Path.Combine of the file MainWindow.UI.cs of the component Preview. The manipulation results in path traversal. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-18335",
+      "published": "2026-09-24T10:17:37.637",
+      "description": "The Kirki – Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Blind Server-Side Request Forgery in all versions up to, and including, 6.2.0 via the 'kirki_data' Parameter. This makes it possible for unauthenticated attackers to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-96880",
-      "published": "2026-09-24T02:16:54.147",
-      "description": "A vulnerability was found in TaleLin lin-cms-spring-boot up to 0.2.1. This impacts the function getBook of the file src/main/java/io/github/talelin/latticy/controller/v1/BookController.java of the component book Endpoint. Performing a manipulation of the argument ID results in improper authorization. The attack is possible to be carried out remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-96881",
-      "published": "2026-09-24T03:16:58.333",
-      "description": "A vulnerability was determined in TaleLin lin-cms-spring-boot up to 0.2.1. Affected is the function getBooks of the file src/main/java/io/github/talelin/latticy/controller/v1/BookController.java of the component book Endpoint. Executing a manipulation can lead to improper authorization. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-92905",
+      "published": "2026-09-24T10:17:38.157",
+      "description": "ZohoCorp ManageEngine EventLog Analyzer and Log360 before build 13071 were vulnerable to a DoS vulnerability that allowed attackers to crash the log collector using malformed syslog packets.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-96882",
-      "published": "2026-09-24T03:16:58.577",
-      "description": "A vulnerability was identified in TaleLin lin-cms-spring-boot up to 0.2.1. Affected by this vulnerability is the function searchBook of the file src/main/java/io/github/talelin/latticy/controller/v1/BookController.java of the component book Endpoint. The manipulation leads to improper authorization. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-19532",
+      "published": "2026-09-24T12:17:12.030",
+      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in HAVELSAN Inc. Liman MYS allows Path Traversal.\n\nThis issue affects Liman MYS: from 2.3.2 before 2.3.4-1124.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-96892",
-      "published": "2026-09-24T04:18:04.790",
-      "description": "A flaw has been found in Edimax BR-6428nC 1.16. The impacted element is the function websRedirect of the component goform Handler. Executing a manipulation of the argument submit-url can lead to open redirect. The attack may be launched remotely. The exploit has been published and may be used. Multiple endpoints are affected. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-78310",
+      "published": "2026-09-24T09:17:08.323",
+      "description": "Authorization Bypass Through User-Controlled Key in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-96810",
-      "published": "2026-09-24T02:16:53.960",
-      "description": "A vulnerability was identified in huanzi-qch base-admin up to 52816b760cd53244989fd664bbb2b3d4edbfdbf1. This issue affects the function Save of the file base-admin-master\\src\\main\\java\\cn\\huanzi\\qch\\baseadmin\\common\\controller\\CommonController.java of the component Add User Handler. The manipulation of the argument Username leads to cross site scripting. The attack can be initiated remotely. The exploit is publicly available and might be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-97179",
+      "published": "2026-09-24T11:17:06.600",
+      "description": "A security vulnerability has been detected in O2OA up to 9.5.3/10.0.2. This vulnerability affects the function list of the file o2server/x_base_core_project/src/main/java/com/x/base/core/project/connection/CipherConnectionAction.java of the component Cipher Connection Handler. Such manipulation of the argument fileUrl leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-97149",
-      "published": "2026-09-24T03:16:59.133",
-      "description": "In OpenStack Swift before 2.38.2, the tempurl middleware does not reject the X-Copy-From header on PUT requests. A TempURL signature only covers the method, expiry, and path, and thus the list of disallowed headers is the only defense against a signed PUT request changing what the request does. An attacker holding a PUT TempURL for a single object can add an X-Copy-From header naming any object in the same account; the copy middleware copies that object to the destination, and the attacker then reads the victim's data back with a GET TempURL for the destination object. Copies across account boundaries are rejected. Only deployments using the shipped default proxy pipeline (tempurl and copy middleware) with account-level TempURL keys are affected.",
+      "id": "CVE-2026-16302",
+      "published": "2026-09-24T12:17:11.637",
+      "description": "The Spectra Legacy – Gutenberg Blocks plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.20.0 via the editor_assets function,  which exposes the uag_insta_linked_accounts option through the uagb_blocks_info object without a capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to extract sensitive data including raw Instagram Graph API access tokens configured by an administrator. Exploitation requires the Spectra Pro plugin to be active with a linked Instagram account.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-4637",
+      "published": "2026-09-24T10:17:37.813",
+      "description": "Paessler PRTG Network Monitor before version 26.2.120.1449 is affected by a reflected Cross-Site Scripting (XSS) vulnerability. When a request is made for a non-existent resource ending in \\\".htm\\\", the web interface returns an HTTP 403 \\\"Forbidden Path\\\" error page that echoes the requested URL path into the HTML response body without proper output encoding or sanitization.\n\n\n\n\nAn unauthenticated, remote attacker can craft a URL containing an HTML/JavaScript payload in the path (e.g. https:////welcome.htm) and, once a victim with an active PRTG session opens the crafted link, execute arbitrary JavaScript in the security context of the PRTG web interface. Because the PRTG session cookie is not protected with the HttpOnly attribute, successful exploitation allows the attacker to read and exfiltrate the victim's session cookie, potentially leading to session hijacking.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-97151",
-      "published": "2026-09-24T04:18:06.027",
-      "description": "mammoth (aka mammoth.js) before 1.12.2 is vulnerable to prototype pollution when reading the styles defined in a document. Converting a crafted .docx file allows an attacker to add arbitrary properties to Object.prototype. In 1.11.0 through 1.12.1, applications that convert further documents in the same process and return the converted HTML can also disclose the contents of local server files (to the party supplying the documents) by setting externalFileAccess to true.",
+      "id": "CVE-2026-4638",
+      "published": "2026-09-24T11:16:45.953",
+      "description": "PRTG Network Monitor before version 26.2.120.1449 ships a demo EXE/Script sensor that multiplies two integer parameters using cscript.exe. If a non-numeric value is passed instead, cscript.exe raises a 'Type mismatch' runtime error that includes the offending parameter value in plaintext. PRTG provides a documented placeholder variable, %windowspassword, which resolves to the configured Windows/domain password used by PRTG and can be passed as a sensor parameter. \n\n\n\n\nAny PRTG user who is not restricted to read-only access and is permitted to create sensors (the default for non-read-only users) can pass %windowspassword as an argument to the demo VBScript sensor, triggering the type-mismatch error and causing PRTG to display the plaintext password in the sensor's error output.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-97152",
-      "published": "2026-09-24T04:18:06.213",
-      "description": "Nanomsg versions 0.5-beta through 1.x before 1.2.3 has a remotely exploitable buffer overflow in the WebSocket transport, due to an unchecked copy of the Sec-WebSocket-Version header, through snprintf.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-14780",
-      "published": "2026-09-24T06:17:00.567",
-      "description": "A vulnerability exists in the PaperCut NG/MF platform's device-scripting functionality due to insufficient sanitization and access restrictions within the embedded execution engine. An authenticated user with administrative access to the management interface can supply a malicious script that escapes the runtime sandbox.  \n\nA successful execution enables an attacker to run unauthorized operating system commands with administrative privileges on the host operating system.",
+      "id": "CVE-2026-79680",
+      "published": "2026-09-24T11:16:47.117",
+      "description": "Authentication bypass vulnerability in the password authentication mechanism of the Qt VNC Server module. An attacker using a specially modified VNC client that violates the RFB protocol can bypass Qt VNC Server's password authentication and gain unauthorized remote access to the shared application, compromising the confidentiality and integrity of the session.",
       "severity": "UNKNOWN",
       "score": null
     }
