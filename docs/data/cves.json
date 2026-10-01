@@ -1,143 +1,143 @@
 {
-  "totalResults": 3248,
+  "totalResults": 3334,
   "items": [
     {
-      "id": "CVE-2026-78308",
-      "published": "2026-09-24T09:17:08.043",
-      "description": "Improper Authentication vulnerability in DIAEnergie allows Authentication Bypass.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "id": "CVE-2026-88365",
+      "published": "2026-09-24T16:17:13.483",
+      "description": "minimp3 commit ea99364f contains an integer overflow vulnerability in mp3dec_skip_id3v1() when parsing the APEv2 tag-size field.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-12227",
-      "published": "2026-09-24T10:17:32.623",
-      "description": "The Visual Composer Website Builder plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 45.16.0 via the `vcv-template` parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-78312",
-      "published": "2026-09-24T09:17:08.553",
-      "description": "Path Traversal in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-78309",
-      "published": "2026-09-24T09:17:08.187",
-      "description": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "id": "CVE-2026-77581",
+      "published": "2026-09-24T16:17:10.943",
+      "description": "BentoPDF is a client-side PDF toolkit that is self hostable. In 2.8.6 and earlier, the certificate and timestamp CORS proxy in cloudflare/cors-proxy-worker.js uses isPrivateOrReservedHost() to validate a supplied hostname separately from the DNS resolution used by fetch(targetUrl), allowing an attacker-controlled hostname to resolve to an internal or reserved destination after validation. A certificate-like path can satisfy ALLOWED_PATH_PATTERNS, and direct clients can forge the browser-oriented Origin header. Deployments without PROXY_SECRET skip the optional signature check, while the signature is an anti-abuse measure rather than a destination-security boundary. The proxy has a 10 MB response limit and can relay response bodies from reachable destinations. The advisory identifies both the official Worker deployment and self-hosted instances as impacted where the Worker execution environment can reach internal or reserved destinations. This vulnerability is fixed in 2.8.7.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-78311",
-      "published": "2026-09-24T09:17:08.440",
-      "description": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-85682",
-      "published": "2026-09-24T09:17:08.797",
-      "description": "The YOP Poll plugin for WordPress is vulnerable to Origin Validation Error in all versions up to, and including, 7.0.10. This is due to the plugin transmitting a wp_rest nonce to window.opener via postMessage() with a wildcard targetOrigin. This makes it possible for unauthenticated attackers to steal a REST nonce scoped to a logged-in Administrator and use it to change the Administrator's email address and password, resulting in full account takeover. The Administrator must open an attacker-controlled page in order to exploit this vulnerability.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-57590",
-      "published": "2026-09-24T10:17:38.010",
-      "description": "A missing authorization vulnerability exists in the Task Group APIs of Apache DolphinScheduler. The affected APIs do not properly verify whether the authenticated user has permission to access the project associated with the target Task Group.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "id": "CVE-2026-56737",
+      "published": "2026-09-24T16:17:07.637",
+      "description": "phpMyFAQ is an open source FAQ web application. Versions 3.2.0 through 4.1.5 contain an authentication bypass in its public two-factor authentication verification flow: an unauthenticated attacker can submit an account’s numeric user ID and a valid or brute-forced six-digit TOTP code without first authenticating with the account password, allowing takeover of any 2FA-enabled account, including administrator accounts. Version 4.1.6 is patched by binding TOTP verification to a session established after successful password authentication and limiting failed TOTP attempts. No official workaround is documented; affected installations should upgrade to 4.1.6 or later.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-97185",
-      "published": "2026-09-24T09:17:08.937",
-      "description": "A flaw was found in GIMP. When processing a specially crafted GIMPressionist preset file, the plug-in does not properly validate vector indices before writing into fixed-size arrays. This can lead to an out-of-bounds write, corrupting memory. An attacker could exploit this by convincing a user to load a malicious preset file, potentially causing a crash or enabling arbitrary code execution.",
+      "id": "CVE-2026-63203",
+      "published": "2026-09-24T16:17:08.700",
+      "description": "Logto is the modern, open-source auth infrastructure for SaaS and AI apps. From 1.31.0 until 1.42.0, the Account API handlers in packages/core/src/routes/account/third-party-tokens.ts allow a caller holding a same-user access token with only the openid scope to retrieve stored social or enterprise SSO provider access tokens through GET /api/my-account/identities/{target}/access-token or GET /api/my-account/sso-identities/{connectorId}/access-token. The handlers authenticate the user but do not require the identities scope that protects neighboring identity-detail operations, bypassing the intended Account API consent boundary. Exploitation requires federated token-set storage to be enabled and the affected user to have authenticated through a supported connector. A low-trust application can use the disclosed provider token against upstream APIs within that token's granted scopes. This issue is fixed in version 1.42.0.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-77193",
-      "published": "2026-09-24T09:17:07.877",
-      "description": "The eesy_ID2WP – Publish InDesign HTML5 plugin for WordPress is vulnerable to Path Traversal in all versions up to, and including, 1.0.3 via the `id2wp_path` parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information.",
+      "id": "CVE-2026-75907",
+      "published": "2026-09-24T16:17:10.387",
+      "description": "The door access control on a Norwegian Cruise Line asset grants entry based only on the credential's static 7-byte UID stored on an NTAG212 NFC chip. A UID is a manufacturer serial number sent in the clear on every read and is not intended to be secret or to authenticate the holder. Validating on the UID of the NTAG212 NFC chip alone is identification, not authentication, and the credential has no challenge-response capability that would resist copying.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-78313",
-      "published": "2026-09-24T09:17:08.673",
-      "description": "Improper Access Control in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "id": "CVE-2026-88357",
+      "published": "2026-09-24T16:17:12.957",
+      "description": "nDPI 5.1.0 contains a memory access issue in the DNS dissector and serializer deserialization code. Specially crafted network input can cause byte-buffer addresses at odd offsets to be cast to uint16_t or wider integer pointers and directly dereferenced without alignment checks. This results in undefined behavior and can cause process termination in UBSan-instrumented builds or on strict-alignment architectures, leading to denial of service.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-88361",
+      "published": "2026-09-24T16:17:13.217",
+      "description": "SumatraPDF 3.6.1 contains an integer overflow vulnerability in EngineMupdf::BuildPageLabelRec() when parsing PDF PageLabels /Nums entries.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-88362",
+      "published": "2026-09-24T16:17:13.350",
+      "description": "MuJS e892c9fdb contains an incorrect numeric conversion vulnerability in jsR_isindex() in jsrun.c. A specially crafted JavaScript input containing an excessively large numeric array index can cause an out-of-range floating-point value to be converted to an integer without proper range validation. This results in undefined behavior and can cause process termination, leading to denial of service.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-79761",
+      "published": "2026-09-24T16:17:11.743",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 1.7.0 until 2.5.1, the Termix SSH key deployment flow derives a grep pattern from a user-controlled public-key token and interpolates it into double-quoted shell commands executed on the selected target host. In src/backend/database/routes/credential-deploy-routes.ts, both grep -F verification paths accept command substitution or quote-breaking shell syntax in keyPattern. An authenticated user who can deploy a crafted SSH credential can therefore execute commands with the selected remote account's privileges. The separate ACME command-injection report is outside this CVE's scope. This issue is fixed in version 2.5.1.",
+      "severity": "MEDIUM",
+      "score": 6.6
+    },
+    {
+      "id": "CVE-2026-76907",
+      "published": "2026-09-24T16:17:10.500",
+      "description": "LaSuite Doc is a collaborative note taking, wiki and documentation platform. From 4.8.2 until 5.4.0, GET /api/v1.0/documents/search/ accepts sequential seven-digit document paths to scope descendant searches without requiring the caller to possess the public document UUID. An unauthenticated caller can submit an empty search query and iterate predictable path values to enumerate public document subtrees, obtaining document identifiers, titles, creator data, timestamps, and tree metadata. Each disclosed identifier can then be used through normal public-document endpoints to retrieve the document content, and differing 403 Forbidden and 404 Not Found responses reveal whether a guessed path exists. Authenticated users can similarly discover documents with authenticated link reach, while restricted documents remain protected. This issue is fixed in version 5.4.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-15731",
-      "published": "2026-09-24T10:17:36.433",
-      "description": "The WP Multilang – Translation and Multilingual Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the post content in all versions up to, and including, 2.4.31 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-88358",
+      "published": "2026-09-24T16:17:13.090",
+      "description": "simdjson 4.6.1 contains a one-byte out-of-bounds read vulnerability in dom::parser::parse_unpadded(). A specially crafted truncated JSON document whose final structural token closes a nested array or object can cause json_iterator::walk_document() to access buf[len] after the input buffer has been exhausted. This results in a heap out-of-bounds read and may cause application termination, leading to denial of service.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-79760",
+      "published": "2026-09-24T16:17:11.490",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 2.5.0 until 2.5.1, Termix allows authenticated users to configure webhook or ntfy notification channels with attacker-controlled destination URLs and trigger server-side requests through the notification-channel test endpoint. The request path in src/backend/database/routes/alert-rules-routes.ts reaches src/backend/utils/notification-sender.ts without destination allowlisting or private-address blocking. This permits blind requests to internal HTTP services reachable by the Termix server. Webhook mode also permits attacker-controlled HTTP methods and headers, which can cause limited state changes when an internal service accepts the fixed notification body, although response bodies are not returned. This issue is fixed in version 2.5.1.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-18335",
-      "published": "2026-09-24T10:17:37.637",
-      "description": "The Kirki – Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Blind Server-Side Request Forgery in all versions up to, and including, 6.2.0 via the 'kirki_data' Parameter. This makes it possible for unauthenticated attackers to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services.",
+      "id": "CVE-2026-79758",
+      "published": "2026-09-24T16:17:11.107",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 1.8.0 until 2.5.1, authenticated Termix users can access the server-stats API without per-host authorization. GET /status returns statuses for hosts the requester cannot access, GET /status/:id accepts an attacker-supplied numeric host identifier, and POST /clear-connections permits a regular user to clear the global SSH connection pool. The affected src/backend/ssh/server-stats.ts routes expose host online or offline state and lastChecked timestamps and can disrupt other users' active sessions or pooled connections. Unauthenticated requests remain blocked, but authentication alone does not preserve tenant isolation. This issue is fixed in version 2.5.1.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-92905",
-      "published": "2026-09-24T10:17:38.157",
-      "description": "ZohoCorp ManageEngine EventLog Analyzer and Log360 before build 13071 were vulnerable to a DoS vulnerability that allowed attackers to crash the log collector using malformed syslog packets.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-19532",
-      "published": "2026-09-24T12:17:12.030",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in HAVELSAN Inc. Liman MYS allows Path Traversal.\n\nThis issue affects Liman MYS: from 2.3.2 before 2.3.4-1124.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-78310",
-      "published": "2026-09-24T09:17:08.323",
-      "description": "Authorization Bypass Through User-Controlled Key in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
+      "id": "CVE-2025-32000",
+      "published": "2026-09-24T16:17:06.087",
+      "description": "HCL Sametime is vulnerable to insufficient input sanitization. The application did not appropriately sanitize user input. When user input is implicitly or explicitly trusted without sufficient sanitization, malicious actors can leverage this vulnerability.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-97179",
-      "published": "2026-09-24T11:17:06.600",
-      "description": "A security vulnerability has been detected in O2OA up to 9.5.3/10.0.2. This vulnerability affects the function list of the file o2server/x_base_core_project/src/main/java/com/x/base/core/project/connection/CipherConnectionAction.java of the component Cipher Connection Handler. Such manipulation of the argument fileUrl leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-79759",
+      "published": "2026-09-24T16:17:11.283",
+      "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 1.7.0 until 2.5.1, the POST /credentials/:id/deploy-to-host endpoint resolves credential and target-host records from attacker-controlled credentialId and targetHostId integer values without checking that either record belongs to the requesting user. In src/backend/database/routes/credentials.ts, differential errors reveal whether credential and host records exist and disclose each record's authType value. Properly encrypted passwords and keys are not disclosed, but a key-authenticated victim host can receive an outbound SSH connection attempt using the attacker's public key. This issue is fixed in version 2.5.1.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-16302",
-      "published": "2026-09-24T12:17:11.637",
-      "description": "The Spectra Legacy – Gutenberg Blocks plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.20.0 via the editor_assets function,  which exposes the uag_insta_linked_accounts option through the uagb_blocks_info object without a capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to extract sensitive data including raw Instagram Graph API access tokens configured by an administrator. Exploitation requires the Spectra Pro plugin to be active with a linked Instagram account.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-63630",
+      "published": "2026-09-24T16:17:08.873",
+      "description": "BentoPDF is a client-side PDF toolkit that is self hostable. In 2.8.6 and earlier, deserializeWorkflow() accepts the Timestamp node's tsaUrl control from imported JSON without schema or destination validation. When a user imports the crafted workflow and runs it against a PDF, timestampPdf() sends an RFC 3161 TimeStampReq containing the PDF's SHA-256 MessageImprint to the attacker-selected endpoint. The default self-hosted configuration does not set VITE_CORS_PROXY_URL, so the request bypasses the proxy's ALLOWED_TSA_HOSTS checks and is sent directly. The disclosed digest can confirm that a document matches a known file and can correlate the same document across users without revealing its contents. This vulnerability is fixed in 2.8.7.",
+      "severity": "LOW",
+      "score": 3.4
     },
     {
-      "id": "CVE-2026-4637",
-      "published": "2026-09-24T10:17:37.813",
-      "description": "Paessler PRTG Network Monitor before version 26.2.120.1449 is affected by a reflected Cross-Site Scripting (XSS) vulnerability. When a request is made for a non-existent resource ending in \\\".htm\\\", the web interface returns an HTTP 403 \\\"Forbidden Path\\\" error page that echoes the requested URL path into the HTML response body without proper output encoding or sanitization.\n\n\n\n\nAn unauthenticated, remote attacker can craft a URL containing an HTML/JavaScript payload in the path (e.g. https:////welcome.htm) and, once a victim with an active PRTG session opens the crafted link, execute arbitrary JavaScript in the security context of the PRTG web interface. Because the PRTG session cookie is not protected with the HttpOnly attribute, successful exploitation allows the attacker to read and exfiltrate the victim's session cookie, potentially leading to session hijacking.",
+      "id": "CVE-2026-56739",
+      "published": "2026-09-24T16:17:07.803",
+      "description": "Logto is the modern, open-source auth infrastructure for SaaS and AI apps. Prior to 1.43.0, Logto fetches administrator-controlled outbound destinations without validating the address used for the connection. Webhook delivery in packages/core/src/libraries/hook/utils.ts can reach special-use and cloud metadata addresses. Custom OAuth2 connectors can use an attacker-selected userInfoEndpoint and forward the OAuth access token in the Authorization header, while OIDC connectors can fetch an attacker-selected jwksUri. The affected operations require tenant administrative configuration access, but they cross the server's network boundary and can expose internal data or upstream provider credentials. This issue is fixed in version 1.43.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-4638",
-      "published": "2026-09-24T11:16:45.953",
-      "description": "PRTG Network Monitor before version 26.2.120.1449 ships a demo EXE/Script sensor that multiplies two integer parameters using cscript.exe. If a non-numeric value is passed instead, cscript.exe raises a 'Type mismatch' runtime error that includes the offending parameter value in plaintext. PRTG provides a documented placeholder variable, %windowspassword, which resolves to the configured Windows/domain password used by PRTG and can be passed as a sensor parameter. \n\n\n\n\nAny PRTG user who is not restricted to read-only access and is permitted to create sensors (the default for non-read-only users) can pass %windowspassword as an argument to the demo VBScript sensor, triggering the type-mismatch error and causing PRTG to display the plaintext password in the sensor's error output.",
+      "id": "CVE-2026-67233",
+      "published": "2026-09-24T16:17:09.520",
+      "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.1, The shovel management resource's is_authorized/2 delegates to rabbit_mgmt_util:is_authorized_monitor/2, which accepts the monitoring tag. But allowed_methods includes DELETE, and delete_resource/2 deletes / restarts shovel runtime parameters with no additional role check. A monitoring user , intended to have read-only visibility , can therefore delete or restart any shovel in any vhost they can see. A read-only monitoring user can delete or restart any dynamic shovel , a state-changing operation that the equivalent /api/parameters endpoint correctly restricts to policymaker. Preconditions include rabbitmq_shovel + rabbitmq_shovel_management plugins enabled Attacker has credentials with the monitoring tag. This issue is fixed in versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-79680",
-      "published": "2026-09-24T11:16:47.117",
-      "description": "Authentication bypass vulnerability in the password authentication mechanism of the Qt VNC Server module. An attacker using a specially modified VNC client that violates the RFB protocol can bypass Qt VNC Server's password authentication and gain unauthorized remote access to the shared application, compromising the confidentiality and integrity of the session.",
+      "id": "CVE-2026-88355",
+      "published": "2026-09-24T16:17:12.833",
+      "description": "An incorrect buffer size calculation vulnerability exists in tinyexpr commit 4a7456e in new_expr(). For arity-0 expression nodes, including constants, variables, and zero-argument functions, the function allocates less memory than sizeof(te_expr) but treats the returned allocation as a complete te_expr object. This results in undefined behavior and can cause deterministic process termination in UBSan-instrumented builds.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-88366",
+      "published": "2026-09-24T16:17:13.607",
+      "description": "NanoSVG commit 239e102ec contains an incorrect numeric conversion vulnerability in nsvg__pathArcTo() when parsing SVG arc commands. A specially crafted SVG document containing extreme arc radius values can cause intermediate arc calculations to produce a NaN delta angle. The function subsequently converts this NaN value to int without validating that it is finite and representable, resulting in undefined behavior and process termination, leading to denial of service.",
       "severity": "UNKNOWN",
       "score": null
     }
