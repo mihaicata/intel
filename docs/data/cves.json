@@ -1,143 +1,143 @@
 {
-  "totalResults": 3046,
+  "totalResults": 3073,
   "items": [
     {
-      "id": "CVE-2026-95699",
-      "published": "2026-09-24T21:18:58.613",
-      "description": "Prior to 9/18/2026, the iSteamX mobile application's AWS policy could grant authenticated users access to wildcard MQTT topics, which can expose other users' device data and allow the attacker to start and stop other connected users' devices. This risked exposing user profile information and potential scalding due to unintended device activation.",
+      "id": "CVE-2026-92288",
+      "published": "2026-09-25T01:16:48.820",
+      "description": "Lemonldap::NG::Portal versions from 2.20.0 before 2.21.6, from 2.22.0 before 2.23.4 for Perl allow unauthenticated OAuth2 token introspection because checkEndPointAuthenticationCredentials does not verify the client secret of a public Relying Party.\n\ncheckEndPointAuthenticationCredentials() skips the secret comparison for a Relying Party marked public and still returns the authentication method deduced from the request, client_secret_basic or client_secret_post. introspection() rejects a caller only when that method is missing or none, so a request carrying a public client_id and an arbitrary or empty secret passes the endpoint's authentication check.\n\nAn attacker who holds an access token and knows the client_id of any public Relying Party can confirm the token is active and read its metadata, including scope, audience, expiry and the sub claim. The sub claim is computed with the calling Relying Party's user identifier attribute, so an attacker can translate a user identifier from one Relying Party to another, defeating per-client and pseudonymous identifiers.",
       "severity": "CRITICAL",
-      "score": 9.6
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-85491",
-      "published": "2026-09-24T22:17:02.027",
-      "description": "Catalyst::Seal versions before 0.03 for Perl allow one request to disable a path or route a later one past an authorization check via a dispatch memo keyed on the request path alone.\n\nCatalyst::Seal replaces the dispatcher's prepare_action with a version that memoises how a path resolved: which dispatch type matched, at which level, and what was left over as arguments. The key is the request path and nothing else. Action roles that match on the method, content type, scheme or query make that resolution depend on state the key does not carry, so the memo answers for a request it was not built from.\n\nA path that resolves to no action is memoised as well, and replaying that entry returns without consulting any dispatch type, so no action is set and the request fails. A GET of a path whose action is declared POST-only therefore disables that path for every later request, the correct POST included. An entry that did resolve replays the level the earlier descent reached. Where a POST-only action sits below a shallower action on the same path, a GET memoises the shallow route, and a later POST is dispatched there with an auto() guarding the deeper controller never running.\n\nThe memo is cleared only when an action is registered, which happens at setup, so an entry lasts for the life of the process, and its cap of 2048 entries bounds how many paths one caller can disable. In the configuration measured, the misroute lands on the less privileged action, so it is an authorization check not running rather than a privilege gain.",
+      "id": "CVE-2026-92289",
+      "published": "2026-09-25T01:16:48.943",
+      "description": "Lemonldap::NG::Portal versions from 2.23.0 before 2.23.4 for Perl allow a PKCE bypass for public Relying Parties in \"PKCE or secret\" mode because checkEndPointAuthenticationCredentials does not verify the client secret.\n\nWith oidcRPMetaDataOptionsRequirePKCE set to 2, the authorization endpoint issues a code even when the request carries no code_challenge, and token() admits the exchange as long as a challenge was stored or an authentication method was returned for the caller. checkEndPointAuthenticationCredentials() skips the secret comparison for a Relying Party marked public and still returns the method deduced from the request, so any Basic or form credential satisfies the secret branch. validatePKCEChallenge() then passes, because neither a challenge nor a verifier is present.\n\nAn attacker who intercepts an authorization code issued to a public Relying Party can exchange it for the user's access, ID and refresh tokens by replaying the client_id with an arbitrary secret, which is the attack PKCE prevents. Dynamic client registration creates every Relying Party in this mode.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-97730",
+      "published": "2026-09-25T03:16:59.533",
+      "description": "In Netgate pfSense Plus before 26.07 and pfSense CE before 2.9.0, a Local File Inclusion (LFI) vulnerability in the Dashboard (index.php) widget sequence data handling allows an authenticated attacker to execute arbitrary PHP code. To exploit this, an attacker with privileges to modify Dashboard settings and write arbitrary files to the pfSense firewall system (e.g., /tmp/test.widget.php) can submit a crafted widget sequence value containing a path traversal payload (e.g., ../../../../../../../../../../../tmp/test). The Dashboard will subsequently read and execute the arbitrary PHP file as if it were a standard widget.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-81630",
-      "published": "2026-09-24T21:18:48.737",
-      "description": "The Botslab G980H dash camera firmware does not adequately verify the authenticity of firmware updates. The update process retrieves firmware through an unprotected connection and relies on an integrity value supplied with the firmware instead of a trusted cryptographic signature. A suitably positioned attacker who intercepts a firmware download, or an authenticated attacker who submits a crafted update, could install modified firmware and execute unauthorized code on the device.",
+      "id": "CVE-2026-97735",
+      "published": "2026-09-25T04:17:50.763",
+      "description": "ITFlow before 26.08 allows SVG attachments in the ticket email parser (cron/ticket_email_parser.php) for email messages that may arrive over SMTP from arbitrary senders.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8
     },
     {
-      "id": "CVE-2026-88388",
-      "published": "2026-09-24T21:18:57.247",
-      "description": "Espruino 2v29 (commit bffc6d0) contains a stack-based buffer overflow vulnerability in the JavaScript error stack-trace handling path on 64-bit builds. A remote attacker can supply JavaScript input that triggers an exception and reaches jslPrintTokenLineMarker(), which passes the address of a 4-byte int column variable to jsvGetLineAndCol() as a size_t pointer. jsvGetLineAndCol() performs an 8-byte write through the mismatched pointer, overwriting adjacent stack memory.",
+      "id": "CVE-2026-97737",
+      "published": "2026-09-25T05:17:07.760",
+      "description": "In Wakapi before 2.17.6, the user caching service allows a lookup to be resolved in an unintended lookup context, leading to account takeover.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-79959",
-      "published": "2026-09-24T21:18:44.353",
-      "description": "The Botslab G980H dash camera firmware contains a hard-coded root account password that cannot be changed by the user. An attacker who obtains the firmware or has physical access to the device could recover the credential and use it to obtain root access through the UART interface.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-97646",
+      "published": "2026-09-25T01:16:49.063",
+      "description": "A weakness has been identified in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. This affects an unknown function of the file admin/fun/getStudent.php. This manipulation of the argument sid causes authorization bypass. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-82585",
-      "published": "2026-09-24T21:18:50.167",
-      "description": "The Botslab G980H dash camera firmware transmits sensitive information over unencrypted HTTP and RTSP connections. An attacker capable of intercepting communications on the device's WiFi network could obtain stored recordings, live video, location information, images, diagnostic logs, or other sensitive information exchanged between the device and its mobile application.",
+      "id": "CVE-2026-97731",
+      "published": "2026-09-25T03:16:59.697",
+      "description": "MinIO through 7aac2a2 does not verify that every x-amz-* header present on a request also appears in the client-supplied X-Amz-SignedHeaders list. extractSignedHeaders() in cmd/signature-v4-utils.go iterates only the claimed list and never enumerates the headers that actually arrived, and thus a header that arrives unsigned is neither hashed into the canonical request nor rejected. Because cmd/api-router.go dispatches CopyObject on the presence of x-amz-copy-source alone, the holder of a presigned PUT URL scoped to a single object can add that header to the unmodified URL and cause a server-side copy, executed as the signer, of any object the signing key can read. A grant to write one object becomes a read of every bucket that key can reach. Amazon S3 rejects the equivalent request with HTTP 403 AccessDenied. The minio/minio GitHub repository was archived in April 2026; pgsty/silo before 1233254 is also affected.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-95811",
+      "published": "2026-09-25T02:16:54.677",
+      "description": "Lemonldap::NG::Handler versions from 2.0.0 before 2.16.10, from 2.17.0 before 2.21.6, from 2.22.0 before 2.23.4 for Perl allow an equivalent spelling of a path to bypass the locationRules that restrict it.\n\nThe handler matches each vhost's locationRules regular expressions against REQUEST_URI, the raw request line, while the web server routes on the path it has already percent-decoded and normalized. A request that percent-encodes a character of the path, inserts dot segments, or doubles a slash therefore reaches the protected resource under a URI that no rule regexp matches, and the vhost's default rule decides access. Deny rules, identity and group conditions, and unprotect and skip rules are bypassed alike.\n\nOnly a vhost whose default rule is more permissive than its other rules is affected. An authenticated user then reaches any URL a locationRules regexp was meant to restrict, but gains no more than that default rule already grants.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-82708",
-      "published": "2026-09-24T21:18:50.330",
-      "description": "The Botslab G980H dash camera firmware contains a path traversal vulnerability in its HTTP server. An attacker with access to the device's WiFi network could submit a crafted request to access files within the device's removable storage that were not intended to be directly accessible through the web server. Exposed files could include recordings, images, diagnostic logs, or firmware files.",
+      "id": "CVE-2025-14814",
+      "published": "2026-09-25T04:17:31.093",
+      "description": "The CSS & JavaScript Toolbox plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's cjtoolbox shortcode in all versions up to, and including, 12.0.6 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-97366",
-      "published": "2026-09-24T21:18:58.777",
-      "description": "A security flaw has been discovered in jhen0409 react-native-debugger up to 0.14.0. The impacted element is the function openDevTools of the file electron/window.js of the component Open in Editor Handler. The manipulation of the argument host results in os command injection. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-97723",
+      "published": "2026-09-25T02:16:55.377",
+      "description": "madpsy ka9q_ubersdr before 0.1.58 has a stored cross-site scripting (XSS) vulnerability in the chat message rendering functionality. User-controlled URLs in chat messages were insufficiently neutralized before being converted into HTML links. Quotation characters could break out of the generated href attribute and introduce attacker-controlled HTML attributes, allowing arbitrary JavaScript to execute in the browser of another user when the stored chat message was rendered. No click on the malicious link was required.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-97368",
-      "published": "2026-09-24T21:18:58.953",
-      "description": "A weakness has been identified in chillzhuang SpringBlade up to 5.0.2. This affects the function UserServiceImpl.userInfo of the file blade-service/blade-system/src/main/java/org/springblade/system/service/impl/UserServiceImpl.java of the component user-auth-info Endpoint. This manipulation of the argument userId causes authorization bypass. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. CVE-2026-56100 and CVE-2026-36765 are distinct issues. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-97736",
+      "published": "2026-09-25T04:17:50.977",
+      "description": "tinyauth before 5.1.3 allows rule bypass by appending an allowed route string. This is caused by an unanchored regular expression.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-84403",
-      "published": "2026-09-24T21:18:55.220",
-      "description": "The Botslab G980H dash camera firmware does not require authenticated pairing or client binding before permitting access to Bluetooth Low Energy communications and GATT characteristics. An unauthenticated attacker within Bluetooth range could intercept or directly retrieve sensitive device information, including device identifiers, firmware information, and protected WiFi credentials.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-87118",
-      "published": "2026-09-24T21:18:56.603",
-      "description": "The Botslab G980H dash camera firmware contains an out of bounds write vulnerability in its command processing functionality. An authenticated attacker with adjacent network access could submit crafted command data that corrupts memory, potentially disrupting authentication state or causing the affected process to terminate and the device to restart, resulting in a temporary denial of service.",
-      "severity": "MEDIUM",
-      "score": 5.7
-    },
-    {
-      "id": "CVE-2026-88386",
-      "published": "2026-09-24T21:18:57.003",
-      "description": "libsndfile 1.2.2 contains a misaligned memory access issue in psf_binheader_readf() while parsing WAV fmt chunks. A specially crafted WAV file can cause the function to cast an unaligned destination address to unsigned int * and perform a 4-byte store. This results in undefined behavior leading to denial of service.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-88387",
-      "published": "2026-09-24T21:18:57.120",
-      "description": "LibRaw 0.22.0 contains an incorrect numeric conversion vulnerability in LibRaw::parse_tiff_ifd() when processing TIFF tag 0x00fe (NewSubfileType). A specially crafted RAW, TIFF, or DNG file can supply an attacker-controlled NewSubfileType value outside the range of a signed int. The parser converts this value and narrows it to int without performing range validation. This out-of-range conversion triggers undefined behavior, resulting in process termination and denial of service.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-75558",
-      "published": "2026-09-24T21:18:36.203",
-      "description": "The Botslab G980H dash camera firmware uses a hard-coded cryptographic key and initialization vector to protect WiFi credentials communicated by the device. An attacker who obtains the protected credential and extracts the cryptographic material from the firmware could recover the WiFi password and gain unauthorized access to the device network.",
+      "id": "CVE-2026-97647",
+      "published": "2026-09-25T02:16:54.817",
+      "description": "A security vulnerability has been detected in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. This impacts an unknown function of the file user/editLog.php. Such manipulation of the argument sid/addtime/type/reason/detail/logdate leads to authorization bypass. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-82716",
-      "published": "2026-09-24T21:18:50.483",
-      "description": "The Botslab G980H dash camera firmware includes sensitive configuration information, including WiFi credentials, in diagnostic logs generated during the support process. These logs remain accessible on removable storage after the support operation has completed. An unauthenticated attacker with physical access to the storage media could retrieve the logs and obtain sensitive device information.",
+      "id": "CVE-2026-97732",
+      "published": "2026-09-25T04:17:50.537",
+      "description": "IRONMACE Ironshield 1.0.0.167 has a tvk.sys kernel-mode driver that authenticates client executables by checking for expected publisher and root-certificate strings in WIN_CERTIFICATE data (\"IRONMACE Co., Ltd.\" and \"DigiCert Trusted Root G4\") instead of parsing and validating the PKCS signature data. As a result, a local unprivileged attacker may bypass this via crafted certificate data and obtain access to privileged IOCTL functionality.",
       "severity": "MEDIUM",
-      "score": 4.6
+      "score": 5.1
     },
     {
-      "id": "CVE-2026-93353",
-      "published": "2026-09-24T21:18:58.310",
-      "description": "copyparty contains a volume restriction bypass vulnerability in its SFTP front end that allows authenticated SFTP users to create, remove, and truncate arbitrary paths outside permitted volume boundaries by exploiting three handlers that bypass the xvol volflag enforcement. The _mkdir, _rmdir, and _chattr handlers construct destination paths using vfs.get(), vn.canonical(), and os.path.join() without invoking the chk_ap access check, enabling attackers to traverse symlinks leaving a volume's top directory and perform unauthorized file creation, deletion, or truncation via SSH_FXP_SETSTAT operations on paths outside any volume the account is authorized to access.",
+      "id": "CVE-2026-97649",
+      "published": "2026-09-25T02:16:55.183",
+      "description": "A flaw has been found in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. Affected by this vulnerability is an unknown functionality of the file example_lite.sql. Executing a manipulation can lead to use of default credentials. It is possible to launch the attack remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-97648",
+      "published": "2026-09-25T02:16:55.000",
+      "description": "A vulnerability was detected in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. Affected is an unknown function. Performing a manipulation results in cross-site request forgery. It is possible to initiate the attack remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-97650",
+      "published": "2026-09-25T03:16:59.087",
+      "description": "A vulnerability has been found in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. Affected by this issue is the function echo of the file admin/fun/addLog.php. The manipulation of the argument reason/detail leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-97724",
+      "published": "2026-09-25T03:16:59.327",
+      "description": "A prototype pollution vulnerability in Software Mansion React Native Worklets before 0.12.2 allows an attacker-controlled object containing a __proto__ property to modify the prototype of an object created during serialization in clonePlainJSObject in packages/react-native-worklets/src/memory/serializable.native.ts. When affected data is subsequently processed by React Native Worklets, the malformed serialized object can cause the React Native application to crash. This can result in a remotely triggered denial of service in applications that pass attacker-controlled data through the affected serialization path. In applications where the attacker-controlled data is persisted, the denial of service may persist across application restarts or repeated attempts to access the affected content.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-97764",
+      "published": "2026-09-25T05:17:07.953",
+      "description": "django-allauth before 65.19.4 does not have the expected limits on failed login attempts because, in some common configurations, an attacker can leverage the handling of diacritics (e.g., accents) for a higher effective limit.",
       "severity": "LOW",
-      "score": 3.1
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-14441",
-      "published": "2026-09-24T21:17:10.670",
-      "description": "A logic flaw in Java cache key handling object comparison handling could lead to improper identifier resolution when processing specific user account structures. The issue has been remediated by updating the internal comparison routines to ensure accurate object evaluation and prevent potential identity mismatch conditions.",
+      "id": "CVE-2026-53493",
+      "published": "2026-09-25T01:16:48.227",
+      "description": "containerd is an open-source container runtime. Prior to versions 1.7.36, 2.0.13, 2.2.9, 2.3.6, and 2.4.1, a crafted OCI index graph can force very high CPU/memory usage during PullImage (before container start), causing long ContainerCreating stalls and, at larger sizes, node/runtime instability. Versions 1.7.36, 2.0.13, 2.2.9, 2.3.6, and 2.4.1 fix the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-14442",
-      "published": "2026-09-24T21:17:11.920",
-      "description": "An information exposure vulnerability in the job scheduling component of SANnav allows sensitive credentials to be written to application logs in plain text. When scheduled support save jobs or related operational tasks are executed, sensitive parameters including external server passwords and archive protection keys are logged without proper masking. A local or authenticated user with access to application logs or support bundles can view these cleartext credentials, potentially leading to unauthorized access to remote backup targets or protected archives.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-14443",
-      "published": "2026-09-24T21:17:12.130",
-      "description": "Incomplete log sanitization during bulk IPsec policy collection in Brocade SANnav versions before 3.0.1a permit extension switch pre-shared keys to be written to system logs. Individuals with read access to container logs or support archives can obtain these keys, leading to the potential compromise of encrypted network tunnels.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-87720",
-      "published": "2026-09-24T22:17:02.170",
-      "description": "Incorrect Authorization (CWE-863) in project name normalization (ProjectUtil.stripGitSuffix) and ProjectCache eviction logic (ProjectCacheImpl) in Gerrit Code Review versions 2.16.0 through 3.12.9, 3.13.0 through 3.13.8, and 3.14.0 through 3.14.2 allows an authenticated user (or an unauthenticated user if the repository was previously public) to cause unauthorized disclosure of private repository content and durable restoration of revoked project-owner administrative privileges via crafted requests using repeated .git suffixes (such as project.git.git) across REST APIs, Gitiles, or SSH Git commands. Because Gerrit strips only a single terminal .git suffix when constructing the logical ProjectCache key while JGit (FileKey.lenient) resolves the suffixed alias to the same canonical bare repository on disk, revoking read access or removing owner rules on the canonical project name fails to evict the cached alias ProjectState during the cache validity window, enabling reads of newly created private commits or writes to refs/meta/config. This issue is fixed in Gerrit Code Review versions 3.12.10, 3.13.9, and 3.14.3.",
+      "id": "CVE-2026-85417",
+      "published": "2026-09-25T01:16:48.580",
+      "description": "Incomplete property masking in the SANnav logging subsystem permits SNMP authentication and privacy passwords to be recorded in application logs under specific configuration conditions. Individuals with read access to system logs or support bundles can retrieve these credentials, leading to unauthorized read or management access to monitored switch environments",
       "severity": "UNKNOWN",
       "score": null
     }
