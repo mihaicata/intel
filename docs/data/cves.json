@@ -1,145 +1,145 @@
 {
-  "totalResults": 3073,
+  "totalResults": 3080,
   "items": [
     {
-      "id": "CVE-2026-92288",
-      "published": "2026-09-25T01:16:48.820",
-      "description": "Lemonldap::NG::Portal versions from 2.20.0 before 2.21.6, from 2.22.0 before 2.23.4 for Perl allow unauthenticated OAuth2 token introspection because checkEndPointAuthenticationCredentials does not verify the client secret of a public Relying Party.\n\ncheckEndPointAuthenticationCredentials() skips the secret comparison for a Relying Party marked public and still returns the authentication method deduced from the request, client_secret_basic or client_secret_post. introspection() rejects a caller only when that method is missing or none, so a request carrying a public client_id and an arbitrary or empty secret passes the endpoint's authentication check.\n\nAn attacker who holds an access token and knows the client_id of any public Relying Party can confirm the token is active and read its metadata, including scope, audience, expiry and the sub claim. The sub claim is computed with the calling Relying Party's user identifier attribute, so an attacker can translate a user identifier from one Relying Party to another, defeating per-client and pseudonymous identifiers.",
+      "id": "CVE-2026-92609",
+      "published": "2026-09-25T08:16:41.203",
+      "description": "Session fixation in HTTP management authentication allows remote attackers to gain unauthorized access to an authenticated management session via reuse of a session identifier retained across successful authentication.\n\nThis issue affects Apache Qpid Broker-J: through 10.1.0.\n\nUsers are recommended to upgrade to version 10.1.1, which fixes the issue.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-92289",
-      "published": "2026-09-25T01:16:48.943",
-      "description": "Lemonldap::NG::Portal versions from 2.23.0 before 2.23.4 for Perl allow a PKCE bypass for public Relying Parties in \"PKCE or secret\" mode because checkEndPointAuthenticationCredentials does not verify the client secret.\n\nWith oidcRPMetaDataOptionsRequirePKCE set to 2, the authorization endpoint issues a code even when the request carries no code_challenge, and token() admits the exchange as long as a challenge was stored or an authentication method was returned for the caller. checkEndPointAuthenticationCredentials() skips the secret comparison for a Relying Party marked public and still returns the method deduced from the request, so any Basic or form credential satisfies the secret branch. validatePKCEChallenge() then passes, because neither a challenge nor a verifier is present.\n\nAn attacker who intercepts an authorization code issued to a public Relying Party can exchange it for the user's access, ID and refresh tokens by replaying the client_id with an arbitrary secret, which is the attack PKCE prevents. Dynamic client registration creates every Relying Party in this mode.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-97730",
-      "published": "2026-09-25T03:16:59.533",
-      "description": "In Netgate pfSense Plus before 26.07 and pfSense CE before 2.9.0, a Local File Inclusion (LFI) vulnerability in the Dashboard (index.php) widget sequence data handling allows an authenticated attacker to execute arbitrary PHP code. To exploit this, an attacker with privileges to modify Dashboard settings and write arbitrary files to the pfSense firewall system (e.g., /tmp/test.widget.php) can submit a crafted widget sequence value containing a path traversal payload (e.g., ../../../../../../../../../../../tmp/test). The Dashboard will subsequently read and execute the arbitrary PHP file as if it were a standard widget.",
+      "id": "CVE-2026-19804",
+      "published": "2026-09-25T08:16:40.383",
+      "description": "The s2Member – Excellent for All Kinds of Memberships, Content Restriction Paywalls & Member Access Subscriptions plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 260814 via the 'first_name' parameter parameter. This is due to insufficient sanitization of the first_name parameter via esc_refs(), which strips only regex backreferences and not PHP tags, before substitution into the eval'd Signup Tracking Codes template, combined with disclosure of the site-global proxy verification key that allows PayPal postback verification to be bypassed. This makes it possible for unauthenticated attackers to execute code on the server. Successful exploitation requires that the site administrator has configured a Signup Tracking Codes template containing the %%first_name%% placeholder (a documented, GUI-supported feature) and that the attacker has obtained the site-global proxy verification key, which is exposed in plaintext in the JSON response of any PayPal Checkout AJAX request on the target site.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-97735",
-      "published": "2026-09-25T04:17:50.763",
-      "description": "ITFlow before 26.08 allows SVG attachments in the ticket email parser (cron/ticket_email_parser.php) for email messages that may arrive over SMTP from arbitrary senders.",
+      "id": "CVE-2026-89426",
+      "published": "2026-09-25T08:16:40.940",
+      "description": "The Knit Pay – Cashfree, Instamojo, Razorpay, PayPal and more plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 9.6.1.0. This is due to the `maybe_update_user_role()` function reading the target role directly from an attacker-controlled Gravity Forms entry field — configured via the feed's `user_role_field_id` — and passing it to `WP_User::set_role()` without validating the supplied value against an allowlist of permitted roles. This makes it possible for authenticated attackers, with Subscriber-level access and above, to elevate their privileges to administrator by tampering with the hidden role field value at form submission time. Exploitation is further enabled by the fact that $0 orders are synchronously marked as SUCCESS during form submission without requiring a real payment, and when no GF User Registration user can be resolved, the role assignment target falls back to `$lead['created_by']` — the currently authenticated submitter's own user ID — making any authenticated form submitter an eligible exploitation target.",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-97737",
-      "published": "2026-09-25T05:17:07.760",
-      "description": "In Wakapi before 2.17.6, the user caching service allows a lookup to be resolved in an unintended lookup context, leading to account takeover.",
+      "id": "CVE-2026-92713",
+      "published": "2026-09-25T08:16:41.310",
+      "description": "The Modula Image Gallery – Photo Grid & Video Gallery plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the upload_image function in all versions up to, and including, 3.0.2. This makes it possible for authenticated attackers, with author-level access and above, to delete arbitrary files on the server. The path restriction to wp-content/uploads is not an effective ownership boundary, as all user attachment files reside within that tree, and Authors trivially satisfy the edit_post check on their own galleries.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-97646",
-      "published": "2026-09-25T01:16:49.063",
-      "description": "A weakness has been identified in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. This affects an unknown function of the file admin/fun/getStudent.php. This manipulation of the argument sid causes authorization bypass. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-13456",
+      "published": "2026-09-25T08:16:39.970",
+      "description": "The WP Maps – Google Maps,OpenStreetMap,Mapbox,Store Locator,Listing,Directory & Filters plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 4.9.8 via the 'page' parameter parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-89406",
+      "published": "2026-09-25T08:16:40.803",
+      "description": "The Modula Image Gallery – Photo Grid & Video Gallery plugin for WordPress is vulnerable to unauthorized disclosure of private gallery contents in versions up to, and including, 3.0.1. This is due to the Modula_Meta::add_metas() function being hooked to wp_head on every frontend request and looking up any post via get_post( $_GET['modula_gallery_id'] ) without verifying the gallery's post_status or the requester's capability to read it — the gallery-side input guard is bugged (empty('modula_gallery_id') tests a nonempty string literal instead of the GET parameter, so it is always false), the only object validation is a post_type === 'modula-gallery' check, and no is_user_logged_in()/current_user_can('read_post', $gallery_id) check is performed. This makes it possible for unauthenticated attackers to enumerate private modula-gallery posts and their member attachments and recover the image's title, description, dimensions, and original upload URL via Open Graph/Twitter meta tags emitted in the response, which then allows direct unauthenticated download of the original private image bytes.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-92608",
+      "published": "2026-09-25T08:16:41.083",
+      "description": "Improper handling of property-encoding exceptions in AMQP 1.0-to-AMQP 0-10 message conversion allows authenticated message producers to disrupt delivery to AMQP 0-10 consumers via message properties that the target encoder does not handle correctly.\n\nThis issue affects Apache Qpid Broker-J: through 10.1.0.\n\nUsers are recommended to upgrade to version 10.1.1, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-93901",
+      "published": "2026-09-25T08:16:41.837",
+      "description": "The Optima Express IDX plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 8.7.5. This is due to the `provisionBlogCredentials()` function in `iHomefinderAdmin.php` being reachable via the `wp_ajax_nopriv_ihf_clear_cache` AJAX action — through the call chain `iHomefinderAjaxHandler::clearCache()` → `activateAuthenticationToken()` → `getAuthenticationInfo()` → `provisionBlogCredentials()` — with no capability check, nonce verification, or ownership validation, and the function unconditionally calling `$user->set_role('author')` on whichever WordPress account matches the hard-coded login `optima-express` via `get_user_by('login', 'optima-express')`. This makes it possible for unauthenticated attackers to escalate a pre-registered `optima-express` account to the Author role, gaining `publish_posts`, `upload_files`, and `edit_published_posts` capabilities, including access to the plugin's own `/wp-json/optima-express/v1/blog-post` REST endpoint. Exploitation requires open user registration to be enabled on the target site, and the attacker must register the `optima-express` username before the plugin has had the opportunity to provision that login for its own integration account.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-97731",
-      "published": "2026-09-25T03:16:59.697",
-      "description": "MinIO through 7aac2a2 does not verify that every x-amz-* header present on a request also appears in the client-supplied X-Amz-SignedHeaders list. extractSignedHeaders() in cmd/signature-v4-utils.go iterates only the claimed list and never enumerates the headers that actually arrived, and thus a header that arrives unsigned is neither hashed into the canonical request nor rejected. Because cmd/api-router.go dispatches CopyObject on the presence of x-amz-copy-source alone, the holder of a presigned PUT URL scoped to a single object can add that header to the unmodified URL and cause a server-side copy, executed as the signer, of any object the signing key can read. A grant to write one object becomes a read of every bucket that key can reach. Amazon S3 rejects the equivalent request with HTTP 403 AccessDenied. The minio/minio GitHub repository was archived in April 2026; pgsty/silo before 1233254 is also affected.",
+      "id": "CVE-2026-84280",
+      "published": "2026-09-25T08:16:40.550",
+      "description": "The Fancy Product Designer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Shortcode Order 'elements[].title' Parameter in all versions up to, and including, 6.5.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is written to the DOM via innerHTML within the beforeElementAdd JavaScript event handler when processing the elements[].title field from the stored order JSON, meaning execution occurs specifically when an administrator reviews shortcode orders in the WordPress admin panel.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-95811",
-      "published": "2026-09-25T02:16:54.677",
-      "description": "Lemonldap::NG::Handler versions from 2.0.0 before 2.16.10, from 2.17.0 before 2.21.6, from 2.22.0 before 2.23.4 for Perl allow an equivalent spelling of a path to bypass the locationRules that restrict it.\n\nThe handler matches each vhost's locationRules regular expressions against REQUEST_URI, the raw request line, while the web server routes on the path it has already percent-decoded and normalized. A request that percent-encodes a character of the path, inserts dot segments, or doubles a slash therefore reaches the protected resource under a URI that no rule regexp matches, and the vhost's default rule decides access. Deny rules, identity and group conditions, and unprotect and skip rules are bypassed alike.\n\nOnly a vhost whose default rule is more permissive than its other rules is affected. An authenticated user then reaches any URL a locationRules regexp was meant to restrict, but gains no more than that default rule already grants.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-93654",
+      "published": "2026-09-25T08:16:41.437",
+      "description": "The Premium Packages – Sell Digital Products Securely plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'cart_items[][product_name]' Parameter in all versions up to, and including, 7.2.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The checkout REST route uses permission_callback set to __return_true and the invoice loader performs no order ownership check, meaning an unauthenticated attacker can both persist the payload and ensure it is renderable to any logged-in user who accesses the invoice.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
-      "id": "CVE-2025-14814",
-      "published": "2026-09-25T04:17:31.093",
-      "description": "The CSS & JavaScript Toolbox plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's cjtoolbox shortcode in all versions up to, and including, 12.0.6 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-94573",
+      "published": "2026-09-25T08:16:42.047",
+      "description": "The Repeater Fields for Elementor Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Repeater Field Value in all versions up to, and including, 2.2.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-95864",
+      "published": "2026-09-25T08:16:42.177",
+      "description": "The Themify Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'css[fonts]' Parameter in all versions up to, and including, 7.8.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The nonce required to reach the vulnerable endpoint is embedded in plain sight within the front-end page markup for all visitors, reducing the access control to a CSRF token rather than an authentication barrier and making the endpoint fully exploitable by unauthenticated attackers.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-95866",
+      "published": "2026-09-25T08:16:42.307",
+      "description": "The User Profile Builder – Beautiful User Registration Forms, User Profiles & User Role Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Avatar Field in all versions up to, and including, 4.0.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The zero-length multipart file branch in wppb_save_avatar_value() writes the raw request value directly to user meta, bypassing the wppb_save_attachment_id()/wppb_verify_attachment_id() validation path; the stored payload is later adopted as a WordPress attachment URL and rendered unescaped by wppb_default_fields_make_upload_button() when an administrator views the affected account.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-13179",
+      "published": "2026-09-25T08:16:39.820",
+      "description": "The WP Maps – Google Maps,OpenStreetMap,Mapbox,Store Locator,Listing,Directory & Filters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via shapes_values Parameter in all versions up to, and including, 4.9.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The fc-call-nonce nonce required by the endpoint is exposed to all frontend visitors who view a map page via window.wpgmp_local.nonce, enabling any authenticated subscriber to read the nonce and craft a valid request; additionally, the secondary _wpnonce check in the drawing handler can be bypassed by simply omitting the _wpnonce parameter from the request.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-97723",
-      "published": "2026-09-25T02:16:55.377",
-      "description": "madpsy ka9q_ubersdr before 0.1.58 has a stored cross-site scripting (XSS) vulnerability in the chat message rendering functionality. User-controlled URLs in chat messages were insufficiently neutralized before being converted into HTML links. Quotation characters could break out of the generated href attribute and introduce attacker-controlled HTML attributes, allowing arbitrary JavaScript to execute in the browser of another user when the stored chat message was rendered. No click on the malicious link was required.",
+      "id": "CVE-2026-93656",
+      "published": "2026-09-25T08:16:41.570",
+      "description": "The User Profile Builder – Beautiful User Registration Forms, User Profiles & User Role Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Avatar Field in all versions up to, and including, 4.0.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable via a nonce-free GET request to /wp-admin/profile.php, requiring no profile-form submission; a Subscriber can plant the malicious attachment URL, which then executes when an administrator opens that user's Edit User screen.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-97736",
-      "published": "2026-09-25T04:17:50.977",
-      "description": "tinyauth before 5.1.3 allows rule bypass by appending an allowed route string. This is caused by an unanchored regular expression.",
+      "id": "CVE-2026-93747",
+      "published": "2026-09-25T08:16:41.707",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'telegram' profile field in versions up to, and including, 3.1.6. This is due to insufficient input sanitization and output escaping in the profile_update action — the raw $_POST['data'] array is copied into a $custom_fields variable before validate() and sanitize() run, both of which operate only on a parallel $user reference, leaving $custom_fields unsanitized when it is persisted via update_custom_fields(); on render, wpforo_decode() reverses the entity encoding and the value is echoed without escaping in field_wrap_profile(). This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-97647",
-      "published": "2026-09-25T02:16:54.817",
-      "description": "A security vulnerability has been detected in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. This impacts an unknown function of the file user/editLog.php. Such manipulation of the argument sid/addtime/type/reason/detail/logdate leads to authorization bypass. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-17577",
+      "published": "2026-09-25T08:16:40.103",
+      "description": "The SSL Zen plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'uri' (and 'host') parameters in versions up to, and including, 4.7.42. The ssl_zen_messages::getMessages() function builds the 'token_missmatch' message using base64_decode(sanitize_text_field($_REQUEST['uri'])) and (optionally) base64_decode(sanitize_text_field($_REQUEST['host'])). sanitize_text_field() cannot strip HTML/JavaScript that is hidden inside a base64-encoded blob, and the resulting decoded raw HTML is echoed unescaped by showMessage() . This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a specially crafted link.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-97732",
-      "published": "2026-09-25T04:17:50.537",
-      "description": "IRONMACE Ironshield 1.0.0.167 has a tvk.sys kernel-mode driver that authenticates client executables by checking for expected publisher and root-certificate strings in WIN_CERTIFICATE data (\"IRONMACE Co., Ltd.\" and \"DigiCert Trusted Root G4\") instead of parsing and validating the PKCS signature data. As a result, a local unprivileged attacker may bypass this via crafted certificate data and obtain access to privileged IOCTL functionality.",
+      "id": "CVE-2026-88996",
+      "published": "2026-09-25T08:16:40.670",
+      "description": "The WPForms – AI Form Builder for WordPress – Contact Forms, Payment Forms, Survey Form, Quiz & More plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via 'page_title' POST Parameter via {page_title} Smart Tag in all versions up to, and including, 2.0.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. This is only exploitable on forms whose admin-authored confirmation message places the {page_title} Smart Tag inside an HTML attribute context.",
       "severity": "MEDIUM",
-      "score": 5.1
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-97649",
-      "published": "2026-09-25T02:16:55.183",
-      "description": "A flaw has been found in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. Affected by this vulnerability is an unknown functionality of the file example_lite.sql. Executing a manipulation can lead to use of default credentials. It is possible to launch the attack remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-12037",
+      "published": "2026-09-25T08:16:38.490",
+      "description": "The Asset CleanUp: Page Speed Booster plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 1.4.0.5 via the 'page_url' parameter. This makes it possible for authenticated attackers, with administrator-level access and above, to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services. This vulnerability is only reachable when the plugin's dom_get_type setting has been configured to 'wp_remote_post' by an administrator.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-97648",
-      "published": "2026-09-25T02:16:55.000",
-      "description": "A vulnerability was detected in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. Affected is an unknown function. Performing a manipulation results in cross-site request forgery. It is possible to initiate the attack remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-17602",
+      "published": "2026-09-25T08:16:40.247",
+      "description": "The SSL Zen — SSL Certificate Installer & HTTPS Redirects plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.7.42 via the 'file_name' parameter parameter. This makes it possible for authenticated attackers, with administrator-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information.",
       "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-97650",
-      "published": "2026-09-25T03:16:59.087",
-      "description": "A vulnerability has been found in ningzichun student-management-system up to 98760f5711cf6dc8b4adca53a9e207ca49b02ebf. Affected by this issue is the function echo of the file admin/fun/addLog.php. The manipulation of the argument reason/detail leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-97724",
-      "published": "2026-09-25T03:16:59.327",
-      "description": "A prototype pollution vulnerability in Software Mansion React Native Worklets before 0.12.2 allows an attacker-controlled object containing a __proto__ property to modify the prototype of an object created during serialization in clonePlainJSObject in packages/react-native-worklets/src/memory/serializable.native.ts. When affected data is subsequently processed by React Native Worklets, the malformed serialized object can cause the React Native application to crash. This can result in a remotely triggered denial of service in applications that pass attacker-controlled data through the affected serialization path. In applications where the attacker-controlled data is persisted, the denial of service may persist across application restarts or repeated attempts to access the affected content.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-97764",
-      "published": "2026-09-25T05:17:07.953",
-      "description": "django-allauth before 65.19.4 does not have the expected limits on failed login attempts because, in some common configurations, an attacker can leverage the handling of diacritics (e.g., accents) for a higher effective limit.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-53493",
-      "published": "2026-09-25T01:16:48.227",
-      "description": "containerd is an open-source container runtime. Prior to versions 1.7.36, 2.0.13, 2.2.9, 2.3.6, and 2.4.1, a crafted OCI index graph can force very high CPU/memory usage during PullImage (before container start), causing long ContainerCreating stalls and, at larger sizes, node/runtime instability. Versions 1.7.36, 2.0.13, 2.2.9, 2.3.6, and 2.4.1 fix the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-85417",
-      "published": "2026-09-25T01:16:48.580",
-      "description": "Incomplete property masking in the SANnav logging subsystem permits SNMP authentication and privacy passwords to be recorded in application logs under specific configuration conditions. Individuals with read access to system logs or support bundles can retrieve these credentials, leading to unauthorized read or management access to monitored switch environments",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 4.9
     }
   ]
 }
