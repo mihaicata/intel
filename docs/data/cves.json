@@ -1,17 +1,10 @@
 {
-  "totalResults": 2754,
+  "totalResults": 2759,
   "items": [
     {
-      "id": "CVE-2026-96795",
-      "published": "2026-09-25T23:16:55.020",
-      "description": "Horilla is an HR and CRM software. Prior to 2.0.0, HorillaListView.export_data in horilla_views/generic/cbv/views.py accepts an authenticated user's columns POST parameter, takes field_tuple[1], interpolates it into dynamic_fn_str as Python source, and passes the generated function definition to exec(). A crafted string that remains valid under ast.literal_eval can inject Python syntax into a default argument evaluated during function definition, allowing arbitrary operating-system commands to execute with the application process privileges, including root privileges in the shipped Docker image. This issue is fixed in version 2.0.0.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-100520",
-      "published": "2026-09-26T01:17:00.357",
-      "description": "Laranode versions before 1.2.1 contain a path traversal vulnerability in the POST /filemanager/upload-file endpoint that allows authenticated users to write arbitrary files outside their home directory. Attackers can supply directory traversal sequences in the path parameter to write PHP files into other tenants' web roots and execute code as those tenants.",
+      "id": "CVE-2026-100544",
+      "published": "2026-09-26T03:17:00.440",
+      "description": "openclaw's @openclaw/voice-call package before 2026.8.1 launches the configured agent for classic inbound voice calls without propagating the caller's identity or non-owner status. As a result, owner-only tool filtering can fail open and expose the agent's normal tool authority to a remote caller. A caller who is admitted by the configured inbound-call policy (open, pairing, or allowlist) on a deployment with inbound calling enabled can therefore drive tools intended for the trusted owner, potentially reading data, modifying files, executing commands, or controlling connected services depending on the agent's configuration. The issue is fixed in 2026.8.1.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -23,6 +16,27 @@
       "score": 8.1
     },
     {
+      "id": "CVE-2026-100535",
+      "published": "2026-09-26T03:16:59.103",
+      "description": "OpenClaw (npm package 'openclaw') versions >= 2026.4.5 and < 2026.8.1 can lose the originating requester's restrictions and untrusted provenance when session-derived text is persisted to session memory. In deployments where session-memory capture and dreaming are enabled, a restricted external sender whose messages are admitted with limited tools can persist instructions that are later supplied to an unattended background (dreaming) agent holding broader file and command capabilities, allowing actions beyond the authority of the original turn and affecting files, commands, or services available to that agent. Exploitation requires the content to be captured, selected for later processing, and followed by the model. The issue is fixed in 2026.8.1.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-100541",
+      "published": "2026-09-26T03:16:59.987",
+      "description": "OpenClaw's Matrix integration (npm package @openclaw/matrix) versions >= 2026.2.2 and < 2026.8.1 lowercase complete Matrix user IDs — including historical localparts and the case-sensitive server-name portion — when deriving the OpenClaw authorization identity. As a result, distinct authenticated Matrix accounts can normalize to the same authorization identity. A Matrix participant controlling a colliding account identifier (a protocol-valid identifier that differs from the configured one only by characters OpenClaw case/Unicode folds; display-name matching is not required) can inherit allowlist, owner-command, exec-approval, or plugin-approval authority configured for another account. The issue is fixed in 2026.8.1.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-100543",
+      "published": "2026-09-26T03:17:00.287",
+      "description": "OpenClaw (npm package openclaw) before 2026.8.1 could include deterministic hashes computed over the original, unredacted configuration in redacted configuration responses. When the Gateway password had low entropy and the remaining configuration values were reconstructable, these hashes acted as offline password verifiers: a caller able to obtain the redacted configuration (for example via config.get) could test password candidates offline without going through the rate-limited Gateway authentication path. Recovering the password could grant the documented shared-secret operator authority. Secret references were not affected in the same way. The issue is fixed in 2026.8.1.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
       "id": "CVE-2026-100530",
       "published": "2026-09-26T03:16:58.367",
       "description": "OpenClaw versions before 2026.8.1 fail to bind working directory context to reusable exec approvals, allowing approved commands to execute in different directories. Attackers with an allow-always approval can reuse it to run the same command against unreviewed files or repositories with materially different effects.",
@@ -30,11 +44,11 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-100504",
-      "published": "2026-09-26T01:17:00.043",
-      "description": "Ghidra versions through 12.1.4 contain a stack-based out-of-bounds write vulnerability in the decompiler's leftshift128 function when processing negative shift amounts from p-code. Attackers can craft malicious binaries with specific instruction sequences that trigger the overflow when decompiled, corrupting memory and potentially achieving code execution.",
-      "severity": "HIGH",
-      "score": 7
+      "id": "CVE-2026-100540",
+      "published": "2026-09-26T03:16:59.833",
+      "description": "OpenClaw Feishu before 2026.8.1 fails to validate whether a configured default account is disabled before selecting it for model tool operations. Attackers can exploit multi-account setups where a disabled default account retains credentials to read or modify Feishu resources through a revoked identity.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
       "id": "CVE-2026-100531",
@@ -44,39 +58,25 @@
       "score": 6.5
     },
     {
+      "id": "CVE-2026-100536",
+      "published": "2026-09-26T03:16:59.247",
+      "description": "OpenClaw versions before 2026.8.1 fail to validate all source fields in structured message attachments, allowing attackers to hide unvalidated host paths behind allowed attachment sources. Attackers can exploit this by providing multiple source fields to bypass sandbox path validation and cause Telegram delivery to read and send known host files that would otherwise be rejected.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-100538",
+      "published": "2026-09-26T03:16:59.537",
+      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 does not apply the originating sender's global or per-agent toolsBySender policy when handling outbound attachments. A sender that has been explicitly denied filesystem read tools can still cause a known local file to be read and returned via a final-response media directive or a message attachment, disclosing local file contents to an admitted requester whose agent turn did not include the read tool. Exploitation requires knowledge or derivation of a useful host path and a delivery flow that accepts local attachments. The issue is fixed in version 2026.8.1.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-100529",
       "published": "2026-09-26T03:16:58.217",
       "description": "OpenClaw versions before 2026.8.1 contain an authorization scope widening vulnerability in file-transfer allow-always approvals that allows attackers to reuse standing grants for unreviewed paths. Attackers can exploit glob metacharacter interpretation and node display name reuse to access sibling paths or different nodes beyond the operator's original approval scope.",
       "severity": "MEDIUM",
       "score": 6.4
-    },
-    {
-      "id": "CVE-2026-100521",
-      "published": "2026-09-26T01:17:00.517",
-      "description": "Cotonti through 1.0.0 contains a reflected cross-site scripting vulnerability in the search plugin highlight parameter that performs no HTML or JavaScript escaping. Attackers can craft malicious links with injected JavaScript in the highlight parameter that executes in the browser of any visitor who opens the link, including administrators.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-100522",
-      "published": "2026-09-26T01:17:00.700",
-      "description": "Cotonti through 1.0.0 contains a reflected cross-site scripting vulnerability in message.php where the lng parameter is not properly escaped before output in the confirmation dialog. Unauthenticated attackers can craft malicious links with script payloads in the lng parameter to execute arbitrary JavaScript in victim browser sessions.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-100523",
-      "published": "2026-09-26T01:17:00.870",
-      "description": "Cotonti through 1.0.0 contains an open redirect vulnerability in message.php that base64-decodes the redirect parameter without domain validation. Unauthenticated attackers can craft malicious links with encoded external URLs to redirect users to arbitrary sites via meta refresh tags for phishing attacks.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-100524",
-      "published": "2026-09-26T01:17:01.040",
-      "description": "Cotonti through 1.0.0 contains a cross-site request forgery vulnerability in the extensions manager that allows attackers to perform state-changing actions without anti-CSRF token validation. Attackers can craft links or embed images to force administrators to install, update, pause, or unpause extensions by tricking them into visiting a malicious page while authenticated.",
-      "severity": "MEDIUM",
-      "score": 5.4
     },
     {
       "id": "CVE-2026-100528",
@@ -107,13 +107,6 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-100505",
-      "published": "2026-09-26T01:17:00.200",
-      "description": "Ghidra versions 9.2 through 12.1.4 contain a heap out-of-bounds read vulnerability in StringManager::getCodepoint when decoding multi-byte UTF-8, UTF-16, or UTF-32 characters without validating remaining buffer length. Attackers can craft malicious binaries containing strings or constant byte stores that end in multi-byte lead units to trigger out-of-bounds reads that crash the decompiler or leak adjacent heap memory into decompiled output.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
       "id": "CVE-2026-100525",
       "published": "2026-09-26T03:16:57.563",
       "description": "The OpenClaw Prometheus diagnostics plugin (@openclaw/diagnostics-prometheus) before version 2026.9.3 does not enforce the operator.read scope on its authenticated metrics endpoint. In deployments using an identity-bearing Gateway authentication mode such as trusted-proxy, a caller whose effective role has no read scope can retrieve the diagnostics document even though ordinary read methods reject the same identity, disclosing operational metrics to an authenticated profile intentionally limited below read access. Shared-secret Gateway callers already hold the documented full operator scope and are not affected. The issue is fixed in 2026.9.3; as a workaround, disable the Prometheus endpoint or ensure every identity that can reach it is intended to hold operator.read.",
@@ -121,25 +114,32 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-100503",
-      "published": "2026-09-26T01:16:59.880",
-      "description": "Ghidra versions through 12.1.4 contain a heap use-after-free vulnerability in the decompiler's Funcdata::opInsertAfter function caused by stale INDIRECT effect-op references. Attackers can craft a malicious binary with a specific x86-64 sequence that triggers the vulnerability during decompilation, causing the decompile helper process to crash and denying service to analysts and automated analysis pipelines.",
+      "id": "CVE-2026-100534",
+      "published": "2026-09-26T03:16:58.957",
+      "description": "OpenClaw versions before 2026.8.1 contain an authorization bypass vulnerability in webhook TaskFlow cancellation that allows attackers to cancel unrelated sessions. An attacker with a webhook route secret can supply an arbitrary child session key to cancel ACP or subagent work outside the route's configured authority.",
       "severity": "LOW",
-      "score": 3.3
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-57449",
-      "published": "2026-09-25T23:16:53.990",
-      "description": "Actual is a local-first personal finance tool. Prior to 26.7.0, Actual Sync Server's CORS proxy is intended to let authenticated users fetch resources only from repositories listed in the official plugin allowlist. When `ACTUAL_GITHUB_TOKEN` is configured, the proxy automatically attaches the server's GitHub token to GitHub requests. The GitHub API allowlist check uses a raw `startsWith()` prefix test for `/repos/{owner}/{repo}` without requiring a path boundary after the repository name. If an allowlisted public plugin repository is `https://github.com/acme/plugin`, the proxy also accepts GitHub API URLs. Those URLs are outside the allowlisted repository but still pass because their API path starts with `/repos/acme/plugin`. The proxy then forwards the request with the server's `ACTUAL_GITHUB_TOKEN`, allowing any authenticated Actual user to read private GitHub resources reachable by that token. Version 26.7.0 fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-100537",
+      "published": "2026-09-26T03:16:59.390",
+      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 fails to apply the originating requester's effective tool policy during Active Memory automatic recall. In deployments that use Active Memory together with requester-specific tool rules, deterministic and hidden recall paths can retrieve durable memory and inject it into the agent's context even when toolsBySender explicitly denies that requester access to the memory tools (memory_search, memory_get). As a result, an admitted but denied sender can receive information derived from durable memory in the agent's response without directly invoking any memory tool. The issue is fixed in 2026.8.1.",
+      "severity": "LOW",
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-86066",
-      "published": "2026-09-25T23:16:54.167",
-      "description": "Horilla is an HR and CRM software. Prior to 2.0.0, approve_validate_attendance_request at /attendance/approve-validate-attendance-request/ changes attendance_validated, is_validate_request_approved, approved_by, and related pending-request state through an HTTP GET before calling attendance.save(), so Django does not require CSRF validation for the action. An unauthenticated attacker can cause a logged-in manager with attendance.change_attendance to make a top-level request that carries the manager's SameSite=Lax session cookie, silently approving attendance with the victim's privileges and attributing the approval to the victim in the audit trail. This issue is fixed in version 2.0.0.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-100542",
+      "published": "2026-09-26T03:17:00.140",
+      "description": "OpenClaw (npm package 'openclaw') versions >= 2026.5.28 and < 2026.8.1 mishandle archive listings in the tar.bz2 skill installer: bounded command-output suffixes were treated as complete listings of the archive. A crafted .tar.bz2/.tbz2 skill archive can push prohibited entries out of both retained listings so that entry-count and size checks pass, and the archive is then extracted in full. If an operator approves installation of such a malicious or compromised skill archive, over-limit files or entry counts are persisted in the skill tools directory, consuming disk space or inodes. The issue bypasses OpenClaw's extraction budgets but does not by itself execute archive contents. Fixed in 2026.8.1.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-100539",
+      "published": "2026-09-26T03:16:59.680",
+      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 fails to revoke memory tool access when an operator hot-disables memory configuration. Existing memory_search and memory_get tool instances retain the enabled configuration captured at creation time because the execution-time resolver treats explicit disablement like an unavailable configuration snapshot and restores the stale authority. As a result, during an already-running agent turn the model can continue searching and reading durable memory after the operator revoked that access, for the remainder of that run. Exploitation requires memory to be disabled while a previously created memory tool remains active. The issue is fixed in 2026.8.1.",
+      "severity": "LOW",
+      "score": 2.6
     }
   ]
 }
