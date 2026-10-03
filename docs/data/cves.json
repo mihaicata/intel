@@ -1,145 +1,145 @@
 {
-  "totalResults": 2759,
+  "totalResults": 2743,
   "items": [
     {
-      "id": "CVE-2026-100544",
-      "published": "2026-09-26T03:17:00.440",
-      "description": "openclaw's @openclaw/voice-call package before 2026.8.1 launches the configured agent for classic inbound voice calls without propagating the caller's identity or non-owner status. As a result, owner-only tool filtering can fail open and expose the agent's normal tool authority to a remote caller. A caller who is admitted by the configured inbound-call policy (open, pairing, or allowlist) on a deployment with inbound calling enabled can therefore drive tools intended for the trusted owner, potentially reading data, modifying files, executing commands, or controlling connected services depending on the agent's configuration. The issue is fixed in 2026.8.1.",
+      "id": "CVE-2026-100614",
+      "published": "2026-09-26T14:16:42.050",
+      "description": "Capgo before 12.244.1 contains a cross-tenant integrity vulnerability in the metadata-cleaning worker that trusts image object keys from mutable database rows without validating ownership. An authenticated attacker can place a victim tenant's image key in a row they control, causing the service-role worker to download and re-upload that object with sanitized metadata. Attackers can silently modify metadata in cross-tenant image objects by supplying known victim keys during authorized row updates, bypassing storage access controls through the confused-deputy metadata worker.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-100532",
-      "published": "2026-09-26T03:16:58.660",
-      "description": "@openclaw/whatsapp (npm) before 2026.8.1 exposes the WhatsApp login tool through the generic channel-tool path without preserving the originating sender's owner status, so the owner-only tool boundary is not enforced. An admitted non-owner sender able to steer the tool can request a forced login and receive a new QR code for a configured account, disconnecting the Gateway's WhatsApp account and causing loss of availability; full account relinking additionally requires the attacker to scan the returned QR code with another phone. The issue affects the owner-only tool boundary rather than WhatsApp transport authentication. Fixed in 2026.8.1.",
+      "id": "CVE-2026-100608",
+      "published": "2026-09-26T14:16:41.140",
+      "description": "Flowise through 3.1.4 does not enforce authorization on the BullMQ admin dashboard. When the server runs in queue mode with the dashboard enabled and not in cloud mode (MODE=queue, ENABLE_BULLMQ_DASHBOARD=true, and !isCloud()), the /admin/queues mount is protected only by the verifyTokenForBullMQDashboard middleware, which validates the JWT but performs no role, permission, or workspace/organization scoping check; the mount also lies outside /api/v1/* so the global API gate does not apply. As a result, any authenticated user — including the lowest-privileged member of any tenant — can reach the full Bull-Board UI and view all queues and job payloads across the entire instance, including chat inputs and overrideConfig (which may carry credentials and prompts), chatflow.flowData graph definitions with custom function source code, credential IDs and system prompts, chatIds, files, and the originating orgId/workspaceId. The dashboard's write actions (retry, remove, promote, clean) are likewise usable across tenants. No patched version is available as of the advisory.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-100535",
-      "published": "2026-09-26T03:16:59.103",
-      "description": "OpenClaw (npm package 'openclaw') versions >= 2026.4.5 and < 2026.8.1 can lose the originating requester's restrictions and untrusted provenance when session-derived text is persisted to session memory. In deployments where session-memory capture and dreaming are enabled, a restricted external sender whose messages are admitted with limited tools can persist instructions that are later supplied to an unattended background (dreaming) agent holding broader file and command capabilities, allowing actions beyond the authority of the original turn and affecting files, commands, or services available to that agent. Exploitation requires the content to be captured, selected for later processing, and followed by the model. The issue is fixed in 2026.8.1.",
+      "id": "CVE-2026-100606",
+      "published": "2026-09-26T14:16:40.820",
+      "description": "Flowise through 3.1.4 (Enterprise/platform mode with SSO enabled) contains an authentication bypass in the SSO login path. When an SSO callback arrives with an email matching a user whose status is INVITED, verifyAndLogin (SSOBase.ts:80-94) copies the user record from the database — including the server-stored single-use invitation tempToken — into the data passed to AccountService.register(). The register handler's token lookup, email match, and expiry checks therefore pass trivially against the server's own token instead of a caller-supplied one, and the account and its organization membership are flipped to ACTIVE. As a result, anyone able to authenticate at any configured SSO provider using a pending invitee's email address as the email claim can take over that invitation and obtain the invited user's access to the organization without ever possessing the emailed invitation token, for as long as the invitation is valid (24 hours by default). At the time of the advisory no patched version was available.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-100607",
+      "published": "2026-09-26T14:16:40.983",
+      "description": "Flowise through 3.1.4 resolves SSO and local-password users solely by email without storing provider or subject identifier bindings, allowing attackers to authenticate as any existing user by claiming their email at any configured SSO provider. Attackers can gain complete account access including chatflows, credentials, and API keys by authenticating through a different SSO provider or local password than the victim's original registration method.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-100610",
+      "published": "2026-09-26T14:16:41.460",
+      "description": "Flowise through 3.1.4 exposes GET /api/v1/upsert-history/:id and PATCH /api/v1/upsert-history without route-level permission checks, and the backing service performs no workspace or ownership validation. getAllUpsertHistory() returns UpsertHistory rows selected solely by an attacker-supplied chatflowid, and patchDeleteUpsertHistory() deletes rows by an attacker-supplied array of record UUIDs. As a result, any authenticated low-privilege user or valid API key can read or delete document-store upsert history belonging to other users and other workspaces whenever the target chatflowId (which is exposed publicly in /chatbot/<chatflowId> share links) or row ids are known. The retrievable flowData and result fields contain embedding, record-manager and vector-store node configuration, including per-node paramValues. No patched version is available.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-100541",
-      "published": "2026-09-26T03:16:59.987",
-      "description": "OpenClaw's Matrix integration (npm package @openclaw/matrix) versions >= 2026.2.2 and < 2026.8.1 lowercase complete Matrix user IDs — including historical localparts and the case-sensitive server-name portion — when deriving the OpenClaw authorization identity. As a result, distinct authenticated Matrix accounts can normalize to the same authorization identity. A Matrix participant controlling a colliding account identifier (a protocol-valid identifier that differs from the configured one only by characters OpenClaw case/Unicode folds; display-name matching is not required) can inherit allowlist, owner-command, exec-approval, or plugin-approval authority configured for another account. The issue is fixed in 2026.8.1.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-100543",
-      "published": "2026-09-26T03:17:00.287",
-      "description": "OpenClaw (npm package openclaw) before 2026.8.1 could include deterministic hashes computed over the original, unredacted configuration in redacted configuration responses. When the Gateway password had low entropy and the remaining configuration values were reconstructable, these hashes acted as offline password verifiers: a caller able to obtain the redacted configuration (for example via config.get) could test password candidates offline without going through the rate-limited Gateway authentication path. Recovering the password could grant the documented shared-secret operator authority. Secret references were not affected in the same way. The issue is fixed in 2026.8.1.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-100530",
-      "published": "2026-09-26T03:16:58.367",
-      "description": "OpenClaw versions before 2026.8.1 fail to bind working directory context to reusable exec approvals, allowing approved commands to execute in different directories. Attackers with an allow-always approval can reuse it to run the same command against unreviewed files or repositories with materially different effects.",
+      "id": "CVE-2026-100314",
+      "published": "2026-09-26T12:17:35.227",
+      "description": "A security vulnerability has been detected in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This impacts an unknown function of the file updatedetailsfromstudent.php. The manipulation of the argument eno leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-100540",
-      "published": "2026-09-26T03:16:59.833",
-      "description": "OpenClaw Feishu before 2026.8.1 fails to validate whether a configured default account is disabled before selecting it for model tool operations. Attackers can exploit multi-account setups where a disabled default account retains credentials to read or modify Feishu resources through a revoked identity.",
+      "id": "CVE-2026-100315",
+      "published": "2026-09-26T13:16:36.050",
+      "description": "A vulnerability was detected in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected is an unknown function of the file mydetailsfaculty.php. The manipulation of the argument myfid results in sql injection. The attack can be launched remotely. The exploit is now public and may be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-100612",
+      "published": "2026-09-26T14:16:41.753",
+      "description": "Capgo (capgo.app) through version 12.261.0 contains an incomplete access-control fix for the public.sso_providers table. Migration 20260826100000_sso_providers_block_direct_active_insert.sql installs a BEFORE UPDATE guard (enforce_sso_provider_client_update_guard()) that freezes only the dns_verified_at, domain, status and enforce_sso columns; provider_id (as well as metadata_url and attribute_mapping) is left writable. Because the table is granted ALL to the anon and authenticated roles with no column-level restriction, and PostgreSQL row-level security policies such as allow_org_admins_update_sso_providers constrain only which row may be updated and not which columns, a user holding the org_admin tier permission org.update_settings can PATCH provider_id over PostgREST to an identity provider under their control. Since provider_id is the trust anchor binding an email domain to an authorized IdP, the attacker can then authenticate through their own IdP while asserting the org owner's email; the server-side provider match succeeds and the merge routine attaches the attacker's SSO identity to the existing owner account, nulls its password, and deletes its other identities and sessions. This results in vertical privilege escalation from org_admin to org owner/super_admin, account takeover, and lockout of the legitimate owner. Exploitation requires that the target organization has an active SSO provider configured and that the attacker already holds org_admin in that organization. No patched version is available.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-100605",
+      "published": "2026-09-26T14:16:40.620",
+      "description": "Flowise through 3.1.4 contains missing route-level RBAC checks on chat message endpoints that allow low-privileged API keys to read and delete chat history. Attackers with valid but low-privileged API keys can access GET and DELETE chat message routes without required flow permissions to read chat histories, prompts, model responses, and delete messages.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-98163",
+      "published": "2026-09-26T09:16:38.303",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncgroup: Avoid iteration of dying tasks with zero refcount\n\nThe commit 260fbcb92bbea (\"cgroup: Move dying_tasks cleanup from\ncgroup_task_release() to cgroup_task_free()\") extended the lifetime of\ntasks on the dying_tasks list.\nThe iterators have provision to go through dying_tasks because of\ndying threadgroup leaders or explicit CSS_TASK_ITER_WITH_DEAD, however,\nit was expected that such tasks can obtain a new reference (that is\npossible before cgroup_task_release()/put_task_struct_rcu_user()).\nThe tasks after cgroup_task_release() and before cgroup_task_free()\nare subject to race when they may or may not have ->usage count > 0.\n\nThe race window is between css_task_iter_next() invocations\nwhen css_set_lock is released and we may arrive at a new ->task_pos.\nThe iterator should not attempt to resurrect tasks whose ->usage count\ndropped to zero. (When that happens, __put_task_struct_rcu_cb() is\nalready imminent and the returned task_struct would could be used\nafter free.)\n\nAs for the fix, we cannot simply check the signal->live count of a task\non the dying list because that won't distinguish regular zombies waiting\nto be reaped from RCU remnant tasks that are going to be free'd.\nTherefore add an extra check to rule out ->usage==0 tasks from any\niteration.\n\nThe repeat: loop in css_task_iter_advance() doesn't consider ->usage\ncount, so add a new loop to css_task_iter_next() to skip de-used tasks\non the dying_list.\n\nRough illustration of the possible race\n\n  R (reader of cgroup.procs)         T (thread)                       L (group leader)\n  ---------------------------------  -------------------------------- --------------------------------\n                                                                      L exits, signal->live > 0\n                                                                      cgroup_task_dead(L)\n                                                                        css_set_skip_task_iters() // skips only cset->tasks\n                                                                        list_add_tail(&L->cg_list, &cset->dying_tasks)\n  css_task_iter_next()\n    take css_set_lock\n    css_task_iter_advance()\n      leader && signal->live != 0\n      => it->task_pos = &L->cg_list\n    release css_set_lock\n                                     T exits\n                                     --signal->live == 0\n\t\t\t\t     cgroup_task_dead(T) // css_set_lock\n                                     release_task(T)\n                                       cgroup_task_release(T)\n                                       release_task(L) // zap_leader\n                                         cgroup_task_release(L)\n                                         put_task_struct_rcu_user(L)\n                                         ...RCU...\n                                         put_task_struct(L)\n                                           L->usage = 0\n                                           /* L still on dying_tasks */\n                                           ...RCU...\n                                           __put_task_struct(L)\n  css_task_iter_next() // another iteration\n    take css_set_lock\n    it->task_pos = &L->cg_list\n    get_task_struct(L)\n      => addition on 0\n    drop css_set_lock\n                                           cgroup_task_free(L)\n                                             css_set_skip_task_iters() // dying skip comes too late\n                                           free_task(L)\n  cgroup_procs_show()\n    task_pid_vnr(L)",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-100609",
+      "published": "2026-09-26T14:16:41.297",
+      "description": "Flowise (npm packages `flowise` and `flowise-components`) through 3.1.4 looks up credentials by ID without filtering on the requesting user's workspace (findOneBy({ id: credentialId }) with no workspaceId condition) in several code paths: getAllOpenaiAssistants/getSingleOpenaiAssistant (GET /api/v1/openai-assistants and /api/v1/openai-assistants/:id), uploadFilesToAssistant (POST /api/v1/openai-assistants-file/upload/), deleteAssistant (DELETE /api/v1/assistants/:id, reachable by first importing a poisoned assistant row via POST /api/v1/export-import/import), and the shared helper used by getVoices (GET /api/v1/text-to-speech/voices). An authenticated user of one workspace can supply a credential UUID belonging to another workspace, causing the server to decrypt and use that workspace's OpenAI or ElevenLabs API key on the attacker's behalf. No patched version was available at the time of publication.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-100531",
-      "published": "2026-09-26T03:16:58.513",
-      "description": "The @openclaw/slack npm package before 2026.8.1 contains an authorization flaw in its Slack download-file handler: when a file lacks the share metadata used to prove it belongs to the requested conversation, the conversation-authorization check fails open. An authenticated caller restricted to a single conversation who knows or obtains a file identifier can therefore download file contents from outside that conversation's scope, disclosing data across configured conversation boundaries. The issue does not allow listing arbitrary Slack files and does not bypass Slack authentication itself. The issue is fixed in version 2026.8.1.",
+      "id": "CVE-2026-100602",
+      "published": "2026-09-26T14:16:40.187",
+      "description": "ClawHub (openclaw/clawhub application/backend) contains a missing authorization check in the changelog preview feature. A signed-in caller can invoke the public skills:generateChangelogPreview action for a skill they are not authorized to access; the previous version is read without the file-read authorization enforced on normal content access, and up to 8,000 characters of quarantined content may be submitted to the AI provider and reflected in the preview returned to the caller, disclosing restricted skill content. The issue was confirmed at revision cbfee7343ddc867316dd9b3de6fa8856730f9f41; the complete historical affected range was not established. It is fixed by PR #3682, included in revision 8c2de6c506bb4efabe3f0c2ffb8370b9e23d4650, which was deployed to clawhub.ai on 2026-09-11; self-hosted deployments should update to that revision or a later descendant. The npm CLI and OpenClaw runtime are separate products and are not affected.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-100536",
-      "published": "2026-09-26T03:16:59.247",
-      "description": "OpenClaw versions before 2026.8.1 fail to validate all source fields in structured message attachments, allowing attackers to hide unvalidated host paths behind allowed attachment sources. Attackers can exploit this by providing multiple source fields to bypass sandbox path validation and cause Telegram delivery to read and send known host files that would otherwise be rejected.",
+      "id": "CVE-2026-100611",
+      "published": "2026-09-26T14:16:41.610",
+      "description": "Capgo (capgo.app backend, versions ≤ 12.261.0) improperly restricts which roles the apikey_manager organization role may bind to newly created API keys. When an authenticated user holding only apikey_manager (permissions org.manage_apikeys and org.read) calls POST /apikey with a JWT session, the only checks applied are the org.manage_apikeys permission, a fixed deny-list of assignable role names (APIKEY_MANAGER_DENIED_ASSIGNABLE_ROLES in public/apikey/scope.ts), and a priority-rank comparison in createRoleBindingForPrincipal (private/role_bindings.ts). No check verifies that the caller actually holds the permissions conferred by the role being assigned. Because the deny-list omits the deploy roles app_developer, app_uploader, channel_developer and channel_uploader, and apikey_manager is seeded with priority_rank 78 — higher than those roles' ranks (68, 66, 58, 57) — the rank check also passes. As a result, an apikey_manager who cannot upload bundles or promote channels can mint an API key bound to a deploy role and use it to push arbitrary OTA JavaScript updates to all end users of the organization's apps. As of the advisory publication no patched version was available.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-100538",
-      "published": "2026-09-26T03:16:59.537",
-      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 does not apply the originating sender's global or per-agent toolsBySender policy when handling outbound attachments. A sender that has been explicitly denied filesystem read tools can still cause a known local file to be read and returned via a final-response media directive or a message attachment, disclosing local file contents to an admitted requester whose agent turn did not include the read tool. Exploitation requires knowledge or derivation of a useful host path and a delivery flow that accepts local attachments. The issue is fixed in version 2026.8.1.",
+      "id": "CVE-2026-100312",
+      "published": "2026-09-26T09:16:37.087",
+      "description": "A security flaw has been discovered in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. The impacted element is an unknown function of the file /updateguest.php. Performing a manipulation of the argument gname/editassid results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-100529",
-      "published": "2026-09-26T03:16:58.217",
-      "description": "OpenClaw versions before 2026.8.1 contain an authorization scope widening vulnerability in file-transfer allow-always approvals that allows attackers to reuse standing grants for unreviewed paths. Attackers can exploit glob metacharacter interpretation and node display name reuse to access sibling paths or different nodes beyond the operator's original approval scope.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-100528",
-      "published": "2026-09-26T03:16:58.057",
-      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 could send third-party provider credentials to the wrong endpoint. In affected versions, when a third-party provider uses an OpenAI-compatible API and the resolved model metadata lacks a concrete base URL, a pinned session that continues after a model configuration hot reload retains that provider's credential while the OpenAI SDK selects its own default endpoint. A resulting request could disclose the configured third-party provider credential to an unrelated provider endpoint and fail with a misleading authentication error. Operators who observed this condition should rotate the affected credential. The issue is fixed in 2026.8.1.",
+      "id": "CVE-2026-100603",
+      "published": "2026-09-26T14:16:40.330",
+      "description": "ClawHub (openclaw/clawhub) application/backend contains a flaw in the skill report moderation flow: four distinct ordinary authenticated accounts can report a visible skill and trigger automatic hiding (moderationStatus: hidden) of that skill from the catalog without any moderator decision. Because the reporter quota counts only reports filed against visible targets, the same accounts can repeat the process against additional skills; official skills are not exempt. The issue was confirmed at revision cbfee7343ddc867316dd9b3de6fa8856730f9f41; the complete historical affected range was not established. The fix (PR #3681) is included in revision 8c2de6c506bb4efabe3f0c2ffb8370b9e23d4650; self-hosted deployments should update to that revision or a later descendant. The npm CLI and OpenClaw runtime are separate products and are not affected.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-100526",
-      "published": "2026-09-26T03:16:57.750",
-      "description": "OpenClaw's Discord integration (npm package @openclaw/discord) before version 2026.9.3 could lose the sender-scoped media policy in the emoji and sticker upload actions before loading a local file. A sender permitted to invoke those actions could cause OpenClaw to read a host path that the same sender's configured media roots would otherwise reject, placing bytes from an out-of-policy local file into an outbound emoji or sticker upload. Exploitation requires access to the guild asset action and knowledge or derivation of a useful local path; the issue does not permit unrestricted filesystem browsing or code execution. The issue is fixed in @openclaw/discord 2026.9.3.",
+      "id": "CVE-2026-100604",
+      "published": "2026-09-26T14:16:40.473",
+      "description": "ClawHub (openclaw/clawhub) contains an incorrect authorization vulnerability in the ClawHub application/backend: an organization-owned skill retains the ownerUserId of its original publisher, and transfer and lifecycle authorization checks trust that historical user before requiring current organization privileges. An authenticated user who originally published an organization skill can therefore transfer, delete, or restore that skill — taking control of its trusted name and history — even after their organization privileges have been revoked or downgraded. The issue was confirmed at revision cbfee7343ddc867316dd9b3de6fa8856730f9f41; the complete historical affected range was not established. It is fixed by PR #3680, included in revision 8c2de6c506bb4efabe3f0c2ffb8370b9e23d4650, which was deployed to clawhub.ai on 2026-09-11; self-hosted deployments should update to that revision or a later descendant. The npm CLI and OpenClaw runtime are separate products and are not affected.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-100600",
+      "published": "2026-09-26T14:16:39.420",
+      "description": "ClawHub (the openclaw/clawhub application/backend) does not bind anonymous HTTP API requests to a trusted caller identity, so all direct anonymous API requests share a single default quota allowance. A remote, unauthenticated caller can drain that shared allowance and thereby deny or degrade API access for unrelated visitors. In addition, when the TRUST_FORWARDED_IPS option is enabled without an authenticated edge/proxy, clients can supply arbitrary forwarded IP headers to select quota identities of their choosing and evade rate limiting. The issue was confirmed at revision cbfee7343ddc867316dd9b3de6fa8856730f9f41; the complete historical affected range was not established. It is fixed in revision 8c2de6c506bb4efabe3f0c2ffb8370b9e23d4650 (PR #3684), where direct anonymous calls are redirected to the public API origin without consuming quota and forged identity assertions return HTTP 401. The npm CLI and OpenClaw runtime are separate products and are not affected.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-100527",
-      "published": "2026-09-26T03:16:57.910",
-      "description": "OpenClaw before 2026.8.2 contains a denial of service vulnerability in the Browser extension relay that allows unauthenticated network sources to exhaust pending-authentication capacity. Attackers can hold every pending slot by maintaining silent WebSocket upgrades, preventing paired extensions from completing Browser Relay Authentication v2.",
+      "id": "CVE-2026-100601",
+      "published": "2026-09-26T14:16:40.040",
+      "description": "ClawHub (openclaw/clawhub) application/backend contains a server-side request forgery vulnerability in the public profile preview's image fetching. The preview accepts a user-supplied image URL and checks the textual hostname against private-address patterns, but does not validate or pin the resolved network destination, so a public-looking hostname can resolve to an internal address or change resolution between validation and connection (DNS rebinding). A maintainer-run local harness demonstrated an outbound connection to an owner-controlled loopback listener; access to production internal services, credential disclosure, and code execution were not demonstrated. The issue was confirmed at revision cbfee7343ddc867316dd9b3de6fa8856730f9f41; the complete historical affected range was not established. Fixed by PR #3683, included in revision 8c2de6c506bb4efabe3f0c2ffb8370b9e23d4650, which was deployed to clawhub.ai on 2026-09-11; self-hosted deployments should update to that revision or a later descendant. The npm CLI and OpenClaw runtime are separate products and are not affected.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-100533",
-      "published": "2026-09-26T03:16:58.813",
-      "description": "OpenClaw versions before 2026.8.1 contain a path traversal vulnerability in the tools.fs.workspaceOnly feature where Unicode filename fallback can normalize validated parent directory components. Admitted requesters can exploit canonically equivalent sibling directories to read files outside the configured workspace boundary.",
+      "id": "CVE-2026-100613",
+      "published": "2026-09-26T14:16:41.903",
+      "description": "capgo.app is an over-the-air (OTA) update platform for Capacitor apps. In all versions up to and including the current release (no patch available at time of publication), the `transfer_app()` database function transfers an app, its channels, versions and related records to a destination organization without deleting or revalidating existing rows in `channel_permission_overrides`. As a result, a user who legitimately held a channel permission override while a member of the source organization retains that override after the transfer, even though they have no membership and no RBAC binding in the destination organization. Using their own authenticated JWT against the PostgREST API, such a former member can modify the destination-owned channel to point at a different bundle, causing the /updates endpoint to serve an attacker-selected application version to devices. The previously proposed fix for GHSA-626c-p6fq-3whq (PR #3093), which validates organization membership when an override is created or updated, does not remove overrides that became stale as a result of an app transfer.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-100525",
-      "published": "2026-09-26T03:16:57.563",
-      "description": "The OpenClaw Prometheus diagnostics plugin (@openclaw/diagnostics-prometheus) before version 2026.9.3 does not enforce the operator.read scope on its authenticated metrics endpoint. In deployments using an identity-bearing Gateway authentication mode such as trusted-proxy, a caller whose effective role has no read scope can retrieve the diagnostics document even though ordinary read methods reject the same identity, disclosing operational metrics to an authenticated profile intentionally limited below read access. Shared-secret Gateway callers already hold the documented full operator scope and are not affected. The issue is fixed in 2026.9.3; as a workaround, disable the Prometheus endpoint or ensure every identity that can reach it is intended to hold operator.read.",
+      "id": "CVE-2026-100313",
+      "published": "2026-09-26T12:17:33.267",
+      "description": "A weakness has been identified in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This affects an unknown function of the file updatequery.php. Executing a manipulation of the argument queryx can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-100534",
-      "published": "2026-09-26T03:16:58.957",
-      "description": "OpenClaw versions before 2026.8.1 contain an authorization bypass vulnerability in webhook TaskFlow cancellation that allows attackers to cancel unrelated sessions. An attacker with a webhook route secret can supply an arbitrary child session key to cancel ACP or subagent work outside the route's configured authority.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-100537",
-      "published": "2026-09-26T03:16:59.390",
-      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 fails to apply the originating requester's effective tool policy during Active Memory automatic recall. In deployments that use Active Memory together with requester-specific tool rules, deterministic and hidden recall paths can retrieve durable memory and inject it into the agent's context even when toolsBySender explicitly denies that requester access to the memory tools (memory_search, memory_get). As a result, an admitted but denied sender can receive information derived from durable memory in the agent's response without directly invoking any memory tool. The issue is fixed in 2026.8.1.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-100542",
-      "published": "2026-09-26T03:17:00.140",
-      "description": "OpenClaw (npm package 'openclaw') versions >= 2026.5.28 and < 2026.8.1 mishandle archive listings in the tar.bz2 skill installer: bounded command-output suffixes were treated as complete listings of the archive. A crafted .tar.bz2/.tbz2 skill archive can push prohibited entries out of both retained listings so that entry-count and size checks pass, and the archive is then extracted in full. If an operator approves installation of such a malicious or compromised skill archive, over-limit files or entry counts are persisted in the skill tools directory, consuming disk space or inodes. The issue bypasses OpenClaw's extraction budgets but does not by itself execute archive contents. Fixed in 2026.8.1.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-100539",
-      "published": "2026-09-26T03:16:59.680",
-      "description": "OpenClaw (npm package 'openclaw') before 2026.8.1 fails to revoke memory tool access when an operator hot-disables memory configuration. Existing memory_search and memory_get tool instances retain the enabled configuration captured at creation time because the execution-time resolver treats explicit disablement like an unavailable configuration snapshot and restores the stale authority. As a result, during an already-running agent turn the model can continue searching and reading durable memory after the operator revoked that access, for the remainder of that run. Exploitation requires memory to be disabled while a previously created memory tool remains active. The issue is fixed in 2026.8.1.",
-      "severity": "LOW",
-      "score": 2.6
     }
   ]
 }
