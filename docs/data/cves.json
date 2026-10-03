@@ -1,5 +1,5 @@
 {
-  "totalResults": 2638,
+  "totalResults": 2635,
   "items": [
     {
       "id": "CVE-2026-100740",
@@ -9,25 +9,11 @@
       "score": 9.9
     },
     {
-      "id": "CVE-2026-85984",
-      "published": "2026-09-26T18:16:31.010",
-      "description": "The miniOrange OTP Login, Verification and SMS Notifications plugin for WordPress is vulnerable to Authentication Bypass via the mo_wp_login_intent parameter in all versions up to, and including, 5.5.5. This is due to a missing password-intent guard in the skip_pass_fallback-enabled configuration branch of the mo_by_pass_login() function, which treats administrator role membership alone as sufficient authentication whenever the unauthenticated, unverified POST parameter mo_wp_login_intent is submitted with the value otp, causing mo_get_user() to skip wp_authenticate_username_password() and resolve a WP_User purely from a username lookup. This makes it possible for unauthenticated attackers to log in as any existing administrator account by supplying only a known username and an empty password alongside mo_wp_login_intent=otp, with no password or OTP verification required. Exploitation is conditional on a site administrator having simultaneously enabled the following plugin options: WP Login OTP, Login with Only OTP, Allow Users to Login with Username and Password, and Admin OTP Bypass.",
+      "id": "CVE-2026-100721",
+      "published": "2026-09-27T02:17:17.547",
+      "description": "vm2 before 3.12.2 contains an authorization bypass in the NodeVM external-module resolver. When an embedder configures `require.external` with a custom resolver (and `context: 'host'`), `LegacyResolver.customResolve` in lib/resolver-compat.js records the resolved module directory in `this.externals` as `new RegExp('^' + escapeRegExp(resolvedPath))`, without requiring a path separator or end-of-string boundary. Untrusted guest code can therefore require the allowlisted module (e.g. `foo`) and then require the absolute path of a non-allowlisted sibling whose path merely shares the resolved prefix (e.g. `.../node_modules/foo2/index.js`); the sibling passes `isPathAllowedForModule` and is loaded through `hostRequire`, so its top-level code runs in the host process before the exports are wrapped with `vm.readonly`, resulting in a sandbox escape and arbitrary code execution in the host context.",
       "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-82901",
-      "published": "2026-09-26T19:16:28.427",
-      "description": "The Ultra Addons for Contact Form 7 plugin for WordPress is vulnerable to Arbitrary File Upload due to insufficient file type validation in the 'uacf7_wpcf7_mail_components' function in all versions up to, and including, 3.5.50. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible. Note: This is only exploitable when the plugin's PDF Generator module is enabled, which is disabled by default.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-77203",
-      "published": "2026-09-26T18:16:29.917",
-      "description": "The Groups – Memberships and Access Control plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.6.0. This is due to the groups_join() function deriving group-join eligibility from the ambient post's author capabilities via the global $post->post_author rather than from the currently authenticated user's own capabilities, while simultaneously minting and returning a valid groups-join-data hash and WordPress nonce for the caller in the same response — eliminating all authorization barriers to self-enrollment. This makes it possible for authenticated attackers, with Subscriber-level access and above, to enroll themselves into any group including privileged groups carrying the groups_admin_groups capability, and to subsequently create and join a group containing every registered WordPress capability, effectively escalating their privileges to Administrator. Exploitation requires the attacker to supply an Administrator-authored post ID via the post_ID parameter of the authenticated wp_ajax_parse_media_shortcode handler in order to establish the privileged ambient post context used by the flawed authorization check.",
-      "severity": "HIGH",
-      "score": 8.8
+      "score": 9
     },
     {
       "id": "CVE-2026-72668",
@@ -56,6 +42,20 @@
       "description": "Contrast (Edgeless Systems) before 1.8.1 logs the workload secret to stderr, and thus to Kubernetes logs, when the Contrast initializer is configured with CONTRAST_LOG_LEVEL set to info or debug. Because info is the default, all installations that do not customize the initializer log level are affected. This exposes workload secrets — normally accessible only to the Contrast Coordinator, the initializer, the seedshare owner, and the workload owner — to Kubernetes users with get or list permission on pods/logs and to anyone with read access to the Kubernetes log storage, such as the cloud provider. Deployments that do not use workload secrets are unaffected.",
       "severity": "HIGH",
       "score": 7.3
+    },
+    {
+      "id": "CVE-2025-71426",
+      "published": "2026-09-27T02:17:17.160",
+      "description": "Contrast is a confidential-computing runtime for Kubernetes. In versions before 1.4.1, a recovering Coordinator does not verify the seed supplied by the recovering party. An attacker can therefore stand up a rogue Coordinator whose manifest passes validation but whose secret seed is attacker-controlled. If network traffic is redirected from the legitimate Coordinator to the attacker's Coordinator, a workload owner can be impersonated when they either set a new manifest without comparing the returned root CA certificate against the existing one (the default behavior of the contrast CLI) or verify the Coordinator without comparing the root CA certificate against a trusted reference. Under these conditions the attacker can issue certificates that chain back to the rogue Coordinator's root CA and recover arbitrary workload secrets of workloads deployed after the attack. Secrets of the legitimate Coordinator (seed, workload secrets, CA), workload integrity, and certificates chaining to the mesh CA are not affected.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-100722",
+      "published": "2026-09-27T02:17:18.817",
+      "description": "vm2 before 3.12.2 does not apply host-side Promise rejection handling in the sandbox-to-host construct trap. In BaseHandler, the apply trap calls markHostPromiseHandled() on the returned value, but the adjacent construct path returns the result of Reflect.construct without the same sanitization. If an embedder exposes a constructable host function whose constructor returns a native rejected Promise, an untrusted script executed via VM.run can invoke it with `new` and ignore the result; the rejected host Promise crosses the bridge unhandled and, under Node's strict unhandled-rejection policy, is promoted to an uncaught exception that terminates the host process.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
       "id": "CVE-2026-78582",
