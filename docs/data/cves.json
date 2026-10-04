@@ -1,145 +1,145 @@
 {
-  "totalResults": 2590,
+  "totalResults": 2576,
   "items": [
     {
-      "id": "CVE-2026-100741",
-      "published": "2026-09-27T08:16:26.813",
-      "description": "Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd's hMailServer, versions 6.0.0 through 6.3.3 on Windows, allows a remote, unauthenticated attacker to run arbitrary JScript inside the hMailServer service process, with the privileges of the service account, via a password containing a backslash followed by an apostrophe, sent in any logon (SMTP AUTH, POP3, IMAP) that names an existing, active account. Exploitation requires a non-default configuration: event scripting enabled (off by default), the script language set to JScript (the default is VBScript), and an OnClientValidatePassword handler defined in the event script. The server wrote event values into the handler call as JScript string literals, escaping the apostrophe but not the backslash, so such a value closes the literal and the rest of it is parsed as script. The same flaw is reachable by a remote POP3 server through the message UID it returns, where an OnExternalAccountDownload handler is defined, and by a remote SMTP server through the error reply it rejects a delivery with, where an OnDeliveryFailed handler is defined. Before 6.2.25 the injected script can create any COM object, and from 6.2.25 it can with the default ScriptAllowedObjects value of '*'; WScript.Shell among them gives command execution as the service account. VBScript event scripts and the Linux builds of Progressive Robot Ltd's hMailServer are not affected.",
+      "id": "CVE-2026-88771",
+      "published": "2026-09-27T17:16:56.260",
+      "description": "Improper input validation vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to an unauthenticated attacker to execute arbitrary commands.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-86609",
-      "published": "2026-09-27T06:17:14.070",
-      "description": "The Download Manager WordPress plugin before 7.5.6 does not sanitise and escape data submitted through its email-locked download subscription form before outputting it back in an admin page, which could allow unauthenticated attackers to perform Stored Cross-Site Scripting attacks against administrators. This affects the commercial Pro edition only; the free Download Manager WordPress plugin before 7.5.6 published under the same slug does not ship the affected feature.",
+      "id": "CVE-2026-100870",
+      "published": "2026-09-27T13:16:38.240",
+      "description": "Sylius versions before 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 build administrator password-reset links using the request Host header without validation, allowing unauthenticated attackers to redirect reset tokens to attacker-controlled domains. Attackers can request password resets for known administrator email addresses with forged Host headers to intercept valid reset tokens and take over administrator accounts.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-81655",
-      "published": "2026-09-27T06:16:58.003",
-      "description": "The Ad Inserter  WordPress plugin before 2.8.19 does not correctly restrict access to one of its settings pages, making it reachable by every logged in user under a configuration its own settings allow, and does not filter the content saved there, allowing users with a role as low as subscriber to store code which is then executed as PHP or served unescaped to site visitors.",
+      "id": "CVE-2026-100871",
+      "published": "2026-09-27T13:16:38.380",
+      "description": "Sylius versions before 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 fail to include firewall identification in JWT tokens issued by separate Admin and Shop API endpoints. Attackers can register a shop customer account using an administrator's email address and obtain a token that the Admin API resolves to that administrator, granting full administrative access.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-88772",
+      "published": "2026-09-27T17:16:56.390",
+      "description": "Vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to Remote Code Execution or Denial of Service",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-100872",
+      "published": "2026-09-27T13:16:38.523",
+      "description": "Sylius versions before 2.1.16 and 2.2.9 fail to validate payment amounts during cart recalculation, allowing unauthenticated attackers to modify order totals after gateway transaction initiation. Attackers can pay a small amount, enlarge the order after gateway capture, and have the system mark the inflated order as fully paid while the gateway captured only the original amount.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-96896",
-      "published": "2026-09-27T06:17:22.817",
-      "description": "The Malcure Malware Shield — Removal, Repair, Monitor WordPress plugin before 19.9.7 does not perform an authorisation check on one of its AJAX actions, allowing users with a subsite administrator role on a multisite network to write and delete arbitrary files in the network's shared filesystem, which can lead to remote code execution.",
+      "id": "CVE-2026-101032",
+      "published": "2026-09-27T14:16:28.190",
+      "description": "navi through 2.24.0 fails to properly escape cheatsheet variable values when substituting them into shell commands. Attackers can inject shell metacharacters through crafted file names in suggestion command directories to execute arbitrary commands with victim privileges.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7
     },
     {
-      "id": "CVE-2026-85002",
-      "published": "2026-09-27T06:17:10.067",
-      "description": "The EmbedPress  WordPress plugin before 4.6.7 does not escape one of its block attributes before outputting it inside an HTML attribute, which could allow users with the contributor role and above to perform Stored Cross-Site Scripting attacks against higher privileged users viewing the post.",
+      "id": "CVE-2026-101049",
+      "published": "2026-09-27T17:16:55.967",
+      "description": "Heym before 0.0.53 fails to verify Slack request signatures when trigger nodes lack credential IDs or have empty signing secrets. Remote unauthenticated attackers can send forged Slack events to known webhook URLs to trigger workflows with the owner's credentials.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-89006",
-      "published": "2026-09-27T06:17:22.377",
-      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not sanitize imported feed content before storing it as post content, allowing users with the Contributor role and above to perform Stored Cross-Site Scripting attacks.",
+      "id": "CVE-2026-101050",
+      "published": "2026-09-27T17:16:56.100",
+      "description": "Heym before 0.0.53 fails to verify the X-Telegram-Bot-Api-Secret-Token header on Telegram webhook endpoints when credential_id is absent or secret_token is empty. Remote unauthenticated attackers can post forged Telegram updates to trigger workflows with the owner's configured credentials and execute actions on attacker-supplied input.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-96895",
-      "published": "2026-09-27T06:17:22.707",
-      "description": "The WP YouTube Lyte WordPress plugin before 1.7.31 does not escape some attributes of YouTube embed blocks before outputting them in an HTML attribute when rendering the block, which could allow users with a role as low as contributor to perform Stored Cross-Site Scripting attacks.",
+      "id": "CVE-2026-101042",
+      "published": "2026-09-27T17:16:55.820",
+      "description": "Parse Server is an open-source backend server. In versions >= 9.0.0 < 9.10.1-alpha.10 and >= 8.0.2 < 8.6.91, the code-based authentication adapters (GitHub, Google Play Games, Instagram, LINE, LinkedIn, Microsoft, QQ, Spotify, WeChat, Weibo) verify the client's authorization code with the external provider on signup and on provider linking, but not when authentication data is supplied together with a username and password on the login endpoint. As a result, a low-privileged authenticated user can attach an arbitrary, unverified provider identity to their own account without the provider ever being contacted, spoofing an external identity toward application logic that trusts the linked provider ID. An attacker can also pre-hijack accounts: by claiming the provider ID of a victim who has not yet linked that provider, the victim's later legitimate sign-in with that provider resolves to the attacker's account. Only deployments configuring one of the affected code-based auth adapters are impacted. Versions 9.10.1-alpha.10 and 8.6.91 fix the issue by running the adapter's credential verification on the login and challenge endpoints and rejecting a provider identity already linked to another user. As a workaround, disable the affected code-based auth adapters.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-96899",
-      "published": "2026-09-27T06:17:23.037",
-      "description": "The Optima Express IDX WordPress plugin before 8.7.6 does not properly neutralise a script value submitted through one of its REST endpoints before storing it and echoing it into the document head when the post is rendered, allowing users with a role as low as author to perform Stored Cross-Site Scripting attacks.",
+      "id": "CVE-2026-100868",
+      "published": "2026-09-27T13:16:37.960",
+      "description": "Penpot before 2.18.0 binds the MCP server plugin WebSocket bridge to all network interfaces without authentication in single-user mode. Unauthenticated attackers on adjacent networks can connect to the WebSocket port to impersonate the Penpot browser plugin, intercept task payloads, and return forged results to the MCP client.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-97319",
-      "published": "2026-09-27T06:17:23.293",
-      "description": "The PowerPress Podcasting plugin by Blubrry WordPress plugin before 11.17.2 does not sanitize and escape a block attribute before outputting it in a page, which could allow users with the contributor role and above to perform Stored Cross-Site Scripting attacks.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-97227",
-      "published": "2026-09-27T06:17:23.160",
-      "description": "The NextScripts: Social Networks Auto-Poster WordPress plugin before 4.4.8 does not perform capability or ownership checks on several of its AJAX actions, relying on a nonce alone, allowing users an administrator has granted access to its posting features to export the site's configured social account credentials, delete arbitrary posts and reset the NextScripts: Social Networks Auto-Poster WordPress plugin before 4.4.8's configuration.",
+      "id": "CVE-2026-100869",
+      "published": "2026-09-27T13:16:38.100",
+      "description": "Sylius versions before 2.1.16 and 2.2.9 fail to restrict payment request actions in the Shop API endpoint, allowing customers to trigger refunds on completed orders. Attackers with order tokens can submit arbitrary payment actions like refunds that payment gateways execute while Sylius maintains order as paid, causing financial loss.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-82841",
-      "published": "2026-09-27T06:17:03.433",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.8, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.8.26 does not have any capability check in a routine that outputs its stored remote storage settings into admin pages when the site is left in a particular post-migration state, allowing any authenticated user, such as a subscriber, to retrieve the credentials of the configured backup destinations, such as passwords and secret keys.",
+      "id": "CVE-2026-101033",
+      "published": "2026-09-27T14:16:29.273",
+      "description": "KitchenOwl through 0.7.10 fails to verify that category IDs belong to the caller's household in expense and item operations. Authenticated attackers can enumerate category IDs from other households to read their category names, budgets, and colors, breaking household isolation.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-84069",
-      "published": "2026-09-27T06:17:06.560",
-      "description": "The WebFacing™  WordPress plugin before 5.4 does not restrict access to one of its bundled scripts and does not validate a user-supplied path before using it to include a local file, allowing unauthenticated users to perform Local File Inclusion.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-92436",
-      "published": "2026-09-27T06:17:22.490",
-      "description": "The Mailchimp for WooCommerce WordPress plugin before 6.3 does not require authentication or verify ownership before loading a saved cart from a request-supplied identifier that is derived from a customer's email address, allowing an unauthenticated attacker who knows a customer's email address to confirm that the customer shops at the store and to read that customer's saved cart contents.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-92995",
-      "published": "2026-09-27T06:17:22.600",
-      "description": "The Verge3D Publishing and E-Commerce WordPress plugin through 4.13.0 does not restrict access to a file-download handler, allowing unauthenticated users to download the digital-goods files attached to any order without authorization.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-96897",
-      "published": "2026-09-27T06:17:22.927",
-      "description": "The Optima Express IDX WordPress plugin before 8.7.6 does not perform any authorisation check on one of its AJAX actions that is available to logged-out users, allowing unauthenticated attackers to force the creation of a fixed author-role account and to repeatedly rotate its application password on any connected install.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-89001",
-      "published": "2026-09-27T06:17:19.397",
-      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not verify that a user running a feed campaign is permitted to publish content or to attribute posts to another account, allowing users with contributor-level access and above to publish posts live and set any registered user, including an administrator, as the post author.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-86841",
-      "published": "2026-09-27T06:17:17.293",
-      "description": "The Online Scheduling and Appointment Booking System  WordPress plugin before 28.3 does not prevent deserialization of untrusted input and does not correctly restrict a privileged maintenance feature to administrators, allowing users granted a custom booking-management capability, which an administrator must explicitly assign, to inject arbitrary PHP objects, overwrite privileged site options, and read stored integration secrets.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-89000",
-      "published": "2026-09-27T06:17:19.283",
-      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not perform a capability check or validate the destination of a user-supplied feed URL before fetching it server-side, allowing users with contributor-level access and above to make the server issue requests to internal-only resources and read the responses back.",
-      "severity": "MEDIUM",
-      "score": 4.1
-    },
-    {
-      "id": "CVE-2026-89003",
-      "published": "2026-09-27T06:17:22.270",
-      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not perform a capability check before fetching a user-supplied URL and rendering the response, allowing users with contributor-level access and above to force the server to issue requests to internal-only hosts and read the responses back.",
-      "severity": "MEDIUM",
-      "score": 4.1
-    },
-    {
-      "id": "CVE-2026-86839",
-      "published": "2026-09-27T06:17:14.180",
-      "description": "The Online Scheduling and Appointment Booking System  WordPress plugin before 28.3 does not verify that appointment and payment records requested through its staff-role AJAX actions belong to the requesting staff member, allowing authenticated attackers with a staff-level account to view, modify and delete other staff members' appointments and payments, including the associated customer's personal information.",
+      "id": "CVE-2026-100866",
+      "published": "2026-09-27T13:16:36.583",
+      "description": "onefetch through 2.28.1 writes repository information field values to the terminal without removing control characters, allowing terminal escape sequence injection. Attackers can embed ANSI/OSC escape sequences in project manifest version and name fields to manipulate terminal output, rewrite window titles, hide text, or trigger emulator-specific behavior when victims run onefetch.",
       "severity": "LOW",
-      "score": 3.8
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-100867",
+      "published": "2026-09-27T13:16:37.810",
+      "description": "spaceship-prompt through 4.22.5 fails to sanitize control characters from project manifest version fields before rendering them in the zsh prompt. Attackers can embed ANSI/OSC escape sequences in version fields of package manifests to manipulate terminal output, rewrite window titles, or spoof displayed text when victims enter the directory.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-100747",
+      "published": "2026-09-27T12:17:10.557",
+      "description": "Joomla Extension - svenbluege.de - CSRF in image upload in Event Gallery extension < 6.5.0 - Due to lack of an CSRF token check, a third-party site can upload files to an event and overwrite existing files with the same name.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-100748",
+      "published": "2026-09-27T12:17:11.710",
+      "description": "Joomla Extension - svenbluege.de - CSRF in various cart actions in Event Gallery extension < 6.5.0",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-100749",
+      "published": "2026-09-27T12:17:11.840",
+      "description": "Joomla Extension - svenbluege.de - CSRF in backend cleanup actions in Event Gallery extension < 6.5.0 - Only orphaned file entries and shopping carts that are older than 30 days will be deleted.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-97164",
+      "published": "2026-09-27T12:17:11.987",
+      "description": "Joomla Extension - svenbluege.de - Authenticated arbitrary path deletion in `clear cache` task in Event Gallery extension < 6.5.0 - Using the `images` parameter of the `cache.process` task, you can recursively delete any directories that the web server is authorized to write to.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-97165",
+      "published": "2026-09-27T12:17:12.127",
+      "description": "Joomla Extension - svenbluege.de - Reflected XSS and open redirect in Event Gallery extension < 6.5.0 - The “return” parameter is base64-decoded and written to the “Back” link without being validated.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-101041",
+      "published": "2026-09-27T15:16:27.190",
+      "description": "The account recovery (password reset) functionality in the vulnerability-lookup web application contains a time-of-check-to-time-of-use (TOCTOU) race condition in the consumption of single-use recovery tokens. The original implementation verified the token nonce against the stored digest and then consumed (cleared) it in separate database operations. Two concurrent HTTP requests presenting the same valid recovery token could both pass the verification check before either transaction committed, allowing both to set their own password on the target account. The last transaction to commit overwrites the first, enabling an attacker who possesses a valid recovery token to replace the legitimate user's password with one of their choosing.\n\nA secondary defect in the same endpoint (confirm_account) allowed a valid recovery link to be used to set an empty or trivially short password (e.g., three characters). The view handler performed only a manual equality comparison between the two password fields and never invoked the form's validation logic, bypassing the intended minimum-length and complexity constraints.\n\nThe affected component is the user account recovery endpoint (/user/confirm_account/<token>) and the associated token verification and consumption logic in the User model (website/models/user.py) and the view layer (website/web/views/user.py).",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
