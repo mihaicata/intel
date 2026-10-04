@@ -1,145 +1,145 @@
 {
-  "totalResults": 2623,
+  "totalResults": 2590,
   "items": [
     {
-      "id": "CVE-2026-100740",
-      "published": "2026-09-27T01:17:17.810",
-      "description": "A vulnerability was detected in D-Link DIR-895L A1_102b07. Impacted is the function tunnel_set_params of the file tunnel.c of the component L2TP Control Channel Parser. Performing a manipulation results in out-of-bounds write. The attack may be initiated remotely. The exploit is now public and may be used.",
+      "id": "CVE-2026-100741",
+      "published": "2026-09-27T08:16:26.813",
+      "description": "Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd's hMailServer, versions 6.0.0 through 6.3.3 on Windows, allows a remote, unauthenticated attacker to run arbitrary JScript inside the hMailServer service process, with the privileges of the service account, via a password containing a backslash followed by an apostrophe, sent in any logon (SMTP AUTH, POP3, IMAP) that names an existing, active account. Exploitation requires a non-default configuration: event scripting enabled (off by default), the script language set to JScript (the default is VBScript), and an OnClientValidatePassword handler defined in the event script. The server wrote event values into the handler call as JScript string literals, escaping the apostrophe but not the backslash, so such a value closes the literal and the rest of it is parsed as script. The same flaw is reachable by a remote POP3 server through the message UID it returns, where an OnExternalAccountDownload handler is defined, and by a remote SMTP server through the error reply it rejects a delivery with, where an OnDeliveryFailed handler is defined. Before 6.2.25 the injected script can create any COM object, and from 6.2.25 it can with the default ScriptAllowedObjects value of '*'; WScript.Shell among them gives command execution as the service account. VBScript event scripts and the Linux builds of Progressive Robot Ltd's hMailServer are not affected.",
       "severity": "CRITICAL",
-      "score": 9.9
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-100721",
-      "published": "2026-09-27T02:17:17.547",
-      "description": "vm2 before 3.12.2 contains an authorization bypass in the NodeVM external-module resolver. When an embedder configures `require.external` with a custom resolver (and `context: 'host'`), `LegacyResolver.customResolve` in lib/resolver-compat.js records the resolved module directory in `this.externals` as `new RegExp('^' + escapeRegExp(resolvedPath))`, without requiring a path separator or end-of-string boundary. Untrusted guest code can therefore require the allowlisted module (e.g. `foo`) and then require the absolute path of a non-allowlisted sibling whose path merely shares the resolved prefix (e.g. `.../node_modules/foo2/index.js`); the sibling passes `isPathAllowedForModule` and is loaded through `hostRequire`, so its top-level code runs in the host process before the exports are wrapped with `vm.readonly`, resulting in a sandbox escape and arbitrary code execution in the host context.",
-      "severity": "CRITICAL",
-      "score": 9
-    },
-    {
-      "id": "CVE-2026-100839",
-      "published": "2026-09-27T02:17:22.230",
-      "description": "Contrast is a confidential-computing runtime for Kubernetes. In versions before 1.18.0, the guest kernel's ACPI/AML handling is vulnerable to an AML injection attack (\"BadAML\"). ACPI tables containing AML bytecode are passed from the untrusted host (QEMU) to the guest firmware (OVMF) and on to the Linux kernel, whose AML interpreter executes them. An attacker controlling the host — an assumed adversary in Contrast's threat model — can craft a table with malicious, Turing-complete AML bytecode that the guest kernel interprets with access to the full guest memory, including private pages, resulting in arbitrary code execution and disclosure or modification of confidential guest data. The issue affects the AMD SEV-SNP platforms Metal-QEMU-SNP and Metal-QEMU-SNP-GPU; Metal-QEMU-TDX is not affected because ACPI table contents are measured into RTMR 0 by OVMF on Intel TDX. Version v1.18.0 mitigates the attack by sandboxing the kernel AML interpreter so that it cannot read or write private memory pages. This weakness is not specific to Contrast but is generic to Confidential Computing setups that expose the ACPI interface to the host.",
+      "id": "CVE-2026-86609",
+      "published": "2026-09-27T06:17:14.070",
+      "description": "The Download Manager WordPress plugin before 7.5.6 does not sanitise and escape data submitted through its email-locked download subscription form before outputting it back in an admin page, which could allow unauthenticated attackers to perform Stored Cross-Site Scripting attacks against administrators. This affects the commercial Pro edition only; the free Download Manager WordPress plugin before 7.5.6 published under the same slug does not ship the affected feature.",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-100833",
-      "published": "2026-09-27T02:17:21.323",
-      "description": "Contrast (edgelesssys/contrast) versions 1.14.0 before 1.23.1 generate runtime policies that fail to detect all container image substitutions. A bad rebase during a Kata Containers update accidentally introduced an `allow_storage` rule that accepts storage entries using the `image_guest_pull` driver without verifying the image digest. An attacker with access to the Kata agent API — for example, a Kubernetes cluster administrator in Contrast's threat model — can therefore substitute a container image with an exploit payload, provided the substituted image satisfies the remaining policy rules, undermining the confidential container's integrity guarantees.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-100838",
-      "published": "2026-09-27T02:17:22.083",
-      "description": "Contrast is a confidential-computing runtime for Kubernetes. In versions before 1.19.1, the Kata agent policies generated by the Contrast CLI contained a flaw in the CopyFile verification that allowed arbitrary writes to the guest root filesystem. A malicious process on the untrusted host able to connect to the Kata agent VSOCK could issue a series of CopyFile requests to overwrite security-critical files in the guest or trick the workload into disclosing sensitive data, effectively amounting to a full guest takeover. Users unable to upgrade can apply an equivalent rego policy fix passed to 'contrast generate --policy'.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-100723",
-      "published": "2026-09-27T02:17:19.373",
-      "description": "vm2 before 3.12.2 does not apply its Buffer backing-store ownership invariant (byteOffset === 0 and buffer.byteLength === length) to Buffers returned from host builtin modules. When an application explicitly exposes Node's zlib module through NodeVM's builtin allowlist (require: { builtin: ['zlib'] }), zlib.deflateSync can return a Buffer backed by Node's shared small-buffer pool whose .buffer is the entire pool. Untrusted guest code can construct a full-width view of that ArrayBuffer (Buffer.from(result.buffer, 0, result.buffer.byteLength)) to read and modify bytes belonging to unrelated host buffers, disclosing and corrupting host-realm memory across the sandbox boundary.",
+      "id": "CVE-2026-81655",
+      "published": "2026-09-27T06:16:58.003",
+      "description": "The Ad Inserter  WordPress plugin before 2.8.19 does not correctly restrict access to one of its settings pages, making it reachable by every logged in user under a configuration its own settings allow, and does not filter the content saved there, allowing users with a role as low as subscriber to store code which is then executed as PHP or served unescaped to site visitors.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-100835",
-      "published": "2026-09-27T02:17:21.640",
-      "description": "Contrast before 1.16.0 is susceptible to remote attestation relay attacks. Contrast accepted any TEE attestation report that verified correctly and contained the expected firmware patch levels and software measurements, regardless of which machine produced it, so attestation was not bound to specific, physically trusted hardware. An attacker who can both intercept network traffic between the CLI and the Coordinator (or between the Coordinator and an attested component) and forge reports or extract secrets from any single TEE machine under their physical control can relay such a report to impersonate a Contrast Coordinator or a Contrast workload, defeating identity verification in Contrast's attested TLS (aTLS).",
+      "id": "CVE-2026-96896",
+      "published": "2026-09-27T06:17:22.817",
+      "description": "The Malcure Malware Shield — Removal, Repair, Monitor WordPress plugin before 19.9.7 does not perform an authorisation check on one of its AJAX actions, allowing users with a subsite administrator role on a multisite network to write and delete arbitrary files in the network's shared filesystem, which can lead to remote code execution.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.2
     },
     {
-      "id": "CVE-2025-71423",
-      "published": "2026-09-27T02:17:15.993",
-      "description": "Edgelesssys Contrast is a confidential-computing runtime for Kubernetes. In versions 1.9.0 before 1.12.2, the initializer logs the full NewMeshCert response — which contains the workload secret — to standard output at INFO level. As a result, workload secrets are exposed to any Kubernetes user with get or list permission on pods/logs. Because workload secrets are used for encrypted storage and Vault integration, those must also be considered compromised. This is a regression of GHSA-h5f8-crrq-4pw8.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2025-71425",
-      "published": "2026-09-27T02:17:16.797",
-      "description": "Contrast (Edgeless Systems) before 1.8.1 logs the workload secret to stderr, and thus to Kubernetes logs, when the Contrast initializer is configured with CONTRAST_LOG_LEVEL set to info or debug. Because info is the default, all installations that do not customize the initializer log level are affected. This exposes workload secrets — normally accessible only to the Contrast Coordinator, the initializer, the seedshare owner, and the workload owner — to Kubernetes users with get or list permission on pods/logs and to anyone with read access to the Kubernetes log storage, such as the cloud provider. Deployments that do not use workload secrets are unaffected.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-100744",
-      "published": "2026-09-27T02:17:20.907",
-      "description": "A flaw has been found in coollabsio Coolify up to 4.1.2. The affected element is an unknown function of the file app/Http/Middleware/CanUpdateResource.php of the component Route-Level Middleware. Executing a manipulation can lead to missing authorization. The attack may be launched remotely. The exploit has been published and may be used. Upgrading to version 4.2.0 is sufficient to fix this issue. This patch is called 39ae16de4248075de8c08f3259114e064b20d52d. It is advisable to upgrade the affected component.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2025-71426",
-      "published": "2026-09-27T02:17:17.160",
-      "description": "Contrast is a confidential-computing runtime for Kubernetes. In versions before 1.4.1, a recovering Coordinator does not verify the seed supplied by the recovering party. An attacker can therefore stand up a rogue Coordinator whose manifest passes validation but whose secret seed is attacker-controlled. If network traffic is redirected from the legitimate Coordinator to the attacker's Coordinator, a workload owner can be impersonated when they either set a new manifest without comparing the returned root CA certificate against the existing one (the default behavior of the contrast CLI) or verify the Coordinator without comparing the root CA certificate against a trusted reference. Under these conditions the attacker can issue certificates that chain back to the rogue Coordinator's root CA and recover arbitrary workload secrets of workloads deployed after the attack. Secrets of the legitimate Coordinator (seed, workload secrets, CA), workload integrity, and certificates chaining to the mesh CA are not affected.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-100722",
-      "published": "2026-09-27T02:17:18.817",
-      "description": "vm2 before 3.12.2 does not apply host-side Promise rejection handling in the sandbox-to-host construct trap. In BaseHandler, the apply trap calls markHostPromiseHandled() on the returned value, but the adjacent construct path returns the result of Reflect.construct without the same sanitization. If an embedder exposes a constructable host function whose constructor returns a native rejected Promise, an untrusted script executed via VM.run can invoke it with `new` and ignore the result; the rejected host Promise crosses the bridge unhandled and, under Node's strict unhandled-rejection policy, is promoted to an uncaught exception that terminates the host process.",
+      "id": "CVE-2026-85002",
+      "published": "2026-09-27T06:17:10.067",
+      "description": "The EmbedPress  WordPress plugin before 4.6.7 does not escape one of its block attributes before outputting it inside an HTML attribute, which could allow users with the contributor role and above to perform Stored Cross-Site Scripting attacks against higher privileged users viewing the post.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-100725",
-      "published": "2026-09-27T02:17:20.760",
-      "description": "http4k (Maven artifact org.http4k:http4k-core) before 6.48.0.0, 5.42.0.0, and 4.51.0.0 ships a BasicCookieStorage (client-side cookie store used by ClientFilters.Cookies) that does not enforce RFC 6265 scoping rules for the cookie domain, path, and Secure attributes. When a single BasicCookieStorage instance is used to talk to more than one origin or scheme, cookies stored for one origin can be sent to other origins, and cookies marked Secure can be sent over plain HTTP, potentially disclosing session cookies or other sensitive values to unauthorized hosts or network observers. Clients that use a storage instance for a single origin are not affected.",
+      "id": "CVE-2026-89006",
+      "published": "2026-09-27T06:17:22.377",
+      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not sanitize imported feed content before storing it as post content, allowing users with the Contributor role and above to perform Stored Cross-Site Scripting attacks.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-100745",
-      "published": "2026-09-27T02:17:21.123",
-      "description": "A vulnerability has been found in Edimax BR-6428nC 1.16. The impacted element is an unknown function of the file /goform/formWizSurvey of the component Wireless Wizard Handler. The manipulation of the argument interface1/interface2 leads to stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "id": "CVE-2026-96895",
+      "published": "2026-09-27T06:17:22.707",
+      "description": "The WP YouTube Lyte WordPress plugin before 1.7.31 does not escape some attributes of YouTube embed blocks before outputting them in an HTML attribute when rendering the block, which could allow users with a role as low as contributor to perform Stored Cross-Site Scripting attacks.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-100834",
-      "published": "2026-09-27T02:17:21.487",
-      "description": "http4k's Digest authentication module (org.http4k:http4k-security-digest) before versions 6.48.0.0, 5.42.0.0 and 4.51.0.0 defaults the nonceVerifier parameter of ServerFilters.DigestAuth and DigestAuthProvider to { true }, so every nonce is accepted regardless of its value, age, or prior use. Applications relying on this default have no replay protection on Digest authentication: an attacker who can capture a valid 'Authorization: Digest' response (for example by observing network traffic or reading logs) can replay it indefinitely against the same protected resource.",
+      "id": "CVE-2026-96899",
+      "published": "2026-09-27T06:17:23.037",
+      "description": "The Optima Express IDX WordPress plugin before 8.7.6 does not properly neutralise a script value submitted through one of its REST endpoints before storing it and echoing it into the document head when the post is rendered, allowing users with a role as low as author to perform Stored Cross-Site Scripting attacks.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-97319",
+      "published": "2026-09-27T06:17:23.293",
+      "description": "The PowerPress Podcasting plugin by Blubrry WordPress plugin before 11.17.2 does not sanitize and escape a block attribute before outputting it in a page, which could allow users with the contributor role and above to perform Stored Cross-Site Scripting attacks.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-97227",
+      "published": "2026-09-27T06:17:23.160",
+      "description": "The NextScripts: Social Networks Auto-Poster WordPress plugin before 4.4.8 does not perform capability or ownership checks on several of its AJAX actions, relying on a nonce alone, allowing users an administrator has granted access to its posting features to export the site's configured social account credentials, delete arbitrary posts and reset the NextScripts: Social Networks Auto-Poster WordPress plugin before 4.4.8's configuration.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2025-71422",
-      "published": "2026-09-27T02:17:11.040",
-      "description": "Contrast is a Kubernetes runtime for confidential containers. In versions before 1.12.1, the secure persistent volume feature is vulnerable to a malicious host supplying a crafted LUKS2 volume to a pod VM. LUKS2 volume metadata is not authenticated and, with cryptsetup versions prior to 2.8.1, a header specifying the null keyslot encryption algorithm (cipher_null-ecb) is accepted without error. Because the Contrast Initializer assumes a device is protected if `cryptsetup open` succeeds with the secret seed, the guest will open the attacker-supplied volume and write secret data in plaintext, or under a volume key known to the attacker, allowing the host to read confidential data that should have been encrypted. Contrast v1.12.1 ships cryptsetup 2.8.1, which disables null ciphers in keyslots when the passphrase is non-empty; v1.13.0 adds detached-header validation in guest memory and integrity protection for secure persistent storage. Contrast persistent volumes were not integrity protected, so integrity impact is not considered.",
+      "id": "CVE-2026-82841",
+      "published": "2026-09-27T06:17:03.433",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.8, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.8.26 does not have any capability check in a routine that outputs its stored remote storage settings into admin pages when the site is left in a particular post-migration state, allowing any authenticated user, such as a subscriber, to retrieve the credentials of the configured backup destinations, such as passwords and secret keys.",
       "severity": "MEDIUM",
-      "score": 5.7
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-100724",
-      "published": "2026-09-27T02:17:20.603",
-      "description": "http4k (Maven package org.http4k:http4k-core) before 6.49.0.0, 5.42.0.0 and 4.51.0.0 uses substring (Contains) matching on the Host header by default in reverseProxy() and reverseProxyRouting() when dispatching to configured virtual hosts. If these functions are deployed as a public-facing inbound HTTP handler with two or more configured virtual hosts, a remote attacker can supply a Host header that merely contains a configured vhost name (for example Host: admin.evil.com for a vhost configured as \"admin\") and be routed to that vhost, bypassing routing-based authorization. The intended outbound-dispatch and test-time uses, where the Host value is set by the calling application, are not affected.",
+      "id": "CVE-2026-84069",
+      "published": "2026-09-27T06:17:06.560",
+      "description": "The WebFacing™  WordPress plugin before 5.4 does not restrict access to one of its bundled scripts and does not validate a user-supplied path before using it to include a local file, allowing unauthenticated users to perform Local File Inclusion.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-100836",
-      "published": "2026-09-27T02:17:21.797",
-      "description": "Contrast through 1.20.0 contains a panic vulnerability in the transit-engine endpoint's ciphertextContainer.UnmarshalJSON function that fails to validate decoded ciphertext length before slicing. An authenticated workload with a valid mesh certificate can trigger a runtime panic by submitting a short base64-encoded ciphertext, causing log spam and request failures without crashing the process.",
+      "id": "CVE-2026-92436",
+      "published": "2026-09-27T06:17:22.490",
+      "description": "The Mailchimp for WooCommerce WordPress plugin before 6.3 does not require authentication or verify ownership before loading a saved cart from a request-supplied identifier that is derived from a customer's email address, allowing an unauthenticated attacker who knows a customer's email address to confirm that the customer shops at the store and to read that customer's saved cart contents.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-100837",
-      "published": "2026-09-27T02:17:21.937",
-      "description": "Contrast (Edgeless Systems) through 1.20.0 performs unanchored suffix matching when selecting per-registry configuration in the imagepuller. Config.registryFor strips a single trailing dot and then uses strings.HasSuffix(hostname, fqdn) without requiring a DNS label boundary, so a registry entry such as [registries.\"ghcr.io.\"] is also applied to any host whose name merely ends in that byte sequence, including attacker-registered domains such as evilghcr.io. When an image or layer is pulled from such a sibling domain, the imagepuller sends the configured Authorization header (basic auth, registry token, or identity token), trusts the configured custom CA bundle, follows the configured mirror, and honours insecure-skip-verify (disabling TLS verification) for that host. Image integrity is not affected, as image bytes remain pinned by digest in the policy and are validated after the pull. Configurations that use a leading dot (e.g., [registries.\".example.registry\"]) are unaffected.",
+      "id": "CVE-2026-92995",
+      "published": "2026-09-27T06:17:22.600",
+      "description": "The Verge3D Publishing and E-Commerce WordPress plugin through 4.13.0 does not restrict access to a file-download handler, allowing unauthenticated users to download the digital-goods files attached to any order without authorization.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-96897",
+      "published": "2026-09-27T06:17:22.927",
+      "description": "The Optima Express IDX WordPress plugin before 8.7.6 does not perform any authorisation check on one of its AJAX actions that is available to logged-out users, allowing unauthenticated attackers to force the creation of a fixed author-role account and to repeatedly rotate its application password on any connected install.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-89001",
+      "published": "2026-09-27T06:17:19.397",
+      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not verify that a user running a feed campaign is permitted to publish content or to attribute posts to another account, allowing users with contributor-level access and above to publish posts live and set any registered user, including an administrator, as the post author.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2026-86841",
+      "published": "2026-09-27T06:17:17.293",
+      "description": "The Online Scheduling and Appointment Booking System  WordPress plugin before 28.3 does not prevent deserialization of untrusted input and does not correctly restrict a privileged maintenance feature to administrators, allowing users granted a custom booking-management capability, which an administrator must explicitly assign, to inject arbitrary PHP objects, overwrite privileged site options, and read stored integration secrets.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-89000",
+      "published": "2026-09-27T06:17:19.283",
+      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not perform a capability check or validate the destination of a user-supplied feed URL before fetching it server-side, allowing users with contributor-level access and above to make the server issue requests to internal-only resources and read the responses back.",
+      "severity": "MEDIUM",
+      "score": 4.1
+    },
+    {
+      "id": "CVE-2026-89003",
+      "published": "2026-09-27T06:17:22.270",
+      "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.27 does not perform a capability check before fetching a user-supplied URL and rendering the response, allowing users with contributor-level access and above to force the server to issue requests to internal-only hosts and read the responses back.",
+      "severity": "MEDIUM",
+      "score": 4.1
+    },
+    {
+      "id": "CVE-2026-86839",
+      "published": "2026-09-27T06:17:14.180",
+      "description": "The Online Scheduling and Appointment Booking System  WordPress plugin before 28.3 does not verify that appointment and payment records requested through its staff-role AJAX actions belong to the requesting staff member, allowing authenticated attackers with a staff-level account to view, modify and delete other staff members' appointments and payments, including the associated customer's personal information.",
       "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2025-71424",
-      "published": "2026-09-27T02:17:16.393",
-      "description": "Contrast, Edgeless Systems' runtime for confidential containers on Kubernetes, is affected in versions up to and including 1.9.0. The VOLUME directive in a Dockerfile (config.volumes in the OCI image configuration) is only a hint and is not handled specially by Kubernetes, but containerd adds a mount point for it when Kubernetes sets none, requiring the runtime to be able to push arbitrary data to the Kata agent. As a result, on bare-metal Contrast deployments (AKS deployments are not affected) that run an image declaring at least one VOLUME for which no Kubernetes mount exists at that path, the untrusted host can write arbitrary file trees below that mount point inside the confidential container, compromising the integrity of a directory that is typically important to the application's core functionality. Version 1.9.1 fixes the issue by disallowing this configuration in `contrast generate`.",
-      "severity": "LOW",
-      "score": 3.5
+      "score": 3.8
     }
   ]
 }
