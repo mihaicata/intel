@@ -1,145 +1,145 @@
 {
-  "totalResults": 2581,
+  "totalResults": 2563,
   "items": [
     {
-      "id": "CVE-2026-88773",
-      "published": "2026-09-27T17:16:56.507",
-      "description": "Inconsistent interpretation of HTTP requests ('HTTP Request/Response smuggling') vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1-37.279 and NDcPP; Gateway: before 14.1-73.37 FIPS and before 13.1-64.23.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-88771",
-      "published": "2026-09-27T17:16:56.260",
-      "description": "Improper input validation vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to an unauthenticated attacker to execute arbitrary commands.",
+      "id": "CVE-2026-101065",
+      "published": "2026-09-27T21:17:02.027",
+      "description": "Obot is an open-source AI agent/MCP platform. In all versions up to and including commit d7e6970, the Docker quickstart command documented in the README starts the container listening on 0.0.0.0:8080 with authentication disabled by default. When authentication is disabled, every request is mapped to a synthetic \"nobody\" user that holds the Owner and Admin roles, so any unauthenticated party who can reach the exposed port obtains full administrative access to the Obot API and UI, including the ability to register and launch attacker-controlled MCP servers. Because the quickstart also mounts /var/run/docker.sock into the container, the MCP runtime backend reachable this way has access to the host's Docker control surface. The fix is documentation-only: the quickstart now enables authentication, and operators who followed the previous instructions should set OBOT_SERVER_ENABLE_AUTHENTICATION=true before exposing the host to any untrusted network.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-88775",
-      "published": "2026-09-27T17:16:56.750",
-      "description": "Memory overflow vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading Memory overflow vulnerability leading to unpredictable or erroneous behavior or Denial of Service",
+      "id": "CVE-2026-101090",
+      "published": "2026-09-27T21:17:03.003",
+      "description": "Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard_host setting is empty, /api/v1/oauth2/{provider} (cmd/dashboard/controller/oauth2.go) reflects the attacker-supplied HTTP Host header into the redirect_uri sent to the identity provider instead of falling back to the configured install_host. An attacker who induces a victim to begin OAuth2 login via a request that reaches Nezha with a forged Host header can cause an attacker-controlled callback URL to be used as the redirect_uri; if the OAuth2 provider accepts it, the victim's authorization code is delivered to the attacker origin, allowing the attacker to complete the OAuth2 login/binding flow and take over the account. This regresses the fix for GHSA-9rc6-8cjv-rcvx and is configuration-dependent (dashboard_host empty). At the time of the advisory no patched version was available.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-88776",
-      "published": "2026-09-27T17:16:56.870",
-      "description": "Memory overflow vulnerability vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23  leading to unpredictable or erroneous behavior or Denial of Service",
+      "id": "CVE-2026-101084",
+      "published": "2026-09-27T21:17:02.163",
+      "description": "obot versions before v0.21.1 fail to enforce Access Control Rules on the /mcp-connect endpoint, allowing any authenticated user to connect to restricted MCP servers if they possess the server ID. Attackers can bypass authorization checks to access and manipulate sensitive backend systems through MCP tool calls using stored OAuth credentials.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-88777",
-      "published": "2026-09-27T17:16:56.990",
-      "description": "Memory overflow vulnerability vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23  leading to unpredictable or erroneous behavior or Denial of Service",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-88772",
-      "published": "2026-09-27T17:16:56.390",
-      "description": "Vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to Remote Code Execution or Denial of Service",
+      "id": "CVE-2026-101062",
+      "published": "2026-09-27T21:17:01.617",
+      "description": "Obot before v0.23.0 (affected versions <= v0.22.1) running with OBOT_SERVER_ENABLE_AUTHENTICATION=true exposes OAuth dynamic client registration without authentication and without any restriction on the redirect URIs a client may register. Because the authorization flow auto-completes for an already logged-in user with no consent screen, an attacker who registers a client pointing at their own domain and induces a logged-in victim to visit a single crafted authorization URL receives an authorization code at the attacker-controlled redirect URI and can exchange it for an access token and refresh token. The token minted by the MCP OAuth flow carries the victim's full group set in the JWT, and Obot validated only the issuer and not the audience, so the token is accepted as a bearer token against any Obot API endpoint the victim can access rather than being scoped to the requested MCP server, allowing the attacker to read or modify the victim's resources until the token is revoked. v0.23.0 adds a consent screen, restricts MCP OAuth tokens to the MCP involved in the request, and enforces audience validation.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-101045",
-      "published": "2026-09-27T18:16:30.897",
-      "description": "Fleet-maintained app install and uninstall scripts for macOS are generated from Homebrew cask metadata. In manifests generated before 2026-08-19, the script generator escaped this metadata at some interpolation sites but not all of them, so cask metadata containing shell metacharacters (for example $(...) command substitution) could be carried into scripts that execute as root on managed macOS hosts. An attacker who could land crafted metadata in an upstream Homebrew cask — without needing any Fleet credentials — could achieve arbitrary command execution as root on managed macOS hosts that install or uninstall the affected Fleet-maintained app; exploitation required the crafted metadata to pass both upstream Homebrew cask review and Fleet's review of the automated ingestion pull request. The fix (fleetdm/fleet#51324) landed in Fleet's ingestion pipeline on 2026-08-19 so that all manifests generated on or after that date escape cask metadata at every interpolation site; because manifests are generated centrally and distributed as pre-built content, remediation applied to all deployments with no customer action, and the code fix is included in Fleet v4.92.0.",
+      "id": "CVE-2026-101064",
+      "published": "2026-09-27T21:17:01.893",
+      "description": "Obot before v0.23.0 contains a server-side request forgery vulnerability in remote MCP server registration that allows privileged users to specify arbitrary URLs without destination validation. Attackers with Power User or higher roles can coerce Obot to make requests to internal services and cloud metadata endpoints, reading responses in error messages to disclose sensitive credentials.",
       "severity": "HIGH",
-      "score": 8
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-88778",
-      "published": "2026-09-27T17:16:57.110",
-      "description": "Predictable exact value from previous values vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23.",
+      "id": "CVE-2026-96280",
+      "published": "2026-09-27T21:17:04.200",
+      "description": "The OCI delta stream parser read sizes as guint64 but passed them to GLib I/O and allocation functions expecting gsize (32 bits on 32-bit systems), causing undersized allocations while subsequent operations use the original 64-bit size, leading to heap buffer overflows. An attacker controlling an OCI registry can craft a delta stream that triggers this during flatpak install/update, potentially achieving code execution on 32-bit systems.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-101043",
-      "published": "2026-09-27T18:16:29.700",
-      "description": "pnpm versions 11.0.0 before 11.11.0 and 10.7.0 before 10.34.5 expand ${VAR} environment-variable placeholders in the httpProxy, httpsProxy, and noProxy settings read from a project's pnpm-workspace.yaml. Because the manifest is repository-controlled and the proxy keys were omitted from the request-destination key set that otherwise suppresses placeholder expansion for untrusted manifests (as already done for registry, pnprServer, registries and namedRegistries), an attacker who controls a repository's pnpm-workspace.yaml can cause a victim who clones the repository and runs a pnpm command (e.g. pnpm install) to expand environment secrets such as NPM_TOKEN or GITHUB_TOKEN into a proxy hostname or userinfo and route install traffic — and the corresponding DNS lookups — through an attacker-controlled host. The exfiltration occurs during configuration loading, before any lifecycle script executes. Fixed in pnpm 11.11.0 and 10.34.5.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-88774",
-      "published": "2026-09-27T17:16:56.633",
-      "description": "Vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to a feature policy bypass due to improper HTTP URL based expression usage.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-101044",
-      "published": "2026-09-27T18:16:30.753",
-      "description": "pacquet, the Rust package-manager component shipped in the pnpm npm package versions >=12.0.0-alpha.0 and <12.0.0-alpha.5, does not validate dependency alias/name paths taken from a lockfile before using them in install-time filesystem joins. When a user installs a project with an attacker-supplied lockfile using --trust-lockfile or a frozen lockfile, alias entries containing path traversal segments (for example '../../escaped-link') are used when creating dependency and package links, bin destinations, hoisted entries, and virtual-store slots, allowing symlinks and directories to be created outside the intended project and node_modules boundary. Version 12.0.0-alpha.5 validates dependency names and every virtual-store slot path with a shared safe-join containment helper before any filesystem materialization, rejecting traversal, absolute, platform-specific, and reserved names with ERR_PNPM_INVALID_DEPENDENCY_NAME.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-101049",
-      "published": "2026-09-27T17:16:55.967",
-      "description": "Heym before 0.0.53 fails to verify Slack request signatures when trigger nodes lack credential IDs or have empty signing secrets. Remote unauthenticated attackers can send forged Slack events to known webhook URLs to trigger workflows with the owner's credentials.",
+      "id": "CVE-2026-96279",
+      "published": "2026-09-27T20:16:53.043",
+      "description": "A malicious OCI registry can hardlink arbitrary host files into the extraction directory when a user installs or updates a Flatpak application from an OCI remote, allowing disclosure of arbitrary host file contents. For system-wide installs running as root, this includes sensitive files such as /etc/shadow.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-101050",
-      "published": "2026-09-27T17:16:56.100",
-      "description": "Heym before 0.0.53 fails to verify the X-Telegram-Bot-Api-Secret-Token header on Telegram webhook endpoints when credential_id is absent or secret_token is empty. Remote unauthenticated attackers can post forged Telegram updates to trigger workflows with the owner's configured credentials and execute actions on attacker-supplied input.",
+      "id": "CVE-2026-101085",
+      "published": "2026-09-27T21:17:02.307",
+      "description": "Nezha before 2.3.8 fails to validate alert rule type and duration bounds, allowing authenticated non-administrator users to create malformed rules that trigger unrecovered panics in the alert evaluator goroutine. Attackers can submit a crafted alert rule via the POST /api/v1/alert-rule endpoint to crash the dashboard process, which persists the rule and causes repeated crashes on restart, disabling all monitoring and control plane functionality.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-101042",
-      "published": "2026-09-27T17:16:55.820",
-      "description": "Parse Server is an open-source backend server. In versions >= 9.0.0 < 9.10.1-alpha.10 and >= 8.0.2 < 8.6.91, the code-based authentication adapters (GitHub, Google Play Games, Instagram, LINE, LinkedIn, Microsoft, QQ, Spotify, WeChat, Weibo) verify the client's authorization code with the external provider on signup and on provider linking, but not when authentication data is supplied together with a username and password on the login endpoint. As a result, a low-privileged authenticated user can attach an arbitrary, unverified provider identity to their own account without the provider ever being contacted, spoofing an external identity toward application logic that trusts the linked provider ID. An attacker can also pre-hijack accounts: by claiming the provider ID of a victim who has not yet linked that provider, the victim's later legitimate sign-in with that provider resolves to the attacker's account. Only deployments configuring one of the affected code-based auth adapters are impacted. Versions 9.10.1-alpha.10 and 8.6.91 fix the issue by running the adapter's credential verification on the login and challenge endpoints and rejecting a provider identity already linked to another user. As a workaround, disable the affected code-based auth adapters.",
+      "id": "CVE-2026-101086",
+      "published": "2026-09-27T21:17:02.450",
+      "description": "Nezha Dashboard versions before 2.3.5 fail to restrict service monitor task types to supported probe types, allowing authenticated users with nezha:service:write scope to submit privileged task types through the service API. Attackers can deliver command execution or Agent configuration tasks to Agents within their authorization scope by exploiting the shared protobuf Task.Type namespace between service monitors and privileged operations.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-101048",
-      "published": "2026-09-27T18:16:31.313",
-      "description": "Cloudreve before 4.17.0 registers the administrative node test endpoints (POST /api/v4/admin/node/test and POST /api/v4/admin/node/test/downloader) without requiring the Admin.Write OAuth scope, unlike the node create/update/delete routes. An OAuth client that has been authorized by an administrator with only the Admin.Read scope can therefore submit attacker-controlled node definitions and cause the Cloudreve server to issue outbound requests to arbitrary URLs, enabling blind server-side request forgery, internal service probing, and delivery of signed Cloudreve slave-style requests to attacker-chosen endpoints.",
+      "id": "CVE-2026-100876",
+      "published": "2026-09-27T20:16:48.960",
+      "description": "A vulnerability was found in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected is an unknown function of the file loginlinkstudent.php. Performing a manipulation of the argument umail results in missing authentication. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-101047",
-      "published": "2026-09-27T18:16:31.177",
-      "description": "Fleet before 4.87.0 does not protect the two endpoints that serve in-house iOS application packages and manifests (enterprise tier only) with the intended random, time-limited URL token. Because Apple's InstallEnterpriseApplication MDM command requires these URLs to be reachable without a Fleet session, they cannot rely on session-based authentication, and the missing token allows an unauthenticated attacker with network access to the Fleet server to download in-house IPA binaries and their metadata (bundle identifier, version, and name) by guessing sequential title identifiers. The impact is limited to read-only disclosure; there is no privilege escalation or write access, and the free tier is unaffected (it returns fleet.ErrMissingLicense).",
+      "id": "CVE-2026-100878",
+      "published": "2026-09-27T21:17:01.100",
+      "description": "A vulnerability was identified in zhistaredu StarTraining up to 3.8.1. Affected by this issue is the function SysUser.isAdmin of the file edu-common/src/main/java/com/edu/common/core/domain/entity/SysUser.java of the component authRole Endpoint. The manipulation of the argument userId/roleIds leads to authorization bypass. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-96281",
+      "published": "2026-09-27T21:17:04.330",
+      "description": "On a multi-user system, a user with an active local login session could downgrade a system-wide Flatpak app to an older version by removing the app's remote ref via the unprivileged system-helper RemoveLocalRef method, causing the anti-downgrade check to fail to find a reference date. A malicious local user could use this to expose other users of the same system to an app version with unfixed vulnerabilities.",
+      "severity": "MEDIUM",
+      "score": 6.2
+    },
+    {
+      "id": "CVE-2026-101063",
+      "published": "2026-09-27T21:17:01.757",
+      "description": "Obot versions before v0.23.0 fail to enforce authentication on MCP Registry endpoints under /v0.1/* when registry authentication is enabled. Unauthenticated attackers can read registry metadata including server names, descriptions, repository URLs, and connect URLs by sending GET requests to /v0.1/servers.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-101056",
-      "published": "2026-09-27T18:16:31.667",
-      "description": "Cloudreve before 4.16.1 fails to revalidate share access when restoring cached navigator state from a context_hint UUID. Attackers who previously had valid share access can replay the cached hint to generate signed file URLs for up to 300 seconds after the share is deleted, expires, or reaches zero remaining downloads.",
+      "id": "CVE-2026-101088",
+      "published": "2026-09-27T21:17:02.727",
+      "description": "Nezha is a server and website monitoring tool. In versions >= 2.2.11 and < 2.3.1, the service sentinel worker (service/singleton/servicesentinel.go) contains an incomplete fix for a previously reported nil dereference denial of service (GHSA-qjpp-gffx-2wm9). The 2026-07-21 fix re-validated the service lifecycle under serviceResponseDataStoreLock but reused an already-captured, now stale reporter pointer and never re-validated the server, and that lock does not guard ServerShared. An authenticated user with the member role who owns an agent can issue a concurrent server delete (POST /api/v1/batch-delete/server) for their own server to win the race window, causing the worker to dereference a missing entry in the server list snapshot. Because the sentinel workers and the gRPC server have no recover()/recovery interceptor, the resulting panic is unrecovered and crashes the entire instance. This is fixed in version 2.3.1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-101046",
-      "published": "2026-09-27T18:16:31.037",
-      "description": "Fleet before 4.89.0 contains an SQL injection vulnerability in the activity list endpoints (GET /api/v1/fleet/activities and GET /api/v1/fleet/hosts/{id}/activities). The deprecated cursor-pagination helper appendListOptionsWithCursorToSQL interpolated the caller-supplied sort/order key into the SQL ORDER BY clause without an allowlist, so an authenticated user with read access to Activity could order results by arbitrary columns. The impact is read-only and bounded to columns on the activity_past table that are not otherwise returned in these responses (e.g. details), allowing their values to be inferred through the resulting sort order; there is no write access, privilege escalation, or reachability of node_key or other host-join columns through these endpoints. Fixed in 4.89.0, which removes the deprecated helper and passes the sort column through SanitizeColumn.",
+      "id": "CVE-2026-100877",
+      "published": "2026-09-27T21:17:00.923",
+      "description": "A vulnerability was determined in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected by this vulnerability is an unknown functionality of the file registrationform.php. Executing a manipulation of the argument FName/LName/Addrs can lead to cross site scripting. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-100879",
+      "published": "2026-09-27T21:17:01.283",
+      "description": "A security flaw has been discovered in zhistaredu StarTraining up to 3.8.1. This affects the function checkRoleAllowed of the file SysRoleServiceImpl.java of the component dataScope Endpoint. The manipulation results in missing authorization. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-101087",
+      "published": "2026-09-27T21:17:02.587",
+      "description": "Nezha versions 2.0.10 through 2.3.2 use a restricted HTTP client to validate user-configurable notification and DDNS webhook URLs, but the denylist did not cover IPv6 transition ranges — specifically the 6to4 prefix 2002::/16 and the local-use IPv4/IPv6 translation prefix 64:ff9b:1::/48. Because such addresses satisfy Go's netip.Addr.IsGlobalUnicast check, the URL validator accepted them. An authenticated user able to configure a webhook may be able to cause the dashboard to issue requests to an otherwise restricted IPv6 endpoint, but only where the dashboard's network provides unusual or non-standards-compliant routing for these transition ranges; no direct path to an IPv4 metadata, loopback, or private-network HTTP request has been demonstrated. The issue is fixed in version 2.3.3 (commit d1fcde8e), which blocks both prefixes.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-100880",
+      "published": "2026-09-27T21:17:01.450",
+      "description": "A weakness has been identified in zhistaredu StarTraining up to 3.8.1. This vulnerability affects unknown code of the file du-common/src/main/java/com/edu/common/utils/file/MimeTypeUtils.java of the component Upload Endpoint. This manipulation of the argument File causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-101089",
+      "published": "2026-09-27T21:17:02.870",
+      "description": "Nezha before 2.2.7 contains an information disclosure vulnerability in the GET /api/v1/profile endpoint that returns the bcrypt-hashed password field of authenticated users. Attackers can extract password hashes and perform offline cracking attacks without rate limiting or audit trail constraints.",
       "severity": "LOW",
       "score": 3.1
     },
     {
-      "id": "CVE-2026-101051",
-      "published": "2026-09-27T18:16:31.510",
-      "description": "Cloudreve before 4.16.1 fails to properly sanitize file paths returned by remote downloaders, allowing authenticated users to create files outside the selected destination directory. Attackers can exploit path traversal sequences in downloader metadata to write files to unexpected locations within accessible namespaces.",
+      "id": "CVE-2026-100881",
+      "published": "2026-09-27T22:17:05.047",
+      "description": "A security vulnerability has been detected in zhistaredu StarTraining up to 3.8.1. This issue affects some unknown processing of the file application.yml. Such manipulation of the argument xss.enabled leads to cross site scripting. It is possible to launch the attack remotely. Attacks of this nature are highly complex. The exploitability is assessed as difficult. The exploit has been disclosed publicly and may be used. Not independently exploitable: a defense-in-depth absence that amplifies CVE-2026-100880. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-101057",
-      "published": "2026-09-27T18:16:31.823",
-      "description": "utcp-mcp (the MCP plugin of python-utcp) through 1.1.2 connects to the HTTP and WebSocket MCP server URLs given in a call template's mcpServers configuration without the ensure_secure_url validation that the HTTP-family plugins apply, so the HTTPS/WSS-or-loopback rule is not enforced. A call template naming a plain-HTTP, non-loopback MCP server URL is dialed as configured, exposing the MCP handshake to network interception and permitting cleartext connections to internal hosts. The mcpServers configuration is operator-authored rather than remote data, and the connection is an MCP handshake rather than an arbitrary request returning a body, which limits practical exploitation; the OAuth2 token_url credential path described in the original report was not reachable in the affected versions, because the OAuth2 handler was never invoked and the call template's auth field was not read. Fixed in utcp-mcp 1.1.3, which validates server URLs before any connection is made.",
-      "severity": "LOW",
-      "score": 3.1
+      "score": 2.6
     }
   ]
 }
