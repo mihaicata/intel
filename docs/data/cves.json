@@ -1,145 +1,145 @@
 {
-  "totalResults": 2563,
+  "totalResults": 2542,
   "items": [
     {
-      "id": "CVE-2026-101065",
-      "published": "2026-09-27T21:17:02.027",
-      "description": "Obot is an open-source AI agent/MCP platform. In all versions up to and including commit d7e6970, the Docker quickstart command documented in the README starts the container listening on 0.0.0.0:8080 with authentication disabled by default. When authentication is disabled, every request is mapped to a synthetic \"nobody\" user that holds the Owner and Admin roles, so any unauthenticated party who can reach the exposed port obtains full administrative access to the Obot API and UI, including the ability to register and launch attacker-controlled MCP servers. Because the quickstart also mounts /var/run/docker.sock into the container, the MCP runtime backend reachable this way has access to the host's Docker control surface. The fix is documentation-only: the quickstart now enables authentication, and operators who followed the previous instructions should set OBOT_SERVER_ENABLE_AUTHENTICATION=true before exposing the host to any untrusted network.",
+      "id": "CVE-2026-100886",
+      "published": "2026-09-27T23:16:59.020",
+      "description": "A vulnerability was identified in Seetong T8108, T8108P, T8116 and T8232 4.6.1.4-build202604241011. The affected element is an unknown function of the component Debug Service. Such manipulation leads to improper authentication. The attack may be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-101090",
-      "published": "2026-09-27T21:17:03.003",
-      "description": "Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard_host setting is empty, /api/v1/oauth2/{provider} (cmd/dashboard/controller/oauth2.go) reflects the attacker-supplied HTTP Host header into the redirect_uri sent to the identity provider instead of falling back to the configured install_host. An attacker who induces a victim to begin OAuth2 login via a request that reaches Nezha with a forged Host header can cause an attacker-controlled callback URL to be used as the redirect_uri; if the OAuth2 provider accepts it, the victim's authorization code is delivered to the attacker origin, allowing the attacker to complete the OAuth2 login/binding flow and take over the account. This regresses the fix for GHSA-9rc6-8cjv-rcvx and is configuration-dependent (dashboard_host empty). At the time of the advisory no patched version was available.",
+      "id": "CVE-2026-100896",
+      "published": "2026-09-28T02:17:19.617",
+      "description": "A weakness has been identified in TOTOLINK N150RT 3.4.0-B20201030. The affected element is the function system of the file /boafrm/formWlSiteSurvey of the component Web Management Interface. This manipulation of the argument wlanif causes os command injection. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-101084",
-      "published": "2026-09-27T21:17:02.163",
-      "description": "obot versions before v0.21.1 fail to enforce Access Control Rules on the /mcp-connect endpoint, allowing any authenticated user to connect to restricted MCP servers if they possess the server ID. Attackers can bypass authorization checks to access and manipulate sensitive backend systems through MCP tool calls using stored OAuth credentials.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-101062",
-      "published": "2026-09-27T21:17:01.617",
-      "description": "Obot before v0.23.0 (affected versions <= v0.22.1) running with OBOT_SERVER_ENABLE_AUTHENTICATION=true exposes OAuth dynamic client registration without authentication and without any restriction on the redirect URIs a client may register. Because the authorization flow auto-completes for an already logged-in user with no consent screen, an attacker who registers a client pointing at their own domain and induces a logged-in victim to visit a single crafted authorization URL receives an authorization code at the attacker-controlled redirect URI and can exchange it for an access token and refresh token. The token minted by the MCP OAuth flow carries the victim's full group set in the JWT, and Obot validated only the issuer and not the audience, so the token is accepted as a bearer token against any Obot API endpoint the victim can access rather than being scoped to the requested MCP server, allowing the attacker to read or modify the victim's resources until the token is revoked. v0.23.0 adds a consent screen, restricts MCP OAuth tokens to the MCP involved in the request, and enforces audience validation.",
+      "id": "CVE-2026-100885",
+      "published": "2026-09-27T23:16:58.843",
+      "description": "A vulnerability was found in Krayin laravel-crm up to 2.2.4. This affects an unknown function of the file packages/Webkul/Installer/src/Http/Middleware/CanInstall.php of the component admin-config-setup API Endpoint. The manipulation results in authorization bypass. The attack may be launched remotely. The exploit has been made public and could be used. Upgrading to version 2.2.5 mitigates this issue. The patch is identified as 89f2916b6a46ff91bd1999ce38158fa0de8b9490. Upgrading the affected component is recommended.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-101064",
-      "published": "2026-09-27T21:17:01.893",
-      "description": "Obot before v0.23.0 contains a server-side request forgery vulnerability in remote MCP server registration that allows privileged users to specify arbitrary URLs without destination validation. Attackers with Power User or higher roles can coerce Obot to make requests to internal services and cloud metadata endpoints, reading responses in error messages to disclose sensitive credentials.",
+      "id": "CVE-2026-100888",
+      "published": "2026-09-28T00:16:32.473",
+      "description": "A weakness has been identified in Trusted Domain Project OpenDKIM up to 2.11.0. This affects the function dkim_canon_selecthdrs of the file libopendkim/dkim-canon.c of the component DKIM Signature Header Selection. Executing a manipulation of the argument h can lead to out-of-bounds write. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-96280",
-      "published": "2026-09-27T21:17:04.200",
-      "description": "The OCI delta stream parser read sizes as guint64 but passed them to GLib I/O and allocation functions expecting gsize (32 bits on 32-bit systems), causing undersized allocations while subsequent operations use the original 64-bit size, leading to heap buffer overflows. An attacker controlling an OCI registry can craft a delta stream that triggers this during flatpak install/update, potentially achieving code execution on 32-bit systems.",
+      "id": "CVE-2026-100889",
+      "published": "2026-09-28T00:16:32.647",
+      "description": "A vulnerability was detected in Trusted Domain Project OpenDKIM up to 2.11.0. Affected is the function dkim_qp_decode of the file util.c of the component Decoder. The manipulation results in off-by-one. The attack may be performed from remote. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-96279",
-      "published": "2026-09-27T20:16:53.043",
-      "description": "A malicious OCI registry can hardlink arbitrary host files into the extraction directory when a user installs or updates a Flatpak application from an OCI remote, allowing disclosure of arbitrary host file contents. For system-wide installs running as root, this includes sensitive files such as /etc/shadow.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-100891",
+      "published": "2026-09-28T01:16:28.367",
+      "description": "A vulnerability has been found in Trusted Domain Project OpenDMARC up to 1.4.2. Affected by this issue is the function opendmarc_policy_query_dmarc in the library libopendmarc/opendmarc_policy.c of the component Internationalized Domain Name Handler. Such manipulation leads to encoding error. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-101085",
-      "published": "2026-09-27T21:17:02.307",
-      "description": "Nezha before 2.3.8 fails to validate alert rule type and duration bounds, allowing authenticated non-administrator users to create malformed rules that trigger unrecovered panics in the alert evaluator goroutine. Attackers can submit a crafted alert rule via the POST /api/v1/alert-rule endpoint to crash the dashboard process, which persists the rule and causes repeated crashes on restart, disabling all monitoring and control plane functionality.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-100893",
+      "published": "2026-09-28T02:17:19.020",
+      "description": "A vulnerability was determined in Privoce VoceChat Server up to 0.5.36. This vulnerability affects the function open_graph::fetch of the file src/api/resource.rs of the component open_graphic_parse Endpoint. Executing a manipulation of the argument url can lead to server-side request forgery. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-101086",
-      "published": "2026-09-27T21:17:02.450",
-      "description": "Nezha Dashboard versions before 2.3.5 fail to restrict service monitor task types to supported probe types, allowing authenticated users with nezha:service:write scope to submit privileged task types through the service API. Attackers can deliver command execution or Agent configuration tasks to Agents within their authorization scope by exploiting the shared protobuf Task.Type namespace between service monitors and privileged operations.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-100901",
+      "published": "2026-09-28T03:16:38.803",
+      "description": "A vulnerability was found in athlon1600 youtube-downloader up to 4.0.1. Affected by this vulnerability is the function stream of the file public/stream.php. The manipulation of the argument url results in server-side request forgery. It is possible to launch the attack remotely. The exploit has been made public and could be used. Commit 6ffe823 'better security for public/stream.php' only added CURLOPT_PROTOCOLS http/https restriction and MAXREDIRS cap, does not restrict destination host. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-100876",
-      "published": "2026-09-27T20:16:48.960",
-      "description": "A vulnerability was found in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected is an unknown function of the file loginlinkstudent.php. Performing a manipulation of the argument umail results in missing authentication. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-100883",
+      "published": "2026-09-27T23:16:58.463",
+      "description": "A flaw has been found in Krayin laravel-crm up to 2.2.5. The affected element is an unknown function of the file packages/Webkul/Admin/src/Config/acl.php. Executing a manipulation can lead to improper access controls. The attack can be launched remotely. The exploit has been published and may be used. Upgrading to version 2.2.6 is sufficient to fix this issue. This patch is called a399404a388d8ad2700a01349d0d98069c8e85a4. The affected component should be upgraded.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-100878",
-      "published": "2026-09-27T21:17:01.100",
-      "description": "A vulnerability was identified in zhistaredu StarTraining up to 3.8.1. Affected by this issue is the function SysUser.isAdmin of the file edu-common/src/main/java/com/edu/common/core/domain/entity/SysUser.java of the component authRole Endpoint. The manipulation of the argument userId/roleIds leads to authorization bypass. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-100887",
+      "published": "2026-09-28T00:16:32.273",
+      "description": "A security flaw has been discovered in amirsanni Mini-Inventory-and-Sales-Management-System up to 81bf0b55f5933f3b0dbb1583204a612e06605b95. The impacted element is the function order_by of the file DB_query_builder.php of the component Database Query Builder. Performing a manipulation of the argument orderBy results in sql injection. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project maintainer confirms: \"I stopped maintaining that project for a while now, so I'm not sure it's worth fixing.\" This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-96281",
-      "published": "2026-09-27T21:17:04.330",
-      "description": "On a multi-user system, a user with an active local login session could downgrade a system-wide Flatpak app to an older version by removing the app's remote ref via the unprivileged system-helper RemoveLocalRef method, causing the anti-downgrade check to fail to find a reference date. A malicious local user could use this to expose other users of the same system to an app version with unfixed vulnerabilities.",
+      "id": "CVE-2026-100894",
+      "published": "2026-09-28T02:17:19.260",
+      "description": "A vulnerability was identified in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This issue affects some unknown processing of the file updateguest.php. The manipulation of the argument gname leads to sql injection. The attack may be initiated remotely. The exploit is publicly available and might be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-101063",
-      "published": "2026-09-27T21:17:01.757",
-      "description": "Obot versions before v0.23.0 fail to enforce authentication on MCP Registry endpoints under /v0.1/* when registry authentication is enabled. Unauthenticated attackers can read registry metadata including server names, descriptions, repository URLs, and connect URLs by sending GET requests to /v0.1/servers.",
+      "id": "CVE-2026-100898",
+      "published": "2026-09-28T02:17:19.973",
+      "description": "A vulnerability was detected in DevaslanPHP project-management 1.2.1/1.2.2/1.2.3/1.2.4/2.0.0-beta1. This affects the function whereRaw of the file app/Filament/Widgets/Timesheet/ActivitiesReport.php of the component Timesheet Dashboard. Performing a manipulation of the argument filter results in sql injection. The attack is possible to be carried out remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-100899",
+      "published": "2026-09-28T03:16:38.447",
+      "description": "A flaw has been found in DevaslanPHP project-management 1.2.1/1.2.2/1.2.3/1.2.4/v2.0.0-beta1. This impacts the function whereRaw of the file app/Filament/Widgets/Timesheet/MonthlyReport.php of the component Timesheet Dashboard. Executing a manipulation of the argument filter can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-100897",
+      "published": "2026-09-28T02:17:19.800",
+      "description": "A security vulnerability has been detected in fuzui StudentInfo up to fcc42a639ec7cef620651bfd0f07ebb660529e3f. The impacted element is an unknown function of the file /StudentInfo/StudentHandler/moditypasswordstu of the component Password Change Endpoint. Such manipulation of the argument sid/tid leads to authorization bypass. The attack can be executed remotely. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-100900",
+      "published": "2026-09-28T03:16:38.630",
+      "description": "A vulnerability has been found in DevaslanPHP project-management 1.2.1/1.2.2/1.2.3/1.2.4/v2.0.0-beta1. Affected is the function updateJiraProjects of the file /jira-import of the component Jira Import. The manipulation of the argument host/username/token leads to server-side request forgery. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-100890",
+      "published": "2026-09-28T01:16:28.047",
+      "description": "A flaw has been found in Trusted Domain Project OpenDMARC up to 1.4.2. Affected by this vulnerability is the function opendmarc_spf_ipv6_explode in the library libopendmarc/opendmarc_spf.c of the component SPF Parser. This manipulation of the argument cp causes null pointer dereference. It is possible to initiate the attack remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-101088",
-      "published": "2026-09-27T21:17:02.727",
-      "description": "Nezha is a server and website monitoring tool. In versions >= 2.2.11 and < 2.3.1, the service sentinel worker (service/singleton/servicesentinel.go) contains an incomplete fix for a previously reported nil dereference denial of service (GHSA-qjpp-gffx-2wm9). The 2026-07-21 fix re-validated the service lifecycle under serviceResponseDataStoreLock but reused an already-captured, now stale reporter pointer and never re-validated the server, and that lock does not guard ServerShared. An authenticated user with the member role who owns an agent can issue a concurrent server delete (POST /api/v1/batch-delete/server) for their own server to win the race window, causing the worker to dereference a missing entry in the server list snapshot. Because the sentinel workers and the gRPC server have no recover()/recovery interceptor, the resulting panic is unrecovered and crashes the entire instance. This is fixed in version 2.3.1.",
+      "id": "CVE-2026-100892",
+      "published": "2026-09-28T01:16:28.583",
+      "description": "A vulnerability was found in aligungr UERANSIM up to 3.3.0. This affects the function ULInformationTransfer of the file src/gnb/rrc/handler.cpp of the component nr-gnb. Performing a manipulation of the argument dedicatedNASMessage results in memory corruption. The attack can be initiated remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-100877",
-      "published": "2026-09-27T21:17:00.923",
-      "description": "A vulnerability was determined in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected by this vulnerability is an unknown functionality of the file registrationform.php. Executing a manipulation of the argument FName/LName/Addrs can lead to cross site scripting. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-100895",
+      "published": "2026-09-28T02:17:19.437",
+      "description": "A security flaw has been discovered in Trusted Domain Project OpenARC up to 1.0.0.Beta1. Impacted is the function arc_parse_canon_t in the library libopenarc/arc-canon.c of the component libopenarc. The manipulation results in null pointer dereference. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. Upgrading to version 1.0.0.Beta0 is recommended to address this issue. Upgrading the affected component is advised.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-100884",
+      "published": "2026-09-27T23:16:58.663",
+      "description": "A vulnerability has been found in Krayin laravel-crm up to 2.2.5. The impacted element is the function Storage::download of the file packages/Webkul/Admin/src/Config/acl.php of the component attachment-download Endpoint. The manipulation of the argument ID leads to improper control of resource identifiers. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 2.2.6 is sufficient to resolve this issue. The identifier of the patch is 13d6988cda8d69ece45ee1890effc90a7f21cdc1. It is suggested to upgrade the affected component.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-100879",
-      "published": "2026-09-27T21:17:01.283",
-      "description": "A security flaw has been discovered in zhistaredu StarTraining up to 3.8.1. This affects the function checkRoleAllowed of the file SysRoleServiceImpl.java of the component dataScope Endpoint. The manipulation results in missing authorization. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-101087",
-      "published": "2026-09-27T21:17:02.587",
-      "description": "Nezha versions 2.0.10 through 2.3.2 use a restricted HTTP client to validate user-configurable notification and DDNS webhook URLs, but the denylist did not cover IPv6 transition ranges — specifically the 6to4 prefix 2002::/16 and the local-use IPv4/IPv6 translation prefix 64:ff9b:1::/48. Because such addresses satisfy Go's netip.Addr.IsGlobalUnicast check, the URL validator accepted them. An authenticated user able to configure a webhook may be able to cause the dashboard to issue requests to an otherwise restricted IPv6 endpoint, but only where the dashboard's network provides unusual or non-standards-compliant routing for these transition ranges; no direct path to an IPv4 metadata, loopback, or private-network HTTP request has been demonstrated. The issue is fixed in version 2.3.3 (commit d1fcde8e), which blocks both prefixes.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-100880",
-      "published": "2026-09-27T21:17:01.450",
-      "description": "A weakness has been identified in zhistaredu StarTraining up to 3.8.1. This vulnerability affects unknown code of the file du-common/src/main/java/com/edu/common/utils/file/MimeTypeUtils.java of the component Upload Endpoint. This manipulation of the argument File causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-96284",
+      "published": "2026-09-27T23:17:01.130",
+      "description": "A malicious user can get read-access to files in the flatpak-system-helper context if a system OCI repository is configured, because the OCI code paths in the system helper follow symlinks when importing OCI images that are under the user's control.",
       "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-101089",
-      "published": "2026-09-27T21:17:02.870",
-      "description": "Nezha before 2.2.7 contains an information disclosure vulnerability in the GET /api/v1/profile endpoint that returns the bcrypt-hashed password field of authenticated users. Attackers can extract password hashes and perform offline cracking attacks without rate limiting or audit trail constraints.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-100881",
-      "published": "2026-09-27T22:17:05.047",
-      "description": "A security vulnerability has been detected in zhistaredu StarTraining up to 3.8.1. This issue affects some unknown processing of the file application.yml. Such manipulation of the argument xss.enabled leads to cross site scripting. It is possible to launch the attack remotely. Attacks of this nature are highly complex. The exploitability is assessed as difficult. The exploit has been disclosed publicly and may be used. Not independently exploitable: a defense-in-depth absence that amplifies CVE-2026-100880. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "LOW",
-      "score": 2.6
+      "score": 2.5
     }
   ]
 }
