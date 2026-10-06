@@ -1,143 +1,143 @@
 {
-  "totalResults": 2873,
+  "totalResults": 3001,
   "items": [
     {
-      "id": "CVE-2026-102360",
-      "published": "2026-09-29T14:17:20.117",
-      "description": "A missing bounds check in the binary decoder in lib0, versions 0.2.1-0.2.117 and earlier and 1.0.0-rc.32 and earlier, lets any unauthenticated remote peer read adjacent process memory and receive it back. `readUint8Array` never compares the wire-supplied length against the decoder's own view, so one over-long length prefix returns whatever the host process allocated next: other tenants' document content, personal data, and live bearer session tokens**, recovered in full and at will. An attacker who can supply bytes to a lib0 decoder which means any peer that can open a socket, including before authentication reads adjacent process memory and, where the consumer echoes, stores or re-serves the decoded value, receives it back. This is patched in version 0.2.118 and 1.0.0-rc.33.",
-      "severity": "HIGH",
-      "score": 8.6
+      "id": "CVE-2024-31026",
+      "published": "2026-09-29T20:17:07.577",
+      "description": "An issue in Greek Universities Network (GUnet) Open eClass Platform v.3.15 allows a remote attacker to execute arbitrary code via the chat input field in the course module.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-102521",
-      "published": "2026-09-29T14:17:20.393",
-      "description": "The decoder in `readFromDataView` in lib0 before 0.2.119 can be tricked into reading more than it should from a buffer. The vulnerability allows reading past the decoders' view, thus exposing adjacent process memory. This can be anything that is currently in the head, for example credentials or logs. This is similar to but different from GHSA-r5c8-rf4w-qrq8.",
-      "severity": "HIGH",
-      "score": 8.6
+      "id": "CVE-2026-100291",
+      "published": "2026-09-29T20:17:09.300",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, several ONVIF service endpoints process management requests without enforcing required authentication. This could allow an unauthorized attacker to access sensitive device operations.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-97395",
-      "published": "2026-09-29T14:17:22.020",
-      "description": "Apache Polaris allows an authenticated principal with permission to create or update Iceberg table properties to set FileIO client settings such as s3.endpoint in table metadata.\n\n\nIn versions < 1.8.0, when Polaris performs server-side Iceberg operations, including commits and purges, it may use those settings to construct its (server-side) FileIO client. If the catalog storage configuration does not override the endpoint, Polaris can send storage requests to a host chosen by the table writer, using credentials scoped to the operation.\n\n\n\n\nThis can redirect server-side storage traffic and expose request authentication material to the chosen endpoint. Deployments are affected when table writers are not trusted to configure server-side storage endpoints.",
+      "id": "CVE-2026-102304",
+      "published": "2026-09-29T20:17:13.327",
+      "description": "Use after free in Passwords in Google Chrome prior to 154.0.8037.92 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-102306",
+      "published": "2026-09-29T20:17:13.573",
+      "description": "Use after free in Bluetooth in Google Chrome prior to 154.0.8037.92 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-100292",
+      "published": "2026-09-29T20:17:09.477",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, a hidden debug interface can be enabled through an authenticated request, allowing additional commands to be sent to a backend service. Once active, this pathway can unintentionally expose system‑level functionality that could be misused if crafted inputs reach the underlying command handler.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-100293",
+      "published": "2026-09-29T20:17:09.630",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, both the local and cloud update mechanisms apply new firmware without any cryptographic verification, relying only on basic hashing. This design allows an attacker who can reach the update routine to introduce untrusted firmware images that the device will accept as valid.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-100298",
+      "published": "2026-09-29T20:17:10.403",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, two user‑information endpoints can reveal sensitive device and account details under conditions that are not intended for normal operation.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-102299",
+      "published": "2026-09-29T20:17:12.717",
+      "description": "Type confusion in V8 in Google Chrome prior to 154.0.8037.92 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-102302",
+      "published": "2026-09-29T20:17:13.087",
+      "description": "Buffer overflow in V8 in Google Chrome prior to 154.0.8037.92 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-102301",
+      "published": "2026-09-29T20:17:12.967",
+      "description": "Out of bounds write in GPU in Google Chrome prior to 154.0.8037.92 allowed a remote attacker who had compromised the renderer process to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "HIGH",
+      "score": 8.3
+    },
+    {
+      "id": "CVE-2026-100296",
+      "published": "2026-09-29T20:17:10.097",
+      "description": "In Anjvision YSSD-RTMP-H5 firmware version 3.3.2.4, an empty-body POST to /setUserConfig, dispatched through the web server's SOAP-RPC handler, silently downgrades the administrator password to the default value and corrupts the in-memory authentication state until the device reloads. The handler does not verify the session's privilege level, so any authenticated user can trigger it.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-102566",
-      "published": "2026-09-29T15:17:18.003",
-      "description": "CTranslate2 before 4.8.1 contains a heap-based buffer overflow in the binary model loader that fails to validate payload length against allocated buffer size. Attackers can craft malicious model files with oversized payload lengths to write past heap allocation boundaries, causing crashes or arbitrary code execution.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-86450",
-      "published": "2026-09-29T14:17:21.763",
-      "description": "Insertion of sensitive information into sent data vulnerability in Parla Auto Automotive Trading Limited Company DetaWix Mobile Web Portal allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects DetaWix Mobile Web Portal: before v1.0.19.",
+      "id": "CVE-2026-100294",
+      "published": "2026-09-29T20:17:09.787",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, the firmware embeds hardcoded cloud‑API credentials that are shared across deployed devices. Anyone obtaining the public firmware package can reuse these values to interact with the cloud service in ways not intended for normal operation.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2015-20122",
-      "published": "2026-09-29T15:17:11.023",
-      "description": "Seeyon A6 collaborative office automation platform contains an unauthenticated SQL injection vulnerability in the attach_ids parameter of the file attachment download endpoint that allows remote attackers to extract arbitrary database contents without prior authentication. Attackers can inject UNION-based SQL statements through the attach_ids request parameter in downloadAtt.jsp to retrieve sensitive information including credentials and system configuration data. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-102491",
-      "published": "2026-09-29T15:17:17.813",
-      "description": "A vulnerability was identified in mahonelau kykms up to 8f130c2d85842d5b44caae78cc46d65e505949f7. The impacted element is the function QueryGenerator.doMultiFieldsOrder of the file QueryGenerator.java of the component SqlInjectionUtil. The manipulation of the argument column leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2025-33207",
-      "published": "2026-09-29T15:17:12.293",
-      "description": "NVIDIA ConnectX and Bluefield contain a vulnerability in a control register, where a user with VF access could cause improper access control for the register interface by sending a malicious command to the firmware. A successful exploit of this vulnerability might lead to denial of service.",
+      "id": "CVE-2026-100299",
+      "published": "2026-09-29T20:17:10.557",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, the device includes a legacy password hash on the serial console that relies on a weak DES‑based encryption.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-71899",
-      "published": "2026-09-29T14:17:21.190",
-      "description": "A missing authorization vulnerability exists in the `query-dynamic-sub-workflows` API of Apache DolphinScheduler. The API does not properly verify whether the authenticated user has permission to access the workflows being queried.\n\n\n\nAn authenticated user who does not have permission to access a specific project can invoke the API with parameters referencing workflows belonging to that project and retrieve workflow information. This allows users to access workflow data outside their authorized project scope, resulting in unauthorized information disclosure.\n\n\n\nThis issue affects Apache DolphinScheduler: from 3.2.0 before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "id": "CVE-2026-100295",
+      "published": "2026-09-29T20:17:09.940",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, an internal debug interface can be enabled through an undocumented pathway, exposing functions not intended for normal operation. When activated, this interface allows actions that could unintentionally provide elevated system access.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-102567",
-      "published": "2026-09-29T15:17:18.177",
-      "description": "CTranslate2 before 4.8.1 contains an out-of-bounds heap read vulnerability in the binary model loader when deserializing string fields without null terminators. Attackers can craft malicious model files to trigger heap memory reads past buffer boundaries, causing crashes or disclosing adjacent heap memory contents.",
+      "id": "CVE-2024-31027",
+      "published": "2026-09-29T20:17:08.700",
+      "description": "Cross Site Scripting vulnerability in Greek Universities Network (GUnet) Open eClass Platform v.3.15 allows a remote attacker to execute arbitrary code via the last name, first name, and username parameters in the user registration functionality.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-102568",
-      "published": "2026-09-29T15:17:18.443",
-      "description": "Pardus Parental Control before 0.7.0 contains an incorrect authorization vulnerability in the polkit policy that allows unprivileged local users to disable parental controls as root. Attackers can invoke PPCActivator.py with the --disable argument via pkexec to remove all restrictions including DNS filtering and application limits without authentication.",
+      "id": "CVE-2026-102305",
+      "published": "2026-09-29T20:17:13.450",
+      "description": "UI misrepresentation in SignIn in Google Chrome on on iOS prior to 154.0.8037.92 allowed a remote attacker to spoof UI elements via a crafted HTML page. (Chromium security severity: Low)",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-102569",
-      "published": "2026-09-29T15:17:18.757",
-      "description": "ClipBucket v5 through 5.5.3-#197 contains a time-based blind SQL injection vulnerability in the admin video edit function where the videoid parameter is concatenated into an UPDATE statement without proper escaping. An authenticated administrator with video_moderation permission can inject arbitrary SQL commands to extract or modify database contents.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-102570",
-      "published": "2026-09-29T15:17:18.917",
-      "description": "ClipBucket v5 through 5.5.3-#197 contains a time-based blind SQL injection vulnerability in the language update function where the language_id parameter is concatenated unescaped into the WHERE clause of an UPDATE statement. An authenticated administrator with basic_settings permission can inject arbitrary SQL payloads to extract or modify database contents.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-78214",
-      "published": "2026-09-29T14:17:21.530",
-      "description": "An authentication bypass vulnerability exists in the protection of Actuator endpoints. The application determines whether authentication is required by matching the incoming request path against protected Actuator paths. By sending a specially crafted request containing a percent-encoded path, a remote unauthenticated attacker can cause the security check to fail to recognize the request as targeting a protected endpoint.\n\n\n\nAs a result, the attacker may bypass authentication and access otherwise restricted Actuator endpoints. Successful exploitation may expose operational or configuration information and, depending on the enabled endpoints and application configuration, allow access to sensitive management functionality.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "id": "CVE-2026-100297",
+      "published": "2026-09-29T20:17:10.253",
+      "description": "In Anjvision YSSD‑RTMP‑H5 firmware version 3.3.2.4, an unauthenticated network check function can be triggered to probe arbitrary hosts from the device’s internal network. This may expose internal information or leak data via DNS queries.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-71897",
-      "published": "2026-09-29T14:17:20.947",
-      "description": "An improper authorization check in Apache DolphinScheduler allows an authenticated user to use the batch-copy and batch-move endpoints to operate on workflows in projects for which they lack the required permissions. This may allow the user to copy or move workflows from unauthorized projects.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "id": "CVE-2026-102300",
+      "published": "2026-09-29T20:17:12.843",
+      "description": "Uninitialized resource in WebGPU in Google Chrome prior to 154.0.8037.92 allowed a remote attacker to obtain cross-origin data via a crafted HTML page. (Chromium security severity: High)",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-71898",
-      "published": "2026-09-29T14:17:21.067",
-      "description": "An incorrect authorization check in Apache DolphinScheduler allows an authenticated user with only read permission for a project to modify a workflow instance in that project through the PUT /projects/{projectCode}/workflow-instances/{id} endpoint. The endpoint does not enforce the write permission required for this operation, allowing the user to make unauthorized changes to workflow instances.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
+      "id": "CVE-2026-102303",
+      "published": "2026-09-29T20:17:13.210",
+      "description": "Uninitialized resource in GPU in Google Chrome on on Android prior to 154.0.8037.92 allowed a remote attacker to obtain cross-origin data via a crafted HTML page. (Chromium security severity: High)",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-81569",
-      "published": "2026-09-29T14:17:21.650",
-      "description": "An improper authorization vulnerability exists in the handling of sub-workflow tasks. An authenticated user who does not have permission to access a target project can reference and invoke a workflow belonging to that project through a sub-workflow task.\n\n\n\nThe system does not properly verify whether the user has permission to execute the referenced workflow or access its project. As a result, the user can bypass project-level authorization controls and cause workflows in unauthorized projects to be executed.\n\n\n\nSuccessful exploitation may allow unauthorized execution of workflow tasks and access to the resources or data available to the target workflow.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.4.3.\n\n\n\nUsers are recommended to upgrade to version 3.4.3, which fixes the issue.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-4034",
-      "published": "2026-09-29T14:17:20.683",
-      "description": "Injection Vulnerability in Tibco Administrator version 5.13.0 & prior allows an authenticated user to submit specially crafted input through the web-based administration console.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102371",
-      "published": "2026-09-29T15:17:17.557",
-      "description": "In wsl-pro-service before 0.1.19ubuntu3, the service component which runs as root inside each WSL instance attaches the instance to Ubuntu Pro by executing the pro client with the Ubuntu Pro token passed as a command-line argument (pro attach <token>). On systems where /proc is mounted without process-hiding mitigations (such as hidepid), which is the default in WSL, an unprivileged local user or process in the same WSL instance can read the token from /proc/<pid>/cmdline while the attach process is running. The leaked token could then be used to attach other machines to the victim's Ubuntu Pro subscription and gain unauthorized access to Ubuntu Pro services.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-22094",
-      "published": "2026-09-29T15:17:21.453",
-      "description": "The firmware for the EVbee DC-80 has a weak hardcoded root password, which allows attackers to login as root using the SSH daemon that is exposed to the network.",
+      "id": "CVE-2026-102252",
+      "published": "2026-09-29T20:17:11.910",
+      "description": "A path traversal vulnerability (CWE-22) in the embedded VMDK filesystem extractor in Google OSV-SCALIBR versions 0.3.6 through 0.5.0 allows an attacker who controls the scan target to write arbitrary files to the host system. When scanning crafted VMDK images, insufficient validation of archive path entries allows file extractions to escape destination directories.",
       "severity": "UNKNOWN",
       "score": null
     }
