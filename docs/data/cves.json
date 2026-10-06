@@ -1,145 +1,145 @@
 {
-  "totalResults": 2562,
+  "totalResults": 2644,
   "items": [
     {
-      "id": "CVE-2026-101102",
-      "published": "2026-09-28T18:17:17.397",
-      "description": "A vulnerability was found in deepseek-ai deepseek-harness up to 0.1.0-rc.7. Impacted is the function run_code of the component Code Mode Sandbox. The manipulation results in sandbox issue. The attack can be executed remotely. The vendor's own code, SAFETY.md, and design notes all explicitly state the worker is \"containment, not a security boundary\". The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.3
+      "id": "CVE-2026-101263",
+      "published": "2026-09-29T00:17:01.540",
+      "description": "A vulnerability was found in Ziroom ZHOME A0101 1.0.1.0. This issue affects some unknown processing of the file /api/ZRQos/set_online_client. The manipulation of the argument mac results in command injection. It is possible to launch the attack remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-101100",
-      "published": "2026-09-28T18:17:16.977",
-      "description": "A flaw has been found in ag-ui-protocol ag-ui up to 2026-09-07. This vulnerability affects the function FilterToolCallsMiddleware of the file sdks/typescript/packages/client/src/middleware/filter-tool-calls.ts of the component Middleware. Executing a manipulation can lead to incomplete cleanup. The attack may be launched remotely. Upgrading to version 2026-09-08 is able to resolve this issue. This patch is called c346119fe870b70f5c19738ee5119f3e1456e59d. It is suggested to upgrade the affected component.",
+      "id": "CVE-2026-101264",
+      "published": "2026-09-29T00:17:02.663",
+      "description": "A vulnerability was determined in Ziroom ZHOME A0101 1.0.1.0. Impacted is an unknown function of the file /api/ZRnetwork/set_passwd. This manipulation of the argument password1 causes command injection. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-102361",
+      "published": "2026-09-29T00:17:03.183",
+      "description": "mall4j through 4.0 contains a missing authentication vulnerability in the PUT /user/updatePwd endpoint that allows unauthenticated attackers to reset any storefront account password. Attackers can supply a target username in the request body to overwrite passwords without verification, enabling account takeover and access to orders and personal data.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-101280",
+      "published": "2026-09-29T01:16:44.193",
+      "description": "A vulnerability was detected in Trusted Domain Project OpenDMARC up to 1.4.2. Affected is the function opendmarc_policy_query_dmarc of the component Multi-Record Set Handler. The manipulation results in authentication bypass by spoofing. The attack can be executed remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-101281",
+      "published": "2026-09-29T01:16:44.367",
+      "description": "A flaw has been found in Trusted Domain Project OpenDMARC up to 1.4.2. Affected by this vulnerability is the function opendmarc_sp2_find_mailfrom_domain of the file libopendmarc/opendmarc_spf.c of the component SPF Macro Handler. This manipulation causes improper authentication. The attack is possible to be carried out remotely. The exploit has been published and may be used. Patch name: c48a74c758677fc5272a73eff15ffdbf8afda1a6. Applying a patch is the recommended action to fix this issue.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-18747",
+      "published": "2026-09-29T00:17:04.473",
+      "description": "The MCUmgr SMP-over-console transport decodes a base64 frame, reads a 16-bit packet length from it, verifies a CRC and then unconditionally strips the trailing CRC with rx_ctxt->nb->len -= 2U; in mcumgr_serial_process_frag() (subsys/mgmt/mcumgr/transport/src/serial_util.c). mcumgr_serial_extract_len() accepted any declared length, including 0 and 1, and a packet declaring length 0 passes the checksum test for free because crc16_itu_t() over zero bytes returns the zero seed. Since net_buf::len is a uint16_t, the subtraction underflows and the buffer is handed to SMP claiming roughly 65 KB of payload while its data area is only CONFIG_MCUMGR_TRANSPORT_NETBUF_SIZE bytes (default 384).\n\nThe trigger is a single unauthenticated 7-byte line on the management console — the 0x06 0x09 packet marker followed by the base64 group AAA= and a newline — delivered to any transport built on this helper: CONFIG_MCUMGR_TRANSPORT_UART (smp_uart.c) or CONFIG_MCUMGR_TRANSPORT_SHELL (smp_shell.c), both of which select MCUMGR_TRANSPORT_SERIAL_HAS_SMP_OVER_CONSOLE. No prior session state, fragmentation or credentials are required to trigger the underflow, and the malformed frame is mishandled before any command handler or command-level access control runs. The attacker only needs write access to that console, which on many boards is a USB CDC-ACM port rather than a bare UART header.\n\nWith the inflated length, smp_process_request_packet() in subsys/mgmt/mcumgr/smp/src/smp.c loses its bound: cbor_nb_reader_init() gives the CBOR decoder a ~65 KB window into a 384-byte buffer, and each request header's nh_len is checked only against the inflated length. On its own the 7-byte frame re-parses whatever stale bytes the reused pool buffer still holds, typically a replay of the previously received request followed by a parse error, without leaving the buffer. Because the transport is unauthenticated, though, the attacker also controls the frames sent before the trigger, and can stage buffer contents so that a request succeeds with an nh_len larger than the buffer; net_buf_pull(), guarded only by __ASSERT_NO_MSG, then moves the parse cursor out of bounds and the loop reads further headers and CBOR from adjacent memory. The consequence is an out-of-bounds read that can fault the MCUmgr thread (denial of service); memory disclosure is also possible, since the default-enabled os echo handler (CONFIG_MCUMGR_GRP_OS_ECHO) decodes its string inside that window and copies it into its response. There is no integrity gain beyond what the unauthenticated transport already permits.\n\nThe fix rejects any declared packet length of two bytes or fewer in mcumgr_serial_extract_len(), so the CRC-strip subtraction can no longer underflow. The identical pattern remains in the test-only loopback transport subsys/mgmt/mcumgr/transport/src/smp_dummy.c (CONFIG_MCUMGR_TRANSPORT_DUMMY), which has no external input path and therefore carries no practical exposure.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-101277",
+      "published": "2026-09-29T00:17:03.010",
+      "description": "A security flaw has been discovered in Trusted Domain Project OpenDKIM up to 2.11.0. The impacted element is the function dkim_process_set of the file dkim.c of the component Tag Tokenizer. Performing a manipulation results in use of less trusted source. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-102365",
+      "published": "2026-09-29T00:17:03.777",
+      "description": "mall4j through 4.0 fails to enforce authorization checks on GET endpoints in UserAddrController that retrieve customer address data. Authenticated attackers can call /user/addr/page and /user/addr/info endpoints to harvest all customer addresses including names, phone numbers, and postal information.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-18417",
+      "published": "2026-09-29T00:17:04.207",
+      "description": "The native BSD-socket layer recorded a pending asynchronous socket error by type-punning it into struct net_context's void user_data field (ctx->user_data = INT_TO_POINTER(-status) in zsock_accepted_cb(), zsock_received_cb(), zsock_connected_cb() and zsock_close_ctx() in subsys/net/lib/sockets/sockets_inet.c), reading it back with POINTER_TO_INT(). That same field is owned by the network stack for listening TCP contexts: net_tcp_accept() stores the parent context pointer there and the TCP core passes it back to the registered accept callback. A failed accept therefore left a small integer (an errno value) where the stack expected a struct net_context .\n\nWhen the network interface carrying a listening TCP socket goes down, close_tcp_conn() in subsys/net/ip/tcp.c invokes the accept callback with -ENETDOWN and the context's user_data. In v4.3.0 the callback was not disarmed afterwards, so a second interface-down event forwarded the previously stored errno to zsock_accepted_cb(), which dereferenced it as the parent context and performed several stores through it (sock_set_error()'s read-modify-write of socket_data, k_fifo_cancel_wait(&parent->recv_q)) — the crash described in the fix's commit message. v4.3.1 and v4.4.x carry a later change clearing conn->accept_cb after the error callback (269cb8823d3 on the v4.3 branch, 913fae5169425550f2364655298fceb79b320066 on main), which closes that repeat path; on those releases the poisoned cookie remains reachable only by a narrower race, a handshake completing alongside the interface-down still passing the stale cookie to k_fifo_put(&parent->accept_q, ...), and by getsockopt(SO_ERROR), which reads the field back unconditionally.\n\nOn v4.3.0 an application that keeps a listening TCP socket open across repeated link-down events is sufficient to reach the defect; the triggering condition is a network-interface state change, not attacker-supplied packet data, so the practical attacker is one able to force the link down repeatedly (for example an adjacent attacker disrupting a wireless link) or one with local/physical access. Because both the faulting address and the stored data are fixed small constants derived from the errno value, the outcome is a wild-pointer access leading to a kernel fatal error — a denial of service (device crash or reset) rather than an attacker-directed memory corruption.\n\nThe fix stores the pending error in a dedicated net_context.sock_error field and converts every producer and consumer to sock_set_error()/sock_get_error(), leaving user_data untouched. As a side effect it also stops getsockopt(SO_ERROR) — which is evaluated unconditionally — from returning the kernel address held in user_data to a userspace application.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-101279",
+      "published": "2026-09-29T01:16:43.997",
+      "description": "A security vulnerability has been detected in Trusted Domain Project OpenDMARC up to 1.4.2. This impacts an unknown function of the file libopendmarc/opendmarc_policy.c of the component DMARC Parser. The manipulation of the argument pct leads to integer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-102373",
+      "published": "2026-09-29T01:16:44.757",
+      "description": "GestSup versions before 3.2.62 fail to validate ticket ownership when loading comments via the threadedit parameter in thread.php. Authenticated attackers can enumerate sequential comment IDs to read private comments from other users' tickets without proper authorization checks.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-102372",
+      "published": "2026-09-29T01:16:44.593",
+      "description": "GestSup versions before 3.2.61 fail to properly sanitize HTML email bodies in the IMAP LOGIN connector, allowing unauthenticated attackers to store arbitrary JavaScript in ticket descriptions and replies. Attackers can send emails to the monitored mailbox containing script tags and event handlers that execute in technician browsers, enabling ticket data theft and unauthorized actions.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-18746",
+      "published": "2026-09-29T00:17:04.347",
+      "description": "parse_write_op() in subsys/net/lib/lwm2m/lwm2m_message_handling.c handles inbound CoAP WRITE/CREATE requests that carry a Block1 option. For the first block of a transfer it called init_block_ctx() and then immediately stored the peer-selected block size with block_ctx->ctx.block_size = block_size before inspecting the return code. init_block_ctx() sets the caller's pointer to NULL and returns -ENOMEM when no entry of the static block1_contexts[] pool is free or timed out, so that store dereferences a NULL pointer.\n\nThe pool holds CONFIG_LWM2M_NUM_BLOCK1_CONTEXT entries (default 3) and an entry is only reclaimed once its transfer completes, fails, or ages past 30 seconds. A peer that reaches the client's LwM2M socket can therefore start three block-wise writes on three distinct object paths with the CoAP More bit set and leave them incomplete, then send the first block of a fourth write on a new path to reach the unguarded dereference. Reachability is gated only by the connected UDP socket's source-address filter unless CONFIG_LWM2M_DTLS_SUPPORT is enabled — which has no default — so in a NoSec deployment an on-path or address-spoofing attacker needs no credentials; the same sequence is also reachable from a bootstrap or lower-trust server, and can be hit accidentally by a legitimate server running four concurrent block transfers.\n\nThe write targets a fixed low address with a value between 0 and 7, so the consequence is a fatal memory fault (BusFault or corrupted low memory leading to a fault) rather than a usable memory-corruption primitive: the device crashes or resets. Confidentiality and integrity are not affected. The fix moves the store below the guard and validates the context pointer itself instead of the return code, so the context is only touched once it is known to be valid.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-102364",
+      "published": "2026-09-29T00:17:03.633",
+      "description": "mall4j through 4.0 fails to validate the sysType field in sa-token sessions, allowing storefront customers to authenticate as back-office users by reusing their session tokens. Attackers can register on the public storefront and use their customer session token to access admin endpoints lacking @PreAuthorize permission checks, including menu listings, file uploads, and configuration endpoints.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-101099",
-      "published": "2026-09-28T18:17:16.777",
-      "description": "A vulnerability was detected in ag-ui-protocol ag-ui up to 2026-09-23. This affects an unknown part of the file SseParser.kt of the component Kotlin Community SDK. Performing a manipulation results in handling of exceptional conditions. The attack may be initiated remotely. The pull request to fix this issue awaits acceptance.",
+      "id": "CVE-2026-102367",
+      "published": "2026-09-29T00:17:04.060",
+      "description": "mall4j through 4.0 contains an insufficient session expiration vulnerability in the token refresh endpoint that fails to validate the enabled flag when issuing new sessions. Disabled user accounts can indefinitely renew their sessions through the POST /token/refresh endpoint, retaining access that account disabling was intended to remove.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-102362",
+      "published": "2026-09-29T00:17:03.337",
+      "description": "mall4j through 4.0 fails to implement authentication controls on the DELETE /prodComm endpoint in ProdCommController. Unauthenticated attackers can delete arbitrary product reviews by supplying the prodCommId parameter without authorization checks.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-102366",
+      "published": "2026-09-29T00:17:03.917",
+      "description": "mall4j through 4.0 contains an unrestricted file upload vulnerability in FileController endpoints that lack authorization checks and accept arbitrary file types without validation. Attackers with any authenticated token can upload HTML or SVG files that execute scripts in administrator browsers when accessed from the local storage path, resulting in stored cross-site scripting.",
+      "severity": "MEDIUM",
+      "score": 4.4
+    },
+    {
+      "id": "CVE-2026-101278",
+      "published": "2026-09-29T01:16:43.787",
+      "description": "A weakness has been identified in Trusted Domain Project OpenDMARC up to 1.4.2. This affects the function opendmarc_get_tld of the file libopendmarc/opendmarc_tld.c : of the component PSL Wildcard Handler. Executing a manipulation can lead to origin validation error. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-101101",
-      "published": "2026-09-28T18:17:17.193",
-      "description": "A vulnerability has been found in ag-ui-protocol ag-ui up to 2026-09-07. This issue affects the function JSON.parse of the file legacy/convert.ts of the component Middleware. The manipulation leads to uncaught exception. Remote exploitation of the attack is possible. Upgrading to version 2026-09-08 is capable of addressing this issue. The identifier of the patch is 30f8c794d5b73df5c610153043db502b2cc106cc. Upgrading the affected component is recommended.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-102363",
+      "published": "2026-09-29T00:17:03.483",
+      "description": "mall4j through 4.0 contains a missing authentication vulnerability in the DeliveryController checkDelivery endpoint that allows unauthenticated attackers to read shipment tracking information by supplying an order number parameter. Attackers can access carrier names, waybill numbers, and complete logistics trails for any order without authentication or ownership verification.",
+      "severity": "LOW",
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-101898",
-      "published": "2026-09-28T18:17:17.860",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.13.0 until 1.20.0, Axios HTTP/2 request setup does not consistently apply proxy settings and caller-supplied DNS lookup policy. An HTTPS request uses httpVersion: 2 with explicit config.proxy or environment-derived proxy settings, or relies on caller-supplied config.lookup DNS policy. The HTTP/2 path can connect without the configured proxy behavior or without applying the caller-supplied config.lookup policy before http2.connect(). Requests can bypass the intended proxy route or the caller-supplied DNS resolution policy. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101900",
-      "published": "2026-09-28T18:17:18.050",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.12.0 until 1.20.0, ResolveConfig reads inherited Symbol.toStringTag, append, and getHeaders properties while resolving FormData headers. A separate same-process prototype-pollution flaw supplies an array or non-plain class instance whose inherited properties make it appear FormData-like; plain objects are blocked. The inherited getHeaders function can return attacker-controlled headers that resolveConfig merges into a fetch adapter request. Attacker-controlled headers can alter authorization, cache, metadata-service, or application-specific request behavior. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101901",
-      "published": "2026-09-28T18:17:18.233",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.13.0 until 1.20.0, Http2Sessions does not install adequate error handling for a ClientHttp2Session during Axios HTTP/2 session initialization or reuse. A request uses httpVersion: 2 and the ClientHttp2Session emits an error during session initialization or reuse. The unhandled session error escapes normal Promise rejection handling. The uncaught error can terminate the Node.js process and cause denial of service. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101902",
-      "published": "2026-09-28T18:17:18.397",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 0.27.2 until 0.34.0 and 1.20.0, Axios default-instance requests that omit an explicit method can read an inherited method value from Object.prototype. If another vulnerability in the same process pollutes Object.prototype.method, calls such as axios.request({ url }) and axios({ url }) can send a state-changing HTTP method instead of the expected default GET. Axios does not create the prototype pollution source. This is a read-side gadget in axios request dispatch. This issue is fixed in version 0.34.0 and 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101903",
-      "published": "2026-09-28T18:17:18.560",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.16.1 until 1.20.0, the RFC 2397 regular expression allows slash characters on both sides of the media-type separator. An application passes an attacker-controlled malformed data URL containing many slash characters and no comma. the JavaScript regular-expression engine explores many separator placements before rejecting the URL. Synchronous excessive backtracking can block the Node.js event loop and cause denial of service. The affected identifiers are fromDataURI, DATA_URL_PATTERN, data:. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101904",
-      "published": "2026-09-28T18:17:18.740",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.0.0 until 1.20.0, the dispatchRequest function normalizes inherited Object.prototype.headers from a replacement request configuration. A separate same-process prototype-pollution flaw sets Object.prototype.headers, and trusted request interceptors return a new ordinary configuration without an own headers property. After the interceptor chain, dispatchRequest resolves the inherited headers during normalization. Downstream request processing can observe attacker-controlled headers, including authorization-related values. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101905",
-      "published": "2026-09-28T18:17:18.923",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.15.2 until 1.20.0, the Node HTTP adapter in lib/adapters/http.js supplies request options without an own createConnection value. A separate same-process prototype-pollution flaw places a function on Object.prototype.createConnection. Node resolves and invokes the inherited createConnection socket factory, allowing the attacker-controlled function to select the transport endpoint. The attacker endpoint can receive request headers and bodies, including credentials, and return attacker-controlled responses while the URL appears legitimate. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101906",
-      "published": "2026-09-28T18:17:19.100",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.15.0 until 1.20.0, Axios shouldBypassProxy applies a quadratic trailing-dot regular expression to redirect hostnames. HTTP_PROXY or HTTPS_PROXY is configured, NO_PROXY or no_proxy is non-empty, redirects are followed, and a crafted redirect Location contains many dots followed by a non-dot character. Hostname.replace(/.+$/, '') backtracks quadratically while processing the crafted redirect hostname. Synchronous regular-expression processing can block the Node.js event loop and cause denial of service. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101907",
-      "published": "2026-09-28T18:17:19.270",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.17.0 until 1.20.0, the fetch adapter bypasses the maxRedirects: 0 redirect policy. An Axios request uses the fetch adapter with maxRedirects set to zero and receives a redirect response. The underlying fetch implementation follows the redirect instead of returning the redirect response unchanged. The redirected request can access internal responses or reach state-changing internal endpoints despite redirects being disabled. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101908",
-      "published": "2026-09-28T18:17:19.440",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 1.7.0 until 1.20.0, the fetch adapter constructs a Request with sanitized resolvedOptions but then calls fetch with the original fetchOptions. A separate same-process prototype-pollution flaw populates Object.prototype.headers so fetchOptions.headers resolves through inheritance. The inherited fetchOptions.headers value overrides the sanitized Request headers through the second argument to fetch after Request construction. Attacker-controlled request headers can alter authorization, caching, metadata-service access, or application-specific behavior. This issue is fixed in version 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101909",
-      "published": "2026-09-28T18:17:19.680",
-      "description": "Axios is a promise-based HTTP client for the browser and Node.js. From 0.28.0 until 0.34.0 and 1.15.1 until 1.20.0, ToFormData processes inherited serialization options and visitor properties supplied through prototype pollution. A separate same-process prototype-pollution flaw supplies inherited dots, indexes, metaTokens, maxDepth, visitor, or Blob values before object serialization. The inherited options alter toFormData field naming and data interpretation, maxDepth can force request failure, Blob changes value handling, and a polluted visitor can execute when an attacker already has the stronger ability to inject a function. Serialized field naming and data interpretation can change, maxDepth can cause request failure, Blob can alter value handling, and a polluted visitor can execute under the stronger function-injection primitive. This issue is fixed in versions 0.34.0 and 1.20.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101910",
-      "published": "2026-09-28T18:17:20.710",
-      "description": "ip-address is a library for parsing and manipulating IPv4 and IPv6 addresses in JavaScript. From 10.2.0 until 10.5.1, the Address6 isPrivate classifier in src/ipv6.ts does not recognize the NAT64 local-use range 64:ff9b:1::/48. Applications that combine isPrivate, isLoopback, and isLinkLocal for a trust-boundary decision can treat an internal IPv4 destination encoded through that range as external. Exploitation depends on a server network using an operator-selected NAT64 prefix within the local-use range. A successful bypass can cross the intended network trust boundary. This issue is fixed in version 10.5.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101911",
-      "published": "2026-09-28T18:17:20.907",
-      "description": "ip-address is a library for parsing and manipulating IPv4 and IPv6 addresses in JavaScript. Prior to 10.7.1, the Address6 constructor, Address6.isValid, and parse code in src/ipv6.ts accept unbounded strings and expand invalid characters through RE_BAD_CHARACTERS into large diagnostics. Material impact occurs only when an application accepts a very large attacker-controlled field and passes it to Address6 parsing without an earlier length bound. Common URL and header limits, and common body-parser defaults, generally constrain the effect; common defaults typically exclude 32 MiB fields. Megabyte-scale fields can cause a synchronous stall and high transient memory use, approximately 16 MiB can trigger an invalid string length exception, and process termination occurs at approximately 32 MiB. The affected entry points include Address6.isValid and construction paths that reach parse. This issue is fixed in version 10.7.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101912",
-      "published": "2026-09-28T18:17:21.073",
-      "description": "ip-address is a library for parsing and manipulating IPv4 and IPv6 addresses in JavaScript. Prior to 10.7.1, the isInSubnet and isHostInSubnet methods in src/common.ts compare masked binary strings without validating that both operands use the same IP family. A cross-family containment check whose leading address bits match makes the masked strings compare equal even though IPv4 and IPv6 do not share an address space. An allowlist or denylist decision can therefore classify an address outside the intended range as contained. This issue is fixed in version 10.7.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101913",
-      "published": "2026-09-28T18:17:21.237",
-      "description": "ip-address is a library for parsing and manipulating IPv4 and IPv6 addresses in JavaScript. Prior to 10.5.1, the Address6 isLinkLocal method in src/ipv6.ts recognizes only fe80::/64 instead of the complete fe80::/10 IPv6 link-local range. An attacker-controlled address elsewhere in fe80::/10 can therefore pass a trust-boundary check that relies on isLinkLocal. The same address is identified as link-local by getType and getScope, exposing the inconsistent classification. A successful bypass can reach an on-link host outside the intended trust boundary. This issue is fixed in version 10.5.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-45562",
-      "published": "2026-09-28T18:17:21.947",
-      "description": "FreePBX is an open source IP PBX. Prior to versions 16.0.4 and 17.0.6, the FreePBX Music on Hold (MoH) module contains a critical security flaw that allows authenticated attackers to execute arbitrary system commands with the privileges of the Asterisk service. Authentication with an existing FreePBX administrator account is required. The root cause lies in the fact that the module accepts a POST parameter that defines a custom Asterisk application, which is then stored in the database without any sanitization. Later, this data is written directly to the musiconhold_additional.conf configuration file without validation. Since Asterisk reads this configuration file and executes the specified application, an attacker can inject arbitrary commands that will be executed with Asterisk's permissions. This issue has been patched in versions 16.0.4 and 17.0.6.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-101265",
+      "published": "2026-09-29T00:17:02.833",
+      "description": "A vulnerability was identified in Intelbras TIP 125i 4.3.35/4.3.41. The affected element is an unknown function of the component Básico Page. Such manipulation leads to inclusion of sensitive information in source code. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is described as difficult. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure.",
+      "severity": "LOW",
+      "score": 3.1
     }
   ]
 }
