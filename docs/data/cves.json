@@ -1,145 +1,145 @@
 {
-  "totalResults": 2708,
+  "totalResults": 2785,
   "items": [
     {
-      "id": "CVE-2026-102379",
-      "published": "2026-10-01T13:17:07.297",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in VillaTheme BuildKit – Product Builder for WooCommerce – Custom PC Builder woo-product-builder allows Blind SQL Injection.This issue affects BuildKit – Product Builder for WooCommerce – Custom PC Builder: from n/a through 1.0.28.",
-      "severity": "HIGH",
-      "score": 8.5
+      "id": "CVE-2026-104286",
+      "published": "2026-10-01T20:17:24.010",
+      "description": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-103338",
-      "published": "2026-10-01T13:17:08.350",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Blind SQL Injection.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.20.",
-      "severity": "HIGH",
-      "score": 8.5
+      "id": "CVE-2026-56662",
+      "published": "2026-10-01T20:17:26.950",
+      "description": "GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. Prior to version 1.5, the UpdateCE update form contained no anti-CSRF token, and the POST handler performed no token or request-origin verification. A remote attacker can host a page that auto-submits a forged POST to the update endpoint; when an authenticated administrator visits it, the server performs an attacker-directed download-and-deploy operation in the administrator's session — with no further interaction. Because the deployed content is executed (see the related ZIP-extraction advisory), this yields remote code execution. The url field is additionally written into the form unescaped, providing a secondary HTML-injection sink via a malicious upgrade.json. This issue has been patched in version 1.5.",
+      "severity": "CRITICAL",
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-103067",
-      "published": "2026-10-01T13:17:08.223",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in Memberful Memberful - Membership Plugin memberful-wp allows Cross Site Request Forgery.This issue affects Memberful - Membership Plugin: from n/a through 1.81.0.",
-      "severity": "HIGH",
-      "score": 8
+      "id": "CVE-2026-102628",
+      "published": "2026-10-01T20:17:21.447",
+      "description": "The Cadmos LTI application hosted at cadmos.eummena.io had Laravel debug mode enabled (APP_DEBUG=true, APP_ENV=local) in a publicly accessible environment. An unauthenticated attacker could send a GET request and trigger an unhandled exception, causing Laravel to expose the entire server environment, including all .env configuration variables, in plaintext. Fixed on or before 2026-09-02.",
+      "severity": "CRITICAL",
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-62059",
-      "published": "2026-10-01T13:17:10.010",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Ultimate Member Ultimate Member ultimate-member allows Blind SQL Injection.This issue affects Ultimate Member: from n/a through 2.13.1.",
-      "severity": "HIGH",
-      "score": 7.6
+      "id": "CVE-2026-53953",
+      "published": "2026-10-01T20:17:25.283",
+      "description": "GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. In version 3.3.22, the password reset endpoint can be accessed without authentication. When a reset request is submitted for an existing user, the application generates a new temporary password and immediately stores its hash as the user's new password. The temporary password is generated using PHP rand() seeded with microtime(). Because this seed is time-based and has a limited effective search space, an attacker can generate possible reset password candidates. Since the admin login endpoint does not enforce rate limiting or account lockout, these candidates can be tested online until the correct password is found. Successful exploitation may lead to administrator account takeover. At time of publication, there are no publicly available patches.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-62060",
-      "published": "2026-10-01T13:17:10.140",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in captivateaudio Captivate Sync captivatesync-trade allows Blind SQL Injection.This issue affects Captivate Sync: from n/a through 3.3.2.",
-      "severity": "HIGH",
-      "score": 7.6
+      "id": "CVE-2026-56660",
+      "published": "2026-10-01T20:17:26.643",
+      "description": "GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. Prior to version 1.5, the update handler in UpdateCE.php downloads a ZIP archive and extracts its contents into the web root without validating file types or extraction paths. Because PHP files are written into a web-accessible directory, an attacker who can cause a malicious archive to be processed achieves remote code execution as the web-server user. Entry names are also used unsafely, allowing directory traversal (../) to write files outside the intended extraction directory. This issue has been patched in version 1.5.",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-102504",
-      "published": "2026-10-01T14:17:20.080",
-      "description": "Imager versions before 1.037 for Perl exit the process reading a raw image with an out-of-range raw_datachannels value in i_readraw_wiol.\n\nNothing range-checks raw_datachannels. The line buffer is sized as the image width times the channel count with no overflow check, so a negative or very large count requests an excessive allocation. When it fails, Imager's allocator calls exit(3).\n\nPassing an untrusted raw_datachannels value to Imager->read() triggers an uncatchable exit.",
+      "id": "CVE-2026-103484",
+      "published": "2026-10-01T20:17:23.213",
+      "description": "IVFFlat index build in pgvector before 0.8.7 allows a database user to write data out-of-bounds, which can lead to arbitrary code execution.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-54049",
+      "published": "2026-10-01T20:17:25.587",
+      "description": "Sakai is a Collaboration and Learning Environment (CLE). From versions 23.0 to before 23.5, and versions 25.0 to before 25.3, the Sakai Conversations tool stores topic and post messages without HTML sanitization, and the frontend renders them using LitElement's unsafeHTML() directive, resulting in stored cross-site scripting (XSS). Any authenticated user with access to a site that has the Conversations tool enabled can inject arbitrary HTML and JavaScript that executes in the browsers of all other users who view that topic or post. This issue has been patched in versions 23.5, 25.3, and 26.0.",
+      "severity": "HIGH",
+      "score": 8.7
+    },
+    {
+      "id": "CVE-2026-102667",
+      "published": "2026-10-01T20:17:21.750",
+      "description": "Joyland AI app allows an attacker with shared network access to inject JavaScript into content loaded in WebView. Without user-granted permissions, an attacker could access the clipboard, make arbitrary HTTP requests via the Weex 'stream' module, or access app-internal storage.  If the installed app has been granted permissions previously, the attacker can access the entire file system, camera, microphone, and GPS tracking.",
+      "severity": "HIGH",
+      "score": 8.3
+    },
+    {
+      "id": "CVE-2026-56661",
+      "published": "2026-10-01T20:17:26.793",
+      "description": "GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. Prior to version 1.5, the update handler fetches a user-supplied URL with file_get_contents() after only format validation (FILTER_VALIDATE_URL) — there is no validation of the request destination. An attacker who can submit the form can make the server issue requests to arbitrary destinations, including internal-only services and cloud metadata endpoints (169.254.169.254). The fetched response body is written to a web-accessible file (/Tmpfile.zip) and is not deleted when the content is not a valid ZIP, turning this into a full-read SSRF: the attacker can retrieve the response of the internal request directly. This issue has been patched in version 1.5.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-102394",
-      "published": "2026-10-01T13:17:07.827",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPDeveloper Essential Addons for Elementor essential-addons-for-elementor-lite allows Stored XSS.This issue affects Essential Addons for Elementor: from n/a through 6.8.4.",
+      "id": "CVE-2026-53964",
+      "published": "2026-10-01T20:17:25.440",
+      "description": "Document Merge Service is a document template merge service providing an API to manage templates and merge them with given data. Prior to version 9.1.0, a remote code execution (RCE) via server-side template injection (SSTI) allows for user supplied code to be executed in the server's context where it is executed as the document-merge-server user with the UID 901 thus giving an attacker considerable control over the container. The vulnerability is limited to XLSX templates, were the xltpl library uses a npn-sandboxed Jinja environment for the processing of the template. This issue has been patched in version 9.1.0.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-100251",
+      "published": "2026-10-01T20:17:20.707",
+      "description": "Wormhole.app as deployed before 2026-08-22 misconfigures the coturn TURN server and does not properly restrict TCP relay peers, allowing an unauthenticated attacker to access instance metadata or to source TCP connections from the Wormhole relay's IP.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-103063",
-      "published": "2026-10-01T13:17:07.960",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wpmet ElementsKit Elementor addons Lite elementskit-lite allows Stored XSS.This issue affects ElementsKit Elementor addons Lite: from n/a through 4.0.6.",
+      "id": "CVE-2026-102666",
+      "published": "2026-10-01T20:17:21.610",
+      "description": "The Joyland AI app contains hard-coded credentials for the GeTui push notification service, allowing an attacker to access the GeTui REST API and send push notifications containing arbitrary content to any user, group of users, or all users of the app at once.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-103064",
-      "published": "2026-10-01T13:17:08.090",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wpmet ElementsKit Elementor addons Lite elementskit-lite allows Stored XSS.This issue affects ElementsKit Elementor addons Lite: from n/a through 4.0.6.",
+      "id": "CVE-2026-55251",
+      "published": "2026-10-01T20:17:25.957",
+      "description": "NetBox Device Type Library is a collection of community-sourced device type definitions for import into NetBox. Prior to commit f41fc1e, the CI workflow .github/workflows/validation.yml runs on pull_request and executes code supplied by the pull request before any maintainer review. Three PR-editable files drive this: \"requirements.txt\", \".pre-commit-hooks-config.yaml\" / \".pre-commit-yamlfmt-config.yaml\", and \".gitmodules\". A contributor with no special repository access could open a pull request that modifies these files and have their code run on the CI runner. This issue has been patched via commit f41fc1e.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-103339",
-      "published": "2026-10-01T13:17:08.477",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wpmet Metform metform allows Stored XSS.This issue affects Metform: from n/a through 4.3.0.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-103343",
-      "published": "2026-10-01T13:17:08.883",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP ManageNinja LLC FluentForm fluentform allows Stored XSS.This issue affects FluentForm: from n/a through 6.2.14.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-62063",
-      "published": "2026-10-01T13:17:10.400",
-      "description": "Missing Authorization vulnerability in Magepeople inc. WpTravelly tour-booking-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WpTravelly: from n/a through 2.3.1.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-102381",
-      "published": "2026-10-01T13:17:07.437",
-      "description": "Missing Authorization vulnerability in Ahmad Majestic Support majestic-support allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Majestic Support: from n/a through 1.2.0.",
+      "id": "CVE-2026-102668",
+      "published": "2026-10-01T20:17:21.890",
+      "description": "The Joyland AI app accepts any TLS certificates from any server without validation.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-102390",
-      "published": "2026-10-01T13:17:07.697",
-      "description": "Missing Authorization vulnerability in VillaTheme AFFI – Affiliate Marketing for WooCommerce affi-affiliate-marketing-for-woo allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AFFI – Affiliate Marketing for WooCommerce: from n/a through 1.0.9.",
+      "id": "CVE-2026-102669",
+      "published": "2026-10-01T20:17:22.023",
+      "description": "Joyland AI app does not verify hostnames, allowing a malicious host to connect or intercept chat messages.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-103340",
-      "published": "2026-10-01T13:17:08.617",
-      "description": "Missing Authorization vulnerability in Gemini Labs Site Reviews site-reviews allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Site Reviews: from n/a through 8.3.2.",
+      "id": "CVE-2026-102671",
+      "published": "2026-10-01T20:17:22.307",
+      "description": "The Joyland AI app accepts invalid SSL certificates in the invisible advertisement WebView by default.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-103341",
-      "published": "2026-10-01T13:17:08.743",
-      "description": "Missing Authorization vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.20.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-103345",
-      "published": "2026-10-01T13:17:09.033",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Shamim Rajani Pie Register pie-register allows Retrieve Embedded Sensitive Data.This issue affects Pie Register: from n/a through 3.8.4.13.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-62058",
-      "published": "2026-10-01T13:17:09.880",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in WPExperts CF7 Apps contact-form-7-honeypot allows Retrieve Embedded Sensitive Data.This issue affects CF7 Apps: from n/a through 3.7.2.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-62061",
-      "published": "2026-10-01T13:17:10.273",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in Metagauss ProfileGrid profilegrid-user-profiles-groups-and-communities allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects ProfileGrid: from n/a through 6.0.0.2.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-102382",
-      "published": "2026-10-01T13:17:07.567",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in Ahmad Majestic Support majestic-support allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Majestic Support: from n/a through 1.2.0.",
+      "id": "CVE-2026-102670",
+      "published": "2026-10-01T20:17:22.160",
+      "description": "Joyland AI app explicitly permits cleartext HTTP traffic on Android 9+ where the default is to block it.",
       "severity": "MEDIUM",
       "score": 4.3
+    },
+    {
+      "id": "CVE-2026-14983",
+      "published": "2026-10-01T20:17:24.167",
+      "description": "Missing authentication in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 allows remote unauthenticated attackers to achieve denial of service against Teledyne FLIR PackBot robots running this software via misuse of the reboot endpoint.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-14984",
+      "published": "2026-10-01T20:17:24.297",
+      "description": "Cleartext transmission in the primary control endpoints of Teledyne FLIR Aware2 versions through 6.9.0.2 allows remote unauthenticated attackers to intercept, hijack, or modify session traffic against Teledyne FLIR PackBot robots running this software via sniffing or hijacking network traffic.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-55252",
+      "published": "2026-10-01T20:17:26.110",
+      "description": "OpenRun is an open-source, self-hosted GitOps platform for deploying web apps and internal tools to Docker or Kubernetes. Prior to version 0.17.7, the restrictions on redirect URLs in openrun can be bypassed by attackers, leading to open redirect attacks. This issue has been patched in version 0.17.7.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
