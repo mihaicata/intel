@@ -1,145 +1,145 @@
 {
-  "totalResults": 2773,
+  "totalResults": 2708,
   "items": [
     {
-      "id": "CVE-2026-101148",
-      "published": "2026-10-01T06:17:04.057",
-      "description": "The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 does not properly validate its integration key, treating an unset or blank key as valid, which allows unauthenticated attackers to create and download full site backups, including the database with user password hashes, and to delete arbitrary files on the server, leading to sensitive data disclosure and site takeover.\n\nThe BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-101147",
-      "published": "2026-10-01T06:17:01.790",
-      "description": "The Featured Image from URL (FIFU) WordPress plugin before 6.0.8, Featured Image from URL (FIFU) Premium WordPress plugin before 8.2.8 do not correctly enforce the REST API nonce, disabling the check for the whole request when a crafted URL is used, which could allow attackers to make a logged-in administrator perform any REST API action, such as creating a new administrator account, via a CSRF attack.",
+      "id": "CVE-2026-102379",
+      "published": "2026-10-01T13:17:07.297",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in VillaTheme BuildKit – Product Builder for WooCommerce – Custom PC Builder woo-product-builder allows Blind SQL Injection.This issue affects BuildKit – Product Builder for WooCommerce – Custom PC Builder: from n/a through 1.0.28.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-80275",
-      "published": "2026-10-01T06:17:09.720",
-      "description": "Comelit Multi-User Gateway for VIP System (model 1456B) firmware versions 2.9.1 and 2.10.0 fail to enforce server-side authorization on an administrative password-change function. An authenticated user level can invoke this function to overwrite the installer (administrator) account password.",
+      "id": "CVE-2026-103338",
+      "published": "2026-10-01T13:17:08.350",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Blind SQL Injection.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.20.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-19253",
-      "published": "2026-10-01T06:17:08.467",
-      "description": "The Cache Enabler WordPress plugin before 1.8.17 does not validate a URL before using it to build a filesystem path in its cache purge routine, and does not confine the resulting deletion to the cache directory, allowing unauthenticated users to delete arbitrary files and directories on sites where another installed Cache Enabler WordPress plugin before 1.8.17 or  passes a request-derived URL to its public cache-clearing hook.",
+      "id": "CVE-2026-103067",
+      "published": "2026-10-01T13:17:08.223",
+      "description": "Cross-Site Request Forgery (CSRF) vulnerability in Memberful Memberful - Membership Plugin memberful-wp allows Cross Site Request Forgery.This issue affects Memberful - Membership Plugin: from n/a through 1.81.0.",
       "severity": "HIGH",
-      "score": 8.7
+      "score": 8
     },
     {
-      "id": "CVE-2026-89296",
-      "published": "2026-10-01T06:17:14.337",
-      "description": "The Pro Like Button WordPress plugin before 2.0 does not properly sanitize and escape a parameter before using it in a SQL query, allowing unauthenticated users to perform SQL injection attacks.",
+      "id": "CVE-2026-62059",
+      "published": "2026-10-01T13:17:10.010",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Ultimate Member Ultimate Member ultimate-member allows Blind SQL Injection.This issue affects Ultimate Member: from n/a through 2.13.1.",
       "severity": "HIGH",
-      "score": 8.6
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-80276",
-      "published": "2026-10-01T06:17:10.430",
-      "description": "Comelit Multi-User Gateway for VIP System (model 1456B) firmware versions 2.9.1 and 2.10.0 expose a network-accessible management interface that does not require authentication. Through this interface, sensitive device configuration data - including the Remote Configuration Password - can be read in cleartext by a remote, unauthenticated attacker.",
+      "id": "CVE-2026-62060",
+      "published": "2026-10-01T13:17:10.140",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in captivateaudio Captivate Sync captivatesync-trade allows Blind SQL Injection.This issue affects Captivate Sync: from n/a through 3.3.2.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-81739",
-      "published": "2026-10-01T06:17:10.783",
-      "description": "The Paytm Payment Gateway WordPress plugin before 2.8.9 does not sanitize and escape data it stores from payment callbacks before outputting it in an admin page, and the integrity check on those callbacks can be forged when the gateway is enabled without credentials, allowing unauthenticated users to store scripts that will run in the session of a store administrator.",
+      "id": "CVE-2026-102504",
+      "published": "2026-10-01T14:17:20.080",
+      "description": "Imager versions before 1.037 for Perl exit the process reading a raw image with an out-of-range raw_datachannels value in i_readraw_wiol.\n\nNothing range-checks raw_datachannels. The line buffer is sized as the image width times the channel count with no overflow check, so a negative or very large count requests an excessive allocation. When it fails, Imager's allocator calls exit(3).\n\nPassing an untrusted raw_datachannels value to Imager->read() triggers an uncatchable exit.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-81809",
-      "published": "2026-10-01T06:17:11.197",
-      "description": "The Paytm Payment Gateway WordPress plugin before 2.8.9 does not properly escape data taken from payment callbacks before using it in a SQL statement, and the integrity check on those callbacks can be forged when the gateway is enabled without credentials, allowing unauthenticated users to perform SQL injection attacks.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-85679",
-      "published": "2026-10-01T06:17:11.577",
-      "description": "The Extendify plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'styles.blocks' Block Type Key in all versions up to, and including, 3.1.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is possible because registerIncoming() is hooked on rest_request_before_callbacks and runs before WordPress evaluates the route's permission_callback, meaning any unauthenticated POST, PUT, or PATCH request to a /wp/v2/global-styles route can trigger the vulnerable code path.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-67075",
-      "published": "2026-10-01T06:17:08.940",
-      "description": "HCL Digital Experience is affected by improper input sanitation.  This can result in HTML injection which could be leveraged in content spoofing from a trusted domain. Apply HCL Digital Experience 9.5 CF238 or later to address this.",
+      "id": "CVE-2026-102394",
+      "published": "2026-10-01T13:17:07.827",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPDeveloper Essential Addons for Elementor essential-addons-for-elementor-lite allows Stored XSS.This issue affects Essential Addons for Elementor: from n/a through 6.8.4.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-90974",
-      "published": "2026-10-01T06:17:15.080",
-      "description": "The WP Fusion Lite  WordPress plugin before 3.48.0 does not require authentication on a settings handler that runs during admin initialization, allowing unauthenticated users to overwrite the site's CRM integration endpoint and credentials, after which synced user data is delivered to an attacker-chosen host.",
+      "id": "CVE-2026-103063",
+      "published": "2026-10-01T13:17:07.960",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wpmet ElementsKit Elementor addons Lite elementskit-lite allows Stored XSS.This issue affects ElementsKit Elementor addons Lite: from n/a through 4.0.6.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-86610",
-      "published": "2026-10-01T06:17:12.410",
-      "description": "The Download Manager WordPress plugin before 3.3.71 does not sufficiently sanitise and escape a package setting before outputting it back in a page, which could allow users with the Author role and above to perform Stored Cross-Site Scripting attacks against any visitor who opens the package's download dialogue, including administrators. Only sites running PHP below 8.1 are affected, as the sanitisation applied when the setting is saved does not neutralise single quotes there.",
+      "id": "CVE-2026-103064",
+      "published": "2026-10-01T13:17:08.090",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wpmet ElementsKit Elementor addons Lite elementskit-lite allows Stored XSS.This issue affects ElementsKit Elementor addons Lite: from n/a through 4.0.6.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-103540",
-      "published": "2026-10-01T06:17:04.393",
-      "description": "A security vulnerability has been detected in formtools.org Form Tools up to 3.1.1. This vulnerability affects the function Clients::updateClientSettingsTab of the file global/code/Clients.class.php of the component Client Settings. The manipulation of the argument page_titles leads to improper neutralization of special elements used in a template engine. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-103339",
+      "published": "2026-10-01T13:17:08.477",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wpmet Metform metform allows Stored XSS.This issue affects Metform: from n/a through 4.3.0.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-103541",
-      "published": "2026-10-01T06:17:05.630",
-      "description": "A vulnerability was detected in formtools.org Form Tools up to 3.1.1. This issue affects the function Files::uploadFile of the file global/code/actions.php of the component Ajax Handler. The manipulation results in unrestricted upload. It is possible to launch the attack remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-103343",
+      "published": "2026-10-01T13:17:08.883",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP ManageNinja LLC FluentForm fluentform allows Stored XSS.This issue affects FluentForm: from n/a through 6.2.14.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-103543",
-      "published": "2026-10-01T06:17:07.620",
-      "description": "A vulnerability has been found in itsourcecode Leave Management System 1.0. The affected element is an unknown function of the file /module/leavetype/controller.php. Such manipulation of the argument LEAVTID leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-90972",
-      "published": "2026-10-01T06:17:14.700",
-      "description": "The WP Fusion Lite  WordPress plugin before 3.48.0 does not perform a capability check on two of its admin AJAX handlers, allowing any authenticated subscriber to read other users' email addresses and to trigger a cross-user CRM re-sync.",
+      "id": "CVE-2026-62063",
+      "published": "2026-10-01T13:17:10.400",
+      "description": "Missing Authorization vulnerability in Magepeople inc. WpTravelly tour-booking-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WpTravelly: from n/a through 2.3.1.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-87970",
-      "published": "2026-10-01T06:17:12.840",
-      "description": "The If-So Dynamic Content  WordPress plugin before 1.10.2 does not escape a request-supplied value before reflecting it in an unauthenticated AJAX response that is served as HTML, allowing attackers to execute arbitrary JavaScript in the browser of a visitor who opens a crafted link.",
+      "id": "CVE-2026-102381",
+      "published": "2026-10-01T13:17:07.437",
+      "description": "Missing Authorization vulnerability in Ahmad Majestic Support majestic-support allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Majestic Support: from n/a through 1.2.0.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-103542",
-      "published": "2026-10-01T06:17:06.417",
-      "description": "A flaw has been found in formtools.org Form Tools up to 3.1.1. Impacted is the function smart_fill of the file /global/code/actions.php of the component AJAX Endpoint. This manipulation of the argument url causes server-side request forgery. The attack can be initiated remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-102390",
+      "published": "2026-10-01T13:17:07.697",
+      "description": "Missing Authorization vulnerability in VillaTheme AFFI – Affiliate Marketing for WooCommerce affi-affiliate-marketing-for-woo allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AFFI – Affiliate Marketing for WooCommerce: from n/a through 1.0.9.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-103340",
+      "published": "2026-10-01T13:17:08.617",
+      "description": "Missing Authorization vulnerability in Gemini Labs Site Reviews site-reviews allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Site Reviews: from n/a through 8.3.2.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-103341",
+      "published": "2026-10-01T13:17:08.743",
+      "description": "Missing Authorization vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.20.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-103345",
+      "published": "2026-10-01T13:17:09.033",
+      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Shamim Rajani Pie Register pie-register allows Retrieve Embedded Sensitive Data.This issue affects Pie Register: from n/a through 3.8.4.13.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-62058",
+      "published": "2026-10-01T13:17:09.880",
+      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in WPExperts CF7 Apps contact-form-7-honeypot allows Retrieve Embedded Sensitive Data.This issue affects CF7 Apps: from n/a through 3.7.2.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-62061",
+      "published": "2026-10-01T13:17:10.273",
+      "description": "Authorization Bypass Through User-Controlled Key vulnerability in Metagauss ProfileGrid profilegrid-user-profiles-groups-and-communities allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects ProfileGrid: from n/a through 6.0.0.2.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-102382",
+      "published": "2026-10-01T13:17:07.567",
+      "description": "Authorization Bypass Through User-Controlled Key vulnerability in Ahmad Majestic Support majestic-support allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Majestic Support: from n/a through 1.2.0.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-88999",
-      "published": "2026-10-01T06:17:13.597",
-      "description": "The Redux Framework plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.5.14 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary media library attachments, including administrator-owned files, from the affected site. This is exploitable by Subscribers when a Custom Fonts field is registered on the user profile page via Redux_Users::set_profile(), as doing so causes the required redux_custom_fonts nonce to be rendered into the Subscriber's wp-admin/profile.php page.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-87973",
-      "published": "2026-10-01T06:17:13.267",
-      "description": "The If-So Dynamic Content  WordPress plugin before 1.10.2 does not sanitize a conversion name before storing it, nor escape it when rendering the analytics page, allowing users with editor-level access to store JavaScript that executes in the session of a higher-privileged user who views that page.",
-      "severity": "LOW",
-      "score": 3.1
     }
   ]
 }
