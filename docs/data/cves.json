@@ -1,145 +1,145 @@
 {
-  "totalResults": 2853,
+  "totalResults": 2766,
   "items": [
     {
-      "id": "CVE-2026-15896",
-      "published": "2026-10-02T06:16:40.773",
-      "description": "The Super Forms – Drag & Drop Form Builder plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 6.3.316 via the parse_request function. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. The optional 'file_upload_auth' setting defaults to empty, meaning no authentication is required in the default configuration; enabling this setting mitigates unauthenticated exploitation but does not remediate the path traversal itself. Exploitation on Linux requires a real 13-digit timestamp directory to exist, whereas on Windows the traversal works with any hardcoded 13-digit prefix. However, the plugin's file upload response returns the name of the created directory, which means the vulnerability is exploitable as long as file upload is enabled on the form.",
+      "id": "CVE-2026-104610",
+      "published": "2026-10-02T13:17:44.450",
+      "description": "A security vulnerability has been detected in Tenda HG7, HG9 and HG10 300001138_en_xpon. This impacts the function boaGetVar of the file /boaform/formLoopBack of the component Boa Web Server. Such manipulation of the argument Ethtype leads to stack-based buffer overflow. The attack can be executed remotely. The exploit has been disclosed publicly and may be used.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-104611",
+      "published": "2026-10-02T13:17:44.640",
+      "description": "A vulnerability was detected in Tenda AC9 15.03.02.13. Affected is an unknown function of the file /goform/fast_setting_internet_set of the component POST Request Handler. Performing a manipulation of the argument netWanType results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit is now public and may be used.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-15897",
-      "published": "2026-10-02T06:16:41.053",
-      "description": "The Super Forms – Drag & Drop Form Builder plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 6.3.316. This is due to the Register & Login add-on's before_email_success_msg() function, in its register_login_action='update' flow, trusting an attacker-supplied user_id value and passing it to wp_update_user() without any ownership or capability check. Because the super_save_form AJAX action also enforces no capability check, any authenticated user with Subscriber-level access and above can create the required malicious form (register_login_action='update' with register_login_user_id_update='true') and then submit it with user_id set to an administrator's ID along with a new user_pass/user_email. This makes it possible for authenticated attackers with Subscriber-level access and above to overwrite the credentials of arbitrary existing accounts — including administrators — resulting in account takeover and full site compromise.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-92820",
-      "published": "2026-10-02T06:16:43.197",
-      "description": "The Ninja Forms - File Uploads plugin for WordPress is vulnerable to arbitrary file operations in all versions up to, and including, 3.3.34 via the external (Amazon S3) upload flow. The plugin trusts an attacker-supplied file path from the form submission and stores it as the upload's file_path, which is then used without validation to attach a file to the form's notification email (arbitrary file read), to write fetched content (arbitrary file write, leading to remote code execution when the external store is configured), and in a scheduled deletion (arbitrary file deletion). This makes it possible for unauthenticated attackers to read, write, or delete arbitrary files on the server. Exploitation requires the site to use the plugin's External File Upload (Amazon S3) action; the read variant additionally requires a form Email action configured to attach the uploaded file.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-91828",
-      "published": "2026-10-02T06:16:42.857",
-      "description": "The OMGF | GDPR/DSGVO Compliant, Faster Google Fonts. Easy. WordPress plugin before 6.3.11 does not require authentication or a valid nonce on an action that issues a slow server-side loopback request, allowing unauthenticated attackers to exhaust the site's PHP worker pool and make the entire site unavailable.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-92174",
-      "published": "2026-10-02T06:16:43.007",
-      "description": "The SiteOrigin Widgets Bundle plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.73.2 via the 'theme' parameter parameter. This makes it possible for authenticated attackers, with contributor-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included. Exploitation requires sending a malicious widgetData payload containing a legacy top-level theme key alongside a non-empty columns array to the /wp-json/sowb/v1/widgets/previews REST endpoint, which bypasses field validation because update_fields() only processes declared form fields.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-90438",
-      "published": "2026-10-02T06:16:42.050",
-      "description": "The Ninja Forms – The Contact Form Builder That Grows With You plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Paragraph Text (RTE) Field Submission in all versions up to, and including, 3.15.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is only exploitable when the targeted Paragraph Text field has the Rich Text Editor (RTE) option enabled.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-102565",
-      "published": "2026-10-02T07:16:35.617",
-      "description": "The BA Book Everything plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'booking_service_qty' parameter in all versions up to, and including, 1.8.28 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires that an administrator or other privileged user opens the injected order record in the plugin's wp-admin order management area, which is the plugin's ordinary order-review workflow.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-13718",
-      "published": "2026-10-02T06:16:40.123",
-      "description": "The Tabs Responsive  WordPress plugin through 2.5 does not sanitize the content of WooCommerce product tabs before storing and rendering it, allowing a shop manager to store JavaScript that executes when any user, including an administrator, views the product page.",
+      "id": "CVE-2026-102798",
+      "published": "2026-10-02T13:17:22.883",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in ThemeREX Group ThemeREX Addons trx_addons allows Stored XSS.This issue affects ThemeREX Addons: from n/a through 2.46.0.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-85016",
-      "published": "2026-10-02T06:16:41.903",
-      "description": "The Unlimited Elements for Elementor WordPress plugin before 2.0.21 does not escape an icon value before concatenating it into an HTML attribute in its shared widget-parameter processor, allowing users with Contributor access (who do not hold unfiltered_html) to store a payload that executes when the page is rendered.",
+      "id": "CVE-2026-85209",
+      "published": "2026-10-02T13:17:59.100",
+      "description": "Missing Authorization vulnerability in AVEZ Electronics Communication Training and Consultancy Trade Inc. Learning Management System (LMS) allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects Learning Management System (LMS): through 2026-09-18.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-91022",
-      "published": "2026-10-02T06:16:42.603",
-      "description": "The Motors  WordPress plugin before 1.4.124 does not sanitise and escape a listing badge setting before outputting it inside an HTML attribute, allowing users with a custom, administrator-assigned listing-management role to inject arbitrary web scripts that execute when a listing is viewed by any visitor, including an administrator.",
+      "id": "CVE-2026-102797",
+      "published": "2026-10-02T13:17:22.730",
+      "description": "Server-Side Request Forgery (SSRF) vulnerability in ThemeREX Group ThemeREX Addons trx_addons allows Server Side Request Forgery.This issue affects ThemeREX Addons: from n/a through 2.46.0.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-94298",
-      "published": "2026-10-02T06:16:43.387",
-      "description": "The BuildKit  WordPress plugin before 1.0.29 does not properly sanitise and escape data submitted by contributor-level users before storing it and later using it in a SQL query, allowing a Contributor to inject SQL that runs against the database once the resulting content is published and viewed by any unauthenticated visitor.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-84925",
-      "published": "2026-10-02T06:16:41.587",
-      "description": "The Avada | Website Builder For WordPress & WooCommerce theme for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'lang' parameter in all versions up to, and including, 7.16.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. The injected value is propagated through Fusion_Multilingual::set_active_language() and concatenated into a URL by Fusion_Settings::get_setting_link() without applying urlencode(), esc_url(), or esc_attr() before being echoed raw into a double-quoted href attribute in the post editor metabox.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-97318",
-      "published": "2026-10-02T06:16:43.803",
-      "description": "The Giveaways and Contests by RafflePress  WordPress plugin before 1.12.27 does not properly validate a giveaway's parent page URL before saving it and later redirecting visitors to it, allowing unauthenticated attackers to make the site's own giveaway confirmation and referral links redirect visitors to an arbitrary external site.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-78471",
-      "published": "2026-10-02T06:16:41.240",
-      "description": "The Autoptimize plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Author Name in all versions up to, and including, 3.1.15.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires an administrator to have enabled Autoptimize's 'Lazy-load images?' option, the w3-total-cache/w3-total-cache.php file to be present on disk with the plugin disabled, a class named Minify_HTML to be loaded into scope by another plugin, and the malicious comment to be approved by a moderator before the payload renders.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-81740",
-      "published": "2026-10-02T06:16:41.450",
-      "description": "The Paytm Payment Gateway WordPress plugin before 2.8.9 does not verify that payment callbacks genuinely originate from the payment provider when its secret key has not been configured, which is its state immediately after activation, allowing unauthenticated attackers to change the status of arbitrary orders, including marking unpaid orders as paid and reducing stock.",
+      "id": "CVE-2026-11795",
+      "published": "2026-10-02T13:17:45.160",
+      "description": "Observable discrepancy vulnerability in Softtr Informatics Trading Limited Company E-Commerce Pack allows Account Footprinting.\n\nThis issue affects E-Commerce Pack: before 5.03.01.54.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-90988",
-      "published": "2026-10-02T06:16:42.373",
-      "description": "The Request a Quote  WordPress plugin through 2.5.6 does not perform an authorization check on one of its unauthenticated AJAX handlers, allowing unauthenticated users to read the contact records of quote-request submissions, including records the site has not published.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-97317",
-      "published": "2026-10-02T06:16:43.693",
-      "description": "The Giveaways and Contests by RafflePress  WordPress plugin before 1.12.27 does not remove the reCAPTCHA secret key from the giveaway settings it embeds in public giveaway pages, allowing unauthenticated visitors to retrieve the secret key of any active giveaway that has reCAPTCHA configured.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-13413",
-      "published": "2026-10-02T07:16:36.040",
-      "description": "The CMP – Coming Soon & Maintenance WordPress plugin before 4.1.20 does not correctly restrict access to the site while maintenance/coming-soon mode is enabled, allowing unauthenticated visitors to bypass the coming-soon page and reach the otherwise hidden site, including hidden published pages, by shaping the request so it is mistaken for a login request.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-85004",
-      "published": "2026-10-02T06:16:41.760",
-      "description": "The Popup Maker  WordPress plugin through 1.4.5 does not perform a capability check on one of its account-connection actions, only verifying a nonce, allowing authenticated users with minimal privileges such as Subscribers to overwrite a site-wide Popup Maker  WordPress plugin through 1.4.5 option (the linked service account and API configuration) that should only be modifiable by administrators.",
+      "id": "CVE-2026-104612",
+      "published": "2026-10-02T13:17:44.820",
+      "description": "A vulnerability was found in SourceCodester Student Result Management System 1.0. This affects an unknown part of the file script/academic/core/new_announcement.php of the component Announcement Module. The manipulation of the argument title/announcement results in cross site scripting. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-91023",
-      "published": "2026-10-02T06:16:42.740",
-      "description": "The Motors  WordPress plugin before 1.4.124 does not properly verify that a user is authorised to modify a listing before processing one of its listing management actions, allowing authenticated attackers with subscriber-level access and above to set metadata on posts they do not own, including overwriting product prices. Exploitation is possible only when WooCommerce is active and the Motors  WordPress plugin before 1.4.124's paid featured-listing option is enabled, neither of which is a default configuration.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-104733",
+      "published": "2026-10-02T13:17:45.010",
+      "description": "User Impersonation in ProcessOnes XMMP Server ejabberd <= 26.04 allows an attacker to impersonate arbitrary users via unvalidated authzid parameter in SASL-PLAIN mechanism.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-61374",
+      "published": "2026-10-02T13:17:52.497",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Thrift Java bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-63772",
+      "published": "2026-10-02T13:17:52.640",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Thrift go bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66054",
+      "published": "2026-10-02T13:17:52.777",
+      "description": "Allocation of Resources Without Limits or Throttling, Improper Handling of Highly Compressed Data (Data Amplification) vulnerability in Apache Thrift C++ bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66055",
+      "published": "2026-10-02T13:17:52.913",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Thrift C++, Java, Go, netstd, Python and Delphi bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66081",
+      "published": "2026-10-02T13:17:53.050",
+      "description": "Access of Uninitialized Pointer vulnerability in Apache Thrift c_glib bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66331",
+      "published": "2026-10-02T13:17:53.190",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Thrift Delphi bindings buffered transport.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66837",
+      "published": "2026-10-02T13:17:53.323",
+      "description": "Stack-based Buffer Overflow, Integer Overflow or Wraparound vulnerability in Apache Thrift php bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66858",
+      "published": "2026-10-02T13:17:53.453",
+      "description": "The protocol skip routine in several Apache Thrift bindings did not apply the binding's recursion limit, so a message that nests unknown fields deeply enough can exhaust the stack. Affected: the Python C++ accelerator (the pure-Python protocols are not affected), the PHP library and its thrift_protocol extension, and the Perl, Lua, Smalltalk and OCaml libraries.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66859",
+      "published": "2026-10-02T13:17:53.597",
+      "description": "NULL Pointer Dereference, Use of Uninitialized Variable vulnerability in Apache Thrift c_glib bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-83632",
+      "published": "2026-10-02T13:17:58.647",
+      "description": "Allocation of resources without limits or throttling, Integer overflow or wraparound, Heap-based buffer overflow vulnerability in Apache Thrift.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-83663",
+      "published": "2026-10-02T13:17:58.780",
+      "description": "Uncontrolled Recursion vulnerability in Apache Thrift go bindings.\n\n\n\nBoth Go transports satisfy a read out of a buffered frame and, when that frame yields no payload bytes, read the next frame and call `Read` again instead of looping. A peer produces such a frame for 4 bytes in `TFramedTransport` (a declared size of zero) or 18 bytes in `THeaderTransport` (a header block that fills the frame), so nothing bounds the depth. The Go stack limit is reached as a `fatal error`, which `recover()` cannot catch, so the whole process dies.\n\n\n\nThis issue affects Apache Thrift: before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-83745",
+      "published": "2026-10-02T13:17:58.927",
+      "description": "Memory allocation with excessive size value, Improper handling of length parameter inconsistency vulnerability in Apache Thrift \nnodejs and D lang bindings.\n\nBoth bindings' WebSocket server transports read the payload length out of the frame header and allocate that many bytes immediately, without checking that the bytes have arrived. A single ~14-byte frame therefore commits as much memory as it cares to declare -- measured at 513 MiB against the Node.js server and 2 GiB against the D transport -- and in the Node.js case the connection is left open afterwards, so the frame can simply be sent again.\n\n\n\n\nThis issue affects Apache Thrift before 0.25.0.\n\n\n\nUsers are recommended to upgrade to version 0.25.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
