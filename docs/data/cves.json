@@ -1,143 +1,143 @@
 {
-  "totalResults": 2796,
+  "totalResults": 2788,
   "items": [
     {
-      "id": "CVE-2026-103956",
-      "published": "2026-10-02T19:16:39.750",
-      "description": "Missing authentication for critical function in the authentication dependency in Loom for AWS before 1.6.1 allowed remote actors to obtain super-admin authority over the agent control plane, including registering tool servers, reading stored integration credentials, and rewriting the IAM role policies attached to managed agent roles, via any request to the application API in a deployment where no identity provider is configured.\n\n\n\nTo remediate this issue, users should upgrade to version 1.6.1 or later.",
+      "id": "CVE-2026-105080",
+      "published": "2026-10-03T01:17:23.650",
+      "description": "In ConvertX before 0.19.0, converters/calibre.ts does not block recipe files, and instead passes them to the ebook-convert program from Calibre. This affects executable code in a .recipe or .downloaded_recipe file.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.9
     },
     {
-      "id": "CVE-2023-54405",
-      "published": "2026-10-02T19:16:38.897",
-      "description": "H3C CVM, the Cloud Virtualization Management component of the H3C CAS cloud platform, contains an unauthenticated arbitrary file upload vulnerability in the /cas/fileUpload/upload endpoint that allows remote attackers to write arbitrary files by manipulating the caller-supplied token parameter without restricting path traversal or file type. Attackers can exploit the path traversal in the token parameter to upload a malicious JSP file into a web-accessible directory and then request it to achieve remote code execution as the web-server user. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "id": "CVE-2026-84411",
+      "published": "2026-10-02T23:16:58.417",
+      "description": "The web management service in affected RouterOS versions contains an integer underflow in its HTTP request body handling that is reachable before authentication. This can be leveraged by an unauthenticated network attacker to achieve arbitrary code execution as root, or to cause a denial of service, using a single crafted request.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-104019",
-      "published": "2026-10-02T20:17:00.607",
-      "description": "OS command injection in the Studio Space startup validation script in Amazon SageMaker Distribution 2.x before 2.14.12, 3.x before 3.9.12, 4.0.x before 4.0.11, 4.1.x before 4.1.11, 4.2.x before 4.2.8, 4.3.x before 4.3.5, and 4.4.x before 4.4.3, as used by Amazon SageMaker Unified Studio, might allow an authenticated remote user with project contributor permissions to execute arbitrary commands in another project member's Studio Space and obtain that member's temporary execution role credentials via a crafted connection resource property that is interpolated into a shell invocation without neutralization.\n\n\n\nTo remediate this issue, users should upgrade to version 2.14.12, 3.9.12, 4.0.11, 4.1.11, 4.2.8, 4.3.5, or 4.4.3, as applicable to the minor line in use. Users on minor lines that have reached end of support must move to a supported minor line, because no patched version will be released for those lines. In Amazon SageMaker Unified Studio, Studio Spaces adopt the latest patch of their minor line on restart once the patched images are deployed, so no version selection is required.",
-      "severity": "CRITICAL",
-      "score": 9
-    },
-    {
-      "id": "CVE-2026-96940",
-      "published": "2026-10-02T19:16:43.023",
-      "description": "An elevation of privilege vulnerability exists when Microsoft Exchange Outlook Web Access (OWA) fails to properly handle web requests. An attacker who successfully exploited this vulnerability could perform script/content injection attacks and attempt to trick the user into disclosing sensitive information.\nTo exploit the vulnerability, an attacker could send a specially crafted email message containing a malicious link to a user. Alternatively, an attacker could use a chat client to social engineer a user into clicking the malicious link.\nThe security update addresses the vulnerability by correcting how Microsoft Exchange validates web requests.\nNote: In order to exploit this vulnerability, a user must click a maliciously crafted link from an attacker.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-39718",
-      "published": "2026-10-02T20:17:02.420",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in Webriti Wallstreet wallstreet allows Cross Site Request Forgery.This issue affects Wallstreet: from n/a through 2.8.6.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-82039",
-      "published": "2026-10-02T20:17:04.430",
-      "description": "UTMStack before 11.2.16 contains a SQL injection vulnerability in UtmAssetGroupService.searchQueryBuilder() that allows authenticated attackers to inject arbitrary SQL by supplying malicious assetType and groupName values that are inserted unsanitized into a native PostgreSQL query via String.format(). Attackers can exploit the GET /api/utm-asset-groups/searchGroupsByFilter endpoint to execute arbitrary SQL with DBA privileges, enabling full database read, data modification, and potential filesystem access.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-104988",
-      "published": "2026-10-02T20:17:01.370",
-      "description": "A flaw was found in Dogtag PKI (pki-core). The CMCAuthForEST authentication plugin fails open when an EST fullcmc enrollment request is submitted via BasicAuth without an end-user TLS client certificate. The SSL_CLIENT_CERT session attribute retains the EST subsystem's agent certificate, which causes downstream authorization checks to treat the request as agent-privileged. An authenticated EST user can exploit this to obtain CA-signed certificates with arbitrary subject names.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-103958",
-      "published": "2026-10-02T19:16:40.040",
-      "description": "Server-side request forgery in the tool server and remote agent connection handling in Loom for AWS before 1.7.0 might allow an authenticated remote user to obtain the credentials of the application's own container role and to read responses from arbitrary internal network locations, via a crafted connection address supplied when registering, updating or testing a tool server or remote agent.\n\n\n\nTo remediate this issue, users should upgrade to version 1.7.0 or later.",
-      "severity": "HIGH",
-      "score": 7.6
-    },
-    {
-      "id": "CVE-2014-125130",
-      "published": "2026-10-02T19:16:37.440",
-      "description": "CodeArt Google MP3 Audio Player plugin (google-mp3-audio-player) for WordPress through 1.0.11 contains an unauthenticated arbitrary file read vulnerability that allows remote attackers to retrieve sensitive files by supplying a path-traversal payload in the file parameter of direct_download.php. Attackers can request paths ../../wp-config.php without authentication to download configuration files containing database credentials and secret keys, leading to full site compromise. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2026-104433",
+      "published": "2026-10-03T00:16:35.253",
+      "description": "Mooncake transfer engine before 0.3.12 contains an out-of-bounds read vulnerability in the readString function of include/common.h that allows unauthenticated attackers to crash the service by sending a zero-length handshake frame. Attackers can connect to the handshake port listening on all interfaces and send an eight-byte frame to terminate the hosting process, such as an SGLang inference server.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2020-37278",
-      "published": "2026-10-02T19:16:38.703",
-      "description": "Weaver e-Bridge contains an unauthenticated arbitrary file read vulnerability that allows remote attackers to access arbitrary files on the host system by supplying a file: URL to the downloadUrl parameter of the saveYZJFile endpoint. Attackers can exploit this flaw to read sensitive files such as /etc/passwd or configuration and credential files, and the same endpoint's support for http(s) URLs also enables server-side request forgery against internal network resources. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-104991",
-      "published": "2026-10-02T20:17:01.513",
-      "description": "Phproject before 1.8.7 contains a missing object-level authorization vulnerability in the REST API issue endpoints (single_get, single_comments, single_comments_post) that allows authenticated API key holders to bypass the security.restrict_access confidentiality control by never invoking the allowAccess() authorization routine. Attackers can use a valid API key to read restricted issue contents and comments, including owner and author email addresses, and post unauthorized comments to issues they should not have access to.",
+      "id": "CVE-2026-104478",
+      "published": "2026-10-03T00:16:36.083",
+      "description": "Formwork before 2.3.13 contains a path traversal vulnerability in BackupController that allows authenticated panel users to read or delete arbitrary files. Attackers with backup download or delete permission can supply a base64-encoded backslash-separated traversal payload that bypasses PHP basename on Linux to access files outside the backup directory.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-19856",
-      "published": "2026-10-02T19:16:41.247",
-      "description": "The All in One SEO WordPress plugin before 5.0.2.1 does not correctly determine which shortcodes are present in content derived from user input before deciding which ones to strip, allowing unauthenticated users to execute arbitrary shortcodes registered on the site. On sites upgraded from older versions the protection is disabled outright, making the issue reachable without any crafted input.",
+      "id": "CVE-2026-104474",
+      "published": "2026-10-03T00:16:35.413",
+      "description": "OpenLiteSpeed before 1.9.3 contains a local privilege escalation vulnerability in admin/misc/lsup.sh that runs unverified update packages from a nobody-writable directory as root. Attackers controlling the nobody web process can replace the package in /usr/local/lsws/autoupdate/ before extraction, so its install.sh runs as root on the next update.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.7
     },
     {
-      "id": "CVE-2026-103036",
-      "published": "2026-10-02T20:16:59.567",
-      "description": "oRPC is a tool that helps build APIs that are end-to-end type-safe and adhere to OpenAPI standards. Prior to 1.14.9, the @orpc/json-schema SmartCoercionPlugin uses JsonSchemaCoercer to collect object properties in a plain object and to resolve schema.properties entries through the prototype chain. A remote client that can reach a procedure with an object input schema can supply __proto__ to replace the prototype of the single coerced request object, or supply Object.prototype member names such as constructor and toString so inherited values are treated as sub-schemas and pass the coercer's satisfaction check. Attacker-controlled inherited properties can consequently affect handler, Object.assign, or configuration lookups, while legitimate __proto__ properties are dropped. The global Object.prototype, unrelated objects, other requests, and other users are not modified, and downstream schema validation still runs. This issue is fixed in version 1.14.9.",
+      "id": "CVE-2026-104477",
+      "published": "2026-10-03T00:16:35.920",
+      "description": "Showdown through 2.1.0 contains a cross-site scripting vulnerability in the makehtml link and image subparsers, which fail to escape double quotes in destination URLs placed into href and src attributes. Attackers can craft markdown links or images containing a double quote followed by onerror or onmouseover handlers to execute script when victims view rendered HTML.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-103918",
-      "published": "2026-10-02T20:17:00.067",
-      "description": "oRPC is a tool that helps build APIs that are end-to-end type-safe and adhere to OpenAPI standards. Prior to 1.14.10, the @orpc/zod ZodSmartCoercionPlugin and experimental_ZodSmartCoercionPlugin collect object and record properties in plain objects and resolve shape keys through the prototype chain. A remote client that can reach a procedure with an object or record input can supply __proto__ to replace the prototype of the returned request object, allowing attacker-controlled inherited values to reach application lookups. For object schemas, keys such as constructor, toString, and __proto__ can instead resolve inherited members as Zod schemas and cause an unhandled TypeError before validation. The global Object.prototype, unrelated objects, other requests, and other users are not modified, and the availability effect is limited to crafted requests rather than persistent process-wide state. This issue is fixed in version 1.14.10.",
+      "id": "CVE-2026-92243",
+      "published": "2026-10-03T03:16:36.910",
+      "description": "The Ivory Search – WordPress Search Plugin plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 's' parameter in all versions up to, and including, 5.5.18 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that the targeted search form has the 'Highlight Search Terms' option enabled by an administrator, and that the malicious search query returns at least one post result.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-103957",
-      "published": "2026-10-02T19:16:39.893",
-      "description": "Server-side request forgery in the OAuth2 discovery handling in Loom for AWS before 1.7.0 might allow an authenticated remote user to obtain the access token of another user of the deployment and to cause the application to issue requests to arbitrary internal network locations, via a crafted discovery document address supplied when registering a tool server or remote agent configured for delegated authentication.\n\n\n\nTo remediate this issue, users should upgrade to version 1.7.0 or later.",
+      "id": "CVE-2026-104476",
+      "published": "2026-10-03T00:16:35.747",
+      "description": "Backdrop CMS before 1.35.1 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve configuration export archives left on the server after transfer. Attackers can download compressed archives generated by users with configuration export permission to obtain the full site configuration, including sensitive settings.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-104872",
-      "published": "2026-10-02T20:17:01.067",
-      "description": "OpenTelemetry JavaScript Contrib provides instrumentation libraries for collecting telemetry from JavaScript applications. Prior to versions 0.66.0 of @opentelemetry/instrumentation-cassandra-driver, 0.65.0 of @opentelemetry/instrumentation-knex, 0.67.0 of @opentelemetry/instrumentation-mongoose, @opentelemetry/instrumentation-mysql, and @opentelemetry/instrumentation-mysql2, 0.46.0 of @opentelemetry/instrumentation-oracledb, 0.73.0 of @opentelemetry/instrumentation-pg, and 0.40.0 of @opentelemetry/instrumentation-tedious, the packages add the database connection username to every instrumented database operation as the db.user span attribute. The attribute is emitted by default and is not controlled by enhancedDatabaseReporting or another opt-in setting. Configured observability backends therefore receive database account names that may expose service topology, role or environment information, and account naming patterns. This issue is fixed in versions 0.66.0, 0.65.0, 0.67.0, 0.46.0, 0.73.0, and 0.40.0 of the respective packages.",
+      "id": "CVE-2026-105049",
+      "published": "2026-10-02T23:16:57.943",
+      "description": "Zilliz Attu before 3.0.0 has a Playground feature that does not require authentication for proxying arbitrary HTTP and HTTPS requests to URLs on the public internet.",
       "severity": "MEDIUM",
       "score": 5.8
     },
     {
-      "id": "CVE-2026-12392",
-      "published": "2026-10-02T20:17:01.817",
-      "description": "An information exposure vulnerability in Canonical MAAS prior to versions 3.4.10, 3.5.14, 3.6.5, 3.7.3, and 3.8.0 allows an unauthenticated attacker to retrieve the RPC secret in plaintext via the vendor data metadata endpoint. If a target machine was deployed with the 'register as rack' option enabled, an attacker who obtains or infers the machine's system ID can query the preseed/metadata server to leak the secret.",
+      "id": "CVE-2026-104475",
+      "published": "2026-10-03T00:16:35.583",
+      "description": "IDURAR ERP CRM through 4.1.1 contains a stored cross-site scripting vulnerability that allows authenticated users to inject scripts by uploading unsanitized SVG files. Attackers can upload JavaScript-laden SVGs via the profile update or settings upload endpoints, which execute in victims' browsers when served from the /public route.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-104479",
+      "published": "2026-10-03T00:16:36.273",
+      "description": "Shopclass before 6.2.0 contains a stored cross-site scripting vulnerability that allows self-registered non-admin users to inject scripts into item listing descriptions when frontend TinyMCE is enabled. Attackers can submit malicious JavaScript, which ItemActions.php saves without tag stripping, causing it to execute in the site origin for any visitor viewing the listing.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-100180",
+      "published": "2026-10-03T03:16:36.713",
+      "description": "The Jeg Kit for Elementor – Powerful Addons for Elementor, Widgets & Templates for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment in all versions up to, and including, 3.2.19 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Immediate persistence without moderator approval is possible when the attacker submits from an email address with at least one previously approved comment, though the widened allowlist bypasses sanitization regardless of approval status.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-105030",
+      "published": "2026-10-03T00:16:36.743",
+      "description": "Kener 4.0.0 before 4.1.6 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve hidden or inactive monitor data by querying dashboard API handlers lacking visibility filters. Attackers can supply a known or guessed monitor tag to endpoints such as monitor-bar and monitor-latency-chart to obtain names, descriptions, status, uptime history and latency.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-104994",
-      "published": "2026-10-02T20:17:01.663",
-      "description": "Trivy before 0.71.0 allows directory traversal in Terraform filesystem functions when they try to access pathnames above the scan root. The risk occurs when using misconf scanning on untrusted input (e.g., upon a third-party pull request that contains a Terraform configuration), if sensitive data can be found at those unintended pathnames, and an adversary can then view a sensitive data value within scan output.",
-      "severity": "LOW",
-      "score": 2.5
+      "id": "CVE-2026-105029",
+      "published": "2026-10-03T00:16:36.463",
+      "description": "UVdesk support-center-bundle before 1.1.3.3 contains an insecure direct object reference vulnerability in the rateTicket action of Controller/Ticket.php that allows authenticated customers to rate other customers' tickets. Attackers can supply arbitrary ticket IDs, which are loaded without an ownership check, to submit or change satisfaction ratings on tickets owned by other customers.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-104871",
-      "published": "2026-10-02T20:17:00.910",
-      "description": "The Angular SSR is a server-rise rendering tool for Angular applications. Prior to versions 20.3.36, 21.2.23, and 22.1.7, the CommonEngine retrieveSSGPage prerendered-page retrieval logic in @angular/ssr/node, and in @angular/ssr for versions 17 through 18, accepts a relative request URL containing a backslash parent-traversal segment on Windows. The non-special resolve:// URL base preserves the backslash, path.join interprets it as a Windows separator, and the pagePath.startsWith(normalize(publicPath)) check incorrectly accepts a sibling output directory whose name shares the configured public-directory prefix. An unauthenticated requester can therefore retrieve a sibling prerendered HTML page when that page contains the Angular SSG marker. The issue is limited to Windows deployments that pass relative request URLs to CommonEngine.render, have a prefix-sharing sibling output directory, and contain qualifying prerendered Angular HTML; it does not provide arbitrary file read. This issue is fixed in versions 20.3.36, 21.2.23, and 22.1.7.",
+      "id": "CVE-2026-105048",
+      "published": "2026-10-02T23:16:57.787",
+      "description": "The Playground feature of Zilliz Attu before 3.0.0 allows SSRF (proxying of requests to private IP addresses).",
+      "severity": "MEDIUM",
+      "score": 4
+    },
+    {
+      "id": "CVE-2026-105083",
+      "published": "2026-10-03T02:17:18.170",
+      "description": "ImageMagick before 7.1.2-32 and 6.9.13-57 contains a policy bypass vulnerability in LoadPolicyCache that silently skips security policy rules when policy.xml uses an alternate DOCTYPE. A valid DOCTYPE not ending in ']>' makes the parser consume the rest of the file, so no policy rules are applied and restricted operations become allowed.",
+      "severity": "LOW",
+      "score": 3.9
+    },
+    {
+      "id": "CVE-2026-105051",
+      "published": "2026-10-02T23:16:58.247",
+      "description": "Denuvo Anti-Tamper through 2026-03-04 allows bypass of a hypervisor presence check via CPUID interception (SimpleSvm.sys on AMD; hyperkd.sys and hyperhv.dll on Intel).",
+      "severity": "LOW",
+      "score": 1.9
+    },
+    {
+      "id": "CVE-2026-105050",
+      "published": "2026-10-02T23:16:58.093",
+      "description": "PeaZip before 11.3.0, in a non-default configuration, is vulnerable to OS command injection via a filename in an archive because \"quotation character already used in the string\" is mishandled.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-104873",
-      "published": "2026-10-02T20:17:01.223",
-      "description": "LangGraph Python SDK is used to connect to running LangGraph API servers, manage assistants, threads and stream runs from Python applications. From 0.1.45 until 0.4.4, the langgraph-sdk resource-scoped authorization decorators @auth.on.threads, @auth.on.assistants, and @auth.on.crons ignore the actions argument and register the selected handler for every action on the resource. Because that wildcard resource handler is selected before broader fallback handlers, an authenticated user may bypass fallback action, ownership, or permission checks and read, update, or delete another user's resource. Only Python deployments using actions on the affected decorators are vulnerable, and a deployment remains protected when the selected handler independently enforces all required checks for every action it receives. This issue is fixed in version 0.4.4.",
+      "id": "CVE-2026-79113",
+      "published": "2026-10-03T01:17:25.287",
+      "description": "OpenAPV before 1.1.1.0 has a read_bitstream heap-based buffer overflow.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-105090",
+      "published": "2026-10-03T02:17:18.370",
+      "description": "Formbricks before 5.4.4 and 6 before 6.0.1 allows stored XSS. The survey-level Custom Head Scripts feature did not enforce the documented Manage permission boundary. A workspace member holding only readWrite permission could configure Custom Head Scripts on a survey, an operation the documentation restricts to the Manage role. Because the configured scripts execute in the authenticated browser session of any user who opens the affected survey, a lower-privileged member can run arbitrary JavaScript (stored cross-site scripting) in the session of higher-privileged users. Fixed versions require Manage access to modify survey Custom Head Scripts.",
       "severity": "UNKNOWN",
       "score": null
     }
