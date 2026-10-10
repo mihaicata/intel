@@ -1,47 +1,103 @@
 {
-  "totalResults": 2788,
+  "totalResults": 2775,
   "items": [
     {
-      "id": "CVE-2026-105080",
-      "published": "2026-10-03T01:17:23.650",
-      "description": "In ConvertX before 0.19.0, converters/calibre.ts does not block recipe files, and instead passes them to the ebook-convert program from Calibre. This affects executable code in a .recipe or .downloaded_recipe file.",
-      "severity": "CRITICAL",
-      "score": 9.9
+      "id": "CVE-2026-92536",
+      "published": "2026-10-03T04:18:01.853",
+      "description": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 4.17.4 via the get_user_profile_structure. This makes it possible for authenticated attackers, with subscriber-level access and above, to extract other users' email addresses, login names, and registration dates via the Member Directory's per-row user rebinding when attacker-controlled base64 payloads in the [pp-custom-html] shortcode invoke [profile-email], [profile-username], and [profile-date-registered]. When the WordPress users_can_register option is enabled, unauthenticated attackers can also exploit this vulnerability by supplying the split shortcode fragments through the plugin's own registration handler, which processes the reg_nickname and reg_bio fields without a nonce requirement.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-84411",
-      "published": "2026-10-02T23:16:58.417",
-      "description": "The web management service in affected RouterOS versions contains an integer underflow in its HTTP request body handling that is reachable before authentication. This can be leveraged by an unauthenticated network attacker to achieve arbitrary code execution as root, or to cause a denial of service, using a single crafted request.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-97644",
+      "published": "2026-10-03T04:18:04.917",
+      "description": "The Groundhogg — CRM, Newsletters, and Marketing Automation plugin for WordPress is vulnerable to Privilege Escalation via Contact Identity Rebinding in all versions up to, and including, 4.9 The vulnerability exists because the `create_contact` function in the v3 REST endpoint (`POST /gh/v3/contacts`) is gated solely by the `add_contacts` capability and forwards the full request payload — including the security-bearing `user_id` column — into the upsert path of `Contacts_DB::add()`, which bypasses the ownership guard that `Contacts_DB::update()` enforces, allowing an attacker to rebind any existing contact record to an arbitrary WordPress user ID. This makes it possible for authenticated attackers with Sales Representative-level access and above to upsert their own contact row to point to an Administrator's user ID, then invoke the v4 email-test endpoint (`POST /gh/v4/emails/test`) — also accessible to the Sales Representative role via the `send_emails` capability — to generate an `{auto_login_url}` one-time permissions key bound to the rebound contact, and consume that link to call `wp_set_auth_cookie()` and gain a fully authenticated session as the WordPress Administrator.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-104433",
-      "published": "2026-10-03T00:16:35.253",
-      "description": "Mooncake transfer engine before 0.3.12 contains an out-of-bounds read vulnerability in the readString function of include/common.h that allows unauthenticated attackers to crash the service by sending a zero-length handshake frame. Attackers can connect to the handshake port listening on all interfaces and send an eight-byte frame to terminate the hosting process, such as an SGLang inference server.",
+      "id": "CVE-2026-93428",
+      "published": "2026-10-03T03:16:37.067",
+      "description": "The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.13.1 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to view privacy-restricted member profile field values — including fields explicitly configured as owner-only, members-only, or role-restricted — by querying the publicly accessible wp_ajax_nopriv_um_get_members endpoint. The nonce required by the endpoint ('um-frontend-nonce') is emitted to all unauthenticated visitors via wp_localize_script, meaning it provides no meaningful access control and any anonymous visitor can satisfy the endpoint's authentication requirements.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-104478",
-      "published": "2026-10-03T00:16:36.083",
-      "description": "Formwork before 2.3.13 contains a path traversal vulnerability in BackupController that allows authenticated panel users to read or delete arbitrary files. Attackers with backup download or delete permission can supply a base64-encoded backslash-separated traversal payload that bypasses PHP basename on Linux to access files outside the backup directory.",
+      "id": "CVE-2026-101159",
+      "published": "2026-10-03T06:16:38.023",
+      "description": "The WP Ultimate Review WordPress plugin before 2.4.4 does not properly sanitise and escape reviews submitted through its public review form, which is available to unauthenticated visitors, allowing them to perform Stored Cross-Site Scripting attacks against any user, including administrators, viewing a page displaying the review, when user reviews are enabled.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-104474",
-      "published": "2026-10-03T00:16:35.413",
-      "description": "OpenLiteSpeed before 1.9.3 contains a local privilege escalation vulnerability in admin/misc/lsup.sh that runs unverified update packages from a nobody-writable directory as root. Attackers controlling the nobody web process can replace the package in /usr/local/lsws/autoupdate/ before extraction, so its install.sh runs as root on the next update.",
-      "severity": "MEDIUM",
-      "score": 6.7
+      "id": "CVE-2026-101160",
+      "published": "2026-10-03T06:16:38.350",
+      "description": "The WP Ultimate Review WordPress plugin before 2.4.4 does not validate that a submitted review rating is numeric before storing it and later using it in numeric operations when rendering reviews, allowing unauthenticated users to make the reviewed content fail with a fatal error for all visitors until the review is removed (a persistent denial of service), when user reviews are enabled.",
+      "severity": "HIGH",
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-104477",
-      "published": "2026-10-03T00:16:35.920",
-      "description": "Showdown through 2.1.0 contains a cross-site scripting vulnerability in the makehtml link and image subparsers, which fail to escape double quotes in destination URLs placed into href and src attributes. Attackers can craft markdown links or images containing a double quote followed by onerror or onmouseover handlers to execute script when victims view rendered HTML.",
+      "id": "CVE-2026-96270",
+      "published": "2026-10-03T03:16:37.687",
+      "description": "The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'form_id' parameter in all versions up to, and including, 2.13.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is stored in the registering user's 'submitted' usermeta via update_user_meta() and is only triggered when an administrator opens the affected user record in the wp-admin Users modal, which inserts the unescaped output via jQuery .html().",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-92977",
+      "published": "2026-10-03T04:18:04.190",
+      "description": "The Real Cookie Banner: GDPR & ePrivacy Cookie Consent plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment in all versions up to, and including, 5.3.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Malicious script payloads placed in the title attribute of an anchor tag survive WordPress's comment kses filter at save time, as the payload is only promoted to executable HTML attributes when the plugin's page-wide regex strips the closing quote delimiter at render time; exploitability is therefore subject to the standard comment moderation workflow before the comment is publicly displayed.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-94539",
+      "published": "2026-10-03T03:16:37.383",
+      "description": "The SupportCandy – AI Customer Support Ticket System & Live Chatbot Agent plugin for WordPress is vulnerable to time-based SQL Injection via the 'sort_by' parameter in all versions up to, and including, 3.5.3 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Exploitation requires the authenticated attacker to hold both a Subscriber-level (or higher) WordPress role and a SupportCandy Agent account with the 'Assign Agents' permission configured.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-95865",
+      "published": "2026-10-03T03:16:37.533",
+      "description": "The Beaver Builder Page Builder – Drag and Drop Website Builder plugin for WordPress is vulnerable to blind SQL Injection via 'fields[][value]' Parameter in all versions up to, and including, 2.11.0.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The vulnerable get_autosuggest_values AJAX endpoint is reachable by any Contributor who owns a draft post, as the required fl_ajax_update nonce is emitted into the block editor for any user who can edit a Beaver Builder post type.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-100152",
+      "published": "2026-10-03T06:16:37.713",
+      "description": "The The All in One SEO – AI SEO Plugin to Boost SEO Rankings & Traffic (Schema, Local SEO, Sitemap & SEO Insights) plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 5.0.2 This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. This requires the AIOSEO breadcrumb to be rendered on the search results page via the block, widget, shortcode, or template tag.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-94378",
+      "published": "2026-10-03T03:16:37.230",
+      "description": "The SupportCandy – AI Customer Support Ticket System & Live Chatbot Agent plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'name' parameter in all versions up to, and including, 3.5.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This exploit chain requires the 'Register user if not exists' setting to be disabled, which is its default configuration.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-92727",
+      "published": "2026-10-03T04:18:03.343",
+      "description": "The EmbedPress – PDF Embedder, 3D PDF FlipBook, Google Reviews, YouTube Videos, Upload & Embed PDF documents plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'slidesShow' Block Attribute in all versions up to, and including, 4.6.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The slidesShow block attribute is interpolated into an unquoted data-carousel-options HTML attribute, allowing a payload containing spaces to break out of the attribute and inject additional DOM attributes such as onfocus event handlers onto the wrapper element.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2025-12828",
+      "published": "2026-10-03T06:16:33.533",
+      "description": "The Ultra Addons Lite for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Type Out widget in all versions up to, and including, 1.3.2 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-100148",
+      "published": "2026-10-03T06:16:36.997",
+      "description": "The Rich Showcase for Google Reviews plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'reviews[].text' parameter in all versions up to, and including, 7.1.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload is delivered entirely through a Google review posted for the connected business and requires no WordPress account; the plugin's default daily cron auto-imports the malicious review text, and execution triggers for every visitor on DOMContentLoaded without any further user interaction.",
+      "severity": "MEDIUM",
+      "score": 6.4
     },
     {
       "id": "CVE-2026-92243",
@@ -51,32 +107,25 @@
       "score": 6.1
     },
     {
-      "id": "CVE-2026-104476",
-      "published": "2026-10-03T00:16:35.747",
-      "description": "Backdrop CMS before 1.35.1 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve configuration export archives left on the server after transfer. Attackers can download compressed archives generated by users with configuration export permission to obtain the full site configuration, including sensitive settings.",
+      "id": "CVE-2026-92538",
+      "published": "2026-10-03T04:18:03.000",
+      "description": "The LearnPress – WordPress LMS Plugin for Create and Sell Online Courses plugin for WordPress is vulnerable to Reflected DOM-Based Cross-Site Scripting via the 'orderby' parameter in all versions up to, and including, 4.4.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-105049",
-      "published": "2026-10-02T23:16:57.943",
-      "description": "Zilliz Attu before 3.0.0 has a Playground feature that does not require authentication for proxying arbitrary HTTP and HTTPS requests to URLs on the public internet.",
+      "id": "CVE-2026-92551",
+      "published": "2026-10-03T04:18:03.183",
+      "description": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via ppress_billing_address Filename Parameter in all versions up to, and including, 4.17.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. The vulnerability is exploitable via any page hosting the ProfilePress Tabbed Widget by supplying a malicious filename for the ppress_billing_address file upload field in a crafted POST request.",
       "severity": "MEDIUM",
-      "score": 5.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-104475",
-      "published": "2026-10-03T00:16:35.583",
-      "description": "IDURAR ERP CRM through 4.1.1 contains a stored cross-site scripting vulnerability that allows authenticated users to inject scripts by uploading unsanitized SVG files. Attackers can upload JavaScript-laden SVGs via the profile update or settings upload endpoints, which execute in victims' browsers when served from the /public route.",
+      "id": "CVE-2026-92826",
+      "published": "2026-10-03T04:18:04.043",
+      "description": "The EWWW Image Optimizer plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via REQUEST_URI Parameter Key in all versions up to, and including, 8.7.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. Successful exploitation requires that the enable_help option is active, as the vulnerable HelpScout Beacon script block is only emitted when that setting is enabled.",
       "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-104479",
-      "published": "2026-10-03T00:16:36.273",
-      "description": "Shopclass before 6.2.0 contains a stored cross-site scripting vulnerability that allows self-registered non-admin users to inject scripts into item listing descriptions when frontend TinyMCE is enabled. Attackers can submit malicious JavaScript, which ItemActions.php saves without tag stripping, causing it to execute in the site origin for any visitor viewing the listing.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.1
     },
     {
       "id": "CVE-2026-100180",
@@ -86,60 +135,11 @@
       "score": 5.4
     },
     {
-      "id": "CVE-2026-105030",
-      "published": "2026-10-03T00:16:36.743",
-      "description": "Kener 4.0.0 before 4.1.6 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve hidden or inactive monitor data by querying dashboard API handlers lacking visibility filters. Attackers can supply a known or guessed monitor tag to endpoints such as monitor-bar and monitor-latency-chart to obtain names, descriptions, status, uptime history and latency.",
+      "id": "CVE-2026-100149",
+      "published": "2026-10-03T06:16:37.370",
+      "description": "The WPZOOM Connect: AI Chat, Click to Chat, Social Icons & Share Buttons plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 4.7.3 via the 'x-yamidoo-signature (attacker-obtained via inline_js identify payload)' parameter. This makes it possible for unauthenticated attackers to extract the full customer card — including name, WordPress user ID, order history, order totals, purchased products, payment method labels, and EDD Software Licensing license keys with status and activation counts — for any arbitrary victim email address on the site. Exploitation requires the attacker to register a WooCommerce customer or subscriber-level account with a crafted email address whose local part encodes the target timestamp and victim email, allowing the signature printed into the page HTML by inline_js() to pass verify_request() for an arbitrary victim; both the share_customer_data and identify_logged_in settings are enabled by default, so no non-default configuration is required.",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-105029",
-      "published": "2026-10-03T00:16:36.463",
-      "description": "UVdesk support-center-bundle before 1.1.3.3 contains an insecure direct object reference vulnerability in the rateTicket action of Controller/Ticket.php that allows authenticated customers to rate other customers' tickets. Attackers can supply arbitrary ticket IDs, which are loaded without an ownership check, to submit or change satisfaction ratings on tickets owned by other customers.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105048",
-      "published": "2026-10-02T23:16:57.787",
-      "description": "The Playground feature of Zilliz Attu before 3.0.0 allows SSRF (proxying of requests to private IP addresses).",
-      "severity": "MEDIUM",
-      "score": 4
-    },
-    {
-      "id": "CVE-2026-105083",
-      "published": "2026-10-03T02:17:18.170",
-      "description": "ImageMagick before 7.1.2-32 and 6.9.13-57 contains a policy bypass vulnerability in LoadPolicyCache that silently skips security policy rules when policy.xml uses an alternate DOCTYPE. A valid DOCTYPE not ending in ']>' makes the parser consume the rest of the file, so no policy rules are applied and restricted operations become allowed.",
-      "severity": "LOW",
-      "score": 3.9
-    },
-    {
-      "id": "CVE-2026-105051",
-      "published": "2026-10-02T23:16:58.247",
-      "description": "Denuvo Anti-Tamper through 2026-03-04 allows bypass of a hypervisor presence check via CPUID interception (SimpleSvm.sys on AMD; hyperkd.sys and hyperhv.dll on Intel).",
-      "severity": "LOW",
-      "score": 1.9
-    },
-    {
-      "id": "CVE-2026-105050",
-      "published": "2026-10-02T23:16:58.093",
-      "description": "PeaZip before 11.3.0, in a non-default configuration, is vulnerable to OS command injection via a filename in an archive because \"quotation character already used in the string\" is mishandled.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-79113",
-      "published": "2026-10-03T01:17:25.287",
-      "description": "OpenAPV before 1.1.1.0 has a read_bitstream heap-based buffer overflow.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-105090",
-      "published": "2026-10-03T02:17:18.370",
-      "description": "Formbricks before 5.4.4 and 6 before 6.0.1 allows stored XSS. The survey-level Custom Head Scripts feature did not enforce the documented Manage permission boundary. A workspace member holding only readWrite permission could configure Custom Head Scripts on a survey, an operation the documentation restricts to the Manage role. Because the configured scripts execute in the authenticated browser session of any user who opens the affected survey, a lower-privileged member can run arbitrary JavaScript (stored cross-site scripting) in the session of higher-privileged users. Fixed versions require Manage access to modify survey Custom Head Scripts.",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
