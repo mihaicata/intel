@@ -1,19 +1,12 @@
 {
-  "totalResults": 3241,
+  "totalResults": 3248,
   "items": [
     {
-      "id": "CVE-2026-105086",
-      "published": "2026-10-04T16:16:30.183",
-      "description": "WWBN AVideo 12.4 through 29.2.0 contains a stored cross-site scripting vulnerability that allows authenticated uploaders to inject HTML by submitting doubly-encoded entities in video titles. Because safeString() strips tags before decoding entities and runs twice via setTitle() and save(), attackers can store markup that executes in trending, gallery, embed, and playlist pages.",
+      "id": "CVE-2026-105293",
+      "published": "2026-10-05T01:16:28.780",
+      "description": "Legcord 1.1.0 through 1.3.0 contains a path traversal vulnerability in theme IPC handlers that allows script in the Discord page to escape the themes directory via unvalidated theme ids. Attackers running script in the Discord origin, such as through XSS, can abuse themes.folder, themes.uninstall, and themes.install to launch local executables, recursively delete directories, and write files outside the themes directory.",
       "severity": "HIGH",
-      "score": 8.7
-    },
-    {
-      "id": "CVE-2026-105089",
-      "published": "2026-10-04T16:16:30.330",
-      "description": "WWBN AVideo through 29.2.0 contains a stored cross-site scripting vulnerability that allows users with upload permission to inject script by setting a malicious video trailer1 URL. The value is rendered unescaped in YouPHPFlix2 templates and channel playlists, letting attackers break out of onclick strings or iframe src attributes to execute JavaScript in victims' browsers.",
-      "severity": "HIGH",
-      "score": 8.7
+      "score": 8.1
     },
     {
       "id": "CVE-2026-105220",
@@ -21,27 +14,6 @@
       "description": "Twine 2 desktop through 2.12.0 contains a cross-site scripting vulnerability in importStories() that executes markup from imported story files in the editor window. Attackers can craft a story file whose script calls the twineElectron openWithScratchFile IPC bridge to write and open a .bat file, executing code as the user.",
       "severity": "HIGH",
       "score": 7.8
-    },
-    {
-      "id": "CVE-2026-105219",
-      "published": "2026-10-04T18:16:34.777",
-      "description": "Mammoth.js 1.3.0 before 1.12.3 contains a regular expression denial of service vulnerability in the style map tokeniser in lib/styles/parser/tokeniser.js due to overlapping regex alternatives. Attackers can supply a crafted .docx with an unterminated quoted string of repeated backslash escapes in mammoth/style-map to block the Node.js event loop.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-105216",
-      "published": "2026-10-04T18:16:34.287",
-      "description": "go-micro before 6.0.0 contains an improper certificate validation vulnerability that allows network attackers to impersonate services because the shared TLS helper sets InsecureSkipVerify to true by default. Man-in-the-middle attackers can present any certificate to intercept or modify gRPC transport, HTTP and RabbitMQ broker, and Consul or etcd registry traffic, including authentication tokens and credentials.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-105218",
-      "published": "2026-10-04T18:16:34.630",
-      "description": "gopay before 1.5.119 disables TLS certificate verification in defaultClient() in pkg/xhttp/client.go, allowing man-in-the-middle attackers to impersonate payment provider APIs. Attackers can present any certificate to read merchant credentials, signatures and transaction data, and modify payment, refund and order query responses.",
-      "severity": "HIGH",
-      "score": 7.4
     },
     {
       "id": "CVE-2026-105221",
@@ -54,6 +26,20 @@
       "id": "CVE-2026-105222",
       "published": "2026-10-04T23:16:59.917",
       "description": "The alexpechkarev/google-maps Laravel package through 12.16 disables TLS certificate verification by default because the bundled config sets ssl_verify_peer to FALSE, which is passed to CURLOPT_SSL_VERIFYPEER. On-path attackers can present any certificate to intercept Google Maps web-service requests, steal the API key from the query string, and tamper with responses.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-105223",
+      "published": "2026-10-05T01:16:28.480",
+      "description": "maclof kubernetes-client 0.17.0 before 0.32.0 disables TLS certificate verification in parseKubeconfig() and parseKubeconfigFile() when a kubeconfig lacks certificate-authority-data, ignoring insecure-skip-tls-verify. On-path attackers can impersonate the Kubernetes API server to capture Bearer tokens or Basic credentials and tamper with WebSocket or REST API traffic.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-105294",
+      "published": "2026-10-05T01:16:28.923",
+      "description": "Legcord 1.1.0 through 1.3.0 contains a configuration injection vulnerability that allows script in the Discord page to write any config key via the window.legcord settings.setConfig bridge. Attackers exploiting a Discord XSS can set additionalArguments to persistently add --proxy-server and --ignore-certificate-errors switches, routing all client traffic through an interception proxy.",
       "severity": "HIGH",
       "score": 7.4
     },
@@ -86,6 +72,20 @@
       "score": 7.3
     },
     {
+      "id": "CVE-2026-105172",
+      "published": "2026-10-05T01:16:27.157",
+      "description": "A vulnerability was detected in itsourcecode Online Admission System 1.0. Affected by this issue is some unknown functionality of the file /login1.php. Performing a manipulation of the argument User results in sql injection. The attack may be initiated remotely. The exploit is now public and may be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-105175",
+      "published": "2026-10-05T01:16:28.190",
+      "description": "A vulnerability was found in SourceCodester Drug Recommendation System 1.0. This issue affects some unknown processing of the file /Auth/add_student.php of the component Student Registration. The manipulation of the argument cmdschool results in sql injection. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
       "id": "CVE-2026-105165",
       "published": "2026-10-04T23:16:58.180",
       "description": "A vulnerability has been found in devopspolis secrets-replicator up to 0.4.0. Impacted is the function process_single_secret of the file src/handler.py of the component AssumeRole Handler. Such manipulation of the argument external_id leads to incorrect permission assignment. The attack can be executed remotely. Upgrading to version 0.5.0 is recommended to address this issue. The name of the patch is b42239405fbf4fae3c3f0048fc0b4225112edceb. It is suggested to upgrade the affected component.",
@@ -100,18 +100,25 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-105224",
-      "published": "2026-10-04T16:16:30.470",
-      "description": "YesWiki before 4.6.7 contains a cross-site scripting vulnerability in the Bazar valeur action that allows page editors to inject script by rendering unescaped HTML fetched from a remote URL. Attackers can point tools/bazar/actions/valeur.php at a controlled server returning BAZ_fiche_titre markup with an img onerror handler, executing script in every viewer's browser.",
+      "id": "CVE-2026-105171",
+      "published": "2026-10-05T00:16:58.887",
+      "description": "A security vulnerability has been detected in kishor-23 food-waste-management-system 411989e3ecb82895e53dca7865f72145f03d7d93/b3a70b2c492dc9904de5be1ad9389bd79b87f82c. Affected by this vulnerability is an unknown functionality of the file admin/admin.php of the component Role Attribute Handler. Such manipulation of the argument Name leads to authorization bypass. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. Multiple endpoints are affected. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-105161",
-      "published": "2026-10-04T18:16:33.560",
-      "description": "A flaw has been found in invariant-systems-ai aiir up to 1.7.0. The affected element is an unknown function of the component Policy Gate Handler. Executing a manipulation can lead to improper verification of cryptographic signature. The attack can be executed remotely. It is advisable to upgrade the affected component. The GitHub repository of this project is not available anymore. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-105292",
+      "published": "2026-10-05T01:16:28.630",
+      "description": "Chaterm before 0.12.1 contains a login cross-site request forgery vulnerability that allows remote attackers to inject login state by sending chaterm:// callbacks without OAuth state validation. Attackers can trigger a crafted callback with attacker-controlled userInfo from a web page, signing the victim into the attacker's account so default data sync uploads saved hosts, passwords, and private keys.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-105174",
+      "published": "2026-10-05T01:16:28.020",
+      "description": "A vulnerability has been found in Gerapy up to 0.9.13. This vulnerability affects the function project_create of the file gerapy/server/core/views.py of the component Project Management. The manipulation of the argument project_name leads to path traversal. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. The identifier of the patch is 6e481078cfba6388a67ca2d9792288405019ba3e. Applying a patch is the recommended action to fix this issue.",
+      "severity": "MEDIUM",
+      "score": 5.4
     },
     {
       "id": "CVE-2026-105163",
@@ -121,18 +128,11 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-104402",
-      "published": "2026-10-04T16:16:28.587",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in farvisun Mindio Magic MCP mindio-magic-mcp allows Retrieve Embedded Sensitive Data.This issue affects Mindio Magic MCP: from n/a through 0.5.6.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105217",
-      "published": "2026-10-04T18:16:34.433",
-      "description": "Cockpit CMS 2.12.0 before 2.14.1 disables TLS certificate verification in the cron.php web worker restart request, allowing network attackers to capture the worker token. Man-in-the-middle attackers on the outbound path to site_url can present any certificate to steal the worker/web/token value and start the web worker.",
+      "id": "CVE-2026-105173",
+      "published": "2026-10-05T01:16:27.847",
+      "description": "A flaw has been found in code-projects Human Resource Management 1.0. This affects an unknown part of the file /humanresourcemanagementsystem/src/store/EventStore.php of the component Event Creation. Executing a manipulation of the argument eventSubject can lead to cross site scripting. The attack may be launched remotely. The exploit has been published and may be used.",
       "severity": "LOW",
-      "score": 3.1
+      "score": 3.5
     },
     {
       "id": "CVE-2026-105164",
