@@ -1,5 +1,5 @@
 {
-  "totalResults": 3085,
+  "totalResults": 3077,
   "items": [
     {
       "id": "CVE-2026-105134",
@@ -16,9 +16,16 @@
       "score": 10
     },
     {
-      "id": "CVE-2026-105123",
-      "published": "2026-10-04T00:16:35.703",
-      "description": "W (vincent-peugnet/wcms) through 3.18.0 contains a remote code execution vulnerability that allows authenticated editors to write arbitrary files by abusing the unvalidated path in POST /api/v0/media/upload/[*:path]. Attackers can upload .php files executed by the web server, use encoded ../ sequences to write outside the media directory, and delete arbitrary files via DELETE /api/v0/media/[*:path].",
+      "id": "CVE-2026-103355",
+      "published": "2026-10-04T09:16:38.820",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Blind SQL Injection.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.20.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-93549",
+      "published": "2026-10-04T07:16:34.180",
+      "description": "The CoCart  WordPress plugin before 4.9.7 does not scope its REST API authentication filter to its own endpoints, which disables WordPress core's REST nonce protection for every route, allowing an attacker to perform a cross-site request forgery attack that creates a new administrator account using a logged-in administrator's session.",
       "severity": "HIGH",
       "score": 8.8
     },
@@ -37,11 +44,25 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-105126",
-      "published": "2026-10-04T00:16:36.217",
-      "description": "LaraDashboard before 1.4.8 contains an improper privilege management vulnerability that allows authenticated Admin users to escalate to Superadmin by editing or renaming roles. Attackers with role.edit can rename their role to Superadmin or grant user.login_as permissions to take over accounts and reach core upgrade and module installation functions for code execution.",
+      "id": "CVE-2026-103062",
+      "published": "2026-10-04T09:16:37.263",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Cozmoslabs TranslatePress translatepress-multilingual allows Stored XSS.This issue affects TranslatePress: from n/a through 3.3.6.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-103344",
+      "published": "2026-10-04T09:16:38.543",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Reflected XSS.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.20.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-103354",
+      "published": "2026-10-04T09:16:38.683",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Liquid Web / StellarWP Gutenberg Blocks by Kadence Blocks kadence-blocks allows Stored XSS.This issue affects Gutenberg Blocks by Kadence Blocks: from n/a through 3.7.11.1.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
       "id": "CVE-2026-17005",
@@ -51,32 +72,11 @@
       "score": 6.8
     },
     {
-      "id": "CVE-2026-105129",
-      "published": "2026-10-04T00:16:36.730",
-      "description": "LaraDashboard before 1.4.8 contains an incorrect authorization vulnerability that allows authenticated users with only settings.view permission to read stored secrets through the settings API. Attackers can query GET /api/settings or /api/settings/{option_name} to retrieve plaintext AI provider API keys, mail credentials, passwords and tokens.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
       "id": "CVE-2026-105096",
       "published": "2026-10-04T02:16:28.740",
       "description": "A vulnerability was determined in Omega Solution CoinEx Crypto 2025. This affects an unknown function of the file /customer/ of the component Customer Profile API. Executing a manipulation of the argument ID can lead to authorization bypass. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The product web site does not exist anymore. Maybe the product got retired and/or replaced. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 6.3
-    },
-    {
-      "id": "CVE-2026-105124",
-      "published": "2026-10-04T00:16:35.853",
-      "description": "W (vincent-peugnet/wcms) through 3.18.0 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts via the login user field and visitor comment website field. Attackers can submit failed logins rendered unescaped in the adminlog.php log viewer, or comment URLs echoed into href attributes in editrightbar.php, executing script with administrator or editor privileges.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-105128",
-      "published": "2026-10-04T00:16:36.563",
-      "description": "LaraDashboard before 1.4.8 contains an open redirect vulnerability that allows remote attackers to redirect users by supplying an unvalidated redirect_url parameter to EmailTemplateController builder and builderEdit. Attackers can send crafted builder links to logged-in users with email template permissions so saving a template navigates them to attacker-controlled phishing sites.",
-      "severity": "MEDIUM",
-      "score": 5.4
     },
     {
       "id": "CVE-2026-105131",
@@ -86,18 +86,32 @@
       "score": 5.4
     },
     {
-      "id": "CVE-2026-105127",
-      "published": "2026-10-04T00:16:36.397",
-      "description": "LaraDashboard 1.4.2 before 1.4.8 applies advanced email validation to unauthenticated forgot-password and reset-password requests, triggering DNS lookups and paid AbstractAPI verification calls. Unauthenticated attackers can submit arbitrary addresses to exhaust the verification quota, making validation fail open for all public forms, and probe domain resolution.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
       "id": "CVE-2026-104118",
       "published": "2026-10-04T07:16:31.933",
       "description": "The Razorpay for WooCommerce WordPress plugin before 4.8.8 does not perform ownership or authorization checks on a REST API route used during checkout, allowing unauthenticated attackers to modify the shipping information stored on arbitrary orders.",
       "severity": "MEDIUM",
       "score": 5.3
+    },
+    {
+      "id": "CVE-2026-97332",
+      "published": "2026-10-04T07:16:34.303",
+      "description": "The User Private Files  WordPress plugin before 2.2.0 does not properly protect its stored private files on multisite installations, where the rewrite rule it relies on to route file requests through its access check is never reached, allowing unauthenticated users to retrieve other users' private files directly.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-105137",
+      "published": "2026-10-04T09:16:38.970",
+      "description": "A vulnerability was found in Laradock up to 20.4. Impacted is an unknown function of the file workspace/Dockerfile of the component Build Process. The manipulation results in download of code without integrity check. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is considered difficult. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 5
+    },
+    {
+      "id": "CVE-2026-86817",
+      "published": "2026-10-04T07:16:34.053",
+      "description": "The Five Star Business Profile and Schema WordPress plugin before 2.4.0 does not properly restrict the callbacks used to resolve schema field default values, allowing authenticated users with Author-level access and above to store input that discloses sensitive data, including other users' password hashes and arbitrary site option values, in public output readable by unauthenticated visitors.",
+      "severity": "MEDIUM",
+      "score": 4.9
     },
     {
       "id": "CVE-2026-105097",
@@ -112,20 +126,6 @@
       "description": "A security flaw has been discovered in Omega Solution CoinEx Crypto 2025. Affected is an unknown function of the file /ticket/customer of the component Support Ticket API. The manipulation of the argument status/page/count results in information disclosure. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The product web site does not exist anymore. Maybe the product got retired and/or replaced. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105125",
-      "published": "2026-10-04T00:16:35.990",
-      "description": "LaraDashboard before 1.4.8 contains a path traversal vulnerability that allows unauthenticated attackers to read JSON files by manipulating the {lang} route segment. On Windows hosts, attackers can send URL-encoded backslash sequences like ..%5C to escape resources/lang and read composer.json or other application JSON files.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-105130",
-      "published": "2026-10-04T00:16:36.893",
-      "description": "LaraDashboard from 1.4.0 before 1.4.8 contains a race condition vulnerability in RegisterController::register that allows unauthenticated attackers to bypass the per-IP daily registration limit. Attackers can send many concurrent registration requests from one IP so all pass RegistrationGuardService::hasExceededIpLimit before recordRegistration runs, creating accounts in bulk and defeating anti-automation controls.",
-      "severity": "LOW",
-      "score": 3.7
     },
     {
       "id": "CVE-2026-105099",
