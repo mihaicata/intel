@@ -1,143 +1,143 @@
 {
-  "totalResults": 3274,
+  "totalResults": 3419,
   "items": [
     {
-      "id": "CVE-2026-88391",
-      "published": "2026-10-05T15:17:22.697",
-      "description": "Northstar (dromara/northstar, quantitative trading platform) <= 9.1.1 enables the H2 Console but its auth interceptor only covers /northstar/**, so /h2-console is exposed with no authentication and the embedded H2 DB uses default sa / empty password. Any network-reachable attacker can run arbitrary system commands via CREATE ALIAS (pre-auth RCE).",
+      "id": "CVE-2026-105763",
+      "published": "2026-10-06T00:16:33.247",
+      "description": "Twenty is an open-source CRM (customer relationship management) platform. From 1.20.10 until 2.7.0, the /metadata GraphQL connectedAccounts query returned connectionParameters from ConnectedAccountDTO for every connected account in a workspace, including plaintext IMAP, SMTP, and CalDAV passwords, because the field was not hidden and the lookup did not enforce the calling user's identity or account visibility. A normal workspace member could obtain other members' external-service credentials and use them to access mail or calendars and potentially reset third-party accounts. Google and Microsoft OAuth-only workspaces were not affected. This issue is fixed in version 2.7.0.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-37719",
-      "published": "2026-10-05T16:17:13.243",
-      "description": "An issue in dormakaba evolo Service (all versions) allows a remote attacker to execute arbitrary code as SYSTEM via a .NET component.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-105762",
+      "published": "2026-10-06T00:16:33.090",
+      "description": "Dify is an open-source LLM app development platform. Prior to 1.13.0, the /console/api/remote-files/upload endpoint in api/controllers/web/remote_files.py accepted an attacker-controlled URL without authentication and caused the Dify server to retrieve it. A remote attacker could use the endpoint to send requests to internal services or cloud metadata endpoints, potentially exposing sensitive data and using the server as a network pivot. This issue is fixed in version 1.13.0.",
+      "severity": "HIGH",
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-88393",
-      "published": "2026-10-05T16:17:16.830",
-      "description": "WookTeam v1.6.6 and before is vulnerable to RCE in the project task export interface /api/project/task/export. The data parameter is base64-decoded and passed directly into the string2array() function in app/Module/Base.php, which executes eval(\"\\$array = $data;\") whenever the decoded string starts with array. An attacker can inject arbitrary PHP code into the eval call and achieve RCE.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-105783",
+      "published": "2026-10-06T00:16:33.770",
+      "description": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, when Joplin Desktop is running with the opt-in Web Clipper server enabled, the server in packages/lib/ClipperServer.ts sends Access-Control-Allow-Origin: * and allows an arbitrary website to call POST /auth and GET /auth/check because the pairing endpoints do not reject HTTP or HTTPS origins. The desktop confirmation dialog does not identify the requesting origin, so a victim who approves the generic prompt authorizes the attacking page, which then receives the permanent API token. The token provides ongoing read and write access to notes, folders, tags, resources, and master keys. This issue is fixed in version 3.7.13.",
+      "severity": "HIGH",
+      "score": 8
     },
     {
-      "id": "CVE-2026-88395",
-      "published": "2026-10-05T16:17:16.957",
-      "description": "GouGuOA v6.0.5 and before is vulnerable to SQL Injection in /home/message/rubbish via the keywords parameter.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-79820",
-      "published": "2026-10-05T15:17:22.290",
-      "description": "A remote user validation failure vulnerability exists in HPE Integrated Lights-Out (iLO) 7 firmware.",
-      "severity": "CRITICAL",
-      "score": 9
-    },
-    {
-      "id": "CVE-2026-88392",
-      "published": "2026-10-05T15:17:22.857",
-      "description": "Unimall v4 is vulnerable to Directory Traversal in FileUploadController.local(). This allows an attacker to execute arbitrary code.",
+      "id": "CVE-2026-105782",
+      "published": "2026-10-06T00:16:33.613",
+      "description": "Scrapy is a high-level web crawling and scraping framework for Python. From 1.4.0 until 2.14.2, RefererMiddleware in scrapy/spidermiddlewares/referer.py treated a Referrer-Policy response-header value that resembled a Python import path as a referrer policy class, imported the referenced object, and called it. A malicious website could supply a callable such as sys.exit and terminate a crawler processing the response. This issue is fixed in version 2.14.2.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-88394",
-      "published": "2026-10-05T15:17:22.997",
-      "description": "WookTeam v1.6.6 and before is vulnerable to a Directory Traversal. The project task export endpoint /api/project/task/export downloads an arbitrary file from the server when the data parameter is supplied with a crafted JSON payload. The file value inside the JSON is concatenated directly into storage_path($file) without any path normalization or directory boundary check, so directory traversal (../) escapes the storage/ directory and response()->download() streams any file readable by the web server process.",
+      "id": "CVE-2026-105469",
+      "published": "2026-10-05T23:17:01.320",
+      "description": "A vulnerability was determined in girishsaraf Online-Appointment-Booking-System up to f427b4757128ca253d33d0cc4e87bbb9c999a4d5. This vulnerability affects unknown code of the file get_town.php of the component AJAX Endpoint. Executing a manipulation of the argument countryid/townid/cid/didval/cidval can lead to sql injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-104891",
-      "published": "2026-10-05T16:17:06.447",
-      "description": "mppx-condition-gate provides conditional free-access wrappers for mppx payment methods. Prior to @insumermodel/mppx-condition-gate 3.0.0 and @insumermodel/mppx-token-gate 1.0.4, the packages read a wallet address from the client-supplied credential.source, checked whether that public address met configured on-chain conditions, and returned a successful free-access receipt without invoking the wrapped payment verifier or proving that the caller controlled the wallet. An unauthenticated attacker could name any qualifying wallet and obtain content that should require payment, and cached grants could be reused for the configured cache lifetime. The corrected packages prevent free-access authorization unless payer control has been established. These issues are fixed in @insumermodel/mppx-condition-gate 3.0.0 and @insumermodel/mppx-token-gate 1.0.4.",
+      "id": "CVE-2026-105470",
+      "published": "2026-10-05T23:17:01.520",
+      "description": "A vulnerability was identified in girishsaraf Online-Appointment-Booking-System up to f427b4757128ca253d33d0cc4e87bbb9c999a4d5. This issue affects the function mysqli_query of the file locateus.php of the component Doctor Search Endpoint. The manipulation of the argument doctorname leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-104890",
-      "published": "2026-10-05T16:17:06.270",
-      "description": "Kunstmaan CMS is an open source content management system based on the Symfony framework. Prior to 7.3.2, src/Kunstmaan/MediaBundle/Helper/File/FileHandler.php performs the blacklisted_extensions check case-sensitively in FileHandler::getFilePath and lowercases the stored extension afterward. An authenticated backend user with media access can upload a mixed-case executable extension such as PHP that bypasses the check and is stored in the web-accessible media directory with an executable lowercase extension. The default blacklist also omits several server-executable extension types, allowing the same code-execution impact where the web server executes uploaded files. This issue is fixed in version 7.3.2.",
+      "id": "CVE-2026-105471",
+      "published": "2026-10-06T00:16:32.920",
+      "description": "A security flaw has been discovered in girishsaraf Online-Appointment-Booking-System up to f427b4757128ca253d33d0cc4e87bbb9c999a4d5. Impacted is an unknown function of the file signup.php of the component Registration Handler. The manipulation of the argument fname results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-89039",
-      "published": "2026-10-05T15:17:23.130",
-      "description": "A caller who can invoke the convert_playwright_script prompt in mcp-k6 can pass a bare file path as the playwright_script argument and receive the contents of any file readable by the user running the server, including SSH keys and cloud credentials in that user's home directory (path traversal). The working-directory restriction applied to '@'-prefixed paths can also be bypassed with a symbolic link inside the working directory that points outside it.",
+      "id": "CVE-2026-105761",
+      "published": "2026-10-05T23:17:03.050",
+      "description": "Dify is an open-source LLM app development platform. Prior to 1.16.0, the PUT /console/api/apps/&lt;app_id&gt;/server endpoint in api/controllers/console/app/mcp_server.py used AppMCPServerController.put() to retrieve an AppMCPServer by the client-supplied server ID without verifying that the server belonged to the requested application and tenant. An authenticated workspace member could therefore change another application's MCP server status and parameters, potentially redirecting data or disabling the service. This issue is fixed in version 1.16.0.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-105753",
+      "published": "2026-10-05T23:17:01.867",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.28.0, the default mirrored multimodal LRU cache can commit a media hash in the frontend sender cache during multimodal rendering and before engine admission, while the engine receiver cache never receives the payload if that request is rejected. A later request reusing the same media hash causes MultiModalProcessorSenderCache to send no payload and MultiModalReceiverCache to reach an assertion with the message \"Expected a cached item,\" producing a shared-service availability failure. This issue is fixed in version 0.28.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-105329",
-      "published": "2026-10-05T16:17:12.460",
-      "description": "A vulnerability was determined in TallCMS up to 4.8.0. This affects an unknown function of the file packages/tallcms/cms/src/Filament/Pages/ThemeManager.php of the component PluginManager. Executing a manipulation can lead to code injection. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. This patch is called fdc18f4c6a36134f8986ca1d7e4e97092e3deb93. It is best practice to apply a patch to resolve this issue.",
+      "id": "CVE-2026-105754",
+      "published": "2026-10-05T23:17:02.017",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, the /inference/v1/generate endpoint in the disaggregated scale-out path accepts caller-supplied tensors in the features.kwargs_data field, cache identifiers in the features.mm_hashes field, ranges in the features.mm_placeholders field, and wire-selected multimodal field processors without rebinding them to the active model renderer contract. Forged grid geometry, field types, or non-positive placeholder lengths can terminate the shared EngineCore; when an attacker knows or can induce a victim's content hash, forged cache hashes can poison or retrieve cross-request encoder-cache state; and dropped sparse placeholder masks can alter replayed transport semantics. This issue is fixed in version 0.30.0.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-105397",
-      "published": "2026-10-05T16:17:12.650",
-      "description": "LearnPress plugin for WordPress through 4.4.9.1 contains a stored cross-site scripting vulnerability that allows authenticated instructors to inject scripts via quiz question hint and explanation fields. Attackers with the Instructor role can submit unsanitized payloads through the update_question AJAX handler that execute in the session of every student taking the quiz.",
+      "id": "CVE-2026-105756",
+      "published": "2026-10-05T23:17:02.317",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, OpenAI-compatible request models accept a non-empty cache_salt value without enforcing the character and length restrictions required by the IPCCacheServerKey consumer in LMCache-MP. On deployments using the LMCache-MP connector, a salt that contains a forbidden character or exceeds the permitted length can raise an uncaught ValueError during scheduler cache lookup, causing EngineCore to terminate and denying service to all concurrent users. This issue is fixed in version 0.30.0.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-105421",
-      "published": "2026-10-05T15:17:21.043",
-      "description": "Missing Authorization vulnerability in Kit Kit (formerly ConvertKit) for WooCommerce convertkit-for-woocommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Kit (formerly ConvertKit) for WooCommerce: from n/a through 2.2.0.",
+      "id": "CVE-2026-105757",
+      "published": "2026-10-05T23:17:02.467",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, structured-output request failures can escape request-scoped validation and reach the EngineCore fatal-error path. A per-request backend mismatch can re-raise a grammar compilation exception, padding produced by the ngram_gpu speculative-decoding mode can pass a negative token to guidance validation, and the Rust frontend can admit empty structured-output values that the Python frontend rejects, allowing ordinary constrained-generation requests to terminate the shared engine. This issue is fixed in version 0.30.0.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-105759",
+      "published": "2026-10-05T23:17:02.760",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, the Rust frontend's track_http_metrics middleware records the raw HTTP method token as a Prometheus label for requests reaching registered routes. An unauthenticated attacker can send unique arbitrary method tokens to unguarded routes such as /tokenize, causing Prometheus's Family::get_or_create function to permanently create counter and histogram label sets. Those label sets increase process memory usage and enlarge the /metrics response until the service or monitoring path is exhausted. This issue is fixed in version 0.30.0.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-105758",
+      "published": "2026-10-05T23:17:02.610",
+      "description": "vLLM is an inference and serving engine for large language models. From 0.24.0 until 0.30.0, the Qwen2VLVideoBackend and Qwen3VLVideoBackend classes accept request-level values for the media_io_kwargs.video.max_frames and media_io_kwargs.video.fps fields without enforcing server-side ceilings. An unauthenticated caller can submit these values to the /tokenize endpoint, causing the sampler to decode every frame selected from attacker-controlled video input, consume disproportionate frontend memory, and potentially terminate the API process before scheduling or admission control. The Rust frontend is not affected because it rejects the media_io_kwargs field. This issue is fixed in version 0.30.0.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-102426",
-      "published": "2026-10-05T16:17:04.017",
-      "description": "Joomla Extension - joomshaper.com - Reflected XSS in the Dynamic Content Filter addon in SP Page Builder Pro 3.0.0 - 5.6.1p2 - The slider minimum and maximum values are taken from the dc_filter_<fieldId> request parameter, split on the delimiter \"l-r\", HTML-escaped inside the data-value attribute, and then echoed without escaping as the span element's text content. An unauthenticated attacker reflects arbitrary HTML or JavaScript into the rendered page through a crafted dc_filter_<fieldId> value.",
+      "id": "CVE-2026-105760",
+      "published": "2026-10-05T23:17:02.903",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, a caller can use the request-level media_io_kwargs field to select the GLMGA video backend and supply large values for the fps and max_frames options without a strict work ceiling. GLMGA constructs and deduplicates an attacker-sized pre-decode frame-index list, allowing a compact request and tiny valid video to consume disproportionate CPU time and memory in the shared media-loading executor. This issue is fixed in version 0.30.0.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-105784",
+      "published": "2026-10-06T00:16:33.940",
+      "description": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, selecting a note containing a jsoncanvas fence causes the whiteboard text and file-node components in packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/TextNode.tsx and packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/FileNode.tsx to render card content with the full Markdown renderer. The components insert the resulting HTML into the main application document through dangerouslySetInnerHTML. A malicious note can inject style elements and remote CSS imports that modify trusted application chrome, signal when the note is opened, and potentially disclose exposed attribute values. Content Security Policy blocks inline script execution, so the supported impact is CSS injection and UI redressing rather than code execution. This issue is fixed in version 3.7.13.",
+      "severity": "MEDIUM",
+      "score": 4.6
+    },
+    {
+      "id": "CVE-2026-105755",
+      "published": "2026-10-05T23:17:02.167",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, flash late-interaction scoring at the /score and /rerank endpoints derives each worker's query_key value from the caller-controlled X-Request-Id header. A concurrent request that reuses a victim's identifier can overwrite the cached query embedding so the victim's documents are scored against the attacker's query, and shared use counters can also cause a late-interaction cache-miss error. This issue is fixed in version 0.30.0.",
+      "severity": "MEDIUM",
+      "score": 4.2
+    },
+    {
+      "id": "CVE-2026-105752",
+      "published": "2026-10-05T23:17:01.710",
+      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, Harmony tool continuations submitted through \"POST /v1/responses\" requests rebuild the next-turn engine input without preserving the cache_salt value, placing the continuation prefix in the global unsalted cache namespace even when the caller enabled salting. On deployments with prefix caching enabled, which is the default, an authenticated tenant who can reconstruct a victim's low-entropy post-tool history can submit the same continuation and use the cached_tokens_per_turn count to determine whether the prefix was previously processed, defeating the intended tenant isolation of salted prefix caching. This issue is fixed in version 0.30.0.",
+      "severity": "LOW",
+      "score": 3.1
+    },
+    {
+      "id": "CVE-2026-104852",
+      "published": "2026-10-05T23:17:00.213",
+      "description": "GraphQL Tools provides utilities for building, stitching, and mocking GraphQL schemas. Prior to 12.0.1, the GraphQL Tools utils package's mergeDeep function follows inherited properties while recursively merging source objects and does not exclude __proto__, constructor, or prototype keys. An unauthenticated GraphQL client can alias fields to those names so responses from two subgraphs collide during ordinary supergraph result merging, causing mergeDeep to traverse Object and Function prototypes and overwrite Function.prototype.call with a subgraph-supplied value. This breaks subsequent requests in the process until restart. This issue is fixed in version 12.0.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-102428",
-      "published": "2026-10-05T16:17:04.177",
-      "description": "Joomla Extension - ordasoft.com - Unauthenticated SQL injection in OrdaSoft Joomla CCK < 8.3.16 - The order column for records was user provided and not properly validated, leading to a SQL injection vector.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102775",
-      "published": "2026-10-05T16:17:04.317",
-      "description": "Joomla Extension - phoca.cz - Authorisation bypass through user-controlled key (IDOR) in Order View in Phoca Cart 5.0.0 - 6.1.8 - Phoca Cart's order-file download endpoint does not verify the download tokens it asks for. The d (download token) and o (order token) parameters are checked for non-emptiness only — they are never compared to the stored download_token / order_token values. As a result, any remote user (including a guest with no account at all) can download any customer's digital goods by enumerating sequential id values and supplying arbitrary non-empty tokens.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102776",
-      "published": "2026-10-05T16:17:04.453",
-      "description": "Joomla Extension - svenbluege.de - Cross-site request forgery of list tasks of the backend in Event Gallery extension < 6.6.0 - Eight tasks which the buttons of the back-end lists call did not check the form token: setting the default payment method, shipping method, image type set, order status and watermark; putting an event into the shop or taking it out; choosing the main image of an event and whether an image is shown only as the main image; and sorting the images of an event. A prepared page on another web site could trigger them in the name of a logged in administrator and change those settings and flags. Nothing can be deleted or read this way; orders are not affected.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102778",
-      "published": "2026-10-05T16:17:04.593",
-      "description": "Joomla Extension - svenbluege.de - Cross-site scripting and open redirect on the share mini page in Event Gallery extension < 6.6.0 - The page a shared image link opens (the share mini page of the front end) can link the article the image was shared from when the option \"Share article links\" is on. It took the address of the article from the shared link and printed it into the page without checking or escaping it; with the link type \"Image Page with Redirect\" it followed the address at once. A prepared link could therefore run a script in the page, in the session of the visitor who opened it, or send the visitor to another web site. Nothing on the server is changed or read by the server.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102780",
-      "published": "2026-10-05T16:17:04.730",
-      "description": "Joomla Extension - joomlafry.com - Unauthenticated cross-record publication and mass assignment in TF Content 2.9.0 - 2.9.4 - The extension unconditionally authorizes both creation and editing in its public `RecordController`. Its shared frontend save controller accepts the raw `jform` array, assigns the request-selected existing record ID, and saves it without filtering submitted properties through the configured form. A Guest can obtain a valid token from Joomla's public login form and modify any TF Content row, including mass-assigning `published`, `access`, and `created_by`.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-104892",
-      "published": "2026-10-05T16:17:06.620",
-      "description": "Plane is an open-source project management tool. Prior to 1.4.0, aPITokenLogMiddleware logs API keys in plaintext. This allows someone with low privileges to steal user API keys and further escalate their privileges. This issue is fixed in 1.4.0.",
+      "id": "CVE-2026-105764",
+      "published": "2026-10-06T00:16:33.450",
+      "description": "Immich is a high-performance self-hosted photo and video management solution. Prior to 3.2.4, an authenticated non-admin user could upload SVG files that thumbnail-generation code in server/src/repositories/media.repository.ts passed to libvips. Files that bypassed libvips' native SVG loader fell through to ImageMagick, where attacker-controlled &lt;image href&gt; values reached unrestricted MSL and VIDEO coder operations. By storing one crafted asset and referencing its path from a second delayed-marker SVG, an attacker could execute code in the immich-server container when thumbnail processing ran. This issue is fixed in version 3.2.4.",
       "severity": "UNKNOWN",
       "score": null
     }
