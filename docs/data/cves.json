@@ -1,145 +1,145 @@
 {
-  "totalResults": 3419,
+  "totalResults": 3560,
   "items": [
     {
-      "id": "CVE-2026-105763",
-      "published": "2026-10-06T00:16:33.247",
-      "description": "Twenty is an open-source CRM (customer relationship management) platform. From 1.20.10 until 2.7.0, the /metadata GraphQL connectedAccounts query returned connectionParameters from ConnectedAccountDTO for every connected account in a workspace, including plaintext IMAP, SMTP, and CalDAV passwords, because the field was not hidden and the lookup did not enforce the calling user's identity or account visibility. A normal workspace member could obtain other members' external-service credentials and use them to access mail or calendars and potentially reset third-party accounts. Google and Microsoft OAuth-only workspaces were not affected. This issue is fixed in version 2.7.0.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-105762",
-      "published": "2026-10-06T00:16:33.090",
-      "description": "Dify is an open-source LLM app development platform. Prior to 1.13.0, the /console/api/remote-files/upload endpoint in api/controllers/web/remote_files.py accepted an attacker-controlled URL without authentication and caused the Dify server to retrieve it. A remote attacker could use the endpoint to send requests to internal services or cloud metadata endpoints, potentially exposing sensitive data and using the server as a network pivot. This issue is fixed in version 1.13.0.",
-      "severity": "HIGH",
-      "score": 8.3
-    },
-    {
-      "id": "CVE-2026-105783",
-      "published": "2026-10-06T00:16:33.770",
-      "description": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, when Joplin Desktop is running with the opt-in Web Clipper server enabled, the server in packages/lib/ClipperServer.ts sends Access-Control-Allow-Origin: * and allows an arbitrary website to call POST /auth and GET /auth/check because the pairing endpoints do not reject HTTP or HTTPS origins. The desktop confirmation dialog does not identify the requesting origin, so a victim who approves the generic prompt authorizes the attacking page, which then receives the permanent API token. The token provides ongoing read and write access to notes, folders, tags, resources, and master keys. This issue is fixed in version 3.7.13.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-105782",
-      "published": "2026-10-06T00:16:33.613",
-      "description": "Scrapy is a high-level web crawling and scraping framework for Python. From 1.4.0 until 2.14.2, RefererMiddleware in scrapy/spidermiddlewares/referer.py treated a Referrer-Policy response-header value that resembled a Python import path as a referrer policy class, imported the referenced object, and called it. A malicious website could supply a callable such as sys.exit and terminate a crawler processing the response. This issue is fixed in version 2.14.2.",
+      "id": "CVE-2026-105072",
+      "published": "2026-10-06T06:16:59.313",
+      "description": "Unauthenticated Broken Access Control in FluentBooking Pro < 2.5.0 versions.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-105469",
-      "published": "2026-10-05T23:17:01.320",
-      "description": "A vulnerability was determined in girishsaraf Online-Appointment-Booking-System up to f427b4757128ca253d33d0cc4e87bbb9c999a4d5. This vulnerability affects unknown code of the file get_town.php of the component AJAX Endpoint. Executing a manipulation of the argument countryid/townid/cid/didval/cidval can lead to sql injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-39723",
+      "published": "2026-10-06T06:17:00.947",
+      "description": "Missing Authorization vulnerability in Green Invoice Morning for WooCommerce wc-gateway-greeninvoice allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Morning for WooCommerce: from n/a through 2.4.1.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-39789",
+      "published": "2026-10-06T06:17:01.227",
+      "description": "Unauthenticated Broken Access Control in Fluent Affiliate Pro <= 1.6.4 versions.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-41558",
+      "published": "2026-10-06T06:17:01.370",
+      "description": "Subscriber Bypass Vulnerability in WP Migration Plugin DB & Files – WP Synchro <= 1.16.1 versions.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-41563",
+      "published": "2026-10-06T06:17:01.530",
+      "description": "Unauthenticated Sensitive Data Exposure in Sitemovr <= 1.0.1 versions.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-105704",
+      "published": "2026-10-06T05:16:37.663",
+      "description": "A vulnerability was identified in SourceCodester Drug Recommendation System 1.0. This affects an unknown function of the component Auth Guard. Such manipulation of the argument user_id leads to improper authentication. The attack can be executed remotely. The exploit is publicly available and might be used.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-105470",
-      "published": "2026-10-05T23:17:01.520",
-      "description": "A vulnerability was identified in girishsaraf Online-Appointment-Booking-System up to f427b4757128ca253d33d0cc4e87bbb9c999a4d5. This issue affects the function mysqli_query of the file locateus.php of the component Doctor Search Endpoint. The manipulation of the argument doctorname leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-75962",
+      "published": "2026-10-06T06:17:01.687",
+      "description": "The Post SMTP – Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP & Mobile App plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'user_email' parameter in all versions up to, and including, 4.0.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable without authentication on WordPress Multisite installations with public registration enabled, as WordPress accepts email addresses containing numeric HTML character references that Post SMTP's stricter validator rejects, persisting the attacker-controlled address verbatim to the email log via the failed-send exception message.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-105471",
-      "published": "2026-10-06T00:16:32.920",
-      "description": "A security flaw has been discovered in girishsaraf Online-Appointment-Booking-System up to f427b4757128ca253d33d0cc4e87bbb9c999a4d5. Impacted is an unknown function of the file signup.php of the component Registration Handler. The manipulation of the argument fname results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-105761",
-      "published": "2026-10-05T23:17:03.050",
-      "description": "Dify is an open-source LLM app development platform. Prior to 1.16.0, the PUT /console/api/apps/&lt;app_id&gt;/server endpoint in api/controllers/console/app/mcp_server.py used AppMCPServerController.put() to retrieve an AppMCPServer by the client-supplied server ID without verifying that the server belonged to the requested application and tenant. An authenticated workspace member could therefore change another application's MCP server status and parameters, potentially redirecting data or disabling the service. This issue is fixed in version 1.16.0.",
+      "id": "CVE-2026-39760",
+      "published": "2026-10-06T06:17:01.087",
+      "description": "Unauthenticated Cross Site Scripting (XSS) in Real 3D FlipBook <= 5.5 versions.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-105753",
-      "published": "2026-10-05T23:17:01.867",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.28.0, the default mirrored multimodal LRU cache can commit a media hash in the frontend sender cache during multimodal rendering and before engine admission, while the engine receiver cache never receives the payload if that request is rejected. A later request reusing the same media hash causes MultiModalProcessorSenderCache to send no payload and MultiModalReceiverCache to reach an assertion with the message \"Expected a cached item,\" producing a shared-service availability failure. This issue is fixed in version 0.28.0.",
+      "id": "CVE-2026-32576",
+      "published": "2026-10-06T06:17:00.500",
+      "description": "Authorization Bypass Through User-Controlled Key vulnerability in ZWEISCHNEIDER Faktur Pro for WooCommerce woorechnung allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Faktur Pro for WooCommerce: from n/a through 3.2.2.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-105754",
-      "published": "2026-10-05T23:17:02.017",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, the /inference/v1/generate endpoint in the disaggregated scale-out path accepts caller-supplied tensors in the features.kwargs_data field, cache identifiers in the features.mm_hashes field, ranges in the features.mm_placeholders field, and wire-selected multimodal field processors without rebinding them to the active model renderer contract. Forged grid geometry, field types, or non-positive placeholder lengths can terminate the shared EngineCore; when an attacker knows or can induce a victim's content hash, forged cache hashes can poison or retrieve cross-request encoder-cache state; and dropped sparse placeholder masks can alter replayed transport semantics. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-32582",
+      "published": "2026-10-06T06:17:00.660",
+      "description": "Missing Authorization vulnerability in iatoai IATO MCP iato-mcp allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects IATO MCP: from n/a through 1.12.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-105756",
-      "published": "2026-10-05T23:17:02.317",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, OpenAI-compatible request models accept a non-empty cache_salt value without enforcing the character and length restrictions required by the IPCCacheServerKey consumer in LMCache-MP. On deployments using the LMCache-MP connector, a salt that contains a forbidden character or exceeds the permitted length can raise an uncaught ValueError during scheduler cache lookup, causing EngineCore to terminate and denying service to all concurrent users. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-97300",
+      "published": "2026-10-06T06:17:02.110",
+      "description": "Unauthenticated Broken Access Control in WP Event Solution <= 4.1.25 versions.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-105757",
-      "published": "2026-10-05T23:17:02.467",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, structured-output request failures can escape request-scoped validation and reach the EngineCore fatal-error path. A per-request backend mismatch can re-raise a grammar compilation exception, padding produced by the ngram_gpu speculative-decoding mode can pass a negative token to guidance validation, and the Rust frontend can admit empty structured-output values that the Python frontend rejects, allowing ordinary constrained-generation requests to terminate the shared engine. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-105621",
+      "published": "2026-10-06T04:18:05.360",
+      "description": "A security flaw has been discovered in jishenghua jshERP up to 3.5. Affected is the function updateAccountHeadAndDetail of the file jshERP-boot/src/main/java/com/jsh/erp/service/AccountHeadService.java of the component Financial Receipt Update Handler. Performing a manipulation results in improper authorization. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-105759",
-      "published": "2026-10-05T23:17:02.760",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, the Rust frontend's track_http_metrics middleware records the raw HTTP method token as a Prometheus label for requests reaching registered routes. An unauthenticated attacker can send unique arbitrary method tokens to unguarded routes such as /tokenize, causing Prometheus's Family::get_or_create function to permanently create counter and histogram label sets. Those label sets increase process memory usage and enlarge the /metrics response until the service or monitoring path is exhausted. This issue is fixed in version 0.30.0.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-105758",
-      "published": "2026-10-05T23:17:02.610",
-      "description": "vLLM is an inference and serving engine for large language models. From 0.24.0 until 0.30.0, the Qwen2VLVideoBackend and Qwen3VLVideoBackend classes accept request-level values for the media_io_kwargs.video.max_frames and media_io_kwargs.video.fps fields without enforcing server-side ceilings. An unauthenticated caller can submit these values to the /tokenize endpoint, causing the sampler to decode every frame selected from attacker-controlled video input, consume disproportionate frontend memory, and potentially terminate the API process before scheduling or admission control. The Rust frontend is not affected because it rejects the media_io_kwargs field. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-105707",
+      "published": "2026-10-06T05:16:38.177",
+      "description": "A security vulnerability has been detected in uptrace up to 2.1.0-beta.8. Affected by this vulnerability is the function Login of the file pkg/org/user_handler.go. The manipulation leads to information exposure through error message. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-105760",
-      "published": "2026-10-05T23:17:02.903",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, a caller can use the request-level media_io_kwargs field to select the GLMGA video backend and supply large values for the fps and max_frames options without a strict work ceiling. GLMGA constructs and deduplicates an attacker-sized pre-decode frame-index list, allowing a compact request and tiny valid video to consume disproportionate CPU time and memory in the shared media-loading executor. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-105703",
+      "published": "2026-10-06T04:18:05.587",
+      "description": "A vulnerability was determined in PHPGurukul User Registration & Login and User Management System 3.3. The impacted element is an unknown function of the file loginsystem/admin/change-password.php of the component Change Password Handler. This manipulation of the argument currentpassword causes incorrect authorization. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-105784",
-      "published": "2026-10-06T00:16:33.940",
-      "description": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, selecting a note containing a jsoncanvas fence causes the whiteboard text and file-node components in packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/TextNode.tsx and packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/FileNode.tsx to render card content with the full Markdown renderer. The components insert the resulting HTML into the main application document through dangerouslySetInnerHTML. A malicious note can inject style elements and remote CSS imports that modify trusted application chrome, signal when the note is opened, and potentially disclose exposed attribute values. Content Security Policy blocks inline script execution, so the supported impact is CSS injection and UI redressing rather than code execution. This issue is fixed in version 3.7.13.",
+      "id": "CVE-2026-105705",
+      "published": "2026-10-06T05:16:37.847",
+      "description": "A security flaw has been discovered in SourceCodester Drug Recommendation System 1.0. This impacts an unknown function of the file Admin/add_drug.php. Performing a manipulation results in cross site scripting. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
       "severity": "MEDIUM",
-      "score": 4.6
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-105755",
-      "published": "2026-10-05T23:17:02.167",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, flash late-interaction scoring at the /score and /rerank endpoints derives each worker's query_key value from the caller-controlled X-Request-Id header. A concurrent request that reuses a victim's identifier can overwrite the cached query embedding so the victim's documents are scored against the attacker's query, and shared use counters can also cause a late-interaction cache-miss error. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-105706",
+      "published": "2026-10-06T05:16:38.010",
+      "description": "A weakness has been identified in SourceCodester Drug Recommendation System 1.0. Affected is an unknown function. Executing a manipulation can lead to cross-site request forgery. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-105752",
-      "published": "2026-10-05T23:17:01.710",
-      "description": "vLLM is an inference and serving engine for large language models. Prior to 0.30.0, Harmony tool continuations submitted through \"POST /v1/responses\" requests rebuild the next-turn engine input without preserving the cache_salt value, placing the continuation prefix in the global unsalted cache namespace even when the caller enabled salting. On deployments with prefix caching enabled, which is the default, an authenticated tenant who can reconstruct a victim's low-entropy post-tool history can submit the same continuation and use the cached_tokens_per_turn count to determine whether the prefix was previously processed, defeating the intended tenant isolation of salted prefix caching. This issue is fixed in version 0.30.0.",
+      "id": "CVE-2026-105708",
+      "published": "2026-10-06T06:17:00.030",
+      "description": "A flaw has been found in imgproxy up to 4.0.17. Affected by this vulnerability is the function sanitizeElement of the file processing/svg/svg.go of the component SVG Handler. Executing a manipulation can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-105775",
+      "published": "2026-10-06T06:17:00.280",
+      "description": "A security vulnerability has been detected in vllm-project vLLM up to 0.31.0. This impacts the function conv_ssm_forward of the file vllm/model_executor/layers/mamba/mamba_mixer2.py of the component Completions Request Handler. The manipulation leads to out-of-bounds read. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-39599",
+      "published": "2026-10-06T06:17:00.803",
+      "description": "Contributor Broken Access Control in WDS MCP Content Manager <= 3.10.4 versions.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-105611",
+      "published": "2026-10-06T04:17:58.950",
+      "description": "A vulnerability was determined in chillzhuang SpringBlade up to 5.0.1. This affects an unknown function of the file blade-service/blade-system/src/main/java/org/springblade/system/controller/RoleController.java of the component User Detail Endpoint. This manipulation of the argument ID causes improper authorization. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-104852",
-      "published": "2026-10-05T23:17:00.213",
-      "description": "GraphQL Tools provides utilities for building, stitching, and mocking GraphQL schemas. Prior to 12.0.1, the GraphQL Tools utils package's mergeDeep function follows inherited properties while recursively merging source objects and does not exclude __proto__, constructor, or prototype keys. An unauthenticated GraphQL client can alias fields to those names so responses from two subgraphs collide during ordinary supergraph result merging, causing mergeDeep to traverse Object and Function prototypes and overwrite Function.prototype.call with a subgraph-supplied value. This breaks subsequent requests in the process until restart. This issue is fixed in version 12.0.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-105764",
-      "published": "2026-10-06T00:16:33.450",
-      "description": "Immich is a high-performance self-hosted photo and video management solution. Prior to 3.2.4, an authenticated non-admin user could upload SVG files that thumbnail-generation code in server/src/repositories/media.repository.ts passed to libvips. Files that bypassed libvips' native SVG loader fell through to ImageMagick, where attacker-controlled &lt;image href&gt; values reached unrestricted MSL and VIDEO coder operations. By storing one crafted asset and referencing its path from a second delayed-marker SVG, an attacker could execute code in the immich-server container when thumbnail processing ran. This issue is fixed in version 3.2.4.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 2.7
     }
   ]
 }
