@@ -1,143 +1,143 @@
 {
-  "totalResults": 3275,
+  "totalResults": 3511,
   "items": [
     {
-      "id": "CVE-2026-106016",
-      "published": "2026-10-06T13:16:47.290",
-      "description": "Mitigation bypass in the File Handling component. This vulnerability was fixed in Firefox 157.0.1.",
+      "id": "CVE-2026-102322",
+      "published": "2026-10-06T19:17:39.420",
+      "description": "Incorrect Authorization in SiteIsolation in Google Chrome prior to 155.0.8059.39 allowed a remote attacker to execute arbitrary code via a crafted HTML page. (Chromium security severity: High)",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-105985",
-      "published": "2026-10-06T11:17:16.857",
-      "description": "Craft CMS 5.10.13.2 contains an authenticated remote code execution vulnerability in the Control Panel action app/render-components.\n\n\n\nAny authenticated user with basic Control Panel access can submit request-controlled component classes and property overrides. By first overriding an EntryType object’s uiLabelFormat and then rendering an Entry that resolves the same request-cached entry type, an attacker can cause arbitrary Twig supplied in the request to be evaluated by renderObjectTemplate().\n\n\n\nThis render path is not sandboxed. A Twig string callable can therefore reach PHP functions such as system(), resulting in operating-system command execution with the privileges of the PHP/web-server process.\n\n\n\nThe issue was reproduced with an active non-admin Craft Team user with no optional permissions enabled. No access to entry-editing, Settings, utility, user-management, project-config, filesystem, Kubernetes, or environment variables was required.",
+      "id": "CVE-2026-101207",
+      "published": "2026-10-06T18:16:42.173",
+      "description": "Dell OpenManage Integration with Microsoft Windows Admin Center, versions prior to 3.7.0, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-105788",
-      "published": "2026-10-06T14:17:40.077",
-      "description": "Microsoft UFO is an open-source framework for intelligent automation across devices and platforms. Prior to 3.0.10, the type_text and launch_app tools in ufo/client/mcp/http_servers/mobile_mcp_server.py pass the authenticated caller-controlled text and package_name parameters into adb shell command argument positions without comprehensive validation. The adb client joins those arguments into a remote command string that the Android shell reparses, allowing shell metacharacters to execute additional commands on an authorized connected device as the Android shell user. Exploitation requires a valid Mobile MCP API key and a reachable device authorized for ADB, and it does not establish host operating-system execution, Android root execution, or access beyond the Android shell-user privileges. This issue is fixed in version 3.0.10.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-82531",
-      "published": "2026-10-06T13:16:50.180",
-      "description": "Smarty before 4.5.8 and 5.x before 5.8.5 contains a code injection vulnerability where the top-level nocache_hash is never restored during extends:/multi-component template inheritance, leaving it null. Attackers can supply assigned data containing a forged SmartyNocache marker that is copied verbatim into the regenerated PHP cache file, executing arbitrary PHP on include for remote code execution.",
+      "id": "CVE-2025-45871",
+      "published": "2026-10-06T18:16:41.890",
+      "description": "LogicalDOC Enterprise up to and for 9.1.1 is vulnerable to blind SQL injection in the WorkflowsDataServlet component, allowing authenticated user to manipulate SQL queries via crafted workflow template name.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-105837",
-      "published": "2026-10-06T14:17:40.763",
-      "description": "libmikmod before 3.3.14 contains an integer overflow vulnerability in DSM_Load() in load_dsm.c that allows attackers to trigger heap buffer overflow via crafted track counts. Attackers can supply a DSM module whose numchn and numpat product wraps a 16-bit value, overwriting heap memory to cause crashes or potential code execution.",
+      "id": "CVE-2026-106110",
+      "published": "2026-10-06T18:16:52.490",
+      "description": "ImageSharp is a 2D graphics library. From 2.0.0 until 4.1.2, the TIFF CCITT Group 3 encoder allocates an undersized compressed-data buffer for narrow 1-bit images. TiffCcittCompressor.Initialize does not reserve enough space for the row data and T4 end-of-line codes, and T4BitCompressor.CompressStrip reaches unchecked writes when TiffCompression.CcittGroup3Fax is selected directly or inherited from decoded TIFF metadata. An attacker-controlled encode or decode-and-re-encode flow can write beyond the logical output span, corrupt process memory, and terminate the process. This issue is fixed in version 4.1.2.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-105839",
-      "published": "2026-10-06T14:17:41.133",
-      "description": "libmikmod before 3.3.14 contains an integer overflow in the Oktalyzer loader OKT_doPBOD() that allows attackers to cause heap buffer overflow via crafted track counts. Attackers can supply an OKT module whose SLEN chunk wraps the 16-bit numtrk value, causing PBOD writes past allocated track pointers for crashes or code execution.",
+      "id": "CVE-2026-106112",
+      "published": "2026-10-06T18:16:52.810",
+      "description": "ImageSharp is a 2D graphics library. From 4.0.0 until 4.1.2, ICC LUT16 conversion accepts more than four output channels even though ClutCalculator.Calculate and LutEntryCalculator.CalculateLut store intermediate and output values in Vector4. When DecoderOptions.ColorProfileHandling is set to Convert, a malformed embedded profile can direct interpolation and output-LUT operations to write one float per declared channel beyond the four-float destination. This can corrupt memory and terminate the process; the default Preserve mode does not run ICC conversion. This issue is fixed in version 4.1.2.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-105835",
-      "published": "2026-10-06T13:16:46.760",
-      "description": "PLANKA 2.2.0 through 2.2.1 fails to limit incorrect TOTP codes submitted to POST /api/access-tokens/verify-totp, allowing attackers to brute force two-factor authentication codes. Attackers who know a user's password can reuse the ten-minute pending token to guess six-digit codes until one succeeds, obtaining a full access token.",
+      "id": "CVE-2026-106113",
+      "published": "2026-10-06T18:16:52.953",
+      "description": "ImageSharp is a 2D graphics library. From 2.0.0 until 4.1.2, decoding an attacker-supplied 32-bit floating-point TIFF as Image<HalfVector4> and applying HistogramEqualization can produce a non-finite or out-of-range luminance in ColorNumerics.GetBT709Luminance. GrayscaleLevelsRowOperation.Invoke uses the resulting value as an unchecked histogram offset, causing an unsafe out-of-range access and process termination. Adaptive Histogram Equalization and AutoLevel are not affected by this report. This issue is fixed in version 4.1.2.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-105918",
-      "published": "2026-10-06T12:16:47.287",
-      "description": "A vulnerability has been found in Kusalkasilva Learning-Management-System up to ffeb873f8803f1e9664384ff75000c7da45466d2. Impacted is the function mysql_error of the file login.php of the component Login Endpoint. The manipulation of the argument username/password leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-106115",
+      "published": "2026-10-06T18:16:53.250",
+      "description": "ImageSharp is a 2D graphics library. From 2.1.0 until 4.1.2, the TIFF CCITT Group 4 encoder allocates Width times rowsPerStrip bytes even though T6BitCompressor.CompressStrip can emit encoded row data and two 12-bit end-of-facsimile-block codes beyond that capacity. TiffCcittCompressor.WriteCode performs unchecked writes, and a decode-and-re-encode flow can inherit TiffCompression.CcittGroup4Fax and one-bit metadata from attacker-supplied input. The resulting out-of-bounds writes can corrupt memory and terminate the process. This issue is fixed in version 4.1.2.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-105919",
-      "published": "2026-10-06T13:16:47.120",
-      "description": "A vulnerability was found in Kusalkasilva Learning-Management-System up to ffeb873f8803f1e9664384ff75000c7da45466d2. The affected element is the function mysql_query of the file admin/login.php of the component Administrator Login Endpoint. The manipulation of the argument username/password results in sql injection. The attack can be launched remotely. The exploit has been made public and could be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-106117",
+      "published": "2026-10-06T18:16:53.550",
+      "description": "ImageSharp is a 2D graphics library. From 3.0.0 until 4.1.1, decoding a strip TIFF using CCITT Group 3 or Modified Huffman compression can pass attacker-expanded runs to BitWriterUtils.WriteBits without first checking the current row width. T4TiffCompression.WritePixelRun can accumulate oversized makeup-code runs, and ModifiedHuffmanTiffCompression.Decompress validates the width only after writing. The unchecked writes can overflow the strip buffer, corrupt heap memory, and terminate the process. This strip-path vulnerability is distinct from the tiled decompressor-width mismatch. This issue is fixed in version 4.1.1.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-105834",
-      "published": "2026-10-06T13:16:46.597",
-      "description": "Rundeck before 6.2.0 contains a path traversal vulnerability that allows users holding only the project configure ACL to read arbitrary server files by setting resources.source.N.config.file to any absolute path. Attackers can retrieve file contents through editProjectNodeSourceFile or the apiSourceGetContent endpoint to obtain database passwords, LDAP bind credentials, and other projects' data.",
+      "id": "CVE-2026-106103",
+      "published": "2026-10-06T18:16:51.523",
+      "description": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. Prior to @quasar/icongenie 6.1.1, the icongenie generate --profile command accepted folder and name values from a user-supplied profile without constraining the resolved destination to the Quasar project directory. icongenie/lib/utils/get-assets-files.js joined those values with appDir, while icongenie/lib/utils/validate-profile-object.js required only non-empty strings, allowing parent-directory traversal. A developer who runs a crafted profile can cause generated image content to be written or overwritten at any path writable by that user, potentially modifying shell startup files, build scripts, or other executable configuration. This issue is fixed in version 6.1.1.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-106111",
+      "published": "2026-10-06T18:16:52.650",
+      "description": "ImageSharp is a 2D graphics library. From 4.0.0 until 4.1.2, ExrBaseDecompressor.UndoZipCompression accepts a nonempty ZIP or ZIPS inflate result that is shorter than the EXR block's required size. ZipExrCompression.Decompress reconstructs the returned prefix while ExrDecoderCore processes the full expected block from a buffer obtained through Configuration.Default, allowing bytes retained from a completed prior ImageSharp operation to appear in decoded pixels. Applications that expose pixels or output from the later attacker-controlled EXR decode can disclose process-local image data. This issue is fixed in version 4.1.2.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-105790",
-      "published": "2026-10-06T14:17:40.490",
-      "description": "Microsoft UFO is an open-source framework for intelligent automation across devices and platforms. Prior to 3.0.9, authenticated device registration through /api/devices can supply a permitted attacker-controlled WebSocket endpoint while aip/transport/websocket.py applies pinned_addresses only to the initial destination. The pinned websockets.connect() client follows cross-origin redirects and opens a new TCP connection before Galaxy performs its post-handshake peer-IP validation, allowing WebSocket upgrade requests to internal hosts reachable from the server. The confirmed impact is the internal connection and handshake request, and does not establish arbitrary HTTP methods, response-body disclosure, a completed AIP session, or cloud metadata access. This issue is fixed in version 3.0.9.",
+      "id": "CVE-2026-106114",
+      "published": "2026-10-06T18:16:53.100",
+      "description": "ImageSharp is a 2D graphics library. From 1.0.0-beta0001 until 4.1.2, ICC CLUT parsing calculates allocation sizes from attacker-declared channel and grid dimensions before confirming that the profile contains the declared values. IccDataReader.ReadClutF32 can request a large float array, and earlier public IccProfile.Entries parsing paths can allocate a large jagged representation, from a short truncated profile. In version 4, automatic image conversion reaches the parser when DecoderOptions.ColorProfileHandling is Convert; the default Preserve mode avoids that conversion path. The demonstrated impact is memory pressure and input-validation failure, not unhandled process termination. This issue is fixed in version 4.1.2.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-105838",
-      "published": "2026-10-06T14:17:40.953",
-      "description": "libmikmod before 3.3.14 contains a heap out-of-bounds read vulnerability in the Impulse Tracker loader load_it.c that allows attackers to read adjacent heap memory via oversized patterns. Attackers can supply a crafted IT module with more than 200 pattern rows, causing IT_ConvertTrack() to read past the itpat buffer and crash applications.",
+      "id": "CVE-2026-106116",
+      "published": "2026-10-06T18:16:53.400",
+      "description": "ImageSharp is a 2D graphics library. From 2.0.0 until 4.1.2, ExifReader.ReadValues64 trusts the 64-bit BigTIFF IFD entry count and iterates once per declared entry. When fewer than 20 bytes remain, ExifReader.ReadValue64 returns without advancing the stream or terminating the outer loop, so a small malformed BigTIFF can keep one decoder thread executing for an attacker-controlled duration. This report does not claim worker-pool exhaustion. This issue is fixed in version 4.1.2.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-105836",
-      "published": "2026-10-06T13:16:46.913",
-      "description": "QloApps through 1.7.0 contains an authorization bypass vulnerability in AdminProductsController::ajaxProcessBulkUpdateRooms that allows hotel-restricted back-office employees to modify rooms of other hotels. Attackers can submit foreign room IDs in the id_rooms parameter to change status, floor, comments, or inactive dates, disrupting availability and bookings.",
+      "id": "CVE-2026-88252",
+      "published": "2026-10-06T18:16:56.867",
+      "description": "A flaw was found in sssd. A local user can cause a Denial of Service (DoS) by exhausting the responder service's available file descriptors (system handles used for open connections). By opening and maintaining many concurrent connections to a responder socket while continuing to queue new connection attempts, an attacker can trigger an unthrottled retry loop. This condition leads to high CPU utilization and stalls the service, preventing legitimate identity and authentication requests from being processed.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-105789",
-      "published": "2026-10-06T14:17:40.270",
-      "description": "Microsoft UFO is an open-source framework for intelligent automation across devices and platforms. Prior to 3.0.9, the execute_command tool in ufo/client/mcp/http_servers/linux_mcp_server.py treats sort and uniq as read-only commands while the free-form command parameter can select their file-output forms. An authenticated caller can use sort -o or the optional second uniq operand to create or overwrite files writable by the UFO server process without shell metacharacters, because the allowed binary opens the destination itself and the argument policy does not reject the operation. This can corrupt configuration or other writable data and disrupt the service, but the demonstrated primitive does not directly disclose files or establish arbitrary code execution. This issue is fixed in version 3.0.9.",
+      "id": "CVE-2026-0198",
+      "published": "2026-10-06T19:17:38.007",
+      "description": "In is_pd_allowed of gem_msg.c, there is a possible permission bypass due to a missing permission check. This could lead to local information disclosure with System execution privileges needed. User interaction is not needed for exploitation.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-56596",
-      "published": "2026-10-06T12:16:49.327",
-      "description": "HCL BigFix Service Management is affected by an Improper Input Validation vulnerability, which could allow an attacker to supply unexpected or malformed data, enabling processing errors, business logic bypasses, and unintended application behavior.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-103831",
-      "published": "2026-10-06T11:17:13.783",
-      "description": "CVE-2026-103831: Insecure deserialization vulnerability in the Psr16CacheAdapter component of the TrueLayer Magento 2 Plugin, due to the use of PHP's native unserialize() function without restrictions on the classes allowed when retrieving data stored in the cache. An attacker who already has the ability to write manipulated data to the cache backend used by Magento—such as Redis or Memcached—could inject specially crafted PHP objects and trigger their deserialization, potentially leading to arbitrary code execution via gadget strings available in the application environment. Exploitation therefore requires a prerequisite condition that allows writing to the cache infrastructure, either through access to the local file system or to a cache infrastructure accessible from the Magento environment.",
+      "id": "CVE-2026-106104",
+      "published": "2026-10-06T18:16:51.687",
+      "description": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. Prior to 2.23.3, Platform.parseSSR() passed an unbounded User-Agent request header to getMatch() in ui/src/plugins/platform/Platform.js, whose browser-detection expressions combined greedy captures with repeated unbounded scans. Platform belongs to autoInstalledPlugins, so this parsing occurs before routing for every SSR request. A crafted unauthenticated request containing repeated version tokens without a terminating Safari token causes super-linear backtracking and blocks the Node.js event loop, delaying every other SSR request. SPA, PWA, Electron, Cordova, Capacitor, browser-extension, and static-site-generation targets are not affected because they do not parse an attacker-controlled request header through this path. This issue is fixed in version 2.23.3.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-75818",
-      "published": "2026-10-06T11:17:29.730",
-      "description": "GNU Aspell prezip-bin contains a heap-based buffer overflow vulnerability in the decompressor in prog/prezip.c. The decompressor does not properly check buffer space, so a crafted compressed file can cause out-of-bounds read and write operations on the heap. An attacker who convinces a user to process a malicious compressed file with prezip-bin can trigger memory corruption, leading to a processs crash.\n\n\n\nThis issue was fixed in commit 15b188437f9e0192d4ac4472ad66a4e2f62a782f which will be released in version 0.60.8.3.",
+      "id": "CVE-2026-106105",
+      "published": "2026-10-06T18:16:51.833",
+      "description": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. Prior to @quasar/ssl-certificate 2.1.0, @quasar/cli 5.0.4, and @quasar/app-vite 3.3.0, the @quasar/ssl-certificate utility cached a combined private key and certificate PEM without explicitly applying owner-only filesystem permissions. Another local user able to read the cache can copy the key and impersonate a development TLS endpoint in an environment that trusts the certificate. The generated certificate was also CA-capable, carried unnecessarily broad key usages, and encoded the IPv6 loopback address as a DNS subject alternative name. This issue is fixed in @quasar/ssl-certificate 2.1.0, @quasar/cli 5.0.4, and @quasar/app-vite 3.3.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-75819",
-      "published": "2026-10-06T11:17:29.883",
-      "description": "GNU Aspell contains an out-of-bounds read vulnerability in ReadOnlyDict::load() in readonly_ws.cpp. When loading a binary .rws dictionary file, it uses offset fields from the file header as byte indices into a heap buffer without validating their bounds. An attacker can trigger this by convincing a user to run aspell with a crafted dictionary file supplied through --master, --dict-dir, or configuration options, leading to heap memory disclosure or a denial of service via application crash.\n\n\n\nThis issue was fixed in commit 941953b25031bc9104e83f58e138a664b8dedc3f which will be released in version 0.60.8.3.",
+      "id": "CVE-2026-106106",
+      "published": "2026-10-06T18:16:52.030",
+      "description": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. Prior to @quasar/render-ssr-error 2.2.4 and @quasar/app-vite 3.3.0, renderSSRError() in utils/render-ssr-error/src/index.js used diagnostic data from utils/render-ssr-error/src/env.js to serialize process.env, request headers, and cookies into the HTTP page returned by serve.devError(), while the development server listened on all interfaces by default. Any network-adjacent client that reaches an SSR or SSG render failure through this development-only error path can obtain shell environment secrets. The renderer escaped only one exact lowercase script closing-tag spelling, so case variants and valid closing-tag delimiter variants in reflected diagnostic data could terminate the script element and inject markup; executing the injected code in a developer browser additionally requires the payload to accompany that developer's request. This issue is fixed in @quasar/render-ssr-error 2.2.4 and @quasar/app-vite 3.3.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-75820",
-      "published": "2026-10-06T11:17:30.020",
-      "description": "GNU Aspell contains an integer truncation vulnerability in the WritableDict::add() function in modules/speller/default/writable.cpp. When loading a personal wordlist, the word length is stored as a single byte, causing truncation for words whose length is a multiple of 256. This leads to heap corruption. An attacker can exploit this by convincing a user to run aspell with a crafted personal wordlist containing such a word, resulting in denial of service.\n\n\n\nThis issue was fixed in commit 782ce94e4dc71eaec4ee1bd945eb3b9c47c5387d which will be released in version 0.60.8.3.",
+      "id": "CVE-2026-106107",
+      "published": "2026-10-06T18:16:52.190",
+      "description": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. Prior to 3.3.0, several @quasar/app-vite SSR and SSG rendering paths interpolated ssrContext.nonce directly into quoted HTML attributes. An application that derives or overrides this value with attacker-controlled data can allow a quote to terminate the nonce attribute and inject additional attributes or markup into generated HTML across development and production SSR or SSG output. Cryptographically generated base64 or base64url nonces are not affected because they lack HTML attribute delimiters. This issue is fixed in version 3.3.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-15591",
-      "published": "2026-10-06T14:17:34.087",
-      "description": "Cross-site Scripting (XSS) in the Forums feature of OpenText Content Management Content Server could allow a bad actor to inject malicious code into a Forums web page.",
+      "id": "CVE-2026-106109",
+      "published": "2026-10-06T18:16:52.340",
+      "description": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. From 1.0.0 until 3.3.0, @quasar/app-vite recursively removed the resolved build.distDir before building without rejecting the project root, user home directory, filesystem roots, or symlink-resolved external directories. An unsafe trusted configuration can delete data writable by the build user before compilation begins. No attacker-controlled input reaches build.distDir by default, so exploitation requires compromised or less-trusted automation to influence build configuration, or a developer to run a mistaken configuration. This issue is fixed in version 3.3.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-66666",
+      "published": "2026-10-06T18:16:55.810",
+      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Automattic WordPress allows Retrieve Embedded Sensitive Data.\n\nThis issue affects WordPress: from 7.1 through 7.1.2, from 7.0 through 7.0.6, from 6.9 through 6.9.9, from 6.8 through 6.8.10, from 6.7 through 6.7.9, and from 6.6 through 6.6.9.",
       "severity": "UNKNOWN",
       "score": null
     }
