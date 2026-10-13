@@ -1,145 +1,145 @@
 {
-  "totalResults": 3560,
+  "totalResults": 3275,
   "items": [
     {
-      "id": "CVE-2026-105072",
-      "published": "2026-10-06T06:16:59.313",
-      "description": "Unauthenticated Broken Access Control in FluentBooking Pro < 2.5.0 versions.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-106016",
+      "published": "2026-10-06T13:16:47.290",
+      "description": "Mitigation bypass in the File Handling component. This vulnerability was fixed in Firefox 157.0.1.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-39723",
-      "published": "2026-10-06T06:17:00.947",
-      "description": "Missing Authorization vulnerability in Green Invoice Morning for WooCommerce wc-gateway-greeninvoice allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Morning for WooCommerce: from n/a through 2.4.1.",
+      "id": "CVE-2026-105985",
+      "published": "2026-10-06T11:17:16.857",
+      "description": "Craft CMS 5.10.13.2 contains an authenticated remote code execution vulnerability in the Control Panel action app/render-components.\n\n\n\nAny authenticated user with basic Control Panel access can submit request-controlled component classes and property overrides. By first overriding an EntryType object’s uiLabelFormat and then rendering an Entry that resolves the same request-cached entry type, an attacker can cause arbitrary Twig supplied in the request to be evaluated by renderObjectTemplate().\n\n\n\nThis render path is not sandboxed. A Twig string callable can therefore reach PHP functions such as system(), resulting in operating-system command execution with the privileges of the PHP/web-server process.\n\n\n\nThe issue was reproduced with an active non-admin Craft Team user with no optional permissions enabled. No access to entry-editing, Settings, utility, user-management, project-config, filesystem, Kubernetes, or environment variables was required.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-39789",
-      "published": "2026-10-06T06:17:01.227",
-      "description": "Unauthenticated Broken Access Control in Fluent Affiliate Pro <= 1.6.4 versions.",
+      "id": "CVE-2026-105788",
+      "published": "2026-10-06T14:17:40.077",
+      "description": "Microsoft UFO is an open-source framework for intelligent automation across devices and platforms. Prior to 3.0.10, the type_text and launch_app tools in ufo/client/mcp/http_servers/mobile_mcp_server.py pass the authenticated caller-controlled text and package_name parameters into adb shell command argument positions without comprehensive validation. The adb client joins those arguments into a remote command string that the Android shell reparses, allowing shell metacharacters to execute additional commands on an authorized connected device as the Android shell user. Exploitation requires a valid Mobile MCP API key and a reachable device authorized for ADB, and it does not establish host operating-system execution, Android root execution, or access beyond the Android shell-user privileges. This issue is fixed in version 3.0.10.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-41558",
-      "published": "2026-10-06T06:17:01.370",
-      "description": "Subscriber Bypass Vulnerability in WP Migration Plugin DB & Files – WP Synchro <= 1.16.1 versions.",
+      "id": "CVE-2026-82531",
+      "published": "2026-10-06T13:16:50.180",
+      "description": "Smarty before 4.5.8 and 5.x before 5.8.5 contains a code injection vulnerability where the top-level nocache_hash is never restored during extends:/multi-component template inheritance, leaving it null. Attackers can supply assigned data containing a forged SmartyNocache marker that is copied verbatim into the regenerated PHP cache file, executing arbitrary PHP on include for remote code execution.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-41563",
-      "published": "2026-10-06T06:17:01.530",
-      "description": "Unauthenticated Sensitive Data Exposure in Sitemovr <= 1.0.1 versions.",
+      "id": "CVE-2026-105837",
+      "published": "2026-10-06T14:17:40.763",
+      "description": "libmikmod before 3.3.14 contains an integer overflow vulnerability in DSM_Load() in load_dsm.c that allows attackers to trigger heap buffer overflow via crafted track counts. Attackers can supply a DSM module whose numchn and numpat product wraps a 16-bit value, overwriting heap memory to cause crashes or potential code execution.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-105704",
-      "published": "2026-10-06T05:16:37.663",
-      "description": "A vulnerability was identified in SourceCodester Drug Recommendation System 1.0. This affects an unknown function of the component Auth Guard. Such manipulation of the argument user_id leads to improper authentication. The attack can be executed remotely. The exploit is publicly available and might be used.",
+      "id": "CVE-2026-105839",
+      "published": "2026-10-06T14:17:41.133",
+      "description": "libmikmod before 3.3.14 contains an integer overflow in the Oktalyzer loader OKT_doPBOD() that allows attackers to cause heap buffer overflow via crafted track counts. Attackers can supply an OKT module whose SLEN chunk wraps the 16-bit numtrk value, causing PBOD writes past allocated track pointers for crashes or code execution.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-105835",
+      "published": "2026-10-06T13:16:46.760",
+      "description": "PLANKA 2.2.0 through 2.2.1 fails to limit incorrect TOTP codes submitted to POST /api/access-tokens/verify-totp, allowing attackers to brute force two-factor authentication codes. Attackers who know a user's password can reuse the ten-minute pending token to guess six-digit codes until one succeeds, obtaining a full access token.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-105918",
+      "published": "2026-10-06T12:16:47.287",
+      "description": "A vulnerability has been found in Kusalkasilva Learning-Management-System up to ffeb873f8803f1e9664384ff75000c7da45466d2. Impacted is the function mysql_error of the file login.php of the component Login Endpoint. The manipulation of the argument username/password leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-75962",
-      "published": "2026-10-06T06:17:01.687",
-      "description": "The Post SMTP – Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP & Mobile App plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'user_email' parameter in all versions up to, and including, 4.0.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable without authentication on WordPress Multisite installations with public registration enabled, as WordPress accepts email addresses containing numeric HTML character references that Post SMTP's stricter validator rejects, persisting the attacker-controlled address verbatim to the email log via the failed-send exception message.",
+      "id": "CVE-2026-105919",
+      "published": "2026-10-06T13:16:47.120",
+      "description": "A vulnerability was found in Kusalkasilva Learning-Management-System up to ffeb873f8803f1e9664384ff75000c7da45466d2. The affected element is the function mysql_query of the file admin/login.php of the component Administrator Login Endpoint. The manipulation of the argument username/password results in sql injection. The attack can be launched remotely. The exploit has been made public and could be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-39760",
-      "published": "2026-10-06T06:17:01.087",
-      "description": "Unauthenticated Cross Site Scripting (XSS) in Real 3D FlipBook <= 5.5 versions.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-32576",
-      "published": "2026-10-06T06:17:00.500",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in ZWEISCHNEIDER Faktur Pro for WooCommerce woorechnung allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Faktur Pro for WooCommerce: from n/a through 3.2.2.",
+      "id": "CVE-2026-105834",
+      "published": "2026-10-06T13:16:46.597",
+      "description": "Rundeck before 6.2.0 contains a path traversal vulnerability that allows users holding only the project configure ACL to read arbitrary server files by setting resources.source.N.config.file to any absolute path. Attackers can retrieve file contents through editProjectNodeSourceFile or the apiSourceGetContent endpoint to obtain database passwords, LDAP bind credentials, and other projects' data.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-32582",
-      "published": "2026-10-06T06:17:00.660",
-      "description": "Missing Authorization vulnerability in iatoai IATO MCP iato-mcp allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects IATO MCP: from n/a through 1.12.0.",
+      "id": "CVE-2026-105790",
+      "published": "2026-10-06T14:17:40.490",
+      "description": "Microsoft UFO is an open-source framework for intelligent automation across devices and platforms. Prior to 3.0.9, authenticated device registration through /api/devices can supply a permitted attacker-controlled WebSocket endpoint while aip/transport/websocket.py applies pinned_addresses only to the initial destination. The pinned websockets.connect() client follows cross-origin redirects and opens a new TCP connection before Galaxy performs its post-handshake peer-IP validation, allowing WebSocket upgrade requests to internal hosts reachable from the server. The confirmed impact is the internal connection and handshake request, and does not establish arbitrary HTTP methods, response-body disclosure, a completed AIP session, or cloud metadata access. This issue is fixed in version 3.0.9.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-97300",
-      "published": "2026-10-06T06:17:02.110",
-      "description": "Unauthenticated Broken Access Control in WP Event Solution <= 4.1.25 versions.",
+      "id": "CVE-2026-105838",
+      "published": "2026-10-06T14:17:40.953",
+      "description": "libmikmod before 3.3.14 contains a heap out-of-bounds read vulnerability in the Impulse Tracker loader load_it.c that allows attackers to read adjacent heap memory via oversized patterns. Attackers can supply a crafted IT module with more than 200 pattern rows, causing IT_ConvertTrack() to read past the itpat buffer and crash applications.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-105621",
-      "published": "2026-10-06T04:18:05.360",
-      "description": "A security flaw has been discovered in jishenghua jshERP up to 3.5. Affected is the function updateAccountHeadAndDetail of the file jshERP-boot/src/main/java/com/jsh/erp/service/AccountHeadService.java of the component Financial Receipt Update Handler. Performing a manipulation results in improper authorization. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-105836",
+      "published": "2026-10-06T13:16:46.913",
+      "description": "QloApps through 1.7.0 contains an authorization bypass vulnerability in AdminProductsController::ajaxProcessBulkUpdateRooms that allows hotel-restricted back-office employees to modify rooms of other hotels. Attackers can submit foreign room IDs in the id_rooms parameter to change status, floor, comments, or inactive dates, disrupting availability and bookings.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-105707",
-      "published": "2026-10-06T05:16:38.177",
-      "description": "A security vulnerability has been detected in uptrace up to 2.1.0-beta.8. Affected by this vulnerability is the function Login of the file pkg/org/user_handler.go. The manipulation leads to information exposure through error message. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-105789",
+      "published": "2026-10-06T14:17:40.270",
+      "description": "Microsoft UFO is an open-source framework for intelligent automation across devices and platforms. Prior to 3.0.9, the execute_command tool in ufo/client/mcp/http_servers/linux_mcp_server.py treats sort and uniq as read-only commands while the free-form command parameter can select their file-output forms. An authenticated caller can use sort -o or the optional second uniq operand to create or overwrite files writable by the UFO server process without shell metacharacters, because the allowed binary opens the destination itself and the argument policy does not reject the operation. This can corrupt configuration or other writable data and disrupt the service, but the demonstrated primitive does not directly disclose files or establish arbitrary code execution. This issue is fixed in version 3.0.9.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-105703",
-      "published": "2026-10-06T04:18:05.587",
-      "description": "A vulnerability was determined in PHPGurukul User Registration & Login and User Management System 3.3. The impacted element is an unknown function of the file loginsystem/admin/change-password.php of the component Change Password Handler. This manipulation of the argument currentpassword causes incorrect authorization. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-105705",
-      "published": "2026-10-06T05:16:37.847",
-      "description": "A security flaw has been discovered in SourceCodester Drug Recommendation System 1.0. This impacts an unknown function of the file Admin/add_drug.php. Performing a manipulation results in cross site scripting. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105706",
-      "published": "2026-10-06T05:16:38.010",
-      "description": "A weakness has been identified in SourceCodester Drug Recommendation System 1.0. Affected is an unknown function. Executing a manipulation can lead to cross-site request forgery. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105708",
-      "published": "2026-10-06T06:17:00.030",
-      "description": "A flaw has been found in imgproxy up to 4.0.17. Affected by this vulnerability is the function sanitizeElement of the file processing/svg/svg.go of the component SVG Handler. Executing a manipulation can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105775",
-      "published": "2026-10-06T06:17:00.280",
-      "description": "A security vulnerability has been detected in vllm-project vLLM up to 0.31.0. This impacts the function conv_ssm_forward of the file vllm/model_executor/layers/mamba/mamba_mixer2.py of the component Completions Request Handler. The manipulation leads to out-of-bounds read. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-39599",
-      "published": "2026-10-06T06:17:00.803",
-      "description": "Contributor Broken Access Control in WDS MCP Content Manager <= 3.10.4 versions.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105611",
-      "published": "2026-10-06T04:17:58.950",
-      "description": "A vulnerability was determined in chillzhuang SpringBlade up to 5.0.1. This affects an unknown function of the file blade-service/blade-system/src/main/java/org/springblade/system/controller/RoleController.java of the component User Detail Endpoint. This manipulation of the argument ID causes improper authorization. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-56596",
+      "published": "2026-10-06T12:16:49.327",
+      "description": "HCL BigFix Service Management is affected by an Improper Input Validation vulnerability, which could allow an attacker to supply unexpected or malformed data, enabling processing errors, business logic bypasses, and unintended application behavior.",
       "severity": "LOW",
-      "score": 2.7
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-103831",
+      "published": "2026-10-06T11:17:13.783",
+      "description": "CVE-2026-103831: Insecure deserialization vulnerability in the Psr16CacheAdapter component of the TrueLayer Magento 2 Plugin, due to the use of PHP's native unserialize() function without restrictions on the classes allowed when retrieving data stored in the cache. An attacker who already has the ability to write manipulated data to the cache backend used by Magento—such as Redis or Memcached—could inject specially crafted PHP objects and trigger their deserialization, potentially leading to arbitrary code execution via gadget strings available in the application environment. Exploitation therefore requires a prerequisite condition that allows writing to the cache infrastructure, either through access to the local file system or to a cache infrastructure accessible from the Magento environment.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-75818",
+      "published": "2026-10-06T11:17:29.730",
+      "description": "GNU Aspell prezip-bin contains a heap-based buffer overflow vulnerability in the decompressor in prog/prezip.c. The decompressor does not properly check buffer space, so a crafted compressed file can cause out-of-bounds read and write operations on the heap. An attacker who convinces a user to process a malicious compressed file with prezip-bin can trigger memory corruption, leading to a processs crash.\n\n\n\nThis issue was fixed in commit 15b188437f9e0192d4ac4472ad66a4e2f62a782f which will be released in version 0.60.8.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-75819",
+      "published": "2026-10-06T11:17:29.883",
+      "description": "GNU Aspell contains an out-of-bounds read vulnerability in ReadOnlyDict::load() in readonly_ws.cpp. When loading a binary .rws dictionary file, it uses offset fields from the file header as byte indices into a heap buffer without validating their bounds. An attacker can trigger this by convincing a user to run aspell with a crafted dictionary file supplied through --master, --dict-dir, or configuration options, leading to heap memory disclosure or a denial of service via application crash.\n\n\n\nThis issue was fixed in commit 941953b25031bc9104e83f58e138a664b8dedc3f which will be released in version 0.60.8.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-75820",
+      "published": "2026-10-06T11:17:30.020",
+      "description": "GNU Aspell contains an integer truncation vulnerability in the WritableDict::add() function in modules/speller/default/writable.cpp. When loading a personal wordlist, the word length is stored as a single byte, causing truncation for words whose length is a multiple of 256. This leads to heap corruption. An attacker can exploit this by convincing a user to run aspell with a crafted personal wordlist containing such a word, resulting in denial of service.\n\n\n\nThis issue was fixed in commit 782ce94e4dc71eaec4ee1bd945eb3b9c47c5387d which will be released in version 0.60.8.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-15591",
+      "published": "2026-10-06T14:17:34.087",
+      "description": "Cross-site Scripting (XSS) in the Forums feature of OpenText Content Management Content Server could allow a bad actor to inject malicious code into a Forums web page.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
