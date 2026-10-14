@@ -1,143 +1,143 @@
 {
-  "totalResults": 4868,
+  "totalResults": 5195,
   "items": [
     {
-      "id": "CVE-2025-70516",
-      "published": "2026-10-07T15:16:52.310",
-      "description": "The websocket handler of Fanvil x7a firmware version 2.6.0.1182 does not enforce proper authentication restrictions against sessionless users. The lack of restrictions grants anyone the ability to view any device resources such as operational logs or perform diagnostic requests.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2025-70517",
-      "published": "2026-10-07T15:16:52.690",
-      "description": "The request handler of Fanvil x7a firmware version 2.6.0.1182 does not enforce any cross-origin resource protection for any state-changing request performed against the applications. Due to the lack of protection, cross-origin boundary can be completely bypassed, allowing for Cross-Site Request Forgery Attacks against any endpoint.",
+      "id": "CVE-2026-103371",
+      "published": "2026-10-07T19:17:31.453",
+      "description": "Insertion of Sensitive Information into Log File in Apache Geode Web Management.\n\n\n\nThis issue affects Apache Geode: from 2.0.0 before 2.0.3.\n\n\n\nUsers are recommended to upgrade to version 2.0.3, which fixes the issue.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-107181",
-      "published": "2026-10-07T14:17:08.807",
-      "description": "Telegram Desktop before 7.2.9 contains an IPC record-separator injection vulnerability in Core::Sandbox that allows remote attackers to inject OPEN: records via crafted tg:// links containing unescaped semicolons. Attackers can reach the interpret: scheme handler to upload local files, including tdata session keys, to an attacker channel, enabling account takeover.",
+      "id": "CVE-2026-107217",
+      "published": "2026-10-07T19:17:33.957",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.0.0 to 2.11.0 in github.com/xuri/excelize/v2 and from 1.1.0 to 1.4.1 in github.com/xuri/excelize, ColumnNameToNumber accumulates a bijective base-26 value in int64 without detecting overflow, allowing an invalid long column name to wrap to zero with no error. ColumnNameToNumber accepts the overflowing name VGWQHXLSDVIKWV, after which checkSheetR0 and xlsxWorksheet.checkRow use the wrapped column value as an index. When a crafted worksheet uses an overflowing column name in a row normalized by checkSheetR0 or checkRow, the wrapped zero column becomes a negative slice index during worksheet normalization, allowing an attacker to panic and terminate the calling process. No fixed version is available as of this review.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-107183",
-      "published": "2026-10-07T14:17:09.003",
-      "description": "llama.cpp before b11393 contains a use-after-free and double free vulnerability in common_chat_peg_mapper::map that allows unauthenticated remote attackers to corrupt heap memory via a dangling current_tool pointer. Attackers can submit a chat_parser in a POST /completion request emitting a tool-id after a tool-close tag to crash llama-server and shape a heap write primitive.",
+      "id": "CVE-2026-107219",
+      "published": "2026-10-07T19:17:34.287",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.3.1 to 2.11.0, agile decryption accepts an attacker-controlled spinCount and performs that many password-key derivation iterations before verifier validation. OpenFile reaches agileDecrypt, which passes the unbounded spinCount to convertPasswdToKey before password verification. When a crafted OLE encrypted-workbook header supplies an excessive spinCount and the file is opened, the key-derivation loop performs unbounded attacker-selected work and cannot be cancelled, allowing an attacker to consume a CPU core for an attacker-controlled duration. No fixed version is available as of this review.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-42616",
-      "published": "2026-10-07T14:17:09.423",
-      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in cat() in ntfscat.c that allows an attacker to corrupt heap memory in the ntfscat binary by crafting a malicious NTFS image. The overflow is triggered by reading a file.",
+      "id": "CVE-2026-107223",
+      "published": "2026-10-07T19:17:34.970",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.1.0 to 2.11.0, flatCols expands file-loaded column ranges without validating Min and Max against the worksheet column limit. SetColWidth reaches flatCols, which expands xlsxCol.Min through xlsxCol.Max without enforcing MaxColumns. When a crafted worksheet supplies an oversized col max attribute and the application invokes a column mutator, flatCols performs a deep copy and append for every attacker-selected column number, allowing an attacker to consume excessive CPU and memory or trigger OOM. No fixed version is available as of this review.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-46569",
-      "published": "2026-10-07T14:17:10.833",
-      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ib_copy_tail(), in libntfs-3g/index.c, that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by extending a directory, e.g., by creating a file.",
+      "id": "CVE-2026-107161",
+      "published": "2026-10-07T20:17:10.977",
+      "description": "A heap-based buffer overflow flaw was found in Cyrus SASL. The add_to_challenge() function in the DIGEST-MD5 plugin computes the size of the buffer needed for a challenge/response field before DIGEST-MD5 quoting is applied, but does not recompute that size when quoting (escaping special characters) makes the value longer. The under-sized buffer is then passed to strcat(), causing a heap-based out-of-bounds write whose size depends on attacker-controlled input. A malicious or on-path DIGEST-MD5 (or HTTP Digest) server can trigger this flaw in a connecting client by supplying a crafted challenge field, such as realm or nonce, most likely resulting in a crash of the client application.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-46572",
-      "published": "2026-10-07T14:17:11.470",
-      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ib_cut_tail() in libntfs-3g/index.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by creating a file in a specially crafted directory.",
+      "id": "CVE-2026-106164",
+      "published": "2026-10-07T19:17:31.987",
+      "description": "In Progress® Telerik® Document Processing SpreadProcessing library, versions prior to 2026.3.1006, an infinite loop vulnerability exists when importing an XLS file with a specifically-targted corruption, the import timeout is ignored resulting in an unresponsive CPU thread and denial of service.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-102257",
-      "published": "2026-10-07T14:17:07.740",
-      "description": "A Zip Slip vulnerability in the in the SMA1000 Appliance Management Console (AMC) interface allows an attacker to extract files outside the intended destination directory using a specially crafted archive, resulting in remote code execution.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-107176",
+      "published": "2026-10-07T20:17:11.153",
+      "description": "A flaw was found in the cluster-samples-operator. The RBAC Role coreos-pull-secret-reader in namespace openshift-config grants get, list, and watch permissions on all Secret resources without resourceNames scoping. The operator only requires access to the pull-secret Secret. If the samples-operator pod or its service account token is compromised through a separate vulnerability, an attacker could read all secrets in openshift-config, potentially including OAuth identity provider credentials, cloud provider credentials, and other sensitive cluster configuration.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-42617",
-      "published": "2026-10-07T14:17:09.587",
-      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ir_to_ib() in index.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by extending a directory, e.g., by creating a file.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-42618",
-      "published": "2026-10-07T14:17:09.740",
-      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_decompress() in compress.c that allows an attacker to corrupt one byte of heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by reading the special crafted file.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-43976",
-      "published": "2026-10-07T14:17:09.887",
-      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, five gym management views in wger apply a flawed gym-scope guard (`gym_a != gym_b`) that silently passes when both operands are `None`. A trainer with `gym.gym_trainer` and `gym.add_adminusernote` permissions and no gym assignment (`gym=None`) can read private admin notes, uploaded documents, gym contracts, user configuration, and user permission data for **any other unaffiliated user** on the instance. The subsequent querysets filter only on the attacker-supplied `member_id` with no secondary gym-scoped validation, so all records are disclosed. Version 2.6 fixes the issue.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-46434",
-      "published": "2026-10-07T14:17:10.277",
-      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, a user with only the `gym_trainer` permission can deactivate any account in the same gym, including `gym_manager` and `general_gym_manager` accounts. The `UserDeactivateView` grants access to anyone holding any one of `gym.manage_gym`, `gym.manage_gyms`, or `gym.gym_trainer` (OR logic via `WgerMultiplePermissionRequiredMixin`), and performs no privilege-hierarchy check to prevent a lower-privileged role from disabling a higher-privileged one. Version 2.6 fixes the issue.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-46438",
-      "published": "2026-10-07T14:17:10.650",
-      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, an authenticated attacker can inject arbitrary workout log entries into any other user's `SlotEntry` by supplying the victim's `slot_entry` ID in a `POST /api/v2/workoutlog/` request. The `slot_entry` foreign key is not included in the ownership verification performed by `WorkoutLogViewSet.get_owner_objects()`, so the server accepts and persists the cross-user reference without error. Because `SlotEntry.get_config_data()` retrieves associated logs via `self.workoutlog_set.all()` with no user filter, the attacker's injected data is silently folded into the victim's progressive-overload calculations, corrupting their auto-generated weight and repetition targets. Version 2.6 contains a patch.",
+      "id": "CVE-2026-107220",
+      "published": "2026-10-07T19:17:34.447",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.7.1 to 2.11.0, mergeCellsParser leaves the cached rectangle empty for an empty mergeCell ref and then passes that empty slice to cellInRange without a length check. GetCellValue reaches mergeCellsParser, which passes an empty rectangle derived from the mergeCell ref attribute into cellInRange. When a crafted worksheet contains an empty mergeCell ref and a non-streaming cell API reads the worksheet, cellInRange indexes four positions in an empty slice, allowing an attacker to panic on the first affected cell operation. No fixed version is available as of this review.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-102258",
-      "published": "2026-10-07T14:17:07.883",
-      "description": "Post-authentication Stored Cross-Site Scripting (XSS) vulnerability has been identified in the SMA1000 Appliance Management Console (AMC) which in specific conditions could potentially enable a remote authenticated attacker as administrator to store and potentially execute arbitrary JavaScript code in the Appliance Management Console (AMC).",
+      "id": "CVE-2026-107221",
+      "published": "2026-10-07T19:17:34.620",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.0.0 to 2.11.0, checkRow sizes its target cell slice from the last cell in XML document order and then re-scatters every cell by its explicit column reference. GetCellValue reaches workSheetReader and checkRow, where targetList is too short for an earlier out-of-order cell. When a crafted row places a higher-column cell before a lower-column final cell and a non-streaming worksheet API reads the sheet, the earlier cell's column index exceeds the slice length derived from the final cell, allowing an attacker to cause an unrecovered panic and terminate the process. No fixed version is available as of this review.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-46571",
-      "published": "2026-10-07T14:17:10.980",
-      "description": "In NTFS-3G before 2026.7.7, a out-of-bounds read exists in ntfs_fix_file_name() in libntfs-3g/reparse.c that allows an attacker to read possibly confidential information in ntfs-3g process memory by crafting a malicious NTFS image. The out-of-bounds read is triggered by a readlink on a corrupted file.",
+      "id": "CVE-2026-107222",
+      "published": "2026-10-07T19:17:34.800",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.7.0 to 2.11.0, conditional-format extraction indexes required child slices or dereferences an optional colorScale child without validating malformed rule structure. GetConditionalFormats reaches extractCondFmtCellIs and also indexes ColorScale.Cfvo, DataBar.Cfvo, and DataBar.Color without complete structural checks. When a crafted worksheet supplies a cellIs, dataBar, or colorScale rule missing expected children and the application calls GetConditionalFormats, missing formula, color, value-object, or colorScale data reaches an out-of-range index or nil dereference, allowing an attacker to panic and terminate an unprotected process. No fixed version is available as of this review.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-88514",
-      "published": "2026-10-07T14:17:11.743",
-      "description": "An issue in iTerm2 macOS before 3.6.12 allows a local attacker to obtain sensitive information.",
+      "id": "CVE-2026-107224",
+      "published": "2026-10-07T19:17:35.140",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.1.0 to 2.11.0, a Zip64 uncompressed size with the high bit set is converted from uint64 to a negative int64 before signed size-limit checks and allocation. ReadZipReader obtains UncompressedSize64 through FileInfo.Size and passes the wrapped negative value to readFile. When a crafted Zip64 entry declares an uncompressed size from 2^63 through 2^64-1 and the workbook is opened, the negative size bypasses unzip limits and reaches make as a negative capacity, allowing an attacker to panic during workbook opening. No fixed version is available as of this review.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-45161",
-      "published": "2026-10-07T14:17:10.087",
-      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, the `trainer_login` view in wger accepts GET requests and executes `django_login()` without any CSRF protection, because Django's `CsrfViewMiddleware` only enforces tokens on unsafe methods (POST/PUT/PATCH/DELETE). An attacker can embed a single `<img>` tag on a malicious page; when an authenticated trainer loads that page, their browser auto-issues the GET with the session cookie, forcibly rebinding the trainer's session to an arbitrary user account. Version 2.6 fixes the issue.",
+      "id": "CVE-2026-107225",
+      "published": "2026-10-07T19:17:35.333",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.8.0 to 2.11.0, GetStyle's fill, border, and font extraction predicates check only upper bounds for attacker-controlled style-table indices. File.GetStyle relies on extractStyleCondFuncs predicates that allow negative FillID, BorderID, and FontID values to reach slice indexing. When a crafted styles.xml supplies a negative fillId, borderId, or fontId and the application reads the style, a negative identifier passes the upper-bound-only predicate and becomes a negative slice index, allowing an attacker to panic while reading cell styling. No fixed version is available as of this review.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-46437",
-      "published": "2026-10-07T14:17:10.467",
-      "description": "wger is a free, open-source workout and fitness manager. Versions prior to 2.6 have a vulnerability in the authentication/session lifecycle of `wger` where bearer-style API credentials remain valid after a user logs out and after a user changes their password. An attacker who steals a victim’s DRF authtoken (`Authorization: Token ...`) or JWT refresh token can continue to access protected `/api/v2/*` endpoints until the token is manually rotated/deleted (DRF token) or naturally expires (JWT refresh). Version 2.6 contains a patch.",
+      "id": "CVE-2026-107353",
+      "published": "2026-10-07T20:17:11.860",
+      "description": "traverse (npm) versions 0.3.6 through 0.3.9, 0.4.0 through 0.4.6, 0.5.0 through 0.5.2, and 0.6.0 through 0.6.11 allow prototype pollution through set(). When the path passed to set() crosses a primitive value, the next path segment is resolved on that primitive's built-in prototype, so an application that passes an untrusted path to set() lets an attacker add or overwrite properties of String.prototype, Number.prototype, or Boolean.prototype using plain JSON data, for example traverse({ name: 'bob' }).set(['name', '__proto__', 'polluted'], 'yes'). Object.prototype was reachable only with a non-data path segment, such as an object whose toString returns a different value on each call, or through a Proxy that accepts an assignment without storing it. This is fixed in 0.3.10, 0.4.7, 0.5.3, and 0.6.12.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-107194",
-      "published": "2026-10-07T14:17:09.203",
-      "description": "Sungrow iSolarCloud before 2026 allows authentication bypass and account takeover via \"login_type\":\"5\" in a login request, potentially leading to \"local blackouts on the whole continent\" in Europe. An email address for the user_account property is required; however, a user can view the email address associated with their parent organization.",
+      "id": "CVE-2026-107218",
+      "published": "2026-10-07T19:17:34.120",
+      "description": "Excelize is a Go language library for reading and writing Microsoft Excel spreadsheets. From 2.10.1 to 2.11.0, RIGHT validates the requested length with UTF-16 code-unit counts but slices a rune array using Unicode code-point counts. RIGHT reaches leftRight through CalcCellValue, where countUTF16String validates one unit but utf8.RuneCountInString supplies the slice index in another. When RIGHT evaluates supplementary-plane text with a requested character count between the rune count and UTF-16 code-unit count, the inconsistent units produce a negative rune-slice index, allowing an attacker to panic during formula evaluation. No fixed version is available as of this review.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-107313",
+      "published": "2026-10-07T19:17:35.513",
+      "description": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.4 and 42.7.5 can send the previous contents of the GSS send buffer in place of the first part of a value on a connection with GSS encryption (gssEncMode=prefer or require), and the server stores the value without an error. The buffer is 16320 bytes with MIT Kerberos. The stored value then holds bytes of the messages the driver sent just before it on the same connection, such as the statement's SQL text, its other parameters, and earlier rows of the same batch, instead of the bytes the application supplied. Values at least as long as the buffer are affected when the driver writes them from a byte array: bind parameters set with setString, setBytes, or a ByteStreamWriter, CopyIn.writeToCopy, and LargeObject.write. Most such writes fail with an ArrayIndexOutOfBoundsException instead. The default, gssEncMode=allow, does not start GSS encryption, and connections without GSS encryption are not affected. Versions 42.7.3 and earlier are not affected, and 42.7.6 fixes the problem.",
+      "severity": "MEDIUM",
+      "score": 4.2
+    },
+    {
+      "id": "CVE-2026-107354",
+      "published": "2026-10-07T20:17:12.043",
+      "description": "Rejected reason: ** This candidate has been removed by an organization.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-70515",
-      "published": "2026-10-07T15:16:51.670",
-      "description": "The device log component of Fanvil x7a firmware version 2.6.0.1182 does not properly sanitize or encode reflected user supplied data. The lack of sanitization allows for the injection of HTML which can be used to execute malicious JavaScript code on any target browser which renders the device log component.",
+      "id": "CVE-2026-107355",
+      "published": "2026-10-07T20:17:12.130",
+      "description": "Rejected reason: ** This candidate has been removed by an organization.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-34499",
+      "published": "2026-10-07T20:17:12.527",
+      "description": "Use of hard-coded cryptographic key vulnerability in Johnson Controls ADVMS allows Read Sensitive Constants Within an Executable.\n\nThis issue affects ADVMS: before 3.10.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-97714",
+      "published": "2026-10-07T20:17:15.893",
+      "description": "CVE-2026-97714\nis a is a vulnerability in the authentication sub-system of Secure Access\nservers prior to version 14.60. Attackers can send a malformed response during\nauthentication and cause a persistent denial of service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-97715",
+      "published": "2026-10-07T20:17:16.053",
+      "description": "CVE-2026-97715 is\na vulnerability in the client registration process of Secure Access servers\nprior to version 14.60. Authenticated attackers can pass malformed data to the\nserver and cause a persistent denial of service.",
       "severity": "UNKNOWN",
       "score": null
     }
