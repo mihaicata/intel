@@ -1,143 +1,143 @@
 {
-  "totalResults": 4855,
+  "totalResults": 4868,
   "items": [
     {
-      "id": "CVE-2026-97720",
-      "published": "2026-10-07T09:17:06.333",
-      "description": "Incorrect implementation of JWT/OAuth authentication in Impala executors in Apache Impala versions up to and including 4.5.2 which allows attacked to access resources served by the executor's webserver when that webserver is configured to accept JWT/OAuth tokens.  Bearer token (JWT) signatures are not validated resulting in the webserver accepting any valid JWT.\nUsers are recommended to either disable JWT/OAuth auth for Impala executors or upgrade to version 4.5.3, which fixes this issue.",
+      "id": "CVE-2025-70516",
+      "published": "2026-10-07T15:16:52.310",
+      "description": "The websocket handler of Fanvil x7a firmware version 2.6.0.1182 does not enforce proper authentication restrictions against sessionless users. The lack of restrictions grants anyone the ability to view any device resources such as operational logs or perform diagnostic requests.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-15894",
-      "published": "2026-10-07T09:17:05.157",
-      "description": "The Bluetooth Mesh On-Demand Private Proxy solicitation handler in subsys/bluetooth/mesh/solicitation.c copies a received Solicitation PDU into a fixed 17-byte stack buffer without bounding the source length. In sol_pdu_decrypt(), out is allocated as NET_BUF_SIMPLE(17) and then filled with net_buf_simple_add_mem(out, in->data, in->len); net_buf_simple_add() guards its tailroom only with __ASSERT_NO_MSG, which is compiled out in production builds, so when in->len > 17 the underlying memcpy writes attacker-controlled bytes past the 17-byte stack buffer. The copy occurs before any decryption or authentication, so no key material is required to trigger it.\n\nThe oversized length arises because the mesh scan callback in subsys/bluetooth/mesh/adv.c calls net_buf_simple_restore() before dispatching to bt_mesh_sol_recv(), leaving buf->len covering the entire remaining advertising payload rather than just the Solicitation Service Data. After the parser locates the Service Data AD and consumes the Identification Type byte, the remaining buf->len is the 17-octet Network PDU plus any trailing advertising bytes, and prior to this fix there was no maximum-length check (only a minimum). An attacker can therefore append extra AD structures or padding after the Solicitation Service Data to make buf->len exceed 17.\n\nbt_mesh_scan_cb() is registered directly as the BLE scan callback, so buf is raw, unauthenticated advertising data received over the air. Any device in radio range can send a non-connectable advertisement carrying a crafted mesh Proxy Solicitation to a node that has CONFIG_BT_MESH_OD_PRIV_PROXY_SRV enabled and is currently eligible to be solicited (GATT proxy disabled, On-Demand Private Proxy enabled), with no pairing, bonding, or provisioning. The result is an attacker-controlled stack overwrite — plausibly leading to remote code execution and at minimum a reliable remote denial of service. The fix trims buf->len to the spec-fixed 17 octets (dropping the PDU if fewer remain) before decryption.",
+      "id": "CVE-2025-70517",
+      "published": "2026-10-07T15:16:52.690",
+      "description": "The request handler of Fanvil x7a firmware version 2.6.0.1182 does not enforce any cross-origin resource protection for any state-changing request performed against the applications. Due to the lack of protection, cross-origin boundary can be completely bypassed, allowing for Cross-Site Request Forgery Attacks against any endpoint.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-19186",
-      "published": "2026-10-07T09:17:05.290",
-      "description": "ieee802154_decipher_data_frame() in subsys/net/l2/ieee802154/ieee802154_frame.c computed payload_len = net_pkt_get_len(pkt) - ll_hdr_len - authtag_len without first checking that the received frame is at least ll_hdr_len + authtag_len bytes long. All three variables are uint8_t, so a frame whose payload is shorter than the configured authentication tag makes the subtraction wrap around to a large value (up to 255).\n\nThe wrapped length is passed unchanged to ieee802154_decrypt_auth() and on to the CCM operation as cipher_pkt.in_len/out_buf_max, with apkt->tag pointing at frame + ll_hdr_len + payload_len. Because the receive buffer is allocated to the exact length of the frame received from the radio driver, the crypto layer then reads several hundred bytes past the end of the packet buffer and writes the same number of decrypted bytes back over it in place. The frame's authentication tag is only verified after this processing has taken place, so no key material, association or prior authentication is needed — a single crafted short frame from any device in radio range is sufficient. Frame validation in ieee802154_validate_frame() does not prevent it: a data frame is accepted with a one-byte payload.\n\nThe result is an out-of-bounds read and an out-of-bounds write of up to roughly 240 bytes into the adjacent network-buffer pool, corrupting other packets or allocator metadata and typically faulting the target. The out-of-bounds content is not attacker-chosen (it is ciphertext XOR keystream over out-of-bounds memory) and the frame is dropped when tag verification fails, so the primary impact is memory corruption and denial of service rather than information disclosure.\n\nExposure is limited to configurations that enable the experimental CONFIG_NET_L2_IEEE802154_SECURITY option, select a crypto device via CONFIG_NET_L2_IEEE802154_SECURITY_CRYPTO_DEV_NAME, and have established a security session with a level other than IEEE802154_SECURITY_LEVEL_NONE; with security disabled or at level NONE the tag length is zero and no underflow occurs. The fix rejects frames shorter than ll_hdr_len + authtag_len before the subtraction, and adds the matching guard on the transmit side in ieee802154_create_data_frame().",
+      "id": "CVE-2026-107181",
+      "published": "2026-10-07T14:17:08.807",
+      "description": "Telegram Desktop before 7.2.9 contains an IPC record-separator injection vulnerability in Core::Sandbox that allows remote attackers to inject OPEN: records via crafted tg:// links containing unescaped semicolons. Attackers can reach the interpret: scheme handler to upload local files, including tdata session keys, to an attacker channel, enabling account takeover.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-89417",
-      "published": "2026-10-07T09:17:05.817",
-      "description": "The OMGF | GDPR/DSGVO Compliant, Faster Google Fonts. Easy. plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 's' Search Parameter via comments-atom Feed in all versions up to, and including, 6.3.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires that the front-end server serves the retained .tmp file without a Content-Type or X-Content-Type-Options header, enabling MIME-sniffing browsers such as Chromium to execute the injected script — a condition present by default on many Apache and nginx/php-fpm deployments.",
+      "id": "CVE-2026-107183",
+      "published": "2026-10-07T14:17:09.003",
+      "description": "llama.cpp before b11393 contains a use-after-free and double free vulnerability in common_chat_peg_mapper::map that allows unauthenticated remote attackers to corrupt heap memory via a dangling current_tool pointer. Attackers can submit a chat_parser in a POST /completion request emitting a tool-id after a tool-close tag to crash llama-server and shape a heap write primitive.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-42616",
+      "published": "2026-10-07T14:17:09.423",
+      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in cat() in ntfscat.c that allows an attacker to corrupt heap memory in the ntfscat binary by crafting a malicious NTFS image. The overflow is triggered by reading a file.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-46569",
+      "published": "2026-10-07T14:17:10.833",
+      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ib_copy_tail(), in libntfs-3g/index.c, that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by extending a directory, e.g., by creating a file.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-46572",
+      "published": "2026-10-07T14:17:11.470",
+      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ib_cut_tail() in libntfs-3g/index.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by creating a file in a specially crafted directory.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-102257",
+      "published": "2026-10-07T14:17:07.740",
+      "description": "A Zip Slip vulnerability in the in the SMA1000 Appliance Management Console (AMC) interface allows an attacker to extract files outside the intended destination directory using a specially crafted archive, resulting in remote code execution.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-107121",
-      "published": "2026-10-07T08:16:57.053",
-      "description": "A flaw was found in the SMTP email configuration handling of the keycloak-services component. When the STARTTLS option is enabled, Keycloak fails to strictly enforce an encrypted connection, allowing it to fall back to unencrypted communication if the encryption request is tampered with. An attacker who can intercept network traffic can exploit this to capture sensitive email credentials and message content in plain text.",
+      "id": "CVE-2026-42617",
+      "published": "2026-10-07T14:17:09.587",
+      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ir_to_ib() in index.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by extending a directory, e.g., by creating a file.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-42618",
+      "published": "2026-10-07T14:17:09.740",
+      "description": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_decompress() in compress.c that allows an attacker to corrupt one byte of heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by reading the special crafted file.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-43976",
+      "published": "2026-10-07T14:17:09.887",
+      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, five gym management views in wger apply a flawed gym-scope guard (`gym_a != gym_b`) that silently passes when both operands are `None`. A trainer with `gym.gym_trainer` and `gym.add_adminusernote` permissions and no gym assignment (`gym=None`) can read private admin notes, uploaded documents, gym contracts, user configuration, and user permission data for **any other unaffiliated user** on the instance. The subsequent querysets filter only on the attacker-supplied `member_id` with no secondary gym-scoped validation, so all records are disclosed. Version 2.6 fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-46434",
+      "published": "2026-10-07T14:17:10.277",
+      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, a user with only the `gym_trainer` permission can deactivate any account in the same gym, including `gym_manager` and `general_gym_manager` accounts. The `UserDeactivateView` grants access to anyone holding any one of `gym.manage_gym`, `gym.manage_gyms`, or `gym.gym_trainer` (OR logic via `WgerMultiplePermissionRequiredMixin`), and performs no privilege-hierarchy check to prevent a lower-privileged role from disabling a higher-privileged one. Version 2.6 fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-46438",
+      "published": "2026-10-07T14:17:10.650",
+      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, an authenticated attacker can inject arbitrary workout log entries into any other user's `SlotEntry` by supplying the victim's `slot_entry` ID in a `POST /api/v2/workoutlog/` request. The `slot_entry` foreign key is not included in the ownership verification performed by `WorkoutLogViewSet.get_owner_objects()`, so the server accepts and persists the cross-user reference without error. Because `SlotEntry.get_config_data()` retrieves associated logs via `self.workoutlog_set.all()` with no user filter, the attacker's injected data is silently folded into the victim's progressive-overload calculations, corrupting their auto-generated weight and repetition targets. Version 2.6 contains a patch.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-90466",
-      "published": "2026-10-07T09:17:05.987",
-      "description": "Path traversal of 'trusted_jar_paths' in Impala 4.5.2 allows an attacker-controlled JAR to be loaded via a relative path where the prefix matches a path specified in 'trusted_jar_paths'.\n\n\n\n\nThe startup flag 'trusted_jar_paths' references URIs for loading files from local or remote filesystems. Path traversal can't override the schema, but can result in loading a JAR that has been uploaded to a different location in that filesystem via Impala DDLs such as CREATE DATA SOURCE and CREATE TABLE. Path traversal can only be used if a trusted path exists, so this attack requires 'trusted_jar_paths' have a non-empty value configured by the Impala admin.\n\n\n\n\nUsers are recommended to upgrade to version 4.5.3, which fixes this issue.",
+      "id": "CVE-2026-102258",
+      "published": "2026-10-07T14:17:07.883",
+      "description": "Post-authentication Stored Cross-Site Scripting (XSS) vulnerability has been identified in the SMA1000 Appliance Management Console (AMC) which in specific conditions could potentially enable a remote authenticated attacker as administrator to store and potentially execute arbitrary JavaScript code in the Appliance Management Console (AMC).",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-93684",
-      "published": "2026-10-07T09:17:06.223",
-      "description": "An SQL user using Impala up to and including version 4.5.2 with only SELECT permission can put JavaScript in a table alias and make it run in another user's browser when that user opens the query plan in Impala's Web UI. This is stored XSS (CWE-79). Users are recommended to upgrade to version 4.5.3.",
+      "id": "CVE-2026-46571",
+      "published": "2026-10-07T14:17:10.980",
+      "description": "In NTFS-3G before 2026.7.7, a out-of-bounds read exists in ntfs_fix_file_name() in libntfs-3g/reparse.c that allows an attacker to read possibly confidential information in ntfs-3g process memory by crafting a malicious NTFS image. The out-of-bounds read is triggered by a readlink on a corrupted file.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-88514",
+      "published": "2026-10-07T14:17:11.743",
+      "description": "An issue in iTerm2 macOS before 3.6.12 allows a local attacker to obtain sensitive information.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-45161",
+      "published": "2026-10-07T14:17:10.087",
+      "description": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, the `trainer_login` view in wger accepts GET requests and executes `django_login()` without any CSRF protection, because Django's `CsrfViewMiddleware` only enforces tokens on unsafe methods (POST/PUT/PATCH/DELETE). An attacker can embed a single `<img>` tag on a malicious page; when an authenticated trainer loads that page, their browser auto-issues the GET with the session cookie, forcibly rebinding the trainer's session to an arbitrary user account. Version 2.6 fixes the issue.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2025-64391",
-      "published": "2026-10-07T09:17:03.467",
-      "description": "This vulnerability in Veeam Agent for Microsoft Windows allows a low-privileged local user to make the agent write files to arbitrary locations when an administrator installs it.",
+      "id": "CVE-2026-46437",
+      "published": "2026-10-07T14:17:10.467",
+      "description": "wger is a free, open-source workout and fitness manager. Versions prior to 2.6 have a vulnerability in the authentication/session lifecycle of `wger` where bearer-style API credentials remain valid after a user logs out and after a user changes their password. An attacker who steals a victim’s DRF authtoken (`Authorization: Token ...`) or JWT refresh token can continue to access protected `/api/v2/*` endpoints until the token is manually rotated/deleted (DRF token) or naturally expires (JWT refresh). Version 2.6 contains a patch.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-107194",
+      "published": "2026-10-07T14:17:09.203",
+      "description": "Sungrow iSolarCloud before 2026 allows authentication bypass and account takeover via \"login_type\":\"5\" in a login request, potentially leading to \"local blackouts on the whole continent\" in Europe. An email address for the user_account property is required; however, a user can view the email address associated with their parent organization.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-64392",
-      "published": "2026-10-07T09:17:04.150",
-      "description": "This vulnerability in Veeam Backup Enterprise Manager allows an attacker to execute script in the browser of a portal user who opens a crafted link.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-64393",
-      "published": "2026-10-07T09:17:04.273",
-      "description": "This vulnerability in Veeam Backup & Replication allows a Backup Viewer to execute arbitrary code as SYSTEM on the backup server.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102781",
-      "published": "2026-10-07T09:17:04.397",
-      "description": "Joomla Extension - ordasoft.com - Unauthenticated Destructive CRUD in OrdaSoft Touch Slider < 5.4.6 - modOsTouchSliderHelper::getAjax(), wired through Joomla’s core com_ajax dispatcher, is the single handler behind every data-management operation this module exposes. No call to JFactory::getUser(), authorise(), or a CSRF token check exists anywhere in the handler. Two confirmed impact paths: an unauthenticated GET deletes any slider image by guessable sequential IDs, and an unauthenticated multipart upload with a zip file renames and replaces the entire #__os_touch_slider/#__os_touch_slider_text tables site-wide with attacker-supplied content, with no task parameter even required for the second path.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-102782",
-      "published": "2026-10-07T09:17:04.527",
-      "description": "Joomla Extension - ordasoft.com - Unauthenticated SQL injection in OrdaSoft Simple Membership < 7.4.0 - site/simplemembership.php dispatches task=checkLoginPass with no authentication or access control check of any kind. The handler reads a login request parameter through Joomla’s generic, non-sanitizing input filter, which strips HTML/script tags but never touches quotes or SQL syntax, and concatenates it directly into a query string with no escaping or parameterization:",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-103416",
-      "published": "2026-10-07T09:17:04.647",
-      "description": "Out-of-bounds write via the TLS 1.3 handshake message cache in NetX Duo in Eclipse ThreadX NetX Duo 6.5.1.202602 allows a handshake message larger than the cache writes past it and on into the rest of the session control block, which holds pointers. A malicious or compromised server can make a TLS 1.3 client produce such a message before certificate authentication completes, so no server certificate is needed to reach it.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107102",
-      "published": "2026-10-07T09:17:04.780",
-      "description": "This vulnerability exists in the ERP system due to improper validation of payment callback parameters and inadequate authentication controls in API endpoint. An unauthenticated remote attacker could exploit this vulnerability by manipulating the parameter to cause the application to establish an authenticated session for an arbitrary user without valid payment verification.\n\nSuccessful exploitation of this vulnerability could allow the attacker to bypass authentication and gain unauthorized access to other user accounts on the targeted system.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107103",
-      "published": "2026-10-07T09:17:04.913",
-      "description": "This vulnerability exists in the ERP system due to insufficient validation and parameterization of user supplied input in an API endpoint. An unauthenticated remote attacker could exploit this vulnerability by supplying specially crafted input to the vulnerable endpoint.\n\nSuccessful exploitation of this vulnerability could allow the attacker to perform SQL injection attacks on the targeted system.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107104",
-      "published": "2026-10-07T09:17:05.037",
-      "description": "This vulnerability exists in the ERP system due to unsafe deserialization of user controlled data in the affected functionality. An unauthenticated remote attacker could exploit this vulnerability by supplying specially crafted data to the vulnerable functionality of the targeted system. \n\nSuccessful exploitation of this vulnerability could allow the attacker to execute arbitrary code, manipulate application data or perform other unintended actions on the targeted system.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58068",
-      "published": "2026-10-07T09:17:05.430",
-      "description": "This vulnerability in Veeam Agent for Microsoft Windows allows any local user to terminate arbitrary processes on the system.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-58069",
-      "published": "2026-10-07T09:17:05.550",
-      "description": "This vulnerability in Veeam Backup & Replication allows an authenticated Cloud Connect tenant to read arbitrary files on the service provider host.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-5703",
-      "published": "2026-10-07T09:17:05.673",
-      "description": "Path traversal vulnerability in the Satel Iberia SenNet Datalogger Serie 200, specifically in the web portal provided by the device, which allows an authenticated user to read any file or list any directory accessible to the system user running the web server. This is possible by modifying the URL to include a path traversal payload. Successful exploitation of this vulnerability could allow an attacker to access critical system files containing confidential information.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-93026",
-      "published": "2026-10-07T09:17:06.107",
-      "description": "This vulnerability in Veeam Backup & Replication allows a Backup Viewer to modify the Enterprise Manager master key and stored antivirus update credentials.",
+      "id": "CVE-2025-70515",
+      "published": "2026-10-07T15:16:51.670",
+      "description": "The device log component of Fanvil x7a firmware version 2.6.0.1182 does not properly sanitize or encode reflected user supplied data. The lack of sanitization allows for the injection of HTML which can be used to execute malicious JavaScript code on any target browser which renders the device log component.",
       "severity": "UNKNOWN",
       "score": null
     }
