@@ -1,145 +1,145 @@
 {
-  "totalResults": 5275,
+  "totalResults": 5308,
   "items": [
     {
-      "id": "CVE-2026-103646",
-      "published": "2026-10-08T06:16:37.957",
-      "description": "The Ultimate Multisite  WordPress plugin before 2.17.0 does not require authentication before a logged-out checkout is linked to, and logged in as, an existing WordPress account matching the submitted email address, and its duplicate-account check normalizes that address differently from the lookup used to create the customer, so an unauthenticated attacker can log in as any existing user, including a Network Super Admin, whose email address they know.\nThis bypass is not addressed by the 2.15.1 fix for CVE-2026-75957 and remains exploitable in all versions up to and including 2.16.1, the releases that fix was expected to cover. Exploitation requires a checkout form configured without a password field (auto-generated password) and a target account that has no existing customer record in the Ultimate Multisite  WordPress plugin before 2.17.0.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-17609",
-      "published": "2026-10-08T05:17:04.793",
-      "description": "The Super Forms – Drag & Drop Form Builder plugin for WordPress is vulnerable to Arbitrary Directory Deletion in all versions up to, and including, 6.3.316 via the submit_form function. This is due to insufficient validation of attacker-controlled JSON field declarations against the actual form schema, combined with a non-effective ABSPATH guard that dirname() trivially bypasses by stripping the trailing slash. This makes it possible for unauthenticated attackers to recursively delete arbitrary directories on the server, including the WordPress root directory. Exploitation requires that an administrator has enabled the 'Delete files from server after form submissions' setting, though this is a documented and commonly-enabled feature.",
+      "id": "CVE-2026-107510",
+      "published": "2026-10-08T10:17:09.553",
+      "description": "An authenticated high privilege user can inject arguments in troubleshooting commands resulting in privilege escalation.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-17196",
-      "published": "2026-10-08T05:17:04.657",
-      "description": "The Super Forms – Drag & Drop Form Builder plugin for WordPress is vulnerable to Unrestricted File Type Upload in all versions up to, and including, 6.3.316 via the upload_files function. This is due to missing file type validation in the upload_files function, which reads and applies an attacker-controlled extensions string from _super_elements post meta verbatim as the allowed MIME type map. This makes it possible for authenticated attackers, with Subscriber-level access and above, to upload files that may be executable, which makes remote code execution possible. The attack requires a preceding step: poisoning the _super_elements post meta via the super_save_form AJAX handler, which lacks a capability and nonce check but requires the attacker to be authenticated as at minimum a Subscriber-level user; the subsequent file upload via super_upload_files requires no authentication at all.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-94585",
-      "published": "2026-10-08T05:17:06.523",
-      "description": "An authentication bypass vulnerability exists in the web management interface of Brocade Fabric OS versions before 9.2.2d running on the MXG610 platform. An unauthenticated, network-adjacent attacker can exploit an unauthenticated endpoint within the Single Sign-On (SSO) workflow to gain administrative access to the device management interface.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-94576",
-      "published": "2026-10-08T05:17:05.980",
-      "description": "An authentication logic and privilege escalation vulnerability exists in the account management interface of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. Under specific conditions, an authenticated user can bypass authorization restrictions intended to prevent modifying another account's access privileges. Exploitation allows a lower-privileged user to assign administrative roles to a target account, leading to localized privilege escalation.",
+      "id": "CVE-2026-103647",
+      "published": "2026-10-08T11:16:42.950",
+      "description": "Cross-site scripting in the webmail of Progressive Robot hMailServer 6.3.2 through 6.3.5 allows a remote attacker who can send a user an encrypted message to run script in the webmail's origin with that user's session. When the webmail decrypted an S/MIME message (from 6.3.2) or an OpenPGP message (from 6.3.4) in the browser, it offered each decrypted attachment as a blob URL of the media type the message declared for it. A click saved the file, but if the user opened the attachment in a new tab, a part declared as text/html was rendered as a document of the webmail's origin and its script could read the mailbox, send mail and change the account through the REST API. The webmail is served only when the REST API is enabled, which it is not by default.",
       "severity": "HIGH",
       "score": 8
     },
     {
-      "id": "CVE-2026-94579",
-      "published": "2026-10-08T05:17:06.247",
-      "description": "An OS command injection vulnerability exists in the PAM (Pluggable Authentication Module) session cleanup routines during SSH session termination on Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user authenticating via an external directory or AAA service whose username or profile identifier contains shell metacharacters can trigger arbitrary command execution with root privileges when their remote SSH session closes.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-87664",
-      "published": "2026-10-08T05:17:05.697",
-      "description": "A session context forgery vulnerability exists in the web management daemon of Brocade Fabric OS versions 9.2.2d and 10.0.0 through 10.0.0a1. When processing local inter-process communication (IPC) storage callbacks, the service accepts and registers session structures including administrative role permissions, user identifiers, and authorization flags—without verifying the identity or authenticity of the sending process. An attacker can obtain elevated administrative privileges on the web management interface without legitimate authentication.",
+      "id": "CVE-2026-103010",
+      "published": "2026-10-08T11:16:42.117",
+      "description": "Heap-based buffer overflow in the legacy Blowfish decryption routine (BlowFishEncryptor::DecryptFromString) in Progressive Robot hMailServer 6.0.0 through 6.3.3 on Windows allows a local interactive user with no hMailServer credentials to write bytes of their choosing past the end of a 255-byte heap buffer in the hMailServer service process, which runs as LocalSystem by default. The user does this by passing a long hexadecimal string to the COM method Utilities.BlowfishDecrypt, which checked no authentication. The routine converted hexadecimal input of any length into a fixed 255-byte buffer before decrypting it in place. The result is a denial of service (service crash), and possibly code execution with the privileges of the service account.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-94577",
-      "published": "2026-10-08T05:17:06.113",
-      "description": "A privilege escalation vulnerability exists in the internal Command-Line Interface (CLI) authorization handling mechanism of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user or local process that can manipulate the process execution environment can bypass Role-Based Access Control (RBAC) validation checks. Successful exploitation allows an attacker to elevate privileges to root",
+      "id": "CVE-2026-104658",
+      "published": "2026-10-08T11:16:43.870",
+      "description": "The Linux live-update apply helper (hmailserver-update) of Progressive Robot hMailServer 6.3.4 and 6.3.5 runs as root on a request file written by the unprivileged hmailserver service account, and took from that request the program used to verify an AppImage update's signature and the systemd unit to stop before reading the service account's files. An attacker who already runs code as the hmailserver service account, for example through another flaw in the mail server, can therefore have arbitrary code executed as root, on any Linux installation where the live update's path unit is active - the default for the project's .deb and .rpm packages - and on AppImage installations run under that unit.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-103309",
-      "published": "2026-10-08T06:16:37.287",
-      "description": "The GPTranslate  WordPress plugin before 2.34.14 does not properly restrict who can store translations, and does not escape them when outputting them in translated pages, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks when server-side translations are enabled.",
+      "id": "CVE-2026-104660",
+      "published": "2026-10-08T11:16:44.160",
+      "description": "Missing authorization on COM objects in Progressive Robot hMailServer 6.0.0 through 6.3.5 (Windows only) lets a local interactive user with no hMailServer credential read and write arbitrary files as the service account and queue mail as any sender. The service registers its COM classes with no DCOM access or launch permission and calls CoInitializeSecurity with no security descriptor, so any user logged on at the console or over Remote Desktop can activate the classes in the running service; a hMailServer.Message, its Attachments and Attachment, and a hMailServer.FetchAccount created this way carry a credential that never authenticated. Attachments.Add(path) and Attachment.SaveAs(path) performed no authorization check, and Message.Save/Copy and FetchAccount.AccountID/Save performed none either up to 6.3.3 and from 6.3.4 treated a holder with no credential as the server's own event-script host. Because the service does not impersonate the COM caller, Attachments.Add reads any file the service account can read and returns it, Attachment.SaveAs writes attacker-chosen bytes to any path it can write (on a LocalSystem installation, code execution as SYSTEM), Message.Save queues outbound mail from any address past the SMTP checks, and FetchAccount attaches a mail-fetch job to any mailbox. The objects an Application handed out behave the same once a later Authenticate on that Application fails.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-107573",
+      "published": "2026-10-08T12:17:15.027",
+      "description": "Incorrect default permissions in the Windows installer of Progressive Robot hMailServer 6.0.0 through 6.3.5 allow a local authenticated user to read the mail server's data. The installer created the data, log, temp, database and event folders and the hMailServer.INI configuration file with the permissions inherited from the installation folder, by default under Program Files, which give the local Users group read access. Any user who can sign in to the computer could read every stored message, the logs, the built-in database with the accounts' password hashes whenever the service is stopped, and the configuration file, including the database password, which is sealed only with the machine's DPAPI key and can be unsealed by any local account; with an external database that password gives full control of it. The Linux AppImage of 6.3.0 through 6.3.5 likewise created its per-user data folders readable by other local users.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-103649",
+      "published": "2026-10-08T11:16:43.093",
+      "description": "Missing network timeouts in the Linux builds of Progressive Robot hMailServer 6.3.0 through 6.3.5 allow a remote attacker to hold server threads indefinitely and so stop outbound mail delivery (denial of service). The server set its socket timeouts in the form Windows takes, which Linux refuses, and its HTTPS clients read without a deadline, so a peer that accepts a connection and then sends nothing held the waiting thread for as long as the connection stayed open. The MTA-STS policy fetch, enabled by default, is made during outbound delivery to mta-sts.<recipient domain>, so anyone who can make the server deliver mail to a domain they control - for example as the envelope sender of a message that bounces - can hold delivery threads until outbound delivery stops. The same flaw affects the DANE TLSA query, the OAuth2 token request, the ACME client, and the ManageSieve and metrics listeners, which a silent client stops from serving anyone else. Windows builds are not affected.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-94581",
-      "published": "2026-10-08T05:17:06.393",
-      "description": "An OS command injection vulnerability exists in the REST API management interface of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1 allows an authenticated, high-privileged remote attacker to execute arbitrary system commands with root permissions. An attacker with administrative privileges to configure SSH known host settings can supply specially crafted parameter values containing shell metacharacters to trigger command execution on the host system.",
+      "id": "CVE-2026-104659",
+      "published": "2026-10-08T11:16:44.013",
+      "description": "Missing Host header validation and missing throttling of failed administrator sign-ins in the REST API listener of Progressive Robot hMailServer 6.0.0 through 6.3.5 allow a remote attacker to brute-force the server administrator's password through the administrator's own browser by DNS rebinding. The listener, which is off by default and bound to the loopback when enabled, answered requests whatever their Host header named, and a failed sign-in with the administrator's password from the loopback was neither auto-banned nor delayed. A web page whose host name the attacker rebinds to 127.0.0.1, opened in a browser on the server, can therefore send authenticated requests to the listener, read the answers and try administrator passwords at full speed until one is accepted, giving the attacker full administrative control of the mail server.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-107574",
+      "published": "2026-10-08T12:17:15.177",
+      "description": "Inefficient algorithmic complexity in the JSON reader of Progressive Robot hMailServer allows a remote unauthenticated attacker to make the mail services unavailable. Reading a JSON object kept the first of each duplicated member name by searching the members already read, so an object of N distinct member names cost O(N^2): 1 MB took 8.9 seconds and 4 MB took 300 seconds against the affected code. A remote attacker reaches the reader without an account by mailing a crafted TLS-RPT report (up to 16 MB after decompression) to a hosted domain's published report mailbox, which is read on a delivery thread; a few such reports hold every delivery thread (ten by default), so the server delivers no mail, local or outbound, for over an hour per report. A signed-in account reaches the same 16 MB body through the webmail's own REST routes, holding the REST API's own worker threads. Where no report mailbox is configured, the unauthenticated REST sign-in routes that read a JSON body are capped at 64 KB and are not affected.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-104704",
+      "published": "2026-10-08T11:16:44.457",
+      "description": "Progressive Robot hMailServer 6.0.0 through 6.3.5 does not enforce TLS for outbound SMTP delivery to a mail exchanger whose DNSSEC-validated TLSA records contain no DANE-EE (usage 3) record, contrary to RFC 7672 section 2.2. The server used only DANE-EE records and treated a validated TLSA record set consisting of DANE-TA (usage 2) or otherwise unusable records as if no records were published, so delivery to such a host fell back to opportunistic TLS. An attacker with an active position on the network path between the server and the recipient's mail exchanger can suppress or break the STARTTLS negotiation and cause messages to be delivered in cleartext, where they can be read and modified.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-107275",
+      "published": "2026-10-08T12:17:14.553",
+      "description": "@fastify/jwt is a JSON Web Token plugin for the Fastify web framework. In versions before 10.2.3, a time span passed to expiresIn, notBefore, or maxAge that the plugin's parser cannot read, such as a compound span, a month unit, an ISO 8601 duration, a decimal comma, or a value with surrounding whitespace, is silently dropped instead of refused. On the signing path this produces a token with no expiration claim that never expires, and on the verification path a configured maxAge stops being enforced, so a token that should be rejected for age is accepted. The issue is fixed in @fastify/jwt 10.2.3, and users should upgrade to 10.2.3 or later. As a workaround, pass these options as a number of seconds, or verify that any time-span string parses to a finite value before relying on it.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-94586",
-      "published": "2026-10-08T05:17:06.660",
-      "description": "A command injection vulnerability exists in the WebTools administrative interface handling configuration download or file transfer operations of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user with permissions to perform configuration downloads using remote server profiles can supply malicious parameter strings to execute arbitrary shell commands on the switch with root privileges",
+      "id": "CVE-2026-103011",
+      "published": "2026-10-08T11:16:42.270",
+      "description": "Heap-based buffer overflow in the legacy Blowfish encryption routine (BlowFishEncryptor::Encode, called by EncryptToString) in Progressive Robot hMailServer 6.0.0 through 6.3.5 allows an authenticated mailbox user to cause a denial of service (service crash), and possibly other unspecified impact. In 6.3.4 and 6.3.5, where the self-service REST API is enabled (it is off by default), the user does this remotely by adding a fetch account whose password is 129 to 247 characters long and not a multiple of 8, and then requesting their personal data export (GET /api/v1/me/export.zip), which encrypts that password with the legacy scheme. The same flaw is reachable on Windows by any local interactive user with no hMailServer credentials, through the COM method Utilities.BlowfishEncrypt, which checked no authentication. It is also reachable by every stored-secret write when ProtectStoredSecretsWithDPAPI is set to 0. For such a length, the routine's padding loop writes up to 7 zero bytes 2 to 232 bytes past the end of its 255-byte heap buffer. The ciphertext it returns is still correct.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-87662",
-      "published": "2026-10-08T05:17:05.433",
-      "description": "Brocade Fabric versions before 9.2.2d and 10.0.0 through 10.0.0a1 handling of specific download protocols utilizes unsanitized parameter strings. When processing upgrade requests, parameters are converted into system command strings and executed through a system shell interface. Because control characters and shell metacharacters in fields like the host or file path are not stripped or sanitized, an attacker can execute arbitrary shell commands with the firmware management daemon's elevated privileges.",
+      "id": "CVE-2026-93509",
+      "published": "2026-10-08T11:16:47.217",
+      "description": "The Wallet System for WooCommerce WordPress plugin before 2.8.0 does not validate that a wallet transfer amount is positive, and computes the sender's new balance from a stale snapshot taken before crediting the recipient, allowing an authenticated attacker with Subscriber-level access to mint wallet funds for themselves or drain a specific victim's balance into their own account.",
       "severity": "MEDIUM",
-      "score": 6.7
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-87663",
-      "published": "2026-10-08T05:17:05.567",
-      "description": "An authentication bypass and command injection vulnerability exists in the inter-switch remote execution service of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When processing remote command execution IPC frames across the fabric, the receiving switch processes these commands at an elevated processing level without proper verification of transmitted parameters. This allows an attacker on a single fabric-connected switch to escalate privileges and execute arbitrary root commands locally or across other managed fabric members where remote execution functionality is enabled.",
+      "id": "CVE-2026-107572",
+      "published": "2026-10-08T12:17:14.870",
+      "description": "Inefficient complexity in the Sieve filter evaluation of Progressive Robot hMailServer 6.2.24 through 6.3.5 allows an authenticated account holder to make the mail services unavailable with their own filter. A ':matches' pattern was matched by a backtracking descent whose time grew with the matched value's length raised to the number of wildcards, so a pattern such as '*a*a*a*b' over 800 characters took 44 seconds; and 'deleteheader' erased the fields it removed one at a time, so removing many fields of one name over a message's header cost O(N^2) (80,000 fields took 18.8 seconds). Sieve filters run on the small, shared delivery thread pool, so an account holder whose active script does this, fed a few messages they can send themselves, empties the pool and stops delivery for the whole server. The script is the account holder's own and cannot be set for another user.",
       "severity": "MEDIUM",
-      "score": 6.7
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-87677",
-      "published": "2026-10-08T05:17:05.833",
-      "description": "An OS command injection vulnerability exists in the account management subsystem of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When an administrator initiates an account deletion, the system invokes an internal maintenance routine to clean up cryptographic keys associated with the target account. Malformed account names previously accepted by Fabric OS can cause the execution of embedded shell metacharacters, triggering command injection.",
+      "id": "CVE-2026-103517",
+      "published": "2026-10-08T11:16:42.613",
+      "description": "The Airwallex Online Payments Gateway WordPress plugin before 1.36.0 does not verify that an incoming payment notification genuinely comes from the payment provider when no webhook secret has been configured, allowing unauthenticated attackers to forge one and mark orders as paid without paying.",
       "severity": "MEDIUM",
-      "score": 6.6
+      "score": 5.3
     },
     {
-      "id": "CVE-2023-5648",
-      "published": "2026-10-08T05:17:03.747",
-      "description": "In Brocade ASCG before Brocade ASCG v3.0, several security-related HTTP Headers were missing in various Brocade ASCG URL paths, aiding unauthenticated attackers to perform attacks such as Cross-Site Scripting, Clickjacking, Information disclosure, and more.",
+      "id": "CVE-2026-104671",
+      "published": "2026-10-08T11:16:44.303",
+      "description": "The TutorStarter WordPress theme before 4.0.4 does not respect the site's user registration setting in one of its AJAX registration handlers, allowing unauthenticated visitors to create WordPress user accounts even when user registration is disabled.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-87661",
-      "published": "2026-10-08T05:17:05.297",
-      "description": "Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1 directly accepts Apache configuration file data during service setup or re-initialization. An attacker capable of corrupting the configuration structure will prevent the web management service from starting or recovering during service bring-up, leading to a persistent Denial of Service (DoS) of the administrative web interface.",
+      "id": "CVE-2026-105190",
+      "published": "2026-10-08T11:16:44.607",
+      "description": "The Easy Digital Downloads WordPress plugin before 3.7.1 does not consult the site's user registration setting before creating a WordPress account, allowing unauthenticated users to create an account and receive a logged-in session even when registration is disabled. The created account receives the site's default role.",
       "severity": "MEDIUM",
-      "score": 5.7
+      "score": 5.3
     },
     {
-      "id": "CVE-2023-5649",
-      "published": "2026-10-08T05:17:03.970",
-      "description": "An Improper Input Validation vulnerability for the registered case credentials in Brocade ASCG before v3.0 could allow a local authenticated user to provide invalid inputs like special characters leading to a Denial of Service (DoS) when collecting “supportsave” from a Brocade Switch.",
+      "id": "CVE-2026-107575",
+      "published": "2026-10-08T12:17:15.333",
+      "description": "Inefficient algorithmic complexity in the SPF macro expansion of Progressive Robot hMailServer 6.3.4 and 6.3.5 allows a remote unauthenticated attacker to consume worker-thread time by publishing a crafted SPF record. RFC 7208 section 7.1 requires a name too long to look up to lose whole labels from the left; the server did this by removing one label at a time and copying the rest of the name each time, so the work grew with the square of the expansion. An attacker who publishes an SPF record for a domain they control, with a mechanism whose domain-spec expands through macros to a name far longer than 253 characters, makes the SPF check of a message from that domain take several seconds. The expansion is bounded by SPF's own per-term and per-macro limits, so the loss of availability is partial.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-107450",
-      "published": "2026-10-08T05:17:04.477",
-      "description": "In Stump through 0.1.10, the updateSmartList and deleteSmartList GraphQL mutations (crates/graphql/src/mutation/smart_lists.rs) depend only on the shared AccessSmartList permission and resolve the target list at Reader access (lacking a creator check). Any authenticated user with that permission can overwrite, delete, or take over another user's smart list. (updateSmartList sets creatorId to the caller identity, and can set visibility to PRIVATE, locking out the original owner.) NOTE: this is unrelated to the graphql crate on crates.io.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-94587",
-      "published": "2026-10-08T05:17:06.890",
-      "description": "A buffer overflow vulnerability exists in the WebTools administrative interface handling configuration download or file transfer operations of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user with permissions to perform configuration downloads using remote server profiles can overflow stack buffers causing a crash of the weblinker daemon.",
-      "severity": "MEDIUM",
-      "score": 4.5
-    },
-    {
-      "id": "CVE-2026-107449",
-      "published": "2026-10-08T05:17:04.297",
-      "description": "linuxserver Heimdall through 2.8.3 applies its SafeUrlFetcher SSRF protection mechanism only to ItemController; the enhanced-application test and live-stats requests occur via SupportedApps::execute(), a GuzzleHttp client that lacks IP address restrictions. In some realistic installations, the POST /test_config (and GET /get_stats) endpoints are accessible through CSRF, and thus an unauthenticated attacker can force the server to send requests to arbitrary internal hosts and ports (including 169.254.169.254) and read a status/port oracle in addition to partial response data.",
+      "id": "CVE-2026-107570",
+      "published": "2026-10-08T12:17:14.717",
+      "description": "heap OOB write in convert_file_from_to() via a crafted Content-Type header allows attacker to OOB write when email is used as a template.",
       "severity": "LOW",
-      "score": 3.4
+      "score": 2.5
+    },
+    {
+      "id": "CVE-2026-107503",
+      "published": "2026-10-08T10:17:08.457",
+      "description": "Unvalidated environments URL allows OAuth authorization code + PKCE verifier theft and account takeover via injected OIDC authority in Ditto Explorer in Eclipse Ditto Ditto Explorer [3.6.0,3.9.7] allows a craft link set an attacker-controlled OIDC authority with autoSso enabled. The UI then automatically starts a login at the genuine identity provider but exchanges the returned authorization code together with its PKCE code_verifier at an attacker-controlled token endpoint. This lets the attacker redeem the code for the victim's access and refresh tokens. Alternatively, an attacker-controlled api_uri causes the UI to send the victim's bearer token or Basic credentials to the attacker. Because the configuration is persisted, later visits to the UI without the crafted link repeat the token theft.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
