@@ -1,61 +1,89 @@
 {
-  "totalResults": 5255,
+  "totalResults": 5296,
   "items": [
     {
-      "id": "CVE-2026-105816",
-      "published": "2026-10-07T22:17:02.673",
-      "description": "Vault and Vault Enterprise did not consistently verify that stored plugin catalog entries reference binaries within the configured plugin directory. When Vault uses Shamir seals and has an external plugin directory configured, a privileged operator able to restore an Integrated Storage (Raft) snapshot may be able to execute arbitrary code on the Vault host. This vulnerability (CVE-2026-105816) is fixed in Vault Community Edition 2.1.2, and Vault Enterprise 2.1.2, 1.21.12, 1.20.17, and 1.19.23.",
-      "severity": "HIGH",
-      "score": 8
+      "id": "CVE-2026-87659",
+      "published": "2026-10-08T03:16:35.820",
+      "description": "A critical authorization bypass vulnerability exists in the Management Server handling of Brocade Fabric OS versions before 10.0.1. A compromised switch connected to the fabric can transmit crafted inband Fibre Channel vendor-unique CT (Common Transport) management requests to bypass administrative authentication. Successful exploitation allows an unauthorized peer switch to execute administrative actions on the target device, including resetting administrative passwords, initiating system reboots, and triggering firmware downloads.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-107232",
-      "published": "2026-10-07T22:17:03.497",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 on 3.x and 2.16.1 on 2.x, the client infers that an HTTP proxy tunnel exists from the last request method rather than the CONNECT result. After a proxy rejects CONNECT, redirect or authentication handlers can write an origin request and its Authorization credentials onto the still-plaintext proxy connection. Basic credentials can be recovered directly, while NTLM responses may be cracked or relayed. This issue is fixed in versions 3.0.12 and 2.16.1.",
+      "id": "CVE-2026-87684",
+      "published": "2026-10-08T03:16:37.237",
+      "description": "A stack-based buffer overflow vulnerability exists in the SNMP daemon request handling of Brocade Fabric versions before 10.0.1. When processing an incoming SNMPv3 packet, an internal statistics gathering handler copies user-supplied context name data into a fixed-size buffer without properly validating the length of the string. A remote, unauthenticated attacker (under default configuration) can exploit this vulnerability by sending a specially crafted SNMPv3 packet, leading to memory corruption, daemon crash (Denial of Service), or potential arbitrary code execution.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-87680",
+      "published": "2026-10-08T01:16:32.480",
+      "description": "A command injection vulnerability in the REST API management interface of Brocade Fabric OS versions before 10.0.1 allows an authenticated user to execute arbitrary system commands via crafted input parameters.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-87682",
+      "published": "2026-10-08T02:16:54.420",
+      "description": "Multiple OS Command Injection vulnerabilities exist in the management interface and session processing routines of Brocade Fabric OS versions before 10.0.1. Input processing flaws during remote management connection validation and session verification for directory-based user accounts allow untrusted input containing shell metacharacters to reach internal system execution wrappers. An authenticated user or a compromised directory service account can exploit these vulnerabilities to execute arbitrary operating system commands with elevated privileges on the target device.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-87683",
+      "published": "2026-10-08T02:16:54.563",
+      "description": "Multiple stack-based buffer overflow vulnerabilities exist in the REST API management component of Brocade Fabric OS versions prior to 10.0.1. When processing API request payloads (such as device configuration attributes or port mapping requests) the REST API service fails to properly validate incoming array counts and string lengths against internal buffer capacities. An authenticated attacker with REST API access can transmit crafted, oversized request parameters to induce memory corruption on the execution stack. This may result in a denial-of-service condition (daemon crash) or potential arbitrary code execution within the management process context.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-82627",
+      "published": "2026-10-08T02:16:54.263",
+      "description": "The Uncanny Automator – AI + Automation for WordPress | AI Agent, AI Page Builder, Free AI Usage Included plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 7.6.1.1 via deserialization of untrusted input. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject a PHP Object when a third-party integration plugin (such as PeepSo,  MailPoet, WPForms, etc) is installed and a recipe is configured that stores attacker-controlled data as trigger meta. The additional presence of a POP chain within Uncanny Automator allows attackers to delete arbitrary files on the server.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107230",
-      "published": "2026-10-07T22:17:03.133",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 2.0.0 until 3.0.14, connection-pool partitioning still omits identity-defining fields for Kerberos, SPNEGO, NTLM, and authenticated proxy connections. Logins without a configured principal, proxy realms, identities sharing a user name, and SOCKS or CONNECT proxy logins can reuse a socket authenticated as a different identity. A later request is then executed under the first identity and can expose that identity's data or authority to another caller. In the affected execution path, SpnegoEngine, NTLM, Kerberos, SPNEGO, SOCKS, and CONNECT control or expose the vulnerable behavior. This issue is fixed in version 3.0.14.",
+      "id": "CVE-2026-87665",
+      "published": "2026-10-08T03:16:35.960",
+      "description": "A stack-based buffer overflow vulnerability exists in the Internet Key Exchange (IKEv2) protocol handler on Brocade Fabric OS versions before 10.0.1. The vulnerability occurs when processing initial IKE key exchange requests on extension switches or blades running IPsec-enabled Fibre Channel over IP (FCIP) circuits. An unauthenticated remote attacker can exploit this vulnerability by sending a single, specifically crafted UDP packet (Port 500) containing an oversized Nonce payload. Successful exploitation results in a denial of service (data-plane process crash)",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-89322",
-      "published": "2026-10-07T23:17:01.197",
-      "description": "Vault and Vault Enterprise did not consistently evaluate ACL policies against the canonical form of resource and policy names. This may allow an authenticated user with delegated permissions to bypass an explicit deny restriction and access a protected resource or assign a denied policy, potentially leading to privilege escalation. This vulnerability (CVE-2026-89322) is fixed in Vault Community Edition 2.1.2, and Vault Enterprise 2.1.2, 1.21.12, 1.20.17, and 1.19.23.",
+      "id": "CVE-2026-87671",
+      "published": "2026-10-08T03:16:36.650",
+      "description": "An out-of-bounds memory read vulnerability exists in the web management daemon of Brocade Fabric OS versions before 10.0.1. Unauthenticated HTTP endpoints process specific URL query parameters without validating array index boundaries or performing numerical range checks. An unauthenticated remote attacker can exploit this issue by sending a single, crafted HTTP request containing extreme numerical values in the query string. This causes an invalid memory dereference, resulting in a crash of the web management process (Denial of Service) and potential temporary management-plane disruption.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-87679",
+      "published": "2026-10-08T01:16:32.313",
+      "description": "When Brocade Fabric OS versions before 10.0.1 processes trunk configuration operations, the application parses user-supplied list strings into dynamically allocated heap arrays without enforcing boundary checks on the maximum allowable number of elements. An authenticated administrator can exploit this vulnerability via crafted REST API requests containing an excessive number of list delimiters, causing heap corruption that can result in service crash or arbitrary code execution.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-94154",
-      "published": "2026-10-08T00:16:35.333",
-      "description": "The Aurora Heatmap plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘url’ parameter in all versions up to, and including, 1.7.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an admin user clicks the injected heatmap link.",
+      "id": "CVE-2017-20283",
+      "published": "2026-10-08T03:16:32.343",
+      "description": "NXP MQX Classic before 5.0 contains an out-of-bounds write vulnerability in the RTCS UDP recvfrom() implementation. Improper enforcement of the application-supplied receive buffer length may allow a crafted UDP packet to overflow the destination buffer, resulting in memory corruption, or denial of service.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-105818",
-      "published": "2026-10-07T22:17:02.843",
-      "description": "Vault's PKI secrets engine ACME server did not restrict certificate identities that ACME challenges do not validate when issuing certificates under the default directory policy. This may allow an ACME client to obtain a certificate containing unverified identity claims, potentially enabling impersonation toward systems that trust certificates issued by the affected Vault PKI mount. This vulnerability (CVE-2026-105818) is fixed in Vault Community Edition 2.1.2, and Vault Enterprise 2.1.2, 1.21.12, 1.20.17, and 1.19.23.",
+      "id": "CVE-2026-87668",
+      "published": "2026-10-08T03:16:36.100",
+      "description": "A stack-based buffer overflow vulnerability exists in the diagnostic execution utility of Brocade Fabric OS versions before 10.0.1. When processing command arguments for diagnostic operations, the utility tokenizes user-supplied input into an internal argument array without enforcing boundary checks on the maximum array capacity. An authenticated user with administrative access can exploit this vulnerability by supplying a crafted diagnostic command string containing an excessive number of tokenized arguments. This leads to a memory overwrite resulting in a denial of service (process crash).",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-107285",
-      "published": "2026-10-07T22:17:04.637",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 and 2.16.1, a proxied ws request is carried through CONNECT, but NettyRequestFactory.newNettyRequest and requestUri decide whether to attach proxy authentication and an absolute-form target only from whether the URI is secure. Because ws is not marked secure, the tunneled WebSocket upgrade sent to the origin includes the proxy's Proxy-Authorization value. Basic credentials are directly recoverable and Digest responses can be replayed or cracked offline. This issue is fixed in versions 3.0.12 and 2.16.1.",
+      "id": "CVE-2026-87681",
+      "published": "2026-10-08T01:16:32.620",
+      "description": "An Access Control Bypass vulnerability exists in the Role-Based Access Control (RBAC) validation engine of Brocade Fabric OS versions before 10.0.1. When processing certain management protocol operations, the RBAC engine incorrectly categorizes non-standard action opcodes during permission checks. This allows authenticated users with read-only management privileges to bypass access controls and execute restricted administrative operations.",
       "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-107314",
-      "published": "2026-10-07T23:17:00.337",
-      "description": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.11 through 42.7.13 enforce no restriction when the requireAuth connection property excludes all six authentication methods the driver knows, for example requireAuth=!password,!md5,!gss,!sspi,!scram-sha-256,!none. The driver then accepts any method the server asks for, including cleartext password authentication. A value without a method in it, such as requireAuth=, (a single comma), is affected the same way. An attacker positioned between the application and its server can ask for cleartext password authentication and receive the database password. A positive list such as requireAuth=scram-sha-256, and a partial exclusion such as requireAuth=!password,!md5, are enforced correctly. The property has no default value, so a deployment that does not set it is not affected. 42.7.14 fixes the problem: such a connection is refused with SQLState 08004, and a value without a method in it is rejected as invalid.",
-      "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.3
     },
     {
       "id": "CVE-2024-8122",
@@ -65,79 +93,51 @@
       "score": 5.9
     },
     {
-      "id": "CVE-2026-105820",
-      "published": "2026-10-07T22:17:02.990",
-      "description": "Vault's ACL policy cache allowed namespace traversal when policy names contained path traversal constructs. This may allow a token assigned specially crafted policy names to use the capabilities of policies defined in other namespaces, including the root namespace. This vulnerability (CVE-2026-105820) is fixed in Vault Enterprise 2.1.2, 1.21.12, 1.20.17, and 1.19.23. Vault Community Edition does not support namespaces, and is not affected.",
+      "id": "CVE-2026-87676",
+      "published": "2026-10-08T03:16:36.950",
+      "description": "A stack-based buffer overflow vulnerability exists in the security library component of Brocade Fabric OS versions before 10.0.1. When parsing uploaded X.509 PEM certificates for management display, the system improperly validates the length of the Authority Key Identifier (AKI) extension before copying string tokens into an internal memory buffer. An authenticated user with administrative privileges to import custom certificates can supply a certificate containing an intentionally oversized AKI extension. When the system processes or renders the certificate attributes, this can trigger a stack memory corruption leading to a denial-of-service (DoS) condition by crashing the management daemon.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.7
     },
     {
-      "id": "CVE-2026-17538",
-      "published": "2026-10-08T00:16:35.153",
-      "description": "The LatePoint - Appointment Booking & Reservation plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to, and including, 5.6.9. This is due to the process_step_customer() function using is_user_logged_in() as the sole gate before merging POSTed customer data into an existing LatePoint customer, without any ownership checks. This makes it possible for authenticated attackers, with Subscriber-level access and above, to modify the personal information (first name, last name, email, phone, notes) of arbitrary LatePoint customers, and, when the contact_merge setting is 'phone', to overwrite the victim's email address and take over the account via a password reset.",
+      "id": "CVE-2026-87672",
+      "published": "2026-10-08T03:16:36.810",
+      "description": "An information disclosure vulnerability exists in the SupportLink diagnostic collection utilities of Brocade Fabric OS versions before 10.0.1. When SupportLink is configured to use an authenticated HTTP proxy, the system stores the full proxy URL. Anyone with access to the diagnostic support bundle, such as support personnel or users with access to file shares where support bundles are stored, can extract these cleartext proxy credentials.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-107315",
-      "published": "2026-10-08T00:16:33.690",
-      "description": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.4 through 42.7.13 pads a value that is shorter than its declared length with bytes left in its send buffer instead of zeros, and the server stores those bytes as part of the value. The bytes are messages the driver sent earlier on the same connection: SQL text and parameter values of recent statements, which on a pooled connection can come from other requests. Each padded value can carry up to 8192 bytes of this traffic, or 16320 bytes on a connection with GSS encryption. The padding happens when an application declares a length larger than the data it supplies, through PreparedStatement.setObject with a ByteStreamWriter, CopyIn.writeToCopy, PGCopyOutputStream.write, LargeObject.write, or Blob.setBytes. The driver accepts these calls without an error. An attacker who can make the application store such a value and read it back can collect earlier traffic. Applications whose declared lengths always match their data are not affected. Versions 42.7.3 and earlier pad with zeros.",
+      "id": "CVE-2026-87678",
+      "published": "2026-10-08T03:16:37.093",
+      "description": "An input validation and output encoding vulnerability exists in the web management interface of Brocade Fabric OS versions before 10.0.1. When configuring Federated Authentication (FA), the system fails to sanitize the Identity Provider (IdP) issuer parameter. An authenticated administrator—or an attacker capable of supplying crafted FA configuration files during an import routine—can inject arbitrary web server directives. This can lead to service denial by preventing the web management daemon from starting, or potentially alter web server security controls.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.2
     },
     {
-      "id": "CVE-2026-107283",
-      "published": "2026-10-07T22:17:04.327",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12  and 2.16.1, Realm.Builder generates the HTTP Digest client nonce with ThreadLocalRandom rather than a cryptographically secure random source. Digest relies on an unpredictable cnonce to resist chosen-plaintext and credential precomputation attacks, so an observer able to infer generator state can reduce the protection of the authentication exchange. This issue is fixed in versions 3.0.12 and 2.16.1.",
+      "id": "CVE-2026-87669",
+      "published": "2026-10-08T03:16:36.237",
+      "description": "A missing authorization check in Brocade Fabric OS versions before 10.0.1 REST API interface of affected platform releases allows an authenticated user, regardless of their assigned role or administrative scope, to retrieve complete Monitoring and Alerting Policy Suite (MAPS) violation data across all logical switches. An attacker with low-privilege API access can leverage this endpoint to dump chassis-wide system health metrics, port performance violations, and configuration data without appropriate privileges.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-87670",
+      "published": "2026-10-08T03:16:36.403",
+      "description": "An authorization logic vulnerability exists in the Brocade Fabric OS versions before 10.0.1 REST API gateway. The internal gate guarding restricted management endpoints relies exclusively on client-controlled HTTP headers. An authenticated user with any valid REST session can spoof these headers to gain unauthorized access to internal management endpoints. This allows low-privilege users to view sensitive chassis metadata, hardware memory patrolling state, and firmware integrity audit logs.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-87726",
+      "published": "2026-10-08T02:16:54.713",
+      "description": "Insufficient API bounds checking in phalFelica in NXP NXPNfcRdLib RC663 through 07.14.00_Pub may allow an attacker with privileges or an untrusted third party to access unintended memory regions, potentially leading to limited loss of confidentiality, integrity, and availability. All software versions from 07.18.00 onwards have fixed this problem.",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.9
     },
     {
-      "id": "CVE-2026-107284",
-      "published": "2026-10-07T22:17:04.483",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 and 2.16.1, WebSocketHandler.upgrade aborts a handshake whose Sec-WebSocket-Accept value is missing or invalid but continues into pipeline installation and onOpen delivery. Frames coalesced with the invalid 101 response can be decoded and delivered from a peer that did not prove the handshake, although the request future fails and the channel closes. This issue is fixed in versions 3.0.12 and 2.16.1.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-107231",
-      "published": "2026-10-07T22:17:03.320",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13 and 2.16.1, Realm.Builder treats a Digest challenge that yields no usable nonce as a Basic challenge. A malicious origin or proxy can label a challenge Digest while omitting or emptying the nonce, causing the client to resend the username and password using reversible Basic authentication. Both origin and proxy challenge parsers are affected. This issue is fixed in versions 3.0.13 and 2.16.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107279",
-      "published": "2026-10-07T22:17:03.657",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. In 3.0.12, a peer offering only Digest qop=auth-int causes mutual-authentication verification to be skipped. AuthenticatorUtils.computeExpectedRspAuth returns no expected value for auth-int, and Interceptors treats that result as unverifiable but nonfatal, so a response with an invalid rspauth value is accepted. A peer that does not know the shared secret can therefore be accepted as the authenticated server. This issue is fixed in version 3.0.13.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107280",
-      "published": "2026-10-07T22:17:03.810",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13  and 2.16.1, ThreadSafeCookieStore validates Domain attributes with domain matching but does not reject public suffixes. A host beneath a suffix such as co.uk can set a cookie for that suffix, after which the shared cookie store sends it to unrelated hosts under the suffix. This can inject or overwrite session-relevant cookie values across origins. This issue is fixed in versions 3.0.13 and 2.16.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107281",
-      "published": "2026-10-07T22:17:03.980",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13 and 2.16.1, the HTTP/1.1 connection-pool key excludes the authenticated principal for connection-oriented NTLM and Negotiate authentication. A pooled socket authenticated for one request can be reused by a request carrying another principal, and the server executes that later request as the first identity. Basic and Digest are not affected because they authenticate each request. This issue is fixed in versions 3.0.13 and 2.16.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107282",
-      "published": "2026-10-07T22:17:04.167",
-      "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13  and 2.16.1, cross-host request replay updates the current request but leaves the target request and related proxy context pointing at the original origin. Connection-pool selection, CONNECT handling, realm selection, and TLS setup can consequently send the original host's path, Host header, Authorization credentials, or plaintext request to the replay destination. Documented ResponseFilter failover and retry paths can trigger the replay. This issue is fixed in versions 3.0.13 and 2.16.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-97664",
-      "published": "2026-10-07T23:17:01.520",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "id": "CVE-2026-102488",
+      "published": "2026-10-08T02:16:53.003",
+      "description": "In affected versions, Octopus Server incorrectly evaluates multiple scoped permission assignments, allowing a highly privileged user to obtain deployment permissions beyond those actually granted to them.",
       "severity": "UNKNOWN",
       "score": null
     }
