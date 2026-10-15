@@ -1,145 +1,145 @@
 {
-  "totalResults": 5296,
+  "totalResults": 5275,
   "items": [
     {
-      "id": "CVE-2026-87659",
-      "published": "2026-10-08T03:16:35.820",
-      "description": "A critical authorization bypass vulnerability exists in the Management Server handling of Brocade Fabric OS versions before 10.0.1. A compromised switch connected to the fabric can transmit crafted inband Fibre Channel vendor-unique CT (Common Transport) management requests to bypass administrative authentication. Successful exploitation allows an unauthorized peer switch to execute administrative actions on the target device, including resetting administrative passwords, initiating system reboots, and triggering firmware downloads.",
+      "id": "CVE-2026-103646",
+      "published": "2026-10-08T06:16:37.957",
+      "description": "The Ultimate Multisite  WordPress plugin before 2.17.0 does not require authentication before a logged-out checkout is linked to, and logged in as, an existing WordPress account matching the submitted email address, and its duplicate-account check normalizes that address differently from the lookup used to create the customer, so an unauthenticated attacker can log in as any existing user, including a Network Super Admin, whose email address they know.\nThis bypass is not addressed by the 2.15.1 fix for CVE-2026-75957 and remains exploitable in all versions up to and including 2.16.1, the releases that fix was expected to cover. Exploitation requires a checkout form configured without a password field (auto-generated password) and a target account that has no existing customer record in the Ultimate Multisite  WordPress plugin before 2.17.0.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-87684",
-      "published": "2026-10-08T03:16:37.237",
-      "description": "A stack-based buffer overflow vulnerability exists in the SNMP daemon request handling of Brocade Fabric versions before 10.0.1. When processing an incoming SNMPv3 packet, an internal statistics gathering handler copies user-supplied context name data into a fixed-size buffer without properly validating the length of the string. A remote, unauthenticated attacker (under default configuration) can exploit this vulnerability by sending a specially crafted SNMPv3 packet, leading to memory corruption, daemon crash (Denial of Service), or potential arbitrary code execution.",
+      "id": "CVE-2026-17609",
+      "published": "2026-10-08T05:17:04.793",
+      "description": "The Super Forms – Drag & Drop Form Builder plugin for WordPress is vulnerable to Arbitrary Directory Deletion in all versions up to, and including, 6.3.316 via the submit_form function. This is due to insufficient validation of attacker-controlled JSON field declarations against the actual form schema, combined with a non-effective ABSPATH guard that dirname() trivially bypasses by stripping the trailing slash. This makes it possible for unauthenticated attackers to recursively delete arbitrary directories on the server, including the WordPress root directory. Exploitation requires that an administrator has enabled the 'Delete files from server after form submissions' setting, though this is a documented and commonly-enabled feature.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-87680",
-      "published": "2026-10-08T01:16:32.480",
-      "description": "A command injection vulnerability in the REST API management interface of Brocade Fabric OS versions before 10.0.1 allows an authenticated user to execute arbitrary system commands via crafted input parameters.",
+      "id": "CVE-2026-17196",
+      "published": "2026-10-08T05:17:04.657",
+      "description": "The Super Forms – Drag & Drop Form Builder plugin for WordPress is vulnerable to Unrestricted File Type Upload in all versions up to, and including, 6.3.316 via the upload_files function. This is due to missing file type validation in the upload_files function, which reads and applies an attacker-controlled extensions string from _super_elements post meta verbatim as the allowed MIME type map. This makes it possible for authenticated attackers, with Subscriber-level access and above, to upload files that may be executable, which makes remote code execution possible. The attack requires a preceding step: poisoning the _super_elements post meta via the super_save_form AJAX handler, which lacks a capability and nonce check but requires the attacker to be authenticated as at minimum a Subscriber-level user; the subsequent file upload via super_upload_files requires no authentication at all.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-87682",
-      "published": "2026-10-08T02:16:54.420",
-      "description": "Multiple OS Command Injection vulnerabilities exist in the management interface and session processing routines of Brocade Fabric OS versions before 10.0.1. Input processing flaws during remote management connection validation and session verification for directory-based user accounts allow untrusted input containing shell metacharacters to reach internal system execution wrappers. An authenticated user or a compromised directory service account can exploit these vulnerabilities to execute arbitrary operating system commands with elevated privileges on the target device.",
+      "id": "CVE-2026-94585",
+      "published": "2026-10-08T05:17:06.523",
+      "description": "An authentication bypass vulnerability exists in the web management interface of Brocade Fabric OS versions before 9.2.2d running on the MXG610 platform. An unauthenticated, network-adjacent attacker can exploit an unauthenticated endpoint within the Single Sign-On (SSO) workflow to gain administrative access to the device management interface.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-87683",
-      "published": "2026-10-08T02:16:54.563",
-      "description": "Multiple stack-based buffer overflow vulnerabilities exist in the REST API management component of Brocade Fabric OS versions prior to 10.0.1. When processing API request payloads (such as device configuration attributes or port mapping requests) the REST API service fails to properly validate incoming array counts and string lengths against internal buffer capacities. An authenticated attacker with REST API access can transmit crafted, oversized request parameters to induce memory corruption on the execution stack. This may result in a denial-of-service condition (daemon crash) or potential arbitrary code execution within the management process context.",
+      "id": "CVE-2026-94576",
+      "published": "2026-10-08T05:17:05.980",
+      "description": "An authentication logic and privilege escalation vulnerability exists in the account management interface of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. Under specific conditions, an authenticated user can bypass authorization restrictions intended to prevent modifying another account's access privileges. Exploitation allows a lower-privileged user to assign administrative roles to a target account, leading to localized privilege escalation.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8
     },
     {
-      "id": "CVE-2026-82627",
-      "published": "2026-10-08T02:16:54.263",
-      "description": "The Uncanny Automator – AI + Automation for WordPress | AI Agent, AI Page Builder, Free AI Usage Included plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 7.6.1.1 via deserialization of untrusted input. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject a PHP Object when a third-party integration plugin (such as PeepSo,  MailPoet, WPForms, etc) is installed and a recipe is configured that stores attacker-controlled data as trigger meta. The additional presence of a POP chain within Uncanny Automator allows attackers to delete arbitrary files on the server.",
+      "id": "CVE-2026-94579",
+      "published": "2026-10-08T05:17:06.247",
+      "description": "An OS command injection vulnerability exists in the PAM (Pluggable Authentication Module) session cleanup routines during SSH session termination on Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user authenticating via an external directory or AAA service whose username or profile identifier contains shell metacharacters can trigger arbitrary command execution with root privileges when their remote SSH session closes.",
+      "severity": "HIGH",
+      "score": 8
+    },
+    {
+      "id": "CVE-2026-87664",
+      "published": "2026-10-08T05:17:05.697",
+      "description": "A session context forgery vulnerability exists in the web management daemon of Brocade Fabric OS versions 9.2.2d and 10.0.0 through 10.0.0a1. When processing local inter-process communication (IPC) storage callbacks, the service accepts and registers session structures including administrative role permissions, user identifiers, and authorization flags—without verifying the identity or authenticity of the sending process. An attacker can obtain elevated administrative privileges on the web management interface without legitimate authentication.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-94577",
+      "published": "2026-10-08T05:17:06.113",
+      "description": "A privilege escalation vulnerability exists in the internal Command-Line Interface (CLI) authorization handling mechanism of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user or local process that can manipulate the process execution environment can bypass Role-Based Access Control (RBAC) validation checks. Successful exploitation allows an attacker to elevate privileges to root",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-103309",
+      "published": "2026-10-08T06:16:37.287",
+      "description": "The GPTranslate  WordPress plugin before 2.34.14 does not properly restrict who can store translations, and does not escape them when outputting them in translated pages, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks when server-side translations are enabled.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-87665",
-      "published": "2026-10-08T03:16:35.960",
-      "description": "A stack-based buffer overflow vulnerability exists in the Internet Key Exchange (IKEv2) protocol handler on Brocade Fabric OS versions before 10.0.1. The vulnerability occurs when processing initial IKE key exchange requests on extension switches or blades running IPsec-enabled Fibre Channel over IP (FCIP) circuits. An unauthenticated remote attacker can exploit this vulnerability by sending a single, specifically crafted UDP packet (Port 500) containing an oversized Nonce payload. Successful exploitation results in a denial of service (data-plane process crash)",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-87671",
-      "published": "2026-10-08T03:16:36.650",
-      "description": "An out-of-bounds memory read vulnerability exists in the web management daemon of Brocade Fabric OS versions before 10.0.1. Unauthenticated HTTP endpoints process specific URL query parameters without validating array index boundaries or performing numerical range checks. An unauthenticated remote attacker can exploit this issue by sending a single, crafted HTTP request containing extreme numerical values in the query string. This causes an invalid memory dereference, resulting in a crash of the web management process (Denial of Service) and potential temporary management-plane disruption.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-87679",
-      "published": "2026-10-08T01:16:32.313",
-      "description": "When Brocade Fabric OS versions before 10.0.1 processes trunk configuration operations, the application parses user-supplied list strings into dynamically allocated heap arrays without enforcing boundary checks on the maximum allowable number of elements. An authenticated administrator can exploit this vulnerability via crafted REST API requests containing an excessive number of list delimiters, causing heap corruption that can result in service crash or arbitrary code execution.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2017-20283",
-      "published": "2026-10-08T03:16:32.343",
-      "description": "NXP MQX Classic before 5.0 contains an out-of-bounds write vulnerability in the RTCS UDP recvfrom() implementation. Improper enforcement of the application-supplied receive buffer length may allow a crafted UDP packet to overflow the destination buffer, resulting in memory corruption, or denial of service.",
+      "id": "CVE-2026-94581",
+      "published": "2026-10-08T05:17:06.393",
+      "description": "An OS command injection vulnerability exists in the REST API management interface of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1 allows an authenticated, high-privileged remote attacker to execute arbitrary system commands with root permissions. An attacker with administrative privileges to configure SSH known host settings can supply specially crafted parameter values containing shell metacharacters to trigger command execution on the host system.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-87668",
-      "published": "2026-10-08T03:16:36.100",
-      "description": "A stack-based buffer overflow vulnerability exists in the diagnostic execution utility of Brocade Fabric OS versions before 10.0.1. When processing command arguments for diagnostic operations, the utility tokenizes user-supplied input into an internal argument array without enforcing boundary checks on the maximum array capacity. An authenticated user with administrative access can exploit this vulnerability by supplying a crafted diagnostic command string containing an excessive number of tokenized arguments. This leads to a memory overwrite resulting in a denial of service (process crash).",
+      "id": "CVE-2026-94586",
+      "published": "2026-10-08T05:17:06.660",
+      "description": "A command injection vulnerability exists in the WebTools administrative interface handling configuration download or file transfer operations of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user with permissions to perform configuration downloads using remote server profiles can supply malicious parameter strings to execute arbitrary shell commands on the switch with root privileges",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-87681",
-      "published": "2026-10-08T01:16:32.620",
-      "description": "An Access Control Bypass vulnerability exists in the Role-Based Access Control (RBAC) validation engine of Brocade Fabric OS versions before 10.0.1. When processing certain management protocol operations, the RBAC engine incorrectly categorizes non-standard action opcodes during permission checks. This allows authenticated users with read-only management privileges to bypass access controls and execute restricted administrative operations.",
+      "id": "CVE-2026-87662",
+      "published": "2026-10-08T05:17:05.433",
+      "description": "Brocade Fabric versions before 9.2.2d and 10.0.0 through 10.0.0a1 handling of specific download protocols utilizes unsanitized parameter strings. When processing upgrade requests, parameters are converted into system command strings and executed through a system shell interface. Because control characters and shell metacharacters in fields like the host or file path are not stripped or sanitized, an attacker can execute arbitrary shell commands with the firmware management daemon's elevated privileges.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.7
     },
     {
-      "id": "CVE-2024-8122",
-      "published": "2026-10-08T01:16:32.037",
-      "description": "The WSO2 Identity Server fails to enforce a default expiry time for SMS One-Time Passwords (OTPs) used in multi-factor authentication (MFA). This allows unused OTPs to remain valid indefinitely, presenting an opportunity for malicious actors to conduct brute force attacks by repeatedly guessing the OTP.\n\nThe absence of automatic expiration for OTPs grants attackers an unlimited timeframe to attempt guessing the correct code. A successful brute force attack can lead to an MFA bypass, resulting in the unauthorized takeover of a user's account and compromising the security and privacy of both the individual and the system.",
+      "id": "CVE-2026-87663",
+      "published": "2026-10-08T05:17:05.567",
+      "description": "An authentication bypass and command injection vulnerability exists in the inter-switch remote execution service of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When processing remote command execution IPC frames across the fabric, the receiving switch processes these commands at an elevated processing level without proper verification of transmitted parameters. This allows an attacker on a single fabric-connected switch to escalate privileges and execute arbitrary root commands locally or across other managed fabric members where remote execution functionality is enabled.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.7
     },
     {
-      "id": "CVE-2026-87676",
-      "published": "2026-10-08T03:16:36.950",
-      "description": "A stack-based buffer overflow vulnerability exists in the security library component of Brocade Fabric OS versions before 10.0.1. When parsing uploaded X.509 PEM certificates for management display, the system improperly validates the length of the Authority Key Identifier (AKI) extension before copying string tokens into an internal memory buffer. An authenticated user with administrative privileges to import custom certificates can supply a certificate containing an intentionally oversized AKI extension. When the system processes or renders the certificate attributes, this can trigger a stack memory corruption leading to a denial-of-service (DoS) condition by crashing the management daemon.",
+      "id": "CVE-2026-87677",
+      "published": "2026-10-08T05:17:05.833",
+      "description": "An OS command injection vulnerability exists in the account management subsystem of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When an administrator initiates an account deletion, the system invokes an internal maintenance routine to clean up cryptographic keys associated with the target account. Malformed account names previously accepted by Fabric OS can cause the execution of embedded shell metacharacters, triggering command injection.",
+      "severity": "MEDIUM",
+      "score": 6.6
+    },
+    {
+      "id": "CVE-2023-5648",
+      "published": "2026-10-08T05:17:03.747",
+      "description": "In Brocade ASCG before Brocade ASCG v3.0, several security-related HTTP Headers were missing in various Brocade ASCG URL paths, aiding unauthenticated attackers to perform attacks such as Cross-Site Scripting, Clickjacking, Information disclosure, and more.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-87661",
+      "published": "2026-10-08T05:17:05.297",
+      "description": "Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1 directly accepts Apache configuration file data during service setup or re-initialization. An attacker capable of corrupting the configuration structure will prevent the web management service from starting or recovering during service bring-up, leading to a persistent Denial of Service (DoS) of the administrative web interface.",
       "severity": "MEDIUM",
       "score": 5.7
     },
     {
-      "id": "CVE-2026-87672",
-      "published": "2026-10-08T03:16:36.810",
-      "description": "An information disclosure vulnerability exists in the SupportLink diagnostic collection utilities of Brocade Fabric OS versions before 10.0.1. When SupportLink is configured to use an authenticated HTTP proxy, the system stores the full proxy URL. Anyone with access to the diagnostic support bundle, such as support personnel or users with access to file shares where support bundles are stored, can extract these cleartext proxy credentials.",
+      "id": "CVE-2023-5649",
+      "published": "2026-10-08T05:17:03.970",
+      "description": "An Improper Input Validation vulnerability for the registered case credentials in Brocade ASCG before v3.0 could allow a local authenticated user to provide invalid inputs like special characters leading to a Denial of Service (DoS) when collecting “supportsave” from a Brocade Switch.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-87678",
-      "published": "2026-10-08T03:16:37.093",
-      "description": "An input validation and output encoding vulnerability exists in the web management interface of Brocade Fabric OS versions before 10.0.1. When configuring Federated Authentication (FA), the system fails to sanitize the Identity Provider (IdP) issuer parameter. An authenticated administrator—or an attacker capable of supplying crafted FA configuration files during an import routine—can inject arbitrary web server directives. This can lead to service denial by preventing the web management daemon from starting, or potentially alter web server security controls.",
+      "id": "CVE-2026-107450",
+      "published": "2026-10-08T05:17:04.477",
+      "description": "In Stump through 0.1.10, the updateSmartList and deleteSmartList GraphQL mutations (crates/graphql/src/mutation/smart_lists.rs) depend only on the shared AccessSmartList permission and resolve the target list at Reader access (lacking a creator check). Any authenticated user with that permission can overwrite, delete, or take over another user's smart list. (updateSmartList sets creatorId to the caller identity, and can set visibility to PRIVATE, locking out the original owner.) NOTE: this is unrelated to the graphql crate on crates.io.",
       "severity": "MEDIUM",
-      "score": 5.2
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-87669",
-      "published": "2026-10-08T03:16:36.237",
-      "description": "A missing authorization check in Brocade Fabric OS versions before 10.0.1 REST API interface of affected platform releases allows an authenticated user, regardless of their assigned role or administrative scope, to retrieve complete Monitoring and Alerting Policy Suite (MAPS) violation data across all logical switches. An attacker with low-privilege API access can leverage this endpoint to dump chassis-wide system health metrics, port performance violations, and configuration data without appropriate privileges.",
+      "id": "CVE-2026-94587",
+      "published": "2026-10-08T05:17:06.890",
+      "description": "A buffer overflow vulnerability exists in the WebTools administrative interface handling configuration download or file transfer operations of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user with permissions to perform configuration downloads using remote server profiles can overflow stack buffers causing a crash of the weblinker daemon.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.5
     },
     {
-      "id": "CVE-2026-87670",
-      "published": "2026-10-08T03:16:36.403",
-      "description": "An authorization logic vulnerability exists in the Brocade Fabric OS versions before 10.0.1 REST API gateway. The internal gate guarding restricted management endpoints relies exclusively on client-controlled HTTP headers. An authenticated user with any valid REST session can spoof these headers to gain unauthorized access to internal management endpoints. This allows low-privilege users to view sensitive chassis metadata, hardware memory patrolling state, and firmware integrity audit logs.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-87726",
-      "published": "2026-10-08T02:16:54.713",
-      "description": "Insufficient API bounds checking in phalFelica in NXP NXPNfcRdLib RC663 through 07.14.00_Pub may allow an attacker with privileges or an untrusted third party to access unintended memory regions, potentially leading to limited loss of confidentiality, integrity, and availability. All software versions from 07.18.00 onwards have fixed this problem.",
+      "id": "CVE-2026-107449",
+      "published": "2026-10-08T05:17:04.297",
+      "description": "linuxserver Heimdall through 2.8.3 applies its SafeUrlFetcher SSRF protection mechanism only to ItemController; the enhanced-application test and live-stats requests occur via SupportedApps::execute(), a GuzzleHttp client that lacks IP address restrictions. In some realistic installations, the POST /test_config (and GET /get_stats) endpoints are accessible through CSRF, and thus an unauthenticated attacker can force the server to send requests to arbitrary internal hosts and ports (including 169.254.169.254) and read a status/port oracle in addition to partial response data.",
       "severity": "LOW",
-      "score": 3.9
-    },
-    {
-      "id": "CVE-2026-102488",
-      "published": "2026-10-08T02:16:53.003",
-      "description": "In affected versions, Octopus Server incorrectly evaluates multiple scoped permission assignments, allowing a highly privileged user to obtain deployment permissions beyond those actually granted to them.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 3.4
     }
   ]
 }
