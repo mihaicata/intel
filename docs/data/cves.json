@@ -1,143 +1,143 @@
 {
-  "totalResults": 5354,
+  "totalResults": 5475,
   "items": [
     {
-      "id": "CVE-2026-55797",
-      "published": "2026-10-09T17:16:47.710",
-      "description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. From 2.11.0 until 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2, the Argo CD repo-server is vulnerable to command injection when it clones, tests, or fetches an SSH Git repository configured with a proxy URL. The proxy host and port are embedded in an SSH ProxyCommand that is executed through a shell without neutralizing shell metacharacters. A user who can create or update a repository or repository credential template can supply a crafted proxy host to execute commands in the repo-server and access its Git, Helm, and OCI credentials. This issue is fixed in versions 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2.",
+      "id": "CVE-2026-108263",
+      "published": "2026-10-09T21:17:04.527",
+      "description": "Astron Agent is an agentic workflow platform for building and running AI agents. Prior to 1.1.2, the default workflow code-node path through /console-api/workflow/code/run and /workflow/v1/run selects LocalExecutor in core/workflow/engine/nodes/code/code_node.py when CODE_EXEC_TYPE is not explicitly changed. LocalExecutor supplies complete Python builtins to dynamic code execution without the documented sandbox restrictions. An authenticated low-privilege tenant can execute code as root in the core-workflow container and use shared service and database credentials to bypass application-level tenant checks, read or modify other tenants' data, and disrupt shared services. This issue is fixed in version 1.1.2.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-78797",
+      "published": "2026-10-09T20:17:11.117",
+      "description": "An issue in iStoreOS istoreos-24.10.7 and before allows a remote attacker to execute arbitrary code via the task_id in tasks-lib.lua.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-107845",
+      "published": "2026-10-09T20:17:10.457",
+      "description": "Contao is an Open Source CMS. From version 4.0.0 until 5.3.50 and 5.7.12, an unauthenticated visitor can submit a comment whose email or website metadata is rendered without sufficient attribute and URL encoding by listComments() in comments-bundle/contao/dca/tl_comments.php. When a backend user opens the Comments module, attacker-controlled script can execute in the Contao backend origin under that user's session. Unpublished comments remain visible to moderators, so moderation does not prevent exposure. This issue is fixed in versions 5.3.50 and 5.7.12.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-108261",
+      "published": "2026-10-09T21:17:04.347",
+      "description": "Tina is a headless content management system. Prior to tinacms 3.14.0 and @tinacms/app 2.5.14, the /~/* admin preview route in packages/tinacms/src/admin/index.tsx can turn an attacker-controlled hash-router splat into an off-origin iframe URL through packages/@tinacms/app/src/preview.tsx, while packages/@tinacms/app/src/lib/preview-origin.ts derives expectedOrigin from that same URL for the GraphQL message channel in packages/@tinacms/app/src/lib/graphql-reducer.ts. An unauthenticated attacker can send a crafted link to a signed-in editor, cause the admin to frame an attacker origin, and have that frame treated as the trusted preview. The attacker-controlled frame can submit GraphQL reads or mutations that the admin executes with the editor credentials, exposing or modifying protected content. This issue is fixed in tinacms 3.14.0 and @tinacms/app 2.5.14.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-108264",
+      "published": "2026-10-09T21:17:04.703",
+      "description": "Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby, and other media servers. Prior to 2026.9.1, wizard step Markdown supplied through the editor or imported bundles was evaluated by app/blueprints/wizard/routes.py in the application's non-sandboxed Jinja2 environment with application globals exposed. An authenticated user able to create steps, or an administrator importing an untrusted bundle through POST /settings/wizard/import, could execute arbitrary Python when GET /wizard/{server}/{idx} rendered the stored step; app/jinja_filters.py and app/services/wizard_widgets.py contained additional evaluation sinks. This could execute operating-system commands as the application user, disclose the Flask SECRET_KEY, access connected service credentials and the database, and produce stored cross-site scripting. This issue is fixed in 2026.9.1.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-108259",
+      "published": "2026-10-09T21:17:04.017",
+      "description": "Tina is a headless content management system. Prior to 3.0.0, @tinacms/cli reads Git branch values from VERCEL_GIT_COMMIT_REF, GITHUB_BRANCH, or HEAD, incorporates the raw value into the API URL, and interpolates that URL into JavaScript string literals in packages/@tinacms/cli/src/next/codegen/index.ts and packages/@tinacms/cli/src/next/codegen/codegen/plugin.ts. A crafted Git-valid branch name containing a quote can terminate the generated string and inject an expression that executes when the generated client module is imported during a preview build. The injected code runs with the build process privileges and can read environment credentials, modify deployment artifacts, or make network requests. This issue is fixed in version 3.0.0.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-107815",
-      "published": "2026-10-09T17:16:45.970",
-      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the CONNECT engine's DOS table type used an incorrect boundary check that permitted a one-byte null write beyond a stack buffer at an attacker-controlled offset. An authenticated user able to use the CONNECT engine could cause a crash and potentially remote code execution. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
+      "id": "CVE-2026-108260",
+      "published": "2026-10-09T21:17:04.180",
+      "description": "Tina is a headless content management system. Prior to 0.2.1, the tina-markdown element in packages/@tinacms/web-components/src/tina-markdown.js assigns a rich-text node.url value directly to an anchor href without validating the URL scheme. A content author can store a link using a script-capable scheme, and a visitor who clicks the rendered link executes attacker-controlled script in the site's origin. The script can access same-origin application data and, when the visitor is an editor or administrator, may expose credentials stored by the TinaCMS admin on that origin. This issue is fixed in version 0.2.1.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-107818",
-      "published": "2026-10-09T18:17:03.373",
-      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the mariadb.service unit used /run/mysqld/wsrep-new-cluster during the next service restart. A database user with FILE privilege and a secure-file-priv configuration permitting writes to /run/mysqld could create that file and inject attacker-controlled environment values into the restarted service. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
-      "severity": "HIGH",
-      "score": 8.4
-    },
-    {
-      "id": "CVE-2026-108157",
-      "published": "2026-10-09T17:16:46.703",
-      "description": "Pingvin Share X from 0.19.0 before 1.22.0 contains an improper authentication vulnerability that allows remote unauthenticated attackers to take over accounts by abusing automatic OAuth email linking in OAuthService.signUp(). Attackers can register a victim's unverified email on an enabled OAuth/OIDC provider, exploiting the missing email_verified check in GenericOidcProvider, to sign in as the victim including administrators while bypassing TOTP.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-108159",
-      "published": "2026-10-09T17:16:47.027",
-      "description": "AstronRPA through 1.1.6 contains a cross-site scripting vulnerability in the desktop client's smart-component chat that allows remote attackers to execute OS commands by abusing unsanitized LLM output rendered via v-html. Attackers can embed prompt-injection content in a web page so the model emits HTML event handlers invoking the unrestricted open-path IPC handler with shell metacharacters, executing commands as the desktop user.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-108160",
-      "published": "2026-10-09T17:16:47.180",
-      "description": "AstronRPA through 1.1.6 contains a download of code without integrity check vulnerability that allows network attackers to deliver malicious updates by abusing the desktop client's auto-update mechanism. Attackers positioned between the client and server can serve a malicious update manifest and NSIS installer, which electron-updater installs without signature verification, executing code as the desktop user.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-75347",
-      "published": "2026-10-09T17:16:48.403",
-      "description": "EIPStackGroup OpENer v2.3 and master up to commit 76b95cf contain an expired pointer dereference vulnerability in the EtherNet/IP Common Packet Format (CPF) handling logic. This allows a remote attacker to cause a denial of service.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-108156",
-      "published": "2026-10-09T17:16:46.540",
-      "description": "LobsterAI 2026.5.27 through 2026.9.23 contains an external control of file path vulnerability in the skills:delete IPC handler that trusts the openclawSourceDir value from a skill's _meta.json during uninstall. Attackers who convince a user to install a crafted skill can make uninstallation recursively delete arbitrary user-writable directories, such as the home directory, since the security scanner never inspects _meta.json.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-108158",
-      "published": "2026-10-09T17:16:46.870",
-      "description": "plugNmeet Server through 2.5.2 contains a path traversal vulnerability in the whiteboard conversion endpoint that allows any meeting participant to read server files via crafted filePath values. Attackers can supply ../ sequences so text or office documents are converted into page images, then fetch them unauthenticated through /download/uploadedFile/.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-42695",
-      "published": "2026-10-09T17:16:47.333",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in FolioVision FV Flowplayer Video Player fv-wordpress-flowplayer allows Stored XSS.This issue affects FV Flowplayer Video Player: from n/a through 7.5.54.7212.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-48484",
-      "published": "2026-10-09T17:16:47.487",
-      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, the API `rpc` function in `api_blueprint.py` handles `multipart/form-data` uploads by reading the whole content of the uploaded file into memory with `file.read()`. This occurs before the data is sent to the underlying function. Since there is no size limit set at this point, a large file upload can exhaust the server's available memory which led to process termination. Version 0.5.0b3.dev101 contains a patch.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-107816",
-      "published": "2026-10-09T18:17:03.060",
-      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the qc_info plugin could be confused by a query containing embedded null bytes. Reading information_schema.query_cache_info after such a query was cached could access data beyond the end of a heap-allocated buffer, potentially disclosing adjacent memory or crashing the server. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-108119",
-      "published": "2026-10-09T17:16:46.400",
-      "description": "A flaw was found in busybox. The tar applet's deferred link-creation handling for symlink and hardlink entries with unsafe-looking targets does not validate that the resolved destination remains inside the extraction directory once the deferred link is created. An attacker can craft a tar archive using a symlink target of exactly '..' combined with a deferred hardlink to create a new file outside the extraction directory, or reuse an extraction directory across two archives to replace an existing file outside it. If the archive is extracted with elevated privileges, this flaw can lead to privilege escalation or arbitrary code execution.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-107819",
-      "published": "2026-10-09T18:17:03.533",
-      "description": "MariaDB Connector/C is a C and C++ client library for connecting applications to MariaDB and MySQL databases. From 3.4.1 until 3.4.10, the MariaDB Connector/C libmariadb Zero-Configuration SSL authentication-switch logic checked certificate trust failure but did not reject a TLS hostname verification mismatch before selecting a non-hashing authentication plugin. An active man-in-the-middle attacker with a valid certificate for another hostname could request mysql_clear_password and obtain the database password inside the attacker-controlled TLS connection. Other MariaDB connectors are not affected. This issue is fixed in version 3.4.10.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-108093",
-      "published": "2026-10-09T17:16:46.260",
-      "description": "A flaw was found in GIMP. The XCF loader processes image-simulation-intent and image-simulation-bpc parasites without ensuring the parasite data is present before dereferencing it. Opening a specially crafted XCF file with a zero-size simulation parasite can cause a NULL pointer dereference and crash the GIMP application.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2016-20098",
-      "published": "2026-10-09T17:16:38.583",
-      "description": "Moderator Toolbox (reddit-moderator-toolbox) before 4.0.14 contains a stored cross-site scripting vulnerability in the removalreasons module, which inserts subreddit toolbox wiki fields into popup HTML without encoding. Attackers who can edit the toolbox wiki page can plant JavaScript in fields like pmsubject, header, or reason titles to act with moderators' Reddit sessions.",
+      "id": "CVE-2026-107854",
+      "published": "2026-10-09T21:17:03.233",
+      "description": "Jexactyl is a customisable game management panel and billing system. From 4.0.0 until 4.0.5, the POST /api/client/billing/free/process endpoint accepts a client-controlled server_id and loads the server without restricting the lookup to servers owned by the authenticated account. On installations with billing enabled, an authenticated user can renew or unsuspend another tenant's billable server when its renewal_date is non-null and more than seven days away, even without a subuser relationship to that server. This issue is fixed in version 4.0.5.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-75597",
-      "published": "2026-10-09T17:16:48.550",
-      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, the `/web/<path:filename>` route in `src/pyload/webui/app/blueprints/app_blueprint.py` renders Jinja2 templates without any authentication requirement. Every equivalent direct route (`/logs`, `/settings`, `/queue`, `/dashboard`, etc.) is protected by `@login_required`, but the underlying templates for all of these pages are accessible unauthenticated via this endpoint. Combined with an exception attribute typo in `src/pyload/webui/app/handlers.py` (`exc.desc` instead of `exc.description`), internal Jinja2 variable names are leaked in HTTP 500 response bodies to unauthenticated callers. An attacker can also enumerate all valid template names by observing 200 vs 500 response differentiation. Version 0.5.0b3.dev101 contains a patch.",
+      "id": "CVE-2026-107842",
+      "published": "2026-10-09T20:17:10.013",
+      "description": "Contao is an Open Source CMS. From version 4.0.0 until 5.3.50 and 5.7.12, ModuleSearch can disclose protected page titles, URLs, and indexed context snippets to unauthenticated visitors when contao.search.index_protected is changed from enabled to disabled. Authorization metadata is stored per row in tl_search, but disabling the setting removes the protected-row filter without deleting rows indexed while protection was enabled. The protected pages continue to return an authorization response, so this issue exposes search metadata and indexed text rather than bypassing page access. This issue is fixed in versions 5.3.50 and 5.7.12.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-107820",
-      "published": "2026-10-09T18:17:03.703",
-      "description": "x64dbg-MCP Server is a native Model Context Protocol (MCP) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Prior to 1.2, src/core/mcp_server.zig parses an unbounded Content-Length value in parseContentLength() and uses it in unchecked usize addition in wsRecv() before token authentication. The server listens on 0.0.0.0 by default in affected versions. An unauthenticated network client can supply a near-maximum Content-Length value to trigger a runtime integer-overflow panic in Debug and ReleaseSafe builds, terminating the entire x64dbg process and its live debugging session. The overflowed value is used only in a comparison, so the impact is limited to denial of service rather than memory corruption or code execution. This issue is fixed in version 1.2.",
+      "id": "CVE-2026-107843",
+      "published": "2026-10-09T20:17:10.167",
+      "description": "Contao is an Open Source CMS. From version 4.1.0 until 5.3.50 and 5.7.12, ModuleRegistration::compile() enters its follow-up registration branch on any POST to a page containing the registration module without verifying FORM_SUBMIT or the preceding captcha result. resendActivationMail() can then invoke OptInToken::send() without rate limiting, allowing an unauthenticated attacker to cause repeated activation emails to be sent to an address with a pending registration and to determine whether that pending registration exists. The branch is reachable only when reg_activate is enabled and the target has an unconfirmed registration and opt-in token. This issue is fixed in versions 5.3.50 and 5.7.12.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-107817",
-      "published": "2026-10-09T18:17:03.220",
-      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the mysql_json plugin assumed that imported MySQL tables contained valid MySQL binary JSON data. A specially prepared MySQL table containing invalid JSON data could cause out-of-bounds reads, information disclosure, or a server crash. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
+      "id": "CVE-2026-107844",
+      "published": "2026-10-09T20:17:10.313",
+      "description": "Contao is an Open Source CMS. From version 5.0.0 until 5.3.50 and 5.7.12, ImagesController joins the user-controlled {path} parameter to the configured image target directory with Path::join() but does not use Path::isBasePath() to verify that the canonical path remains inside that directory. An unauthenticated request containing encoded parent-directory segments can therefore return files under the project directory through BinaryFileResponse when their names use an extension allowed by contao.image.valid_extensions. The route can also reveal whether arbitrary paths exist, and debug responses can disclose absolute filesystem paths, but paths below the upload directory were not shown to be readable. This issue is fixed in versions 5.3.50 and 5.7.12.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-107856",
+      "published": "2026-10-09T21:17:03.387",
+      "description": "CiviForm simplifies applications for government benefits programs by reusing applicant data across multiple benefit applications. Prior to 3.33.0, GET /admin/tiDash/editClientForm/:accountId verifies that the requester is a Trusted Intermediary but showEditClientForm performs a raw lookupAccount(accountId) without confirming that the citizen account belongs to the requester's trustedIntermediaryGroup. An authenticated Trusted Intermediary can enumerate accountId values and read the applicant display name, including the citizen's name and email address, for accounts outside the intermediary's group. This issue is fixed in version 3.33.0.",
+      "severity": "MEDIUM",
+      "score": 4.5
+    },
+    {
+      "id": "CVE-2026-107857",
+      "published": "2026-10-09T21:17:03.550",
+      "description": "Mindwtr is a free offline-first task management application for desktop and mobile. Prior to 1.1.5, the mobile application writes the Cloud sync bearer token and WebDAV password to unencrypted AsyncStorage under @mindwtr_cloud_token and @mindwtr_webdav_password. A party with access to the application database or an exposed device backup can recover these credentials and use them to access the user's synchronized tasks and attachments. This issue is fixed in version 1.1.5.",
       "severity": "MEDIUM",
       "score": 4.4
     },
     {
-      "id": "CVE-2025-61560",
-      "published": "2026-10-09T17:16:41.183",
-      "description": "A race condition vulnerability in the SessionManager of CNCF: Cloud Native Computing Foundation Argo CD v3.0.6 allows attackers to bypass rate limiting and perform a brute force attack via repeated crafted requests.",
+      "id": "CVE-2026-107850",
+      "published": "2026-10-09T21:17:02.770",
+      "description": "Contao is an Open Source CMS. From version 5.7.1 until 5.7.12, core-bundle/config/services.yaml registers the preview access voter as Contao\\CoreBundle\\Security\\Voter\\DataContainer\\PreviewAccessVoter although the shipped class is PreviewVoter. Symfony therefore omits voter autoconfiguration and removes the private service, so PreviewVoter::hasAccess() never enforces ownership. A non-admin backend user with the preview_link module can list every tl_preview_link record, obtain signed share URLs created by other users, and use them to view unpublished pages with showUnpublished despite lacking page permission. The advisory does not establish editing or deletion of foreign links. This issue is fixed in version 5.7.12.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-107851",
+      "published": "2026-10-09T21:17:02.920",
+      "description": "Contao is an Open Source CMS. From version 5.7.0 until 5.7.12, TableAccessVoter::hasAccessToModule() in core-bundle/src/Security/Voter/DataContainer/TableAccessVoter.php caches authorization decisions using only $tokenHash, a hash of the user's security token, and omits the table returned by getDataSource(). If one request first checks a table allowed to the user and then a different denied table, the voter can reuse the allowed result, while DefaultDataContainerVoter can convert an incorrect abstention into a grant. A low-privileged backend user can consequently read, create, update, or delete records in tables outside assigned module permissions, including tables containing member or newsletter-subscriber data. This issue is fixed in version 5.7.12.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-107848",
+      "published": "2026-10-09T21:17:02.617",
+      "description": "Contao is an Open Source CMS. From version 4.0.0 until 5.3.50 and 5.7.12, RequestTokenListener validates REQUEST_TOKEN only for POST requests, while the declarative GET guard runs only when an act parameter is present. Backend actions dispatched through the key parameter can therefore execute without a CSRF token when an authenticated backend user loads an attacker-controlled URL. Reachable actions remain limited to modules available to that user, and the advisory demonstrates destructive or state-changing actions rather than privilege escalation. This issue is fixed in versions 5.3.50 and 5.7.12.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2025-8457",
+      "published": "2026-10-09T20:17:08.960",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-104758",
+      "published": "2026-10-09T20:17:09.233",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2026-73364. Reason: This candidate is a reservation duplicate of CVE-2026-73364. Notes: All CVE users should reference CVE-2026-73364 instead of this candidate. All references and descriptions in this candidate have been removed to prevent accidental usage.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-107852",
+      "published": "2026-10-09T21:17:03.080",
+      "description": "Jexactyl is a customisable game management panel and billing system. Prior to 4.0.5, the POST /api/client/billing/stripe/process endpoint accepts a client-supplied Stripe Checkout Session when payment_status is paid but does not compare amount_total or currency with the referenced order and configured billing currency. On an instance where the billing module is enabled and a Stripe secret key is configured, an authenticated client can therefore complete a lower-value or mismatched-currency payment and cause the order to be processed, provisioning, renewing, upgrading, or unsuspending the purchased server for less than the required price. This issue is fixed in version 4.0.5.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-108258",
+      "published": "2026-10-09T21:17:03.853",
+      "description": "Shiny for Python is a framework for building interactive web applications in Python. From 1.4.0 until 1.6.4, bookmark restore accepts a client-supplied state_id and joins it into the server-side shiny_bookmarks directory without validating that it is a single safe path segment. An unauthenticated request can use parent-directory segments or an absolute path to make the server open input.json and values.json outside the bookmark store, even when bookmark_store is set to disable. In applications configured with bookmark_store set to server and using ui.input_file(), the restore handler can additionally copy and expose an attacker-selected file from an attacker-selected directory. This issue is fixed in version 1.6.4.",
       "severity": "UNKNOWN",
       "score": null
     }
