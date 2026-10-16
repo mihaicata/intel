@@ -1,145 +1,145 @@
 {
-  "totalResults": 5406,
+  "totalResults": 5389,
   "items": [
     {
-      "id": "CVE-2026-107908",
-      "published": "2026-10-09T06:17:10.777",
-      "description": "A heap-based out-of-bounds write in the BoltReadHandler function (src/bolt/bolt_api.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to cause a denial of service and possibly execute arbitrary code by sending a Bolt RESET message with an attacker-chosen chunk size to the Bolt port. The handler checks the size only with ASSERT(), which is compiled out in release builds, then computes a destination pointer from the wire-supplied 16-bit size and moves buffered data up to about 64 KiB backwards past the start of the read buffer. Only deployments that enable the Bolt endpoint (BOLT_PORT, disabled by default) are affected.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-107909",
-      "published": "2026-10-09T06:17:12.303",
-      "description": "A heap-based out-of-bounds write in the ws_read_frame function (src/bolt/ws.c) and the buffer_apply_mask function (src/bolt/buffer.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to cause a denial of service and possibly corrupt heap memory by sending a WebSocket frame with a 64-bit extended payload length to the Bolt port. The payload length is not bounded, and the only bounds check in buffer_apply_mask is an ASSERT(), which is compiled out in release builds, so the function XORs memory beyond the end of the receive buffer with the attacker-supplied mask key. Only deployments that enable the Bolt endpoint (BOLT_PORT, disabled by default) are affected.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2025-15700",
-      "published": "2026-10-09T07:17:16.640",
-      "description": "The AWP Classifieds WordPress plugin before 4.4.9 does not validate the type of files extracted from an uploaded ZIP archive during its listing-import feature, allowing users with the AWP Classifieds WordPress plugin before 4.4.9's management capability to upload arbitrary PHP files to a publicly accessible, network-shared directory and achieve remote code execution.",
+      "id": "CVE-2026-103412",
+      "published": "2026-10-09T13:17:07.453",
+      "description": "Improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Apache Camel Karavan.\n\n\n\nA project file name supplied through the project file API was used verbatim as a path segment when the project was written to the working copy for a Git commit, so a name containing `../` sequences caused the file content to be written outside the project directory, to any location writable by the Karavan process. An authenticated user of any role could use this to overwrite application configuration or files on the application classpath and so execute code in the Karavan container.\n\n\n\nThis issue affects Apache Camel Karavan: from 3.18.0 before 4.22.1.\n\n\n\nUsers are recommended to upgrade to version 4.22.1, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-93548",
-      "published": "2026-10-09T07:17:19.247",
-      "description": "The FooSales  WordPress plugin before 1.43.3 does not verify that an authenticated caller is entitled to act as the user a request names, allowing any authenticated user to have the FooSales  WordPress plugin before 1.43.3 act as an arbitrary other user, including an administrator, resulting in that user's account details being exposed and their account being taken over.",
+      "id": "CVE-2026-103413",
+      "published": "2026-10-09T13:17:07.633",
+      "description": "Improper input validation vulnerability in Apache Camel Karavan.\n\n\n\nWhen a deployment was started, Karavan unmarshalled a project's `kubernetes.yaml` and applied every resource it contained to the cluster without restricting the resource kinds, without rejecting security-sensitive pod options, and without pinning the target namespace. An authenticated user of any role could therefore have Karavan apply arbitrary Kubernetes resources within the reach of its service account, including pods requesting hostNetwork, hostPID, hostIPC, hostPath volumes, host ports, privileged containers, privilege escalation or added capabilities.\n\n\n\nThis issue affects Apache Camel Karavan: from 4.0.0 before 4.22.1.\n\n\n\nUsers are recommended to upgrade to version 4.22.1, which fixes the issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-107910",
-      "published": "2026-10-09T06:17:12.457",
-      "description": "An improper authentication vulnerability in the is_authenticated function (src/bolt/bolt_api.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to execute graph queries without credentials through the Bolt endpoint. The function decides whether a password is required by issuing an empty AUTH command to Redis and treats only a WRONGPASS error as meaning that a password is required; any other error, such as LOADING while a dataset is being loaded, MASTERDOWN during replication failover, or OOM under memory pressure, causes the client to be treated as authenticated. Only deployments that enable the Bolt endpoint (BOLT_PORT, disabled by default) are affected.",
+      "id": "CVE-2026-104392",
+      "published": "2026-10-09T13:17:08.227",
+      "description": "Deserialization of Untrusted Data vulnerability in ExpressTech Quiz And Survey Master quiz-master-next allows Object Injection.This issue affects Quiz And Survey Master: from n/a through 11.2.7.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-107914",
-      "published": "2026-10-09T06:17:12.777",
-      "description": "Backdrop CMS 1.34 before 1.34.5 and 1.35 before 1.35.1 doesn't sufficiently protect configuration exports when delivering a compressed archive. This vulnerability is mitigated by the fact that an export must have been previously requested by someone with the \"Synchronize, import, and export configuration\" permission. NOTE: CVE-2026-107914 refers to the vulnerability in which config.admin.inc does not ensure that a file_unmanaged_delete operation occurs. Therefore, many archives could persist: config.tar.gz, config_0.tar.gz, config_1.tar.gz, etc. There is a separate config.module issue that could allow remote access by an anonymous user, but only for the one filename config.tar.gz.",
+      "id": "CVE-2026-105318",
+      "published": "2026-10-09T13:17:08.470",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Datasolution AcyMailing SMTP Newsletter acymailing allows Reflected XSS.This issue affects AcyMailing SMTP Newsletter: from n/a through 11.1.0.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-107911",
-      "published": "2026-10-09T06:17:12.620",
-      "description": "A type confusion vulnerability in the _read_flags function (src/commands/cmd_dispatcher.c) in FalkorDB before 4.20.0 allows a remote authenticated attacker who can run GRAPH.QUERY to cause a denial of service and possibly disclose or corrupt memory. The function accepts a --bolt argument from any client and casts the following command argument, a Redis string object, to a Bolt client structure without checking its origin; the result-set code then dereferences pointers read from that object. The argument is parsed even when the Bolt endpoint is disabled, so default configurations are affected.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-97076",
-      "published": "2026-10-09T07:17:19.350",
-      "description": "Executable Regular Expression Error vulnerability in WP Media WP Rocket wp-rocket allows Code Injection.This issue affects WP Rocket: from n/a before 3.23.5.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-81929",
-      "published": "2026-10-09T07:17:18.600",
-      "description": "The Ocean Pro Demos and Ocean eComm Treasure Box plugins for WordPress is vulnerable to Stored Cross-Site Scripting via the 'content' parameter in all versions up to, and including, 1.5.4, and 1.8.0, respectively, due to insufficient authorization, input sanitization, and output escaping in the Popup Builder's save_popup_content AJAX action. This makes it possible for unauthenticated attackers to inject arbitrary web scripts into a published Gutenberg popup that will execute whenever a user accesses a page on which the popup is configured to display. A valid premium license, the Popup Builder module, and at least one published Gutenberg popup configured for display are required.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-106097",
-      "published": "2026-10-09T07:17:17.997",
-      "description": "The Code Snippets WordPress plugin before 3.10.0 does not sanitise and escape a user-supplied parameter before using it in a SQL query in some of its snippet-migration import endpoints, which are accessible to any user holding site-administration capabilities; on a WordPress Multisite network those belong to subsite Administrators, allowing a subsite Administrator who is not a network Super Admin to perform UNION-based SQL injection against shared network tables and disclose network-wide data such as other users' password hashes.",
+      "id": "CVE-2026-89235",
+      "published": "2026-10-09T12:17:12.983",
+      "description": "The Testimonials by BestWebSoft WordPress plugin through 1.0.8 does not sanitise and escape a parameter before using it in a SQL query, allowing unauthenticated attackers to append additional SQL to the query.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-86850",
-      "published": "2026-10-09T07:17:18.750",
-      "description": "The SKU Error Fixer for WooCommerce WordPress plugin through 1.0 does not perform any capability or nonce checks on two of its AJAX actions, which are also available to unauthenticated users, allowing them to permanently delete product variations it classifies as obsolete, and to disclose those variations' details, with no recoverable copy left behind.",
+      "id": "CVE-2026-62039",
+      "published": "2026-10-09T12:17:10.810",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Html5 Audio Player html5-audio-player allows Stored XSS.This issue affects Html5 Audio Player: from n/a through 2.8.8.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-87109",
-      "published": "2026-10-09T06:17:13.140",
-      "description": "An authenticated Ops Manager organization member can retrieve another member's pending authenticator enrollment seed through user-listing endpoints while that member's enrollment is unconfirmed. This results in disclosure of secret authentication material to another member of the same organization or project.",
+      "id": "CVE-2026-86851",
+      "published": "2026-10-09T12:17:12.737",
+      "description": "The Livees Checkout WordPress plugin through 7.0.2 does not perform any capability, nonce or order-key check before acting on request parameters on the order confirmation page, allowing unauthenticated users to change the status of arbitrary orders, store arbitrary data and notes on them, and recover their order keys.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-107419",
+      "published": "2026-10-09T12:17:08.870",
+      "description": "Missing Authorization vulnerability in Cool Plugins AI Translation for Polylang automatic-translations-for-polylang allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AI Translation for Polylang: from n/a through 1.6.2.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-62041",
+      "published": "2026-10-09T12:17:11.080",
+      "description": "Missing Authorization vulnerability in Ashok Dudhat WP Event Manager wp-event-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Event Manager: from n/a through 3.4.1.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-103329",
+      "published": "2026-10-09T12:17:07.437",
+      "description": "The Super Payments WordPress plugin before 1.43.1 does not properly verify the authenticity of incoming payment webhook notifications, as the signing key used to validate their signature is empty by default, allowing unauthenticated attackers to forge a valid signature and mark arbitrary WooCommerce orders as paid without payment.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-87110",
-      "published": "2026-10-09T06:17:13.280",
-      "description": "An unauthenticated user with network access to the Ops Manager web port can repeatedly request monitoring endpoints that perform costly work without rate limiting. This can temporarily slow other traffic served by the same process while requests continue.",
+      "id": "CVE-2026-62040",
+      "published": "2026-10-09T12:17:10.940",
+      "description": "Missing Authorization vulnerability in DEV Institute Restrict User Access – Membership Plugin with Force restrict-user-access allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Restrict User Access – Membership Plugin with Force: from n/a through 2.8.1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-87841",
-      "published": "2026-10-09T07:17:18.847",
-      "description": "The UnitechPay  WordPress plugin through 1.0.6.3 does not verify the authenticity of the payment notifications it receives, allowing unauthenticated attackers to mark orders placed through it as paid without any payment being made, as well as to force other orders into a failed state.",
+      "id": "CVE-2026-62042",
+      "published": "2026-10-09T12:17:11.213",
+      "description": "Missing Authorization vulnerability in unFocus Projects Scripts n Styles scripts-n-styles allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Scripts n Styles: from n/a through 3.5.8.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-88931",
-      "published": "2026-10-09T07:17:18.950",
-      "description": "The Social Web Suite  WordPress plugin through 4.1.12 does not restrict which of its settings may be written through an unauthenticated endpoint, allowing attackers to overwrite arbitrary Social Web Suite  WordPress plugin through 4.1.12 options, including the shared secret that guards its own privileged endpoints.",
+      "id": "CVE-2026-87846",
+      "published": "2026-10-09T12:17:12.860",
+      "description": "The Shipping for Nova Poshta WordPress plugin through 1.19.8 does not perform any authorisation, nonce or ownership checks on one of its AJAX actions available to unauthenticated users, allowing anyone to delete the shipment records of arbitrary orders and to make the store issue the carrier's waybill-deletion request for those orders using the store's own stored API credentials.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-92990",
-      "published": "2026-10-09T07:17:19.153",
-      "description": "The SendPress Newsletters WordPress plugin through 1.26.1.20 protects a logging endpoint with a hardcoded token that is the same on every site rather than a per-site secret, allowing unauthenticated users to read newsletter sending logs, including recipient email addresses.",
+      "id": "CVE-2026-103220",
+      "published": "2026-10-09T13:17:07.330",
+      "description": "The Affinity by Canva application before 3.3.1 (October 2026 release) did not perform adequate bounds checking when parsing raster image data in Affinity document files, leading to an out-of-bounds read and the dereference of an untrusted pointer. A threat actor could craft an Affinity document that, when opened by a user in Affinity, could result in memory corruption or an application crash.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.5
     },
     {
-      "id": "CVE-2026-92989",
-      "published": "2026-10-09T07:17:19.050",
-      "description": "The SendPress Newsletters WordPress plugin through 1.26.1.20 does not check the user's capability on several newsletter-management actions, allowing any authenticated subscriber-level user to synchronise all site users into a mailing list and to drive the newsletter send queue.",
+      "id": "CVE-2026-39779",
+      "published": "2026-10-09T12:17:10.513",
+      "description": "Missing Authorization vulnerability in Asgaros Asgaros Forum asgaros-forum allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Asgaros Forum: from n/a through 3.4.0.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-106095",
-      "published": "2026-10-09T07:17:17.897",
-      "description": "The Code Snippets WordPress plugin before 3.10.0 does not perform a capability check on one of its snippet-management actions and derives the network scope of the targeted snippet from the request instead of from the stored record, allowing an administrator of a single subsite on a multisite network to activate, deactivate and reprioritise network-scoped snippets that run across every site in the network.",
-      "severity": "LOW",
-      "score": 3.3
+      "id": "CVE-2026-62036",
+      "published": "2026-10-09T12:17:10.660",
+      "description": "Exposure of Sensitive System Information to an Unauthorized Control Sphere vulnerability in AREOI All Bootstrap Blocks all-bootstrap-blocks allows Retrieve Embedded Sensitive Data.This issue affects All Bootstrap Blocks: from n/a through 1.3.31.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-87108",
-      "published": "2026-10-09T06:17:12.980",
-      "description": "An authenticated Ops Manager user with a read-only project role can retrieve a daily host monitoring record associated with a different project when they possess the required record identifier. Insufficient ownership validation can expose deployment metadata, including host and configuration details.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-85348",
+      "published": "2026-10-09T12:17:12.500",
+      "description": "The GDPR Data Request Form WordPress plugin through 1.7.1 does not have CSRF protection when updating one of its settings, allowing attackers to change that setting via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-101028",
-      "published": "2026-10-09T07:17:17.627",
-      "description": "Incorrect Authorization vulnerability in ash-project ash allows an actor to infer data in related records they cannot read via Ash.count/2, Ash.exists/2 and Ash.aggregate/3.\n\nAsh.Actions.Aggregate.run/4 (lib/ash/actions/aggregate.ex) applied only the root resource's read policy before running the aggregate query. The read path also applies each related resource's read policy to filter and sort references that cross a relationship, directly (for example comments.body) or through an aggregate over one, but the aggregate path skipped that step. A caller whose filter or sort reaches these functions, for example through Ash.Query.filter_input/2, an ash_lua script, or an AshAi tool offering count or exists results, can test conditions against related rows hidden from them and recover their existence and attribute values one query at a time. Ash.read/2 and its page counts are not affected.\n\nThis issue affects ash: from 2.6.0 before 3.34.6.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-104079",
+      "published": "2026-10-09T13:17:07.987",
+      "description": "Envira Gallery Lite before 1.16.2 contains a missing authorization vulnerability in its gallery conversion REST endpoint that allows lower-privileged authenticated users to create and publish Envira galleries without the required capabilities, because the endpoint only checks edit permissions on the source post and uses a hard-coded publish status. Attackers can also supply arbitrary caller-controlled image IDs without ownership verification to publish unauthorized content using attachments they are not authorized to use.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-101094",
+      "published": "2026-10-09T13:17:05.890",
+      "description": "The Affinity by Canva application before 3.3.1 (October 2026 release) did not correctly handle incomplete UTF-8 character sequences when parsing text in Affinity document files, leading to a heap buffer over-read. A threat actor could craft an Affinity document that, when opened by a user in Affinity, could disclose the contents of adjacent heap memory in the document's text or result in an application crash.",
+      "severity": "LOW",
+      "score": 3.6
+    },
+    {
+      "id": "CVE-2026-101130",
+      "published": "2026-10-09T13:17:07.037",
+      "description": "The Affinity by Canva application before 3.3.1 (October 2026 release) did not perform adequate bounds checking when parsing arrays of strings in Affinity document files, leading to a heap buffer over-read. A threat actor could craft an Affinity document that, when opened by a user in Affinity, could disclose the contents of adjacent heap memory in the document's text or result in an application crash.",
+      "severity": "LOW",
+      "score": 3.6
     }
   ]
 }
