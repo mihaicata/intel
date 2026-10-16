@@ -1,145 +1,145 @@
 {
-  "totalResults": 5389,
+  "totalResults": 5354,
   "items": [
     {
-      "id": "CVE-2026-103412",
-      "published": "2026-10-09T13:17:07.453",
-      "description": "Improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Apache Camel Karavan.\n\n\n\nA project file name supplied through the project file API was used verbatim as a path segment when the project was written to the working copy for a Git commit, so a name containing `../` sequences caused the file content to be written outside the project directory, to any location writable by the Karavan process. An authenticated user of any role could use this to overwrite application configuration or files on the application classpath and so execute code in the Karavan container.\n\n\n\nThis issue affects Apache Camel Karavan: from 3.18.0 before 4.22.1.\n\n\n\nUsers are recommended to upgrade to version 4.22.1, which fixes the issue.",
+      "id": "CVE-2026-55797",
+      "published": "2026-10-09T17:16:47.710",
+      "description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. From 2.11.0 until 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2, the Argo CD repo-server is vulnerable to command injection when it clones, tests, or fetches an SSH Git repository configured with a proxy URL. The proxy host and port are embedded in an SSH ProxyCommand that is executed through a shell without neutralizing shell metacharacters. A user who can create or update a repository or repository credential template can supply a crafted proxy host to execute commands in the repo-server and access its Git, Helm, and OCI credentials. This issue is fixed in versions 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-103413",
-      "published": "2026-10-09T13:17:07.633",
-      "description": "Improper input validation vulnerability in Apache Camel Karavan.\n\n\n\nWhen a deployment was started, Karavan unmarshalled a project's `kubernetes.yaml` and applied every resource it contained to the cluster without restricting the resource kinds, without rejecting security-sensitive pod options, and without pinning the target namespace. An authenticated user of any role could therefore have Karavan apply arbitrary Kubernetes resources within the reach of its service account, including pods requesting hostNetwork, hostPID, hostIPC, hostPath volumes, host ports, privileged containers, privilege escalation or added capabilities.\n\n\n\nThis issue affects Apache Camel Karavan: from 4.0.0 before 4.22.1.\n\n\n\nUsers are recommended to upgrade to version 4.22.1, which fixes the issue.",
+      "id": "CVE-2026-107815",
+      "published": "2026-10-09T17:16:45.970",
+      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the CONNECT engine's DOS table type used an incorrect boundary check that permitted a one-byte null write beyond a stack buffer at an attacker-controlled offset. An authenticated user able to use the CONNECT engine could cause a crash and potentially remote code execution. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-104392",
-      "published": "2026-10-09T13:17:08.227",
-      "description": "Deserialization of Untrusted Data vulnerability in ExpressTech Quiz And Survey Master quiz-master-next allows Object Injection.This issue affects Quiz And Survey Master: from n/a through 11.2.7.",
+      "id": "CVE-2026-107818",
+      "published": "2026-10-09T18:17:03.373",
+      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the mariadb.service unit used /run/mysqld/wsrep-new-cluster during the next service restart. A database user with FILE privilege and a secure-file-priv configuration permitting writes to /run/mysqld could create that file and inject attacker-controlled environment values into the restarted service. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-105318",
-      "published": "2026-10-09T13:17:08.470",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Datasolution AcyMailing SMTP Newsletter acymailing allows Reflected XSS.This issue affects AcyMailing SMTP Newsletter: from n/a through 11.1.0.",
+      "id": "CVE-2026-108157",
+      "published": "2026-10-09T17:16:46.703",
+      "description": "Pingvin Share X from 0.19.0 before 1.22.0 contains an improper authentication vulnerability that allows remote unauthenticated attackers to take over accounts by abusing automatic OAuth email linking in OAuthService.signUp(). Attackers can register a victim's unverified email on an enabled OAuth/OIDC provider, exploiting the missing email_verified check in GenericOidcProvider, to sign in as the victim including administrators while bypassing TOTP.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-108159",
+      "published": "2026-10-09T17:16:47.027",
+      "description": "AstronRPA through 1.1.6 contains a cross-site scripting vulnerability in the desktop client's smart-component chat that allows remote attackers to execute OS commands by abusing unsanitized LLM output rendered via v-html. Attackers can embed prompt-injection content in a web page so the model emits HTML event handlers invoking the unrestricted open-path IPC handler with shell metacharacters, executing commands as the desktop user.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-108160",
+      "published": "2026-10-09T17:16:47.180",
+      "description": "AstronRPA through 1.1.6 contains a download of code without integrity check vulnerability that allows network attackers to deliver malicious updates by abusing the desktop client's auto-update mechanism. Attackers positioned between the client and server can serve a malicious update manifest and NSIS installer, which electron-updater installs without signature verification, executing code as the desktop user.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-75347",
+      "published": "2026-10-09T17:16:48.403",
+      "description": "EIPStackGroup OpENer v2.3 and master up to commit 76b95cf contain an expired pointer dereference vulnerability in the EtherNet/IP Common Packet Format (CPF) handling logic. This allows a remote attacker to cause a denial of service.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-108156",
+      "published": "2026-10-09T17:16:46.540",
+      "description": "LobsterAI 2026.5.27 through 2026.9.23 contains an external control of file path vulnerability in the skills:delete IPC handler that trusts the openclawSourceDir value from a skill's _meta.json during uninstall. Attackers who convince a user to install a crafted skill can make uninstallation recursively delete arbitrary user-writable directories, such as the home directory, since the security scanner never inspects _meta.json.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-89235",
-      "published": "2026-10-09T12:17:12.983",
-      "description": "The Testimonials by BestWebSoft WordPress plugin through 1.0.8 does not sanitise and escape a parameter before using it in a SQL query, allowing unauthenticated attackers to append additional SQL to the query.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-62039",
-      "published": "2026-10-09T12:17:10.810",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Html5 Audio Player html5-audio-player allows Stored XSS.This issue affects Html5 Audio Player: from n/a through 2.8.8.",
+      "id": "CVE-2026-108158",
+      "published": "2026-10-09T17:16:46.870",
+      "description": "plugNmeet Server through 2.5.2 contains a path traversal vulnerability in the whiteboard conversion endpoint that allows any meeting participant to read server files via crafted filePath values. Attackers can supply ../ sequences so text or office documents are converted into page images, then fetch them unauthenticated through /download/uploadedFile/.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-86851",
-      "published": "2026-10-09T12:17:12.737",
-      "description": "The Livees Checkout WordPress plugin through 7.0.2 does not perform any capability, nonce or order-key check before acting on request parameters on the order confirmation page, allowing unauthenticated users to change the status of arbitrary orders, store arbitrary data and notes on them, and recover their order keys.",
+      "id": "CVE-2026-42695",
+      "published": "2026-10-09T17:16:47.333",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in FolioVision FV Flowplayer Video Player fv-wordpress-flowplayer allows Stored XSS.This issue affects FV Flowplayer Video Player: from n/a through 7.5.54.7212.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-107419",
-      "published": "2026-10-09T12:17:08.870",
-      "description": "Missing Authorization vulnerability in Cool Plugins AI Translation for Polylang automatic-translations-for-polylang allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AI Translation for Polylang: from n/a through 1.6.2.",
+      "id": "CVE-2026-48484",
+      "published": "2026-10-09T17:16:47.487",
+      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, the API `rpc` function in `api_blueprint.py` handles `multipart/form-data` uploads by reading the whole content of the uploaded file into memory with `file.read()`. This occurs before the data is sent to the underlying function. Since there is no size limit set at this point, a large file upload can exhaust the server's available memory which led to process termination. Version 0.5.0b3.dev101 contains a patch.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-107816",
+      "published": "2026-10-09T18:17:03.060",
+      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the qc_info plugin could be confused by a query containing embedded null bytes. Reading information_schema.query_cache_info after such a query was cached could access data beyond the end of a heap-allocated buffer, potentially disclosing adjacent memory or crashing the server. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-108119",
+      "published": "2026-10-09T17:16:46.400",
+      "description": "A flaw was found in busybox. The tar applet's deferred link-creation handling for symlink and hardlink entries with unsafe-looking targets does not validate that the resolved destination remains inside the extraction directory once the deferred link is created. An attacker can craft a tar archive using a symlink target of exactly '..' combined with a deferred hardlink to create a new file outside the extraction directory, or reuse an extraction directory across two archives to replace an existing file outside it. If the archive is extracted with elevated privileges, this flaw can lead to privilege escalation or arbitrary code execution.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-107819",
+      "published": "2026-10-09T18:17:03.533",
+      "description": "MariaDB Connector/C is a C and C++ client library for connecting applications to MariaDB and MySQL databases. From 3.4.1 until 3.4.10, the MariaDB Connector/C libmariadb Zero-Configuration SSL authentication-switch logic checked certificate trust failure but did not reject a TLS hostname verification mismatch before selecting a non-hashing authentication plugin. An active man-in-the-middle attacker with a valid certificate for another hostname could request mysql_clear_password and obtain the database password inside the attacker-controlled TLS connection. Other MariaDB connectors are not affected. This issue is fixed in version 3.4.10.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-108093",
+      "published": "2026-10-09T17:16:46.260",
+      "description": "A flaw was found in GIMP. The XCF loader processes image-simulation-intent and image-simulation-bpc parasites without ensuring the parasite data is present before dereferencing it. Opening a specially crafted XCF file with a zero-size simulation parasite can cause a NULL pointer dereference and crash the GIMP application.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2016-20098",
+      "published": "2026-10-09T17:16:38.583",
+      "description": "Moderator Toolbox (reddit-moderator-toolbox) before 4.0.14 contains a stored cross-site scripting vulnerability in the removalreasons module, which inserts subreddit toolbox wiki fields into popup HTML without encoding. Attackers who can edit the toolbox wiki page can plant JavaScript in fields like pmsubject, header, or reason titles to act with moderators' Reddit sessions.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-62041",
-      "published": "2026-10-09T12:17:11.080",
-      "description": "Missing Authorization vulnerability in Ashok Dudhat WP Event Manager wp-event-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Event Manager: from n/a through 3.4.1.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-103329",
-      "published": "2026-10-09T12:17:07.437",
-      "description": "The Super Payments WordPress plugin before 1.43.1 does not properly verify the authenticity of incoming payment webhook notifications, as the signing key used to validate their signature is empty by default, allowing unauthenticated attackers to forge a valid signature and mark arbitrary WooCommerce orders as paid without payment.",
+      "id": "CVE-2026-75597",
+      "published": "2026-10-09T17:16:48.550",
+      "description": "pyLoad is a free and open-source download manager written in Python. Prior to 0.5.0b3.dev101, the `/web/<path:filename>` route in `src/pyload/webui/app/blueprints/app_blueprint.py` renders Jinja2 templates without any authentication requirement. Every equivalent direct route (`/logs`, `/settings`, `/queue`, `/dashboard`, etc.) is protected by `@login_required`, but the underlying templates for all of these pages are accessible unauthenticated via this endpoint. Combined with an exception attribute typo in `src/pyload/webui/app/handlers.py` (`exc.desc` instead of `exc.description`), internal Jinja2 variable names are leaked in HTTP 500 response bodies to unauthenticated callers. An attacker can also enumerate all valid template names by observing 200 vs 500 response differentiation. Version 0.5.0b3.dev101 contains a patch.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-62040",
-      "published": "2026-10-09T12:17:10.940",
-      "description": "Missing Authorization vulnerability in DEV Institute Restrict User Access – Membership Plugin with Force restrict-user-access allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Restrict User Access – Membership Plugin with Force: from n/a through 2.8.1.",
+      "id": "CVE-2026-107820",
+      "published": "2026-10-09T18:17:03.703",
+      "description": "x64dbg-MCP Server is a native Model Context Protocol (MCP) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Prior to 1.2, src/core/mcp_server.zig parses an unbounded Content-Length value in parseContentLength() and uses it in unchecked usize addition in wsRecv() before token authentication. The server listens on 0.0.0.0 by default in affected versions. An unauthenticated network client can supply a near-maximum Content-Length value to trigger a runtime integer-overflow panic in Debug and ReleaseSafe builds, terminating the entire x64dbg process and its live debugging session. The overflowed value is used only in a comparison, so the impact is limited to denial of service rather than memory corruption or code execution. This issue is fixed in version 1.2.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-62042",
-      "published": "2026-10-09T12:17:11.213",
-      "description": "Missing Authorization vulnerability in unFocus Projects Scripts n Styles scripts-n-styles allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Scripts n Styles: from n/a through 3.5.8.",
+      "id": "CVE-2026-107817",
+      "published": "2026-10-09T18:17:03.220",
+      "description": "MariaDB server is a community developed fork of MySQL server. From 10.6.1 until 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2, the mysql_json plugin assumed that imported MySQL tables contained valid MySQL binary JSON data. A specially prepared MySQL table containing invalid JSON data could cause out-of-bounds reads, information disclosure, or a server crash. This issue is fixed in versions 10.6.28, 10.11.19, 11.4.13, 11.8.9, 12.3.3, and 13.0.2.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-87846",
-      "published": "2026-10-09T12:17:12.860",
-      "description": "The Shipping for Nova Poshta WordPress plugin through 1.19.8 does not perform any authorisation, nonce or ownership checks on one of its AJAX actions available to unauthenticated users, allowing anyone to delete the shipment records of arbitrary orders and to make the store issue the carrier's waybill-deletion request for those orders using the store's own stored API credentials.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-103220",
-      "published": "2026-10-09T13:17:07.330",
-      "description": "The Affinity by Canva application before 3.3.1 (October 2026 release) did not perform adequate bounds checking when parsing raster image data in Affinity document files, leading to an out-of-bounds read and the dereference of an untrusted pointer. A threat actor could craft an Affinity document that, when opened by a user in Affinity, could result in memory corruption or an application crash.",
-      "severity": "MEDIUM",
-      "score": 4.5
-    },
-    {
-      "id": "CVE-2026-39779",
-      "published": "2026-10-09T12:17:10.513",
-      "description": "Missing Authorization vulnerability in Asgaros Asgaros Forum asgaros-forum allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Asgaros Forum: from n/a through 3.4.0.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-62036",
-      "published": "2026-10-09T12:17:10.660",
-      "description": "Exposure of Sensitive System Information to an Unauthorized Control Sphere vulnerability in AREOI All Bootstrap Blocks all-bootstrap-blocks allows Retrieve Embedded Sensitive Data.This issue affects All Bootstrap Blocks: from n/a through 1.3.31.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-85348",
-      "published": "2026-10-09T12:17:12.500",
-      "description": "The GDPR Data Request Form WordPress plugin through 1.7.1 does not have CSRF protection when updating one of its settings, allowing attackers to change that setting via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-104079",
-      "published": "2026-10-09T13:17:07.987",
-      "description": "Envira Gallery Lite before 1.16.2 contains a missing authorization vulnerability in its gallery conversion REST endpoint that allows lower-privileged authenticated users to create and publish Envira galleries without the required capabilities, because the endpoint only checks edit permissions on the source post and uses a hard-coded publish status. Attackers can also supply arbitrary caller-controlled image IDs without ownership verification to publish unauthorized content using attachments they are not authorized to use.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-101094",
-      "published": "2026-10-09T13:17:05.890",
-      "description": "The Affinity by Canva application before 3.3.1 (October 2026 release) did not correctly handle incomplete UTF-8 character sequences when parsing text in Affinity document files, leading to a heap buffer over-read. A threat actor could craft an Affinity document that, when opened by a user in Affinity, could disclose the contents of adjacent heap memory in the document's text or result in an application crash.",
-      "severity": "LOW",
-      "score": 3.6
-    },
-    {
-      "id": "CVE-2026-101130",
-      "published": "2026-10-09T13:17:07.037",
-      "description": "The Affinity by Canva application before 3.3.1 (October 2026 release) did not perform adequate bounds checking when parsing arrays of strings in Affinity document files, leading to a heap buffer over-read. A threat actor could craft an Affinity document that, when opened by a user in Affinity, could disclose the contents of adjacent heap memory in the document's text or result in an application crash.",
-      "severity": "LOW",
-      "score": 3.6
+      "id": "CVE-2025-61560",
+      "published": "2026-10-09T17:16:41.183",
+      "description": "A race condition vulnerability in the SessionManager of CNCF: Cloud Native Computing Foundation Argo CD v3.0.6 allows attackers to bypass rate limiting and perform a brute force attack via repeated crafted requests.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
