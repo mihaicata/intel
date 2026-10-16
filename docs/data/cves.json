@@ -1,143 +1,143 @@
 {
-  "totalResults": 5373,
+  "totalResults": 5348,
   "items": [
     {
-      "id": "CVE-2026-56857",
-      "published": "2026-10-08T23:17:01.487",
-      "description": "On Windows, when the target of Root.Mkdir or Root.MkdirAll is a junction pointing to an empty location, the operation can create a directory at the junction target even when that target is located outside the root. This only applies to operations where the last path component is a junction (path/to/junction, but not path/junction/target).",
+      "id": "CVE-2026-5759",
+      "published": "2026-10-09T05:16:44.920",
+      "description": "A double free and use-after-free vulnerability in the RdbLoadDeletedNodes function of the RDB graph decoders (src/serializers/decoders/*/decode_graph_entities.c) in FalkorDB before 4.18.1 allows a remote attacker who can issue Redis replication commands (for example, against an instance with no password configured) to cause a denial of service or execute arbitrary code in the redis-server process by supplying a crafted RDB stream whose deleted-nodes buffer length is not a multiple of sizeof(NodeID). The length check relies on ASSERT(), which is compiled out in release builds, so the function continues after freeing the buffer, reading it and freeing it a second time.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-107728",
-      "published": "2026-10-08T23:16:58.180",
-      "description": "Strawberry GraphQL is a library for creating GraphQL APIs. From 0.217.0 until 0.326.1, PermissionExtension.resolve() on a synchronous field resolver evaluates the result of has_permission() for truthiness. When a custom permission declares has_permission() as a normal function but returns an awaitable, supports_sync does not classify it as asynchronous, the awaitable is not awaited, and its inherently truthy object value permits the protected resolver to run even when the result would resolve to false. This affects synchronous field resolvers under both execute_sync() and execute(); permissions declared with async def has_permission() and synchronous permissions returning a boolean are not affected. This issue is fixed in version 0.326.1.",
+      "id": "CVE-2026-107908",
+      "published": "2026-10-09T06:17:10.777",
+      "description": "A heap-based out-of-bounds write in the BoltReadHandler function (src/bolt/bolt_api.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to cause a denial of service and possibly execute arbitrary code by sending a Bolt RESET message with an attacker-chosen chunk size to the Bolt port. The handler checks the size only with ASSERT(), which is compiled out in release builds, then computes a destination pointer from the wire-supplied 16-bit size and moves buffered data up to about 64 KiB backwards past the start of the read buffer. Only deployments that enable the Bolt endpoint (BOLT_PORT, disabled by default) are affected.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-7826",
+      "published": "2026-10-09T05:16:45.150",
+      "description": "A heap-based out-of-bounds read in the BufferSerializerIOv2_ReadBuffer function (src/serializers/serializer_io.c) in FalkorDB before 4.18.4 allows a remote attacker who can issue Redis replication commands (for example, against an instance with no password configured) to cause a denial of service or disclose heap memory by supplying a crafted RDB stream whose sub-buffer length field exceeds the remaining buffer size. The only bounds check is an ASSERT(), which is compiled out in release builds, so memcpy() reads past the end of the heap allocation.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-107909",
+      "published": "2026-10-09T06:17:12.303",
+      "description": "A heap-based out-of-bounds write in the ws_read_frame function (src/bolt/ws.c) and the buffer_apply_mask function (src/bolt/buffer.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to cause a denial of service and possibly corrupt heap memory by sending a WebSocket frame with a 64-bit extended payload length to the Bolt port. The payload length is not bounded, and the only bounds check in buffer_apply_mask is an ASSERT(), which is compiled out in release builds, so the function XORs memory beyond the end of the receive buffer with the attacker-supplied mask key. Only deployments that enable the Bolt endpoint (BOLT_PORT, disabled by default) are affected.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2025-15700",
+      "published": "2026-10-09T07:17:16.640",
+      "description": "The AWP Classifieds WordPress plugin before 4.4.9 does not validate the type of files extracted from an uploaded ZIP archive during its listing-import feature, allowing users with the AWP Classifieds WordPress plugin before 4.4.9's management capability to upload arbitrary PHP files to a publicly accessible, network-shared directory and achieve remote code execution.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-7827",
+      "published": "2026-10-09T05:16:45.327",
+      "description": "A stack-based buffer overflow in the _RdbLoadEntity function of the RDB graph decoders (src/serializers/decoders/*/decode_graph_entities.c) in FalkorDB before 4.18.4 allows a remote attacker who can issue Redis replication commands (for example, against an instance with no password configured) to cause a denial of service and possibly execute arbitrary code by supplying a crafted RDB stream with an attacker-controlled entity property count. The count sizes two variable-length arrays on the thread stack with no upper bound, and the decoder then fills them with attacker-supplied values.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-107910",
+      "published": "2026-10-09T06:17:12.457",
+      "description": "An improper authentication vulnerability in the is_authenticated function (src/bolt/bolt_api.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to execute graph queries without credentials through the Bolt endpoint. The function decides whether a password is required by issuing an empty AUTH command to Redis and treats only a WRONGPASS error as meaning that a password is required; any other error, such as LOADING while a dataset is being loaded, MASTERDOWN during replication failover, or OOM under memory pressure, causes the client to be treated as authenticated. Only deployments that enable the Bolt endpoint (BOLT_PORT, disabled by default) are affected.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-107914",
+      "published": "2026-10-09T06:17:12.777",
+      "description": "Backdrop CMS 1.34 before 1.34.5 and 1.35 before 1.35.1 doesn't sufficiently protect configuration exports when delivering a compressed archive. This vulnerability is mitigated by the fact that an export must have been previously requested by someone with the \"Synchronize, import, and export configuration\" permission. NOTE: CVE-2026-107914 refers to the vulnerability in which config.admin.inc does not ensure that a file_unmanaged_delete operation occurs. Therefore, many archives could persist: config.tar.gz, config_0.tar.gz, config_1.tar.gz, etc. There is a separate config.module issue that could allow remote access by an anonymous user, but only for the one filename config.tar.gz.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-107911",
+      "published": "2026-10-09T06:17:12.620",
+      "description": "A type confusion vulnerability in the _read_flags function (src/commands/cmd_dispatcher.c) in FalkorDB before 4.20.0 allows a remote authenticated attacker who can run GRAPH.QUERY to cause a denial of service and possibly disclose or corrupt memory. The function accepts a --bolt argument from any client and casts the following command argument, a Redis string object, to a Bolt client structure without checking its origin; the result-set code then dereferences pointers read from that object. The argument is parsed even when the Bolt endpoint is disabled, so default configurations are affected.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-56866",
-      "published": "2026-10-08T23:17:01.620",
-      "description": "When http.Transport sends an HTTP/1 CONNECT request with a non-empty Request.Body, it writes the body directly to the connection without framing after the request headers. If the server rejects the CONNECT request with a non-2xx keep-alive response, Transport returns the connection to the idle pool. Because CONNECT requests do not have a request body, the server may interpret the trailing body bytes as a subsequent pipelined HTTP/1.1 request on the connection, leaving the pooled connection desynchronized and causing the next caller that reuses it to read the response to the injected request. In reverse proxies (including httputil.ReverseProxy) that forward CONNECT requests through a shared Transport, this can lead to cross-user response poisoning.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-106097",
+      "published": "2026-10-09T07:17:17.997",
+      "description": "The Code Snippets WordPress plugin before 3.10.0 does not sanitise and escape a user-supplied parameter before using it in a SQL query in some of its snippet-migration import endpoints, which are accessible to any user holding site-administration capabilities; on a WordPress Multisite network those belong to subsite Administrators, allowing a subsite Administrator who is not a network Super Admin to perform UNION-based SQL injection against shared network tables and disclose network-wide data such as other users' password hashes.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-107651",
-      "published": "2026-10-08T23:16:57.863",
-      "description": "A flaw was found in Eye of GNOME (eog). A heap-based buffer overflow exists in the PNG metadata reader due to improper state handling when parsing split metadata chunks. A remote attacker could exploit this flaw by enticing a user into opening a specially crafted PNG file, potentially leading to arbitrary code execution or a Denial of Service (DoS) via application crash.",
+      "id": "CVE-2026-107889",
+      "published": "2026-10-09T05:16:44.583",
+      "description": "A flaw was found in the login theme rendering component of Keycloak. The issue occurs because the security filter responsible for cleaning user input can be bypassed, allowing a realm administrator to store malicious scripts in display fields. This could result in unauthorized JavaScript execution in the browsers of users visiting the login page, potentially leading to data exposure or session interference.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-107729",
-      "published": "2026-10-08T23:16:58.350",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.7.0.22298, src/MobiDoc.cpp narrows the untrusted unsigned mobiHdr.hdrLen field to a signed integer for validation; values above INT_MAX become negative and bypass the upper-bound check. When the EXTH flag is set, the original unsigned value is reused as a pointer offset, causing DecodeExthHeader() to read beyond the record buffer. Opening a crafted MOBI file can reliably terminate the application with a native access violation; no code execution, information disclosure, or integrity impact has been demonstrated. No fixed version is available as of this review.",
+      "id": "CVE-2026-87109",
+      "published": "2026-10-09T06:17:13.140",
+      "description": "An authenticated Ops Manager organization member can retrieve another member's pending authenticator enrollment seed through user-listing endpoints while that member's enrollment is unconfirmed. This results in disclosure of secret authentication material to another member of the same organization or project.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-107730",
-      "published": "2026-10-08T23:16:58.530",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.7.0.22298, LitParseHeader() in src/LitDoc.cpp computes the attacker-controlled hdrLen + nPieces * 16 section offset using signed 32-bit arithmetic without validating the complete result. When the component values make that aggregate calculation overflow to a negative value, pointer construction reaches an invalid read in LitU32(), causing deterministic application termination. The supplied evidence does not demonstrate code execution, information disclosure, arbitrary read, or integrity impact. No fixed version is available as of this review.",
+      "id": "CVE-2026-87110",
+      "published": "2026-10-09T06:17:13.280",
+      "description": "An unauthenticated user with network access to the Ops Manager web port can repeatedly request monitoring endpoints that perform costly work without rate limiting. This can temporarily slow other traffic served by the same process while requests continue.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-107731",
-      "published": "2026-10-08T23:16:58.697",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.7.0.22298, four independently reachable range-validation variants in src/LitDoc.cpp allow file-controlled offsets and sizes to overflow, narrow to negative values, or wrap before incomplete bounds checks. The affected calculations include contentOffset, the directory expression dirOff64 + dirLen64, and the decoded-section offset + size, along with secondary-header range handling. Opening a crafted LIT file that reaches one of these variants can cause invalid pointer reads and deterministic application termination. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
+      "id": "CVE-2026-107888",
+      "published": "2026-10-09T05:16:44.407",
+      "description": "OpenPrinting CUPS before 2.4.20 contains a NULL pointer dereference in cupsdCheckJobs() when a job marked job-held-on-create refers to a temporary printer that has been automatically deleted. Temporary-printer cleanup can remove the destination without canceling its held jobs, and the scheduler dereferences the NULL result of cupsdFindDest() while checking holding_new_jobs. This terminates cupsd and interrupts all queues managed by that process. In some plausible scenarios, an unprivileged submission can trigger this.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.1
     },
     {
-      "id": "CVE-2026-107727",
-      "published": "2026-10-08T23:16:58.010",
-      "description": "Strawberry GraphQL is a library for creating GraphQL APIs. From 0.312.3 until 0.327.2, the legacy graphql-ws subscription handler in strawberry/subscriptions/protocols/graphql_ws/handlers.py does not remove naturally completed operations from self.tasks and self.subscriptions. When max_subscriptions_per_connection is configured, a client on a persistent WebSocket connection can use distinct operation IDs for one-shot subscriptions to fill the connection's configured slots even after those subscriptions send complete, causing later legitimate operations on that connection to be rejected with Subscription limit reached. The modern graphql-transport-ws protocol and deployments without the configured per-connection cap are not affected. This issue is fixed in version 0.327.2.",
+      "id": "CVE-2026-107885",
+      "published": "2026-10-09T04:18:04.940",
+      "description": "OpenPrinting CUPS through 2.4.20 contains a resource-exhaustion vulnerability in the submission-timeout handling of cupsdCheckJobs(). The scheduler suppresses timeout processing for all pending jobs whenever any client connection has an in-flight Send-Document operation, without matching that connection to the job being examined. A client allowed to reach the IPP service can hold an incomplete HTTP request containing parsed Send-Document headers before operation authorization, preventing unrelated incomplete jobs from expiring. Where Create-Job submission is allowed, incomplete jobs can accumulate until MaxJobs is exhausted and further legitimate print submissions are rejected. The suppression ends when the held connection closes.",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-100197",
-      "published": "2026-10-08T23:16:56.690",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-107890",
+      "published": "2026-10-09T05:16:44.730",
+      "description": "OpenPrinting CUPS before 2.4.20 contains a NULL pointer dereference caused by repeated IPP group tags in job-creation requests. IPP parsing creates unnamed separator attributes with IPP_TAG_ZERO, but add_job() converts these separators to IPP_TAG_JOB. During job startup, get_options()/ipp_length() subsequently calls strlen() on a NULL attribute name, terminating cupsd and disrupting all queues. A single crafted Print-Job request can trigger the crash when the client can reach the scheduler and submit jobs to an accepting, enabled queue supporting the submitted document format. Anonymous submission is possible when permitted by listener and access-control configuration.",
+      "severity": "LOW",
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-105672",
-      "published": "2026-10-08T23:16:57.333",
-      "description": "TP-Link Tapo\nC325WB V2 contains an unauthenticated authorization bypass vulnerability in the\nHTTPS JSON API dispatcher on TCP port 443. An attacker on the adjacent network\ncan append an onboarding-scoped object to a JSON request to bypass session\nverification and invoke privileged actions without authentication. \n\n\n\n\n\nSuccessful\nexploitation may allow an unauthenticated adjacent-network attacker to access\nlive video and audio, modify device settings, and obtain sensitive device\ninformation or secrets.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-106095",
+      "published": "2026-10-09T07:17:17.897",
+      "description": "The Code Snippets WordPress plugin before 3.10.0 does not perform a capability check on one of its snippet-management actions and derives the network scope of the targeted snippet from the request instead of from the stored record, allowing an administrator of a single subsite on a multisite network to activate, deactivate and reprioritise network-scoped snippets that run across every site in the network.",
+      "severity": "LOW",
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-105673",
-      "published": "2026-10-08T23:16:57.520",
-      "description": "An\nunauthenticated denial-of-service vulnerability exists in Tapo C325WB v2 in the\nRTSP streaming service on TCP port 554 when the Camera Account feature is\nenabled. A crafted pair of RTSP-over-HTTP tunneling requests can cause memory\ncorruption and crash the streaming daemon. \n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may allow an unauthenticated adjacent-network attacker to disrupt\nlive video and related streaming functions until the affected service recovers\nor restarts.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-87108",
+      "published": "2026-10-09T06:17:12.980",
+      "description": "An authenticated Ops Manager user with a read-only project role can retrieve a daily host monitoring record associated with a different project when they possess the required record identifier. Insufficient ownership validation can expose deployment metadata, including host and configuration details.",
+      "severity": "LOW",
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-105674",
-      "published": "2026-10-08T23:16:57.663",
-      "description": "TP-Link Tapo\nC325WB V2 generates the pre-shared key used by its local media streaming\nservice with a time-seeded pseudo-random number generator, making the key\npredictable and recoverable. An unauthenticated attacker on the adjacent\nnetwork can recover the key and authenticate to the media streaming service\nwithout valid user credentials. \n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may allow an unauthenticated adjacent-network attacker to access\nand take over live video and audio streams, compromising the confidentiality\nand integrity of camera media.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-107886",
+      "published": "2026-10-09T04:18:05.163",
+      "description": "OpenPrinting CUPS before 2.4.20 contains a double-free in printer-class management. When CUPS-Add-Modify-Class replaces an existing class member list, add_class() frees pclass->printers without clearing the pointer. If subsequent validation fails, the class retains the dangling pointer; CUPS-Delete-Class subsequently frees the same allocation in cupsdDeletePrinter(). A client authorized to modify and delete classes can cause scheduler-wide denial of service. The default policy requires @SYSTEM privileges.",
+      "severity": "LOW",
+      "score": 2.3
     },
     {
-      "id": "CVE-2026-107732",
-      "published": "2026-10-08T23:16:58.873",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, untrusted document paths and PDF link targets are interpolated into notification text that ParseTip() interprets as trusted tip markup. When a user clicks an injected link, ExecuteTipLink() dispatches its CmdExec command and can execute an attacker-selected local program in the user's context. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107733",
-      "published": "2026-10-08T23:16:59.050",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, FrameOnCommand() handles CmdExec by passing a null current-tab pointer to RunWithExe(), which dereferences WindowTab::filePath. A local process in the same interactive Windows session, at an integrity level greater than or equal to SumatraPDF's under Windows UIPI, can dispatch CmdExec over DDE or WM_COPYDATA while no document tab is open, causing abrupt process termination and loss of unsaved state. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107734",
-      "published": "2026-10-08T23:16:59.227",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.5.2 and earlier, an attacker-controlled SyncTeX source filename is substituted for the %f placeholder in an external editor command line without safe Windows argument quoting, and the resulting command line is passed to CreateProcessW(). A user with an external editor configured or auto-detected who opens a PDF with a crafted .synctex.gz file and invokes inverse search can inject command-line flags; the resulting impact depends on the target editor interpreting those flags and can include unintended editor actions or code execution through a malicious extension. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107735",
-      "published": "2026-10-08T23:16:59.403",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, InitializePolicies() starts the sumatrapdfrestrict.ini path with gPolicyRestrictions set to Perm::All and only ORs permission bits, so the INI file never revokes permissions. Deploying SumatraPDF with this INI file, including a malformed file or zero-valued permission settings, can silently bypass configured disk, network, printing, registry, clipboard, preference, and fullscreen restrictions. The -restrict command-line path works correctly and is not affected. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107736",
-      "published": "2026-10-08T23:16:59.580",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, MaybeFlipBitmap() asks GDI+ to read the attacker-controlled PropertyTagOrientation size through GetPropertyItem() while supplying only a fixed 64-byte buf on the stack. Opening a crafted TIFF with enough EXIF Orientation values can cause attacker-selected bytes to overwrite stack control data, while tested builds terminate through the stack cookie check. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107737",
-      "published": "2026-10-08T23:16:59.760",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, and in pre-release 3.7.0.20369 when WebView2 is absent or cannot initialize, ParseProtoUrl() accepts the signed host component of an its:// URL and FindHtmlWindowById() uses it directly as an index into gHtmlWindows. Opening a crafted CHM through the IE fallback backend with a negative or otherwise out-of-range window identifier can cause an out-of-bounds pointer read followed by an invalid object callback dereference and process termination. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107738",
-      "published": "2026-10-08T23:16:59.970",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, ChmFile::GetCharZ() narrows file-controlled unsigned string offsets from /#WINDOWS and /#IVB to signed integers without a lower-bound check. An offset that becomes negative can make the function read before the /#STRINGS buffer, causing deterministic application termination. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107802",
-      "published": "2026-10-08T23:17:00.320",
-      "description": "SumatraPDF is a multi-format reader for Windows. In 3.6.1 and earlier, src/SelectionTranslate.cpp embeds selected or pasted translation text in quoted Windows command lines using incomplete quote-only escaping. The affected BuildGrokTranslateCmdLineTemp(), BuildClaudeTranslateCmdLineTemp(), and BuildCodexTranslateCmdLineTemp() functions can allow attacker-controlled text to inject model, working-directory, approval, or sandbox-bypass flags when the corresponding agentic CLI backend is installed and used. No broader impact is claimed beyond the advisory-supported conditions. No fixed version is available as of this review.",
+      "id": "CVE-2026-101028",
+      "published": "2026-10-09T07:17:17.627",
+      "description": "Incorrect Authorization vulnerability in ash-project ash allows an actor to infer data in related records they cannot read via Ash.count/2, Ash.exists/2 and Ash.aggregate/3.\n\nAsh.Actions.Aggregate.run/4 (lib/ash/actions/aggregate.ex) applied only the root resource's read policy before running the aggregate query. The read path also applies each related resource's read policy to filter and sort references that cross a relationship, directly (for example comments.body) or through an aggregate over one, but the aggregate path skipped that step. A caller whose filter or sort reaches these functions, for example through Ash.Query.filter_input/2, an ash_lua script, or an AshAi tool offering count or exists results, can test conditions against related rows hidden from them and recover their existence and attribute values one query at a time. Ash.read/2 and its page counts are not affected.\n\nThis issue affects ash: from 2.6.0 before 3.34.6.",
       "severity": "UNKNOWN",
       "score": null
     }
