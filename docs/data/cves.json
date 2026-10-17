@@ -1,145 +1,145 @@
 {
-  "totalResults": 5482,
+  "totalResults": 5376,
   "items": [
     {
-      "id": "CVE-2026-104723",
-      "published": "2026-10-10T06:16:38.760",
-      "description": "The LifterLMS – WP LMS for eLearning, Online Courses, & Quizzes plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 10.2.1 via deserialization of untrusted input . This makes it possible for authenticated attackers, with custom-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present. This vulnerability is only exploitable during lesson creation when a temporary lesson ID triggers the custom metadata path, and requires the attacker to hold a role with the edit_course capability, such as Instructor, Instructor's Assistant, LMS Manager, or Administrator.",
+      "id": "CVE-2026-103501",
+      "published": "2026-10-10T11:17:34.853",
+      "description": "Heap buffer overflow in the HLL sketch deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\nWhen deserializing a sketch in LIST mode, from either a byte buffer or a stream, the coupon count was read from the input and used as the number of entries to copy into a fixed buffer of 8 entries, without checking it against the buffer's capacity. A crafted sketch could cause a write of up to 988 bytes past the end of this internal heap buffer. This can corrupt heap memory, causing a crash and potentially enabling further exploitation.\n\nThis issue affects Apache DataSketches C++: from 1.0.0-incubating before 5.3.0. Only applications that deserialize HLL sketches from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-103513",
+      "published": "2026-10-10T11:17:35.853",
+      "description": "Out-of-bounds read and write in the CPC sketch deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\nA crafted serialized CPC sketch passed to cpc_sketch::deserialize(), from either a byte buffer or a stream, can cause the decompressor to read past the end of the compressed data, because the read position was only checked after decoding finished. In the hybrid flavor, it can also cause a write outside an internal heap buffer, because decoded row indices were not validated. Several other header fields and decoded values, including lg_k, were also not validated. This can corrupt heap memory, causing a crash and potentially enabling further exploitation.\n\nThis issue affects Apache DataSketches C++: from 2.0.0-incubating before 5.3.0. Only applications that deserialize CPC sketches from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-103635",
+      "published": "2026-10-10T11:17:35.963",
+      "description": "Out-of-bounds read in the compact Theta sketch deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\ncompact_theta_sketch::deserialize() and wrapped_compact_theta_sketch::wrap() read header fields before checking that the input was long enough. For the compressed format, the size check could be defeated by a 32-bit overflow, and two header fields that control decoding were not validated; this also affected deserialization from a stream. A crafted or truncated sketch could cause a read past the end of the input. In the compressed case the over-read can be large, and the bytes read can become part of the deserialized sketch. This can cause a crash (denial of service) and could expose adjacent memory contents.\n\nThis issue affects Apache DataSketches C++: from 3.1.0 before 5.3.0. Only applications that deserialize Theta sketches from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-107373",
+      "published": "2026-10-10T13:17:31.253",
+      "description": "ExtUtils::Typemaps::STL::String versions before 1.06 for Perl T_STD_STRING typemap may read the SV length before stringifying the argument.\n\nThe typemap uses\n\n    $var = std::string( SvPV_nolen($arg), SvCUR($arg) )\n\nHowever, evaluation order for C++ arguments is not specified, and some compilers may produce code that evalutes SvCUR($arg) first.\n\nWhen $arg is not a string (for example, an interger, number or a reference) then SvCUR will return an invalid value, and the program may abort or segfault.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-105885",
+      "published": "2026-10-10T14:16:37.087",
+      "description": "Deserialization of Untrusted Data vulnerability in 10Web Slider by 10Web slider-wd allows Object Injection.This issue affects Slider by 10Web: from n/a through 1.2.62.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-104725",
-      "published": "2026-10-10T06:16:38.920",
-      "description": "The Groundhogg — CRM, Newsletters, and Marketing Automation plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.9 This is due to a missing ownership and capability check on the `user` parameter within the `process_edit()` function, which allows any authenticated user with the `edit_contacts` capability to reassign a contact record's linked WordPress user ID to any arbitrary account without requiring the `edit_users` or `promote_users` capabilities. This makes it possible for authenticated attackers, with sales_rep-level access and above, to escalate their privileges to administrator by linking a contact to an administrator's WordPress user ID, then creating a note containing the `{auto_login_link}` replacement tag to trigger generation of a valid auto-login permissions-key URL for the administrator-linked contact, and finally visiting that URL to authenticate as the targeted administrator. The auto-login URL is stored in the note content and is readable back by the attacker via the `view_notes` and `add_notes` capabilities that the sales_rep role holds by default.",
+      "id": "CVE-2026-103636",
+      "published": "2026-10-10T11:17:36.077",
+      "description": "Out-of-bounds read in the VarOpt union deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\nvar_opt_union::deserialize() read the 32-byte preamble of a non-empty union after checking that only 8 bytes were available, so a truncated serialized union could cause a read of up to 24 bytes past the end of the input. For such inputs, the size remaining for the embedded sketch was also computed by an unsigned subtraction that could wrap around, so the embedded sketch's own size checks no longer limited reads to the input. The bytes read can become part of the deserialized union's state. This can cause a crash (denial of service) and could expose adjacent memory contents.\n\nThis issue affects Apache DataSketches C++: from 2.0.0-incubating before 5.3.0. Only applications that deserialize VarOpt unions from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-104766",
-      "published": "2026-10-10T06:16:40.007",
-      "description": "The Appointment Booking Plugin – LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.7.3. This is due to the `OsSettingsController::update()` handler iterating over attacker-supplied `settings` parameters without an allowlist of permitted setting names or values, and `OsSettingsHelper::prepare_value()` performing no role allowlist validation before persisting the `default_wp_role_for_customer` setting — a restriction that exists only in the UI dropdown and is never enforced server-side. This makes it possible for authenticated attackers holding a LatePoint role with the `settings__edit` capability (such as an agent or custom role) to overwrite the default WordPress role for new customers with `administrator`, causing any subsequently self-registered LatePoint customer account to be created with full WordPress administrator privileges. Exploitation requires that a WordPress administrator has granted the `settings__edit` capability to a LatePoint agent or custom role, and that a new customer account is registered through LatePoint after the malicious setting change is persisted.",
+      "id": "CVE-2013-10076",
+      "published": "2026-10-10T13:17:30.610",
+      "description": "ExtUtils::Typemaps::STL::Vector versions before 1.05 for Perl allocate a 32 GiB array on an empty list.\n\nThe OUTPUT typemaps call av_extend( av, len-1 ). On an empty list, this undeflows, and av_extend will allocate an array with 2^32 slots, leading to memory exhaustion.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-104899",
-      "published": "2026-10-10T06:16:40.160",
-      "description": "The GeoDirectory – WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.8.187 via the 'design_type' parameter parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included. The required nonce is trivially obtainable by any anonymous visitor, as the geodir_basic_nonce value is localized to every public frontend page via the geodir_params script object, meaning no authentication, user interaction, or specific site content is required to exploit this vulnerability.",
+      "id": "CVE-2026-107794",
+      "published": "2026-10-10T13:17:31.357",
+      "description": "ExtUtils::Typemaps::STL::List versions before 1.07 for Perl allocate a 32 GiB array on an empty list.\n\nThe OUTPUT typemaps call av_extend( av, len-1 ). On an empty list, this undeflows, and av_extend will allocate an array with 2^32 slots, leading to memory exhaustion.\n\nNote that a similar issue was fixed in ExtUtils::Typemaps::STL::Vector version 1.05.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-104752",
-      "published": "2026-10-10T06:16:39.383",
-      "description": "The Rank Math SEO  WordPress plugin before 1.0.280 does not correctly validate the type of a file uploaded through its settings import feature, allowing users with administrator-level access to upload a PHP file and achieve remote code execution.",
+      "id": "CVE-2026-108161",
+      "published": "2026-10-10T14:16:37.223",
+      "description": "FusionPBX through 5.6.5 contains an OS command injection vulnerability in call_recordings::download() that allows unauthenticated attackers to execute commands by placing calls with malicious caller ID values. When the record_name filename template is enabled, attackers can embed shell metacharacters like $(...) in the Caller-ID name or number, executing commands as the web server user once a privileged user downloads multiple recordings as a ZIP.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-94676",
+      "published": "2026-10-10T14:16:38.130",
+      "description": "Deserialization of Untrusted Data vulnerability in Tainacan Community Tainacan tainacan allows Object Injection.This issue affects Tainacan: from n/a through 1.3.0.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-103520",
-      "published": "2026-10-10T06:16:38.290",
-      "description": "The HivePress – Business Directory, Listings & Classified Ads Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom text attribute (user-defined field name)' parameter in all versions up to, and including, 1.7.31 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is only exploitable when an administrator has configured a Text attribute whose display format places the %value% token inside an HTML attribute (e.g., title=\"%value%\"), which is a documented HivePress pattern.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-102388",
+      "published": "2026-10-10T14:16:36.167",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPMU DEV Forminator forminator allows Stored XSS.This issue affects Forminator: from n/a through 1.57.3.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-104762",
-      "published": "2026-10-10T06:16:39.707",
-      "description": "The Kadence Blocks — Page Builder Toolkit for Gutenberg Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Block Font Family Attribute in all versions up to, and including, 3.7.12 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This encoding bypass is only triggered when the \"Load Google Fonts Locally\" site option (kadence_blocks_font_settings['load_fonts_local']) is enabled, which is not the default configuration.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-97263",
+      "published": "2026-10-10T14:16:38.250",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Greg Winiarski WPAdverts wpadverts allows Stored XSS.This issue affects WPAdverts: from n/a through 2.3.4.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-103482",
-      "published": "2026-10-10T06:16:36.887",
-      "description": "The Simple Newsletter Plugin – Noptin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'noptin_fields[<custom_field_merge_tag>] (e.g. first_name)' parameter in all versions up to, and including, 4.3.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The attack chain requires a published campaign post whose body contains a [[subscriber.*]] merge tag; the unauthenticated attacker first POSTs the entity-encoded payload to the public manage_preferences form (which issues its own nonce on the same page), then pivots execution by embedding their confirm_key in a campaign preview URL sent to a privileged user via social engineering.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-97264",
+      "published": "2026-10-10T14:16:38.367",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Greg Winiarski WPAdverts wpadverts allows Reflected XSS.This issue affects WPAdverts: from n/a through 2.3.4.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-105989",
-      "published": "2026-10-10T06:16:40.547",
-      "description": "The Accept PayPal Payments using Contact Form 7 WordPress plugin before 4.0.7 does not perform any authorization or request-validation checks on one of its AJAX actions, allowing unauthenticated attackers to forge the stored transaction status of records and to write the Accept PayPal Payments using Contact Form 7 WordPress plugin before 4.0.7's status metadata onto arbitrary posts.",
+      "id": "CVE-2026-108162",
+      "published": "2026-10-10T14:16:37.397",
+      "description": "Pingvin Share X before 1.22.0 contains a rate limit bypass vulnerability that allows unauthenticated remote attackers to evade per-IP throttling because backend/src/main.ts unconditionally trusts proxy headers. Attackers can rotate spoofed X-Forwarded-For values against /api/auth/signIn, /api/auth/signIn/totp, and /api/auth/resetPassword to brute-force passwords and TOTP codes and forge logged client IP addresses.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-105990",
-      "published": "2026-10-10T06:16:40.677",
-      "description": "The Accept PayPal Payments using Contact Form 7 WordPress plugin before 4.0.7 does not perform any authorization checks before exporting stored form submissions, allowing unauthenticated attackers to download the personal data (name, email, telephone, postal address, message) and payment metadata of everyone who submitted a payment form.",
+      "id": "CVE-2026-108163",
+      "published": "2026-10-10T14:16:37.530",
+      "description": "Pingvin Share X before 1.22.0 contains an ineffective rate limiting vulnerability because throttler TTL values specified in seconds are interpreted as milliseconds. Unauthenticated attackers can send effectively unthrottled requests to /api/auth/signIn, /api/auth/signIn/totp and /api/auth/resetPassword to brute-force passwords and TOTP codes.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-105995",
-      "published": "2026-10-10T06:16:40.793",
-      "description": "The Booking Package WordPress plugin before 1.7.30 does not perform authorization checks before returning stored reservation data, allowing unauthenticated users to disclose other customers' personal information and booking cancellation tokens.",
+      "id": "CVE-2026-108164",
+      "published": "2026-10-10T14:16:37.663",
+      "description": "Open Source Social Network (OSSN) through 10.1 contains an insecure direct object reference vulnerability in components/OssnMessages/ossn_com.php that allows authenticated users to read other users' private message attachments. Attackers can request the /messages/attachment/{guid} route with sequential or guessed file GUIDs to retrieve attachments from private conversations without sender or recipient verification.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-104023",
-      "published": "2026-10-10T06:16:38.590",
-      "description": "The Smart Popup by Supsystic plugin for WordPress is vulnerable to generic SQL Injection via the 'sidx' parameter in all versions up to, and including, 1.13.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-66435",
+      "published": "2026-10-10T14:16:38.000",
+      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Devin Walker WP Rollback wp-rollback allows Retrieve Embedded Sensitive Data.This issue affects WP Rollback: from n/a through 3.1.2.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-108115",
+      "published": "2026-10-10T15:16:57.270",
+      "description": "Kortix Suna 0.10.7 before 0.13.52 contains a server-side request forgery vulnerability that allows project managers to bypass the isPrivateIp guard by supplying IPv6 6to4 or Teredo addresses that embed private IPv4 destinations. Attackers holding project.connector.write can set connector base_url, OpenAPI, Postman, or MCP URLs to reach internal services and cloud metadata endpoints and read responses.",
       "severity": "MEDIUM",
       "score": 4.9
     },
     {
-      "id": "CVE-2026-104763",
-      "published": "2026-10-10T06:16:39.857",
-      "description": "The Post Export Import with Media plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 1.17.1 via the 'file_path' parameter parameter. This makes it possible for authenticated attackers, with administrator-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. This requires the attacker to upload a crafted ZIP archive containing a media_metadata.json file with path traversal sequences in the file_path field while specifying an allowed file extension for the destination filename to bypass the extension guard introduced in version 1.13.2.",
+      "id": "CVE-2026-108165",
+      "published": "2026-10-10T14:16:37.800",
+      "description": "Immich through 3.3.1 contains a missing authorization vulnerability in the partner synchronization stream that allows authenticated partners to read Locked Folder asset metadata because sync queries do not exclude Locked visibility. Attackers with an active partner relationship can call POST /api/sync/stream with PartnerAssetsV2 and PartnerAssetExifsV1 types to obtain GPS coordinates, capture times, descriptions and camera details.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-103912",
-      "published": "2026-10-10T06:16:38.447",
-      "description": "The JetFormBuilder — Dynamic Blocks Form Builder plugin for WordPress is vulnerable to Reflected DOM-Based Cross-Site Scripting via the '<attacker-chosen query var name matching the preset's query_var setting>' parameter in all versions up to, and including, 3.6.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. This is only exploitable on pages embedding a form that has a text field configured with a query_var Dynamic Preset and a data-jfb-macro or JFB_FIELD:: macro reference targeting that field, both of which are standard, documented plugin features.",
+      "id": "CVE-2026-108114",
+      "published": "2026-10-10T15:16:56.213",
+      "description": "Strapi 5.47.0 through 5.57.0 contains an improper authorization vulnerability that allows admin API tokens to retain all-field Content Manager access after the owner's role is field-restricted. Because reconcileTokenPermissionsToUserCeiling ignores token permissions with omitted or null fields, token holders can keep reading content fields an administrator removed from the role.",
       "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-105976",
-      "published": "2026-10-10T06:16:40.313",
-      "description": "The Portfolio Filter Gallery  WordPress plugin before 2.2.1 does not perform proper authorization checks in a set of AJAX actions, allowing users with at least the Contributor role to read, modify and delete other users' galleries as well as site-wide gallery filters.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-104753",
-      "published": "2026-10-10T06:16:39.500",
-      "description": "The Rank Math SEO  WordPress plugin before 1.0.280 does not properly sanitise and escape a parameter before using it in a SQL query, allowing high-privilege users such as administrators to perform SQL injection attacks.",
-      "severity": "MEDIUM",
-      "score": 4.1
-    },
-    {
-      "id": "CVE-2026-104754",
-      "published": "2026-10-10T06:16:39.603",
-      "description": "The Rank Math SEO  WordPress plugin before 1.0.280 does not escape a stored redirection source value before outputting it in an administrative list view, allowing users who can manage redirections (Administrators by default) to store JavaScript that executes in the session of any user who later opens that view, including a Super Administrator on multisite.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-104741",
-      "published": "2026-10-10T06:16:39.087",
-      "description": "The AI Puffer – Chat. Create. Automate. (formerly AI Power) plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.4.89. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to modify global plugin indexing and vector-search configuration options (aipkit_training_general_settings and aipkit_indexing_field_settings), including chunking parameters, file upload visibility, and per-CPT field indexing settings, affecting all users of the plugin. This is only exploitable in configurations where an administrator has granted 'sources' module access to a lower-privileged role via the plugin's Role Manager.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-104742",
-      "published": "2026-10-10T06:16:39.240",
-      "description": "The AI Puffer – Chat. Create. Automate. (formerly AI Power) plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.4.89. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to modify global site-wide semantic search settings, including vector provider, embedding provider, embedding model, target ID, number of results, and no-results text stored in aipkit_options, that are otherwise restricted to administrators. Exploitation requires that an administrator has previously granted the Knowledge Base ('sources') module to the attacker's role via the Role Manager, as this access is not available to lower-privileged users by default.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-105977",
-      "published": "2026-10-10T06:16:40.427",
-      "description": "The Portfolio Filter Gallery  WordPress plugin before 2.2.1 does not perform a per-object authorization check before deleting an attachment, allowing users with the Contributor role and above to permanently delete certain media attachments belonging to other users, including administrators.",
-      "severity": "LOW",
-      "score": 2.2
+      "score": 4.3
     }
   ]
 }
