@@ -1,143 +1,143 @@
 {
-  "totalResults": 5251,
+  "totalResults": 5179,
   "items": [
     {
-      "id": "CVE-2026-108623",
-      "published": "2026-10-10T22:16:36.870",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysLogController deleteBatch handler that allows any authenticated user to delete system audit log entries. Low-privileged attackers can send a DELETE request with ids set to allclear to wipe the entire sys_log table, erasing all users' audit trails.",
+      "id": "CVE-2026-108707",
+      "published": "2026-10-11T02:16:39.477",
+      "description": "Wukong_HRM through commit 186115e contains an authentication bypass vulnerability in ParamAspect that allows unauthenticated attackers to call every HRM API endpoint by omitting the AUTH-TOKEN header. Attackers gain HR administrator access to read payslips, salary history and employee personal data, download attachments, and modify or delete company-wide HR records.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-108708",
+      "published": "2026-10-11T02:16:39.650",
+      "description": "Wukong_HRM through commit 186115e contains a missing authorization vulnerability because EmployeeAspect assigns every caller the HR administrator role and EmployeeUtil data-scope checks return all employees. Any authenticated low-privileged employee can read payslips, salary records, bank cards and personal data, edit bank cards, and delete employees, departments and contracts company-wide.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-108522",
+      "published": "2026-10-11T04:17:31.737",
+      "description": "A vulnerability was found in Studio-Saelix Sencho up to 0.94.1. This affects an unknown part of the file /api/auth/login of the component Login Endpoint. Performing a manipulation of the argument X-Forwarded-For results in improper authentication. The attack is possible to be carried out remotely. The exploit has been made public and could be used. The patch is named 79b86ddcd4aefdd6941f098e35990ab397b13c72. To fix this issue, it is recommended to deploy a patch. The vendor confirms: \"The login limiter relied on client-supplied X-Forwarded-For data without an explicit trusted-proxy boundary, allowing an attacker to rotate the apparent client address. The remediation now ignores forwarding headers by default, accepts them only from explicitly configured proxy CIDRs, and adds a separate failed-attempt limit keyed by normalized account identity.\"",
+      "severity": "HIGH",
+      "score": 8.3
+    },
+    {
+      "id": "CVE-2026-108695",
+      "published": "2026-10-11T02:16:37.957",
+      "description": "MultiVendorX WordPress plugin through 5.0.19 contains an incorrect authorization vulnerability that allows vendor accounts to modify marketplace-wide settings via the settings REST endpoint. Attackers with the store_owner role can send POST requests to /wp-json/multivendorx/v1/settings, gated only by edit_stores, to overwrite commission, payout, and onboarding settings.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-108606",
-      "published": "2026-10-10T22:16:34.380",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiOcrController deleteById handler that allows any authenticated user to delete OCR records. Low-privileged attackers can obtain record ids from the unguarded GET /airag/ocr/list endpoint and repeatedly delete every shared OCR prompt record stored in Redis.",
+      "id": "CVE-2026-108693",
+      "published": "2026-10-11T02:16:37.607",
+      "description": "ImageMagick on Windows through 7.1.2-33 and 6.9.13-58 contains an uncontrolled search path vulnerability in NTGhostscriptEXE() that launches gswin64c.exe by bare name when Ghostscript is unregistered. Attackers can plant a malicious gswin64c.exe in the working directory to execute code with ImageMagick privileges when PDF, PostScript, or EPS files are converted.",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-108692",
+      "published": "2026-10-11T02:16:37.360",
+      "description": "1Panel-dev CordysCRM from 1.9.0 before 1.9.2 contains a missing authorization vulnerability in eight ModuleFieldController /field/source data-source endpoints lacking permission checks. Authenticated users denied module permission can page through organization-wide leads, contacts, quotations, contracts, payment plans, payment records, orders and invoices owned by other users.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-108694",
+      "published": "2026-10-11T02:16:37.777",
+      "description": "ConvertX through 0.19.0 contains an arbitrary file read vulnerability that allows authenticated users to read server files because src/converters/pandoc.ts invokes Pandoc without the --sandbox flag. Attackers can upload a reStructuredText document with an include directive naming an absolute path, convert it, and download output containing the referenced file's contents.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-108700",
+      "published": "2026-10-11T02:16:38.277",
+      "description": "1Panel-dev CordysCRM before 1.9.2 contains a missing authorization vulnerability that allows authenticated users to list business titles by calling POST /field/source/business-title without permission checks. Users lacking CONTRACT_BUSINESS_TITLE_READ can retrieve organization invoicing entities, exposing tax identification numbers, bank account numbers, opening banks, registration addresses, and phone numbers.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-108689",
+      "published": "2026-10-11T02:16:36.887",
+      "description": "Wukong AICRM through 20260610 contains a missing authorization vulnerability that allows authenticated users to write into other users' AI chat sessions by supplying an arbitrary sessionId to POST /chat/send. Attackers can append messages to a victim's conversation and receive streamed assistant replies built from the victim's last 20 messages, disclosing conversation content.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-108611",
-      "published": "2026-10-10T22:16:35.120",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AigcWordTemplateController delete handler that allows any authenticated user to delete word templates. Low-privileged attackers can send DELETE requests to /airag/word/delete with an id parameter to permanently remove any template from the shared library.",
+      "id": "CVE-2026-108691",
+      "published": "2026-10-11T02:16:37.210",
+      "description": "mall4j through 4.0 contains an improper authorization vulnerability that allows authenticated storefront customers to delete other shoppers' cart items through an operator precedence error in the cleanExpiryProdList SQL statement. Attackers can send one DELETE request to /p/shopCart/cleanExpiryProdList to remove every user's cart entries for off-shelf products, which do not return when products are restocked.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-108612",
-      "published": "2026-10-10T22:16:35.267",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AigcWordTemplateController deleteBatch handler that allows low-privileged authenticated users to delete word templates. Attackers can send a DELETE request to /airag/word/deleteBatch with comma-separated ids to permanently delete any templates in the shared library.",
+      "id": "CVE-2026-108703",
+      "published": "2026-10-11T02:16:38.803",
+      "description": "CordysCRM through 1.9.3 contains a missing authorization vulnerability in POST /approval-resource/push that allows authenticated users to submit any resource for approval without ownership checks. Low-privileged attackers can supply arbitrary resourceId values for contracts, invoices, quotations or orders to alter their approval status and read approval details.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-108613",
-      "published": "2026-10-10T22:16:35.410",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragAppController release handler that allows any authenticated user to publish or unpublish other users' AI applications. Low-privileged attackers can send POST requests to /airag/app/release to obtain share tokens exposing applications to anonymous chat access, or invalidate existing share links.",
+      "id": "CVE-2026-108521",
+      "published": "2026-10-11T03:16:39.350",
+      "description": "A vulnerability has been found in Studio-Saelix Sencho up to 0.97.1. Affected by this issue is the function isValidRemoteUrl of the file backend/src/utils/validation.ts of the component Add Remote Node API Endpoint. Such manipulation leads to server-side request forgery. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. The vendor confirms: \"The node API URL could be configured by an authenticated user with node-management permission and used to initiate server-side requests. [T]he report demonstrates server-side request capability but not arbitrary internal response exfiltration.\"",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-108615",
-      "published": "2026-10-10T22:16:35.703",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragExtDataController delete handler that allows low-privileged authenticated users to delete AI evaluator records. Attackers can send DELETE requests to /airag/extData/delete with any id parameter to remove other users' AI evaluator or test-tracking records without owner or tenant checks.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-108616",
-      "published": "2026-10-10T22:16:35.847",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragExtDataController deleteBatch handler that allows any authenticated user to delete AI evaluator records. Low-privileged attackers can send comma-separated ids to DELETE /airag/extData/deleteBatch, which lacks owner or tenant checks, deleting other users' evaluator and test-tracking records.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-108619",
-      "published": "2026-10-10T22:16:36.300",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to delete message templates via the DELETE /sys/message/sysMessageTemplate/deleteBatch endpoint. Attackers can supply comma-separated template ids from the unguarded list endpoint to delete all sys_sms_template rows, breaking template-based notifications such as workflow reminders.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-108620",
-      "published": "2026-10-10T22:16:36.447",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysPositionController deleteBatch handler that allows any authenticated user to delete organizational positions. Low-privileged attackers can send comma-separated position ids, obtained from the unguarded list endpoint, to remove all sys_position rows and orphan user-position assignments.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-108622",
-      "published": "2026-10-10T22:16:36.730",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysLogController delete handler that allows any authenticated user to delete audit log entries. Low-privileged attackers can obtain log ids from the unguarded /sys/log/list endpoint and delete chosen sys_log records to erase traces of their actions.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-108624",
-      "published": "2026-10-10T22:16:37.020",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysMessageController deleteBatch handler that allows low-privileged authenticated users to delete message records. Attackers can obtain record ids from the unguarded list endpoint and submit them to deleteBatch to remove any message push records, including pending queued messages.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-108605",
-      "published": "2026-10-10T22:16:34.213",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiOcrController updateById handler that allows any authenticated user to modify global OCR templates. Low-privileged attackers can send PUT requests to /airag/ocr/edit to overwrite LLM prompts in the shared airag:ocr Redis key, corrupting OCR results for all users.",
+      "id": "CVE-2026-108688",
+      "published": "2026-10-11T02:16:35.100",
+      "description": "Eladmin through 2.7 contains a missing authorization vulnerability in the LocalStorageController uploadPicture handler that allows low-privileged authenticated users to bypass the storage:add permission. Attackers can send POST requests with image-named files to /api/localStorage/pictures to write files into server local storage and disclose absolute server paths.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108607",
-      "published": "2026-10-10T22:16:34.530",
-      "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to delete other users' AI video generation records by supplying arbitrary userId values to DELETE /airag/video/deleteVideoRecord. Attackers can obtain record ids from the unchecked GET /airag/video/listByUser endpoint and delete victims' Redis-stored video history entries one record per request.",
+      "id": "CVE-2026-108690",
+      "published": "2026-10-11T02:16:37.057",
+      "description": "mall4j through 4.0 contains an information disclosure vulnerability that allows authenticated customers to read other shoppers' cart items due to an operator precedence error in the getShopCartExpiryItems SQL filter. Attackers with any storefront account can request GET /p/shopCart/expiryProdList to retrieve off-shelf product basket entries including product, SKU, quantity, shop, and promoter card numbers.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108608",
-      "published": "2026-10-10T22:16:34.680",
-      "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to delete other users' AI voice records by supplying an arbitrary userId to DELETE /airag/voice/deleteVoiceRecord. Attackers can obtain record ids from the unchecked GET /airag/voice/listByUser endpoint and delete victims' text-to-speech history entries stored in Redis, one per request.",
+      "id": "CVE-2026-108696",
+      "published": "2026-10-11T02:16:38.123",
+      "description": "CoreShop through 1.5.5 contains an authorization bypass vulnerability in the OrderController that allows authenticated customers to act on other customers' orders by supplying user-controlled ids. Attackers can omit the data field in OrderConfirm or supply another reshipId to SendReship to confirm receipt of others' orders and overwrite return tracking details.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108609",
-      "published": "2026-10-10T22:16:34.823",
-      "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to read other users' AI voice generation history via the userId parameter of GET /airag/voice/listByUser. Attackers who know another user's id can retrieve submitted text-to-speech input, voice settings, timestamps, and generated audio file names and paths stored in Redis.",
+      "id": "CVE-2026-108701",
+      "published": "2026-10-11T02:16:38.437",
+      "description": "1Panel-dev CordysCRM before 1.9.2 contains a missing authorization vulnerability in the ContractController sortModule handler for POST /contract/sort, which lacks any permission annotation. Authenticated users without contract update permission can supply a dragNodeId, stage and field values to modify any contract, including contracts in other organizations.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108610",
-      "published": "2026-10-10T22:16:34.970",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AigcWordTemplateController edit handler that allows any authenticated user to modify word templates. Low-privileged attackers can send PUT or POST requests to /airag/word/edit to overwrite shared templates that other users rely on to generate documents.",
+      "id": "CVE-2026-108702",
+      "published": "2026-10-11T02:16:38.627",
+      "description": "1Panel-dev CordysCRM through 1.9.3 lacks a PROCESS_SETTING permission check on POST /approval-flow/webhook/test, allowing any authenticated user to trigger server-side requests to attacker-supplied URLs. Attackers can redirect GET requests from a controlled host to bypass SSRFValidator and probe internal addresses through success or failure results.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108614",
-      "published": "2026-10-10T22:16:35.560",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragExtDataController exportXls handler that allows any authenticated user to export AI evaluator data. Low-privileged attackers can request /airag/extData/exportXls to download every user's airag_ext_data evaluator definitions and test-tracking records as an Excel workbook.",
+      "id": "CVE-2026-108704",
+      "published": "2026-10-11T02:16:38.980",
+      "description": "CordysCRM through 1.9.3 contains an authorization bypass vulnerability that allows low-privileged authenticated users to skip permission checks by setting the owner field to their own user id. Attackers can send requests to the follow/record/add endpoints to add follow-up records and overwrite follow_time and follower on any known customer, clue or opportunity.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108617",
-      "published": "2026-10-10T22:16:36.000",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to create message templates by calling POST /sys/message/sysMessageTemplate/add. Attackers holding only minimal roles can insert arbitrary notification templates with chosen codes and content into the shared sys_sms_template library used for system, e-mail, SMS and IM notifications.",
+      "id": "CVE-2026-108705",
+      "published": "2026-10-11T02:16:39.160",
+      "description": "CordysCRM through 1.9.3 contains a missing authorization vulnerability in the POST /custom-form/data/import endpoint that allows authenticated users to import data into any custom form by customFormId. Low-privileged attackers can upload Excel files with importType ADD or UPDATE to create records in, or overwrite existing records of, custom forms they cannot manage.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108618",
-      "published": "2026-10-10T22:16:36.150",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to modify message templates via PUT /sys/message/sysMessageTemplate/edit. Attackers can obtain template ids from the unguarded list endpoint and overwrite system notification titles and content, delivering attacker-supplied text or links to other users.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108621",
-      "published": "2026-10-10T22:16:36.583",
-      "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysPositionController edit handler that allows any authenticated user to modify organizational positions. Low-privileged attackers can obtain position ids from the unguarded list endpoint and send PUT or POST requests to /sys/position/edit to alter position names, codes, and ranks.",
+      "id": "CVE-2026-108706",
+      "published": "2026-10-11T02:16:39.330",
+      "description": "eladmin through commit 55fbf70 contains a missing authorization vulnerability in the downloadS3Storage handler that allows any authenticated user to retrieve stored object URLs without storage permissions. Attackers can enumerate sequential ids against GET /api/s3Storage/download/{id} to collect URLs of all uploaded objects, exposing file contents on publicly readable buckets.",
       "severity": "MEDIUM",
       "score": 4.3
     }
