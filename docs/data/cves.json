@@ -1,19 +1,19 @@
 {
-  "totalResults": 5499,
+  "totalResults": 5496,
   "items": [
     {
-      "id": "CVE-2026-108963",
-      "published": "2026-10-11T20:16:32.853",
-      "description": "databasement before 1.8.2 allows remote code execution because it runs certain commands (e.g., mariadb-dump) with a database name that can be specified by any authenticated user. For example, --result-file=/app/public/index.php can write to index.php. In other words, quoting prevents OS command injection in mariadb-dump, but the argument injection alone is sufficient for code execution indirectly. NOTE: the project's composer.json file does not indicate an independently published databasement Composer package.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-66086",
+      "published": "2026-10-12T02:16:57.600",
+      "description": "In the modem OTA stack, there is a possible stack-based buffer overflow due to improper validation of scheduling information in SIB1 messages. This could lead to remote code execution or denial of service with no additional execution privileges needed.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-108976",
-      "published": "2026-10-11T21:16:43.580",
-      "description": "GNU Emacs before 31.2 (and TRAMP through 2.8.2) allows OS command injection via a filename because tramp-user-regexp has an incomplete list of disallowed inputs. NOTE: this issue exists because of an incomplete fix for CVE-2026-79992.",
+      "id": "CVE-2026-108980",
+      "published": "2026-10-12T02:16:57.297",
+      "description": "Blinko through 1.8.8 allows directory traversal, overwriting startup files as root, via installPlugin. It builds the plugin install path from an unsanitized name in server/routerTrpc/plugin.ts, and the plugin.installPlugin tRPC procedure is open to any authenticated user. Thus, a name containing ../ sequences writes the downloaded plugin files outside the plugins directory. Because the official Docker image runs as root, an authenticated attacker overwrites a root-owned startup file and achieves remote code execution as root. Self-registration for an account may be possible.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
       "id": "CVE-2026-108783",
@@ -107,9 +107,9 @@
       "score": 6.3
     },
     {
-      "id": "CVE-2026-108978",
-      "published": "2026-10-11T22:16:50.787",
-      "description": "Heap-based buffer overflow vulnerability in Samsung Opensource rlottie allows Buffer Overflow via Environment Variables.\n\nThis issue affects rlottie: e57b094f03c39a751a1fded6f7d6c13f1ed95ec9.",
+      "id": "CVE-2026-66085",
+      "published": "2026-10-12T02:16:57.460",
+      "description": "In modem, there is a possible information disclosure due to missing filtering of sensitive data in crash dumps. This could lead to local information disclosure with no additional execution privileges needed.",
       "severity": "MEDIUM",
       "score": 5.5
     },
@@ -128,11 +128,11 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-108769",
-      "published": "2026-10-11T22:16:50.617",
-      "description": "A security flaw has been discovered in zhayujie CowAgent up to 2.2.0. This affects an unknown part of the file Markdown.tsx of the component Markdown Rendering. The manipulation results in denial of service. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108788",
+      "published": "2026-10-12T02:16:57.090",
+      "description": "A vulnerability was determined in deepseek-ai deepseek-harness up to 0.1.1-rc.2. The impacted element is the function spawn of the component Sandbox. Executing a manipulation of the argument Profile can lead to sandbox issue. It is possible to launch the attack on the local host. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
       "id": "CVE-2026-104703",
