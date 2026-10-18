@@ -1,145 +1,145 @@
 {
-  "totalResults": 5114,
+  "totalResults": 5111,
   "items": [
     {
-      "id": "CVE-2026-108576",
-      "published": "2026-10-11T13:17:13.067",
-      "description": "A vulnerability was found in TOZED X300 up to 6.01.3. This vulnerability affects the function process_ping of the component IPPingDiagnostics Handler. The manipulation of the argument Host results in os command injection. The attack can be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108860",
+      "published": "2026-10-11T14:17:05.933",
+      "description": "BotSharp through 5.2.0 contains an authentication bypass vulnerability that allows unauthenticated remote attackers to forge bearer tokens using the hard-coded Jwt:Key in WebStarter appsettings.json. Attackers can sign tokens with the committed HMAC secret and fixed botsharp issuer and audience to impersonate any known user, including administrators, on Authorize-protected API routes.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-108714",
-      "published": "2026-10-11T13:17:14.430",
-      "description": "MCP Kotlin SDK through 0.15.0 contains an uncontrolled memory allocation vulnerability that allows remote clients to exhaust server memory because Application.mcpWebSocket installs Ktor WebSockets without a maxFrameSize limit. Attackers can send small frame headers declaring payloads near 2 GiB over one or a few connections, forcing huge heap allocations and causing denial of service.",
+      "id": "CVE-2026-108853",
+      "published": "2026-10-11T14:17:04.960",
+      "description": "UnicomAI Wanwu before 0.6.3 contains an insecure direct object reference vulnerability that allows authenticated low-privileged users to delete other tenants' agent or RAG applications by supplying their appId. Attackers can send requests to DELETE /v1/appspace/app with guessed sequential assistant IDs to permanently delete victims' applications, workflows, conversations, and associated data.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-108859",
+      "published": "2026-10-11T14:17:05.780",
+      "description": "mcp-go through 1.2.1 contains a denial of service vulnerability in StreamableHTTPServer.ServeHTTP that allows remote unauthenticated attackers to exhaust memory by sending oversized POST bodies. Attackers can send arbitrarily large or many concurrent POST requests, read fully via io.ReadAll before validation, to degrade or OOM-kill the server process.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-108571",
-      "published": "2026-10-11T11:17:00.197",
-      "description": "A weakness has been identified in Xinhu Rainrock RockOA up to 2.7.6. This impacts the function kqjcmdModel::returnchuli of the file webmain/task/openapi/openkqjAction.php of the component Openkqj Action. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108863",
+      "published": "2026-10-11T14:17:06.360",
+      "description": "Katanemo Plano through 0.4.37 contains a missing authentication vulnerability that allows unauthenticated network attackers to access the Envoy admin interface, which is bound to all host interfaces on port 9901. Attackers can request the /config_dump endpoint to read configured LLM provider API keys in plaintext from the WASM filter configuration.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-108710",
-      "published": "2026-10-11T13:17:13.720",
-      "description": "NornicDB through 1.4.1 contains a missing authorization vulnerability that allows authenticated users to bypass per-database read restrictions on the /nornicdb/search and /nornicdb/similar endpoints. Viewer-role users allowlisted for a database but denied read can submit search queries or node IDs to retrieve node IDs, labels and full property maps.",
+      "id": "CVE-2026-108698",
+      "published": "2026-10-11T14:17:04.113",
+      "description": "hyper-mcp through 0.8.3 contains a signature verification bypass vulnerability in load_wasm in src/wasm/oci.rs that verifies the Cosign signature of a separately resolved tag rather than the loaded manifest. Attackers controlling registry responses for the tag can serve an unsigned malicious manifest to the loader and a signed one to Cosign, executing unsigned WebAssembly plugins with configured host capabilities.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-108569",
-      "published": "2026-10-11T11:16:58.727",
-      "description": "A vulnerability was identified in Furion .NET Framework up to 4.9.9.92. The impacted element is the function String.Replace of the file framework/Furion/Templates/Extensions/StringRenderExtensions.cs. The manipulation of the argument Name leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108699",
+      "published": "2026-10-11T14:17:04.257",
+      "description": "hyper-mcp through 0.8.3 contains an improper signature verification vulnerability that allows attackers to load malicious WebAssembly plugins because cosign_verify_args() accepts any signer identity and OIDC issuer by default. Attackers controlling a plugin image reference can sign a malicious image with a free Sigstore keyless certificate to execute plugins with configured host, filesystem, and environment capabilities.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-108570",
-      "published": "2026-10-11T11:16:59.980",
-      "description": "A security flaw has been discovered in Furion .NET Framework up to 4.9.9.95. This affects the function RunCompile of the file framework/Furion/ViewEngine/Engines/ViewEngine.cs of the component View Engine. The manipulation of the argument content results in improper neutralization of special elements used in a template engine. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-108575",
-      "published": "2026-10-11T12:16:53.210",
-      "description": "A vulnerability has been found in BerriAI LiteLLM up to 1.94.0. This affects the function get_secret of the file secret_managers/main.py of the component Secret Resolution. The manipulation of the argument api_key leads to improper authorization. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-108573",
-      "published": "2026-10-11T12:16:52.783",
-      "description": "A vulnerability was detected in Open Asset Import Library Assimp up to 6.0.5. Affected by this vulnerability is the function IOStreamBuffer::getNextBlock of the component PLY File Handler. Performing a manipulation results in out-of-bounds read. It is possible to initiate the attack remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108858",
+      "published": "2026-10-11T14:17:05.640",
+      "description": "Predibase LoRAX through 0.12.1 contains a sensitive information exposure vulnerability that writes the caller-supplied api_token from POST /generate request bodies into router logs. Attackers with access to router logs or OTLP trace backends can recover other users' private-adapter tokens recorded through the instrumented GenerateParameters span field.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-108578",
-      "published": "2026-10-11T13:17:13.397",
-      "description": "A vulnerability was identified in Neterbit NW-431F 20250715. Impacted is an unknown function of the file /sms.json of the component Embedded Web Server. Such manipulation leads to information disclosure. The attack may be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108854",
+      "published": "2026-10-11T14:17:05.100",
+      "description": "Wanwu before 0.6.3 contains an insecure direct object reference vulnerability that allows any authenticated enabled user to delete other users' legacy AppKeys by supplying a numeric apiId. Attackers can iterate sequential key IDs against DELETE /v1/appspace/app/key to revoke AppKeys across organizations, breaking MCP and OpenAPI clients until owners issue new keys.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-108855",
+      "published": "2026-10-11T14:17:05.233",
+      "description": "UnicomAI Wanwu through 0.6.5 contains a missing authorization vulnerability that allows any authenticated enabled user to revoke other users' AppKeys for arbitrary apps via the unpublish endpoint. Attackers can supply a target appId and appType from the exploration marketplace to delete other users' api_key rows across organizations, cutting off MCP and OpenAPI client access.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-108850",
+      "published": "2026-10-11T14:17:04.530",
+      "description": "Company Research Agent through 2.2.0 contains a server-side request forgery vulnerability that allows unauthenticated attackers to trigger outbound requests by injecting unescaped ReportLab paragraph markup into the /generate-pdf endpoint. Attackers can embed inline img elements in report_content to make the server fetch internal or external hosts, leaking image responses in returned PDFs and probing reachability.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-108584",
-      "published": "2026-10-11T13:17:13.557",
-      "description": "A security flaw has been discovered in FunnyWolf Viper up to 3.1.11. The affected element is an unknown function of the file /root/viper/.git/config. Performing a manipulation results in hard-coded credentials. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks.",
+      "id": "CVE-2026-108862",
+      "published": "2026-10-11T14:17:06.220",
+      "description": "APIPark through 1.9.7-beta contains an insecure direct object reference vulnerability that allows authenticated users to read other applications' credentials by supplying a foreign authorization UUID. Attackers with authorization-view permission on one application can query /api/v1/app/authorization or its details route to retrieve plaintext API keys regardless of HideCredential.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-108567",
-      "published": "2026-10-11T10:16:40.173",
-      "description": "A vulnerability was found in InstantSoft icms2 up to 2.18.2. Impacted is the function files_delete_file of the file system/fields/image.php of the component Image Handler. Performing a manipulation of the argument size results in path traversal. The attack may be initiated remotely. The exploit has been made public and could be used. The patch is named 03d70937f1ff97031523222808726994b8b79379. It is recommended to apply a patch to fix this issue.",
+      "id": "CVE-2026-108852",
+      "published": "2026-10-11T14:17:04.827",
+      "description": "Deep Chat through 2.5.1 contains a cross-site scripting vulnerability that allows attackers to inject javascript: links because RemarkableConfig.createNew disables Remarkable link validation. Attackers can place crafted Markdown links in AI responses, addMessage content, or loaded history to execute script in the embedding page when victims click them.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-108681",
+      "published": "2026-10-11T14:17:03.220",
+      "description": "A security flaw has been discovered in zhayujie CowAgent up to 2.1.7. Impacted is an unknown function of the file channel/web/web_channel.py of the component Web Console. The manipulation of the argument session_id results in denial of service. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. Version 2.1.7 (commit dec28324) only partly mitigates via a 512MB body cap. The vendor was contacted early about this disclosure.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108568",
-      "published": "2026-10-11T10:16:40.340",
-      "description": "A vulnerability was determined in InstantSoft icms2 up to 2.18.2. The affected element is the function validatePaypalOrder of the file system/controllers/billing/actions/paypal.php of the component Billing Module. Executing a manipulation of the argument bid/sig can lead to insufficient verification of data authenticity. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108697",
+      "published": "2026-10-11T14:17:03.973",
+      "description": "CoreShop through 2026.2.2 contains a missing authorization vulnerability that allows low-privileged backend users to list permission-restricted resources because ResourceController listAction skips the isGrantedOr403() check. Authenticated Pimcore users lacking resource permissions can request the generated list routes to enumerate payment providers, carriers, price rules, stores, and tax rules including ids, names, and identifiers.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108572",
-      "published": "2026-10-11T11:17:00.370",
-      "description": "A security vulnerability has been detected in Casdoor up to 3.164.0/4.10.0. Affected is the function CasP3ProxyValidate of the file controllers/cas.go of the component Proxy Validation. Such manipulation of the argument pgtUrl leads to server-side request forgery. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. Upgrading to version 4.11.0 is able to address this issue. The name of the patch is 03c6c9aaa2eda5b085ce128ce0d60b34094efbd9/ada08ecd10cbf158f593dee23a8bab63efecf995. It is advisable to upgrade the affected component.",
+      "id": "CVE-2026-108861",
+      "published": "2026-10-11T14:17:06.077",
+      "description": "Odoo MCP 1.0.0 through 1.3.2 contains an information disclosure vulnerability that allows MCP clients to bypass the field-level ACL by invoking the execute_method tool. Attackers or prompt-injected agents can call read or search_read through execute_method naming denied fields to receive their values unredacted.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108574",
-      "published": "2026-10-11T12:16:52.990",
-      "description": "A flaw has been found in BerriAI LiteLLM up to 1.95.0. Affected by this issue is the function ui_view_session_spend_logs of the file litellm/proxy/spend_tracking/spend_management_endpoints.py of the component Spend Tracking. Executing a manipulation of the argument session_id can lead to authorization bypass. It is possible to launch the attack remotely. The exploit has been published and may be used. Upgrading to version 1.96.0 can resolve this issue. This patch is called 722d9ffa4f6c5ae15702ab9ab2c5f6bf1688308b. The affected component should be upgraded.",
+      "id": "CVE-2026-108839",
+      "published": "2026-10-11T14:17:04.390",
+      "description": "thClaws through 0.141.0 contains a link-following vulnerability in the post_inputs handler of the v1 API POST /v1/inputs endpoint that allows writes outside the workspace by following symlinks. Attackers who plant a symlink under the allowed inputs/ prefix can cause later authenticated uploads to write or truncate files outside the workspace with daemon privileges.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-108577",
-      "published": "2026-10-11T13:17:13.230",
-      "description": "A vulnerability was determined in Konstanty Bialkowski libmodplug up to 0.8.9.1. This issue affects the function abc_add_gchord of the file src/load_abc.cpp of the component ABC Music Format Parser. This manipulation causes resource consumption. The attack may be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-108856",
+      "published": "2026-10-11T14:17:05.370",
+      "description": "UnicomAI Wanwu through 0.6.5 contains an authorization bypass vulnerability that allows authenticated users to mint AppKeys bound to other users' MCP servers via POST /v1/appspace/app/key. Attackers supplying a victim's MCP server UUID with appType mcpserver can open MCP sessions and invoke the server's tools using the victim's upstream authentication.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-108711",
-      "published": "2026-10-11T13:17:13.877",
-      "description": "Plastic Labs Honcho through 3.3.0 contains an incorrect authorization vulnerability that allows peer- or session-scoped API key holders to read workspace data because get_or_create_workspace checks only the workspace claim. Attackers can submit their parent workspace name to the POST /v3/workspaces endpoint to retrieve workspace metadata and configuration, including custom_instructions, reserved for workspace or admin keys.",
+      "id": "CVE-2026-108864",
+      "published": "2026-10-11T14:17:06.500",
+      "description": "iFlytek Astron Agent through 1.1.2 contains an insecure direct object reference vulnerability that allows authenticated applications to resume other applications' paused workflows by supplying their event_id to POST /workflow/v1/resume. Attackers can predict Snowflake event IDs to inject resume content into victim workflows and read their continuation output stream, breaking cross-tenant isolation.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-108712",
-      "published": "2026-10-11T13:17:14.047",
-      "description": "SuiteCRM through 7.15.2 and 8.10.2 contains a missing authorization vulnerability in the DetailUserRole entry point that allows authenticated non-admin users to view other users' ACL data. Attackers can supply another non-admin user's id in the record parameter to read that user's assigned roles and per-module ACL action matrix.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108713",
-      "published": "2026-10-11T13:17:14.293",
-      "description": "SuiteCRM through 7.15.2 and 8.x through 8.10.2 contains a missing authorization vulnerability that allows authenticated users to create and modify EmailMarketing records via the setCampaignMarketingAndTemplate entry point. Low-privileged users denied Campaigns access can post marketingId, campaignId, and templateId to reattach marketing messages or swap the template EmailMan sends in campaign emails.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108715",
-      "published": "2026-10-11T13:17:14.577",
-      "description": "LibreNMS through 26.9.1.1 contains an authorization bypass vulnerability in includes/html/graphs/smokeping/auth.inc.php that checks the src probe device instead of the rendered target device. Restricted users permitted on a probe device can request smokeping_in or smokeping_out graphs with arbitrary device ids to view latency data and enumerate device names.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108566",
-      "published": "2026-10-11T10:16:38.727",
-      "description": "A vulnerability has been found in InstantSoft icms2 up to 2.18.2. This issue affects the function index of the file templates/default/controllers/messages/index.tpl.php of the component Private Message Handler. Such manipulation of the argument nickname leads to cross site scripting. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The name of the patch is 3a1ec8fcb073a46d06a2ab83bc2bf68225834281. It is best practice to apply a patch to resolve this issue.",
+      "id": "CVE-2026-108851",
+      "published": "2026-10-11T14:17:04.667",
+      "description": "phpMyFAQ through 4.1.10 contains a missing authorization vulnerability in the MCP server faq_search tool that allows MCP clients to read restricted FAQs because Search::searchDatabase() never applies user or group permission checks. Attackers connected to the phpmyfaq:mcp:server can issue search queries to retrieve the full question and answer text of active FAQs restricted to specific users or groups.",
       "severity": "LOW",
-      "score": 3.5
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-108857",
+      "published": "2026-10-11T14:17:05.503",
+      "description": "Hugging Face Text Embeddings Inference through 1.9.4 contains a cleartext logging vulnerability that exposes the configured api_key because the router's Args struct lacks a redact attribute for it. Attackers with access to router logs, container output, or OTLP telemetry can recover the Bearer token and call the protected embedding and rerank endpoints.",
+      "severity": "LOW",
+      "score": 3.3
     }
   ]
 }
