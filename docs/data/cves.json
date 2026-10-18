@@ -1,145 +1,145 @@
 {
-  "totalResults": 5179,
+  "totalResults": 5166,
   "items": [
     {
-      "id": "CVE-2026-108707",
-      "published": "2026-10-11T02:16:39.477",
-      "description": "Wukong_HRM through commit 186115e contains an authentication bypass vulnerability in ParamAspect that allows unauthenticated attackers to call every HRM API endpoint by omitting the AUTH-TOKEN header. Attackers gain HR administrator access to read payslips, salary history and employee personal data, download attachments, and modify or delete company-wide HR records.",
+      "id": "CVE-2026-108540",
+      "published": "2026-10-11T07:17:23.303",
+      "description": "A flaw has been found in OpenSpug Spug up to 3.4.0/4.0.1. This impacts an unknown function of the file /exec/transfer of the component File Transfer. Executing a manipulation can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-104028",
+      "published": "2026-10-11T07:17:22.440",
+      "description": "The Anton Extensions WordPress plugin through 1.2.2 does not perform any capability check, nonce verification, or file-type validation before writing attacker-supplied content to an attacker-chosen path, allowing unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-108708",
-      "published": "2026-10-11T02:16:39.650",
-      "description": "Wukong_HRM through commit 186115e contains a missing authorization vulnerability because EmployeeAspect assigns every caller the HR administrator role and EmployeeUtil data-scope checks return all employees. Any authenticated low-privileged employee can read payslips, salary records, bank cards and personal data, edit bank cards, and delete employees, departments and contracts company-wide.",
+      "id": "CVE-2026-103305",
+      "published": "2026-10-11T07:17:21.007",
+      "description": "The Prenotazioni WordPress plugin through 1.7.5 does not have authorisation and CSRF checks when saving its settings, and does not escape some of them when outputting them, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks against administrators and site visitors.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-108522",
-      "published": "2026-10-11T04:17:31.737",
-      "description": "A vulnerability was found in Studio-Saelix Sencho up to 0.94.1. This affects an unknown part of the file /api/auth/login of the component Login Endpoint. Performing a manipulation of the argument X-Forwarded-For results in improper authentication. The attack is possible to be carried out remotely. The exploit has been made public and could be used. The patch is named 79b86ddcd4aefdd6941f098e35990ab397b13c72. To fix this issue, it is recommended to deploy a patch. The vendor confirms: \"The login limiter relied on client-supplied X-Forwarded-For data without an explicit trusted-proxy boundary, allowing an attacker to rotate the apparent client address. The remediation now ignores forwarding headers by default, accepts them only from explicitly configured proxy CIDRs, and adds a separate failed-attempt limit keyed by normalized account identity.\"",
+      "id": "CVE-2026-103694",
+      "published": "2026-10-11T07:17:22.230",
+      "description": "The Mobile builder WordPress plugin through 1.4.2 does not properly restrict which user meta keys a logged-in user can update through one of its REST routes, allowing any user with a self-registered account, such as a customer, to grant themselves the administrator role.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-108695",
-      "published": "2026-10-11T02:16:37.957",
-      "description": "MultiVendorX WordPress plugin through 5.0.19 contains an incorrect authorization vulnerability that allows vendor accounts to modify marketplace-wide settings via the settings REST endpoint. Attackers with the store_owner role can send POST requests to /wp-json/multivendorx/v1/settings, gated only by edit_stores, to overwrite commission, payout, and onboarding settings.",
+      "id": "CVE-2026-103695",
+      "published": "2026-10-11T07:17:22.340",
+      "description": "The Mobile builder WordPress plugin through 1.4.2 does not sanitise and escape a parameter before using it in a SQL statement, allowing unauthenticated users to perform SQL injection attacks.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-108693",
-      "published": "2026-10-11T02:16:37.607",
-      "description": "ImageMagick on Windows through 7.1.2-33 and 6.9.13-58 contains an uncontrolled search path vulnerability in NTGhostscriptEXE() that launches gswin64c.exe by bare name when Ghostscript is unregistered. Attackers can plant a malicious gswin64c.exe in the working directory to execute code with ImageMagick privileges when PDF, PostScript, or EPS files are converted.",
+      "id": "CVE-2026-106029",
+      "published": "2026-10-11T07:17:22.963",
+      "description": "The WeddingCity Lite  WordPress plugin through 1.0.4 does not perform any authorisation or validity checks before deleting posts, pages and media attachments, allowing unauthenticated attackers to permanently delete arbitrary content site-wide.",
       "severity": "HIGH",
-      "score": 7
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-108692",
-      "published": "2026-10-11T02:16:37.360",
-      "description": "1Panel-dev CordysCRM from 1.9.0 before 1.9.2 contains a missing authorization vulnerability in eight ModuleFieldController /field/source data-source endpoints lacking permission checks. Authenticated users denied module permission can page through organization-wide leads, contacts, quotations, contracts, payment plans, payment records, orders and invoices owned by other users.",
+      "id": "CVE-2026-14854",
+      "published": "2026-10-11T07:17:24.003",
+      "description": "The WooCommerce Bookings WordPress plugin before 3.11.0 does not limit a user-supplied value before using it to allocate memory in one of its unauthenticated AJAX actions, allowing unauthenticated attackers to exhaust server memory and cause a Denial of Service with a single request.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-104680",
+      "published": "2026-10-11T07:17:22.550",
+      "description": "The Envira Gallery  WordPress plugin before 1.16.2 does not verify that a user holds the capability WordPress reserves for installing Envira Gallery  WordPress plugin before 1.16.2 code before processing its setup-wizard Envira Gallery  WordPress plugin before 1.16.2-installation request, and does not restrict the installation to its own curated list, allowing a Multisite subsite Administrator to install an arbitrary WordPress.org-published Envira Gallery  WordPress plugin before 1.16.2 into the network-shared Envira Gallery  WordPress plugin before 1.16.2 directory, a privilege Multisite reserves for the network Super Admin.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-12980",
+      "published": "2026-10-11T07:17:23.890",
+      "description": "The Post Snippets  WordPress plugin through 4.2.4 does not properly escape variable values substituted into snippets before outputting them, allowing users with the Contributor role and above to inject arbitrary web scripts that execute when the content is viewed.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-108694",
-      "published": "2026-10-11T02:16:37.777",
-      "description": "ConvertX through 0.19.0 contains an arbitrary file read vulnerability that allows authenticated users to read server files because src/converters/pandoc.ts invokes Pandoc without the --sandbox flag. Attackers can upload a reStructuredText document with an include directive naming an absolute path, convert it, and download output containing the referenced file's contents.",
+      "id": "CVE-2026-81153",
+      "published": "2026-10-11T07:17:24.143",
+      "description": "The Robo Gallery  WordPress plugin before 5.2.6 does not sanitise and escape some of its image settings before outputting them in a gallery page, allowing users with the Author role and above to perform Stored Cross-Site Scripting attacks that execute in the browser of any visitor viewing the gallery, including administrators, even where the unfiltered_html capability is disallowed such as on multisite.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-108700",
-      "published": "2026-10-11T02:16:38.277",
-      "description": "1Panel-dev CordysCRM before 1.9.2 contains a missing authorization vulnerability that allows authenticated users to list business titles by calling POST /field/source/business-title without permission checks. Users lacking CONTRACT_BUSINESS_TITLE_READ can retrieve organization invoicing entities, exposing tax identification numbers, bank account numbers, opening banks, registration addresses, and phone numbers.",
+      "id": "CVE-2026-81154",
+      "published": "2026-10-11T07:17:24.267",
+      "description": "The Robo Gallery  WordPress plugin before 5.2.6 does not sanitise and escape image alt text before outputting it in one of its gallery layouts, allowing users with the Author role and above to perform Stored Cross-Site Scripting attacks that execute in the browser of any user viewing the affected gallery, including administrators.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-108689",
-      "published": "2026-10-11T02:16:36.887",
-      "description": "Wukong AICRM through 20260610 contains a missing authorization vulnerability that allows authenticated users to write into other users' AI chat sessions by supplying an arbitrary sessionId to POST /chat/send. Attackers can append messages to a victim's conversation and receive streamed assistant replies built from the victim's last 20 messages, disclosing conversation content.",
+      "id": "CVE-2026-108538",
+      "published": "2026-10-11T05:16:53.477",
+      "description": "A security vulnerability has been detected in GPAC up to 26.07.0. The impacted element is the function gf_mx_v of the file utils/os_thread.c of the component MP4Box. Such manipulation leads to use after free. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-108691",
-      "published": "2026-10-11T02:16:37.210",
-      "description": "mall4j through 4.0 contains an improper authorization vulnerability that allows authenticated storefront customers to delete other shoppers' cart items through an operator precedence error in the cleanExpiryProdList SQL statement. Attackers can send one DELETE request to /p/shopCart/cleanExpiryProdList to remove every user's cart entries for off-shelf products, which do not return when products are restocked.",
+      "id": "CVE-2026-108539",
+      "published": "2026-10-11T05:16:53.680",
+      "description": "A vulnerability was detected in GPAC up to 26.07.0. This affects the function gf_fq_pop of the file filter_core/filter_queue.c of the component MP4Box. Performing a manipulation results in use after free. The attack may be initiated remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-108703",
-      "published": "2026-10-11T02:16:38.803",
-      "description": "CordysCRM through 1.9.3 contains a missing authorization vulnerability in POST /approval-resource/push that allows authenticated users to submit any resource for approval without ownership checks. Low-privileged attackers can supply arbitrary resourceId values for contracts, invoices, quotations or orders to alter their approval status and read approval details.",
+      "id": "CVE-2026-108541",
+      "published": "2026-10-11T07:17:23.700",
+      "description": "A vulnerability has been found in highwarden Super Store Finder up to 3.8. Affected is an unknown function of the file /products/superstorefinder/index.php. The manipulation of the argument lat/lng leads to sql injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. Upgrading to version 3.9 is able to address this issue. The affected component should be upgraded. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-108521",
-      "published": "2026-10-11T03:16:39.350",
-      "description": "A vulnerability has been found in Studio-Saelix Sencho up to 0.97.1. Affected by this issue is the function isValidRemoteUrl of the file backend/src/utils/validation.ts of the component Add Remote Node API Endpoint. Such manipulation leads to server-side request forgery. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. The vendor confirms: \"The node API URL could be configured by an authenticated user with node-management permission and used to initiate server-side requests. [T]he report demonstrates server-side request capability but not arbitrary internal response exfiltration.\"",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-108688",
-      "published": "2026-10-11T02:16:35.100",
-      "description": "Eladmin through 2.7 contains a missing authorization vulnerability in the LocalStorageController uploadPicture handler that allows low-privileged authenticated users to bypass the storage:add permission. Attackers can send POST requests with image-named files to /api/localStorage/pictures to write files into server local storage and disclose absolute server paths.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108690",
-      "published": "2026-10-11T02:16:37.057",
-      "description": "mall4j through 4.0 contains an information disclosure vulnerability that allows authenticated customers to read other shoppers' cart items due to an operator precedence error in the getShopCartExpiryItems SQL filter. Attackers with any storefront account can request GET /p/shopCart/expiryProdList to retrieve off-shelf product basket entries including product, SKU, quantity, shop, and promoter card numbers.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108696",
-      "published": "2026-10-11T02:16:38.123",
-      "description": "CoreShop through 1.5.5 contains an authorization bypass vulnerability in the OrderController that allows authenticated customers to act on other customers' orders by supplying user-controlled ids. Attackers can omit the data field in OrderConfirm or supply another reshipId to SendReship to confirm receipt of others' orders and overwrite return tracking details.",
+      "id": "CVE-2026-108523",
+      "published": "2026-10-11T05:16:52.630",
+      "description": "A vulnerability was determined in Studio-Saelix Sencho up to 0.94.1. This vulnerability affects unknown code of the file outboundTarget.ts of the component git-sources Browse API Endpoint. Executing a manipulation of the argument repo_url can lead to server-side request forgery. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The presence of this vulnerability remains uncertain at this time. This patch is called 79b86ddcd4aefdd6941f098e35990ab397b13c72. It is advisable to implement a patch to correct this issue. The vendor explains: \"Git repository access is an intentional, privileged administrative function. Sencho explicitly supports repositories hosted on private LAN, VPC, VPN, CGNAT, and IPv6 ULA networks. The report does not demonstrate a privilege-boundary bypass or access by an unprivileged user. We therefore dispute the CVE characterization of this behavior. As defense in depth, we have nevertheless hardened repository access. Git HTTPS and SSH connections now validate and pin DNS resolution, reject loopback, link-local, multicast, selected special-use and metadata targets, disable redirects and inherited proxy routing, and retain strict SSH host-key verification.\"",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-108701",
-      "published": "2026-10-11T02:16:38.437",
-      "description": "1Panel-dev CordysCRM before 1.9.2 contains a missing authorization vulnerability in the ContractController sortModule handler for POST /contract/sort, which lacks any permission annotation. Authenticated users without contract update permission can supply a dragNodeId, stage and field values to modify any contract, including contracts in other organizations.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-104681",
+      "published": "2026-10-11T07:17:22.660",
+      "description": "The Envira Gallery  WordPress plugin before 1.16.2 does not verify that an image identifier added to a gallery refers to a media attachment the caller is permitted to view, allowing any user able to create and edit a gallery (Author and above by default) to disclose the title and excerpt of other users' private, draft, pending and trashed posts that WordPress would otherwise withhold from them.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-108702",
-      "published": "2026-10-11T02:16:38.627",
-      "description": "1Panel-dev CordysCRM through 1.9.3 lacks a PROCESS_SETTING permission check on POST /approval-flow/webhook/test, allowing any authenticated user to trigger server-side requests to attacker-supplied URLs. Attackers can redirect GET requests from a controlled host to bypass SSRFValidator and probe internal addresses through success or failure results.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-104682",
+      "published": "2026-10-11T07:17:22.763",
+      "description": "The Envira Gallery  WordPress plugin before 1.16.2 does not correctly check authorization on its gallery-conversion feature, verifying that the requester can edit an arbitrary post they name rather than that they are allowed to create the Envira Gallery  WordPress plugin before 1.16.2's own gallery content, allowing users with contributor-level access to create and publish gallery posts that the Envira Gallery  WordPress plugin before 1.16.2's settings otherwise withhold from them.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-108704",
-      "published": "2026-10-11T02:16:38.980",
-      "description": "CordysCRM through 1.9.3 contains an authorization bypass vulnerability that allows low-privileged authenticated users to skip permission checks by setting the owner field to their own user id. Attackers can send requests to the follow/record/add endpoints to add follow-up records and overwrite follow_time and follower on any known customer, clue or opportunity.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-104684",
+      "published": "2026-10-11T07:17:22.867",
+      "description": "The Envira Gallery  WordPress plugin before 1.16.2 does not verify that a user is authorized to read a gallery before rendering it, allowing authors to embed and expose other users' non-public gallery metadata to unauthenticated visitors.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-108705",
-      "published": "2026-10-11T02:16:39.160",
-      "description": "CordysCRM through 1.9.3 contains a missing authorization vulnerability in the POST /custom-form/data/import endpoint that allows authenticated users to import data into any custom form by customFormId. Low-privileged attackers can upload Excel files with importType ADD or UPDATE to create records in, or overwrite existing records of, custom forms they cannot manage.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-107507",
+      "published": "2026-10-11T07:17:23.087",
+      "description": "The Squadeno  WordPress plugin before 1.12.0 does not enforce its restrictions on every way a sport can be saved, allowing users with the lowest-tier Trainer role to change the section, age group, author, password, comment settings and date of a sport they are assigned to.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-108706",
-      "published": "2026-10-11T02:16:39.330",
-      "description": "eladmin through commit 55fbf70 contains a missing authorization vulnerability in the downloadS3Storage handler that allows any authenticated user to retrieve stored object URLs without storage permissions. Attackers can enumerate sequential ids against GET /api/s3Storage/download/{id} to collect URLs of all uploaded objects, exposing file contents on publicly readable buckets.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-107694",
+      "published": "2026-10-11T07:17:23.187",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.2.0 does not verify that the vendor a commission calculation is requested for is the requesting vendor, allowing vendors to disclose the commission rate and fixed fee the marketplace administrator configured for other vendors.",
+      "severity": "LOW",
+      "score": 2.7
     }
   ]
 }
