@@ -1,145 +1,145 @@
 {
-  "totalResults": 4980,
+  "totalResults": 5059,
   "items": [
     {
-      "id": "CVE-2026-110392",
-      "published": "2026-10-14T02:16:59.653",
-      "description": "Improper neutralization of special elements used in an OS command ('OS command injection') vulnerability in Samsung Open Source QA-Board allows : OS Command Injection.",
+      "id": "CVE-2026-104800",
+      "published": "2026-10-14T04:18:12.563",
+      "description": "The AGE-GATE plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.0 via the 'width (and height)' parameter parameter. This is due to missing authentication, capability checks, and nonce verification on the standalone admin.php endpoint, combined with unsanitized injection of POST parameters directly into generated PHP source written to an included file. This makes it possible for unauthenticated attackers to execute code on the server. This is possible because admin.php does not load WordPress and carries no ABSPATH guard, making it a fully unauthenticated entry point regardless of the decorative capability arguments registered via the plugin's simulated menu API.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-93388",
-      "published": "2026-10-14T02:17:01.720",
-      "description": "The Printcart Store (PCDesigner / NB Designer) plugin for WooCommerce is vulnerable to unauthenticated arbitrary file upload leading to remote code execution in all versions up to, and including, 2.9.1 The nbdesigner_copy_image_from_url AJAX action is registered for logged-out callers (wp_ajax_nopriv_), and its Google Drive branch rebuilds the destination filename from the raw, attacker-supplied gapi[name] parameter — bypassing the jpg/jpeg/png/gif allow-list applied on the other branch — and writes the fetched bytes to a web-accessible directory (wp-content/uploads/nbdesigner/temp/). This makes it possible for unauthenticated attackers to write a .php file to a web-served, PHP-executing location and, by supplying their own Google Drive file and OAuth token as the content source, execute arbitrary code on the server. The required save-design nonce is handed to anonymous callers by the nbd_check_use_logged_in endpoint, so it presents no barrier.",
+      "id": "CVE-2026-87855",
+      "published": "2026-10-14T04:18:52.840",
+      "description": "The JTL-Connector for WooCommerce plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.4.3 via the saveImage() function. This is due to the startSession() function accepting an empty jtlauth parameter as a valid credential, combined with insufficient file type validation in handleImagePush(). This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-110002",
-      "published": "2026-10-14T03:17:20.220",
-      "description": "The Snazzy Social Media Feed plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.5 via the (file scope) function. This is due to missing WordPress bootstrap, authentication, capability, and nonce checks in the standalone save-to-cache.php script, combined with insufficient sanitization of the pluginURL parameter before it is written to a web-executable PHP file. This makes it possible for authenticated attackers, with subscriber-level access and above, to upload files that may be executable, which makes remote code execution possible. The save-to-cache.php script is directly reachable without loading WordPress; FILTER_SANITIZE_URL — the only filter applied to the pluginURL value — preserves the characters required to craft a valid PHP payload, which is then written verbatim into cached-content/cached-feed.php and immediately executable via a single GET request.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-92097",
-      "published": "2026-10-14T02:17:01.397",
-      "description": "The Click to Chat for WhatsApp plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in versions up to, and including, 4.44 This is due to the greetings_dialog() function building the {url} template placeholder from a sanitize_text_field()-filtered $_SERVER['REQUEST_URI'] on archive pages and then passing the substituted greeting content to do_shortcode() in the greetings-1 and greetings-2 templates, without stripping shortcode delimiters. Because wp_kses() runs against main_content BEFORE the {url} substitution, the attacker-controlled URL bytes reach do_shortcode() unfiltered. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes registered by WordPress core, the active theme, or any other plugin (e.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-92817",
-      "published": "2026-10-14T00:17:13.290",
-      "description": "The Ignition Perspective module does not properly validate session privileges when determining Designer-level access. An authenticated user with access to a Vision project could provide their valid Vision session identifier and gain Designer-level privileges. An attacker could exploit these elevated privileges to execute arbitrary code in the context of the Ignition Gateway process.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-104995",
-      "published": "2026-10-14T02:16:56.500",
-      "description": "The BP Profile Search plugin for WordPress is vulnerable to Local File Inclusion in versions up to, and including, 5.9 via the 'ajax_template' value parsed from the client-controlled 'bps_directory' cookie during BuddyPress AJAX directory requests. The bps_directory_ajax() filter (hooked onto bp_legacy_object_template_path and bp_nouveau_object_template_path) reads the cookie, applies only a referer-derived 'page' comparison in bps_get_directory_data() (where bps_current_page() uses HTTP_REFERER during AJAX and is therefore also attacker-controlled), and then suffixes the attacker-controlled template value with '.php' and passes it to bp_locate_template() with no basename restriction, no whitelist, and no path-traversal check. This makes it possible for unauthenticated attackers to include arbitrary PHP files on the server, which can lead to remote code execution when PHP files can be uploaded or when images such as the default wordpress:php8.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-17092",
-      "published": "2026-10-14T02:16:59.783",
-      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 8.10.2.1. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary business directory listings, including those owned by other users and posts in publish, draft, or private status. The nonces guarding the endpoint do not constitute an authorization barrier because both directorist_nonce and atbdp_nonce_js are exposed to all logged-in users via wp_localize_script.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-82715",
-      "published": "2026-10-14T02:17:00.863",
-      "description": "Insecure Temporary File vulnerability in Hitachi Disk Array Driver for AIX and Hitachi Disk Array Driver for Virtual I/O Server.\n\nThis issue affects Hitachi Disk Array Driver for AIX: from 01-00 before 01-23-/A; Hitachi Disk Array Driver for Virtual I/O Server: from 01-04 before 01-23-/A.",
-      "severity": "HIGH",
-      "score": 7.9
-    },
-    {
-      "id": "CVE-2026-110359",
-      "published": "2026-10-14T01:17:06.203",
-      "description": "Hyland Desktop Host for Windows before 25.1.1 is vulnerable to local privilege escalation. This is caused by a privileged service running from the %PROGRAMDATA%\\Hyland\\DesktopHost\\bin folder with weak permissions. A local user can exploit this to escalate privileges.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-103423",
-      "published": "2026-10-14T02:16:54.710",
-      "description": "The Booking Package plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.7.29 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to retrieve personally identifiable information for every booked customer stored in the booking_package_booked_customers table, including names, email addresses, phone numbers, physical addresses, and cancellation tokens. The nonce nominally protecting the endpoint is a public CSRF token emitted in the localized booking_package JavaScript object on any page rendering the [booking_package] shortcode or widget, making it trivially harvestable by unauthenticated visitors and providing no effective authentication barrier.",
+      "id": "CVE-2026-110449",
+      "published": "2026-10-14T04:18:17.317",
+      "description": "Nix before 2.35.3 and Lix before 2.95.4 have an integer overflow and resultant out-of-bounds write when evaluating untrusted expressions because list allocation is mishandled.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-104749",
-      "published": "2026-10-14T02:16:56.223",
-      "description": "The Bit integrations – Form Integration, Webhook, Spreadsheets, CRM, LMS & Email Automation plugin for WordPress is vulnerable to Privilege Escalation via Log Re-execution in all versions up to, and including, 2.10.6 The vulnerability exists because `IntegrationHandler::executeWithCapture()` stores raw, attacker-controlled field values — including `user_pass` and `user_email` — verbatim into `wp_btcbi_log.field_data` on anonymous front-end requests with no capability check, and `LogHandler::reexecute()` feeds that stored payload back through `Flow::execute()` inside the replaying administrator's session without validating the identity that originally produced the data, causing `RegistrationController::updateUser()` to resolve the target user ID to the administrator and write the attacker-supplied password via `wp_update_user()`. This makes it possible for unauthenticated attackers to overwrite the administrator's password and fully take over the administrator account. Exploitation requires that an administrator has configured a flow mapping a user-supplied form field to the `user_pass` parameter of the WP User Registration \"Update User\" action, and that the administrator subsequently clicks \"Re-execute\" on the failure log row produced by the anonymous submission from the plugin's log screen.",
+      "id": "CVE-2026-78193",
+      "published": "2026-10-14T04:18:36.860",
+      "description": "The JTL-Connector for WooCommerce plugin for WordPress is vulnerable to time-based SQL Injection via 'product.push' Identity Endpoint in all versions up to, and including, 2.4.3 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The injection fires during identity linking, before ProductController::push() executes, meaning exploitation succeeds even if downstream product handling would otherwise reject the request.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-104767",
-      "published": "2026-10-14T02:16:56.360",
-      "description": "The Membership & User Roles for WooCommerce (Automatic Role Changer) plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 20260828. This is due to the `maybe_add_role_to_user()` function unconditionally re-assigning every role stored in the `dfxwcrc_foreign_roles` user meta cache without verifying that each cached role is still actively assigned by the external provider — a condition made permanent by `remember_foreign_roles()`, which merges new foreign roles into the cache but never evicts roles that have since been revoked. This makes it possible for authenticated attackers with subscriber-level access and above to restore a previously revoked Administrator role to their own account, gaining full administrative control of the site, by triggering any role-assignment event such as completing a purchase for a role-mapped product. Exploitation requires Replace Roles mode to be enabled and the attacker's account to have previously received Administrator legitimately through a separate role-management mechanism while the plugin was active, so that `administrator` was written into the `dfxwcrc_foreign_roles` user meta cache before the external provider revoked it.",
+      "id": "CVE-2026-95808",
+      "published": "2026-10-14T04:18:56.467",
+      "description": "The Form Maker by 10Web – Mobile-Friendly Drag & Drop Contact Form Builder plugin for WordPress is vulnerable to blind SQL Injection via the 'inputs' parameter in all versions up to, and including, 1.15.48 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The nonce required to reach the vulnerable handler is emitted to every public page that renders a form, making it trivially obtainable by an unauthenticated attacker from page source.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-102251",
-      "published": "2026-10-14T03:17:12.513",
-      "description": "The Abandoned Cart Pro for WooCommerce plugin for WordPress is vulnerable to generic SQL Injection via the 'validate' parameter in all versions up to, and including, 10.8.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. AES-CTR is a malleable stream cipher, so an attacker who obtains one legitimate token by abandoning a cart with an email address they control can recover the keystream and forge a ciphertext carrying arbitrary SQL. The HMAC check added in 10.4.1 is enforced only when the wcap_nonce parameter is present, so omitting the parameter skips it entirely.",
+      "id": "CVE-2026-96661",
+      "published": "2026-10-14T04:19:01.350",
+      "description": "The Gmedia Photo Gallery plugin for WordPress is vulnerable to time-based SQL Injection via the 'gmedia__in' parameter in all versions up to, and including, 1.25.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The unauthenticated mobile app endpoint dispatches the library action without validating the Mobile App feature flag, a nonce, or any WordPress authentication, meaning no account or session of any kind is required to exploit this vulnerability.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-103422",
-      "published": "2026-10-14T03:17:14.037",
-      "description": "The AnyComment plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'email' parameter in versions up to, and including, 0.3.6. This is due to insufficient input sanitization on the public /wp-json/anycomment/v1/subscribe REST endpoint and missing output escaping in AnyCommentSubscriptionsTable::column_default(), which returns the stored email verbatim into an HTML <td> when the subscription's user_ID does not resolve to an existing WP_User. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrator accesses the AnyComment → Subscriptions admin page.",
+      "id": "CVE-2026-100153",
+      "published": "2026-10-14T04:18:03.177",
+      "description": "The NewStatPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'QUERY_STRING / REQUEST_URI' parameter in all versions up to, and including, 1.4.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that an administrator has placed the [NewStatPress type=\"Top Pages\"] shortcode on a publicly viewable page, and that the attacker's crafted URL accumulates enough hits to appear in the top-N ranking.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-103425",
-      "published": "2026-10-14T02:16:55.793",
-      "description": "The Booking Package plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'id' parameter in all versions up to, and including, 1.7.29 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-77114",
+      "published": "2026-10-14T04:18:36.537",
+      "description": "The Document Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'dg_thumber_webhook' Action Request Body in all versions up to, and including, 5.1.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that logging be enabled in the plugin's Advanced settings, which is only the default state when WP_DEBUG is true; otherwise an administrator must manually enable it.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-83592",
+      "published": "2026-10-14T04:18:38.893",
+      "description": "The Contact Form DB for Enfold plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Contact Form Field Values in all versions up to, and including, 2.0.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload is echoed unescaped both inside a title HTML attribute and in the table cell body in admin/ecf_index.php; base64 encoding and serialization of the stored values do not neutralize the malicious content.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-93885",
+      "published": "2026-10-14T04:18:54.973",
+      "description": "The Cryptocurrency Donation Box – Bitcoin & Crypto Donations plugin for WordPress is vulnerable to Stored Cross-Site Scripting via data_object Parameter in all versions up to, and including, 2.2.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable by unauthenticated attackers because the cdbbc_payment_verify AJAX action is registered under wp_ajax_nopriv_ and its only authentication gate — a nonce check — is bypassable, as the cdbbc_donation_box nonce is publicly exposed to anonymous visitors via the wallets_data JavaScript object emitted by the [crypto-donation-box] shortcode.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-94377",
+      "published": "2026-10-14T04:18:55.297",
+      "description": "The Verified Reviews (Avis Vérifiés) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'moderation' parameter in all versions up to, and including, 2.4.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The authentication bypass is possible because ntav_check_data() uses loose != comparisons for signature verification, allowing a JSON body with boolean true values for idWebsite and sign to pass all checks on any configured installation.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-95816",
+      "published": "2026-10-14T04:18:56.647",
+      "description": "The Smart Forms – when you need more than just a contact form plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'formString' parameter in all versions up to, and including, 2.6.104 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The nonce check protecting the rednao_smart_forms_save_form_values AJAX handler is only enforced when the smart_forms_block_anonymous_submissions option is enabled, meaning default installations require no authentication or nonce verification whatsoever to submit and store malicious payloads.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-97398",
+      "published": "2026-10-14T04:19:05.300",
+      "description": "The FV Flowplayer Video Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'synopsis' Shortcode Attribute in all versions up to, and including, 7.5.54.7212 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the 'Parse Vimeo and YouTube links' (parse_comments) option to be enabled and the liststyle attribute set to \"season\" for the vulnerable code path to be reached.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-101924",
+      "published": "2026-10-14T05:16:41.567",
+      "description": "The NewStatPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 1.4.5 via the 'Last referrers' meta box on the plugin's Overview admin page. This is due to insufficient output escaping of the visitor-supplied query string that the plugin records in its statistics table: the newstatpress_generate_overview_lastreferrers() function concatenates the stored urlrequested value into a single-quoted href attribute after only FILTER_SANITIZE_URL, which does not encode the apostrophe. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a high-privileged user, such as an administrator, accesses the Overview page and hovers the injected link.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-100185",
+      "published": "2026-10-14T04:18:03.807",
+      "description": "The Directorist: AI-Powered Business Directory, Listings & Classified Ads plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'phone' Listing Field in all versions up to, and including, 8.10.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is possible because the plugin grants the edit_at_biz_dirs and publish_at_biz_dirs capabilities to the subscriber role, allowing any subscriber-level user to submit and publish listings without moderation.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-107652",
-      "published": "2026-10-14T02:16:57.297",
-      "description": "The Database Addon for Contact Form 7 – CFDB7 plugin for WordPress is vulnerable to Arbitrary File Deletion in versions up to, and including, 1.4.1. This is due to the plugin storing arbitrary (non-form-tag) submission fields in its db7_forms row and the process_bulk_action() delete handler then matching any stored key whose name contains the substring 'cfdb7_file' and passing the stored value directly to unlink() without validating that the file actually belongs to the submission being deleted or constraining the filename with basename()/realpath(). This makes it possible for unauthenticated attackers to inject a crafted multipart field.",
+      "id": "CVE-2026-16495",
+      "published": "2026-10-14T04:18:18.150",
+      "description": "The Countdown Timer – Widget Countdown plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'redirect_url' Shortcode Attribute in all versions up to, and including, 3.0.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-95807",
+      "published": "2026-10-14T04:18:56.290",
+      "description": "The FV Player 8 plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'synopsis' Shortcode Attribute in all versions up to, and including, 8.1.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Unauthenticated visitors can also exploit this vulnerability when the 'Parse Vimeo and YouTube links' (parse_comments) setting is enabled, as this causes the plugin to process shortcodes within comment text.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-97020",
+      "published": "2026-10-14T04:19:04.767",
+      "description": "The PO/MO Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'podata' parameter in all versions up to, and including, 1.4.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is loaded as a replacement .po/.mo translation file via the plugin's own load_textdomain_mofile filter, causing WordPress to serve the attacker-written translation in place of the original core strings.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-97471",
+      "published": "2026-10-14T04:19:05.483",
+      "description": "The Avada (Fusion) Builder plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.16.1 via the 'args[link_target]' parameter. This makes it possible for unauthenticated attackers to extract arbitrary user meta values for any user ID, including administrator email addresses, login names, wp_user_level, and WooCommerce customer PII such as billing_email, billing_phone, and billing_address_1. The awb-instagram-nonce required to trigger this endpoint is printed in plaintext in fusionInstagramVars on any page rendering the [fusion_instagram] shortcode, making it harvestable by any anonymous visitor before the exploit request is sent.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-86573",
-      "published": "2026-10-14T02:17:01.147",
-      "description": "Out-of-bounds write vulnerability in Hitachi Disk Array Driver for AIX and Hitachi Disk Array Driver for Virtual I/O Server.\n\nThis issue affects Hitachi Disk Array Driver for AIX: from 01-00 before 01-23-/A; Hitachi Disk Array Driver for Virtual I/O Server: from 01-04 before 01-23-/A.",
+      "id": "CVE-2026-100193",
+      "published": "2026-10-14T04:18:03.967",
+      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'tab' parameter in all versions up to, and including, 4.1.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. Exploitation requires the targeted lesson page to have an empty nav-items array — a condition that occurs naturally when a lesson has no post content, no attachments, and comments are disabled or the viewer is not logged in — which bypasses the in_array() tab validation and allows the raw attacker-controlled value to reach the sink.",
       "severity": "MEDIUM",
-      "score": 5.1
-    },
-    {
-      "id": "CVE-2026-86607",
-      "published": "2026-10-14T02:17:01.270",
-      "description": "Internal Application Information Exposure Vulnerability in Hitachi Ops Center Administrator.\n\n\nThis issue affects Hitachi Ops Center Administrator: before 11.0.9-01.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-108473",
-      "published": "2026-10-14T01:17:06.030",
-      "description": "Multiple\nKasa devices contain an improper authentication vulnerability in the local\ndevice-management protocol. An unauthenticated adjacent attacker may send\nmanagement instructions to an affected device without adequate authentication\nor authorization, allowing modification of the device state or management\nsettings. Under certain usage conditions involving interaction between the\nuser, mobile application, and device-cloud service, insufficient protection of\naccount-related communications may also expose account information.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may allow an unauthenticated adjacent-network attacker to perform\nunauthorized device-management actions and disrupt legitimate user control.\nUnder certain conditions, account-related information may also be exposed,\npotentially leading to compromise of the associated cloud account.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-110385",
-      "published": "2026-10-14T01:17:06.337",
-      "description": "A remote code execution vulnerability in ONLYOFFICE Document Server versions before10.0.0 allows an authenticated attacker with a valid Inbox-compatible JWT to execute arbitrary operating system commands as the ds service account. The Document Builder API improperly processes user-controlled converter XML supplied through the optional third argument of builder.SaveFile(). By injecting a duplicate m_sFileTo element, an attacker can override the server-generated output path and write arbitrary content outside the designated job directory. This allows the attacker to overwrite the runtime.json configuration file, modify the Document Builder executable path and arguments, and execute arbitrary commands when a subsequent Document Builder job is processed.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 4.7
     }
   ]
 }
