@@ -1,143 +1,143 @@
 {
-  "totalResults": 4737,
+  "totalResults": 4708,
   "items": [
     {
-      "id": "CVE-2026-110536",
-      "published": "2026-10-14T19:17:10.610",
-      "description": "A vulnerability was determined in D-Link DIR-868L 2.01b05. This impacts the function system of the file /htdocs/cgibin of the component HNAP CGI Handler. Executing a manipulation of the argument SOAPACTION can lead to os command injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-102944",
-      "published": "2026-10-14T19:17:06.347",
-      "description": "cpp-httplib is a C++ header-only HTTP/HTTPS library. Prior to 0.51.0, create_redirect_client() removes Host, Proxy-Authorization, and Authorization headers when following a cross-origin 301, 302, 307, or 308 redirect but leaves Cookie headers attached. detail::redirect() copies the request for those redirect codes, so cookies supplied directly or through default_headers_ are sent to the redirect target. An attacker who controls a redirect response, or a network position for a non-HTTPS origin, can receive session cookies intended for the original origin. A 303 redirect is not affected because that path clears all request headers. This issue is fixed in version 0.51.0.",
+      "id": "CVE-2026-110838",
+      "published": "2026-10-14T23:17:24.023",
+      "description": "FreeRDP shadow server from 3.0.0 before 3.32.0 dispatches input PDUs during the Confirm Active state before authentication, allowing unauthenticated attackers to inject keyboard input. Attackers can negotiate TLS-only RDP and send an input PDU without Confirm Active to inject synthetic keystrokes into the host user's X11 session via XTEST.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-102354",
-      "published": "2026-10-14T19:17:04.877",
-      "description": "BentoPDF is a privacy-focused PDF toolkit that runs in the browser. In versions through 2.8.6, cloudflare/cors-proxy-worker.js performs a DNS-over-HTTPS safety check in hostnameResolvesToPrivate(), as used by isValidCertificateUrl() and isValidTsaUrl(), separately from the outbound fetch(targetUrl, ...). In deployments where PROXY_SECRET validation is not enabled, a direct client that controls authoritative DNS can forge the Origin header, supply a certificate, OCSP, CRL, or TSA URL that passes the proxy's accepted path checks, return a public address during validation, and return a private or link-local address during the later fetch. The endpoint can return allowed response bodies to the attacker, but exploitation requires precise timing, redirects and IP-literal obfuscation are blocked, and network reachability limits the target. This vulnerability is fixed in 2.8.7.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-110837",
+      "published": "2026-10-14T23:17:23.853",
+      "description": "FreeRDP 2.0.0 before 3.32.0, when built with WITH_LAME=ON and WITH_DSP_FFMPEG=OFF, has a heap-based buffer overflow in freerdp_dsp_decode_mp3 because the right-channel PCM pointer is offset by a byte count treated as short elements. A malicious RDP server can send MP3 audio over rdpsnd so decoded samples cross the heap allocation, crashing the client.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-110666",
-      "published": "2026-10-14T19:17:11.377",
-      "description": "A vulnerability was identified in cemtan sar2html 4.0.0. Affected is the function updateDb of the file sar2html.py of the component File Upload. The manipulation leads to path traversal. Remote exploitation of the attack is possible. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-110839",
+      "published": "2026-10-14T23:17:24.173",
+      "description": "FreeRDP 3.3.0 before 3.32.0, when built with WINPR_UTILS_IMAGE_JPEG=ON, has a heap-based out-of-bounds write in winpr_convert_from_jpeg because grayscale JPEG buffers are sized from one input component rather than three BGR output components. A malicious RDP server can offer a grayscale JPEG via clipboard redirection, corrupting client memory and crashing it when the item is pasted as CF_DIB bitmap data.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-110829",
+      "published": "2026-10-14T23:17:22.597",
+      "description": "FreeRDP versions from 3.0.0 before 3.32.0 contain a null pointer dereference in the rdpsnd channel when a fragment sets CHANNEL_FLAG_LAST without CHANNEL_FLAG_FIRST. A malicious RDP server can send a malformed rdpsnd PDU on a fresh channel to crash the client and cause denial of service.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-102460",
-      "published": "2026-10-14T19:17:05.050",
-      "description": "In Eclipse Vert.x versions [4.0.0, 4.5.34] or [5.0.0,5.0.12] or [5.1.0,5.1.9] or [5.2.0, 5.2.0], a scope bypass vulnerability exists in Eclipse Vert.x Web's ChainAuthHandler when used with scope-requiring authentication handlers such as JWTAuthHandler or OAuth2AuthHandler. When a user is already authenticated on the routing context by a preceding handler in the request pipeline, ChainAuthHandler skips all scope validation configured via withScope() or withScopes(). This affects both any() and all() chain modes.\n\n\n\nThe root cause is that postAuthentication() relies on internal state that is only set during the authenticate() phase, which is skipped entirely for pre-authenticated users. In any() mode, the absence of this state causes the method to fall through without delegating scope checks to any handler. In all() mode, scope checks are unconditionally skipped.\n\n\n\nThis allows a user with a valid token but insufficient scopes to access resources protected by scope requirements, provided they were authenticated by an earlier handler in the pipeline. The most common trigger is overlapping authentication handlers on nested routes, where a parent route authenticates broadly and a child route uses a chain to enforce specific scopes.\n\n\n\nThe impacted component Maven coordinate is io.vertx:vertx-web",
+      "id": "CVE-2026-110832",
+      "published": "2026-10-14T23:17:23.023",
+      "description": "FreeRDP from 2.0.0 before 3.32.0 contains a memory exhaustion vulnerability in wts_read_drdynvc_data_first that allows authenticated clients to force servers to commit large memory allocations. Attackers can send a seven-byte DATA_FIRST message on an opened DVC declaring a large 32-bit length, causing zeroed resident memory growth and server resource exhaustion.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-110834",
+      "published": "2026-10-14T23:17:23.300",
+      "description": "FreeRDP from 2.0.0 before 3.32.0 contains a null pointer dereference vulnerability that allows malicious RDP servers to crash clients by sending out-of-lifecycle serial IRPs. Attackers can send IRP_MJ_READ or IRP_MJ_WRITE before create or after close, causing CommReadFile or CommWriteFile to dereference a null handle and terminate clients using Linux serial redirection.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-110836",
+      "published": "2026-10-14T23:17:23.593",
+      "description": "FreeRDP from 3.0.0 before 3.32.0 contains an infinite loop vulnerability in http_response_recv() that allows malicious gateways to exhaust client CPU via crafted Content-Type headers. Attackers controlling a gateway can return a nonzero Content-Length with a semicolon-containing unrecognized Content-Type, pinning a client thread at full CPU indefinitely.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-110830",
+      "published": "2026-10-14T23:17:22.737",
+      "description": "FreeRDP before 3.32.0 fails to close prior serial handles in serial_process_irp_create, allowing a malicious RDP server to exhaust file descriptors. Attackers can send repeated serial IRP_MJ_CREATE requests to accumulate descriptors and terminate the client at the CommReadFile FD_SETSIZE assertion.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-102471",
-      "published": "2026-10-14T19:17:05.180",
-      "description": "In Eclipse Vert.x versions [4.0.0, 4.5.34] or [5.0.0,5.0.12] or [5.1.0,5.1.9] or [5.2.0, 5.2.0], the vertx-mail-client does not sanitize CR (\\r) or LF (\\n) characters in user-supplied email header names and values before writing them into the SMTP DATA section. A CR/LF sequence embedded in a name or value passed to MailMessage.addHeader(), MailMessage.setHeaders(), MailAttachment.addHeader(), or MailAttachment.setHeaders() is written verbatim to the wire, allowing an attacker to inject arbitrary headers (e.g. Bcc, Reply-To, Content-Type) or prepend body content to the outgoing message.\n\n\n\nThe same weakness affects MIME part metadata set via MailAttachment.setContentType(), setDisposition(), setDescription(), and setContentId(), which are written directly into MIME part headers without validation.\n\n\n\nA secondary weakness in Utils.mustEncode(char) additionally allows a bare LF in a From display-name to bypass Q-encoding and reach the wire unchanged.\n\n\n\nAn unauthenticated attacker who can control any header name, header value, or attachment metadata field passed to the mail client (for example via a web form or API that feeds into MailMessage) can exploit this to redirect email copies, spoof headers, or tamper with message structure.\n\n\n\nThe impacted component is io.vertx:vertx-mail-client.",
+      "id": "CVE-2026-110833",
+      "published": "2026-10-14T23:17:23.160",
+      "description": "FreeRDP from 3.0.0-beta1 before 3.32.0 fails to enforce cumulative or absolute size limits when reassembling RDPDR channel fragments in the proxy. Attackers can send a FIRST fragment followed by continuation fragments without LAST, growing per-session heap streams proportional to traffic and exhausting proxy memory.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-102479",
-      "published": "2026-10-14T19:17:05.313",
-      "description": "In Eclipse Vert.x versions [5.0.0,5.0.12] or [5.1.0,5.1.9] or [5.2.0, 5.2.0], the Vert.x HTTP/1.x decoder uses a canonicalization for well known HTTP headers, the canonicalization process interprets well crafted headers as headers of this list, allowing for instance Content-Xength to be interpeted as Content-Length.\n\n\n\nThis can be exploited for request smuggling purpose.\n\n\n\nThe impacted component is io.vertx:vertx-core.",
+      "id": "CVE-2026-110807",
+      "published": "2026-10-14T23:17:22.390",
+      "description": "A weakness has been identified in sgl-project SGLang up to 0.5.19. Affected by this vulnerability is an unknown functionality of the file python/sglang/srt/managers/io_struct.py of the component generate Endpoint. This manipulation of the argument session_params causes denial of service. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-102682",
-      "published": "2026-10-14T19:17:05.550",
-      "description": "Pipecat is an open-source Python framework for building real-time voice and multimodal conversational agents. From 0.0.98 until 1.6.0, the pipecat-ai package's built-in development runner exposes unauthenticated endpoints including /start, /daily, and /daily-dialin-webhook that can create bot sessions and Daily rooms. The runner binds to localhost by default and is intended only for local development, so exploitation requires an operator to expose it to untrusted traffic through --host 0.0.0.0, a published port, or a tunnel without access controls. An unauthenticated caller can consume local resources and third-party quotas and, depending on configuration, receive a room URL and join token. Version 1.6.0 adds a prominent development-runner banner and documentation that clarifies the unauthenticated boundary and directs production deployments to an authenticated dispatcher or managed runtime, while the endpoint behavior remains by design. This issue is fixed in version 1.6.0.",
+      "id": "CVE-2026-110831",
+      "published": "2026-10-14T23:17:22.880",
+      "description": "FreeRDP versions 3.13.0 before 3.32.0 contain a resource retention flaw in drive_process_irp_create, which registers an opened local file in the drive dictionary before applying the allocation size and does not remove it when that operation fails. A malicious RDP server connected to a client with drive redirection enabled can send IRP_MJ_CREATE with AllocationSize set to UINT64_MAX, forcing the seek to fail and leaking the file object and operating-system handle until drive teardown.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-103974",
-      "published": "2026-10-14T19:17:07.843",
-      "description": "lichess.org is the forever free, adless and open source chess server. Prior to commit c54596c9e1569d378fe20f80d4c790c6fdee54c4, a user who can add a chapter to a study can place attacker-controlled text in the PGN Annotator tag, which becomes Comment.Author.External and is returned verbatim by authorText. When a study node has at least two comments, ui/analyse/src/treeView/inlineView.ts interpolates that author string into HTML passed to the innerHTML hook without escaping it. Opening the affected study can therefore render stored attacker-controlled HTML and CSS for other viewers, including navigation to an attacker-controlled site, content spoofing, and CSS-based data exposure, although the site's content security policy blocks injected JavaScript. This vulnerability is fixed by commit c54596c9e1569d378fe20f80d4c790c6fdee54c4.",
+      "id": "CVE-2026-110835",
+      "published": "2026-10-14T23:17:23.433",
+      "description": "FreeRDP 3.0.0 before 3.32.0 allows HTTP header injection in its proxy because a lone LF in the target portion of a routing token (Cookie: msts=) is not rejected and is written by http_proxy_connect into the CONNECT request line and Host header. A remote unauthenticated RDP client connecting to a proxy using FixedTarget=false and an upstream HTTP proxy can alter HTTP request/header framing at that upstream proxy.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4
     },
     {
-      "id": "CVE-2026-110248",
-      "published": "2026-10-14T19:17:10.343",
-      "description": "Insertion of sensitive information into log files in the git_utils[.]py component in Amazon SageMaker Python SDK V3 before 3.10.0 and V2 before 2.257.3 might allow an authenticated remote user to obtain plaintext repository credentials from CloudWatch Logs when a git clone operation fails, because the runclone_command() function does not redact credentials from subprocess error output.\n\n\n\nTo remediate this issue, users should upgrade to Amazon SageMaker Python SDK V3 3.10.0 or V2 2.257.3.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-103930",
-      "published": "2026-10-14T19:17:07.657",
-      "description": "cpp-httplib is a C++ header-only HTTP/HTTPS library. From 0.29.0 until 0.51.0, Client::open_stream in httplib.h accepts a caller-controlled path that reaches detail::write_request_line() without the detail::encode_path() protection used by the ordinary buffered request path. Raw carriage-return and line-feed bytes in the path can therefore split the outbound HTTP/1.1 request line and inject attacker-shaped request metadata. Exploitation requires an embedding application to pass remote user input into the open_stream path and a backend or intermediary that interprets the injected bytes; the established impact is modification of backend-visible request data, not direct confidentiality or availability impact. This issue is fixed in version 0.51.0.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-100406",
-      "published": "2026-10-14T19:16:59.847",
-      "description": "dbt enables data analysts and engineers to transform their data using the same practices that software engineers use to build applications. From 2.0.0-alpha.0 until 2.0.0-alpha.5, dbt docs serve exposes the unauthenticated POST /api/v1/query endpoint in crates/dbt-docs-server/src/handlers/query.rs, which passes caller-supplied SQL to DuckDbViewsBackend::query_arrow() in crates/dbt-index-core/src/backend.rs without authorization or an allowlist. A client that can reach the server can invoke DuckDB filesystem-reading functions to read files available to the dbt process, including files outside the docs index directory. The server binds to localhost by default, but operators can expose it to a network through the host option or DBT_DOCS_HOST setting. This issue is fixed in version 2.0.0-alpha.5.",
+      "id": "CVE-2026-105627",
+      "published": "2026-10-14T23:17:22.000",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-102748",
-      "published": "2026-10-14T19:17:05.700",
-      "description": "Dgraph is an open source distributed GraphQL database. Prior to 25.4.0, Dgraph Zero registers administrative HTTP routes on port 6080 without authentication when the administrative interface is enabled. The /removeNode route accepts attacker-controlled id and group values and passes them to Server.RemoveNode, where group 0 can trigger ProposePeerRemoval. A remote unauthenticated attacker who can reach the Zero HTTP port can read topology through /state, allocate identifiers through /assign, access the exposed /moveTablet administrative route, or remove membership through /removeNode, disrupting the Zero control plane and destabilizing Alpha nodes that depend on Zero. The route registration occurs in dgraph/cmd/zero/run.go, and the demonstrated membership-removal path reaches Server.RemoveNode and ProposePeerRemoval. This issue is fixed in version 25.4.0.",
+      "id": "CVE-2026-106006",
+      "published": "2026-10-14T23:17:22.073",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-102755",
-      "published": "2026-10-14T19:17:05.857",
-      "description": "DataEase is an open source data visualization and analysis tool. Prior to 2.10.26, authenticated users with folder creation permission can store HTML-bearing names through datasource/createFolder or datasetTree/save. The datasource and dataset Move to dialogs in core/core-frontend/src/views/visualized/data/datasource/form/CreatDsGroup.vue and core/core-frontend/src/views/visualized/data/dataset/form/CreatDsGroup.vue read the stored name from a node title attribute and assign search-highlighted content to innerHTML. When another user opens a Move to dialog and types in its search box, attacker-controlled JavaScript can execute in the victim's DataEase session. This issue is fixed in version 2.10.26.",
+      "id": "CVE-2026-106068",
+      "published": "2026-10-14T23:17:22.130",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-102756",
-      "published": "2026-10-14T19:17:06.013",
-      "description": "DataEase is an open source data visualization and analysis tool. Prior to 2.10.26, authenticated users who can edit dataset fields and chart configuration can store an HTML-bearing dimension value in a bar-horizontal chart. When lengthLimit truncates the category axis label, configAxisLabelLengthLimit in core/core-frontend/src/views/chart/components/js/panel/common/common_antv.ts retrieves the full label and assigns it to the g2-tooltip-title element through innerHTML. A victim who opens the dashboard and hovers the truncated label can execute attacker-controlled JavaScript in the victim's DataEase session. This issue is fixed in version 2.10.26.",
+      "id": "CVE-2026-106485",
+      "published": "2026-10-14T23:17:22.190",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-102899",
-      "published": "2026-10-14T19:17:06.170",
-      "description": "Sentry is an application monitoring and error tracking platform. From 26.5.0 until 26.7.2, the SAML SSO identity-linking flow allows an attacker who controls a SAML identity provider to socially engineer an authenticated user into opening a malicious URL, link the attacker's identity to the victim's Sentry account, and take control of that account. The attack requires a browser that accepts the cross-site cookie context, including Firefox with SameSite=None cookies or Chromium with third-party cookies enabled. Sentry SaaS received the remediation on July 27, 2026, and self-hosted Sentry is fixed in version 26.7.2.",
+      "id": "CVE-2026-107795",
+      "published": "2026-10-14T23:17:22.250",
+      "description": "Omada Controller's MSP and OpenAPI certificate/private-key management APIs do not properly enforce administrative authorization, allowing an authenticated user to perform privileged certificate management operations. \n\nSuccessful exploitation may allow a low-privileged authenticated user to upload or delete the controller's TLS certificate or private key, potentially disrupting secure management access.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-104141",
-      "published": "2026-10-14T19:17:08.013",
-      "description": "DataEase is an open source data visualization and analysis tool. Authenticated users with datasource access can supply crafted schema names, connection usernames, table names, or database names to datasource metadata operations, including getSchema, validate, save, and update flows. CalciteProvider inserts these identifiers into metadata queries that are executed through a plain JDBC Statement, allowing the generated SQL to be altered and run against the configured backend with application-held datasource credentials. The issue can compromise the confidentiality, integrity, and availability of the connected database without requiring a victim action.",
+      "id": "CVE-2026-110840",
+      "published": "2026-10-14T23:17:24.320",
+      "description": "n8n before 2.41.4 and 2.42.x before 2.42.1 contains an SQL injection vulnerability in version 1 of the Microsoft SQL node, which substitutes Query field expression values directly into SQL text without parameterisation. When a workflow binds untrusted input such as webhook fields to the Query field, unauthenticated external callers can execute arbitrary SQL against the connected database with the stored credential's privileges.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-104142",
-      "published": "2026-10-14T19:17:08.177",
-      "description": "DataEase is an open source data visualization and analysis tool. Prior to 2.10.26, authenticated users can store crafted FieldGroupDTO.min, FieldGroupDTO.max, FieldGroupDTO.startTime, or FieldGroupDTO.endTime values in dataset group-field binning definitions. Utils.transGroupFieldToSql inserts these free-form values into generated CASE expressions without validation, and the resulting SQL can reach unparameterized backend query execution when a chart uses the field. This stored SQL injection can compromise the confidentiality, integrity, and availability of the configured backend database. This issue is fixed in version 2.10.26.",
+      "id": "CVE-2026-110841",
+      "published": "2026-10-14T23:17:24.477",
+      "description": "n8n before 2.41.4 and 2.42.0 contains an authorization bypass in the agent chat resume endpoint, which accepts a run identifier from the request body without verifying that the suspended checkpoint belongs to the caller. Authenticated project members can list and read other members' private agent conversations through project-scoped endpoints, then approve their pending tool calls, causing the tools to execute and write results into the victim's conversation.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-104143",
-      "published": "2026-10-14T19:17:08.347",
-      "description": "DataEase is an open source data visualization and analysis tool. Prior to 2.10.26, authenticated users can store a crafted custom dateFormat for a dataset field. DatasetTableFieldDTO.dateFormat is inserted without validation into date conversion templates used by Dimension2SQLObj, CustomWhere2Str, Field2SQLObj, WhereTree2Str, and ExtWhere2Str. When a chart renders the field on a cross-datasource dataset, Calcite parsing is bypassed and the crafted format can directly alter the generated SQL. On a single-datasource dataset, exploitation additionally requires the payload to survive Calcite reserialization as a valid string literal. Successful exploitation can compromise the confidentiality, integrity, and availability of the backend database. This issue is fixed in version 2.10.26.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-109506",
-      "published": "2026-10-14T19:17:09.820",
-      "description": "Multiple\nTP-Link Wi-Fi range extenders use a custom, reversible XOR-and-dictionary\ntransformation in the HTTP web-management login flow. An unauthenticated attacker\non the same local network who can capture the network traffic associated with\nlegitimate administrator login may be able to derive an alternative credential\nvalue that produces the same accepted authentication result and use it to\nauthenticate to the device’s web-management interface with administrator\nprivileges. Exploitation requires the management login to use HTTP and the\nattacker to observe the session key, dictionary, and login value associated\nwith a legitimate administrator login.\n\n\n\n\n\nSuccessful\nexploitation may allow an unauthenticated adjacent attacker to gain\nadministrator access to the affected device and modify exposed configuration\nsettings.",
+      "id": "CVE-2026-110842",
+      "published": "2026-10-14T23:17:24.637",
+      "description": "n8n before 2.41.4 and 2.42.x before 2.42.1 contains a prototype pollution vulnerability in the MCP workflow-validation tool, whose interpreter evaluates caller-supplied code in the main process, reads inherited properties, and permits assignment onto shared prototypes. An authenticated member holding only a workflow:read grant can replace a built-in method with one returning a truthy value so server-side permission checks accept unheld scopes, enabling takeover of owner accounts not protected by MFA.",
       "severity": "UNKNOWN",
       "score": null
     }
