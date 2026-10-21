@@ -1,143 +1,143 @@
 {
-  "totalResults": 5020,
+  "totalResults": 5002,
   "items": [
     {
-      "id": "CVE-2026-103904",
-      "published": "2026-10-14T11:16:58.903",
-      "description": "The public consent endpoint of JTL-Shop accepts arbitrary\nconsent names from unauthenticated visitors without validating\nthem against the configured consent items. These names are stored in the consent\nstatistics and rendered without output encoding in the administration\nbackend. An unauthenticated remote attacker can thereby inject script code that\nis executed in the browser session of an administrator viewing the consent\nstatistics page, allowing actions to be performed with the administrator's\nprivileges.",
+      "id": "CVE-2020-37282",
+      "published": "2026-10-14T15:16:59.520",
+      "description": "office-converter through 1.0.2 contains an OS command injection vulnerability that allows attackers to execute commands by supplying a crafted fileName to generatePdf() or generateHtml(). Attackers can embed $(...), backticks, or a closing quote with shell metacharacters in the file name, which is concatenated into an unoconv command run via child_process.exec(), executing commands with Node.js process privileges.",
       "severity": "CRITICAL",
-      "score": 9.3
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-86476",
-      "published": "2026-10-14T10:17:56.850",
-      "description": "A flaw was found in gst-plugins-base. A heap buffer overflow can be triggered when processing video buffers whose attached GstVideoMeta metadata declares plane strides and offsets that exceed the actual backing memory allocation. The metadata is not range-checked during deserialization, and the video frame mapping code does not verify that the declared plane geometry fits within the buffer before allowing consumers to read or write video data. A local attacker who controls the sending side of a GStreamer inter-process IPC pipeline can deliver a crafted buffer carrying fabricated strides, causing the receiving process to read or write beyond heap boundaries. Successful exploitation can cause a denial of service or potentially allow code execution within the affected process.",
+      "id": "CVE-2020-37281",
+      "published": "2026-10-14T15:16:59.370",
+      "description": "Gravitee API Management through 4.12.22 contains an authentication bypass vulnerability that allows unauthenticated remote attackers to impersonate any user by forging JWTs signed with the shipped default jwt.secret. Attackers knowing an existing user ID can sign an HS256 token with that subject and present it as a bearer token to the Management API, impersonating administrators to gain full platform control.",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-73793",
-      "published": "2026-10-14T10:17:56.480",
-      "description": "HPE NonStop Middleware software has secret key handling and data deserialization vulnerability.",
-      "severity": "HIGH",
-      "score": 7.9
-    },
-    {
-      "id": "CVE-2026-90954",
-      "published": "2026-10-14T10:17:57.297",
-      "description": "A flaw was found in BusyBox's dpkg-deb archive extraction. The ar archive handler flushes deferred symlinks after each archive member, unlike the tar, cpio, and unzip handlers which flush once after the last member. A specially crafted .deb archive with two data.tar members can exploit this ordering: the first member declares a symlink pointing to an absolute path (e.g., '/'), which is deferred as unsafe but flushed after the first member. The second member declares a regular file whose path traverses the now-live symlink, resulting in a file being written outside the intended extraction directory. This could allow an attacker to write arbitrary files to arbitrary locations when a user extracts a crafted .deb package.",
+      "id": "CVE-2017-20286",
+      "published": "2026-10-14T15:16:59.163",
+      "description": "DevIL through 1.8.0 contains a heap-based buffer overflow in iGetPalette() in il_gif.cpp that allows attackers to write beyond a 768-byte palette buffer when loading GIF images. Attackers can supply a crafted two-frame GIF whose second frame uses disposal method 1 with a local colour table, writing up to 384 controlled bytes past the heap allocation and possibly executing code.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-103358",
-      "published": "2026-10-14T11:16:57.670",
-      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in VillaTheme Email Template Customizer for WooCommerce email-template-customizer-for-woo allows Code Injection.This issue affects Email Template Customizer for WooCommerce: from n/a through 1.3.4.",
+      "id": "CVE-2025-71433",
+      "published": "2026-10-14T15:17:00.837",
+      "description": "Kaneo before 2.1.6 contains a missing authorization vulnerability that allows authenticated users to access other workspaces by supplying project, task, label or workspace identifiers to API routes lacking membership checks. Attackers who obtain identifiers, for example from shared project links, can read projects and tasks, modify or delete tasks, labels and comments, and search workspace contents.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-88829",
-      "published": "2026-10-14T10:17:57.077",
-      "description": "A flaw was found in BusyBox httpd's reverse proxy feature. When the proxy is configured to forward requests matching a URL prefix to a backend server, only the first HTTP request on a TCP connection has its path rewritten. An attacker can send a pipelined second request that is relayed verbatim to the backend, bypassing the configured path restrictions. This allows accessing arbitrary paths on the backend server that were not intended to be exposed through the proxy.",
+      "id": "CVE-2026-104939",
+      "published": "2026-10-14T15:17:05.260",
+      "description": "Description\nNGINX Ingress Controller has a vulnerability when implementing an externalAuth policy for ingress. NGINX Ingress Controller may mishandle the HTTP response from an OAuth IdP and allow an attacker to acquire unauthenticated access to protected paths before the proper external authentication can happen.\n\n\n\nImpact\nThis vulnerability may allow remote attackers \n\nunauthenticated\n\n access to protected \n\npaths. There is no control plane exposure; this is a data plane issue only.\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-100229",
-      "published": "2026-10-14T11:16:56.620",
-      "description": "A flaw was found in GStreamer's H.266 codec parser library (libgstcodecparsers). An out-of-bounds write vulnerability exists in the DCI parsing function, where a reserved field value is incorrectly accepted, causing the parser to write beyond the bounds of an internal structure. An attacker could exploit this by providing a specially crafted H.266 bitstream to a third-party application that uses this library API, potentially causing a crash or memory corruption. No standard GStreamer pipeline element currently invokes the affected code path.",
+      "id": "CVE-2026-101019",
+      "published": "2026-10-14T15:17:01.697",
+      "description": "Description\nNGINX JavaScript (njs) has a vulnerability where the njs XML module exposes entity-backed XML attributes inconsistently with libxml2 canonicalization. In both the built-in njs and QuickJS backends during the canonicalization process, the $attr$Name getter may return undefined for an explicitly present attribute containing an internal entity reference. The $attrs getter may return a value derived only from the first attribute child. This may allow an unauthenticated attacker that invests significant effort in obtaining a genuinely signed document to skip validation while signature verification succeeds. An nginx-saml deployment is a confirmed affected consumer when run with the built-in njs backend.\n\nImpact\nIn affected signed-XML consumers, an unauthenticated attacker can cause security-relevant attributes to appear absent or truncated while signature verification succeeds. In nginx-saml, this can bypass expiry, Destination, and request-correlation checks, enabling replay or acceptance of a response outside its intended context. It does not permit signature or identity forgery, or a direct availability impact. There is no control plane exposure; this is a data plane issue only.\n\n\n\n Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-103308",
-      "published": "2026-10-14T11:16:57.547",
-      "description": "The Visma Pay for WooCommerce WordPress plugin before 1.2.2 does not verify the authenticity of payment gateway return requests, relying on a merchant secret that is empty on a store which has not entered its credentials, allowing unauthenticated attackers to mark arbitrary orders as paid and to disclose the name, email address and postal address of any order's customer.",
+      "id": "CVE-2026-107381",
+      "published": "2026-10-14T15:17:06.327",
+      "description": "svg-sanitizer is a PHP SVG/XML sanitizer. Prior to 1.0.0, Resolver::processReferences() in src/ElementReference/Resolver.php builds the SVG <use> reference graph with a case-sensitive href attribute predicate before cleanHrefAttributes() normalizes mixed-case names. An attacker can provide xlink:HrEf on nested <use> elements so the graph omits those references, after which the sanitizer converts the attribute to canonical xlink:href and returns the live nesting structure without applying the useNestingLimit protection. A consuming application that renders the sanitized SVG can therefore be exposed to the resource exhaustion that control is designed to prevent. This issue is fixed in version 1.0.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-100231",
-      "published": "2026-10-14T10:17:50.483",
-      "description": "A flaw was found in the GStreamer multimedia framework's ASF muxer plugin (asfmux). When writing string metadata tags containing Unicode characters outside the Basic Multilingual Plane (such as emoji) to an ASF container, the plugin incorrectly calculates the buffer size needed for the UTF-16LE representation. The size calculation assumes each Unicode code point requires 2 bytes, but non-BMP characters require 4 bytes (surrogate pairs). This leads to a heap out-of-bounds write when the actual UTF-16LE conversion is written into the undersized buffer. An attacker could exploit this by providing media with crafted metadata tags to an application that transcodes or remuxes to ASF format while preserving metadata, potentially causing a denial of service or limited memory corruption.",
+      "id": "CVE-2016-20099",
+      "published": "2026-10-14T15:16:58.003",
+      "description": "L-SMASH through 2.14.5 contains an infinite loop vulnerability in vc1_importer_probe() in importer/vc1_imp.c that allows attackers to hang applications via crafted input files. Attackers can supply a file consisting only of zero bytes, which lsmash_read_file() probes automatically, causing indefinite CPU consumption and denial of service.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-101301",
-      "published": "2026-10-14T11:16:56.760",
-      "description": "The WPCode WordPress plugin before 2.4.0 does not correctly verify that a request is genuinely for the login screen before entering its snippet safe mode, allowing unauthenticated visitors to disable all of the site's automatically inserted snippets for their own requests.",
+      "id": "CVE-2026-110257",
+      "published": "2026-10-14T15:17:07.350",
+      "description": "OW2 ASM 5.0 before 9.11 contains an excessive memory allocation vulnerability in ClassReader.readBootstrapMethodsAttribute() that sizes an int array from num_bootstrap_methods without validating attribute_length. Attackers can supply a crafted class file of about 100 bytes that forces roughly 2 GB allocation, causing an OutOfMemoryError that crashes the JVM or consuming thread.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110258",
+      "published": "2026-10-14T15:17:07.503",
+      "description": "OW2 ASM 3.0 before 9.11 contains an excessive memory allocation vulnerability in Label.addSubroutineRetSuccessors() that fails to enforce the single-RET-per-JSR rule. Attackers can supply a crafted invalid class file with multiple RET instructions for one JSR, triggering a roughly 2 GB allocation that crashes the JVM.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110259",
+      "published": "2026-10-14T15:17:07.650",
+      "description": "OW2 ASM 3.0 before 9.11 contains an uncontrolled recursion vulnerability in ClassWriter.replaceAsmInstructions() that allows attackers to cause denial of service through crafted class files. Attackers can supply a class with a large method containing many long forward jumps, triggering unbounded toByteArray() recursion and a StackOverflowError during transformation.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110260",
+      "published": "2026-10-14T15:17:07.793",
+      "description": "OW2 ASM 3.0 before 9.11 contains a quadratic memory allocation vulnerability in MethodWriter.computeMaxStackAndLocal() and computeAllFrames() when using COMPUTE_MAXS or COMPUTE_FRAMES. Attackers can supply a crafted class file with thousands of overlapping exception handlers, causing excessive Edge allocations and an OutOfMemoryError that crashes the JVM.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110261",
+      "published": "2026-10-14T15:17:07.950",
+      "description": "OW2 ASM 3.0 before 9.11 contains a denial of service vulnerability that allows attackers to exhaust CPU by supplying crafted class files processed with ClassWriter.COMPUTE_FRAMES. Attackers can craft methods that make the unbounded MethodWriter.computeAllFrames() fix point algorithm converge slowly, tying up transforming threads for unbounded time.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110263",
+      "published": "2026-10-14T15:17:08.247",
+      "description": "OW2 ASM 3.0 before 9.11 contains an uncontrolled recursion vulnerability in SignatureReader.parseType() that allows attackers to exhaust the stack via deeply nested generic type signatures. Attackers can supply a crafted class file with a long Signature attribute containing many nested type arguments to trigger a StackOverflowError during class transformation, causing denial of service.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110270",
+      "published": "2026-10-14T15:17:08.407",
+      "description": "OW2 ASM 3.0 before 9.11 contains an uncontrolled memory allocation vulnerability in the asm-commons JSRInlinerAdapter that inlines JSR/RET subroutines without memory or work limits. Attackers can supply a crafted class file with nested subroutines to force O(2^n) memory allocation, causing an OutOfMemoryError that crashes the JVM.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-110591",
+      "published": "2026-10-14T15:17:09.910",
+      "description": "OW2 ASM 1.4.3 before 9.11 contains an excessive resource consumption vulnerability in Analyzer.analyze() that allows attackers to exhaust memory and CPU via crafted class files. Attackers can supply class files analysed through BasicVerifier, SimpleVerifier or SourceInterpreter to trigger unbounded per-instruction Frame allocation and fix point iterations, causing denial of service.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-101025",
+      "published": "2026-10-14T15:17:01.880",
+      "description": "Description\n\n\nNGINX JavaScript (njs) has a vulnerability where the built-in njs engine leaks a libxml2 parser context when xml.parse() fails. The failure path did not register cleanup and the context was not released for the lifetime of the process. An unauthenticated attacker may send requests with malformed XML and can cause unbounded memory growth in long-lived NGINX worker processes.\n\nImpact\n\n\nThis vulnerability may allow remote attackers to send requests that trigger repeated parsing of malformed XML and may lead to NGINX worker termination or denial of service. There is no control plane exposure; this is a data plane issue only.\n\n\n\n Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-109969",
-      "published": "2026-10-14T10:17:51.910",
-      "description": "A flaw was found in the clevis PKCS#11 pin. The clevis-pkcs11-afunix-socket-unlock daemon creates AF_UNIX sockets without explicit permission restrictions or peer credential verification. Under a permissive process umask, any local user can connect to the control socket and inject arbitrary device/key pairs, or connect to the data socket to receive LUKS passphrases.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-109970",
-      "published": "2026-10-14T10:17:52.137",
-      "description": "A flaw was found in the clevis PKCS#11 pin. The clevis-luks-pkcs11-askpin script writes the PKCS#11 token PIN in plaintext to a file without setting restrictive permissions. Under the default process umask, the file is world-readable. Additionally, the PIN file is not reliably cleaned up if the decryption script exits early, leaving the PIN accessible indefinitely.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-109971",
-      "published": "2026-10-14T10:17:53.440",
-      "description": "A flaw was found in the clevis PKCS#11 pin. The clevis-decrypt-pkcs11 script passes the PKCS#11 token PIN as a command-line argument to pkcs11-tool, making it visible to any local user through process listing or the /proc filesystem.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-73794",
-      "published": "2026-10-14T10:17:56.670",
-      "description": "HPE NonStop MODULAR NSJ  contains a predictable seed vulnerability in Random Number Generation (PRNG)",
-      "severity": "MEDIUM",
-      "score": 4.6
-    },
-    {
-      "id": "CVE-2026-73792",
-      "published": "2026-10-14T10:17:56.290",
-      "description": "A security vulnerability in HPE NonStop Java JToolkit can allow command Injection and buffer overflow.",
+      "id": "CVE-2024-58392",
+      "published": "2026-10-14T15:17:00.660",
+      "description": "PhysicsFS through 3.2.0 contains an out-of-bounds read vulnerability in __PHYSFS_utf8codepoint() that allows attackers to read past name buffers via an off-by-one cursor advance on six-octet UTF-8 sequences. Attackers can supply a crafted archive with entry names ending in six-octet sequences, causing PHYSFS_utf8stricmp() and hashing to over-read and crash the application.",
       "severity": "LOW",
-      "score": 3.8
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-73791",
-      "published": "2026-10-14T10:17:54.190",
-      "description": "A security vulnerability in HPE NonStop Hpjmeter can cause stack and heap buffer overflow.",
+      "id": "CVE-2026-110262",
+      "published": "2026-10-14T15:17:08.103",
+      "description": "OW2 ASM 3.1 before 9.11 contains an excessive memory allocation vulnerability in the asm-commons AdviceAdapter that allows attackers to exhaust memory by supplying crafted class files. Attackers can craft bytecode with many forward jump targets in constructors, causing unbounded stack copies in forwardJumpStackFrames and allocation of hundreds of megabytes, leading to denial of service.",
       "severity": "LOW",
-      "score": 2
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-101337",
-      "published": "2026-10-14T11:16:56.890",
-      "description": "When base64 data is split up in pieces, of 3 character or less, tokens were incorrectly calculated to produce 0 bytes. This enables attackers to overwrite the stack with up to 64K of attacker controlled data.  Zone files which are written out by NSD itself, such as for zones for which the NSD instance is secondary, will not be formatted like this. The zone file must be fed to NSD directly, (but it could come, for example, from an operator controlled provisioning system).",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101338",
-      "published": "2026-10-14T11:16:57.130",
-      "description": "When a SVCB or HTTPS RR has filled the wire format RDATA up to the brim, another ECH parameter may overwrite the stack, and once beyond the limit, the base64 decoder can write attacker controlled data of unlimited size.  Zone files which are written out by NSD itself, such as for zones for which the NSD instance is secondary, will not be formatted like this. The zone file must be fed to NSD directly, (but it could come, for example, from an operator controlled provisioning system).",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101339",
-      "published": "2026-10-14T11:16:57.300",
-      "description": "A HIP resource record that fills the RDATA near or at is limit, and has another dname RDATA field (a HIP Rendezvous server) can overwrite the stack with up to 191 bytes of attacker controlled data.  Zone files which are written out by NSD itself, such as for zones for which the NSD instance is secondary, will not be formatted like this. The zone file must be fed to NSD directly, (but it could come, for example, from an operator controlled provisioning system).",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101341",
-      "published": "2026-10-14T11:16:57.423",
-      "description": "Tokens of text in RDATA (of for example TXT records) under 32 bytes are not checked to stay within the space reserved for the RDATA allowing for arbitrary sized out of bound stack writes, including an overwrite of a callback function pointer which is called directly after parse.  Zone files which are written out by NSD itself, such for zones for which the NSD instance is secondary, will not be formatted like this. The zone file must be fed to NSD directly, (but it could come, for example, from an operator controlled provisioning system).",
+      "id": "CVE-2026-101895",
+      "published": "2026-10-14T15:17:03.370",
+      "description": "Angular is a development platform for building mobile and desktop web applications using TypeScript/JavaScript and other languages. Prior to 20.3.31, 21.2.23, and 22.1.6, the @angular/platform-server DOM emulation parser can enter an infinite synchronous loop when Angular server-side rendering processes attacker-controlled HTML containing an incomplete DOCTYPE that ends with whitespace at end of input. In Domino lib/HTMLParser.js, after_doctype_name_state emits doctype and EOF tokens without advancing nextchar or leaving the fixed-lookahead state, so the scanner repeatedly handles the same EOF marker. A remote unauthenticated attacker can use this condition through server-side HTML parsing paths such as innerHTML binding to consume a Node.js SSR worker at full CPU, starve the event loop, and stop concurrent and subsequent requests. This issue is fixed in versions 20.3.31, 21.2.23, and 22.1.6.",
       "severity": "UNKNOWN",
       "score": null
     }
