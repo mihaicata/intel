@@ -1,143 +1,143 @@
 {
-  "totalResults": 4800,
+  "totalResults": 4767,
   "items": [
     {
-      "id": "CVE-2026-101306",
-      "published": "2026-10-15T07:17:57.780",
-      "description": "SCM_RIGHTS file descriptor passing did not preserve FD_RESOLVE_BENEATH when a descriptor was transferred.  A process could clear the restriction by sending the descriptor to itself over a Unix domain socket.\n\nA process in a jail that has received a directory file descriptor from another jail can use these techniques to escape the jail's filesystem root restriction.",
+      "id": "CVE-2026-109686",
+      "published": "2026-10-15T13:17:11.540",
+      "description": "Deserialization of Untrusted Data vulnerability in Link Whisper INC Link Whisper Free link-whisper allows Object Injection.This issue affects Link Whisper Free: from n/a through 0.9.7.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-109145",
-      "published": "2026-10-15T07:17:58.617",
-      "description": "The User Rights Access Manager WordPress plugin through 1.1.3 does not restrict access to one of its AJAX account-registration handlers and assigns newly registered accounts a role that was created as a copy of the administrator role, allowing unauthenticated attackers to register an administrator-equivalent account and take over the site.",
+      "id": "CVE-2026-109892",
+      "published": "2026-10-15T13:17:12.697",
+      "description": "Incorrect Privilege Assignment vulnerability in Shabti Kaplan Frontend Admin by DynamiApps acf-frontend-form-element allows Privilege Escalation.This issue affects Frontend Admin by DynamiApps: from n/a through 3.29.13.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-101307",
-      "published": "2026-10-15T07:17:57.890",
-      "description": "When the PCM sample array needs to grow, the RACK stack doubles a 16-bit allocation counter.  Repeated doublings caused the counter to wrap to zero, resulting in a near-zero-length allocation followed by a copy of the existing samples into the undersized buffer.  A remote peer can trigger the expansion by sending a sufficient number of ACKs on an established connection.\n\nA remote attacker who can establish a TCP connection to a system using the RACK stack can trigger an out-of-bounds write of approximately 512 KB in the kernel heap possibly resulting in a kernel panic.",
+      "id": "CVE-2026-109688",
+      "published": "2026-10-15T13:17:11.917",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Link Whisper INC Link Whisper Free link-whisper allows Blind SQL Injection.This issue affects Link Whisper Free: from n/a through 0.9.7.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-101305",
-      "published": "2026-10-15T07:17:57.663",
-      "description": "renameat(2) did not enforce FD_RESOLVE_BENEATH on its directory arguments.  A jailed process could rename a directory relative to a restricted descriptor, then escape the jail root via fchdir(2).  This requires the directory to reside on a filesystem that is also reachable from the jail's root.\n\nA process in a jail that has received a directory file descriptor from another jail can use these techniques to escape the jail's filesystem root restriction.",
+      "id": "CVE-2026-109698",
+      "published": "2026-10-15T13:17:12.317",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Kitae Park Mang Board WP mangboard allows SQL Injection.This issue affects Mang Board WP: from n/a through 2.4.4.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-99999",
+      "published": "2026-10-15T13:17:14.137",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv4: validate checksum_start before completing checksum\n\nIf a packet with bad checksum metadata gets into the ipv4 stack,\nskb_checksum_help can corrupt the network header and cause a bunch of\nmischief.\n\nThis was discovered and reported by Paulos, and has been reporoduced\nby others independently since.\n\nWe really shouldn't allow such packets in, but as a defence\nin depth measure, let's also check before we complete the checksum.\n\nA more complete validation at input is forthcoming, but needs more work.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-109693",
+      "published": "2026-10-15T13:17:12.190",
+      "description": "Incorrect Privilege Assignment vulnerability in WP ManageNinja LLC Fluent CRM fluent-crm allows Privilege Escalation.This issue affects Fluent CRM: from n/a through 3.2.5.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-101303",
-      "published": "2026-10-15T07:17:57.437",
-      "description": "The IPv6 UDP send path for unconnected sockets did not apply the jail policy of rewriting a loopback destination address to the jail's primary IPv6 address.\n\nA process in a classic (non-VNET) jail can send UDP datagrams to services listening on the host's IPv6 loopback address, bypassing jail network isolation.",
+      "id": "CVE-2026-107416",
+      "published": "2026-10-15T13:17:10.930",
+      "description": "Authorization Bypass Through User-Controlled Key vulnerability in Webba Plugins Webba Booking webba-booking-lite allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Webba Booking: from n/a through 6.5.2.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-101304",
-      "published": "2026-10-15T07:17:57.550",
-      "description": "When fdescfs(4) was mounted in a jail with the \"nodup\" option, opening /dev/fd/N returned a descriptor that did not inherit FD_RESOLVE_BENEATH or the Capsicum capability rights of descriptor N.\n\nA process in a jail that has received a directory file descriptor from another jail can use these techniques to escape the jail's filesystem root restriction.",
+      "id": "CVE-2026-110723",
+      "published": "2026-10-15T13:17:12.857",
+      "description": "In `api-gateway` versions till `1.7.3`, The default rate-limit key resolver, `ClientIpKeyResolver`, derives the per-client bucket key from the leftmost element of the `X-Forwarded-For` request header. That element is supplied by the originating HTTP client and is not validated against any trusted-proxy list. A single attacker can therefore obtain an unlimited number of independent rate-limit buckets — one per unique header value — and completely bypass the gateway's request-rate limiting on every route that uses the shipped default configuration.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-110724",
+      "published": "2026-10-15T13:17:12.973",
+      "description": "In `api-gateway` versions till `1.7.3`, The default rate-limit key resolver, `ClientIpKeyResolver`, derives the per-client bucket key from the leftmost element of the `X-Forwarded-For` request header. That element is supplied by the originating HTTP client and is not validated against any trusted-proxy list. A single attacker can therefore obtain an unlimited number of independent rate-limit buckets — one per unique header value — and completely bypass the gateway's request-rate limiting on every route that uses the shipped default configuration.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-79837",
+      "published": "2026-10-15T13:17:13.707",
+      "description": "A vulnerability in HPE NonStop SQL/MX UDR SERVER may allow a crafted message to cause process termination, service disruption or memory corruption, resulting in undefined behavior.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-109685",
+      "published": "2026-10-15T13:17:11.400",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Link Whisper INC Link Whisper Free link-whisper allows Reflected XSS.This issue affects Link Whisper Free: from n/a through 0.9.7.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2025-66272",
-      "published": "2026-10-15T07:17:56.730",
-      "description": "A path traversal vulnerability has been reported to affect Video Station. If a remote attacker gains a user account, they can then exploit the vulnerability to read the contents of unexpected files or system data.\n\nWe have already fixed the vulnerability in the following version:\nVideo Station 5.8.5 and later",
+      "id": "CVE-2026-109692",
+      "published": "2026-10-15T13:17:12.063",
+      "description": "Missing Authorization vulnerability in ThemeGrill User Registration user-registration allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects User Registration: from n/a through 5.2.8.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-109702",
+      "published": "2026-10-15T13:17:12.467",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in maxfoundry Social Share Buttons share-button allows Stored XSS.This issue affects Social Share Buttons: from n/a through 1.31.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-102389",
+      "published": "2026-10-15T13:17:10.470",
+      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in WPMU DEV Broken Link Checker broken-link-checker allows Code Injection.This issue affects Broken Link Checker: from n/a through 2.4.14.1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2025-66275",
-      "published": "2026-10-15T07:17:56.870",
-      "description": "A path traversal vulnerability has been reported to affect Video Station. If a remote attacker gains a user account, they can then exploit the vulnerability to read the contents of unexpected files or system data.\n\nWe have already fixed the vulnerability in the following version:\nVideo Station 5.8.5 and later",
+      "id": "CVE-2026-105882",
+      "published": "2026-10-15T13:17:10.787",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in ThemeGrill User Registration user-registration allows Stored XSS.This issue affects User Registration: from n/a through 5.2.8.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-101302",
-      "published": "2026-10-15T07:17:57.297",
-      "description": "TLS 1.3 embeds the actual record type as the last non-zero byte of the decrypted payload, optionally followed by zero padding.  The code which searches for the inner record type had an off-by-one bug which could be triggered by an invalid frame, leading to an underflow followed by an unconditional NULL pointer dereference, causing a kernel panic.\n\nA remote TLS 1.3 peer can send a specially crafted record to trigger a kernel panic, resulting in a Denial of Service (DoS).",
+      "id": "CVE-2026-106147",
+      "published": "2026-10-15T14:17:14.120",
+      "description": "In Progress® Kendo® UI for jQuery releases starting with R1 2020 and prior to 2026.3.1015, the ListBox default item template renders the bound dataTextField value as raw HTML without encoding. An attacker who can modify the bound data can supply HTML containing event handlers that execute JavaScript in a user's browser when the affected list item is rendered. Successful exploitation can compromise the confidentiality and integrity of data accessible to the affected application. This issue is fixed in version 2026.3.1015.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-106031",
-      "published": "2026-10-15T07:17:58.507",
-      "description": "The Spin Wheel  WordPress plugin before 2.2.1 does not verify that a visitor actually performed a legitimate spin before returning and consuming a configured prize coupon, allowing unauthenticated users to disclose and drain the stored coupon codes of any campaign, including unpublished ones.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-101308",
-      "published": "2026-10-15T07:17:58.007",
-      "description": "When an audio channel's buffer needs to be resized, the sound(4) driver checks that the buffer is not memory-mapped and then drops the channel lock to allocate a new buffer.  An mmap(2) call on another thread can complete during this window, after which the resize path frees the now-mapped buffer without rechecking.\n\nAn unprivileged local user with access to a sound device can exploit this race to trigger a use-after-free in the kernel, potentially escalating privileges.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-103304",
-      "published": "2026-10-15T07:17:58.113",
-      "description": "The eaSYNC Booking  WordPress plugin before 1.3.31 does not perform authorization or nonce checks on several of its cancellation-related AJAX actions, allowing unauthenticated users to create booking cancellation requests, trigger booking notification emails, and overwrite the content of the emails the site sends.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-103324",
-      "published": "2026-10-15T07:17:58.230",
-      "description": "The Cardinity Payment Gateway for WooCommerce WordPress plugin before 3.4.2 does not properly verify the authenticity of the payment notifications it receives, as the secret used to sign them is empty by default, allowing unauthenticated attackers to forge an approved-payment notification and mark arbitrary orders as paid, or force them to failed.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-110933",
-      "published": "2026-10-15T07:17:58.727",
-      "description": "Uncaught exception vulnerability in Samsung Open Source Vyond allows Input Data Manipulation.\n\nThis issue affects Vyond: before fb10a5c8b833df7f152d4a563a61d6090a1790d7.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-104643",
-      "published": "2026-10-15T07:17:58.393",
-      "description": "The Easy HTTPS Redirection (SSL) WordPress plugin before 2.0.2 does not perform capability checks in some of its AJAX actions, allowing any authenticated user, such as a Subscriber, to read URLs its content scanner collected from private and draft posts and from site options, and to trigger a site-wide rewrite of those URLs, once an administrator has run a scan.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2025-29895",
-      "published": "2026-10-15T07:17:55.803",
-      "description": "A NULL pointer dereference vulnerability has been reported to affect Qsync Central. If a remote attacker gains a user account, they can then exploit the vulnerability to launch a denial-of-service (DoS) attack.\n\nWe have already fixed the vulnerability in the following version:\nQsync Central 5.0.0.4 and later",
+      "id": "CVE-2026-104025",
+      "published": "2026-10-15T13:17:10.617",
+      "description": "Path Traversal (CWE-22) in the execute_obj function of the archive object viewer (peach.pas) in PeaZip 11.2.0 and earlier on Windows allows an attacker who convinces a victim to preview an entry of a crafted archive via the \"Preview with... -> Associated application\" action (Shift+Ctrl+O) to execute an arbitrary program already present on the victim's system, with no warning dialog. The function validates only outname (PeaZip's own temporary directory) with checkfiledirname, while the string actually executed is the concatenation outname+tempstring; tempstring is taken verbatim from the archive entry name (StringGridList.Cells[12,...]) and is never validated. checkfiledirname (list_utils.pas) rejects control and reserved characters in the file name but performs no \"..\" path-containment check, so an entry named ../../../../Windows/System32/calc.exe escapes the extraction directory and is passed to cp_open -> ShellExecuteW; the extracting backend (7-Zip) strips the traversal while the opener does not. In addition, the SECEXTCONST dangerous-extension confirmation prompt is implemented only in the double-click handler (grid_obj_open) and not on this preview route, so an executable inside an archive reaches ShellExecuteW unannounced, and where the prompt does fire it names the entry's display name rather than the resolved path that will run. Arbitrary code execution was demonstrated with a proof of concept against official PeaZip builds, confirmed on two archive formats (.zip and .tar) to show the defect is in PeaZip's own path handling and not in a single format parser.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-29896",
-      "published": "2026-10-15T07:17:55.977",
-      "description": "A NULL pointer dereference vulnerability has been reported to affect Qsync Central. If a remote attacker gains a user account, they can then exploit the vulnerability to launch a denial-of-service (DoS) attack.\n\nWe have already fixed the vulnerability in the following version:\nQsync Central 5.0.0.4 and later",
+      "id": "CVE-2026-88794",
+      "published": "2026-10-15T13:17:13.837",
+      "description": "Enterprise Architect is vulnerable to XML External Entity (XXE) injection in the XSLT Debugger feature. When a user loads a crafted XML file containing a `DOCTYPE` with an external DTD reference, the parser processes external entities, allowing an attacker to read arbitrary files from the victim's filesystem.\n\nBecause vendor contact attempts were unsuccessful, the vulnerability has only been confirmed in version 17.1 but may also affect other versions.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-29897",
-      "published": "2026-10-15T07:17:56.110",
-      "description": "A buffer copy without checking size of input vulnerability has been reported to affect Qsync Central. If a remote attacker gains a user account, they can then exploit the vulnerability to modify memory or crash processes.\n\nWe have already fixed the vulnerability in the following version:\nQsync Central 5.0.0.4 and later",
+      "id": "CVE-2026-98432",
+      "published": "2026-10-15T13:17:13.987",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv4: free inet_opt and ireq_opt after an RCU grace period\n\ntcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the\nchild socket (newinet->inet_opt) without copying it.\n\nAnother cpu can concurrently process a retransmitted SYN for the same\nrequest socket, and send a SYNACK from tcp_check_req().\ntcp_v4_send_synack() and inet_csk_route_req() read ireq->ireq_opt\nunder rcu_read_lock() only, and ip_build_and_send_pkt() and\nip_options_build() then read opt->optlen twice.\n\nNote that the SYNACK timer itself is not an issue: it holds a\nreference on its request socket, and inet_csk_reqsk_queue_drop()\ncalls timer_delete_sync() before the child can be freed.\n\nSince commit 079096f103fa (\"tcp/dccp: install syn_recv requests\ninto ehash table\"), request sockets are processed without holding\nthe listener lock, so nothing prevents the child socket from being\nfreed while the SYNACK is still being built. TCP child sockets do\nnot have SOCK_RCU_FREE, and inet_sock_destruct() frees inet_opt\nwith a plain kfree(), leading to a use-after-free in\nip_options_build().\n\nA similar issue exists with request socket migration\n(net.ipv4.tcp_migrate_req=1, or a BPF_SK_REUSEPORT_SELECT_OR_MIGRATE\nprogram). reqsk_timer_handler() clones the request socket with\ninet_reqsk_clone(), so that the old request socket and its clone\nshare the same ireq_opt, then reqsk_migrate_reset() clears the\npointer in the old one. Another cpu holding a reference on the old\nrequest socket can still be using these options (sending a SYNACK,\nor creating a child in tcp_v4_syn_recv_sock()) when the clone is\nfreed, and tcp_v4_reqsk_destructor() also uses a plain kfree().\n\nReaders already use RCU, and other paths replacing inet_opt\n(do_ip_setsockopt(), cipso_v4_sock_setattr()...) already use\nkfree_rcu(). Use kfree_rcu() in inet_sock_destruct() and\ntcp_v4_reqsk_destructor() as well.\n\nIPv6 is not affected by the first issue, because tcp_v6_syn_recv_sock()\nduplicates the options. tcp_v6_reqsk_destructor() has the same\nmigration issue with ipv6_opt, which is only set by CALIPSO. This\nwill be addressed in a separate patch.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-68403",
-      "published": "2026-10-15T07:17:57.000",
-      "description": "An external control of system or configuration setting vulnerability has been reported to affect QuRouter. If a local attacker gains an administrator account, they can then exploit the vulnerability to modify data on the system.\n\nWe have already fixed the vulnerability in the following version:\nQuRouter 2.7.2.113 and later",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-68404",
-      "published": "2026-10-15T07:17:57.157",
-      "description": "A time-of-check time-of-use (toctou) race condition vulnerability has been reported to affect QuRouter. If exploited, the vulnerability could allow remote attackers to compromise the security of the system.\n\nWe have already fixed the vulnerability in the following version:\nQuRouter 2.6.4.001 and later",
+      "id": "CVE-2026-104024",
+      "published": "2026-10-15T14:17:13.553",
+      "description": "Incomplete List of Disallowed Inputs (CWE-184) in the dangerous-extension confirmation of the archive object viewer (peach.pas, grid_obj_open) in PeaZip 10.5.0 through 11.2.0 on Windows allows an attacker who convinces a victim to open an entry of a crafted archive to execute a program, or an arbitrary command, with no confirmation dialog. The prompt (Do you want to run this file?) is gated by SECEXTCONST, a hard-coded list of seven extensions (exe cmd msi bat ps1 vbs reg); the check is an exact string comparison of the entry extension against that list, so it answers only whether the extension is one of the seven and never whether the shell will execute the file. Shell-executable and scripting-host types that Windows runs through ShellExecuteW are absent from the list, among them .url and .lnk. An archived Windows Internet Shortcut (.url) whose URL line is attacker-controlled is launched with no prompt, while the byte-identical content in an entry named .bat does raise the warning in the same session. A .lnk entry raises the ceiling from launching a program to running a command line, because a Windows shortcut carries arguments: a proof-of-concept shortcut targeting cmd.exe with an attacker-chosen command line executed with no prompt. The shortcut target is not confined to the local disk; the shell also resolved an attacker-named UNC path (fetching a remote payload was only attempted, not demonstrated). No privilege escalation; everything runs as the user who opened the archive.",
       "severity": "UNKNOWN",
       "score": null
     }
