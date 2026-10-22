@@ -1,145 +1,145 @@
 {
-  "totalResults": 4696,
+  "totalResults": 4676,
   "items": [
     {
-      "id": "CVE-2026-55103",
-      "published": "2026-10-15T18:17:27.163",
-      "description": "Discourse ActivityPub adds ActivityPub support to Discourse. Prior to commit 1c8518b0f2abdf31cbea3e0b242f74d8994a9ba5, inbound ActivityPub processing does not sufficiently verify that the actor authenticated by the signed request matches the Activity actor and owns the referenced federated post. A remote attacker can exploit these missing identity and ownership checks to edit, delete, or reply to federated posts without the required permissions. This vulnerability is fixed with commit 1c8518b0f2abdf31cbea3e0b242f74d8994a9ba5.",
-      "severity": "HIGH",
-      "score": 8.6
+      "id": "CVE-2026-110916",
+      "published": "2026-10-15T22:19:26.943",
+      "description": "Improper input validation in Desktop in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "CRITICAL",
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-55246",
-      "published": "2026-10-15T18:17:27.317",
-      "description": "bincookie is a header-only binarycookies parser. Prior to 0.1.9, bincookie_init_file() in bincookie.h allocates a buffer using the actual .binarycookies file length but trusts the file-controlled num_pages field as the loop bound for byte-swapping page_sizes entries. A crafted file can make the loop read and write beyond the heap allocation, and related unvalidated page sizes and cookie_offsets can drive additional out-of-bounds accesses in page and cookie iteration. Applications that parse an attacker-supplied binarycookies file may crash or suffer heap corruption that can potentially enable code execution. This issue is fixed in version 0.1.9.",
+      "id": "CVE-2026-110913",
+      "published": "2026-10-15T22:19:26.620",
+      "description": "Memory corruption in DOM in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-103936",
-      "published": "2026-10-15T18:17:22.433",
-      "description": "libp2p is a JavaScript implementation of the libp2p networking stack. Prior to 6.0.28, the @libp2p/webrtc webRTCDirect() Node.js listener processes unauthenticated STUN Binding Requests before PeerId authentication, Noise, muxing, protocol negotiation, connection creation, or connection-manager admission. The listener in packages/transport-webrtc/src/private-to-public/utils/stun-listener.ts forwards the packet-controlled request.ufrag into DirectRTCPeerConnection.setLocalDescription, where the value is reused as an ICE password without validating its required length and character set. A short credential causes node-datachannel or libdatachannel to raise an uncaught native invalid_argument and abort the process with SIGABRT, allowing a single remote UDP packet to deny service. The confirmed impact is process termination only, with no demonstrated memory corruption, code execution, browser impact, confidentiality impact, integrity impact, or connection-limit bypass. This issue is fixed in version 6.0.28.",
+      "id": "CVE-2026-110914",
+      "published": "2026-10-15T22:19:26.737",
+      "description": "Memory corruption in Workers in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-110915",
+      "published": "2026-10-15T22:19:26.843",
+      "description": "Use after free in Compositing in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Medium)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-110919",
+      "published": "2026-10-15T22:19:27.267",
+      "description": "Use after free in V8 in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-110920",
+      "published": "2026-10-15T22:19:27.367",
+      "description": "Memory corruption in V8 in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-110921",
+      "published": "2026-10-15T22:19:27.473",
+      "description": "Use after free in V8 in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-110922",
+      "published": "2026-10-15T22:19:27.570",
+      "description": "Use after free in Prerender in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-111277",
+      "published": "2026-10-15T22:19:28.770",
+      "description": "NivoCart through 2.5.1 contains a missing authorization vulnerability in the download() action of account/order that allows unauthenticated attackers to retrieve guest order invoices by supplying an order_id. Attackers can iterate the order_id parameter, which matches guest orders stored with customer_id 0, to disclose guest names, addresses, telephone numbers, emails, purchased items, and totals.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-111105",
-      "published": "2026-10-15T18:17:26.670",
-      "description": "Telegram rlottie Numeric Truncation Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Telegram. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the rlottie library. The issue results from the lack of proper validation of user-supplied data, which can result in a write before the start of an allocated buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-30207.",
-      "severity": "HIGH",
-      "score": 7
-    },
-    {
-      "id": "CVE-2026-104266",
-      "published": "2026-10-15T18:17:22.983",
-      "description": "tinytag is a Python library for reading audio file metadata. From 2.0.0 until 2.3.0, an M4A file containing a sub-atom with a size of zero inside a ---- atom can cause the metadata parser to stop advancing through the input. The custom-field atom traversal repeatedly processes the malformed location, causing an infinite loop and denying service to a program that reads the crafted file. This issue is fixed in version 2.3.0.",
+      "id": "CVE-2024-58397",
+      "published": "2026-10-15T22:18:06.893",
+      "description": "MP4v2 through 2.1.3 contains a heap-based out-of-bounds read in MP4File::GetChapters() that allows attackers to read past heap allocations via crafted QuickTime chapter samples. Attackers can supply an MP4 file whose chapter sample is shorter than its declared title length, crashing applications like mp4chaps or leaking adjacent heap memory into chapter titles.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-108175",
-      "published": "2026-10-15T18:17:25.607",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PluginUs.Net MDTF wp-meta-data-filter-and-taxonomy-filter allows Stored XSS.This issue affects MDTF: from n/a through 1.4.0.",
+      "id": "CVE-2026-111269",
+      "published": "2026-10-15T22:19:27.680",
+      "description": "libical through 4.0.6 contains a heap-based out-of-bounds read in icalvalue_decode_ical_string() in src/libical/icalvalue.c when decoding input ending in a backslash. Attackers can supply escaped iCalendar text with a trailing backslash, causing the loop to read past the terminator and crash the application or leak adjacent heap memory.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-110890",
-      "published": "2026-10-15T18:17:26.327",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Crocoblock JetSmartFilters jet-smart-filters allows Stored XSS.This issue affects JetSmartFilters: from n/a through 3.8.6.",
+      "id": "CVE-2026-111270",
+      "published": "2026-10-15T22:19:27.820",
+      "description": "libmodplug through 0.8.9.1 contains a heap-based out-of-bounds write in CSoundFile::ReadDSM() in src/load_dsm.cpp because nPat is never checked against MAX_PATTERNS. Attackers can supply a crafted DSM file with over 240 PATT chunks or a wrapping patt_len value to corrupt heap memory and crash the consuming process.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-54683",
-      "published": "2026-10-15T18:17:27.003",
-      "description": "NL Portal Backend Libraries provide backend components for Dutch government portals that interact with residents, customers, suppliers, and partner organizations. Prior to 3.0.3, both the getDocumentContent GraphQL query and GET /api/documentapi/{documentapi}/document/{documentId}/content REST route allow any authenticated portal user to retrieve a document without checking ownership of or another authorized relationship to it. A user with a valid login and another person's document identifier can read that document's contents, which may include sensitive personal information. Document identifiers are random and difficult to guess, but they can leak through other channels. This issue is fixed in version 3.0.3.",
+      "id": "CVE-2026-111273",
+      "published": "2026-10-15T22:19:28.333",
+      "description": "unarr through 1.1.1 contains an off-by-one heap-based buffer overflow in tar_get_name() in tar/parse-tar.c, reachable through the ar_entry_get_name() API. Attackers can supply a crafted TAR archive with a full ustar prefix and name to write a NUL byte past the allocation, corrupting heap memory and crashing the process.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-110381",
-      "published": "2026-10-15T18:17:26.023",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in NSquared Simply Schedule Appointments simply-schedule-appointments allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Simply Schedule Appointments: from n/a through 1.6.12.35.",
+      "id": "CVE-2026-111275",
+      "published": "2026-10-15T22:19:28.623",
+      "description": "nifti_clib through 3.0.1 contains a stack-based out-of-bounds read and write vulnerability in nifti_convert_n2hdr2nim() because the NIfTI-2 dim[0] value is never range-checked. Attackers can supply a crafted 540-byte NIfTI-2 header read via nifti_image_read() to crash applications or corrupt stack memory.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-102740",
-      "published": "2026-10-15T18:17:21.613",
-      "description": "The AsyncHttpClient library allows Java applications to execute HTTP requests and asynchronously process HTTP responses. From 2.0.0 until 2.16.1 and 3.0.12, PropertiesBasedResumableProcessor stores resumable download state at the predictable shared path $java.io.tmpdir/ahc/ResumableAsyncHandler.properties with default permissions and link-following file operations. A local user who can read the shared store can see download URLs, including embedded user information or query tokens. A local user who can write within or pre-create the affected shared store directory can plant a symbolic link that the client follows when saving state, truncating and overwriting a target file writable by the client process. The filesystem path is used when ResumableAsyncHandler decorates another AsyncHandler, while the no-argument constructors use a no-op processor and are unaffected. This issue is fixed in versions 2.16.1 and 3.0.12.",
+      "id": "CVE-2026-111271",
+      "published": "2026-10-15T22:19:27.957",
+      "description": "libmodplug through 0.8.9.1 contains a heap-based out-of-bounds read vulnerability in CSoundFile::ReadAMS2() in src/load_ams.cpp that allows attackers to read adjacent heap memory via crafted AMS files. Attackers can supply an AMS module whose pattern effect bytes keep bit 7 set, driving the decoder past the input buffer and crashing any libmodplug consumer.",
       "severity": "MEDIUM",
-      "score": 5.8
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-106706",
-      "published": "2026-10-15T18:17:23.567",
-      "description": "XXL-JOB through 3.5.0-SNAPSHOT is vulnerable to stored cross-site scripting (XSS) in the GLUE code editor. JobCodeController.save() stores the user-supplied glueSource parameter without output encoding, and the FreeMarker template job.code.ftl renders the stored value unescaped.",
+      "id": "CVE-2026-111272",
+      "published": "2026-10-15T22:19:28.100",
+      "description": "LibRaw through 0.22.2 contains a heap-based out-of-bounds read in LibRaw::parseNikonMakernote() that allows attackers to read past a short ShotInfo buffer. Attackers can supply a crafted Nikon NEF/TIFF with a 5-byte ShotInfo tag declaring version 243 to crash applications decoding the image.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-106707",
-      "published": "2026-10-15T18:17:23.840",
-      "description": "XXL-JOB <=3.5.0-SNAPSHOT contains a stored Cross-Site Scripting (XSS) vulnerability in the job log list page (/joblog). An authenticated user who holds permission on a target executor job group can inject arbitrary JavaScript via the executorParam argument of the manual-trigger endpoint POST /jobinfo/trigger.",
+      "id": "CVE-2026-111274",
+      "published": "2026-10-15T22:19:28.477",
+      "description": "unarr through 1.1.1 contains a heap-based out-of-bounds read in zip_parse_extra_fields() in zip/parse-zip.c due to an incorrect ZIP64 extra field length check. Attackers can supply a crafted ZIP archive with 0xFFFFFFFF sentinel values and a truncated ZIP64 record to read past the heap buffer and crash the process.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-110891",
-      "published": "2026-10-15T18:17:26.473",
-      "description": "Missing Authorization vulnerability in WordLift Srl WordLift wordlift allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WordLift: from n/a through 3.54.15.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-103350",
-      "published": "2026-10-15T18:17:21.773",
-      "description": "Improper Validation of Specified Quantity in Input vulnerability in Magepeople inc. Booking and Rental Manager booking-and-rental-manager-for-woocommerce allows Removing Important Client Functionality.This issue affects Booking and Rental Manager: from n/a through 2.8.0.",
+      "id": "CVE-2026-111278",
+      "published": "2026-10-15T22:19:28.963",
+      "description": "NivoCart through 2.5.1 contains a CAPTCHA bypass vulnerability that allows unauthenticated attackers to defeat form protection because the expected code is printed as plain text in the HTML. Attackers can fetch protected forms, extract the captcha_image value with a pattern match, and submit it to automate spam, registrations, reviews, and account deletion requests.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-110367",
-      "published": "2026-10-15T18:17:25.743",
-      "description": "Missing Authorization vulnerability in WPExperts APIExperts Square for WooCommerce woosquare allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects APIExperts Square for WooCommerce: from n/a through 4.7.5.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-55414",
-      "published": "2026-10-15T18:17:27.503",
-      "description": "NL Portal Backend Libraries provide backend components for Dutch government portals that interact with residents, customers, suppliers, and partner organizations. From 1.1.0 until 3.0.4, and in 3.1.0, the public getFormDefinitionByObjectenApiUrl and deprecated getFormDefinitionById GraphQL resolvers are reachable without CommonGroundAuthentication and forward a caller-influenced URL through ObjectenApiService.getObjectByUrl to ObjectsApiClient.getObjectByUrl, which attaches the privileged Objecten-API token. The host-equality check restricts requests to the configured Objecten-API host but does not constrain the scheme, port, or path, allowing an unauthenticated caller to induce a token-bearing request to a chosen endpoint on that host. Standard deployments are not exposed to cross-host SSRF, token capture requires attacker-controlled routing on the configured host, and typed deserialization limits returned data to objects shaped like form definitions. The 3.0 release line is fixed in version 3.0.4. The advisory does not identify a fixed 3.1 release.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-110371",
-      "published": "2026-10-15T18:17:25.880",
-      "description": "Missing Authorization vulnerability in WP Chill Strong Testimonials strong-testimonials allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Strong Testimonials: from n/a through 3.3.12.",
+      "id": "CVE-2026-110917",
+      "published": "2026-10-15T22:19:27.053",
+      "description": "Memory corruption in SVG in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to read memory via a crafted HTML page. (Chromium security severity: High)",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-110888",
-      "published": "2026-10-15T18:17:26.180",
-      "description": "Missing Authorization vulnerability in Meow Apps AI Engine ai-engine allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AI Engine: from n/a through 3.8.3.",
+      "id": "CVE-2026-110918",
+      "published": "2026-10-15T22:19:27.160",
+      "description": "Memory corruption in Core in Google Chrome prior to 155.0.8059.84 allowed a remote attacker to read memory via a crafted HTML page. (Chromium security severity: High)",
       "severity": "MEDIUM",
       "score": 4.3
-    },
-    {
-      "id": "CVE-2026-55453",
-      "published": "2026-10-15T18:17:27.677",
-      "description": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. Prior to 2.4.20, the backend/ipp.c quote_string() function preserves carriage-return and line-feed characters in a remote printer-controlled marker-message before report_attr() writes the value to the scheduler status stream. The scheduler can parse an injected newline as a separate PPD: control line and persist an attacker-selected PPD keyword. The reporter demonstrated that a later print job on a Foomatic-backed queue could consume an injected FoomaticRIPCommandLine value and execute in the filter context as lp. This issue is fixed in version 2.4.20.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-55467",
-      "published": "2026-10-15T18:17:27.833",
-      "description": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. Prior to 2.4.20, the cupsdCreateJob option-string builder in scheduler/job.c maps attacker-controlled destination-uri and pre-dial-string values from a configured fax queue to the phone and faxPrefix options. Unlike ordinary IPP job attributes, these mapped fax values bypass the control-character sanitizer and are copied directly into the filter options argument. A user permitted to submit a job can therefore inject control characters into the downstream option stream. The reporter states that a downstream fax filter passing these values to a shell or modem command could execute code as lp, while the maintainer states that CUPS has no confidentiality or integrity impact because the only known code-executing filter is optional Foomatic and addressed separately, leaving possible disruption of the affected queue. This issue is fixed in version 2.4.20.",
-      "severity": "LOW",
-      "score": 2.5
     }
   ]
 }
