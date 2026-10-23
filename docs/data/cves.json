@@ -1,145 +1,145 @@
 {
-  "totalResults": 4540,
+  "totalResults": 4826,
   "items": [
     {
-      "id": "CVE-2026-109119",
-      "published": "2026-10-16T11:17:00.927",
-      "description": "Improper Privilege Management in the user management API endpoint (/api/users/{username_or_id}) in Rdiffweb allows authenticated users to elevate their privileges to administrator by modifying the role parameter in a POST request.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-26846",
+      "published": "2026-10-16T16:17:06.357",
+      "description": "Buffer Overflow vulnerability in WEINVEIW CO.,LTD EBPro v.6.10.01.510_20251022 allows a remote attacker to execute arbitrary code via the UtilityManagerEx.exe component",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-111399",
-      "published": "2026-10-16T13:16:55.733",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps allows SQL Injection.This issue affects MapSVG: from n/a through 8.16.1.",
-      "severity": "HIGH",
-      "score": 8.5
+      "id": "CVE-2026-44977",
+      "published": "2026-10-16T16:17:44.483",
+      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, plugins/star-rating/api/api.js allows a non-global application administrator to use uploadFeedbackFile to store attacker-controlled active content while trusting the supplied MIME type. plugins/star-rating/frontend/app.js publicly serves the stored content from feedback/preview/ with the attacker-influenced Content-Type, so a global administrator who opens the preview executes the payload in the Countly origin and exposes authenticated session capabilities, including auth_token and csrf_token values. This issue is fixed in versions 24.05.50 and 25.03.44.",
+      "severity": "CRITICAL",
+      "score": 9
     },
     {
-      "id": "CVE-2026-111391",
-      "published": "2026-10-16T12:16:33.197",
-      "description": "SGLang 0.5.10 through 0.5.22 contains a code injection vulnerability in _evaluate_filter() that allows remote attackers to execute Python code by escaping the eval() sandbox through re.search __globals__. Attackers can send a crafted filter expression to the unauthenticated /dumper/configure endpoint when DUMPER_SERVER_PORT is set, running code in the scheduler process on the next forward pass.",
+      "id": "CVE-2026-42269",
+      "published": "2026-10-16T16:17:23.783",
+      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, the authenticated data-migration deletion route in plugins/data_migration/api/api.js passes the user-controlled exportid to clean_up_data without path validation. plugins/data_migration/api/data_migration_helper.js concatenates that identifier into a path resolved outside the intended import directory and calls remove recursively, allowing an application administrator or user with migration permission to delete writable files or directory trees and cause data loss or service disruption. This issue is fixed in versions 24.05.50 and 25.03.44.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-105959",
-      "published": "2026-10-16T12:16:31.733",
-      "description": "A flaw was found in spice-server. The GLZ encoder dictionary restore path truncates a size_t allocation size to int when calling the malloc callback, allowing a malicious authenticated SPICE client during VM live migration to trigger a massive heap buffer overflow by sending a crafted max_encoders value in migration data.",
+      "id": "CVE-2026-102941",
+      "published": "2026-10-16T16:16:52.937",
+      "description": "The package github.com/gomarkdown/markdown is a Go library for parsing Markdown text and rendering as HTML. Prior to 0.0.0-20260724235538-61af6e1e6971, parser.IsSafeURL in parser/parser.go slices url[:nPath] before the len(url) >= nPath guard. A short destination causes a slice-bounds panic when the loop reaches a relative-path prefix for which len(url) < nPath and cap(url) < nPath. The one-byte destination / is an explicit non-panic counterexample because it matches the first valid path and returns before a longer prefix is sliced. Demonstrated panic cases include empty, ., and .. destinations under those conditions. The panic is reachable when markdown.ToHTML renders untrusted Markdown with html.Safelink enabled, including an empty link destination, and is also reachable by callers that pass a short attacker-controlled URL directly to the exported parser.IsSafeURL function. An uncaught panic can terminate the calling process and cause denial of service. This issue is fixed in 0.0.0-20260724235538-61af6e1e6971.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-105958",
-      "published": "2026-10-16T13:16:53.480",
-      "description": "A flaw was found in spice-server. Multiple migration data handlers use client-supplied offsets from SPICE_MSGC_MIGRATE_DATA messages without bounds validation, allowing a malicious authenticated SPICE client during VM live migration to read arbitrary heap memory or trigger heap corruption via out-of-bounds read and write operations on the message buffer.",
+      "id": "CVE-2026-41582",
+      "published": "2026-10-16T16:17:23.623",
+      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, public image and screenshot routes implemented in frontend/express/app.js, plugins/star-rating/frontend/app.js, and plugins/dashboards/frontend/app.js concatenate attacker-controlled wildcard paths without containment validation. On deployments using the local filesystem backend, an unauthenticated request can traverse outside the intended asset directories and reach getStats or getStream in api/utils/countlyFs.js, allowing arbitrary readable server files to be disclosed. The affected routes include /appimages/*, /memberimages/*, */screenshots/*, /star-rating/images/*, and /dashboards/images/screenshots/*. This issue is fixed in versions 24.05.50 and 25.03.44.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107564",
-      "published": "2026-10-16T13:16:54.013",
-      "description": "An unauthenticated remote attacker may use an allocation of resources without limits or throttling weakness in the affected product to cause high CPU load leading to a denial of service.",
+      "id": "CVE-2026-42270",
+      "published": "2026-10-16T16:17:23.940",
+      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, star-rating/images/ and dashboards/images/screenshots/ are among public image and screenshot routes using the local fs storage backend that call getStream and pipe filesystem streams to HTTP responses without an error listener. An unauthenticated request containing a URL-encoded dot can make createReadStream open a directory, emit an asynchronous EISDIR error, and terminate the Node.js process as an unhandled exception, allowing repeated requests to keep the analytics API unavailable. The affected routes also include /appimages/*, /memberimages/*, and */screenshots/*. This issue is fixed in versions 24.05.50 and 25.03.44.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107648",
-      "published": "2026-10-16T12:16:32.053",
-      "description": "The WP Sessions Time Monitoring Full Automatic plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'action (also function, plugin, post_type, post_status, ids, loggedout, and POST post_title)' parameter in all versions up to, and including, 1.1.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-46472",
+      "published": "2026-10-16T16:18:11.647",
+      "description": "An issue was discovered in GStreamer gst-plugins-good before 1.28.2. While parsing an MP4 file, the isomp4 plugin's qtdemux_parse_chnl function may read past the end of a global array, potentially leading to information disclosure.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-111396",
-      "published": "2026-10-16T13:16:55.497",
-      "description": "Missing Authorization vulnerability in Liquid Web / StellarWP Advanced Post Manager advanced-post-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Advanced Post Manager: from n/a through 4.5.6.",
+      "id": "CVE-2026-48503",
+      "published": "2026-10-16T16:18:11.793",
+      "description": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. Prior to 1.6.2, the MMS file service in src/mms/iso_mms/server/mms_file_service.c accepts an out-of-range initialPosition in fileOpen and stores it in the file-read state. The fileRead path then subtracts the larger read position from the file size using unsigned arithmetic and fails to limit the response to the actual FileSystem_readFile return value. The oversized response can include stale bytes from the reused connection buffer after the requested file contents, disclosing prior response data and protocol fragments to an unauthenticated remote client when the file service is enabled. This issue is fixed in version 1.6.2.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-110903",
-      "published": "2026-10-16T13:16:55.370",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Liquid Web / StellarWP The Events Calendar the-events-calendar allows Stored XSS.This issue affects The Events Calendar: from n/a through 6.18.1.",
+      "id": "CVE-2026-48741",
+      "published": "2026-10-16T16:18:11.943",
+      "description": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. Prior to 1.6.2, alternateArrayAccess in src/mms/iso_mms/server/mms_read_service.c does not validate an alternate-access sub-array range when numberOfElements is greater than zero. An out-of-range MmsValue_getElement call returns NULL, and the sub-array branch passes that value to MmsValue_isDeletable, causing a NULL pointer dereference. A remote MMS Read request can therefore crash servers whose data models contain arrays, while the single-element error path handles the same invalid index safely. This issue is fixed in version 1.6.2.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-57486",
+      "published": "2026-10-16T16:18:44.510",
+      "description": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 2.0.2, ixmlNode_compare in ixml/src/node.c passes the nullable nodeValue, namespaceURI, prefix, and localName fields directly to strcmp. Non-namespaced attributes created by ixmlDocument_createAttribute legitimately leave those fields NULL. When ixmlElement_removeAttributeNode compares two distinct attribute objects with the same nodeName through find_condition_node, the pointer-identity shortcut does not apply and the comparison dereferences NULL, causing a process crash when application handling of attacker-controlled XML reaches this path. This issue is fixed in 2.0.2.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-57487",
+      "published": "2026-10-16T16:18:44.663",
+      "description": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 2.0.2, Transfer-Encoding: chunked causes the HTTP parser in upnp/src/genlib/net/http/httpparser.c to leave parser->content_length at zero while parser_parse_chunky_entity and parser_parse_chunky_body accumulate decoded bytes in parser->msg.entity. The g_maxContentLength checks in http_RecvMessage in upnp/src/genlib/net/http/httpreadwrite.c therefore reject oversized numeric Content-Length bodies but do not enforce the same limit on decoded chunked bodies. A remote peer that can reach a SOAP, GENA, miniserver, or control-point HTTP response path can make the process buffer an entity larger than the configured maximum, causing resource exhaustion and denial of service. This issue is fixed in 2.0.2.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-55836",
+      "published": "2026-10-16T16:18:43.897",
+      "description": "Open Zaak is an open-source data and services layer for Dutch case-oriented working. From 1.13.0 until 1.27.2, 1.28.2, and 1.29.0, _import_document_row in src/openzaak/components/documenten/tasks.py uses the attacker-controlled bestandspad CSV field without ensuring that the resolved path remains under IMPORT_DOCUMENTEN_BASE_DIR. A client with an all-authorizations application token can supply an absolute or parent-traversal path to a file readable by the Celery service account. The worker copies that file into document storage, allowing its contents to be retrieved through the normal document download API and exposing server secrets or other private files. This issue is fixed in versions 1.27.2, 1.28.2, and 1.29.0.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-54657",
+      "published": "2026-10-16T16:18:43.590",
+      "description": "Open Zaak is an open-source data and services layer for Dutch case-oriented working. From 1.0.0 until 1.27.2, 1.28.2, and 1.29.0, the POST search endpoints /zaken/api/v1/zaken/_zoek and /documenten/api/v1/enkelvoudiginformatieobjecten/_zoek do not filter result querysets according to the authorizations associated with the request token. A caller with a valid zaken.lezen or documenten.lezen token can therefore retrieve case or document metadata outside the token's authorized types or confidentiality levels. Document searches require known UUIDs, and document content remains protected by separate download authorization. This issue is fixed in versions 1.27.2, 1.28.2, and 1.29.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-111400",
-      "published": "2026-10-16T13:16:55.850",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in IdeaBox Creations PowerPack Addons for Elementor powerpack-lite-for-elementor allows Stored XSS.This issue affects PowerPack Addons for Elementor: from n/a through 3.1.0.",
+      "id": "CVE-2026-55862",
+      "published": "2026-10-16T16:18:44.060",
+      "description": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 2.0.0, multiple ixml DOM traversal functions process deeply nested XML with unbounded recursion. The iterative XML parser accepts the document, but ixmlPrintDomTreeRecursive in ixml/src/ixml.c and ixmlNode_getElementsByTagNameRecursive, ixmlNode_getElementsByTagNameNSRecursive, ixmlNode_cloneNodeTreeRecursive, and ixmlNode_isAncestor in ixml/src/node.c recurse over firstChild and nextSibling links. An unauthenticated peer on the local network can supply deeply nested XML through a SOAP request, exhaust a service thread's stack, and crash the UPnP service. This is an incomplete-fix case for CVE-2021-28302 because its remediation converted ixmlNode_free but left these traversal paths recursive. This issue is fixed in 2.0.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-111405",
-      "published": "2026-10-16T13:16:55.967",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps allows Stored XSS.This issue affects MapSVG: from n/a through 8.16.1.",
+      "id": "CVE-2026-46471",
+      "published": "2026-10-16T16:18:11.513",
+      "description": "An issue was discovered in GStreamer gst-plugins-good before 1.28.2. While parsing an MP4 file, the isomp4 plugin's qtdemux_parse_uuid function may read past the end of a heap-allocated buffer, allowing an attacker to disclose heap memory contents.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-110029",
-      "published": "2026-10-16T12:16:32.387",
-      "description": "The Squeeze WordPress plugin before 1.8.1 does not perform a capability check on one of its AJAX actions, allowing authenticated users with a role as low as Subscriber to revert any attachment to its backup copy and to permanently delete that backup and the plugin's generated WebP derivatives, regardless of ownership.",
+      "id": "CVE-2026-102923",
+      "published": "2026-10-16T16:16:52.707",
+      "description": "SparkyFitness is a self-hosted, AI-powered health and fitness tracker for families. Prior to 1.6.0, SparkyFitnessServer/services/chatService.ts and SparkyFitnessServer/services/labelScanService.ts do not validate destinations supplied in custom AI service settings. An authenticated user saves a custom AI service URL and invokes an affected AI flow. The user can save a custom AI service URL and trigger an outbound request. Successful exploitation can send server-side POST requests with a controlled bearer value, probe internal services, and disclose the AI system prompt. This issue is fixed in version 1.6.0.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-110901",
-      "published": "2026-10-16T13:16:55.250",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in WPMU DEV SmartCrawl smartcrawl-seo allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SmartCrawl: from n/a through 3.16.4.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-109930",
-      "published": "2026-10-16T12:16:32.273",
-      "description": "The MAIO WordPress plugin before 7.3.22 does not properly restrict access to its analytics data, treating a credential value shipped verbatim in its own public source as a valid API key, which allows unauthenticated attackers to retrieve the stored crawl-analytics log, including each recorded visitor's IP address, user agent and referer.",
+      "id": "CVE-2026-57446",
+      "published": "2026-10-16T16:18:44.207",
+      "description": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. From 1.6.1 until 1.6.2, a successful MMS ObtainFile operation closes MmsObtainFileTask::fileHandle but leaves the stale non-NULL value in a task marked MMS_FILE_UPLOAD_STATE_NOT_USED. If a later ObtainFile request reuses that task and destination creation fails, MMS_FILE_UPLOAD_STATE_SEND_OBTAIN_FILE_ERROR_DESTINATION cleanup closes the stale FILE object again. Servers with the MMS file service and ObtainFile enabled can therefore be crashed remotely by the success-then-failure request sequence. This issue is fixed in version 1.6.2.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-111390",
-      "published": "2026-10-16T12:16:33.050",
-      "description": "Erupt through 2.3.0 contains an HQL injection vulnerability that allows authenticated users to bypass tree-scoped data filters by injecting unescaped quotes into the linkTreeVal parameter of POST /erupt-api/data/table/{erupt}. Attackers holding query permission on entities with String-keyed linkTree targets can append always-true OR clauses or boolean subqueries to read data from other mapped entities.",
+      "id": "CVE-2026-57447",
+      "published": "2026-10-16T16:18:44.357",
+      "description": "Discourse Doc Categories is a plugin for organizing Discourse topics as documentation. Prior to the verified source fix, the doc category index refresh resolves linked titles for private messages or restricted category topics without enforcing the viewer's authorization. A user who can edit the index topic can use this behavior to learn titles that the user is not authorized to view, although the advisory does not establish access to topic contents. This vulnerability is addressed by commit b15d4de02ad29d7c9525346afee51fef4a2c605a.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-110380",
-      "published": "2026-10-16T13:16:54.893",
-      "description": "Missing Authorization vulnerability in Arraytics WP Event Solution wp-event-solution allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Event Solution: from n/a through 4.1.26.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-111581",
+      "published": "2026-10-16T16:17:04.680",
+      "description": "A flaw was found in libblockdev. The bd_fs_ntfs_set_label() and bd_fs_vfat_set_label() functions pass caller-supplied label values as bare positional arguments to the ntfslabel and fatlabel utilities without end-of-options separators or input validation for values beginning with a dash. This allows a label starting with '-' to be interpreted as a command-line flag by the spawned tool, potentially bypassing safety checks or causing unintended operations. This is reachable by unprivileged local users through the udisks2 Filesystem.SetLabel() D-Bus method without administrator authentication.",
+      "severity": "LOW",
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-110896",
-      "published": "2026-10-16T13:16:55.010",
-      "description": "Missing Authorization vulnerability in WP Chill Passster content-protector allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Passster: from n/a through 4.3.18.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-110900",
-      "published": "2026-10-16T13:16:55.130",
-      "description": "Missing Authorization vulnerability in Liquid Web / StellarWP BookIt bookit allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects BookIt: from n/a through 2.6.0.5.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-111397",
-      "published": "2026-10-16T13:16:55.617",
-      "description": "Missing Authorization vulnerability in PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps allows Retrieve Embedded Sensitive Data.This issue affects MapSVG: from n/a through 8.16.1.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-109118",
-      "published": "2026-10-16T11:17:00.793",
-      "description": "Improper path containment check in ikus060 rdiffweb 7.1.1 allows an authenticated user to cause the browse, restore, history and delete operations to resolve to a path outside the repository being operated on, via a percent-encoded traversal sequence (%2e%2e) in the request path, because the containment check uses a string prefix comparison (startswith) instead of a filesystem path boundary check. The target must be a sibling path whose name begins with the repository path, and the user already hold permissions on it; the issue can mislead a user into operating on, or deleting, data other than the repository displayed",
-      "severity": "MEDIUM",
-      "score": 4.6
+      "id": "CVE-2026-55543",
+      "published": "2026-10-16T16:18:43.750",
+      "description": "TuxGuitar is an open-source guitar tablature editor. Prior to 2.1.0, an untrusted .tg file can set gervil.soundbank.path to reference an on-disk archive, including the .tg file itself, whose META-INF/services/javax.sound.midi.Soundbank entry names an attacker-supplied class stored in that archive. When a user opens the file, JARSoundbankReader uses an unverified class loader to load and instantiate that class, executing its constructor with the privileges of the TuxGuitar process. This issue is fixed in version 2.1.0.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
