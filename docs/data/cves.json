@@ -1,143 +1,143 @@
 {
-  "totalResults": 4826,
+  "totalResults": 4660,
   "items": [
     {
-      "id": "CVE-2026-26846",
-      "published": "2026-10-16T16:17:06.357",
-      "description": "Buffer Overflow vulnerability in WEINVEIW CO.,LTD EBPro v.6.10.01.510_20251022 allows a remote attacker to execute arbitrary code via the UtilityManagerEx.exe component",
+      "id": "CVE-2026-108709",
+      "published": "2026-10-16T20:17:18.943",
+      "description": "Authentication bypass within in-house network in Apache Kylin. Impact most to the kylin services that are directly exposed to public network, which is not common. In-house kylin deployments are mostly not impacted.\n\n\n\nThis issue affects Apache Kylin: from 4.0.4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-44977",
-      "published": "2026-10-16T16:17:44.483",
-      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, plugins/star-rating/api/api.js allows a non-global application administrator to use uploadFeedbackFile to store attacker-controlled active content while trusting the supplied MIME type. plugins/star-rating/frontend/app.js publicly serves the stored content from feedback/preview/ with the attacker-influenced Content-Type, so a global administrator who opens the preview executes the payload in the Countly origin and exposes authenticated session capabilities, including auth_token and csrf_token values. This issue is fixed in versions 24.05.50 and 25.03.44.",
+      "id": "CVE-2026-68573",
+      "published": "2026-10-16T20:17:24.233",
+      "description": "Improper Authentication vulnerability in Apache Kylin. Unauthenticated user may access to system cleanup actions. Impact most to the kylin services that are directly exposed to public network, which is not common. In-house kylin deployments are mostly not impacted. \n\n\n\nThis issue affects Apache Kylin: from 4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-102608",
+      "published": "2026-10-16T20:17:17.253",
+      "description": "ZoneMinder is a free, open source closed-circuit television software application. Prior to 1.38.3, downloadEvents() manually wraps a monitor Name value in single quotes instead of using escapeshellarg() before placing it in shell commands when a user with monitor-create or monitor-edit permission stores a monitor Name containing shell metacharacters and a user with Events View permission exports that monitor's events. In this attack mechanism, the stored monitor Name reaches both the ffmpeg concatenation command and the tar or zip archive command and breaks out of manual quoting. Arbitrary commands execute as the web server user. This issue is fixed in version 1.38.3.",
       "severity": "CRITICAL",
       "score": 9
     },
     {
-      "id": "CVE-2026-42269",
-      "published": "2026-10-16T16:17:23.783",
-      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, the authenticated data-migration deletion route in plugins/data_migration/api/api.js passes the user-controlled exportid to clean_up_data without path validation. plugins/data_migration/api/data_migration_helper.js concatenates that identifier into a path resolved outside the intended import directory and calls remove recursively, allowing an application administrator or user with migration permission to delete writable files or directory trees and cause data loss or service disruption. This issue is fixed in versions 24.05.50 and 25.03.44.",
+      "id": "CVE-2026-102607",
+      "published": "2026-10-16T20:17:17.097",
+      "description": "ZoneMinder is a free, open source closed-circuit television software application. Prior to 1.38.3, the exportEvents() function concatenates the attacker-controlled exportFile request parameter into a shell command without neutralizing shell metacharacters when an authenticated user with View Events or View Snapshots permission submits an event export request with a crafted exportFile value, a valid CSRF token, and exportDetail enabled. The affected components are exportEvents(), exportFile, web/ajax/event.php, web/skins/classic/includes/export_functions.php. In this attack mechanism, the crafted exportFile value reaches the trailing directory argument of a tar or zip command executed by exec(). The attacker can execute arbitrary operating system commands as the web server user. This issue is fixed in version 1.38.3.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-108743",
+      "published": "2026-10-16T20:17:19.050",
+      "description": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Apache Kylin. Impact most to the kylin services that are directly exposed to public network, which is not common. In-house kylin deployments are mostly not impacted.\n\n\n\nThis issue affects Apache Kylin: from 4.0.4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-30971",
+      "published": "2026-10-16T20:17:23.190",
+      "description": "ZoneMinder is a free, open source closed-circuit television software application. Prior to 1.39.2, 1.38.2, and 1.36.40, ZoneMinder interpolates an unvalidated monitor Device field into shell commands in PHP and Perl control paths when an authenticated user with monitor-create or monitor-edit permission saves a Local monitor whose Device Path contains shell metacharacters and the monitor control or startup path runs. In this attack mechanism, the stored Device value reaches Perl qx() and backtick execution before zmdc.pl argument detainting, while separate PHP command paths use bypassable escapeshellcmd defenses. The attacker can execute arbitrary commands as the web server user. This vulnerability is fixed in 1.39.2, 1.38.2, and 1.36.40.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-61726",
+      "published": "2026-10-16T20:17:23.980",
+      "description": "Tandoor Recipes is an application for managing recipes, planning meals, and building shopping lists. Prior to 2.6.12, StepViewSet and IngredientViewSet filter only by active Space and use role-level CustomIsUser checks instead of the private-recipe owner or sharing predicate when an authenticated user with read and write API scope in the victim's Space supplies a private recipe or step identifier to the Step API. Request processing uses StepViewSet, IngredientViewSet, api/step/, api/step/{step_id}/, CustomIsUser, CustomRecipePermission. The attack works because the sub-resource querysets return and update private-recipe steps for non-owners because Space membership is accepted without recipe-level authorization. This can read and silently modify another same-Space member's private recipe instructions, while cross-Space access remains out of scope. This issue is fixed in version 2.6.12.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-102941",
-      "published": "2026-10-16T16:16:52.937",
-      "description": "The package github.com/gomarkdown/markdown is a Go library for parsing Markdown text and rendering as HTML. Prior to 0.0.0-20260724235538-61af6e1e6971, parser.IsSafeURL in parser/parser.go slices url[:nPath] before the len(url) >= nPath guard. A short destination causes a slice-bounds panic when the loop reaches a relative-path prefix for which len(url) < nPath and cap(url) < nPath. The one-byte destination / is an explicit non-panic counterexample because it matches the first valid path and returns before a longer prefix is sliced. Demonstrated panic cases include empty, ., and .. destinations under those conditions. The panic is reachable when markdown.ToHTML renders untrusted Markdown with html.Safelink enabled, including an empty link destination, and is also reachable by callers that pass a short attacker-controlled URL directly to the exported parser.IsSafeURL function. An uncaught panic can terminate the calling process and cause denial of service. This issue is fixed in 0.0.0-20260724235538-61af6e1e6971.",
+      "id": "CVE-2026-59970",
+      "published": "2026-10-16T20:17:23.843",
+      "description": "Tandoor Recipes is an application for managing recipes, planning meals, and building shopping lists. Prior to 2.6.10, passes an administrator-controlled AI provider URL directly to LiteLLM without applying the server's outbound-request SSRF checks when an authenticated user creates a Space, configures an AI provider with a URL targeting an internal address, and invokes an AI action. In cookbook/views/api.py, the affected AI actions call completion through TARGET/api/ai-import/ and api/ai-step-sort/ while bypassing safe_request. The attack works because the server connects to the supplied provider URL from each AI action and exposes connection success, refusal, or timeout as a blind network-reachability oracle. This can reach internal services, other hosts on the server network, and cloud metadata endpoints and map reachable internal hosts and ports. This issue is fixed in version 2.6.10.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-108374",
+      "published": "2026-10-16T21:17:19.600",
+      "description": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.121.0 and 16.34.0, certain endpoints for status modification fail to enforce proper authorization checks. A low-privileged authenticated user can invoke state-changing whitelisted methods without required write, submit, cancel, document, or role checks. This allows the user to modify data beyond the user's permitted role. This issue is fixed in versions 15.121.0 and 16.34.0.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-102834",
+      "published": "2026-10-16T20:17:17.563",
+      "description": "JavaCV provides Java interfaces to OpenCV, FFmpeg, and other multimedia libraries. Prior to 1.5.14, IPCameraFrameGrabber doubles a 32-bit buffer capacity without checking for overflow or bounding the parsed Content-Length. An application consumes an MJPEG response from a malicious camera endpoint or a tampered plaintext stream. The source can return an oversized Content-Length header in an MJPEG stream. Successful exploitation can trap the frame-grabbing thread in a permanent CPU-spinning loop and deny service. This issue is fixed in version 1.5.14.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-41582",
-      "published": "2026-10-16T16:17:23.623",
-      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, public image and screenshot routes implemented in frontend/express/app.js, plugins/star-rating/frontend/app.js, and plugins/dashboards/frontend/app.js concatenate attacker-controlled wildcard paths without containment validation. On deployments using the local filesystem backend, an unauthenticated request can traverse outside the intended asset directories and reach getStats or getStream in api/utils/countlyFs.js, allowing arbitrary readable server files to be disclosed. The affected routes include /appimages/*, /memberimages/*, */screenshots/*, /star-rating/images/*, and /dashboards/images/screenshots/*. This issue is fixed in versions 24.05.50 and 25.03.44.",
+      "id": "CVE-2026-68572",
+      "published": "2026-10-16T20:17:24.120",
+      "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Apache Kylin.\n\n\n\nThis issue affects Apache Kylin: from 4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-42270",
-      "published": "2026-10-16T16:17:23.940",
-      "description": "countly-server is the server-side part of Countly, a product analytics solution. Prior to 24.05.50 and 25.03.44, star-rating/images/ and dashboards/images/screenshots/ are among public image and screenshot routes using the local fs storage backend that call getStream and pipe filesystem streams to HTTP responses without an error listener. An unauthenticated request containing a URL-encoded dot can make createReadStream open a directory, emit an asynchronous EISDIR error, and terminate the Node.js process as an unhandled exception, allowing repeated requests to keep the analytics API unavailable. The affected routes also include /appimages/*, /memberimages/*, and */screenshots/*. This issue is fixed in versions 24.05.50 and 25.03.44.",
+      "id": "CVE-2026-69076",
+      "published": "2026-10-16T20:17:24.343",
+      "description": "Exposure of Job Discard to an Unauthorized Actor vulnerability in Apache Kylin. Impact most to the kylin services that are directly exposed to public network, which is not common. In-house kylin deployments are mostly not impacted.\n\n\n\nThis issue affects Apache Kylin: from 4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-46472",
-      "published": "2026-10-16T16:18:11.647",
-      "description": "An issue was discovered in GStreamer gst-plugins-good before 1.28.2. While parsing an MP4 file, the isomp4 plugin's qtdemux_parse_chnl function may read past the end of a global array, potentially leading to information disclosure.",
+      "id": "CVE-2026-69077",
+      "published": "2026-10-16T20:17:24.450",
+      "description": "Exposure of unauthorized cross-project job manipulation vulnerability in Apache Kylin. Impact most to the kylin services that are directly exposed to public network, which is not common. In-house kylin deployments are mostly not impacted.\n\n\n\nThis issue affects Apache Kylin: from 4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-48503",
-      "published": "2026-10-16T16:18:11.793",
-      "description": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. Prior to 1.6.2, the MMS file service in src/mms/iso_mms/server/mms_file_service.c accepts an out-of-range initialPosition in fileOpen and stores it in the file-read state. The fileRead path then subtracts the larger read position from the file size using unsigned arithmetic and fails to limit the response to the actual FileSystem_readFile return value. The oversized response can include stale bytes from the reused connection buffer after the requested file contents, disclosing prior response data and protocol fragments to an unauthenticated remote client when the file service is enabled. This issue is fixed in version 1.6.2.",
+      "id": "CVE-2026-69080",
+      "published": "2026-10-16T20:17:24.560",
+      "description": "Exposure of SQL Black List to an Unauthorized Actor vulnerability in Apache Kylin.\n\n\n\nThis issue affects Apache Kylin: from 4 through 5.0.4.\n\n\n\nUsers are recommended to upgrade to version 5.0.5, which fixes the issue.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-48741",
-      "published": "2026-10-16T16:18:11.943",
-      "description": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. Prior to 1.6.2, alternateArrayAccess in src/mms/iso_mms/server/mms_read_service.c does not validate an alternate-access sub-array range when numberOfElements is greater than zero. An out-of-range MmsValue_getElement call returns NULL, and the sub-array branch passes that value to MmsValue_isDeletable, causing a NULL pointer dereference. A remote MMS Read request can therefore crash servers whose data models contain arrays, while the single-element error path handles the same invalid index safely. This issue is fixed in version 1.6.2.",
+      "id": "CVE-2026-59963",
+      "published": "2026-10-16T20:17:23.567",
+      "description": "Tandoor Recipes is an application for managing recipes, planning meals, and building shopping lists. Prior to 2.6.10, recipe utility endpoints retrieve same-Space Recipe objects without invoking the private-recipe owner or sharing permission when an authenticated member of a shared Space supplies another member's private recipe identifier to AI import, file, external-link, or share-link endpoints. Request processing uses api/ai-import/, api/get_recipe_file/, api/get_external_file_link/, api/share-link/, CustomRecipePermission. The attack works because the endpoints read private recipe files, send file bytes to the configured AI provider, or create and disclose external links without object-level authorization, and api/share-link/ can create a public link when Space sharing is enabled. This can expose private recipe files and sensitive uploaded content to another same-Space user and to configured external services. This issue is fixed in version 2.6.10.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-57486",
-      "published": "2026-10-16T16:18:44.510",
-      "description": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 2.0.2, ixmlNode_compare in ixml/src/node.c passes the nullable nodeValue, namespaceURI, prefix, and localName fields directly to strcmp. Non-namespaced attributes created by ixmlDocument_createAttribute legitimately leave those fields NULL. When ixmlElement_removeAttributeNode compares two distinct attribute objects with the same nodeName through find_condition_node, the pointer-identity shortcut does not apply and the comparison dereferences NULL, causing a process crash when application handling of attacker-controlled XML reaches this path. This issue is fixed in 2.0.2.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-57487",
-      "published": "2026-10-16T16:18:44.663",
-      "description": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 2.0.2, Transfer-Encoding: chunked causes the HTTP parser in upnp/src/genlib/net/http/httpparser.c to leave parser->content_length at zero while parser_parse_chunky_entity and parser_parse_chunky_body accumulate decoded bytes in parser->msg.entity. The g_maxContentLength checks in http_RecvMessage in upnp/src/genlib/net/http/httpreadwrite.c therefore reject oversized numeric Content-Length bodies but do not enforce the same limit on decoded chunked bodies. A remote peer that can reach a SOAP, GENA, miniserver, or control-point HTTP response path can make the process buffer an entity larger than the configured maximum, causing resource exhaustion and denial of service. This issue is fixed in 2.0.2.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-55836",
-      "published": "2026-10-16T16:18:43.897",
-      "description": "Open Zaak is an open-source data and services layer for Dutch case-oriented working. From 1.13.0 until 1.27.2, 1.28.2, and 1.29.0, _import_document_row in src/openzaak/components/documenten/tasks.py uses the attacker-controlled bestandspad CSV field without ensuring that the resolved path remains under IMPORT_DOCUMENTEN_BASE_DIR. A client with an all-authorizations application token can supply an absolute or parent-traversal path to a file readable by the Celery service account. The worker copies that file into document storage, allowing its contents to be retrieved through the normal document download API and exposing server secrets or other private files. This issue is fixed in versions 1.27.2, 1.28.2, and 1.29.0.",
-      "severity": "MEDIUM",
-      "score": 6.8
-    },
-    {
-      "id": "CVE-2026-54657",
-      "published": "2026-10-16T16:18:43.590",
-      "description": "Open Zaak is an open-source data and services layer for Dutch case-oriented working. From 1.0.0 until 1.27.2, 1.28.2, and 1.29.0, the POST search endpoints /zaken/api/v1/zaken/_zoek and /documenten/api/v1/enkelvoudiginformatieobjecten/_zoek do not filter result querysets according to the authorizations associated with the request token. A caller with a valid zaken.lezen or documenten.lezen token can therefore retrieve case or document metadata outside the token's authorized types or confidentiality levels. Document searches require known UUIDs, and document content remains protected by separate download authorization. This issue is fixed in versions 1.27.2, 1.28.2, and 1.29.0.",
+      "id": "CVE-2026-108373",
+      "published": "2026-10-16T21:17:19.437",
+      "description": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.118.0 and 16.27.0, certain endpoints in the Sales Person-wise Transaction Summary report fail to enforce proper authorization checks. When a role-limited authenticated user requests the affected financial report, the query can query financial transaction rows without applying the requesting user's document permission match conditions. This allows the user to read financial data beyond the user's permitted role. This issue is fixed in versions 15.118.0 and 16.27.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-55862",
-      "published": "2026-10-16T16:18:44.060",
-      "description": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 2.0.0, multiple ixml DOM traversal functions process deeply nested XML with unbounded recursion. The iterative XML parser accepts the document, but ixmlPrintDomTreeRecursive in ixml/src/ixml.c and ixmlNode_getElementsByTagNameRecursive, ixmlNode_getElementsByTagNameNSRecursive, ixmlNode_cloneNodeTreeRecursive, and ixmlNode_isAncestor in ixml/src/node.c recurse over firstChild and nextSibling links. An unauthenticated peer on the local network can supply deeply nested XML through a SOAP request, exhaust a service thread's stack, and crash the UPnP service. This is an incomplete-fix case for CVE-2021-28302 because its remediation converted ixmlNode_free but left these traversal paths recursive. This issue is fixed in 2.0.0.",
+      "id": "CVE-2026-55796",
+      "published": "2026-10-16T21:19:18.963",
+      "description": "Frappe HR is an open-source human resources management solution (HRMS). Prior to 15.60.3 and 16.7.1, the Salary Payments via ECS report constructs report conditions with unsafe SQL string interpolation. An authenticated HR user supplies crafted Salary Payments via ECS report filter values. The affected Salary Payments via ECS report allows the user to inject SQL through report filter values. Successful exploitation can access sensitive database records. This issue is fixed in versions 15.60.3 and 16.7.1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-46471",
-      "published": "2026-10-16T16:18:11.513",
-      "description": "An issue was discovered in GStreamer gst-plugins-good before 1.28.2. While parsing an MP4 file, the isomp4 plugin's qtdemux_parse_uuid function may read past the end of a heap-allocated buffer, allowing an attacker to disclose heap memory contents.",
+      "id": "CVE-2026-64862",
+      "published": "2026-10-16T21:19:19.597",
+      "description": "Frappe HR is an open-source human resources management solution (HRMS). Prior to 15.58.3 and 16.4.3, HRMS PWA API endpoints for employee data do not consistently authorize employee-specific PWA API requests. An authenticated user requests records associated with another employee. The user can request records associated with another employee through PWA API endpoints. Successful exploitation can access sensitive HR data belonging to other employees. This issue is fixed in versions 15.58.3 and 16.4.3.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-102923",
-      "published": "2026-10-16T16:16:52.707",
-      "description": "SparkyFitness is a self-hosted, AI-powered health and fitness tracker for families. Prior to 1.6.0, SparkyFitnessServer/services/chatService.ts and SparkyFitnessServer/services/labelScanService.ts do not validate destinations supplied in custom AI service settings. An authenticated user saves a custom AI service URL and invokes an affected AI flow. The user can save a custom AI service URL and trigger an outbound request. Successful exploitation can send server-side POST requests with a controlled bearer value, probe internal services, and disclose the AI system prompt. This issue is fixed in version 1.6.0.",
+      "id": "CVE-2026-59966",
+      "published": "2026-10-16T20:17:23.700",
+      "description": "Tandoor Recipes is an application for managing recipes, planning meals, and building shopping lists. Prior to 2.6.10, executes user-controlled Automation regular-expression patterns with Python re.sub() without complexity validation or an execution timeout when an authenticated user stores a catastrophic-backtracking regex and any user in the same Space imports a matching recipe. Request processing uses Automation.param_2, apply_regex_replace_automation, sub, api/recipe-from-source/. The attack works because the shared-Space automation engine evaluates the malicious pattern during recipe import and can occupy a Gunicorn worker until its request timeout. This can exhaust application worker slots and make the service unavailable to users. This issue is fixed in version 2.6.10.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.7
     },
     {
-      "id": "CVE-2026-57446",
-      "published": "2026-10-16T16:18:44.207",
-      "description": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. From 1.6.1 until 1.6.2, a successful MMS ObtainFile operation closes MmsObtainFileTask::fileHandle but leaves the stale non-NULL value in a task marked MMS_FILE_UPLOAD_STATE_NOT_USED. If a later ObtainFile request reuses that task and destination creation fails, MMS_FILE_UPLOAD_STATE_SEND_OBTAIN_FILE_ERROR_DESTINATION cleanup closes the stale FILE object again. Servers with the MMS file service and ObtainFile enabled can therefore be crashed remotely by the success-then-failure request sequence. This issue is fixed in version 1.6.2.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-57447",
-      "published": "2026-10-16T16:18:44.357",
-      "description": "Discourse Doc Categories is a plugin for organizing Discourse topics as documentation. Prior to the verified source fix, the doc category index refresh resolves linked titles for private messages or restricted category topics without enforcing the viewer's authorization. A user who can edit the index topic can use this behavior to learn titles that the user is not authorized to view, although the advisory does not establish access to topic contents. This vulnerability is addressed by commit b15d4de02ad29d7c9525346afee51fef4a2c605a.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-111581",
-      "published": "2026-10-16T16:17:04.680",
-      "description": "A flaw was found in libblockdev. The bd_fs_ntfs_set_label() and bd_fs_vfat_set_label() functions pass caller-supplied label values as bare positional arguments to the ntfslabel and fatlabel utilities without end-of-options separators or input validation for values beginning with a dash. This allows a label starting with '-' to be interpreted as a command-line flag by the spawned tool, potentially bypassing safety checks or causing unintended operations. This is reachable by unprivileged local users through the udisks2 Filesystem.SetLabel() D-Bus method without administrator authentication.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-55543",
-      "published": "2026-10-16T16:18:43.750",
-      "description": "TuxGuitar is an open-source guitar tablature editor. Prior to 2.1.0, an untrusted .tg file can set gervil.soundbank.path to reference an on-disk archive, including the .tg file itself, whose META-INF/services/javax.sound.midi.Soundbank entry names an attacker-supplied class stored in that archive. When a user opens the file, JARSoundbankReader uses an unverified class loader to load and instantiate that class, executing its constructor with the privileges of the TuxGuitar process. This issue is fixed in version 2.1.0.",
+      "id": "CVE-2026-96620",
+      "published": "2026-10-16T20:18:28.293",
+      "description": "Claude Agent SDK is a Python SDK for Claude Code. Prior to 0.2.121, the resume option is passed to the Claude CLI as a separate token without validation, so a dash-leading value is parsed as an independent CLI flag. An attacker can inject the --mcp-config flag to define a stdio MCP server, causing arbitrary command execution at CLI startup outside the SDK permission controls. The issue is exploitable when an application passes untrusted input as the session ID to resume. This issue is fixed in version 0.2.121.",
       "severity": "UNKNOWN",
       "score": null
     }
