@@ -1,145 +1,145 @@
 {
-  "totalResults": 4595,
+  "totalResults": 4540,
   "items": [
     {
-      "id": "CVE-2026-104798",
-      "published": "2026-10-16T05:17:28.580",
-      "description": "The My Calendar – Accessible Event Manager plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.8.7. The public `mcs` GET parameter is reflected into post content unsanitized before WordPress core's `do_shortcode` filter runs, allowing an unauthenticated attacker to inject a nested `[my_calendar above=...]` shortcode; `mc_generate_calendar_nav()` then splits the `above` attribute on commas and dispatches each element via `call_user_func()` with no authentication, authorization, or callable allowlist check. This makes it possible for unauthenticated attackers to invoke arbitrary loaded PHP functions, enabling a call chain in which the shortcode `$params` array is passed to `edit_user()` — which PHP coerces to integer `1` as the `$user_id` argument — overwriting the credentials of the initial Administrator account (user ID 1) and granting the attacker full wp-admin access. Exploitation is trivially reachable via the plugin's auto-generated `/my-calendar/` page, which is publicly accessible by default upon plugin activation.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-109119",
+      "published": "2026-10-16T11:17:00.927",
+      "description": "Improper Privilege Management in the user management API endpoint (/api/users/{username_or_id}) in Rdiffweb allows authenticated users to elevate their privileges to administrator by modifying the role parameter in a POST request.",
+      "severity": "HIGH",
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-109219",
-      "published": "2026-10-16T05:17:29.100",
-      "description": "The Mang Board plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.4.4 via the mbw_file_upload function. This is due to missing file extension validation on the attacker-supplied image_path parameter, whose basename-derived file name bypasses the extension allowlist applied only to the separate file_name parameter. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible. Exploitation requires the board to be configured to allow guest posts, which is the plugin's default mode; the required nonce is printed on every public board page, making it readable by any unauthenticated visitor without a WordPress login.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-111399",
+      "published": "2026-10-16T13:16:55.733",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps allows SQL Injection.This issue affects MapSVG: from n/a through 8.16.1.",
+      "severity": "HIGH",
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-109515",
-      "published": "2026-10-16T05:17:29.597",
-      "description": "The MailOptin – Popup, Optin Forms & Email Newsletters for Mailchimp, HubSpot, AWeber Etc. plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.2.78.6 This is due to the `subscribe_to_email_list` endpoint accepting an attacker-supplied `optin_data[form_custom_field_mappings]` parameter without any allow-list validation on destination keys, allowing the attacker-controlled mapping to override the administrator's saved mapping and pass arbitrary `wp_users` column names — including `ID` and `user_pass` — directly into `wp_insert_user()` via the `subscribe()` function. This makes it possible for unauthenticated attackers to force `wp_insert_user()` into UPDATE mode on any existing account by supplying a target user's numeric `ID`, overwrite that account's password with a pre-hashed value of their choosing, and thereby take over any WordPress user account — including administrators — leading to full site compromise. Exploitation requires that a WordPress User Registration opt-in form is published somewhere on the site, though the form's UUID is visible in page source and no authentication, nonce, or capability check is required to reach the vulnerable endpoint.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-103895",
-      "published": "2026-10-16T05:17:28.333",
-      "description": "The miniOrange OTP Login, Verification and SMS Notifications plugin for WordPress is vulnerable to Authentication Bypass in versions up to, and including, 5.5.8 via the `mo_by_pass_login()` function. This is due to `mo_delay_otp_process()` short-circuiting the authentication flow before password validation or the administrator intent gate (added in 5.5.6) can run, combined with the Delay OTP grace flag (`mov_last_verified_dttm`) being stored as a `user_meta` row keyed solely by target user ID with no binding to the originating session, cookie, IP address, or device. This makes it possible for unauthenticated attackers to authenticate as any WordPress user — including administrators — by submitting only a known username with the `mo_wp_login_intent=otp` parameter and any non-empty password, thereby inheriting a legitimate user's open Delay OTP grace window without ever supplying correct credentials. Exploitation requires the site to have OTP-only login (`wp_login_skip_password=1`, `wp_login_skip_password_fallback=0`) and Delay OTP Verification (`wp_login_delay_otp=1`) enabled, and the target account must currently be within its configured Delay OTP interval.",
+      "id": "CVE-2026-111391",
+      "published": "2026-10-16T12:16:33.197",
+      "description": "SGLang 0.5.10 through 0.5.22 contains a code injection vulnerability in _evaluate_filter() that allows remote attackers to execute Python code by escaping the eval() sandbox through re.search __globals__. Attackers can send a crafted filter expression to the unauthenticated /dumper/configure endpoint when DUMPER_SERVER_PORT is set, running code in the scheduler process on the next forward pass.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-109221",
-      "published": "2026-10-16T05:17:29.227",
-      "description": "The Groundhogg — CRM, Newsletters, and Marketing Automation plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the copy_file function in all versions up to, and including, 4.9.3 This makes it possible for authenticated attackers, with Sales Representative-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). This is exploitable by any user holding the plugin-defined import_contacts capability, which is granted by default to the plugin's custom Sales Representative role.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-103525",
-      "published": "2026-10-16T05:17:28.210",
-      "description": "The FluentCart A New Era of eCommerce – Faster, Lighter, and Simpler plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 1.7.0 via the 'order_id + billing_address_id (also shipping_address_id)' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to read and exfiltrate another customer's stored billing and shipping address PII — including street address, city, state, postcode, phone number, company name, VAT number, and legal registration ID — by enumerating sequential AUTO_INCREMENT order and address ID pairs. The id-equality guard intended to restrict address reuse is bypassed because the attacker controls both halves of the compared pair, and the unauthenticated AJAX entry point imposes only a soft rate limit of 5 requests per 60 seconds rather than any authentication or ownership check.",
+      "id": "CVE-2026-105959",
+      "published": "2026-10-16T12:16:31.733",
+      "description": "A flaw was found in spice-server. The GLZ encoder dictionary restore path truncates a size_t allocation size to int when calling the malloc callback, allowing a malicious authenticated SPICE client during VM live migration to trigger a massive heap buffer overflow by sending a crafted max_encoders value in migration data.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107659",
-      "published": "2026-10-16T05:17:28.710",
-      "description": "The Modula Image Gallery – Photo Grid & Video Gallery plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.0.11 via the 'id (post ID in /wp-json/wp/v2/modula-gallery/{id}) or none for collection route' parameter. This makes it possible for unauthenticated attackers to extract the plaintext Password Protect password and username for every published gallery from the modulaSettings REST field. The plugin's own /wp-json/modula/v2/gallery/{id}/settings endpoint correctly redacts the password for unauthenticated callers via redact_settings_for_public(), but no equivalent redaction is applied on the core /wp-json/wp/v2/modula-gallery path exposed by show_in_rest=true CPT registration.",
+      "id": "CVE-2026-105958",
+      "published": "2026-10-16T13:16:53.480",
+      "description": "A flaw was found in spice-server. Multiple migration data handlers use client-supplied offsets from SPICE_MSGC_MIGRATE_DATA messages without bounds validation, allowing a malicious authenticated SPICE client during VM live migration to read arbitrary heap memory or trigger heap corruption via out-of-bounds read and write operations on the message buffer.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107746",
-      "published": "2026-10-16T05:17:28.837",
-      "description": "The FunnelKit – Funnel Builder for WooCommerce Checkout plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.16.0.6 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to retrieve billing PII — including full name, street address, email address, and phone number — for any WooCommerce order on the site by submitting an enumerable sequential order ID. This is only exploitable on sites where a FunnelKit thank-you page exists that renders the [wfty_order_meta] or [wfty_order_total] shortcode.",
+      "id": "CVE-2026-107564",
+      "published": "2026-10-16T13:16:54.013",
+      "description": "An unauthenticated remote attacker may use an allocation of resources without limits or throttling weakness in the affected product to cause high CPU load leading to a denial of service.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-109400",
-      "published": "2026-10-16T05:17:29.350",
-      "description": "The InstaWP Connect – 1-click WP Staging & Migration plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 0.1.4.1 This is due to the plugin registering its admin page via `add_management_page()` using a role name returned by `InstaWP_Setting::get_allowed_role()` as the required capability — which WordPress resolves as a real capability match for any user holding that role — combined with `generate_section_field()` rendering the master API key from the `instawp_api_options` option directly as the `value` attribute of a plain-text HTML input with no additional `manage_options` or equivalent capability check. This makes it possible for authenticated attackers with Subscriber-level access and above to read the plaintext master API key, use its SHA-256-derived secret as a bearer token accepted by the plugin's REST API `validate_api_request()`, and call `POST /wp-json/instawp-connect/v2/auto-login` to mint a 30-second single-use login URL that sets an administrator authentication cookie — fully escalating their privileges. Exploitation requires the site to be actively connected to InstaWP and an administrator to have added the attacker's role to the plugin's Sync Tab Access list (`instawp_sync_tab_roles`); notably, the settings tab suppression logic only hides the tab when `administrator` is absent from the list entirely, meaning a mixed configuration retaining administrator alongside a lower role still serves the full settings page — including the API key — to the lower-privileged user.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-110590",
-      "published": "2026-10-16T05:17:29.973",
-      "description": "The Klarna for WooCommerce plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.13.3 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to access any order's secret order_key and full billing and shipping PII — including first name, last name, email address, phone number, street address, postcode, city, region, and country — emitted inline as the klarna_payments_params JavaScript variable, enabling full store-wide order enumeration. Because WooCommerce order IDs are sequential integers and no order_key or authenticated session is required, every order in the store can be trivially enumerated with sequential GET requests to the order-pay endpoint.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-111114",
-      "published": "2026-10-16T05:17:30.350",
-      "description": "The Nexter Extension – Security, Performance, Code Snippets & Site Toolkit plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.7.11 The vulnerability exists because the `/?reset-view` handler in `role_switcher_to_view_admin_as()` performs no nonce or capability check when the supplied username matches the authenticated caller, and because the plugin's only cleanup mechanism — the `profile_update` hook — does not fire when WordPress performs a bulk role change via `wp-admin/users.php?action=promote`, which calls `WP_User::set_role()` directly and leaves a stale `administrator` value in the `nxtext_view_admin_original_role` user meta. This makes it possible for authenticated attackers with Subscriber-level access or above to restore the stale stored Administrator role to their own account, effectively escalating their privileges to Administrator. Exploitation requires that the attacker's account previously held the Administrator role and used the View Admin Role Switcher feature before being demoted specifically through the bulk role-change control rather than the Edit User screen, as only the bulk path bypasses the `profile_update` hook that would otherwise have cleared the stored original role.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-109998",
-      "published": "2026-10-16T05:17:29.717",
-      "description": "The Mang Board plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'content' parameter in all versions up to, and including, 2.4.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable because the wp_ajax_nopriv_mb_template endpoint is publicly accessible without authentication, nonce verification is not enforced for the content_reply mode, and admin-ajax.php responds with Content-Type: text/html, causing browsers to execute injected tags embedded in the JSON response body.",
+      "id": "CVE-2026-107648",
+      "published": "2026-10-16T12:16:32.053",
+      "description": "The WP Sessions Time Monitoring Full Automatic plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'action (also function, plugin, post_type, post_status, ids, loggedout, and POST post_title)' parameter in all versions up to, and including, 1.1.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-101335",
-      "published": "2026-10-16T05:17:27.933",
-      "description": "The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in versions up to, and including, 1.58.1. This is due to the forminator_replace_quiz_form_data() helper invoking do_shortcode() on the fully expanded notification body once the {quiz_result} merge tag has been substituted, while the earlier-substituted {user_agent} and {refer_url} merge tags carry unauthenticated attacker-controlled bytes (the User-Agent header and the referer_url POST parameter) through sanitize_text_field()/esc_html(), neither of which strip the '[' and ']' shortcode delimiters. This makes it possible for unauthenticated attackers to execute arbitrary WordPress shortcodes registered on the site by submitting a quiz whose notification template contains {quiz_result}; the resulting impact depends on the shortcodes exposed by other installed plugins/themes and can range from arbitrary content injection to information disclosure.",
+      "id": "CVE-2026-111396",
+      "published": "2026-10-16T13:16:55.497",
+      "description": "Missing Authorization vulnerability in Liquid Web / StellarWP Advanced Post Manager advanced-post-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Advanced Post Manager: from n/a through 4.5.6.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-110903",
+      "published": "2026-10-16T13:16:55.370",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Liquid Web / StellarWP The Events Calendar the-events-calendar allows Stored XSS.This issue affects The Events Calendar: from n/a through 6.18.1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-103911",
-      "published": "2026-10-16T05:17:28.460",
-      "description": "The The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 1.58.1. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. This is exploitable on any block-theme install via a single unauthenticated GET request to the search results page, or by submitting an anonymous comment on any post with comments enabled; no Forminator-specific content or configuration is required to trigger execution.",
+      "id": "CVE-2026-111400",
+      "published": "2026-10-16T13:16:55.850",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in IdeaBox Creations PowerPack Addons for Elementor powerpack-lite-for-elementor allows Stored XSS.This issue affects PowerPack Addons for Elementor: from n/a through 3.1.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-111106",
-      "published": "2026-10-16T05:17:30.223",
-      "description": "The Mail Mint plugin for WordPress is vulnerable to SQL Injection via the 'filters' parameter of the /wp-json/mrm/v1/segments/contacts REST endpoint in versions up to, and including, 1.31.4 This is due to insufficient escaping on the user supplied filter 'value' before it is appended to a SQL query in SegmentFilterService::get_meta_join_query() at line 797, where the value is string-interpolated into the WHERE fragment in a numeric (unquoted) context and the surrounding $wpdb->prepare() calls do not cover the injected value. This makes it possible for authenticated attackers, with the custom 'mint_read_contacts' capability (granted to Administrators by default, and configurable to lower roles via the plugin's role manager), to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-111405",
+      "published": "2026-10-16T13:16:55.967",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps allows Stored XSS.This issue affects MapSVG: from n/a through 8.16.1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-109512",
-      "published": "2026-10-16T05:17:29.477",
-      "description": "The Mang Board plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'content' parameter in all versions up to, and including, 2.4.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The sanitization bypass is further compounded by the ability to omit the data_type parameter in a modify request, which skips the HTMLPurifier branch entirely and leaves only mbw_htmlspecialchars2 encoding — fully reversed at render — as the sole barrier.",
+      "id": "CVE-2026-110029",
+      "published": "2026-10-16T12:16:32.387",
+      "description": "The Squeeze WordPress plugin before 1.8.1 does not perform a capability check on one of its AJAX actions, allowing authenticated users with a role as low as Subscriber to revert any attachment to its backup copy and to permanently delete that backup and the plugin's generated WebP derivatives, regardless of ownership.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-103481",
-      "published": "2026-10-16T05:17:28.080",
-      "description": "The Gwolle Guestbook plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'permalink' parameter in all versions up to, and including, 5.1.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "id": "CVE-2026-110901",
+      "published": "2026-10-16T13:16:55.250",
+      "description": "Authorization Bypass Through User-Controlled Key vulnerability in WPMU DEV SmartCrawl smartcrawl-seo allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SmartCrawl: from n/a through 3.16.4.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-110721",
-      "published": "2026-10-16T05:17:30.097",
-      "description": "The NotificationX plugin for WordPress is vulnerable to Missing Authorization leading to arbitrary content injection in versions up to, and including, 3.3.3 The /notificationx/v1/popup-submit REST route is registered with permission_callback => '__return_true', and the handler at PopupNotification::handle_popup_submission() accepts an attacker-controlled nx_id, loads whichever NotificationX campaign that id points to, and copies that campaign's own source into the new entry without verifying that the campaign is a Popup Notification or Exit Intent Popup (the two sources this form is intended to serve). This makes it possible for unauthenticated attackers to inject forged social-proof entries (name, title, message, email, theme) into any enabled non-popup NotificationX campaign — WP Comments, WooCommerce/EDD/Give sales, reviews, etc.",
+      "id": "CVE-2026-109930",
+      "published": "2026-10-16T12:16:32.273",
+      "description": "The MAIO WordPress plugin before 7.3.22 does not properly restrict access to its analytics data, treating a credential value shipped verbatim in its own public source as a valid API key, which allows unauthenticated attackers to retrieve the stored crawl-analytics log, including each recorded visitor's IP address, user agent and referer.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-109191",
-      "published": "2026-10-16T05:17:28.967",
-      "description": "The Image Hub – Free Images from Unsplash, Pixabay, Pexels, Openverse & Giphy plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 1.2.0 via the 'image_hub_api_keys_* (6 options)' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to extract the plaintext API credentials for six third-party services — Giphy, Openverse (client ID and secret), Pexels, Pixabay, and Unsplash — emitted verbatim into every admin page's HTML via wp_localize_script. The leaked page HTML also contains a valid image_hub_nonce AJAX nonce, which — combined with the absence of any capability check in the image_hub_update_settings AJAX handler — allows the same Subscriber-level attacker to overwrite all six stored API credential options via update_option().",
+      "id": "CVE-2026-111390",
+      "published": "2026-10-16T12:16:33.050",
+      "description": "Erupt through 2.3.0 contains an HQL injection vulnerability that allows authenticated users to bypass tree-scoped data filters by injecting unescaped quotes into the linkTreeVal parameter of POST /erupt-api/data/table/{erupt}. Attackers holding query permission on entities with String-keyed linkTree targets can append always-true OR clauses or boolean subqueries to read data from other mapped entities.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-110019",
-      "published": "2026-10-16T05:17:29.850",
-      "description": "The Bulk Page Generator – LPagery plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.1.0 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to create, modify, and delete LPagery-managed WordPress pages and bulk page-generation processes that are otherwise restricted to administrators. On default fresh installations where Freemius has not been opted into, the AES-256-CBC key used to validate Bearer tokens collapses to the publicly known SHA-256 hash of an empty string, making the token entirely forgeable by any authenticated user.",
+      "id": "CVE-2026-110380",
+      "published": "2026-10-16T13:16:54.893",
+      "description": "Missing Authorization vulnerability in Arraytics WP Event Solution wp-event-solution allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Event Solution: from n/a through 4.1.26.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-110896",
+      "published": "2026-10-16T13:16:55.010",
+      "description": "Missing Authorization vulnerability in WP Chill Passster content-protector allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Passster: from n/a through 4.3.18.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-110900",
+      "published": "2026-10-16T13:16:55.130",
+      "description": "Missing Authorization vulnerability in Liquid Web / StellarWP BookIt bookit allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects BookIt: from n/a through 2.6.0.5.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-111397",
+      "published": "2026-10-16T13:16:55.617",
+      "description": "Missing Authorization vulnerability in PT Norther Lights Production MapSVG mapsvg-lite-interactive-vector-maps allows Retrieve Embedded Sensitive Data.This issue affects MapSVG: from n/a through 8.16.1.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-109118",
+      "published": "2026-10-16T11:17:00.793",
+      "description": "Improper path containment check in ikus060 rdiffweb 7.1.1 allows an authenticated user to cause the browse, restore, history and delete operations to resolve to a path outside the repository being operated on, via a percent-encoded traversal sequence (%2e%2e) in the request path, because the containment check uses a string prefix comparison (startswith) instead of a filesystem path boundary check. The target must be a sibling path whose name begins with the repository path, and the user already hold permissions on it; the issue can mislead a user into operating on, or deleting, data other than the repository displayed",
+      "severity": "MEDIUM",
+      "score": 4.6
     }
   ]
 }
