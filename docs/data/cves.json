@@ -1,5 +1,5 @@
 {
-  "totalResults": 4630,
+  "totalResults": 4631,
   "items": [
     {
       "id": "CVE-2026-111866",
@@ -37,6 +37,20 @@
       "score": 7.2
     },
     {
+      "id": "CVE-2026-110033",
+      "published": "2026-10-18T07:16:52.287",
+      "description": "The Salon Booking System  WordPress plugin before 10.31.11 does not validate a user-supplied image URL before fetching it server-side and writing the response to a publicly accessible location under an attacker-chosen filename, allowing users with the Salon Staff role or higher to force the server to read internal-only resources and disclose them, and to store a malicious SVG that runs arbitrary scripts in the site's origin for anyone who opens it.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-110070",
+      "published": "2026-10-18T07:16:52.610",
+      "description": "The Modern Events Calendar Lite WordPress plugin before 7.36.4 does not verify that a user is authorized to edit the target post before updating it, allowing authenticated users with the Subscriber role to modify the title, content, and excerpt of arbitrary posts, pages, and custom post types created by other users.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
       "id": "CVE-2026-111868",
       "published": "2026-10-18T01:16:34.483",
       "description": "A vulnerability was determined in datastax pulsar-jms up to 9.0.3. This issue affects the function decode of the file pulsar-jms/src/main/java/com/datastax/oss/pulsar/jms/messages/PulsarObjectMessage.java. This manipulation causes deserialization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -44,18 +58,18 @@
       "score": 6.3
     },
     {
+      "id": "CVE-2026-110032",
+      "published": "2026-10-18T07:16:52.183",
+      "description": "The Salon Booking System  WordPress plugin before 10.31.11 does not restrict which user account its salon staff roles may edit through the customers management screen, allowing users with the Salon Staff or Salon Worker role to reset any other user's role, including administrators, to a customer and to overwrite arbitrary profile fields on any account, leading to loss of administrative access and potential site lockout.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
       "id": "CVE-2026-109937",
       "published": "2026-10-18T07:16:50.927",
       "description": "The Otter Blocks  WordPress plugin before 3.2.3 does not validate that a user-supplied return URL belongs to the site before using it to build the return destination of a Stripe Checkout session, allowing unauthenticated attackers to redirect victims who complete or cancel checkout to an arbitrary external URL.",
       "severity": "MEDIUM",
       "score": 5.4
-    },
-    {
-      "id": "CVE-2026-111865",
-      "published": "2026-10-17T21:16:25.793",
-      "description": "A security flaw has been discovered in THU-MIG yoloe up to 40cd606cabdbe2b566d6f14a6b162c89206e9a1b. This affects the function eval of the file ultralytics/nn/autobackend.py of the component AutoBackend Model Loading. The manipulation of the argument imgsz/names/kpt_shape results in improper neutralization of directives in dynamically evaluated code. The attack requires a local approach. The exploit has been released to the public and may be used for attacks. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.3
     },
     {
       "id": "CVE-2026-111869",
@@ -86,6 +100,13 @@
       "score": 4.9
     },
     {
+      "id": "CVE-2026-110976",
+      "published": "2026-10-18T07:16:52.713",
+      "description": "The AI Engine  WordPress plugin before 3.7.9 does not check that the item passed to one of its media actions belongs to the requesting user before converting it to an attachment and permanently deleting it, allowing users with the Editor role and above to delete arbitrary posts of any type, including content they cannot otherwise delete such as navigation menus, block templates and global styles.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
       "id": "CVE-2026-111875",
       "published": "2026-10-18T06:16:56.840",
       "description": "A vulnerability has been found in David-Crty Databasement up to 1.8.1. Affected by this vulnerability is an unknown functionality of the file app/Http/Requests/Api/V1/SaveScheduledRestoreRequest.php of the component Scheduled Restore. Such manipulation of the argument schema_name leads to missing authorization. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 1.8.2 addresses this issue. It is suggested to upgrade the affected component.",
@@ -93,46 +114,25 @@
       "score": 4.7
     },
     {
+      "id": "CVE-2026-110035",
+      "published": "2026-10-18T07:16:52.397",
+      "description": "The Salon Booking System  WordPress plugin before 10.31.11 does not restrict one of its REST API endpoints to salon staff, allowing any authenticated user, such as a subscriber, to retrieve every discount coupon configured on the site, including coupons the administrator has chosen to hide from customers, together with their amounts, validity dates and usage limits.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-110069",
+      "published": "2026-10-18T07:16:52.500",
+      "description": "The Modern Events Calendar Lite WordPress plugin before 7.37.0 does not perform capability, nonce, or ownership checks before returning event booking and attendee data, allowing any authenticated user, including Subscribers, to disclose the names, email addresses, transaction IDs and payment amounts of every booking on the site.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
       "id": "CVE-2026-111874",
       "published": "2026-10-18T06:16:56.380",
       "description": "A flaw has been found in OpenCATS 0.10.0. Affected is the function processLogin of the file modules/careers/CareersUI.php of the component Career Portal. This manipulation of the argument applyToJobSubAction causes improper restriction of excessive authentication attempts. Remote exploitation of the attack is possible. A high degree of complexity is needed for the attack. The exploitability is told to be difficult. The exploit has been published and may be used. Patch name: 1cf4fa3ee9054314b023be79d404078645c22ade. It is suggested to install a patch to address this issue. The project maintainer explains: \"Candidates will now need to authenticate each time they access the Career Portal and successfully complete the CAPTCHA as part of that authentication flow. The authenticated candidate identity is now maintained server-side rather than relying on the previous persistent client-side cats…cw cookie mechanism. Application-level rate limiting is deliberately not in scope for this change. In my view, request throttling and brute-force protection of that kind are better applied at the network, reverse-proxy or web-server layer, where they can be configured appropriately for each deployment without OpenCATS having to implement and maintain its own rate-limiting framework. I'll update the online documentation to that effect.\"",
       "severity": "LOW",
       "score": 3.7
-    },
-    {
-      "id": "CVE-2026-105391",
-      "published": "2026-10-17T23:16:55.053",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107274",
-      "published": "2026-10-17T23:16:55.140",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107345",
-      "published": "2026-10-17T23:16:55.203",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107772",
-      "published": "2026-10-17T23:16:55.260",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-108117",
-      "published": "2026-10-17T23:16:55.320",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-111997",
