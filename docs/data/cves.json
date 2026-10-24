@@ -1,145 +1,145 @@
 {
-  "totalResults": 4661,
+  "totalResults": 4641,
   "items": [
     {
-      "id": "CVE-2026-111823",
-      "published": "2026-10-17T02:17:18.470",
-      "description": "Mage OSS through 0.9.80 before 76c4f46 can proceed with session creation upon encountering an unknown OAuth provider.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-104736",
-      "published": "2026-10-17T04:16:47.780",
-      "description": "The LearnPress plugin for WordPress is vulnerable to PHP Object Injection in versions up to, and including, 4.4.10 via deserialization of untrusted input from the 'checkout-email' request parameter during the checkout AJAX action. The value is passed through sanitize_text_field(), which does not strip serialized object syntax, then stored in the LearnPress session table and later fed to LP_Helper::maybe_unserialize() → unserialize() (without an allowed_classes restriction) by LP_Session_Handler::get() on subsequent requests. This makes it possible for unauthenticated attackers to inject a PHP Object.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-110653",
-      "published": "2026-10-17T03:16:28.480",
-      "description": "The Appointment Booking Plugin – LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to Authentication Bypass via Race Condition in all versions up to, and including, 5.7.4. This is due to a non-atomic read-modify-write on the OTP verification attempts counter in the `verifyOTP` function: the counter is incremented using a stale in-memory value with no conditional `WHERE attempts < 10` guard on the `UPDATE` and no `SELECT ... FOR UPDATE` row lock, creating a TOCTOU window that allows concurrent requests to bypass the 10-attempt lockout. This makes it possible for unauthenticated attackers — who know a target customer's registered email address or phone number — to fire concurrent requests to the `auth__verify_otp` endpoint, defeat the lockout cap, brute-force the 6-digit OTP code, and authenticate as the targeted LatePoint customer, gaining full access to their account, bookings, and personal data. The nonce check present on the endpoint (`otp_verify_otp_nonce`) does not mitigate this issue, as the nonce is publicly emitted by the unauthenticated `request_otp` and `resend_otp` endpoints and is trivially obtainable by any unauthenticated attacker prior to launching the race.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-111853",
-      "published": "2026-10-17T02:17:18.610",
-      "description": "An issue was discovered on Tektronix 3 Series MDO devices before 1.21.1. An OS command injection vulnerability exists in the FILESystem:MOUNT:DRIve SCPI command handler. Insufficient neutralization of user-supplied input allows remote attackers to execute arbitrary operating system commands with elevated privileges.",
+      "id": "CVE-2026-111884",
+      "published": "2026-10-17T19:16:29.450",
+      "description": "phpMyFAQ before 4.1.9 and 4.2.0-alpha before 4.2.0-beta does not require the current password when changing an account e-mail in the user control panel (UserController::updateData, api/user/data/update), checking only the session and CSRF token. An attacker with a hijacked session can set the e-mail to their own mailbox and use the password-reset flow to take over non-2FA accounts, including superadmin.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-111854",
-      "published": "2026-10-17T02:17:18.750",
-      "description": "An issue was discovered on Tektronix 3 Series MDO devices before 1.21.1. A path traversal vulnerability in the SCPI FILESystem command interface allows remote attackers to read or modify arbitrary files on the device through insufficient validation of file paths supplied to filesystem access commands.",
+      "id": "CVE-2026-111882",
+      "published": "2026-10-17T19:16:29.240",
+      "description": "phpMyFAQ 3.2.0-alpha before 4.1.9 and 4.2.0-alpha before 4.2.0-beta contains an authentication bypass vulnerability that allows IdP-authenticated users to skip TOTP two-factor authentication through the Keycloak and Entra ID SSO callbacks. Attackers holding a valid or phished IdP identity linked to a 2FA-enabled account can complete the OIDC flow and obtain a fully authenticated session, including administrator accounts.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-111855",
-      "published": "2026-10-17T02:17:18.877",
-      "description": "An issue was discovered on Tektronix 3 Series MDO devices before 1.21.1. A path traversal vulnerability exists in the web management interface of the device. Insufficient validation of user-supplied file paths allows remote attackers to read arbitrary files accessible to the application. Depending on configuration, exploitation may be possible without authentication.",
+      "id": "CVE-2026-111881",
+      "published": "2026-10-17T19:16:29.103",
+      "description": "FreeRDP from 3.14.1 before 3.32.0 contains an integer underflow in the WinPR BMP writer, where a mismatched stride calculation passes SIZE_MAX - 3 to Stream_Zero for sub-byte images. A malicious RDP clipboard peer can return a crafted 1-bpp BMP processed by clipboard_synthesize_image_format_to_bmp for CF_DIB/CF_DIBV5, crashing the client or causing an out-of-bounds write.",
+      "severity": "HIGH",
+      "score": 7.6
+    },
+    {
+      "id": "CVE-2026-110889",
+      "published": "2026-10-17T11:16:32.017",
+      "description": "Generation of Error Message Containing Sensitive Information vulnerability in Gantry Gantry 5 Framework gantry5 allows Retrieve Embedded Sensitive Data.This issue affects Gantry 5 Framework: from n/a through 5.6.4.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107762",
-      "published": "2026-10-17T03:16:28.083",
-      "description": "The Kirki – Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 6.3.2 via the 'context' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to expose arbitrary users' sensitive profile data — including email address, display name, nicename, registration date, profile image URL, and any string-valued user meta fields such as first name, last name, nickname, description, and custom meta keys — via the REST response. Exploitation requires a published page that uses a Kirki template containing at least one user-type dynamic content block; target user IDs are enumerable via standard WordPress REST endpoints, making the only prerequisite the presence of such a template on the site.",
+      "id": "CVE-2026-111880",
+      "published": "2026-10-17T19:16:28.960",
+      "description": "FreeRDP versions from 2.0.0 before 3.32.0 contain a heap out-of-bounds write in the server hash-callback NTLM path that fails to validate the MIC offset. Unauthenticated attackers can send a crafted AUTHENTICATE_MESSAGE with a backward session-key offset and MIC offset to write 16 zero bytes beyond the allocation.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-108123",
-      "published": "2026-10-17T04:16:48.427",
-      "description": "The WP Booking System – Booking Calendar plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.1.0.3 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to read the stored notification email body of any booking by iterating booking_id and email_log_id, exposing customer PII including names, email addresses, phone numbers, messages, and booking dates intended to be visible only to administrators. This is exploitable by any Subscriber-level user because admin_init fires on profile.php, a wp-admin page accessible to all authenticated users.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-104734",
-      "published": "2026-10-17T03:16:27.927",
-      "description": "The Kirki – Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 6.3.2 via deserialization of untrusted input . This makes it possible for authenticated attackers, with administrator-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present. By default, Editor-level users are granted FULL_ACCESS to the plugin's import endpoint via the KIRKI_USERS_DEFAULT_FULL_ACCESS configuration, meaning exploitation is possible at Editor privilege level rather than being restricted to administrators alone.",
+      "id": "CVE-2026-100316",
+      "published": "2026-10-17T08:16:26.950",
+      "description": "The European VAT Compliance Assistant for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via CF-IPCountry Header in all versions up to, and including, 1.36.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The malicious header value is persisted verbatim into order post-meta during a guest checkout, meaning no account or authentication is required to plant the payload.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-109208",
-      "published": "2026-10-17T03:16:28.340",
-      "description": "The LearnPress – WordPress LMS Plugin for Create and Sell Online Courses plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'quantity (REST) / order_comments (checkout)' parameter in all versions up to, and including, 4.4.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. With guest checkout enabled the attack is fully unauthenticated; with guest checkout disabled, any Subscriber-level user can exploit both vectors through their own checkout.",
+      "id": "CVE-2026-111110",
+      "published": "2026-10-17T08:16:28.310",
+      "description": "The Payment forms, Buy now buttons, and Invoicing System | GetPaid plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'mmdwqzpoxadd' parameter in all versions up to, and including, 2.8.61 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The required nonce (getpaid_form_nonce) is publicly emitted to all visitors via wp_localize_script as WPInv.formNonce, meaning no authentication or prior nonce leak is needed; the stored payload fires when an administrator views the affected invoice's Payment Form Details metabox.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-103899",
-      "published": "2026-10-17T04:16:47.413",
-      "description": "The EU VAT Assistant for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'vat_number' parameter in all versions up to, and including, 2.1.30.260413 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The stored payload executes in the administrator's browser context when reviewing an order via WooCommerce → Orders → Edit Order, enabling privilege escalation up to and including full site takeover via rogue administrator account creation.",
+      "id": "CVE-2026-110384",
+      "published": "2026-10-17T07:16:50.350",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Heateor Support Fancy Comments WordPress fancy-facebook-comments allows Reflected XSS.This issue affects Fancy Comments WordPress: from n/a through 1.2.21.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-109369",
-      "published": "2026-10-17T04:16:51.620",
-      "description": "The WP Booking System – Booking Calendar plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.1.0.3 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to grant themselves and arbitrary other users edit access to every booking form on the site by overwriting the user_permission meta that governs the plugin's own access-control list. Exploitation requires the attacker to have already been delegated edit rights on at least one booking form, as this delegation both downgrades the submenu capability to 'read' (making the edit page accessible) and allows them to harvest a valid wpbs_edit_form nonce that will pass validation against any other form_id.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-109701",
+      "published": "2026-10-17T17:16:28.973",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PAYCOMET PAYCOMET for WooCommerce paytpv-for-woocommerce allows Reflected XSS.This issue affects PAYCOMET for WooCommerce: from n/a through 5.45.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-107744",
-      "published": "2026-10-17T04:16:48.113",
-      "description": "The LearnPress – WordPress LMS Plugin for Create and Sell Online Courses plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.4.10 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to enumerate the complete site user roster and extract the full email address of any WordPress account, including administrator accounts, character-by-character by using the search response as an oracle against both user_login and user_email columns.",
+      "id": "CVE-2026-111886",
+      "published": "2026-10-17T19:16:29.770",
+      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-beta lacks brute-force lockout in the removeTwofactorConfig() 2FA removal endpoint, allowing authenticated attackers to guess TOTP codes without limit. Attackers holding a hijacked session and CSRF token can repeatedly POST guesses to /api/user/remove-twofactor to permanently disable the victim's 2FA.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-109368",
-      "published": "2026-10-17T04:16:51.480",
-      "description": "The WP Booking System – Booking Calendar plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.1.0.3 via the 'id' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to extract private per-event booking descriptions and booking IDs from any calendar managed by the site.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-109985",
-      "published": "2026-10-17T04:16:51.760",
-      "description": "The xSpeed Cache: AI-Powered Performance Hub with MCP, Caching & CDN plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'content' parameter in all versions up to, and including, 1.4.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-109983",
+      "published": "2026-10-17T08:16:28.020",
+      "description": "The YMC Filter plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'post_title' parameter in all versions up to, and including, 3.12.19 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The autocomplete REST endpoint is registered with a permission callback that unconditionally returns true, meaning any site visitor — including unauthenticated users — can trigger the payload simply by typing in the YMC filter search box, while only Author-level access is required to store it.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-109989",
-      "published": "2026-10-17T04:16:51.907",
-      "description": "The Themify Popup plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'popup_width_unit' parameter in all versions up to, and including, 1.4.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-111885",
+      "published": "2026-10-17T19:16:29.610",
+      "description": "phpMyFAQ from 4.2.0-alpha before 4.2.0-beta contains a missing authorization vulnerability in GroupController::deleteGroup() that omits privilege-level checks on target groups. Authenticated non-SuperAdmin administrators holding GROUP_DELETE can send a crafted groupId to /admin/api/group/delete to permanently destroy higher-privileged groups and strip members' inherited rights.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-111601",
-      "published": "2026-10-17T03:16:28.613",
-      "description": "The Hippoo Mobile App for WooCommerce plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'token_id' parameter in all versions up to, and including, 1.12.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. The URL path regex constrains the path segment to word characters, but WP_REST_Request's query-string parameter precedence allows a ?token_id= value to override it and reach the handler verbatim, bypassing the regex constraint entirely.",
+      "id": "CVE-2026-111890",
+      "published": "2026-10-17T19:16:30.393",
+      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-beta contains a privilege escalation vulnerability in UserController::updateUserRights that drops per-right language restrictions when rights are re-granted. Administrators holding USER_EDIT can submit language-scoped rights to the update-rights API, including for themselves, to gain unrestricted FAQ create, edit, and publish access across all languages.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-107752",
-      "published": "2026-10-17T04:16:48.260",
-      "description": "The Welcart e-Commerce plugin for WordPress is vulnerable to generic SQL Injection via the 'wp_usces_order_old (JSON fields searchSql / searchSkuSql)' parameter in all versions up to, and including, 2.12.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-110253",
+      "published": "2026-10-17T08:16:28.167",
+      "description": "The weForms – Easy Drag & Drop Contact Form Builder For WordPress plugin for WordPress is vulnerable to limited media file deletion due to insufficient file path validation in the weforms_delete_entry_attachments function in all versions up to, and including, 1.6.28 This makes it possible for unauthenticated attackers to delete arbitrary media files on the server. This requires an administrator to permanently delete the poisoned form entry, a routine moderation action for spam-looking submissions that an attacker can prompt through social engineering.",
       "severity": "MEDIUM",
-      "score": 4.9
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-107763",
-      "published": "2026-10-17T03:16:28.213",
-      "description": "The Fastcache by Host.it plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.7.5. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to add or remove the plugin's page-cache rewrite rules in the site's root .htaccess file.",
+      "id": "CVE-2026-111887",
+      "published": "2026-10-17T19:16:29.930",
+      "description": "phpMyFAQ before 4.1.9 and 4.2.0-alpha before 4.2.0-beta contains an account enumeration vulnerability that allows unauthenticated attackers to confirm registered display names and emails via a distinct HTTP 409 response. Attackers can submit guest comments to the comment create endpoint with candidate user and mail values to link names to emails for targeted phishing.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2024-58398",
+      "published": "2026-10-17T19:16:27.860",
+      "description": "Coder 2.3.1 before 2.14.4, 2.15.x before 2.15.3, and 2.16.0 before 2.16.1 contains an open redirect vulnerability in the login page because the redirect query parameter is improperly sanitized. Attackers can craft a Coder login URL that, when clicked by a logged-in user, redirects the victim to an attacker-controlled website for phishing.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-111602",
-      "published": "2026-10-17T03:16:28.740",
-      "description": "The Appointment Booking Plugin – LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 5.7.4 via the 'params (customer[uuid])' parameter. This makes it possible for unauthenticated attackers to extract the first name, last name, email address, phone number, and notes of every customer record in the database by enumerating uuid prefixes via the unauthenticated steps__load_step AJAX endpoint. This vulnerability is only exploitable when the LatePoint plugin is configured with the 'Field used for authentication' setting set to 'Disable ability to login' (guest checkout mode).",
+      "id": "CVE-2026-110882",
+      "published": "2026-10-17T19:16:28.830",
+      "description": "Missing Authorization vulnerability in Cozy Vision Technologies Pvt. Ltd. SMS Alert Order Notifications sms-alert allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SMS Alert Order Notifications: from n/a through 4.0.1.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-111889",
+      "published": "2026-10-17T19:16:30.237",
+      "description": "phpMyFAQ from 4.1.0 before 4.1.9 and 4.2.0-alpha before 4.2.0-beta contains a missing authorization vulnerability in the admin dashboard that allows authenticated users without admin rights to view restricted data. Attackers with any activated account can request /admin/index.php/ to read unpublished FAQ questions, admin edit URLs, recent user identities, and site statistics.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2025-71435",
+      "published": "2026-10-17T19:16:28.683",
+      "description": "Coder before 2.23.0 contains a session expiration bypass vulnerability that allows authenticated users to retain access after OIDC token expiry when no refresh token is issued. Users can keep their APIKey cookie active through regular use, extending it every 24 hours to access Coder indefinitely after losing OIDC authorization.",
+      "severity": "MEDIUM",
+      "score": 4.2
+    },
+    {
+      "id": "CVE-2026-111888",
+      "published": "2026-10-17T19:16:30.080",
+      "description": "phpMyFAQ from 4.0.0 before 4.1.9 contains an incorrect authorization vulnerability that allows delegated admins lacking the editnews right to modify news by calling PUT /admin/api/news/update, which checks NEWS_DELETE instead of NEWS_EDIT. Attackers holding addnews and delnews can read the update-news CSRF token from their own cookie and rewrite any news item's header, body, author, link and active flag shown on the public front page.",
       "severity": "LOW",
-      "score": 3.7
+      "score": 2.7
     }
   ]
 }
