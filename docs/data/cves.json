@@ -1,5 +1,5 @@
 {
-  "totalResults": 4641,
+  "totalResults": 4658,
   "items": [
     {
       "id": "CVE-2026-111884",
@@ -23,39 +23,11 @@
       "score": 7.6
     },
     {
-      "id": "CVE-2026-110889",
-      "published": "2026-10-17T11:16:32.017",
-      "description": "Generation of Error Message Containing Sensitive Information vulnerability in Gantry Gantry 5 Framework gantry5 allows Retrieve Embedded Sensitive Data.This issue affects Gantry 5 Framework: from n/a through 5.6.4.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
       "id": "CVE-2026-111880",
       "published": "2026-10-17T19:16:28.960",
       "description": "FreeRDP versions from 2.0.0 before 3.32.0 contain a heap out-of-bounds write in the server hash-callback NTLM path that fails to validate the MIC offset. Unauthenticated attackers can send a crafted AUTHENTICATE_MESSAGE with a backward session-key offset and MIC offset to write 16 zero bytes beyond the allocation.",
       "severity": "HIGH",
       "score": 7.4
-    },
-    {
-      "id": "CVE-2026-100316",
-      "published": "2026-10-17T08:16:26.950",
-      "description": "The European VAT Compliance Assistant for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via CF-IPCountry Header in all versions up to, and including, 1.36.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The malicious header value is persisted verbatim into order post-meta during a guest checkout, meaning no account or authentication is required to plant the payload.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-111110",
-      "published": "2026-10-17T08:16:28.310",
-      "description": "The Payment forms, Buy now buttons, and Invoicing System | GetPaid plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'mmdwqzpoxadd' parameter in all versions up to, and including, 2.8.61 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The required nonce (getpaid_form_nonce) is publicly emitted to all visitors via wp_localize_script as WPInv.formNonce, meaning no authentication or prior nonce leak is needed; the stored payload fires when an administrator views the affected invoice's Payment Form Details metabox.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-110384",
-      "published": "2026-10-17T07:16:50.350",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Heateor Support Fancy Comments WordPress fancy-facebook-comments allows Reflected XSS.This issue affects Fancy Comments WordPress: from n/a through 1.2.21.",
-      "severity": "HIGH",
-      "score": 7.1
     },
     {
       "id": "CVE-2026-109701",
@@ -65,6 +37,13 @@
       "score": 7.1
     },
     {
+      "id": "CVE-2026-111895",
+      "published": "2026-10-17T19:16:31.177",
+      "description": "phpMyFAQ 3.2.0 before 4.0.0 and 4.0.2 before 4.2.0-beta contains an authentication bypass in its Microsoft Entra ID login flow, which links users by the mutable preferred_username claim and whose AuthEntraId::create() ignores the duplicate-login exception while continuing with the existing local account. Attackers controlling an Entra identity in the configured tenant with a matching preferred_username can take over that local account, including super-admin accounts.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
       "id": "CVE-2026-111886",
       "published": "2026-10-17T19:16:29.770",
       "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-beta lacks brute-force lockout in the removeTwofactorConfig() 2FA removal endpoint, allowing authenticated attackers to guess TOTP codes without limit. Attackers holding a hijacked session and CSRF token can repeatedly POST guesses to /api/user/remove-twofactor to permanently disable the victim's 2FA.",
@@ -72,11 +51,18 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-109983",
-      "published": "2026-10-17T08:16:28.020",
-      "description": "The YMC Filter plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'post_title' parameter in all versions up to, and including, 3.12.19 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The autocomplete REST endpoint is registered with a permission callback that unconditionally returns true, meaning any site visitor — including unauthenticated users — can trigger the payload simply by typing in the YMC filter search box, while only Author-level access is required to store it.",
+      "id": "CVE-2026-111892",
+      "published": "2026-10-17T19:16:30.703",
+      "description": "phpMyFAQ 4.2.0-alpha before 4.2.0-beta lacks effective rate limiting on the unauthenticated user/password/update and user/password/reset endpoints. Unauthenticated attackers can send unlimited reset requests to flood a registered user's inbox with reset emails, exhausting mailer and server resources.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-111893",
+      "published": "2026-10-17T19:16:30.860",
+      "description": "phpMyFAQ 4.2.0-alpha before 4.2.0-beta contains a privilege escalation vulnerability in GroupController::saveCategoryRestrictions() that lets delegated administrators assign categories outside their own scope. Category-restricted administrators can POST to /admin/api/group/category-restrictions with out-of-scope or empty categoryIds to grant groups unrestricted category access.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
       "id": "CVE-2026-111885",
@@ -93,9 +79,23 @@
       "score": 5.5
     },
     {
-      "id": "CVE-2026-110253",
-      "published": "2026-10-17T08:16:28.167",
-      "description": "The weForms – Easy Drag & Drop Contact Form Builder For WordPress plugin for WordPress is vulnerable to limited media file deletion due to insufficient file path validation in the weforms_delete_entry_attachments function in all versions up to, and including, 1.6.28 This makes it possible for unauthenticated attackers to delete arbitrary media files on the server. This requires an administrator to permanently delete the poisoned form entry, a routine moderation action for spam-looking submissions that an attacker can prompt through social engineering.",
+      "id": "CVE-2026-111891",
+      "published": "2026-10-17T19:16:30.550",
+      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-beta contains a privilege escalation vulnerability in the group permission API, whose updatePermissions and updateMembers endpoints check held rights without regard to language or category scope and write unrestricted group grants. Non-superadmin administrators holding GROUP_EDIT can grant a group a right they hold only in a narrow scope and self-join it via updateMembers, gaining unrestricted FAQ create, edit, and publish access across all languages and categories.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-111894",
+      "published": "2026-10-17T19:16:31.017",
+      "description": "phpMyFAQ 3.2.1 before 4.1.9 and 4.2.0-alpha before 4.2.0-beta contains a stored cross-site scripting vulnerability that allows authenticated content authors to inject JavaScript by embedding iframes with data:text/html sources in FAQ or News content. Attackers can bypass the hostless media-host allowlist in FaqHelper::cleanUpContent(), which is rendered via Twig's raw filter, to run phishing interfaces or top-frame redirects for viewers.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-111896",
+      "published": "2026-10-17T19:16:31.337",
+      "description": "phpMyFAQ from 4.2.0-alpha before 4.2.0-beta contains a stored cross-site scripting vulnerability in SvgSanitizer that allows FAQ editors to store executable SVG files. Attackers can split script tags around removed tokens like processing instructions so single-pass removal reassembles them, executing script in the application origin when victims open the file.",
       "severity": "MEDIUM",
       "score": 5.4
     },
