@@ -1,17 +1,17 @@
 {
-  "totalResults": 4223,
+  "totalResults": 4216,
   "items": [
     {
-      "id": "CVE-2024-4457",
-      "published": "2026-10-18T18:16:28.467",
-      "description": "The Management Console fails to properly validate input related to the configuration of JDBC user stores. This weakness allows an attacker to supply specially crafted input that can lead to the execution of arbitrary code on the affected server.\n\nSuccessful exploitation of this vulnerability enables an attacker to execute arbitrary code on the server with the privileges of the WSO2 product. This could lead to a full compromise of the system.",
+      "id": "CVE-2026-108983",
+      "published": "2026-10-19T02:17:05.853",
+      "description": "A vulnerability is in Web Server default connection ports under the process name GeoWebServer.exe .",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-109553",
-      "published": "2026-10-18T19:16:32.997",
-      "description": "Gitea resolved the principals of an SSH certificate by searching the content of all stored public keys instead of only principal keys. When Gitea trusts a user certificate authority (`SSH_TRUSTED_USER_CA_KEYS`) and accepts arbitrary principals (`SSH_AUTHORIZED_PRINCIPALS_ALLOW=anything`), a user could register another user's public key line as their own principal, or a holder of a certificate signed by that authority could list it, and then authenticate as the owner of that key through the HTTP signature API and the built-in SSH server. Instances that do not trust a user certificate authority are not affected.",
+      "id": "CVE-2026-108984",
+      "published": "2026-10-19T02:17:05.997",
+      "description": "A vulnerability is in Web Server default connection ports under the process name GeoWebServer.exe .",
       "severity": "HIGH",
       "score": 7.5
     },
@@ -23,27 +23,6 @@
       "score": 7.3
     },
     {
-      "id": "CVE-2026-105964",
-      "published": "2026-10-18T19:16:32.700",
-      "description": "The Gitea Actions artifact v4 (Twirp) handlers read the whole request body into memory without a size limit. A user who can run a workflow and obtains the runner token of that run could send an oversized request to the artifact service and exhaust the memory of the server, which terminates the Gitea process. The request body is now limited to 1 MiB.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-110324",
-      "published": "2026-10-18T19:16:33.297",
-      "description": "The visibility check of Gitea user profiles was applied to GET requests only, while `POST /{username}` (follow and unfollow) required only a signed-in user. Any authenticated user could therefore obtain the full name, location, website and description of a user with a private profile from the response. The issue was fixed in 28.1.0 and disclosed with 28.2.0.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-97859",
-      "published": "2026-10-18T19:16:33.637",
-      "description": "Seven Gitea API routes under `/api/v1/users/{username}` (followers, following, following/{target}, starred, subscriptions, keys and gpg_keys) were registered without the `individualPermsChecker` middleware that enforces the visibility of the target user. An authenticated user could therefore read the followers, following list, starred and watched repositories and public SSH and GPG keys of a user with limited or private visibility, whom they could not otherwise see. The issue was fixed in 1.27.3 and 28.0.0 and disclosed with 28.2.0.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
       "id": "CVE-2026-112028",
       "published": "2026-10-18T23:16:56.247",
       "description": "A flaw has been found in light0011 cms c774dce31c6df0055568a8d5c53d964d99be199d/f72cf46f601efb2a0618c3814cc2f61380b38930. Affected by this issue is some unknown functionality of the file App/Home/Controller/VoteController.class.php of the component Vote Handler. This manipulation of the argument X-Requested-With causes business logic errors. Remote exploitation of the attack is possible. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -51,25 +30,18 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-110494",
-      "published": "2026-10-18T19:16:33.403",
-      "description": "Adding attachments to a release checked the repository and release of an attachment but not whether it was already linked to an issue or comment. A user with write access to the releases of a repository, who knew the UUID of an attachment in that repository, could link it to a release. This exposed the file name, size and download count of the attachment through the release and allowed the user to rename or delete it.",
+      "id": "CVE-2026-112030",
+      "published": "2026-10-19T00:16:30.640",
+      "description": "A vulnerability was found in diem-project diem up to 5.1.3. This vulnerability affects unknown code of the file dmCorePlugin/lib/data/dmDataLoad.php. Performing a manipulation results in use of default password. The attack is possible to be carried out remotely. The exploit has been made public and could be used. It is suggested to update the configuration settings. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-104627",
-      "published": "2026-10-18T19:16:32.463",
-      "description": "The Gitea OpenID association callback in the security settings accepted a positive OpenID 2.0 assertion without checking that the signed-in user had started the linking. Because OpenID 2.0 allows unsolicited assertions, an attacker-controlled OpenID provider could attach the attacker's identity to the account of a signed-in victim who opened a crafted link, and the attacker could then sign in as the victim through OpenID login, which does not apply the local TOTP or WebAuthn checks. The callback now requires a time-limited `state` value bound to the user.",
+      "id": "CVE-2026-112035",
+      "published": "2026-10-19T01:16:37.510",
+      "description": "A security vulnerability has been detected in aircheng-org iWebShop-5 up to 5.16. This affects the function send_message_mobile of the file controllers/simple.php. Such manipulation of the argument user_id leads to weak password recovery. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-105661",
-      "published": "2026-10-18T19:16:32.590",
-      "description": "Requesting `/{username}/-/repositories` for an individual user instead of an organization made the organization home handler dereference a nil organization and panic. The request needs no authentication and no special configuration. The server answered with an HTTP 500 error and logged a panic for each request; the fix returns 404 for individual users.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
       "id": "CVE-2026-112027",
@@ -79,23 +51,30 @@
       "score": 5.3
     },
     {
-      "id": "CVE-2026-107686",
-      "published": "2026-10-18T19:16:32.903",
-      "description": "The Gitea web handlers for adding and removing reactions on issues and comments did not refuse locked issues for users without write access, although the API did. A signed-in user who could read an issue could therefore add or remove reactions on a locked issue and its comments, bypassing the interaction restriction of the lock. Only reactions were affected; no content could be changed.",
+      "id": "CVE-2026-112032",
+      "published": "2026-10-19T00:16:31.790",
+      "description": "A vulnerability was identified in aircheng-org iWebShop-5 up to 5.16. Impacted is the function Util::search of the file classes/util.php. The manipulation leads to sql injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-112033",
+      "published": "2026-10-19T01:16:36.473",
+      "description": "A security flaw has been discovered in aircheng-org iWebShop-5 up to 5.16. The affected element is the function admin_repwd/admin_repwd_act of the file controllers/system.php of the component Password Change. The manipulation of the argument password/repassword results in cross-site request forgery. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-109844",
-      "published": "2026-10-18T19:16:33.090",
-      "description": "`GET /api/v1/user/subscriptions` returned the metadata of every repository a user was watching without checking that the user still had access to it. A user who watched a private repository while having access, and later lost it, for example through a team permission downgrade, could still read its name, description, clone URLs, owner and counters. The issue was fixed in 1.27.0 and 28.0.0 and disclosed with 28.2.0.",
+      "id": "CVE-2026-112034",
+      "published": "2026-10-19T01:16:37.340",
+      "description": "A weakness has been identified in aircheng-org iWebShop-5 up to 5.16. The impacted element is the function IController::redirect of the file plugins/_userInfo/_userInfo.php of the component Login Redirect. This manipulation of the argument callback causes open redirect. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-110311",
-      "published": "2026-10-18T19:16:33.197",
-      "description": "Creating a draft release through the API returned an `assets` list that was built from a release without an ID, which matched every attachment that was not linked to a release. A user who could create a draft release in a repository therefore received the metadata (file name, UUID, upload time, size and download count) of issue and comment attachments of repositories they could not read, and of abandoned uploads.",
+      "id": "CVE-2026-112036",
+      "published": "2026-10-19T01:16:37.677",
+      "description": "A vulnerability was detected in Artifex MuPDF up to 1.28.5. This impacts the function free_char_list of the file source/pdf/pdf-xref.c of the component Signature Locking. Performing a manipulation results in double free. The attack may be initiated remotely. The exploit is now public and may be used. The patch is named 3984925b660afb8a781ddf504021e91be1bc671e. To fix this issue, it is recommended to deploy a patch.",
       "severity": "MEDIUM",
       "score": 4.3
     },
@@ -107,11 +86,18 @@
       "score": 3.7
     },
     {
-      "id": "CVE-2026-97204",
-      "published": "2026-10-18T19:16:33.530",
-      "description": "Deleting a label compared the ID of the repository in the request against the organization ID of organization labels, and the two ID sequences overlap. A user with write access to the issues of a repository could therefore delete the labels of an organization that has the same numeric ID as that repository. Labels are now deleted only within their own repository or organization.",
+      "id": "CVE-2026-112037",
+      "published": "2026-10-19T02:17:06.133",
+      "description": "A flaw has been found in diem-project diem up to 116974edfb9a5b8bd69cb13586dc62bcdbb485ad. Affected is an unknown function of the file dmCorePlugin/lib/vendor/gapi/gapi.class.php of the component Google Analytics Client. Executing a manipulation can lead to improper certificate validation. The attack may be launched remotely. The attack requires a high level of complexity. The exploitability is told to be difficult. The exploit has been published and may be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
-      "score": 3.1
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-112031",
+      "published": "2026-10-19T00:16:31.587",
+      "description": "A vulnerability was determined in Chamilo LMS up to 1.11.40/2.0.3/3.0.1. This issue affects the function TicketManager::addProject of the file main/inc/lib/TicketManager.php of the component Ticket Module. Executing a manipulation of the argument Name can lead to cross site scripting. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. This patch is called 6dfa0f4de45afc1b27333304b4cd4532db478f74/dd3e4d32971efca4197eb2df97f69de25a786e3c/119773d45c31da53b44cbfdb3f4910bc983cc7b0/cb6fe2127e587603451c609b4ed78c0293fcc3fa. It is best practice to apply a patch to resolve this issue.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
       "id": "CVE-2026-112029",
@@ -121,11 +107,18 @@
       "score": 2.5
     },
     {
-      "id": "CVE-2026-107618",
-      "published": "2026-10-18T19:16:32.807",
-      "description": "`POST /{owner}/{repo}/topics` was registered without the sign-in middleware that provides the cross-origin protection, so a request issued by a third-party site was not rejected. A repository administrator who visited a malicious page could have the topics of their repository changed. No other repository settings were reachable through this route.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-112038",
+      "published": "2026-10-19T02:17:06.313",
+      "description": "A vulnerability has been found in diem-project diem up to 116974edfb9a5b8bd69cb13586dc62bcdbb485ad. Affected by this vulnerability is the function html of the file dmAdminPlugin/web/js/dmAdminCtrl.js of the component Version Check Service. The manipulation leads to cross site scripting. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 2.4
+    },
+    {
+      "id": "CVE-2026-112039",
+      "published": "2026-10-19T02:17:06.503",
+      "description": "A vulnerability was found in diem-project diem up to 116974edfb9a5b8bd69cb13586dc62bcdbb485ad. Affected by this issue is the function append of the file dmAdminPlugin/modules/dmConsole/actions/actions.class.php of the component Administrative Console. The manipulation of the argument dm_command results in cross site scripting. The attack can be executed remotely. The exploit has been made public and could be used. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 2.4
     },
     {
       "id": "CVE-2026-108519",
@@ -138,6 +131,13 @@
       "id": "CVE-2026-112111",
       "published": "2026-10-18T23:16:56.583",
       "description": "The Bootstrap Shortcodes plugin for WordPress before 3.4.6 is vulnerable to stored XSS via the id attribute of the [bs_tcontent] shortcode. The bs_tcontent() shortcode handler in inc/bs_tabs.php emits the id attribute value into an unquoted HTML attribute. esc_attr() is applied, but it does not encode space characters, so a space in the supplied value terminates the attribute and any following text is parsed as additional HTML attributes, including JavaScript event handlers. This allows authenticated attackers with Contributor-level access and above to inject arbitrary web script that executes in the browser of any user who views the page and interacts with the injected element.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-112112",
+      "published": "2026-10-18T23:16:56.767",
+      "description": "An IPv6 FlowSpec validation bypass in the CZ.NIC BIRD Internet Routing Daemon allows an established BGP peer to inject FlowSpec rules matching destinations outside the address space authorized by the unicast-route validation procedure. With validation enabled on the receiving flow6 channel, BIRD fails to reject a destination prefix component with a nonzero offset, contrary to RFC 8956 section 5. It validates a reconstructed prefix with zero-filled skipped bits, although the original FlowSpec component can match a broader set of IPv6 addresses. Given a suitable unicast route from the peer, the rule can pass validation and, where export policy permits, be propagated to downstream peers. Downstream enforcement may cause unauthorized traffic filtering or redirection.",
       "severity": "UNKNOWN",
       "score": null
     }
