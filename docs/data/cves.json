@@ -1,145 +1,145 @@
 {
-  "totalResults": 4633,
+  "totalResults": 4583,
   "items": [
     {
-      "id": "CVE-2026-110372",
-      "published": "2026-10-18T11:16:36.580",
-      "description": "Incorrect Privilege Assignment vulnerability in Brainstorm Force OttoKit suretriggers allows Privilege Escalation.This issue affects OttoKit: from n/a through 1.1.40.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-110886",
-      "published": "2026-10-18T11:16:37.450",
-      "description": "Deserialization of Untrusted Data vulnerability in QuantumCloud Conversational Forms for ChatBot conversational-forms allows Object Injection.This issue affects Conversational Forms for ChatBot: from n/a through 1.5.1.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-111998",
-      "published": "2026-10-18T12:17:11.730",
-      "description": "Vanus 0.8.0 through 0.9.0 contains a default credentials vulnerability that allows unauthenticated remote attackers to gain cluster-admin access by using the hardcoded admin token. Attackers can send the fixed Bearer token to the gateway gRPC proxy port to manage namespaces, eventbuses, users, tokens, and role bindings, and read or publish events.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-109894",
-      "published": "2026-10-18T11:16:36.190",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Arraytics Booktics booktics allows SQL Injection.This issue affects Booktics: from n/a through 1.0.29.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-107436",
-      "published": "2026-10-18T11:16:34.720",
-      "description": "Deserialization of Untrusted Data vulnerability in WP Chill Strong Testimonials strong-testimonials allows Object Injection.This issue affects Strong Testimonials: from n/a through 3.3.12.",
+      "id": "CVE-2026-98436",
+      "published": "2026-10-18T15:16:53.397",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\naccel/amdxdna: Disable device buffer exporting\n\nDevice buffers are never intended to be exported. Disable exporting\nsupport explicitly.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-110895",
-      "published": "2026-10-18T11:16:37.577",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in DevItems Support Genix support-genix-lite allows SQL Injection.This issue affects Support Genix: from n/a through 1.4.54.",
+      "id": "CVE-2026-98441",
+      "published": "2026-10-18T16:16:54.393",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: act_ct: avoid modifying shared unconfirmed ct entry\n\nIn a case where skb with an unconfirmed ct entry gets cloned, we may\nend up processing both again but with different sets of extensions.\n\nThe series of events:\n\n 1. The first clone wants to commit and runs the helpers wiring up\n    the extension pointer into the expectation list.\n 2. Then it looses the confirmation keeping the entry unconfirmed.\n 3. Second clone now wants to commit labels or run NAT and adds the\n    new extension for that breaking the pointer in the expectation\n    list causing UAF on the destruction path later.\n\nWhile this is possible to trigger, there should be no practical\nnetwork pipeline where we need to process both clones without\nmodifications in the same zone.  So, let's just reset the entry in\ncase for some reason we got an skb with a shared one.  This doesn't\naffect any known use cases, but avoids any potential problems with\nsharing and modification of the unconfirmed ct entry.\n\nUnlike openvswitch module, act_ct allows for NAT without commit.\nChanging that would be a uAPI break.  So, act_ct needs to reset on NAT\nregardless of the commit flag to avoid reallocation of the extension\nspace.  This, however, doesn't really change the picture for sensible\nnetworking cases as there should be no need to run the same packet\ntwice (before and after the clone) through conntrack without packet\nheader or zone changes and without commit.\n\nThe fixes tag points to the introduction of helpers, since that's the\nmain UAF trigger for the sharing.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-110373",
-      "published": "2026-10-18T11:16:36.703",
-      "description": "Incorrect Privilege Assignment vulnerability in Hamid Alinia Login with phone number login-with-phone-number allows Privilege Escalation.This issue affects Login with phone number: from n/a through 1.8.77.",
+      "id": "CVE-2026-98442",
+      "published": "2026-10-18T16:16:54.503",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: act_ct: fix helper UAF due to extensions realloc\n\nWhile calling the helpers, a raw pointer to the extensions area is\nwired into expectations list:\n\n  -> nf_ct_helper()\n   -> helper->help()\n    -> nf_ct_expect_related_report()\n     -> nf_ct_expect_insert()\n      -> hlist_add_head_rcu(&exp->lnode, &master_help->expectations)\n\nIn case the connection is not confirmed yet, more extensions can be\nadded afterwards with *_ext_add() calls reallocating the extension\nspace and leaving the now invalid pointer in the expectations list\nthat is later accessed while removing the expectation.\n\nMake sure that helpers are called at the end after all the other\nextensions are already added.\n\nNote that the helper rejection now leaves the mark and labels set,\nbut that's not different from how the NAT was handled before or how\nthe mark and the labels were handled on confirmation failure.  And\nthere are no atomicity guarantees provided by the API anyway.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-112000",
-      "published": "2026-10-18T12:17:12.007",
-      "description": "Vanus 0.8.0 through 0.9.0 contains a missing authorization vulnerability in the gateway that allows any authenticated user to call Subscribe, Ack, and unregistered methods without permission checks. Attackers can supply another tenant's subscription ID to Subscribe to hijack it, read and acknowledge its events, starve the legitimate consumer, and enumerate cluster users via ListUser.",
+      "id": "CVE-2026-98443",
+      "published": "2026-10-18T16:16:54.620",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: fix cursor and pointer handling when recovering iunlink buckets\n\nLOLLM pointed out a bug in xlog_recover_iunlink_bucket:\n\n1. We don't null out prev_ip after releasing it, which can lead to UAF\n   problems if the inodegc flush call in the loop fails.\n\nat which point I noticed even more bugs:\n\n2. If the inodegc flush inside the loop fails, we also leak @ip.\n\n3. We set prev_agino to agino having already advanced agino, which\n   results in inodes with i_prev_unlinked set to itself.\n\n4. If we exit the bottom of the loop with prev_ip set, then prev_ip\n   aliases ip and we also set its i_prev_unlinked to itself.\n\nBugs 3 and 4 introduce loops into the unlinked list, though these loops\ndon't surface because we immediately flush each unlinked inode after\nloading it.\n\nFix all of these issues.",
       "severity": "HIGH",
-      "score": 7.6
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-110383",
-      "published": "2026-10-18T11:16:36.943",
-      "description": "Authorization Bypass Through User-Controlled Key vulnerability in WP E-Signature Electronic Signature Add-on for Fluent Forms signature-fluent-contract-forms-add-on allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Electronic Signature Add-on for Fluent Forms: from n/a through 2.0.5.",
+      "id": "CVE-2026-111990",
+      "published": "2026-10-18T15:16:52.693",
+      "description": "A weakness has been identified in kishan0725 Hospital Management System up to 777fda46b77a820977a5ba616283dbfbc40bf7e1. This affects the function mysqli_query of the file admin-panel.php of the component Appointment Cancellation Handler. Executing a manipulation of the argument ID can lead to sql injection. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-111999",
-      "published": "2026-10-18T12:17:11.870",
-      "description": "Vanus 0.8.0 through 0.9.0 contains a missing authentication vulnerability that allows unauthenticated remote attackers to publish events to any eventbus through the gateway CloudEvents HTTP receiver. Attackers can send forged CloudEvents to the /namespaces/{ns}/eventbus/{name}/events or legacy /gateway/{name} paths, bypassing token authentication and authPublish checks, so they are stored and delivered to subscription sinks.",
+      "id": "CVE-2026-98440",
+      "published": "2026-10-18T16:16:54.287",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: arm64: nv: Delay freeing of shadow S2 structures until VM destruction\n\nWe free the shadow S2 structures from kvm_arch_flush_shadow_all(), which\nis a Bad Idea(tm). Freeing the page tables is fair game (this is what\nthis callback is for), but freeing the container that could still be\nreferenced by another part of the system is not great.\n\nInstead, grow separate destructors that gets called when we tear the VM\ndown for good. From there, we can nuke both the individual MMUs as well\nas the global array that points to them, safe in the knowledge that the\nvcpus themselves have been destroyed already.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7
     },
     {
-      "id": "CVE-2026-108485",
-      "published": "2026-10-18T11:16:36.047",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in ThemeGrill eStore estore allows Reflected XSS.This issue affects eStore: from n/a through 1.6.13.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-109895",
-      "published": "2026-10-18T11:16:36.320",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Arraytics Booktics booktics allows DOM-Based XSS.This issue affects Booktics: from n/a through 1.0.29.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-110382",
-      "published": "2026-10-18T11:16:36.827",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in NSquared Simply Schedule Appointments simply-schedule-appointments allows Stored XSS.This issue affects Simply Schedule Appointments: from n/a through 1.6.12.35.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-110897",
-      "published": "2026-10-18T11:16:37.697",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in IdeaBox Creations PowerPack Lite for Beaver Builder powerpack-addon-for-beaver-builder allows Stored XSS.This issue affects PowerPack Lite for Beaver Builder: from n/a through 1.3.1.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-110365",
-      "published": "2026-10-18T11:16:36.443",
-      "description": "Missing Authorization vulnerability in WPExperts Advanced File Manager file-manager-advanced allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Advanced File Manager: from n/a through 5.4.14.",
+      "id": "CVE-2026-110024",
+      "published": "2026-10-18T15:16:51.417",
+      "description": "@fastify/jwt is a JWT utility plugin for Fastify. In versions prior to 10.2.5, the top-level sign and verify methods replace the globally configured defaults with the per-call options instead of merging them, so passing any per-call option silently drops every global default that the call does not restate, including temporal protections such as token expiration and maximum accepted token age. A token signed this way carries no expiration claim and never expires, and verification stops enforcing a configured maximum age, so stale or never-expiring tokens are accepted. The route-level decorators for signing and verifying already merge options and are not affected. The issue is fixed in @fastify/jwt 10.2.5, and users should upgrade to 10.2.5 or later.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-110880",
-      "published": "2026-10-18T11:16:37.070",
-      "description": "Missing Authorization vulnerability in Kit Kit (formerly ConvertKit) convertkit allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Kit (formerly ConvertKit): from n/a through 3.4.6.",
+      "id": "CVE-2026-111991",
+      "published": "2026-10-18T15:16:52.853",
+      "description": "A security vulnerability has been detected in WongKinYiu yolov9 0.1. This vulnerability affects the function DetectMultiBackend.__init__ of the file models/common.py of the component ONNX Metadata Handler. The manipulation of the argument names/stride leads to code injection. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-110883",
-      "published": "2026-10-18T11:16:37.200",
-      "description": "Authentication Bypass by Primary Weakness vulnerability in VideoWhisper.com 2Way VideoCalls and Random Chat webcam-2way-videochat allows Authentication Abuse.This issue affects 2Way VideoCalls and Random Chat: from n/a through 6.1.5.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-110885",
-      "published": "2026-10-18T11:16:37.330",
-      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in HivePress HivePress hivepress allows Code Injection.This issue affects HivePress: from n/a through 1.7.32.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-111984",
-      "published": "2026-10-18T12:17:11.210",
-      "description": "A vulnerability has been found in AUTOMATIC1111 stable-diffusion-webui up to 1.10.1. This affects the function create_item_html of the file modules/ui_extra_networks.py of the component Card Builder. The manipulation of the argument filename leads to cross site scripting. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-111987",
+      "published": "2026-10-18T14:16:54.630",
+      "description": "A vulnerability was identified in AUTOMATIC1111 stable-diffusion-webui up to 1.10.1. Affected by this vulnerability is the function read_metadata_from_safetensors of the file modules/sd_models.py of the component Extra-Networks Card Builder. Such manipulation of the argument __metadata__.sshs_model_hash leads to cross site scripting. The attack can be launched remotely. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-111985",
-      "published": "2026-10-18T12:17:11.440",
-      "description": "A vulnerability was found in AUTOMATIC1111 stable-diffusion-webui up to 1.10.1. This impacts the function read_metadata_from_safetensors of the file modules/sd_models.py of the component Metadata Extraction. The manipulation of the argument header length field results in allocation of resources. It is possible to launch the attack remotely. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-111988",
+      "published": "2026-10-18T15:16:52.483",
+      "description": "A security flaw has been discovered in dyad-sh dyad up to 1.16.0. Affected by this issue is some unknown functionality of the component OAuth Callback Handler. Performing a manipulation results in cross-site request forgery. The attack may be initiated remotely. Upgrading to version 1.17.0-beta.1 can resolve this issue. The patch is named 39fbae87b38573616a1a3b152cdb292787bb1109. It is advisable to upgrade the affected component.",
       "severity": "MEDIUM",
       "score": 4.3
+    },
+    {
+      "id": "CVE-2026-98433",
+      "published": "2026-10-18T15:16:53.047",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: PPC: Book3S HV: fix secure device page leak on uv_page_in() failure\n\nIn kvmppc_svm_page_in(), if uv_page_in() fails after\nkvmppc_uvmem_get_page() has succeeded, the secure device page is never\nreleased.  kvmppc_uvmem_get_page() sets a bit in kvmppc_uvmem_bitmap,\nallocates a kvmppc_uvmem_page_pvt struct, marks the GFN as\nKVMPPC_GFN_UVMEM_PFN, and calls zone_device_page_init() which sets\nrefcount=1 and locks the page.  The subsequent goto out_finalize skips\nthe *mig.dst assignment, so migrate_vma_finalize() is a no-op for the\npage, and none of those resources are ever reclaimed.\n\nEach occurrence permanently consumes one entry from the firmware-bounded\nsecure memory pool (kvmppc_uvmem_bitmap), leaks pvt, and leaves the GFN\nmarked as secure — making it unusable for the lifetime of the VM.\n\nThe twin __kvmppc_svm_page_out() already handles the analogous uv_page_out()\nfailure correctly with unlock_page(dpage); __free_page(dpage).  Apply\nthe same pattern here: unlock_page() followed by put_page(), which\nchains through free_zone_device_folio() into kvmppc_uvmem_folio_free()\nto clear the bitmap bit, free pvt, and reset the GFN state.\n\nReachable whenever uv_page_in() returns an error (e.g. UV pool\nexhaustion) on any POWER9/10 + Ultravisor/PEF system.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98434",
+      "published": "2026-10-18T15:16:53.200",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsysctl: Check range in  proc_dointvec_ms_jiffies_minmax\n\nAdd the range check to do_proc_int_conv_ms_jiffies_minmax that commit\nd174174c6776 (\"sysctl: replace SYSCTL_INT_CONV_CUSTOM macro with\nfunctions\") incorrectly removed.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98435",
+      "published": "2026-10-18T15:16:53.300",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nEDAC/altera: Use parent device for devres in altr_portb_setup()\n\nAnchor the devres group and the devm-managed IRQ requests in altr_portb_setup()\nto the actual parent device (device->edac->dev) instead of the embedded struct\ndevice inside the copied per-port altr_edac_device_dev.\n\nThis keeps devres_open_group(), devm_request_irq(), devres_remove_group() and\ndevres_release_group() all referring to the same long-lived device so the\ngroup and the resources allocated inside it are torn down together.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98437",
+      "published": "2026-10-18T15:16:53.490",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: qcom: iris: fix runtime PM reference leaks\n\nUse pm_runtime_resume_and_get() in iris_enable_power_domains()\nto avoid leaking a runtime PM usage count on failure.\n\nAlso ensure pm_runtime_put_sync() is always called in\niris_disable_power_domains(), even when iris_opp_set_rate()\nfails, so runtime PM references remain balanced.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98438",
+      "published": "2026-10-18T15:16:53.590",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmptcp: options: fix uninit-value in mptcp_write_data_fin\n\nWhen sending a DATA_FIN without data, and because the DATA_FIN occupies\n1 octet of the connection-level sequence space [1], it is then required\nto add a DSS mapping with specific values.\n\nIf the checksum has been negotiated, it also needs to be computed, and\nincluded in the outgoing packet, and thus the initial csum data needs to\nbe reset to 0 as well. This is no longer the case since commit\ncfcceb7a39fc (\"tcp: shrink per-packet memset in __tcp_transmit_skb()\"),\nbecause the whole ext_copy structure is no longer zeroed by default.\n\nThis seems to be the only case where use_map is changed and set\nafterwards, so initialising the csum field only in this case, along with\nother fields for this specific case.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98439",
+      "published": "2026-10-18T15:16:53.687",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsmb/server: cancel async requests when closing connection\n\nAn async request may still be waiting when a connection is closed.\nThis can stop the connection from closing.\n\nCancel active async requests before waiting for them to finish.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98444",
+      "published": "2026-10-18T16:16:54.737",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: drop dquot flush lock when we can't find a buffer to flush\n\nLOLLM noticed that xfs_qm_flush_one fails to drop the dquot flush lock\nif it can't grab the buffer associated with the dquot.  Since there's no\nbuffer, nobody else is going to drop the dqflock, so we need to do it\nourselves.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98445",
+      "published": "2026-10-18T16:16:54.837",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: don't let memory failures leak blocks and kill repairs\n\nLOLLM complains that a memory allocation failure in\nxrep_newbt_add_blocks results in online repair leaking blocks that were\npreviously allocated to write a new btree, but the problem is worse than\nthat -- a limitation of the codebase is that the callers cannot undo the\ntransaction /and/ return the error -- either you undo all changes and\ncommit the transaction, or you error out and the filesystem goes down.\n\nHowever, the new btree space reservation object isn't that big (~48\nbytes).  Let's just do a NOFAIL allocation and the problem goes away.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98446",
+      "published": "2026-10-18T16:16:54.937",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: don't let hidden_space go negative in xfs_metafile_resv_init\n\nLOLLM points out that if the amount of fdblocks that we can reserve for\na metadata btree file goes below the space already used by that file,\nthen the hidden_space subtraction can underflow, causing\nxfs_dec_fdblocks to subtract a huge amount of space.  We never want the\ntarget to be less than the used sapce, so fix the logic that adjusts\ndblocks_avail downwards.\n\nAlso fix an error in the adjacent comment.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-98447",
+      "published": "2026-10-18T16:16:55.037",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: fix wild memcpy access when formatting ondisk rtrefcount btree roots\n\nLOLLM noticed that the inode btree root formatting methods copy too many\nbytes -- there's only one set of keys in node blocks, not two.  This\ncauses memory corruption of whatever's beyond the buffers.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
