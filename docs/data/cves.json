@@ -1,143 +1,143 @@
 {
-  "totalResults": 4155,
+  "totalResults": 4189,
   "items": [
     {
-      "id": "CVE-2026-107081",
-      "published": "2026-10-19T16:17:01.347",
-      "description": "SQL injection via identifier injection in the tableName and tableFields POST parameters of admin AJAX endpoints (admin/AJAX_lookup_handler.php, admin/AJAX_check_id.php, admin/AJAX_vocabolary_control.php) in SENAYAN Library Management System (SLiMS) Bulian 9.8.0 allows any authenticated staff user to extract arbitrary database contents.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-109432",
-      "published": "2026-10-19T16:17:02.487",
-      "description": "Camunda 7.24.0 before 7.24.14 and 7.23.0 before 7.23.17 contains an expression injection vulnerability where AdhocQueryValidator.validate() fails to check sub-query expression maps within the orQueries field exposed by TaskQueryDto, allowing authenticated users to bypass the enableExpressionsInAdhocQueries restriction. Attackers can supply a malicious JUEL expression such as dueAfterExpression inside an orQueries entry to achieve arbitrary Java reflection and invoke java.lang.Runtime.exec, resulting in operating-system command execution as the engine service user.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-109431",
-      "published": "2026-10-19T16:17:02.337",
-      "description": "Camunda 7.24.0 before 7.24.14 and 7.23.0 before 7.23.17 contains a missing authorization check vulnerability in engine-rest task sub-resources that allows authenticated attackers with no permission grants to access task comments and attachments by calling singular read and delete endpoints that lack the authorization-filtered checks enforced on their corresponding list endpoints. Attackers can exploit TaskAttachmentResourceImpl and TaskCommentResourceImpl methods such as getAttachment, getAttachmentData, deleteAttachment, and getComment using only a known object ID to read, download, or permanently delete task attachments and comments.",
+      "id": "CVE-2026-76788",
+      "published": "2026-10-19T21:18:01.380",
+      "description": "The OSDP Control Panel reply parser cp_decode_response() in subsys/mgmt/osdp/src/osdp_cp.c decodes replies from a Peripheral Device into a stack-allocated struct osdp_event. For the REPLY_KEYPPAD and REPLY_RAW reply types, the payload length is taken from the received frame and the only validation performed is that the declared length is self-consistent with the number of payload bytes present in the frame. Because the attacker controls both the length field and the frame length, that check imposes no bound, and the subsequent memcpy() writes into the fixed 64-byte data arrays of struct osdp_event_keypress / struct osdp_event_cardread (OSDP_EVENT_MAX_DATALEN). The sibling REPLY_FMT handler in the same switch already carried the missing > OSDP_EVENT_MAX_DATALEN bound.\n\nThe defect is reached from cp_process_reply(), which reads bytes from the OSDP RS-485 channel and passes them through osdp_phy_check_packet() and osdp_phy_decode_packet() before dispatching on the reply ID. Triggering it requires CONFIG_OSDP with CONFIG_OSDP_MODE_CP and an application event callback registered (the normal Control Panel integration), plus a frame carrying a correct SOM, a valid CRC-16, and a matching 2-bit sequence number — all of which are computable or observable by anyone on the bus. No check ties the reply ID to the outstanding command, so an oversized REPLY_KEYPPAD or REPLY_RAW is accepted as the answer to a routine CMD_POLL. A malicious or compromised card reader, or anyone with access to the RS-485 wiring, can supply such a frame; CONFIG_OSDP_SC_ENABLED only helps while a secure channel is active, and a single unauthenticated frame carrying a bad MAC causes sc_deactivate(), after which plaintext replies are again accepted.\n\nWith the default CONFIG_OSDP_UART_BUFFER_LENGTH of 256, roughly 180 bytes of fully attacker-chosen data can be written past the end of the stack-allocated event object, over saved registers and the return address on typical Cortex-M and RISC-V frame layouts (Zephyr does not enable stack canaries by default). The impact ranges from a hard crash of the access-control panel to potential control-flow hijack in the context of the OSDP receive thread. The fix adds an OSDP_EVENT_MAX_DATALEN bound to both handlers, capping each memcpy() at the size of its destination.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-107571",
-      "published": "2026-10-19T16:17:01.970",
-      "description": "Incorrect default permissions in the Windows installer of Progressive Robot hMailServer 6.0.0 through 6.3.6 allow a local authenticated user to run code as the mail server's high-privileged accounts when the product is installed in a folder whose permissions are inherited from a writable parent, such as the root of a drive. The installer places the server's programs in the Bin folder of the program folder and gives neither the program folder nor Bin any permissions of their own, so they inherit the parent's. Under the default location, Program Files, ordinary users receive only read and execute and the configuration is not affected; but the installer accepts any path without warning, and a program folder at the root of an NTFS volume inherits write access for a broad group - Authenticated Users (Modify) on a Windows client, Users (create files and folders) on Windows Server. A local user without administrator rights can then alter or replace the service program, which runs as LocalSystem or as the service's virtual account, or the programs an administrator runs elevated from Bin during setup and maintenance, or place a library in Bin that those programs load in place of the system copy, gaining code execution with those privileges. The default Program Files installation is not affected.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-107567",
-      "published": "2026-10-19T16:17:01.587",
-      "description": "Use of a less trusted source in the DKIM signing of Progressive Robot hMailServer 6.0.0 through 6.3.6 allows a remote unauthenticated attacker to have mail they write signed with the DKIM key of a domain the server hosts, so that it passes DKIM and DMARC for that domain at other receivers. With DKIM signing enabled for a hosted domain, the server signed every message on its first delivery pass as the domain named in its From header, before local delivery, whatever the message's origin and without checking that its sender had authenticated. A sender anywhere could therefore send the server, as ordinary inbound mail, a message whose From is any address at such a domain, and the server signed it with that domain's key. Every copy the server then sent on to an address outside carried a valid signature aligned with the forged From, whatever the domain's DMARC policy: an account's forward, a mail rule's forward or copy, a Sieve redirect, an alias or distribution list with an outside member, the mirror copy, a managed-list or journal copy, or a message released from quarantine. A signed copy can also be re-sent to other recipients while the domain's key is unchanged. Exploitation needs DKIM signing to be enabled for the hosted domain (it is off until configured) and, for the forgery to leave the server, a forward, alias, list or rule that carries the domain's mail to an outside address. The signer likewise signed a message submitted over authenticated SMTP as whatever hosted domain its From header named, a header authenticated SMTP does not hold to the submitting account, so that an account of one hosted domain could have mail written in the name of another hosted domain signed with that domain's key; this mattered where the server holds signed-in senders to their own envelope addresses (SmtpAuthenticatedSenderCheck, off by default), as the signature was then the remaining way for such mail to pass the other domain's DMARC policy.",
+      "id": "CVE-2026-112390",
+      "published": "2026-10-19T21:17:07.340",
+      "description": "Pillow is a Python imaging library. From 7.2.0 until 13.0.0, Pillow can enter an infinite loop while determining the frame count of a MIC image. MicImageFile inherits TIFF frame traversal, but MicImageFile.tell reports the OLE stream index and its seek() resets TIFF frame state, so an embedded TIFF with at least three IFDs never advances. When an application with olefile installed reads n_frames or saves all frames from a crafted MIC file, the non-advancing traversal can hold a worker at full CPU indefinitely. This issue is fixed in version 13.0.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107569",
-      "published": "2026-10-19T16:17:01.830",
-      "description": "Unchecked input for a loop condition in Progressive Robot hMailServer 6.0.0 through 6.3.6 allows a remote unauthenticated attacker to stop the server carrying mail. The server bounds the mail it generates in response to a message - a rule forward, reply or copy, an account forward, a Sieve redirect, vacation or notify, a bounce, an out-of-office reply - by a counter it carries in the message's X-hMailServer-LoopCount header, and makes no more once the counter reaches the configured rule loop limit (5 by default); that is what ends a forwarding or auto-reply cycle in a bounded number of hops. X-hMailServer-LoopCount is an ordinary header that is not stripped from mail arriving from outside, and the server read it with a signed conversion and no validation, so a count below zero passed every test against the limit: a sender who sets X-hMailServer-LoopCount to a negative value, or on the Linux builds to a value above the 32-bit signed range that the conversion wraps to a negative one, lifts the bound, and a message that enters a generated-mail cycle then loops up to about two thousand million times, each hop a queued message and a delivery, filling the queue and disk and stopping mail service. The Sieve notify action (from 6.2.22) consulted no limit at all, and its increment of the count could overflow a signed integer; and an account could reset the counter on its own mail through a Sieve editheader of the header (from 6.2.22) or a rule Set header value action (all versions) ahead of a forward or redirect.",
+      "id": "CVE-2026-112391",
+      "published": "2026-10-19T21:17:07.477",
+      "description": "Pillow is a Python imaging library. From 5.1.0 until 13.0.0, Pillow's PdfParser.get_value() can recurse without a limit while reading nested PDF objects. The parser follows attacker-controlled arrays and dictionaries when an existing PDF is opened for append. An attacker can provide a deeply nested PDF to an application that saves an image with PDF append enabled. This can raise an uncaught RecursionError or terminate the worker, causing denial of service. This issue is fixed in version 13.0.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-111045",
-      "published": "2026-10-19T16:17:03.183",
-      "description": "CLI Bridge provides filesystem access within a workspace root. Prior to 0.0.2, a dangling symlink pointing outside the workspace root bypasses resolveSafePath when fs.realpathSync throws ENOENT for a nonexistent target. The fallback resolves only the parent directory and returns the symlink path as safe, so write_file follows the link and can write arbitrary files outside the workspace root. This issue is fixed in version 0.0.2.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-112149",
-      "published": "2026-10-19T15:17:03.943",
-      "description": "A vulnerability was identified in vraj404 Criminal-Management-System up to 2808d057e7ddc5295519a487365b0cacfd0ba8c4. This impacts the function move_uploaded_file of the file home.php. The manipulation of the argument my_img leads to unrestricted upload. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112301",
+      "published": "2026-10-19T21:17:06.863",
+      "description": "A security flaw has been discovered in orbitale imagemagick-php up to 3.3.5. Affected by this issue is the function Command::font of the file src/Command.php. The manipulation of the argument fontFile results in os command injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-112150",
-      "published": "2026-10-19T15:17:05.033",
-      "description": "A security flaw has been discovered in vraj404 Criminal-Management-System up to 2808d057e7ddc5295519a487365b0cacfd0ba8c4. Affected is an unknown function of the file search.php. The manipulation of the argument Search results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-112151",
-      "published": "2026-10-19T15:17:05.207",
-      "description": "A weakness has been identified in vraj404 Criminal Management System up to 2808d057e7ddc5295519a487365b0cacfd0ba8c4. Affected by this vulnerability is an unknown functionality of the file home.php of the component Submission Form. This manipulation of the argument id/name/offName/crime/dob/arrDate/crimeDate/sex/address/folder/more causes sql injection. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-107566",
-      "published": "2026-10-19T16:17:01.460",
-      "description": "Missing authorization in the Sieve editheader action (6.2.22 through 6.3.6) and in the mail-rule Set header value action (6.0.0 through 6.3.6) of Progressive Robot hMailServer allows an authenticated user to make the server send mail as any address, DKIM-signed where the address is at a domain the server signs for. A Sieve script's editheader (addheader/deleteheader) could add or delete any header field except Received and Return-Path, and the server applies a script's header edits before it queues a redirect, so the redirected copy is sent as the script left it. The server signs a message's first delivery pass as the domain named in its From header wherever it signs DKIM for that domain and the message carries no signature of it. A script could therefore delete and re-add From - another account's address, or anyone's at a hosted domain - and redirect, so the server sent the message in that name and, for a hosted domain, signed it with that domain's DKIM key, a forgery aligned to pass the domain's DMARC; or, where another sender's domain is one the server signs for, delete the DKIM-Signature that sender's message arrived with, alter a field, and redirect, so the server re-signed the altered message as that sender's domain. editheader placed no restriction on From, Sender, Resent-From, Resent-Sender or DKIM-Signature. The editheader action was introduced in 6.2.22. In the mail-rule engine, a domain's or an account's rule's Set header value action could likewise set From, Sender, Resent-From, Resent-Sender or DKIM-Signature ahead of a forward or a copy, whoever the rule belonged to, so that an account acting on its own rules over COM, a domain administrator, or an API key confined to a domain (over the REST API from 6.3.4) could have the server forward or copy a message in the name of any address, signed, where that address is at a domain the server hosts with DKIM signing enabled, with that domain's key.",
+      "id": "CVE-2026-112395",
+      "published": "2026-10-19T21:17:07.880",
+      "description": "Pillow is a Python imaging library. From 8.2.0 until 13.0.0, Pillow's tiled-TIFF decoder can read past the tile buffer while copying four-byte pixels. In _decodeTile, libtiff can return a tile allocation smaller than the required row stride multiplied by the tile length, and Pillow's stride-and-copy loop walks beyond that allocation. An attacker can supply a crafted tiled TIFF to an application that loads it. This can expose adjacent heap data in pixels or crash the process. This issue is fixed in version 13.0.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-107568",
-      "published": "2026-10-19T16:17:01.717",
-      "description": "Missing authorization in the Sieve notify action (6.2.22 through 6.3.6) and in the mail-rule Reply action (6.0.0 through 6.3.6) of Progressive Robot hMailServer allows an authenticated user to send mail through the server as any address. A Sieve notify sends a notification message, and its :from tag names the sender; the server set the notification's From header to that :from as the script wrote it, without checking that the address belongs to the account - the check that the Sieve vacation action applies to its own :from, and that the server applies to the sender of mail queued over COM or sent from the webmail. An account that can store a Sieve script (over ManageSieve, the REST API's self-service filter, or the administration interface) could therefore have the server send a notification from any address, on this server or anywhere; and where the claimed address is at a domain the server hosts with DKIM signing enabled, the server signed the notification with that domain's DKIM key, because it signs by the From header's domain, producing forged mail aligned to pass the domain's DMARC policy. The notify action and this behaviour were introduced in 6.2.22. In the mail-rule engine, a rule's Reply was likewise sent from whatever address the action named, whoever the rule belonged to, so that an account acting on its own rules over COM, a domain administrator, or an API key confined to a domain (over the REST API from 6.3.4) could have a domain's or an account's rule reply from any address, signed, where that address is at a domain the server hosts with DKIM signing enabled, with that domain's key.",
+      "id": "CVE-2026-112302",
+      "published": "2026-10-19T21:17:07.033",
+      "description": "A weakness has been identified in kiwilan php-archive up to 2.3.02. This affects the function ArchiveZip::extract of the file src/Readers/ArchiveZip.php of the component Extraction. This manipulation causes path traversal. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-109433",
-      "published": "2026-10-19T16:17:02.623",
-      "description": "Camunda 7.24.0 before 7.24.16 and 7.23.0 before 7.23.17 contains an authorization bypass vulnerability in the Cockpit webapp that allows authenticated attackers to bypass permission checks due to an inverted comparison logic in AbstractCockpitPluginResource.isPermissionDisabled(). Attackers with minimal Cockpit access can exploit a non-empty disabledPermissions configuration to read all process instances, process definitions, and incidents engine-wide without triggering any logging, regardless of their actual data grants.",
+      "id": "CVE-2026-76787",
+      "published": "2026-10-19T21:18:01.230",
+      "description": "The UpdateHub firmware-over-the-air client parses the CoAP probe response with Zephyr's JSON library in z_impl_updatehub_probe() (subsys/mgmt/updatehub/updatehub.c). The decoder treats every descriptor field as optional — json_obj_parse() returns a bitmask of the fields it actually decoded and never fails on a missing one — so a response that omits the \"sha256sum\" string leaves the corresponding const char * in the zero-initialised struct resp_probe_any_boards / struct resp_probe_some_boards at NULL. Both metadata branches then computed sha256size = strlen(...objects.sha256sum) + 1 before any validation, dereferencing that NULL pointer; the SHA256_HEX_DIGEST_SIZE test that follows operates on a value the bad read has already produced and cannot prevent it.\n\nThe metadata is supplied entirely by the network peer: probe_cb() accepts the datagram, runs coap_packet_parse() and copies the payload with no token matching and no cryptographic check. With CONFIG_UPDATEHUB_DTLS unset — the default — start_coap_client() uses plain CoAP over UDP on port 5683 with no peer authentication and resolves the server via unauthenticated DNS, so an on-path attacker, a DNS spoofer, or an off-path attacker who wins the race with a forged source address can deliver the malformed metadata. A probe response as simple as \"objects\":[[{}],[{}]] suffices, and no user interaction is required because updatehub_autohandler() polls on CONFIG_UPDATEHUB_POLL_INTERVAL. When CONFIG_UPDATEHUB_DTLS=y the trigger narrows to a malicious or compromised update server.\n\nThe primitive is a read at address zero, not a write, so the impact is availability only. On targets where the low address range is unmapped or protected — MMU-based architectures, builds with CONFIG_NULL_POINTER_EXCEPTION_DETECTION_DWT/_MPU/_PMP, TrustZone non-secure images, and SoCs such as nRF54L whose 0x0–0x400 window is unmapped — the load faults and Zephyr's default fatal handler halts the system, giving a remotely re-triggerable denial of service on every poll. On classic Cortex-M targets where the vector table is readable at address zero the walk usually terminates immediately and the request is rejected by the length check, so the outcome is configuration- and SoC-dependent. There is no memory write, and the copied bytes are only compared against the locally computed image hash, so there is no information-disclosure channel.\n\nThe fix adds an explicit sha256sum == NULL test that returns UPDATEHUB_METADATA_ERROR ahead of the strlen() in both metadata branches. Debug builds (CONFIG_UPDATEHUB_LOG_LEVEL=4) still format the same pointers with %s in a LOG_DBG() loop that runs before the new checks, so that variant remains in debug configurations only.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-86375",
-      "published": "2026-10-19T15:17:08.607",
-      "description": "Dell Application Installer, versions prior to 26.09.0.1, contain a Missing Encryption of Sensitive Data vulnerability. An unauthenticated attacker with local access could potentially exploit this vulnerability, leading to Unauthorized access.",
-      "severity": "MEDIUM",
-      "score": 6.2
-    },
-    {
-      "id": "CVE-2026-112147",
-      "published": "2026-10-19T15:16:56.830",
-      "description": "A vulnerability was found in ai-genius-automations octoally up to 1.0.87. The impacted element is an unknown function of the file server/src/index.ts. Performing a manipulation of the argument path results in information disclosure. The attack may be initiated remotely. The exploit has been made public and could be used. Upgrading to version 1.0.88 is sufficient to resolve this issue. The patch is named 3898085c4e701be21377ebd9e91e10b941e47168. It is recommended to upgrade the affected component.",
+      "id": "CVE-2026-112300",
+      "published": "2026-10-19T21:17:06.677",
+      "description": "A vulnerability was identified in DiffSK configobj up to 5.0.9. Affected by this vulnerability is the function _sectionmarker of the file configobj/__init__.py. The manipulation leads to inefficient regular expression complexity. Remote exploitation of the attack is possible. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-112328",
-      "published": "2026-10-19T15:17:06.280",
-      "description": "The Sensei LMS WordPress plugin before 4.26.4 contains a broken access control vulnerability in the add_new_module_term AJAX handler that allows authenticated Teacher-role attackers to assign module taxonomy terms to arbitrary courses by supplying a crafted course_id, since the handler validates only a generic nonce and checks manage_options solely for slug prefixing rather than verifying course edit permissions. Attackers can reuse a nonce obtained from their own course metabox to call wp_set_object_terms against courses owned by other teachers or administrators, enabling unauthorized modification of course content they do not own.",
+      "id": "CVE-2026-112299",
+      "published": "2026-10-19T21:17:06.500",
+      "description": "A vulnerability was determined in smrealms smr up to f40380c017bc35cd8db6ffdb9d4e78bf65b9d43d. Affected is the function isUrlReachable of the file src/pages/Account/AlbumEditProcessor.php of the component Album Website. Executing a manipulation of the argument Website can lead to server-side request forgery. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. This patch is called cb402e7f4e70b617b59d8c55dbe926b951ceb4a8. Applying a patch is advised to resolve this issue. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-112329",
-      "published": "2026-10-19T15:17:06.420",
-      "description": "The Sensei LMS WordPress plugin before 4.26.4 contains a broken access control vulnerability in the legacy save_new_message handler hooked on the init action, which validates only a generic nonce without verifying course enrollment or restricting post_id to valid post types. Authenticated attackers, including unprivileged Subscribers, can supply an arbitrary post_id for any course, lesson, or quiz to create a private message addressed to that post's author, bypassing the enrollment checks enforced by the newer REST send-message controller.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-111046",
-      "published": "2026-10-19T16:17:03.330",
-      "description": "FOSSBilling is an open source billing and client-management platform. From 0.8.4 until 0.8.6, hasManagePermission fails open for inactive non-core modules because its early return on !isExtensionActive skips the module-access and manage_settings checks. A low-privileged staff account with module-level extension access targets a deactivated non-core module through extension/config_get or extension/config_save. The account can call api/admin/extension/config_get or api/admin/extension/config_save for a deactivated non-core module to read decrypted retained extension secrets and overwrite stored extension configuration. The getConfig function returns the decrypted stored configuration despite the module's inactive state. This residual path remained after the earlier CVE-2026-62962 authorization fix. This issue is fixed in version 0.8.6.",
+      "id": "CVE-2026-111946",
+      "published": "2026-10-19T21:17:06.093",
+      "description": "Plack::Middleware::ETag versions from 0.04 before 0.06 for Perl disclose file inode numbers in the default ETag header.\n\nWhen the response body is a filehandle and the file_etag option is not set, the ETag is built from the file's inode number, modification time and size. Clients receiving affected responses may use the disclosed inode numbers to aid backend fingerprinting and correlation of files served through different URLs.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-111053",
-      "published": "2026-10-19T16:17:03.487",
-      "description": "FOSSBilling is an open source billing and client-management platform. From 0.1.0 until 0.8.7, the unauthenticated api/guest/system/template_exists endpoint permits path traversal because templateExists uses Path::join on the attacker-controlled file parameter without rejecting .. sequences or verifying that the resolved path remains inside the active theme directory. The trigger is an unauthenticated request to guest/system/template_exists containing traversal sequences in the file parameter. An attacker can submit traversal sequences in the file parameter and observe the returned boolean to determine whether arbitrary files or directories exist on the server. The oracle does not disclose file contents. This issue is fixed in version 0.8.7.",
+      "id": "CVE-2026-112393",
+      "published": "2026-10-19T21:17:07.613",
+      "description": "Pillow is a Python imaging library. From 2.0.0 until 13.0.0, Pillow has a heap buffer overflow and stale-heap disclosure in _tiffWriteProc when saving compressed TIFF data through libtiff to a target without a usable fileno(), such as BytesIO. The callback sizes its allocation from the prior buffer size instead of the current write position, allowing an attacker-controlled out-of-line TIFF tag or retained ICC profile to be copied beyond the allocation after libtiff seeks forward. This overflow can crash the process and may allow code execution. Independently, unwritten alignment gaps in compressed TIFF output larger than 64 KiB can disclose stale heap bytes without a crafted tag. File paths and targets with real file descriptors are unaffected. This issue is fixed in version 13.0.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-111056",
-      "published": "2026-10-19T16:17:03.657",
-      "description": "FOSSBilling is an open source billing and client-management platform. From 0.1.0 until 0.8.7, the unauthenticated POST /api/guest/client/create endpoint reveals whether a submitted email belongs to a registered client because guest signup returns a distinct unredacted error when the submitted email already exists. The trigger is an unauthenticated request to POST /api/guest/client/create with a target email address. An attacker can compare the guest-signup response for a target email to determine whether the email belongs to an existing FOSSBilling client. Box\\Mod\\Client\\Api\\Guest::create returns the error after Client\\Service::clientAlreadyExists finds a matching record, and the API response exposes that exception message without redaction. This issue is fixed in version 0.8.7.",
+      "id": "CVE-2026-112394",
+      "published": "2026-10-19T21:17:07.747",
+      "description": "Pillow is a Python imaging library. Prior to 13.0.0, Pillow's P;2L and P;4L raw decoders can read past the end of an input buffer. ImagingRawDecode calculates a packed-pixel row size, while the unpackers read separately padded bit planes. A caller can supply a buffer and image dimensions whose accepted size is smaller than the unpacker's actual footprint. This can disclose up to three adjacent heap bytes in output pixels or crash the process. This issue is fixed in version 13.0.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42990",
+      "published": "2026-10-19T22:16:57.660",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42991",
+      "published": "2026-10-19T22:16:58.233",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42992",
+      "published": "2026-10-19T22:16:58.290",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42993",
+      "published": "2026-10-19T22:16:58.343",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42994",
+      "published": "2026-10-19T22:16:58.403",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42995",
+      "published": "2026-10-19T22:16:58.453",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42996",
+      "published": "2026-10-19T22:16:58.503",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2023-42997",
+      "published": "2026-10-19T22:16:58.553",
+      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
       "severity": "UNKNOWN",
       "score": null
     }
