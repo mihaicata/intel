@@ -1,5 +1,5 @@
 {
-  "totalResults": 4216,
+  "totalResults": 4212,
   "items": [
     {
       "id": "CVE-2026-108983",
@@ -9,6 +9,13 @@
       "score": 9.8
     },
     {
+      "id": "CVE-2026-111441",
+      "published": "2026-10-19T03:16:58.543",
+      "description": "在 openGauss-server 的 src/gausskernel/cbb/utils/hll/hll.cpp 中，内置函数 HllObjectUnpack() 存在长度校验缺陷。该函数从用户提供的 packed HLL 解析 lenUsed 与 lenTotal 后，仅检查输入长度足以覆盖 HLL_HEAD_SIZE + lenUsed，随后按 lenTotal 分配缓冲区、按 lenUsed 调用 memcpy_s() 拷贝输入，既未校验 lenTotal >= lenUsed，也将 memcpy_s() 目标大小写成 lenUsed 而非实际分配的 lenTotal，导致安全拷贝无法拦截越界写。hll_in()、hll_print()、hll_cardinality() 等 SQL 入口会走同一解包路径。因此，普通数据库连接用户只需构造 lenTotal 小于 lenUsed 的畸形 packed HLL（例如经 ::hll 进入 hll_in()），即可触发服务端堆越界写，存在内存破坏风险。此问题随 packed HLL 解包函数 HllObjectUnpack() 进入代码，v2.1.0 起即存在。受影响版本包括 2.1.0、3.0.x、3.1.x、5.0.x、5.1.0、6.0.x，以及 7.0.0-RC1、7.0.0-RC2、7.0.0-RC3。该问题已在 7.0.0-LTS 版本修复，通过在 HllObjectUnpack() 中补齐 lenUsed <= lenTotal 校验，并将 memcpy_s() 的目标大小改为实际分配的 lenTotal。修复 PR 见 https://gitcode.com/opengauss/openGauss-server/pull/9380 。",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
       "id": "CVE-2026-108984",
       "published": "2026-10-19T02:17:05.997",
       "description": "A vulnerability is in Web Server default connection ports under the process name GeoWebServer.exe .",
@@ -16,60 +23,67 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-112028",
-      "published": "2026-10-18T23:16:56.247",
-      "description": "A flaw has been found in light0011 cms c774dce31c6df0055568a8d5c53d964d99be199d/f72cf46f601efb2a0618c3814cc2f61380b38930. Affected by this issue is some unknown functionality of the file App/Home/Controller/VoteController.class.php of the component Vote Handler. This manipulation of the argument X-Requested-With causes business logic errors. Remote exploitation of the attack is possible. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-112044",
+      "published": "2026-10-19T03:16:59.153",
+      "description": "A security vulnerability has been detected in dotnet eShop up to 913acea66708a59595351174cee9b29f37179d29. The affected element is the function AddApplicationServices of the file src/Catalog.API/Extensions/Extensions.cs of the component Catalog API. The manipulation leads to improper authentication. The attack can be initiated remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-112030",
-      "published": "2026-10-19T00:16:30.640",
-      "description": "A vulnerability was found in diem-project diem up to 5.1.3. This vulnerability affects unknown code of the file dmCorePlugin/lib/data/dmDataLoad.php. Performing a manipulation results in use of default password. The attack is possible to be carried out remotely. The exploit has been made public and could be used. It is suggested to update the configuration settings. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-111440",
+      "published": "2026-10-19T04:17:03.657",
+      "description": "在 openGauss-connector-jdbc 的 pgjdbc/src/main/java/org/postgresql/log/LogFactory.java 中，LogFactory 根据 JDBC 连接参数中的 logger 类名调用 Class.forName 加载类后，直接反射调用以 String 为参数的构造函数，再转换为 Log。缺少 asSubclass(Log.class) 校验，非 Log 实现类也会在类型检查前被实例化。因此，当攻击者可控制 JDBC URL 或连接属性中的 logger 类名，且客户端 classpath 中存在可被加载的类时，可能在客户端触发非预期的类加载与构造副作用。\n\n此漏洞自 JDBC 1.1.0引入，影响 1.1.0 及之后的 2.x、3.x、5.x、6.x 各版本及补丁（含 6.0.0 分支最新 6.0.6），以及 7.0.0-RC1、7.0.0-RC2、7.0.0-RC3，并在 7.0.0-LTS 版本修复。修复在 Class.forName 之后先执行 asSubclass(Log.class)，仅允许 Log 子类进入构造。修复pr见https://gitcode.com/opengauss/openGauss-connector-jdbc/pull/423。",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-112043",
+      "published": "2026-10-19T03:16:58.920",
+      "description": "A weakness has been identified in calcom cal.com and cal.diy up to 6.2.0. Impacted is the function createWebhookProcedure of the file packages/trpc/server/routers/viewer/webhook/util.ts of the component Webhook Handler. Executing a manipulation of the argument ID can lead to authorization bypass. It is possible to launch the attack remotely. The pull request to fix this issue awaits acceptance.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-112035",
-      "published": "2026-10-19T01:16:37.510",
-      "description": "A security vulnerability has been detected in aircheng-org iWebShop-5 up to 5.16. This affects the function send_message_mobile of the file controllers/simple.php. Such manipulation of the argument user_id leads to weak password recovery. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112073",
+      "published": "2026-10-19T04:17:08.707",
+      "description": "A vulnerability was identified in Tencent ncnn up to 44b02dabdcf97499281a4692ebd65bad73dcf8b6. Affected by this vulnerability is the function matmul_transb of the file src/layer/matmul.cpp of the component MatMul. The manipulation leads to out-of-bounds read. The attack can be initiated remotely. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-112027",
-      "published": "2026-10-18T23:16:56.073",
-      "description": "A vulnerability was detected in light0011 cms c774dce31c6df0055568a8d5c53d964d99be199d/f72cf46f601efb2a0618c3814cc2f61380b38930. Affected by this vulnerability is the function file_exists of the file Public/Home/js/uploadify/check-exists.php of the component Uploadify. The manipulation of the argument filename results in file and directory information exposure. The attack may be launched remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112074",
+      "published": "2026-10-19T04:17:08.910",
+      "description": "A security flaw has been discovered in Tencent ncnn up to 44b02dabdcf97499281a4692ebd65bad73dcf8b6. Affected by this issue is the function ncnn::yuv420sp2rgb of the file src/mat_pixel.cpp of the component Conversion API. The manipulation results in integer overflow. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-112032",
-      "published": "2026-10-19T00:16:31.790",
-      "description": "A vulnerability was identified in aircheng-org iWebShop-5 up to 5.16. Impacted is the function Util::search of the file classes/util.php. The manipulation leads to sql injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112075",
+      "published": "2026-10-19T04:17:09.287",
+      "description": "A weakness has been identified in unslothai unsloth up to 0.1.501-beta. This affects the function FastSentenceTransformer._is_transformer_module_ref of the file unsloth/models/sentence_transformer.py. This manipulation of the argument Type causes use of externally-controlled input to select classes or code. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 0.1.902-beta is able to mitigate this issue. Patch name: de801746386a53a0cb26216e715a0af863b76ad9. The affected component should be upgraded.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-112033",
-      "published": "2026-10-19T01:16:36.473",
-      "description": "A security flaw has been discovered in aircheng-org iWebShop-5 up to 5.16. The affected element is the function admin_repwd/admin_repwd_act of the file controllers/system.php of the component Password Change. The manipulation of the argument password/repassword results in cross-site request forgery. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112076",
+      "published": "2026-10-19T04:17:09.543",
+      "description": "A security vulnerability has been detected in alexta69 MeTube up to 2026.09.28. This vulnerability affects the function DownloadQueue.__write_feed_metadata_sync of the file app/ytdl.py of the component Feed-metadata Thumbnail Fetch Handler. Such manipulation leads to server-side request forgery. The attack may be launched remotely. Attacks of this nature are highly complex. It is stated that the exploitability is difficult. The exploit has been disclosed publicly and may be used. Upgrading to version 2026.09.29 is able to resolve this issue. The name of the patch is a3896604540223ecbb8258b41b1d745d62647d16. It is suggested to upgrade the affected component.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-112034",
-      "published": "2026-10-19T01:16:37.340",
-      "description": "A weakness has been identified in aircheng-org iWebShop-5 up to 5.16. The impacted element is the function IController::redirect of the file plugins/_userInfo/_userInfo.php of the component Login Redirect. This manipulation of the argument callback causes open redirect. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112077",
+      "published": "2026-10-19T05:17:04.347",
+      "description": "A vulnerability was detected in radareorg radare2 6.2.0/6.2.2. This issue affects the function r_core_cmd_str_pipe in the library libr/core/rtr_http.inc.c of the component HTTP Sandbox Policy Handler. Performing a manipulation results in protection mechanism failure. Remote exploitation of the attack is possible. The attack is considered to have high complexity. The exploitability is assessed as difficult. Upgrading to version 6.2.4 is capable of addressing this issue. The patch is named 18fd12efa98a7d1977de7bdd379d8a848777b90f. Upgrading the affected component is recommended. The pre-requisite of the vulnerability is reflected by the CVSS vector. One of the project maintainers explains: \"There is a real sandbox configuration issue here, but the report overstates it. The HTTP server defaults to http.sandbox=true, so commands received through /cmd temporarily enable cfg.sandbox. However, cfg.sandbox.grain defaults to all, which means all sandbox capabilities - including exec - remain allowed. Therefore enabling the HTTP sandbox alone does NOT prevent commands from spawning processes. This only matters when the HTTP command endpoint is reachable by someone you do not trust. It is not a remote vulnerability by default: the HTTP server must first be started and exposed to the attacker.\"",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-112036",
-      "published": "2026-10-19T01:16:37.677",
-      "description": "A vulnerability was detected in Artifex MuPDF up to 1.28.5. This impacts the function free_char_list of the file source/pdf/pdf-xref.c of the component Signature Locking. Performing a manipulation results in double free. The attack may be initiated remotely. The exploit is now public and may be used. The patch is named 3984925b660afb8a781ddf504021e91be1bc671e. To fix this issue, it is recommended to deploy a patch.",
+      "id": "CVE-2026-112045",
+      "published": "2026-10-19T04:17:08.373",
+      "description": "A vulnerability was detected in donetick up to 0.1.82. The impacted element is the function CanDeleteHistory of the file internal/chore/model/model.go of the component History Deletion Handler. The manipulation of the argument AssignedTo results in improper authorization. The attack can be launched remotely. The exploit is now public and may be used. The project maintainer explains: \"The concerns about \"IDOR\" framing seem to be overstated in my opinion (...), as Circle members are already trusted collaborators. We will address this issue. However, since the impact is limited to trusted members within the same circle, I would classify this as a bug rather than a security vulnerability.\"",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.4
     },
     {
       "id": "CVE-2026-112040",
@@ -79,13 +93,6 @@
       "score": 4.3
     },
     {
-      "id": "CVE-2026-112026",
-      "published": "2026-10-18T23:16:55.750",
-      "description": "A security vulnerability has been detected in light0011 cms c774dce31c6df0055568a8d5c53d964d99be199d/f72cf46f601efb2a0618c3814cc2f61380b38930. Affected is the function sha1 of the file App/Home/Model/UserModel.class.php. The manipulation of the argument Password leads to password hash with insufficient computational effort. The attack may be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is told to be difficult. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
       "id": "CVE-2026-112037",
       "published": "2026-10-19T02:17:06.133",
       "description": "A flaw has been found in diem-project diem up to 116974edfb9a5b8bd69cb13586dc62bcdbb485ad. Affected is an unknown function of the file dmCorePlugin/lib/vendor/gapi/gapi.class.php of the component Google Analytics Client. Executing a manipulation can lead to improper certificate validation. The attack may be launched remotely. The attack requires a high level of complexity. The exploitability is told to be difficult. The exploit has been published and may be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -93,18 +100,18 @@
       "score": 3.7
     },
     {
-      "id": "CVE-2026-112031",
-      "published": "2026-10-19T00:16:31.587",
-      "description": "A vulnerability was determined in Chamilo LMS up to 1.11.40/2.0.3/3.0.1. This issue affects the function TicketManager::addProject of the file main/inc/lib/TicketManager.php of the component Ticket Module. Executing a manipulation of the argument Name can lead to cross site scripting. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. This patch is called 6dfa0f4de45afc1b27333304b4cd4532db478f74/dd3e4d32971efca4197eb2df97f69de25a786e3c/119773d45c31da53b44cbfdb3f4910bc983cc7b0/cb6fe2127e587603451c609b4ed78c0293fcc3fa. It is best practice to apply a patch to resolve this issue.",
+      "id": "CVE-2026-112041",
+      "published": "2026-10-19T02:17:06.840",
+      "description": "A vulnerability was identified in diem-project diem up to 116974edfb9a5b8bd69cb13586dc62bcdbb485ad. This vulnerability affects the function dmString::random of the file dmCorePlugin/lib/basic/dmString.php. Such manipulation leads to cryptographically weak prng. The attack may be performed from remote. A high complexity level is associated with this attack. It is stated that the exploitability is difficult. The exploit is publicly available and might be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
-      "score": 3.5
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-112029",
-      "published": "2026-10-18T23:16:56.417",
-      "description": "A vulnerability has been found in diem-project diem up to 5.1.3. This affects an unknown part of the file lib/model/doctrine/PluginDmUser.class.php of the component SHA1 Handler. Such manipulation of the argument salt/password leads to password hash with insufficient computational effort. The attack needs to be performed locally. The attack requires a high level of complexity. It is indicated that the exploitability is difficult. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-112042",
+      "published": "2026-10-19T03:16:58.720",
+      "description": "A security flaw has been discovered in diem-project diem up to 116974edfb9a5b8bd69cb13586dc62bcdbb485ad. This issue affects the function dmBaseLinkTag::text of the file dmCorePlugin/lib/view/html/link/dmBaseLinkTag.php of the component dmWidget. Performing a manipulation of the argument text results in cross site scripting. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
-      "score": 2.5
+      "score": 3.5
     },
     {
       "id": "CVE-2026-112038",
@@ -121,23 +128,16 @@
       "score": 2.4
     },
     {
-      "id": "CVE-2026-108519",
-      "published": "2026-10-18T23:16:55.280",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "id": "CVE-2026-102503",
+      "published": "2026-10-19T03:16:58.193",
+      "description": "Missing Authentication for Critical Function (CWE-306) and Missing Authorization (CWE-862) in the /libp2p-http ingress server (StartIngressServer in cmd/sam-node/node.go) in Google OSS Agent Mesh (SAM) versions 0.1.0-alpha.1 through 0.1.0-alpha.2 allow an unauthenticated remote libp2p peer to bypass Biscuit capability policy enforcement and invoke arbitrary registered backend services (including command/stdio-backed MCP servers, A2A, and inference endpoints). While the MCP protocol stream handler enforces WithBiscuitAuth and Authorize checks, the parallel /libp2p-http ingress routes requests directly to backend service handlers without verifying a Biscuit token or mesh enrollment. Users should upgrade to version 0.1.0-alpha.3 or later.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-112111",
-      "published": "2026-10-18T23:16:56.583",
-      "description": "The Bootstrap Shortcodes plugin for WordPress before 3.4.6 is vulnerable to stored XSS via the id attribute of the [bs_tcontent] shortcode. The bs_tcontent() shortcode handler in inc/bs_tabs.php emits the id attribute value into an unquoted HTML attribute. esc_attr() is applied, but it does not encode space characters, so a space in the supplied value terminates the attribute and any following text is parsed as additional HTML attributes, including JavaScript event handlers. This allows authenticated attackers with Contributor-level access and above to inject arbitrary web script that executes in the browser of any user who views the page and interacts with the injected element.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-112112",
-      "published": "2026-10-18T23:16:56.767",
-      "description": "An IPv6 FlowSpec validation bypass in the CZ.NIC BIRD Internet Routing Daemon allows an established BGP peer to inject FlowSpec rules matching destinations outside the address space authorized by the unicast-route validation procedure. With validation enabled on the receiving flow6 channel, BIRD fails to reject a destination prefix component with a nonzero offset, contrary to RFC 8956 section 5. It validates a reconstructed prefix with zero-filled skipped bits, although the original FlowSpec component can match a broader set of IPv6 addresses. Given a suitable unicast route from the peer, the rule can pass validation and, where export policy permits, be propagated to downstream peers. Downstream enforcement may cause unauthorized traffic filtering or redirection.",
+      "id": "CVE-2026-103091",
+      "published": "2026-10-19T03:16:58.377",
+      "description": "Missing Authorization (CWE-862) and Initialization of a Resource with an Insecure Default (CWE-1188) in the MCP proxy (HandleStreamPassThrough in mcp_service.go) and OIDC registration flow (GET /info and POST /register in internal/controlplane/server.go) in Google OSS Agent Mesh (SAM) versions 0.1.0-alpha.1 through 0.1.0-alpha.8 allow a remote attacker to self-enroll into the mesh and invoke arbitrary tools across all connected MCP backend nodes. Because GET /info publicly discloses OIDC configuration, POST /register auto-enrolls any valid OIDC token holder without claim filtering or ban checks, and the default policy binds sam:system:authenticated to wildcard services and targets, an attacker can obtain a mesh credential with full read, write, and execution access on backend services. Users should upgrade to version 0.1.0-alpha.9 or later, which enforces a fail-closed default policy, explicit policy-binding requirements on enrollment, and ban checks.",
       "severity": "UNKNOWN",
       "score": null
     }
