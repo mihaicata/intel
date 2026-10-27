@@ -1,143 +1,143 @@
 {
-  "totalResults": 4189,
+  "totalResults": 4459,
   "items": [
     {
-      "id": "CVE-2026-76788",
-      "published": "2026-10-19T21:18:01.380",
-      "description": "The OSDP Control Panel reply parser cp_decode_response() in subsys/mgmt/osdp/src/osdp_cp.c decodes replies from a Peripheral Device into a stack-allocated struct osdp_event. For the REPLY_KEYPPAD and REPLY_RAW reply types, the payload length is taken from the received frame and the only validation performed is that the declared length is self-consistent with the number of payload bytes present in the frame. Because the attacker controls both the length field and the frame length, that check imposes no bound, and the subsequent memcpy() writes into the fixed 64-byte data arrays of struct osdp_event_keypress / struct osdp_event_cardread (OSDP_EVENT_MAX_DATALEN). The sibling REPLY_FMT handler in the same switch already carried the missing > OSDP_EVENT_MAX_DATALEN bound.\n\nThe defect is reached from cp_process_reply(), which reads bytes from the OSDP RS-485 channel and passes them through osdp_phy_check_packet() and osdp_phy_decode_packet() before dispatching on the reply ID. Triggering it requires CONFIG_OSDP with CONFIG_OSDP_MODE_CP and an application event callback registered (the normal Control Panel integration), plus a frame carrying a correct SOM, a valid CRC-16, and a matching 2-bit sequence number — all of which are computable or observable by anyone on the bus. No check ties the reply ID to the outstanding command, so an oversized REPLY_KEYPPAD or REPLY_RAW is accepted as the answer to a routine CMD_POLL. A malicious or compromised card reader, or anyone with access to the RS-485 wiring, can supply such a frame; CONFIG_OSDP_SC_ENABLED only helps while a secure channel is active, and a single unauthenticated frame carrying a bad MAC causes sc_deactivate(), after which plaintext replies are again accepted.\n\nWith the default CONFIG_OSDP_UART_BUFFER_LENGTH of 256, roughly 180 bytes of fully attacker-chosen data can be written past the end of the stack-allocated event object, over saved registers and the return address on typical Cortex-M and RISC-V frame layouts (Zephyr does not enable stack canaries by default). The impact ranges from a hard crash of the access-control panel to potential control-flow hijack in the context of the OSDP receive thread. The fix adds an OSDP_EVENT_MAX_DATALEN bound to both handlers, capping each memcpy() at the size of its destination.",
+      "id": "CVE-2026-109442",
+      "published": "2026-10-20T01:17:10.383",
+      "description": "piflow 2.0.0 through 2.0.1 contains a remote code execution vulnerability in its DeepAgents chat agent, whose POST /chat and POST /chat/stream endpoints lack authentication. Attackers can instruct the agent to call the exec_shell tool, which runs arbitrary commands via subprocess.run without human approval or an allow-list, exposing environment secrets such as LLM API keys and database credentials.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-109444",
+      "published": "2026-10-20T01:17:10.673",
+      "description": "OpenSRE through 0.1.2026.10.19 contains an approval gate bypass vulnerability that allows attackers to execute shell_run commands without confirmation because the headless presenter's execution_allowed() always returns True. Attackers can inject instructions into alerts or Slack messages triaged by the agent to run commands on the host and exfiltrate LLM, Slack and cloud credentials.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-75128",
+      "published": "2026-10-20T01:17:19.063",
+      "description": "Langchain-Chatchat through 0.3.1.3 exposes a POST /tools/call API endpoint that invokes any registered tool by name without authentication, leaving the always-registered shell tool callable. Remote attackers can send a single request naming the shell tool to execute arbitrary OS commands as the server user (root in the shipped Docker image).",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-77930",
+      "published": "2026-10-20T01:17:19.360",
+      "description": "EvoScientist 0.1.0 before 0.2.5 contains an approval bypass vulnerability that allows attackers to run host shell commands by delegating them to async sub-agents lacking an interrupt_on gate. Attackers can plant instructions in ingested content such as fetched web pages, so the agent calls start_async_task and runs commands with user privileges and environment secrets.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-77932",
+      "published": "2026-10-20T01:17:19.503",
+      "description": "DB-GPT through 0.8.2 contains an unauthenticated remote code execution vulnerability because the /api/v1/chat/react-agent endpoint relies on a mock get_user_from_headers function that grants every caller the admin role. Unauthenticated attackers can send prompts that make the ReAct agent's unsandboxed code_interpreter and shell_interpreter tools run arbitrary Python or bash as root in the webserver container, including reaching the bundled database with default credentials.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-109395",
+      "published": "2026-10-20T01:17:09.957",
+      "description": "Ning compress-lzf before 1.2.0 contains an out-of-bounds memory access vulnerability in the sun.misc.Unsafe based UnsafeChunkDecoder that fails to validate back-references and literal runs. Attackers can supply crafted LZF streams to applications using the default LZFDecoder to leak unrelated JVM heap memory into decompressed output or crash the JVM.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-109440",
+      "published": "2026-10-20T01:17:10.103",
+      "description": "LangAlpha through 2026.09.07 contains an indirect prompt injection vulnerability that allows remote attackers to execute shell commands or Python by planting instructions in web content retrieved by the agent. Because Bash and ExecuteCode lack an allow-list and human-in-the-loop approval, attackers can run code in the workspace sandbox and exfiltrate vault secrets from _internal/.vault_secrets.json.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-112390",
-      "published": "2026-10-19T21:17:07.340",
-      "description": "Pillow is a Python imaging library. From 7.2.0 until 13.0.0, Pillow can enter an infinite loop while determining the frame count of a MIC image. MicImageFile inherits TIFF frame traversal, but MicImageFile.tell reports the OLE stream index and its seek() resets TIFF frame state, so an embedded TIFF with at least three IFDs never advances. When an application with olefile installed reads n_frames or saves all frames from a crafted MIC file, the non-advancing traversal can hold a worker at full CPU indefinitely. This issue is fixed in version 13.0.0.",
+      "id": "CVE-2026-109443",
+      "published": "2026-10-20T01:17:10.527",
+      "description": "JoySafeter through 1.0.0 contains a remote code execution vulnerability that allows authenticated users to run operating system commands via an unsandboxed execute tool in Copilot standard mode. Attackers can self-register, select standard mode in the WebSocket chat.start extension, and have the agent invoke subprocess.run with shell=True on the host to access other tenants' data and server secrets.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-77926",
+      "published": "2026-10-20T01:17:19.213",
+      "description": "Aix-DB 1.2.4 contains a remote code execution vulnerability that allows authenticated non-admin users to run operating system commands through the ChatBI common agent's ungated deepagents execute tool. Attackers can send crafted chat input to POST /dify/get_answer or upload documents with malicious text to run host commands, exposing datasource credentials and model API keys.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-28853",
+      "published": "2026-10-20T01:17:11.460",
+      "description": "The issue was addressed with improved checks. This issue is fixed in macOS Sequoia 15.8, macOS Tahoe 26.7. An app may be able to elevate privileges.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-105297",
+      "published": "2026-10-20T01:17:09.613",
+      "description": "Summary\n\n\n\nBefore version 0.8.1, Pingora's HTTP/2 server used the h2 crate's default limits unless the application set its own 16 MiB decoded header-list size and no limit on concurrent streams. A remote, unauthenticated client can send 1-byte HPACK references to a near-empty header, making the server allocate hundreds of thousands of header fields per stream across an unlimited number of streams on one connection, and use HTTP/2 flow control to keep those streams open. This can exhaust memory and degrade or terminate the Pingora process.\n\n\n\n\nImpact\n\n\n\nRemote, unauthenticated denial of service against any Pingora service that terminates HTTP/2 (h2 or h2c) without explicitly setting max_header_list_size and max_concurrent_streams. The reporter showed that a single connection could get a Pingora process with a 2 GiB memory limit OOM-killed.\n\n\n\n\nNote that Cloudflare CDN customers were unaffected, as internal Pingora services at Cloudflare do not have HTTP/2 clients.\n\n\n\nMitigation:\n\n  *  \n\nUpgrade to pingora 0.8.1 or later (fix:  https://github.com/cloudflare/pingora/commit/d193c8d49b8b7c1c1ede93183759caa4f6906bbd ). When no H2Options are supplied, Pingora now advertises and enforces a 64 KiB decoded header-list limit and at most 100 concurrent streams per connection.\n\n\n  *  \n\nApplications that supply their own H2Options are not covered by these defaults and must set max_header_list_size and max_concurrent_streams explicitly (this also works on versions before 0.8.1), or, on 0.8.1 and later, start from pingora_core::protocols::http::v2::server::default_h2_options(). H2Options::default() does not include these limits.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-112391",
-      "published": "2026-10-19T21:17:07.477",
-      "description": "Pillow is a Python imaging library. From 5.1.0 until 13.0.0, Pillow's PdfParser.get_value() can recurse without a limit while reading nested PDF objects. The parser follows attacker-controlled arrays and dictionaries when an existing PDF is opened for append. An attacker can provide a deeply nested PDF to an application that saves an image with PDF append enabled. This can raise an uncaught RecursionError or terminate the worker, causing denial of service. This issue is fixed in version 13.0.0.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-112301",
-      "published": "2026-10-19T21:17:06.863",
-      "description": "A security flaw has been discovered in orbitale imagemagick-php up to 3.3.5. Affected by this issue is the function Command::font of the file src/Command.php. The manipulation of the argument fontFile results in os command injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-112395",
-      "published": "2026-10-19T21:17:07.880",
-      "description": "Pillow is a Python imaging library. From 8.2.0 until 13.0.0, Pillow's tiled-TIFF decoder can read past the tile buffer while copying four-byte pixels. In _decodeTile, libtiff can return a tile allocation smaller than the required row stride multiplied by the tile length, and Pillow's stride-and-copy loop walks beyond that allocation. An attacker can supply a crafted tiled TIFF to an application that loads it. This can expose adjacent heap data in pixels or crash the process. This issue is fixed in version 13.0.0.",
+      "id": "CVE-2026-109441",
+      "published": "2026-10-20T01:17:10.240",
+      "description": "LangAlpha through 2026.09.07 contains an improper isolation vulnerability that places all tenants' sandbox containers on Docker's shared default bridge network with inter-container communication enabled. Authenticated users with code execution in their own sandbox can connect directly to other tenants' containers, bypassing require_workspace_owner checks to read files such as vault secrets from exposed servers.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-112302",
-      "published": "2026-10-19T21:17:07.033",
-      "description": "A weakness has been identified in kiwilan php-archive up to 2.3.02. This affects the function ArchiveZip::extract of the file src/Readers/ArchiveZip.php of the component Extraction. This manipulation causes path traversal. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-28850",
+      "published": "2026-10-20T01:17:11.347",
+      "description": "An authorization issue was addressed with improved state management. This issue is fixed in macOS Sequoia 15.8, visionOS 27. An app may be able to access sensitive user data.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-76787",
-      "published": "2026-10-19T21:18:01.230",
-      "description": "The UpdateHub firmware-over-the-air client parses the CoAP probe response with Zephyr's JSON library in z_impl_updatehub_probe() (subsys/mgmt/updatehub/updatehub.c). The decoder treats every descriptor field as optional — json_obj_parse() returns a bitmask of the fields it actually decoded and never fails on a missing one — so a response that omits the \"sha256sum\" string leaves the corresponding const char * in the zero-initialised struct resp_probe_any_boards / struct resp_probe_some_boards at NULL. Both metadata branches then computed sha256size = strlen(...objects.sha256sum) + 1 before any validation, dereferencing that NULL pointer; the SHA256_HEX_DIGEST_SIZE test that follows operates on a value the bad read has already produced and cannot prevent it.\n\nThe metadata is supplied entirely by the network peer: probe_cb() accepts the datagram, runs coap_packet_parse() and copies the payload with no token matching and no cryptographic check. With CONFIG_UPDATEHUB_DTLS unset — the default — start_coap_client() uses plain CoAP over UDP on port 5683 with no peer authentication and resolves the server via unauthenticated DNS, so an on-path attacker, a DNS spoofer, or an off-path attacker who wins the race with a forged source address can deliver the malformed metadata. A probe response as simple as \"objects\":[[{}],[{}]] suffices, and no user interaction is required because updatehub_autohandler() polls on CONFIG_UPDATEHUB_POLL_INTERVAL. When CONFIG_UPDATEHUB_DTLS=y the trigger narrows to a malicious or compromised update server.\n\nThe primitive is a read at address zero, not a write, so the impact is availability only. On targets where the low address range is unmapped or protected — MMU-based architectures, builds with CONFIG_NULL_POINTER_EXCEPTION_DETECTION_DWT/_MPU/_PMP, TrustZone non-secure images, and SoCs such as nRF54L whose 0x0–0x400 window is unmapped — the load faults and Zephyr's default fatal handler halts the system, giving a remotely re-triggerable denial of service on every poll. On classic Cortex-M targets where the vector table is readable at address zero the walk usually terminates immediately and the request is rejected by the length check, so the outcome is configuration- and SoC-dependent. There is no memory write, and the copied bytes are only compared against the locally computed image hash, so there is no information-disclosure channel.\n\nThe fix adds an explicit sha256sum == NULL test that returns UPDATEHUB_METADATA_ERROR ahead of the strlen() in both metadata branches. Debug builds (CONFIG_UPDATEHUB_LOG_LEVEL=4) still format the same pointers with %s in a LOG_DBG() loop that runs before the new checks, so that variant remains in debug configurations only.",
+      "id": "CVE-2026-65356",
+      "published": "2026-10-20T01:17:16.570",
+      "description": "An access issue was addressed with improved access controls. This issue is fixed in macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7. An app may be able to access sensitive user data.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-112300",
-      "published": "2026-10-19T21:17:06.677",
-      "description": "A vulnerability was identified in DiffSK configobj up to 5.0.9. Affected by this vulnerability is the function _sectionmarker of the file configobj/__init__.py. The manipulation leads to inefficient regular expression complexity. Remote exploitation of the attack is possible. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-65379",
+      "published": "2026-10-20T01:17:17.860",
+      "description": "The issue was addressed with improved handling of secure input state. This issue is fixed in macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7. An app may be able to access sensitive user data.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-112299",
-      "published": "2026-10-19T21:17:06.500",
-      "description": "A vulnerability was determined in smrealms smr up to f40380c017bc35cd8db6ffdb9d4e78bf65b9d43d. Affected is the function isUrlReachable of the file src/pages/Account/AlbumEditProcessor.php of the component Album Website. Executing a manipulation of the argument Website can lead to server-side request forgery. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. This patch is called cb402e7f4e70b617b59d8c55dbe926b951ceb4a8. Applying a patch is advised to resolve this issue. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "id": "CVE-2026-65396",
+      "published": "2026-10-20T01:17:18.313",
+      "description": "A buffer overflow was addressed with improved size validation. This issue is fixed in macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7. An app may be able to cause unexpected system termination.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-111946",
-      "published": "2026-10-19T21:17:06.093",
-      "description": "Plack::Middleware::ETag versions from 0.04 before 0.06 for Perl disclose file inode numbers in the default ETag header.\n\nWhen the response body is a filehandle and the file_etag option is not set, the ETag is built from the file's inode number, modification time and size. Clients receiving affected responses may use the disclosed inode numbers to aid backend fingerprinting and correlation of files served through different URLs.",
+      "id": "CVE-2026-8355",
+      "published": "2026-10-20T00:19:20.530",
+      "description": "IBM ContextForge MCP Gateway 0.1.0 through 1.0.5 is vulnerable to a server-side request Forgery (SSRF) that allows authenticated users with gateway creation privileges to perform arbitrary HTTP POST requests to internal network resources and cloud metadata endpoints. The vulnerability occurs during OAuth-enabled gateway registration when the system fails to validate the oauth_config.token_url parameter. When registering a gateway with OAuth client credentials authentication, an attacker can supply a malicious token_url pointing to internal services, cloud metadata endpoints (AWS IMDSv1, GCP, Azure), or localhost-bound services. The application immediately performs an HTTP POST request to the attacker-controlled URL with form-encoded credentials in the body. If the response cannot be parsed as a valid OAuth token response, up to 256 characters of the response body are reflected back to the attacker in the HTTP 502 error message. This vulnerability bypasses existing SSRF protections that are applied to the gateway.url field but not to OAuth configuration parameters.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-65372",
+      "published": "2026-10-20T01:17:17.313",
+      "description": "A race condition was addressed with additional validation. This issue is fixed in macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7. A malicious application may be able to bypass Privacy preferences.",
+      "severity": "MEDIUM",
+      "score": 4.7
+    },
+    {
+      "id": "CVE-2026-105298",
+      "published": "2026-10-20T01:17:09.787",
+      "description": "Summary\n\n\n\nBefore version 0.9.0, Pingora accepted HTTP/2 requests whose Host header differed from the :authority pseudo-header. Request filters, cache keys, and logs that read the request URI (session.req_header().uri) saw the :authority value, but the upstream received the client-supplied Host value. Pingora also accepted :authority values containing userinfo (for example, user@example.com). This violates RFC 9113 Section 8.3.1, which requires an intermediary to use the :authority value for Host and replace any existing Host field.\n\n\n\n\nRoot cause\n\n  *  \n\nHTTP/2 to HTTP/1.1: Host was generated from :authority only when the request had no Host header, so a conflicting client Host was forwarded unchanged.\n\n\n  *  \n\nHTTP/2 to HTTP/2: the client Host header was removed and used to overwrite the upstream :authority, after request filters had already run against the original :authority.\n\n\n  *  \n\nThe HTTP/2 server did not compare Host with :authority and did not reject userinfo in the authority.\n\n\n\n\n\n\n\nImpact\n\n\n\nA remote, unauthenticated attacker can send a single HTTP/2 request that the application sees as one host and the upstream receives as another. Where request filters, access controls, or cache keys use the URI authority and the upstream routes by Host, this can lead to:\n\n  *  \n\nCache poisoning: a response from another virtual host is stored under the victim host's cache key and served to other users (this also requires the upstream to serve different content per Host).\n\n\n  *  \n\nHost-based access control bypass: a request approved for one host is served by a different virtual host on the upstream.\n\n\n\n\n\n\nDeployments that do not accept HTTP/2 from clients, or that do not use the request authority for security or caching decisions, are not affected.\n\n\n\n\nNote that Cloudflare CDN customers were unaffected, as internal Pingora services at Cloudflare do not have HTTP/2 clients.\n\n\n\n\nMitigation:\n\n  *  \n\nUpgrade to pingora 0.9.0 or later. Pingora now returns 400 Bad Request for HTTP/2 requests whose Host differs from :authority, that contain more than one Host, or whose authority contains userinfo, and keeps the upstream Host or :authority consistent with the request authority. Fix commits:  https://github.com/cloudflare/pingora/commit/915590a91811877795531f6ba0927a3138b5cb4b ,  https://github.com/cloudflare/pingora/commit/ffab8302d08d4292d1924eb8fe84647fd5cb8e76 \n\n\n  *  \n\nIf you cannot upgrade: in request_filter, reject HTTP/2 requests that carry a Host header different from the URI authority, or whose authority contains '@'.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-112393",
-      "published": "2026-10-19T21:17:07.613",
-      "description": "Pillow is a Python imaging library. From 2.0.0 until 13.0.0, Pillow has a heap buffer overflow and stale-heap disclosure in _tiffWriteProc when saving compressed TIFF data through libtiff to a target without a usable fileno(), such as BytesIO. The callback sizes its allocation from the prior buffer size instead of the current write position, allowing an attacker-controlled out-of-line TIFF tag or retained ICC profile to be copied beyond the allocation after libtiff seeks forward. This overflow can crash the process and may allow code execution. Independently, unwritten alignment gaps in compressed TIFF output larger than 64 KiB can disclose stale heap bytes without a crafted tag. File paths and targets with real file descriptors are unaffected. This issue is fixed in version 13.0.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-112394",
-      "published": "2026-10-19T21:17:07.747",
-      "description": "Pillow is a Python imaging library. Prior to 13.0.0, Pillow's P;2L and P;4L raw decoders can read past the end of an input buffer. ImagingRawDecode calculates a packed-pixel row size, while the unpackers read separately padded bit planes. A caller can supply a buffer and image dimensions whose accepted size is smaller than the unpacker's actual footprint. This can disclose up to three adjacent heap bytes in output pixels or crash the process. This issue is fixed in version 13.0.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42990",
-      "published": "2026-10-19T22:16:57.660",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42991",
-      "published": "2026-10-19T22:16:58.233",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42992",
-      "published": "2026-10-19T22:16:58.290",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42993",
-      "published": "2026-10-19T22:16:58.343",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42994",
-      "published": "2026-10-19T22:16:58.403",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42995",
-      "published": "2026-10-19T22:16:58.453",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42996",
-      "published": "2026-10-19T22:16:58.503",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-42997",
-      "published": "2026-10-19T22:16:58.553",
-      "description": "Rejected reason: This candidate was in a CNA pool that was not assigned to any issues.",
+      "id": "CVE-2026-28854",
+      "published": "2026-10-20T01:17:11.563",
+      "description": "The issue was addressed with additional app bundle integrity checks. This issue is fixed in macOS Golden Gate 27. A maliciously modified app may not be prevented from launching.",
       "severity": "UNKNOWN",
       "score": null
     }
