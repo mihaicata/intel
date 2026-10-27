@@ -1,145 +1,145 @@
 {
-  "totalResults": 4548,
+  "totalResults": 4602,
   "items": [
     {
-      "id": "CVE-2026-28328",
-      "published": "2026-10-20T17:17:38.910",
-      "description": "SolarWinds Observability Self-Hosted was found to be affected by a broken authorization schema that can allow low-privileged users to access and modify information beyond their assigned permissions.",
+      "id": "CVE-2015-20128",
+      "published": "2026-10-20T21:17:13.357",
+      "description": "FooSun DotNetCMS 1.0 and 2.0 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate MSSQL queries through the CityId parameter. Attackers can send GET requests to /user/City_ajax.aspx with UNION SELECT payloads in CityId, concatenated unsanitized into the sys_City query, to extract database information. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-113658",
-      "published": "2026-10-20T17:17:36.917",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.33.0, the unauthenticated Rich Text CSV conversion route writes a multipart upload to the system temporary directory before checking its extension and does not remove the staged file when that validation rejects it. Repeated large rejected uploads, using the normal public CSRF cookie, can persistently consume temporary-disk capacity and may disrupt ApostropheCMS and other services that depend on the same partition. This issue is fixed in version 4.33.0.",
+      "id": "CVE-2016-20101",
+      "published": "2026-10-20T21:17:13.727",
+      "description": "Issuu Panel plugin for WordPress before 1.6.6 contains a PHP file inclusion vulnerability that allows unauthenticated attackers to include remote or local files through the 'abspath' parameter. Attackers can send GET requests to menu/documento/requests/ajax-docs.php with a crafted abspath value passed to require() to execute remote PHP code or include local files. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2012-20002",
+      "published": "2026-10-20T21:17:10.613",
+      "description": "TinyMCE Thumbnail Gallery plugin for WordPress before 1.1.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the href parameter. Attackers can send GET requests to /php/download-image.php with traversal sequences like ../../../../wp-config.php to retrieve database credentials and system files. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-92539",
-      "published": "2026-10-20T17:17:43.333",
-      "description": "A service account with user-management permissions in one organization can read, modify, disable or delete users belonging to other organizations on the same Grafana instance through the SCIM API (insecure direct object reference). Only Grafana Enterprise instances with SCIM enabled are affected.",
+      "id": "CVE-2014-125133",
+      "published": "2026-10-20T21:17:12.560",
+      "description": "NativeChurch theme for WordPress before 1.6.2 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files through the file parameter of download.php. Attackers can send GET requests with directory traversal sequences in the file parameter to retrieve sensitive files like wp-config.php. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2014-125134",
+      "published": "2026-10-20T21:17:12.720",
+      "description": "ChurcHope theme for WordPress before 2.2 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files through the 'file' parameter of /wp-content/themes/churchope/lib/downloadlink.php. Attackers can supply directory traversal sequences to read sensitive files like wp-config.php or /etc/passwd, exposing database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2015-20123",
+      "published": "2026-10-20T21:17:12.890",
+      "description": "Aspose Doc Exporter plugin for WordPress before 2.0 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files by passing unsanitized paths to readfile(). Attackers can send GET requests to aspose_doc_exporter_download.php with the 'file' parameter set to values like ../../../wp-config.php to retrieve database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2015-20124",
+      "published": "2026-10-20T21:17:13.060",
+      "description": "Aspose Importer & Exporter plugin for WordPress before 3.0 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files via the unsanitized 'file' parameter. Attackers can send GET requests to aspose_import_export_download.php with traversal sequences like ../../../wp-config.php to read database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2015-20125",
+      "published": "2026-10-20T21:17:13.210",
+      "description": "Aspose PDF Exporter plugin for WordPress before 2.0 contains a path traversal vulnerability that allows unauthenticated attackers to download files through the unsanitized 'file' parameter passed to readfile(). Attackers can send GET requests to aspose_pdf_exporter_download.php with traversal sequences like ../../../wp-config.php to retrieve WordPress database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2016-20100",
+      "published": "2026-10-20T21:17:13.520",
+      "description": "Memphis Documents Library plugin for WordPress before 3.1.6 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the mdocs-img-preview parameter. Attackers can send GET requests with traversal sequences to mdocs_img_preview() in mdocs-downloads.php to download wp-config.php containing database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-22.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2016-20103",
+      "published": "2026-10-20T21:17:14.043",
+      "description": "Cherry Plugin for WordPress before 1.2.7 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files via the 'file' parameter. Attackers can send GET requests to /admin/import-export/download-content.php with traversal sequences like ../../../../../wp-config.php to read database credentials, since the script passes input directly to readfile(). Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2016-20104",
+      "published": "2026-10-20T21:17:14.193",
+      "description": "EyeLock nano NXT 3.05.1193, 3.04.1108, 3.03.944, and 3.01.646 contain a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the 'path' parameter. Attackers can send GET requests to /scripts/logdownload.php with traversal sequences like ../../etc/passwd, which readfile() returns unvalidated, disclosing local system files. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-103672",
+      "published": "2026-10-20T21:17:14.843",
+      "description": "The PEAK-System PCAN parser indexes a length table using attacker-controlled DLC without enforcing DLC <= 0x0f, then copies attacker payload from record+0x1c into a fixed-size stack destination.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2012-20003",
+      "published": "2026-10-20T21:17:11.730",
+      "description": "Custom Tables plugin for WordPress before 3.4.6 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the unsanitized 'key' parameter in iframe.php. Attackers can craft GET requests to /wp-content/plugins/custom-tables/iframe.php with s=1 and a malicious key value to execute script in victims' browsers and steal cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
       "severity": "MEDIUM",
-      "score": 6.7
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-113649",
-      "published": "2026-10-20T17:17:35.670",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 3.7.1 of the import-export module and 4.34.0 of core ApostropheCMS, an editor who can import an enabled content type but lacks its stronger publication role can cause import write helpers to create, replace, or remove published variants without the normal publish permission and lifecycle checks. This issue is fixed in import-export 3.7.1 and ApostropheCMS 4.34.0.",
+      "id": "CVE-2012-20004",
+      "published": "2026-10-20T21:17:11.907",
+      "description": "K-news plugin for WordPress before 1.1.1 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying unsanitized input through the 'ff' parameter. Attackers can craft GET requests to /wp-content/plugins/knews/wysiwyg/fontpicker/index.php with malicious 'ff' values echoed into option tags to execute script and steal session cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-28329",
-      "published": "2026-10-20T17:17:39.073",
-      "description": "SolarWinds Observability Self-Hosted was found to be affected by a Server-Side Request Forgery (SSRF) vulnerability that allows authenticated attackers to cause the application server to send requests to attacker-controlled or internal destinations.",
+      "id": "CVE-2012-20005",
+      "published": "2026-10-20T21:17:12.077",
+      "description": "SocialFit plugin for WordPress through 1.2.2 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts via the unsanitized msg parameter. Attackers can craft GET requests to /wp-content/plugins/socialfit/popup.php with service=googleplus and malicious msg values to execute script and steal session cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-113652",
-      "published": "2026-10-20T17:17:36.080",
-      "description": "ApostropheCMS is an open-source Node.js content management system. From 1.25.0 until 1.28.0, uploadfs Azure backend leaks account-level SAS token into every public attachment URL. When uploadfs is configured with the Azure backend and sas: true, createContainer() builds the BlobServiceClient from a URL that embeds the full SAS query string, and Azure SDK v12 derived clients inherit that query string. This issue is fixed in version 1.28.0.",
+      "id": "CVE-2014-125131",
+      "published": "2026-10-20T21:17:12.243",
+      "description": "DedeCMS 5.6 and 5.7 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying unsanitized input to the adminDirHand parameter. Attackers can send crafted GET requests to /include/dialog/config.php that close the generated script tag and inject JavaScript, which executes in the victim's browser. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-112958",
-      "published": "2026-10-20T17:17:33.190",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.34.0, a project-defined free-form widget style field can carry an editor-controlled quote into an inline style attribute because the wrapper serializer does not apply HTML-attribute encoding. The quote can terminate the style attribute and inject executable attributes when published content, or an affected draft viewed by a higher-privileged user, is rendered. This issue is fixed in version 4.34.0.",
+      "id": "CVE-2014-125132",
+      "published": "2026-10-20T21:17:12.403",
+      "description": "Blogroll Fun plugin for WordPress before 0.8.5 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the 'k' parameter in blogroll.php. Attackers can craft GET requests to /wp-content/plugins/blogroll-fun/blogroll.php with malicious 'k' values that are echoed unsanitized, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-113650",
-      "published": "2026-10-20T17:17:35.807",
-      "description": "ApostropheCMS is an open-source Node.js content management system. In sanitize-html 2.18.0, when an <iframe> is not allowed and disallowedTagsMode is 'discard' (the defaults), its raw-text content is re-sanitized by a recursive call to sanitizeHtml(text, options). The recursion has no bound and starts each nested call with a fresh state. This vulnerability is fixed in 2.18.1.",
+      "id": "CVE-2016-20102",
+      "published": "2026-10-20T21:17:13.893",
+      "description": "JavaMelody before 1.60.0 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying crafted values in the graph parameter of /monitoring?part=graph. Attackers can include a closing script tag in the graph value, which is only JavaScript-escaped in HtmlCounterReport, to execute script in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-113656",
-      "published": "2026-10-20T17:17:36.643",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 1.5.5 of the ApostropheCMS Form add-on, its form submission route stages unbounded multipart uploads before form validation or authentication and lacks upload size, count, and rate limits. Repeated unauthenticated submissions can consume temporary disk storage and disrupt form handling or other host services. This issue is fixed in ApostropheCMS Form 1.5.5.",
+      "id": "CVE-2026-101103",
+      "published": "2026-10-20T21:17:14.463",
+      "description": "The PEAK-System PCAN diagnostic call did not validate that the caller-supplied output buffer was large enough to hold the output record.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-28330",
-      "published": "2026-10-20T17:17:39.213",
-      "description": "SolarWinds Observability Self-Hosted was found to be affected by a stored Cross-Site Scripting (XSS) vulnerability that allows authenticated attackers to inject malicious content or JavaScript, which is displayed or executed in the browsers of other authenticated users who access the affected pages.",
+      "id": "CVE-2026-105960",
+      "published": "2026-10-20T21:17:15.160",
+      "description": "PEAK-System PCAN contains a vulnerable operation involving a variable-length receive-record copy. The driver uses a requested or queued record count without sufficiently capping the copy to the actual caller-supplied output length.",
       "severity": "MEDIUM",
-      "score": 4.6
-    },
-    {
-      "id": "CVE-2026-28331",
-      "published": "2026-10-20T17:17:39.340",
-      "description": "SolarWinds Patch Manager exposes sensitive information accessible to local users, which could be used to gain elevated privileges.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-112957",
-      "published": "2026-10-20T17:17:33.047",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.34.0, the getOne REST endpoint for pages does not apply viewRole type-level restrictions or viewPermission field-level redaction. An editor-level user who knows a document _id can read the full content of admin-only pages and their privileged fields, while the getAll endpoint correctly enforces both restrictions. This issue is fixed in version 4.34.0.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-113505",
-      "published": "2026-10-20T17:17:34.410",
-      "description": "A flaw has been found in aaPanel up to 8.25.0. Impacted is the function send_file of the file BTPanel/routes/v2.py of the component Download Endpoint. Executing a manipulation of the argument filename can lead to path traversal. The attack can be executed remotely. The exploit has been published and may be used. The vendor confirms: \"The reported RCE and LFI vulnerabilities require authentication.\"",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-113655",
-      "published": "2026-10-20T17:17:36.507",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.33.0, an authenticated editor with legitimate edit rights on a pre-existing ordinary page nested under a restricted parent can use the same-parent page move operation to change sibling ranks without create authorization on that parent. The non-default nesting must already exist, and the bypass is limited to sibling ordering rather than arbitrary content modification, confidentiality loss, or creation of the restricted nesting. This issue is fixed in version 4.33.0.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-113657",
-      "published": "2026-10-20T17:17:36.780",
-      "description": "ApostropheCMS is an open-source Node.js content management system, and sanitize-html provides a simple HTML sanitizer with a clear API. From sanitize-html 2.17.7 until 2.18.0, an application configuration that permits namespace-prefixed SVG animation elements and the relevant URL-targeting attributes can bypass the SMIL URL protection because prefixed tag names do not match the unprefixed animation-element check. The bypass can rewrite a link destination to an unsafe URI after the sanitized SVG is rendered, with script execution occurring when a user activates the affected link; the default sanitizer configuration is not unconditionally affected. This issue is fixed in sanitize-html 2.18.0.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-113651",
-      "published": "2026-10-20T17:17:35.940",
-      "description": "ApostropheCMS is an open-source Node.js content management system, and uploadfs is its file storage library. Prior to uploadfs 1.28.0, attacker-controlled paths that reach the local backend can contain parent-directory segments that escape the configured upload directory and affect file reads, writes, and deletion on the host filesystem. Exploitability depends on an application exposing the relevant uploadfs operations to untrusted path. This issue is fixed in uploadfs 1.28.0.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-113648",
-      "published": "2026-10-20T17:17:35.537",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 3.7.1 of the import-export module, the API endpoint POST /api/v1/@apostrophecms/import-export/clean-export in @apostrophecms/import-export lacks authentication and authorization checks. Any client—including unauthenticated anonymous users who have obtained the standard CSRF cookie from visiting the site—can directly invoke this route and trigger the underlying self.cleanExport(req) method. This issue is fixed in version 3.7.1.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-113653",
-      "published": "2026-10-20T17:17:36.220",
-      "description": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.33.0, viewRole is not applied to anonymous visitors when a developer exposes user objects through a publicly rendered relationship or expressly enabled public API. Inadequately limited templates, including serialization of an entire related user object, can conditionally disclose user fields, but relationships do not automatically publish full user objects and password hashes are stored separately and are not affected. This issue is fixed in version 4.33.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-113654",
-      "published": "2026-10-20T17:17:36.370",
-      "description": "ApostropheCMS is an open-source Node.js content management system, and sanitize-html provides a simple HTML sanitizer with a clear API. Prior to sanitize-html 2.18.0, a non-default nonTextTags configuration that includes noscript can end its discard region early when htmlparser2 emits an implied ancestor close inside noscript. Because scripting-enabled browsers treat noscript content as raw text while the parser does not model that mode, content intended to remain inert can survive sanitization and render; the issue does not generalize to every default nonTextTags element. This issue is fixed in sanitize-html 2.18.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-105772",
-      "published": "2026-10-20T18:17:16.607",
-      "description": "Path Traversal (CWE-22) in FileArtifactService in Google ADK TypeScript (@google/adk) versions 0.4.0 before 0.6.0 allows a remote unauthenticated attacker to read files matching the artifact directory layout or write files (when an agent tool invokes saveArtifact) outside the intended artifact storage root via crafted relative or percent-encoded path traversal sequences (such as ../ or ..%2F) in the userId or sessionId parameters when the ADK API server is exposed with the non-default FileArtifactService enabled. Applications using the default InMemoryArtifactService are unaffected. Upgrade to @google/adk version 0.6.0 or later.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 5.5
     }
   ]
 }
