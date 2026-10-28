@@ -1,145 +1,145 @@
 {
-  "totalResults": 4602,
+  "totalResults": 3157,
   "items": [
     {
-      "id": "CVE-2015-20128",
-      "published": "2026-10-20T21:17:13.357",
-      "description": "FooSun DotNetCMS 1.0 and 2.0 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate MSSQL queries through the CityId parameter. Attackers can send GET requests to /user/City_ajax.aspx with UNION SELECT payloads in CityId, concatenated unsanitized into the sys_City query, to extract database information. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
-      "severity": "HIGH",
-      "score": 8.2
+      "id": "CVE-2026-113736",
+      "published": "2026-10-21T01:17:25.187",
+      "description": "A vulnerability has been found in D-Link DHP-W610AV 1.02EUb03. The impacted element is the function login_prepare_hnap of the file etc/defnodes/defaultvalue.xml of the component HNAP Login. The manipulation of the argument Password leads to empty password in configuration file. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2016-20101",
-      "published": "2026-10-20T21:17:13.727",
-      "description": "Issuu Panel plugin for WordPress before 1.6.6 contains a PHP file inclusion vulnerability that allows unauthenticated attackers to include remote or local files through the 'abspath' parameter. Attackers can send GET requests to menu/documento/requests/ajax-docs.php with a crafted abspath value passed to require() to execute remote PHP code or include local files. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "id": "CVE-2021-48018",
+      "published": "2026-10-21T01:17:18.983",
+      "description": "Vyper from 0.2.13 before 0.2.15 allocates storage slots for @nonreentrant reentrancy locks at the same locations as contract storage variables. When a function using @nonreentrant is called, setting the lock overwrites the overlapping storage variable, corrupting contract state and breaking the contract's intended logic.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.4
     },
     {
-      "id": "CVE-2012-20002",
-      "published": "2026-10-20T21:17:10.613",
-      "description": "TinyMCE Thumbnail Gallery plugin for WordPress before 1.1.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the href parameter. Attackers can send GET requests to /php/download-image.php with traversal sequences like ../../../../wp-config.php to retrieve database credentials and system files. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2014-125133",
-      "published": "2026-10-20T21:17:12.560",
-      "description": "NativeChurch theme for WordPress before 1.6.2 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files through the file parameter of download.php. Attackers can send GET requests with directory traversal sequences in the file parameter to retrieve sensitive files like wp-config.php. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2014-125134",
-      "published": "2026-10-20T21:17:12.720",
-      "description": "ChurcHope theme for WordPress before 2.2 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files through the 'file' parameter of /wp-content/themes/churchope/lib/downloadlink.php. Attackers can supply directory traversal sequences to read sensitive files like wp-config.php or /etc/passwd, exposing database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2015-20123",
-      "published": "2026-10-20T21:17:12.890",
-      "description": "Aspose Doc Exporter plugin for WordPress before 2.0 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files by passing unsanitized paths to readfile(). Attackers can send GET requests to aspose_doc_exporter_download.php with the 'file' parameter set to values like ../../../wp-config.php to retrieve database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2015-20124",
-      "published": "2026-10-20T21:17:13.060",
-      "description": "Aspose Importer & Exporter plugin for WordPress before 3.0 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files via the unsanitized 'file' parameter. Attackers can send GET requests to aspose_import_export_download.php with traversal sequences like ../../../wp-config.php to read database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2015-20125",
-      "published": "2026-10-20T21:17:13.210",
-      "description": "Aspose PDF Exporter plugin for WordPress before 2.0 contains a path traversal vulnerability that allows unauthenticated attackers to download files through the unsanitized 'file' parameter passed to readfile(). Attackers can send GET requests to aspose_pdf_exporter_download.php with traversal sequences like ../../../wp-config.php to retrieve WordPress database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2016-20100",
-      "published": "2026-10-20T21:17:13.520",
-      "description": "Memphis Documents Library plugin for WordPress before 3.1.6 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the mdocs-img-preview parameter. Attackers can send GET requests with traversal sequences to mdocs_img_preview() in mdocs-downloads.php to download wp-config.php containing database credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-22.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2016-20103",
-      "published": "2026-10-20T21:17:14.043",
-      "description": "Cherry Plugin for WordPress before 1.2.7 contains a path traversal vulnerability that allows unauthenticated attackers to download arbitrary files via the 'file' parameter. Attackers can send GET requests to /admin/import-export/download-content.php with traversal sequences like ../../../../../wp-config.php to read database credentials, since the script passes input directly to readfile(). Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2016-20104",
-      "published": "2026-10-20T21:17:14.193",
-      "description": "EyeLock nano NXT 3.05.1193, 3.04.1108, 3.03.944, and 3.01.646 contain a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the 'path' parameter. Attackers can send GET requests to /scripts/logdownload.php with traversal sequences like ../../etc/passwd, which readfile() returns unvalidated, disclosing local system files. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-103672",
-      "published": "2026-10-20T21:17:14.843",
-      "description": "The PEAK-System PCAN parser indexes a length table using attacker-controlled DLC without enforcing DLC <= 0x0f, then copies attacker payload from record+0x1c into a fixed-size stack destination.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2012-20003",
-      "published": "2026-10-20T21:17:11.730",
-      "description": "Custom Tables plugin for WordPress before 3.4.6 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the unsanitized 'key' parameter in iframe.php. Attackers can craft GET requests to /wp-content/plugins/custom-tables/iframe.php with s=1 and a malicious key value to execute script in victims' browsers and steal cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "id": "CVE-2020-37286",
+      "published": "2026-10-21T01:17:18.010",
+      "description": "Vyper from 0.1.0b4 before 0.3.0 contains a memory corruption vulnerability caused by an incorrect stack tip pointer when internal function calls appear inside tuples or nested calls. Contracts using such calls as tuple elements, call arguments, or builtin arguments like concat or ecrecover can return corrupted values or pass wrong arguments to external calls.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2012-20004",
-      "published": "2026-10-20T21:17:11.907",
-      "description": "K-news plugin for WordPress before 1.1.1 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying unsanitized input through the 'ff' parameter. Attackers can craft GET requests to /wp-content/plugins/knews/wysiwyg/fontpicker/index.php with malicious 'ff' values echoed into option tags to execute script and steal session cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2021-48020",
+      "published": "2026-10-21T01:17:19.300",
+      "description": "Vyper from 0.1.0b4 before 0.3.0 contains a memory corruption vulnerability caused by an incorrect stack tip pointer when internal function calls are performed inside arrays. Contracts placing internal calls in nested array elements, external call arguments, struct literals, or raw_log topics can have memory corrupted, producing incorrect contract behavior.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2012-20005",
-      "published": "2026-10-20T21:17:12.077",
-      "description": "SocialFit plugin for WordPress through 1.2.2 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts via the unsanitized msg parameter. Attackers can craft GET requests to /wp-content/plugins/socialfit/popup.php with service=googleplus and malicious msg values to execute script and steal session cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2025-71437",
+      "published": "2026-10-21T01:17:19.493",
+      "description": "Astral uv before 0.8.22 contains a path traversal vulnerability in source distribution (sdist) tar extraction that allows a specially crafted sequence of symlinks to redirect file writes outside the intended extraction prefix. Attackers can publish a malicious sdist that, when installed by a victim, writes arbitrary files to filesystem locations outside the installation prefix.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2014-125131",
-      "published": "2026-10-20T21:17:12.243",
-      "description": "DedeCMS 5.6 and 5.7 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying unsanitized input to the adminDirHand parameter. Attackers can send crafted GET requests to /include/dialog/config.php that close the generated script tag and inject JavaScript, which executes in the victim's browser. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
+      "id": "CVE-2026-114041",
+      "published": "2026-10-21T01:17:26.350",
+      "description": "FreeRDP before 3.32.1 on Windows contains a heap out-of-bounds read in client_cli_present_gateway_message that passes a byte count as wide-character printf precision. A malicious RD Gateway can send pre-authentication consent or service messages, causing the client to read twice the buffer size, leaking heap memory or crashing.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2014-125132",
-      "published": "2026-10-20T21:17:12.403",
-      "description": "Blogroll Fun plugin for WordPress before 0.8.5 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the 'k' parameter in blogroll.php. Attackers can craft GET requests to /wp-content/plugins/blogroll-fun/blogroll.php with malicious 'k' values that are echoed unsanitized, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2026-114042",
+      "published": "2026-10-21T01:17:26.513",
+      "description": "FreeRDP 3.32.0 contains a use-after-free vulnerability in the drdynvc channel that frees a pool-owned stream with the owned-stream deallocator when totalLength is smaller than the chunk size. A malicious RDP server can send a single well-formed Virtual Channel PDU to trigger the free and crash the client during teardown.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2016-20102",
-      "published": "2026-10-20T21:17:13.893",
-      "description": "JavaMelody before 1.60.0 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying crafted values in the graph parameter of /monitoring?part=graph. Attackers can include a closing script tag in the graph value, which is only JavaScript-escaped in HtmlCounterReport, to execute script in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
+      "id": "CVE-2026-114043",
+      "published": "2026-10-21T01:17:26.660",
+      "description": "FreeRDP before 3.32.1 contains a heap-based out-of-bounds read in WinPR's clipboard PNG-to-CF_DIB synthesis because winpr_read_png_from_buffer() allocates a bit-packed buffer for PNGs with bit depth below 8, while winpr_bitmap_write_buffer() copies rows assuming one byte per pixel. A malicious RDP server can send a crafted low-bit-depth PNG clipboard payload that, when pasted by the victim, discloses megabytes of heap memory.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-101103",
-      "published": "2026-10-20T21:17:14.463",
-      "description": "The PEAK-System PCAN diagnostic call did not validate that the caller-supplied output buffer was large enough to hold the output record.",
+      "id": "CVE-2026-113738",
+      "published": "2026-10-21T01:17:25.563",
+      "description": "A vulnerability has been found in R6410418 Jackrong-llm-finetuning-guide up to ef2b17f2798cd18cd85375080c35a58397ad0d09. This vulnerability affects the function extract_mtp_heads of the file qwen-mtp-gguf/scripts/qwen_mtp_gguf_pipeline.py of the component MTP weight_map Handler. The manipulation of the argument shard_name leads to path traversal. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-113740",
+      "published": "2026-10-21T01:17:25.737",
+      "description": "A flaw has been found in itsourcecode Online Cake Ordering System 1.0. Affected by this vulnerability is an unknown functionality of the file /deletecustomer.php. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been published and may be used.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2020-37287",
+      "published": "2026-10-21T01:17:18.540",
+      "description": "Vyper before 0.2.6 contains a call stack corruption vulnerability that causes incorrect function outputs when complex types with non-base members are passed as arguments. Contracts passing multi-dimensional arrays or structs to internal or external functions receive corrupted values because the compiler assumed each subtype size is 32.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-113737",
+      "published": "2026-10-21T01:17:25.383",
+      "description": "A flaw has been found in R6410418 Jackrong-llm-finetuning-guide up to ef2b17f2798cd18cd85375080c35a58397ad0d09. This affects the function validate_indexed_tensors of the file qwen-mtp-gguf/scripts/qwen_mtp_gguf_pipeline.py. Executing a manipulation of the argument weight_map can lead to path traversal. The attack may be performed from remote. The exploit has been published and may be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-105960",
-      "published": "2026-10-20T21:17:15.160",
-      "description": "PEAK-System PCAN contains a vulnerable operation involving a variable-length receive-record copy. The driver uses a requested or queued record count without sufficiently capping the copy to the actual caller-supplied output length.",
+      "id": "CVE-2026-114044",
+      "published": "2026-10-21T01:17:26.807",
+      "description": "FreeRDP before 3.32.1 contains a heap out-of-bounds read vulnerability in the Android client that allows malicious RDP servers to read beyond surface buffers by supplying unvalidated mappedWidth and mappedHeight values. Attackers can send a crafted RDPGFX_MAP_SURFACE_TO_WINDOW_PDU with oversized dimensions, causing android_UpdateWindowFromSurface to copy heap memory beyond the allocation, leading to crashes or memory disclosure.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-114038",
+      "published": "2026-10-21T01:17:26.193",
+      "description": "A flaw was found in device-mapper-multipath. A local user can trigger an out-of-bounds read by sending a command with a format string ending in a trailing percent character to the multipath daemon. This issue can allow the user to expose unintended daemon memory, leading to information disclosure, or cause the daemon to crash, resulting in a Denial of Service (DoS).",
+      "severity": "MEDIUM",
+      "score": 5.1
+    },
+    {
+      "id": "CVE-2021-48019",
+      "published": "2026-10-21T01:17:19.130",
+      "description": "Vyper before 0.2.9 deploys forwarder proxies through the built-in create_forwarder_to function that report a fixed 4096-byte RETURNDATASIZE rather than the actual return data size. Calls through these proxies can yield corrupted data when a function returns more than 4096 bytes without return data sanitation, and fail strict return-size checks such as SafeERC20.safeTransfer.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-113741",
+      "published": "2026-10-21T01:17:25.923",
+      "description": "A vulnerability has been found in itsourcecode Online Cake Ordering System 1.0. Affected by this issue is some unknown functionality of the file /404.php. Such manipulation of the argument useruid leads to cross site scripting. The attack may be performed from remote. The exploit has been disclosed to the public and may be used.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2020-37288",
+      "published": "2026-10-21T01:17:18.683",
+      "description": "Vyper from 0.1.0b10 before 0.2.3 generates incorrect code for a return statement inside a for loop in an internal function called two or more internal calls deep, producing an invalid jump destination (stack underflow). Affected contracts revert such calls unnecessarily, which in limited circumstances could enable denial of service against public contracts.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2020-37289",
+      "published": "2026-10-21T01:17:18.830",
+      "description": "Vyper before 0.3.1 lacks a uint8 type, allowing interface return values declared as uint8, such as ERC20.decimals(), to be stored in uint256 variables without bounds checking. Malicious contracts can return values greater than 255 to manipulate or bypass contract logic that relies on these values.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-105044",
+      "published": "2026-10-21T01:17:19.890",
+      "description": "Improper Neutralization of Special Elements used in an OS Command in Security Toolbox versions before 20260929 in Qingteng Host Adaptive Security Platform (Host Monitoring) V3.0 allows an authenticated console administrator to execute arbitrary commands on attached clients via OS command injection",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-111943",
+      "published": "2026-10-21T01:17:20.797",
+      "description": "On most platforms, Go uses the given system root certificates. However, in some narrower cases, the system trust stores may not be updated without further action. To defend against the narrower set of cases that may remain affected, a denylist was added in crypto/x509 to return an error when calling Verify with any of the known intermediate certificates that are no longer considered to be trustworthy.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
