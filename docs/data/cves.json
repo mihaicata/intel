@@ -1,145 +1,145 @@
 {
-  "totalResults": 3157,
+  "totalResults": 3102,
   "items": [
     {
-      "id": "CVE-2026-113736",
-      "published": "2026-10-21T01:17:25.187",
-      "description": "A vulnerability has been found in D-Link DHP-W610AV 1.02EUb03. The impacted element is the function login_prepare_hnap of the file etc/defnodes/defaultvalue.xml of the component HNAP Login. The manipulation of the argument Password leads to empty password in configuration file. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2021-48018",
-      "published": "2026-10-21T01:17:18.983",
-      "description": "Vyper from 0.2.13 before 0.2.15 allocates storage slots for @nonreentrant reentrancy locks at the same locations as contract storage variables. When a function using @nonreentrant is called, setting the lock overwrites the overlapping storage variable, corrupting contract state and breaking the contract's intended logic.",
+      "id": "CVE-2026-107237",
+      "published": "2026-10-21T06:16:46.893",
+      "description": "The Backup and Staging by WP Time Capsule WordPress plugin before 1.22.28 does not perform capability or nonce checks on the handler that deploys a staging site to the live site, allowing any authenticated user with a Subscriber account on a WP Time Capsule staging site to overwrite the separate live site's database and configuration and take it offline.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.2
     },
     {
-      "id": "CVE-2020-37286",
-      "published": "2026-10-21T01:17:18.010",
-      "description": "Vyper from 0.1.0b4 before 0.3.0 contains a memory corruption vulnerability caused by an incorrect stack tip pointer when internal function calls appear inside tuples or nested calls. Contracts using such calls as tuple elements, call arguments, or builtin arguments like concat or ecrecover can return corrupted values or pass wrong arguments to external calls.",
+      "id": "CVE-2026-105262",
+      "published": "2026-10-21T06:16:46.053",
+      "description": "The Falang multilanguage for WordPress plugin before 1.4.6 does not perform a capability check when saving term translations, and exposes a valid nonce to any logged-in user through an unprotected handler, allowing users with Subscriber-level access and above to store content that is later output without proper escaping, leading to Stored Cross-Site Scripting that executes in the context of higher-privileged users such as administrators.",
+      "severity": "HIGH",
+      "score": 8
+    },
+    {
+      "id": "CVE-2026-102499",
+      "published": "2026-10-21T06:16:45.713",
+      "description": "The Modern Events Calendar Lite WordPress plugin before 7.37.0, Modern Event Calendar Pro WordPress plugin before 7.37.0 do not sanitise and escape a parameter before using it in a SQL statement, which allows authenticated users with Subscriber-level access and above to append additional SQL queries into already existing queries and extract sensitive data from the database.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-107127",
+      "published": "2026-10-21T06:16:46.687",
+      "description": "The Uncanny Toolkit for LearnDash WordPress plugin before 3.8.2 does not validate the origin of a password-reset request, allowing an unauthenticated attacker to set the password of a user who is partway through a password reset to an attacker-chosen value through a forged request, resulting in full account takeover.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-107506",
+      "published": "2026-10-21T06:16:46.993",
+      "description": "The Simple Banner  WordPress plugin before 3.3.3 does not correctly limit the capabilities it grants to the user roles an administrator allows to manage its banners, granting such roles the full administrator capability, which allows users in a low-privileged role to escalate their privileges and fully compromise the site.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-109147",
+      "published": "2026-10-21T06:16:47.510",
+      "description": "The WP Booking System  WordPress plugin before 2.1.0.3 does not validate and escape one of its parameters before reflecting it back in an admin page, leading to Reflected Cross-Site Scripting which could be used against high privilege users such as administrators.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-107790",
+      "published": "2026-10-21T06:16:47.300",
+      "description": "The HireZoot  WordPress plugin before 4.1.1 does not sanitise and escape some of its stored data before outputting it in the admin dashboard, and additionally reverses the HTML-entity encoding that would otherwise neutralise it, allowing users with the Author role to perform Stored Cross-Site Scripting attacks that execute in the context of a logged-in administrator.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-100145",
+      "published": "2026-10-21T06:16:44.480",
+      "description": "The Synchrony Financing WordPress plugin before 1.1.2 does not properly authorise requests to one of its REST routes that modifies WooCommerce orders, allowing unauthenticated attackers to reassign any order to an account they control, tamper with its details, and read the associated customer's personal data.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2021-48020",
-      "published": "2026-10-21T01:17:19.300",
-      "description": "Vyper from 0.1.0b4 before 0.3.0 contains a memory corruption vulnerability caused by an incorrect stack tip pointer when internal function calls are performed inside arrays. Contracts placing internal calls in nested array elements, external call arguments, struct literals, or raw_log topics can have memory corrupted, producing incorrect contract behavior.",
+      "id": "CVE-2026-106932",
+      "published": "2026-10-21T06:16:46.580",
+      "description": "The Moloni WordPress plugin before 5.0.14 does not perform capability or nonce checks on several of its authenticated AJAX actions, relying only on whether the site holds a stored connection to its external invoicing provider, allowing any authenticated user such as a Subscriber to generate fiscal invoices for arbitrary orders, discard arbitrary orders, and create or modify products and stock.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2025-71437",
-      "published": "2026-10-21T01:17:19.493",
-      "description": "Astral uv before 0.8.22 contains a path traversal vulnerability in source distribution (sdist) tar extraction that allows a specially crafted sequence of symlinks to redirect file writes outside the intended extraction prefix. Attackers can publish a malicious sdist that, when installed by a victim, writes arbitrary files to filesystem locations outside the installation prefix.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-114041",
-      "published": "2026-10-21T01:17:26.350",
-      "description": "FreeRDP before 3.32.1 on Windows contains a heap out-of-bounds read in client_cli_present_gateway_message that passes a byte count as wide-character printf precision. A malicious RD Gateway can send pre-authentication consent or service messages, causing the client to read twice the buffer size, leaking heap memory or crashing.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-114042",
-      "published": "2026-10-21T01:17:26.513",
-      "description": "FreeRDP 3.32.0 contains a use-after-free vulnerability in the drdynvc channel that frees a pool-owned stream with the owned-stream deallocator when totalLength is smaller than the chunk size. A malicious RDP server can send a single well-formed Virtual Channel PDU to trigger the free and crash the client during teardown.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-114043",
-      "published": "2026-10-21T01:17:26.660",
-      "description": "FreeRDP before 3.32.1 contains a heap-based out-of-bounds read in WinPR's clipboard PNG-to-CF_DIB synthesis because winpr_read_png_from_buffer() allocates a bit-packed buffer for PNGs with bit depth below 8, while winpr_bitmap_write_buffer() copies rows assuming one byte per pixel. A malicious RDP server can send a crafted low-bit-depth PNG clipboard payload that, when pasted by the victim, discloses megabytes of heap memory.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-113738",
-      "published": "2026-10-21T01:17:25.563",
-      "description": "A vulnerability has been found in R6410418 Jackrong-llm-finetuning-guide up to ef2b17f2798cd18cd85375080c35a58397ad0d09. This vulnerability affects the function extract_mtp_heads of the file qwen-mtp-gguf/scripts/qwen_mtp_gguf_pipeline.py of the component MTP weight_map Handler. The manipulation of the argument shard_name leads to path traversal. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-113740",
-      "published": "2026-10-21T01:17:25.737",
-      "description": "A flaw has been found in itsourcecode Online Cake Ordering System 1.0. Affected by this vulnerability is an unknown functionality of the file /deletecustomer.php. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been published and may be used.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2020-37287",
-      "published": "2026-10-21T01:17:18.540",
-      "description": "Vyper before 0.2.6 contains a call stack corruption vulnerability that causes incorrect function outputs when complex types with non-base members are passed as arguments. Contracts passing multi-dimensional arrays or structs to internal or external functions receive corrupted values because the compiler assumed each subtype size is 32.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-113737",
-      "published": "2026-10-21T01:17:25.383",
-      "description": "A flaw has been found in R6410418 Jackrong-llm-finetuning-guide up to ef2b17f2798cd18cd85375080c35a58397ad0d09. This affects the function validate_indexed_tensors of the file qwen-mtp-gguf/scripts/qwen_mtp_gguf_pipeline.py. Executing a manipulation of the argument weight_map can lead to path traversal. The attack may be performed from remote. The exploit has been published and may be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The project was informed of the problem early through an issue report but has not responded yet.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-114044",
-      "published": "2026-10-21T01:17:26.807",
-      "description": "FreeRDP before 3.32.1 contains a heap out-of-bounds read vulnerability in the Android client that allows malicious RDP servers to read beyond surface buffers by supplying unvalidated mappedWidth and mappedHeight values. Attackers can send a crafted RDPGFX_MAP_SURFACE_TO_WINDOW_PDU with oversized dimensions, causing android_UpdateWindowFromSurface to copy heap memory beyond the allocation, leading to crashes or memory disclosure.",
+      "id": "CVE-2026-103302",
+      "published": "2026-10-21T06:16:45.827",
+      "description": "The Payment Gateway for Idram WordPress plugin before 2.1.6 does not verify the authenticity of incoming payment notifications, because the merchant credentials used to compute their checksum are empty by default, allowing unauthenticated attackers to forge a valid payment confirmation and mark arbitrary orders as paid, and to force arbitrary orders into a failed state regardless of the gateway's configuration.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-114038",
-      "published": "2026-10-21T01:17:26.193",
-      "description": "A flaw was found in device-mapper-multipath. A local user can trigger an out-of-bounds read by sending a command with a format string ending in a trailing percent character to the multipath daemon. This issue can allow the user to expose unintended daemon memory, leading to information disclosure, or cause the daemon to crash, resulting in a Denial of Service (DoS).",
+      "id": "CVE-2026-105992",
+      "published": "2026-10-21T06:16:46.160",
+      "description": "The Ettrick Escape Room Booking WordPress plugin before 1.3.1 does not verify a booking's payment status against the payment provider before marking it paid and confirmed, allowing unauthenticated attackers to mark bookings as paid without paying.",
       "severity": "MEDIUM",
-      "score": 5.1
+      "score": 5.3
     },
     {
-      "id": "CVE-2021-48019",
-      "published": "2026-10-21T01:17:19.130",
-      "description": "Vyper before 0.2.9 deploys forwarder proxies through the built-in create_forwarder_to function that report a fixed 4096-byte RETURNDATASIZE rather than the actual return data size. Calls through these proxies can yield corrupted data when a function returns more than 4096 bytes without return data sanitation, and fail strict return-size checks such as SafeERC20.safeTransfer.",
+      "id": "CVE-2026-105998",
+      "published": "2026-10-21T06:16:46.360",
+      "description": "The Booking Package WordPress plugin before 1.7.31 does not perform any authorization or validity check before resetting its premium subscription state, allowing unauthenticated attackers to disable the Booking Package WordPress plugin before 1.7.31's paid features.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-105999",
+      "published": "2026-10-21T06:16:46.477",
+      "description": "The Booking Package WordPress plugin before 1.7.31 does not perform authorization checks before returning calendar-account configuration in a response, allowing unauthenticated users to disclose sensitive settings including the administrator's notification email addresses.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-107789",
+      "published": "2026-10-21T06:16:47.200",
+      "description": "The SmartyParcel  WordPress plugin before 1.23.4 does not perform authorisation checks when serving shipping label downloads, allowing unauthenticated users to obtain the shipping labels of arbitrary orders, which contain customer names, addresses and phone numbers.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-108073",
+      "published": "2026-10-21T06:16:47.403",
+      "description": "The SureCart  WordPress plugin before 4.9.5 does not restrict which related objects an anonymous visitor may include when reading a single upsell funnel through its REST API, nor strip private fields from those objects, allowing unauthenticated users to read merchant-private catalog data such as pricing, commission, stock, SKU and tax internals, including unpublished products.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-107128",
+      "published": "2026-10-21T06:16:46.793",
+      "description": "The Uncanny Toolkit for LearnDash WordPress plugin before 3.8.2 does not verify that the acting user is permitted to manage the targeted accounts before changing their verification state, allowing a subsite administrator on a multisite network to mark arbitrary network users outside their own site as unverified and prevent those users from logging in.",
+      "severity": "MEDIUM",
+      "score": 5
+    },
+    {
+      "id": "CVE-2026-105996",
+      "published": "2026-10-21T06:16:46.260",
+      "description": "The Booking Package WordPress plugin before 1.7.31 does not generate booking cancellation tokens using a secure source of randomness, deriving them instead from values it exposes publicly, so an unauthenticated attacker can reconstruct an arbitrary booking's token, disclose that booking's personal data and, where visitor cancellation is enabled, cancel the booking.",
       "severity": "MEDIUM",
       "score": 4.8
     },
     {
-      "id": "CVE-2026-113741",
-      "published": "2026-10-21T01:17:25.923",
-      "description": "A vulnerability has been found in itsourcecode Online Cake Ordering System 1.0. Affected by this issue is some unknown functionality of the file /404.php. Such manipulation of the argument useruid leads to cross site scripting. The attack may be performed from remote. The exploit has been disclosed to the public and may be used.",
+      "id": "CVE-2026-107788",
+      "published": "2026-10-21T06:16:47.100",
+      "description": "The SmartyParcel  WordPress plugin before 1.23.4 does not perform authorisation checks when deleting shipping label records, allowing any authenticated user such as a subscriber to delete the shipping label and tracking records of arbitrary orders store-wide.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2020-37288",
-      "published": "2026-10-21T01:17:18.683",
-      "description": "Vyper from 0.1.0b10 before 0.2.3 generates incorrect code for a return statement inside a for loop in an internal function called two or more internal calls deep, producing an invalid jump destination (stack underflow). Affected contracts revert such calls unnecessarily, which in limited circumstances could enable denial of service against public contracts.",
+      "id": "CVE-2026-109926",
+      "published": "2026-10-21T06:16:47.623",
+      "description": "The Productive Commerce  WordPress plugin before 1.1.49 does not perform a capability check in one of its AJAX actions and exposes the nonce that guards it on every admin-area page, allowing any authenticated user such as a subscriber to activate arbitrary Productive Commerce  WordPress plugin before 1.1.49 already installed on the site.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-105257",
+      "published": "2026-10-21T06:16:45.937",
+      "description": "The Appointment Booking Plugin  WordPress plugin before 5.7.5 does not verify that an authenticated agent-level user is assigned to a customer before returning or searching that customer's record, allowing any agent to read and enumerate the personal information of every customer on the site, including those managed by other agents.",
       "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2020-37289",
-      "published": "2026-10-21T01:17:18.830",
-      "description": "Vyper before 0.3.1 lacks a uint8 type, allowing interface return values declared as uint8, such as ERC20.decimals(), to be stored in uint256 variables without bounds checking. Malicious contracts can return values greater than 255 to manipulate or bypass contract logic that relies on these values.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-105044",
-      "published": "2026-10-21T01:17:19.890",
-      "description": "Improper Neutralization of Special Elements used in an OS Command in Security Toolbox versions before 20260929 in Qingteng Host Adaptive Security Platform (Host Monitoring) V3.0 allows an authenticated console administrator to execute arbitrary commands on attached clients via OS command injection",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-111943",
-      "published": "2026-10-21T01:17:20.797",
-      "description": "On most platforms, Go uses the given system root certificates. However, in some narrower cases, the system trust stores may not be updated without further action. To defend against the narrower set of cases that may remain affected, a denylist was added in crypto/x509 to return an error when calling Verify with any of the known intermediate certificates that are no longer considered to be trustworthy.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 2.7
     }
   ]
 }
