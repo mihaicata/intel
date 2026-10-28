@@ -1,145 +1,145 @@
 {
-  "totalResults": 3102,
+  "totalResults": 3424,
   "items": [
     {
-      "id": "CVE-2026-107237",
-      "published": "2026-10-21T06:16:46.893",
-      "description": "The Backup and Staging by WP Time Capsule WordPress plugin before 1.22.28 does not perform capability or nonce checks on the handler that deploys a staging site to the live site, allowing any authenticated user with a Subscriber account on a WP Time Capsule staging site to overwrite the separate live site's database and configuration and take it offline.",
+      "id": "CVE-2026-109618",
+      "published": "2026-10-21T14:17:09.357",
+      "description": "PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may read or branch on this memory. Multiple OOM strategies can consistently trigger this condition and lead to remote code execution (RCE).",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2023-7356",
+      "published": "2026-10-21T15:17:12.440",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: ISO: Copy BASE if service data matches EIR_BAA_SERVICE_UUID\n\nCopy the content of a Periodic Advertisement Report to BASE only if\nthe service UUID is Basic Audio Announcement Service UUID.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-105262",
-      "published": "2026-10-21T06:16:46.053",
-      "description": "The Falang multilanguage for WordPress plugin before 1.4.6 does not perform a capability check when saving term translations, and exposes a valid nonce to any logged-in user through an unprotected handler, allowing users with Subscriber-level access and above to store content that is later output without proper escaping, leading to Stored Cross-Site Scripting that executes in the context of higher-privileged users such as administrators.",
+      "id": "CVE-2026-109619",
+      "published": "2026-10-21T14:17:09.823",
+      "description": "PHP has various global state that temporarily points into request memory. In some scenarios, global state may not be correctly reset, or may be repopulated after being reset. The global state may then refer to request memory even after it has been freed. Subsequent requests may read or branch on this stale state before it is fully initialized. Multiple strategies can trigger this condition and produce remote code execution (RCE).",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-102499",
-      "published": "2026-10-21T06:16:45.713",
-      "description": "The Modern Events Calendar Lite WordPress plugin before 7.37.0, Modern Event Calendar Pro WordPress plugin before 7.37.0 do not sanitise and escape a parameter before using it in a SQL statement, which allows authenticated users with Subscriber-level access and above to append additional SQL queries into already existing queries and extract sensitive data from the database.",
+      "id": "CVE-2026-114249",
+      "published": "2026-10-21T14:17:13.943",
+      "description": "A vulnerability was detected in dhikshitha29 Insurance-Management-System 91de5edda5baa109ad8e9baf03ce6a3ceda84183/125362cc21dca20d74091a4913a5096bb58dd837. This vulnerability affects unknown code of the file /Agent/includes/UpdatePolicyHolder-inc.php of the component Policy Holder Update Form. The manipulation of the argument Policy_no results in improper authorization. It is possible to launch the attack remotely. The exploit is now public and may be used. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-107127",
-      "published": "2026-10-21T06:16:46.687",
-      "description": "The Uncanny Toolkit for LearnDash WordPress plugin before 3.8.2 does not validate the origin of a password-reset request, allowing an unauthenticated attacker to set the password of a user who is partway through a password reset to an attacker-chosen value through a forged request, resulting in full account takeover.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-107506",
-      "published": "2026-10-21T06:16:46.993",
-      "description": "The Simple Banner  WordPress plugin before 3.3.3 does not correctly limit the capabilities it grants to the user roles an administrator allows to manage its banners, granting such roles the full administrator capability, which allows users in a low-privileged role to escalate their privileges and fully compromise the site.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-109147",
-      "published": "2026-10-21T06:16:47.510",
-      "description": "The WP Booking System  WordPress plugin before 2.1.0.3 does not validate and escape one of its parameters before reflecting it back in an admin page, leading to Reflected Cross-Site Scripting which could be used against high privilege users such as administrators.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-107790",
-      "published": "2026-10-21T06:16:47.300",
-      "description": "The HireZoot  WordPress plugin before 4.1.1 does not sanitise and escape some of its stored data before outputting it in the admin dashboard, and additionally reverses the HTML-entity encoding that would otherwise neutralise it, allowing users with the Author role to perform Stored Cross-Site Scripting attacks that execute in the context of a logged-in administrator.",
+      "id": "CVE-2024-5139",
+      "published": "2026-10-21T14:17:04.550",
+      "description": "The Authentication Endpoint accepts user-supplied input without sufficient encoding, allowing for the injection of malicious JavaScript payloads. This vulnerability can be triggered by submitting crafted input to the Authentication Endpoint.\n\nSuccessful exploitation allows an attacker to redirect the user's browser to a malicious website, modify the web page's user interface, or extract sensitive information from the browser. However, due to the `httpOnly` flag on session-related cookies, session hijacking is not possible.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-100145",
-      "published": "2026-10-21T06:16:44.480",
-      "description": "The Synchrony Financing WordPress plugin before 1.1.2 does not properly authorise requests to one of its REST routes that modifies WooCommerce orders, allowing unauthenticated attackers to reassign any order to an account they control, tamper with its details, and read the associated customer's personal data.",
+      "id": "CVE-2024-7478",
+      "published": "2026-10-21T14:17:06.147",
+      "description": "When a WSO2 product is configured to use an external user store, the system fails to adequately obscure the existence or validity of usernames during authentication attempts. This oversight allows an attacker to repeatedly query the authentication mechanism with different username guesses, enabling the enumeration of valid usernames present in the external user store.\n\nThe discovery of valid usernames can increase the risk of targeted brute-force attacks, social engineering, and information leakage. Attackers can leverage this information to craft more convincing phishing campaigns or other social engineering tactics to trick users into revealing sensitive data. The presence of username enumeration could also negatively impact an organization's reputation, leading to loss of customer trust, regulatory non-compliance, and potential legal and financial repercussions.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-106932",
-      "published": "2026-10-21T06:16:46.580",
-      "description": "The Moloni WordPress plugin before 5.0.14 does not perform capability or nonce checks on several of its authenticated AJAX actions, relying only on whether the site holds a stored connection to its external invoicing provider, allowing any authenticated user such as a Subscriber to generate fiscal invoices for arbitrary orders, discard arbitrary orders, and create or modify products and stock.",
+      "id": "CVE-2025-60479",
+      "published": "2026-10-21T14:17:06.957",
+      "description": "A NULL pointer dereference in the StatSFVec2f function (/scene_manager/scene_stats.c) of GPAC Project/MP4Box before 2.5 allows attackers to cause a Denial of Service (DoS) via supplying a crafted MPEG-4 file.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-103302",
-      "published": "2026-10-21T06:16:45.827",
-      "description": "The Payment Gateway for Idram WordPress plugin before 2.1.6 does not verify the authenticity of incoming payment notifications, because the merchant credentials used to compute their checksum are empty by default, allowing unauthenticated attackers to forge a valid payment confirmation and mark arbitrary orders as paid, and to force arbitrary orders into a failed state regardless of the gateway's configuration.",
+      "id": "CVE-2025-60489",
+      "published": "2026-10-21T14:17:07.333",
+      "description": "A NULL pointer dereference in the dasher_insert_timeline_entry function (/filters/dasher.c) of GPAC Project/MP4Box before 2.5 allows attackers to cause a Denial of Service (DoS) via supplying a crafted MP4 file.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-105992",
-      "published": "2026-10-21T06:16:46.160",
-      "description": "The Ettrick Escape Room Booking WordPress plugin before 1.3.1 does not verify a booking's payment status against the payment provider before marking it paid and confirmed, allowing unauthenticated attackers to mark bookings as paid without paying.",
+      "id": "CVE-2025-71438",
+      "published": "2026-10-21T14:17:07.503",
+      "description": "An out-of-bounds read in gf_odf_ac4_cfg_dsi_v1 (/odf/descriptors.c) in GPAC Project/MP4Box before v26.07.0 allows attackers to cause a Denial of Service (DoS) via supplying a crafted AC4 file.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-105998",
-      "published": "2026-10-21T06:16:46.360",
-      "description": "The Booking Package WordPress plugin before 1.7.31 does not perform any authorization or validity check before resetting its premium subscription state, allowing unauthenticated attackers to disable the Booking Package WordPress plugin before 1.7.31's paid features.",
+      "id": "CVE-2025-60478",
+      "published": "2026-10-21T15:17:13.437",
+      "description": "A use-after-free in the gf_filter_packet_destroy function (/filter_core/filter_pck.c) of GPAC Project/MP4Box before 2.5 allows attackers to cause a Denial of Service (DoS) via supplying a crafted MPEG-2 file.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-105999",
-      "published": "2026-10-21T06:16:46.477",
-      "description": "The Booking Package WordPress plugin before 1.7.31 does not perform authorization checks before returning calendar-account configuration in a response, allowing unauthenticated users to disclose sensitive settings including the administrator's notification email addresses.",
+      "id": "CVE-2025-60487",
+      "published": "2026-10-21T15:17:13.580",
+      "description": "A segmentation violation in the gf_isom_get_esd function (/isomedia/isom_read.c) of GPAC Project/MP4Box before 2.5 allows attackers to cause a Denial of Service (DoS) via supplying a crafted XML file.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-107789",
-      "published": "2026-10-21T06:16:47.200",
-      "description": "The SmartyParcel  WordPress plugin before 1.23.4 does not perform authorisation checks when serving shipping label downloads, allowing unauthenticated users to obtain the shipping labels of arbitrary orders, which contain customer names, addresses and phone numbers.",
+      "id": "CVE-2025-60490",
+      "published": "2026-10-21T15:17:13.727",
+      "description": "A heap use-after-free in the gf_filter_pid_send_event_downstream function (/filter_core/filter_pid.c) of GPAC Project/MP4Box before 2.5 allows attackers to cause a Denial of Service (DoS) via supplying a crafted MP4 file.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-108073",
-      "published": "2026-10-21T06:16:47.403",
-      "description": "The SureCart  WordPress plugin before 4.9.5 does not restrict which related objects an anonymous visitor may include when reading a single upsell funnel through its REST API, nor strip private fields from those objects, allowing unauthenticated users to read merchant-private catalog data such as pricing, commission, stock, SKU and tax internals, including unpublished products.",
+      "id": "CVE-2024-4989",
+      "published": "2026-10-21T14:17:04.010",
+      "description": "The callback URL parameter in WSO2 API Manager fails to validate user-supplied input, allowing it to be controlled by malicious actors.\n\nExploitation of this vulnerability could lead to users being redirected to attacker-controlled web pages. This can be used in conjunction with social engineering techniques to trick users into interacting with malicious links, potentially resulting in phishing attacks aimed at acquiring sensitive information or causing other harm.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-107128",
-      "published": "2026-10-21T06:16:46.793",
-      "description": "The Uncanny Toolkit for LearnDash WordPress plugin before 3.8.2 does not verify that the acting user is permitted to manage the targeted accounts before changing their verification state, allowing a subsite administrator on a multisite network to mark arbitrary network users outside their own site as unverified and prevent those users from logging in.",
-      "severity": "MEDIUM",
-      "score": 5
-    },
-    {
-      "id": "CVE-2026-105996",
-      "published": "2026-10-21T06:16:46.260",
-      "description": "The Booking Package WordPress plugin before 1.7.31 does not generate booking cancellation tokens using a secure source of randomness, deriving them instead from values it exposes publicly, so an unauthenticated attacker can reconstruct an arbitrary booking's token, disclose that booking's personal data and, where visitor cancellation is enabled, cancel the booking.",
+      "id": "CVE-2024-5563",
+      "published": "2026-10-21T14:17:05.230",
+      "description": "Due to an incomplete implementation, reCaptcha is not applied to certain authentication flows even when the reCaptcha option is enabled. This oversight permits attackers to bypass the intended protection mechanism.\n\nBrute force attacks, if successful, can lead to unauthorized access to user accounts and sensitive information by systematically attempting various credential combinations.",
       "severity": "MEDIUM",
       "score": 4.8
     },
     {
-      "id": "CVE-2026-107788",
-      "published": "2026-10-21T06:16:47.100",
-      "description": "The SmartyParcel  WordPress plugin before 1.23.4 does not perform authorisation checks when deleting shipping label records, allowing any authenticated user such as a subscriber to delete the shipping label and tracking records of arbitrary orders store-wide.",
+      "id": "CVE-2026-114437",
+      "published": "2026-10-21T14:17:14.690",
+      "description": "In the Golang Chi web framework, the ClientIPFromXFF middleware skips any X-Forwarded-For entry in a configured trusted CIDR but never verifies that the direct TCP peer in http.Request.RemoteAddr belongs to that CIDR. A client that can reach the Go server directly can therefore append a trusted-looking proxy address and choose the client IP returned by middleware.GetClientIP.\n\nThis issue affects chi before 5.4.0.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-109926",
-      "published": "2026-10-21T06:16:47.623",
-      "description": "The Productive Commerce  WordPress plugin before 1.1.49 does not perform a capability check in one of its AJAX actions and exposes the nonce that guards it on every admin-area page, allowing any authenticated user such as a subscriber to activate arbitrary Productive Commerce  WordPress plugin before 1.1.49 already installed on the site.",
+      "id": "CVE-2024-6423",
+      "published": "2026-10-21T14:17:05.660",
+      "description": "The product failed to enforce validation constraints on user-supplied input in URL parameters, allowing sensitive data to be passed to flows where it was not intended to be processed. Although the product did not utilize this data, its acceptance could lead to logging.\n\nIf a user mistakenly sends sensitive data via URL parameters to any flow, this data could be inadvertently logged in access logs. This has the potential to expose confidential information, compromising the security and privacy of affected systems if the product is used incorrectly.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4
     },
     {
-      "id": "CVE-2026-105257",
-      "published": "2026-10-21T06:16:45.937",
-      "description": "The Appointment Booking Plugin  WordPress plugin before 5.7.5 does not verify that an authenticated agent-level user is assigned to a customer before returning or searching that customer's record, allowing any agent to read and enumerate the personal information of every customer on the site, including those managed by other agents.",
-      "severity": "LOW",
-      "score": 2.7
+      "id": "CVE-2025-0326",
+      "published": "2026-10-21T14:17:06.577",
+      "description": "The system fails to invalidate existing access tokens associated with sub-organization users during sensitive account management operations such as password reset, role change, or sub-organization disablement. This oversight allows previously issued tokens to remain active even after the user's access context has been modified or revoked through administrative actions.\n\nThe identified issue could lead to unauthorized access by a malicious actor, but only when all of the following conditions are met: previously issued access tokens remain active, and these tokens have been exposed to malicious actors.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-104947",
+      "published": "2026-10-21T14:17:08.927",
+      "description": "WarehousePG (WHPG) 7.2.1 through 7.6.0 is affected by a missing authorization vulnerability (CWE-862) in the built-in function gp_log_backend_memory_contexts(). Any authenticated database role can run this function without a GRANT. It also gets around the superuser restriction that PostgreSQL places on the underlying pg_log_backend_memory_contexts() function. A low-privileged user can force the segment backends of any other session, superuser sessions included, to write their memory context details to the segment server logs, which the attacker cannot read. Those details can include query text from other users' cached plans, and the call can be repeated to generate large amounts of log output. WarehousePG 6.x is not affected.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-104948",
+      "published": "2026-10-21T14:17:09.083",
+      "description": "WarehousePG (WHPG) 6.27.1 through 6.27.6 and 7.2.1 through 7.6.0 are affected by a missing authorization vulnerability (CWE-862) in the built-in cluster expansion functions gp_expand_lock_catalog() and gp_expand_bump_version(). Any authenticated database role can run them, and neither checks privileges. A low-privileged user can call gp_expand_lock_catalog() inside an open transaction to block all catalog changes across the cluster for every user, superusers included, until that transaction ends, which in practice requires a superuser to terminate the session. Blocked changes include DDL, temporary table creation, GRANT and CREATE ROLE. The same user can call gp_expand_bump_version() repeatedly. Each call disconnects sessions that hold temporary tables, with a FATAL error on their next catalog change, and makes every other session rebuild its segment connections.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-104949",
+      "published": "2026-10-21T14:17:09.223",
+      "description": "WarehousePG (WHPG) 6.27.1 through 6.27.6 and 7.2.1 through 7.6.0 are affected by a missing authorization vulnerability (CWE-862) in gp_add_coordinator_standby(). The function is named gp_add_master_standby() in WHPG 6, and WHPG 7 keeps that name as an alias. Unlike the other segment add and remove functions, it does not require superuser privileges. A low-privileged user who can open a utility-mode connection can use it to add a fake standby coordinator entry to gp_segment_configuration on a cluster that has no standby configured. Administrators then cannot add a real standby until a superuser removes the fake entry. User data is not exposed or modified.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
