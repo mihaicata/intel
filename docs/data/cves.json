@@ -1,143 +1,143 @@
 {
-  "totalResults": 3411,
+  "totalResults": 3304,
   "items": [
     {
-      "id": "CVE-2026-110264",
-      "published": "2026-10-22T01:16:57.603",
-      "description": "An issue has been discovered in GitLab CE/EE affecting all versions from 7.0 before 18.11.13, 19.0 before 19.0.10, 19.1 before 19.1.9, 19.2 before 19.2.9, 19.3 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, could have allowed an unauthenticated user to execute arbitrary code on the GitLab server due to integer overflow when compiling a specially crafted regular expression.",
+      "id": "CVE-2026-114220",
+      "published": "2026-10-22T05:16:50.020",
+      "description": "NT OneAPP developed by NewType Infortech has an Improper Certificate Validation vulnerability. Unauthenticated network-adjacent attackers can perform a man-in-the-middle attack by failing to validate the server certificate and the hostname, thereby intercepting or modifying communications between the application and the server.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-114575",
-      "published": "2026-10-22T01:16:58.533",
-      "description": "A flaw has been found in TOTOLINK A950RG 4.1.2cu.5268_B20221104. Affected by this issue is the function UploadCustomModule of the file lib/cste_modules/product.so. Executing a manipulation of the argument FileMd5 can lead to command injection. The attack can be launched remotely. The exploit has been published and may be used.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-114635",
-      "published": "2026-10-22T02:16:56.140",
-      "description": "Traefik before v2.11.58 and v3.7.14 contains an authentication bypass vulnerability in its SNI check, which is skipped when request TLS state is nil. Unauthenticated clients can send HTTP/2 requests with the :scheme http pseudo-header over TLS on Go 1.27 builds to reach routers requiring client certificates without presenting one.",
-      "severity": "HIGH",
-      "score": 8.7
-    },
-    {
-      "id": "CVE-2026-15723",
-      "published": "2026-10-22T01:16:59.477",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 10.1 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when OmniAuth SAML and LDAP auto-linking were both enabled, an authenticated user could have taken over an existing LDAP-backed account without any interaction from the targeted user, due to improper input sanitization in the LDAP email lookup path used during OmniAuth identity linking.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-112212",
-      "published": "2026-10-22T01:16:57.740",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.3 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, an unauthenticated user could have poisoned a shared cache's OAuth/OIDC discovery document to redirect certain flows to an externally controlled server, due to improper trust of user-supplied values when constructing endpoint URLs in cached discovery responses.",
+      "id": "CVE-2026-110353",
+      "published": "2026-10-22T03:16:31.270",
+      "description": "HAProxy 3.2 before 3.4.6 allows a remote unauthenticated attacker to cause a denial of service (worker-thread CPU exhaustion) via a truncated HTTP/2 PING frame. h2c_handle_ping in src/mux_h2.c does not check for a short read, unlike the other H2 frame handlers. Because the incomplete frame cannot be processed, its data is never consumed, and the H2 multiplexer tasklet is repeatedly woken by that pending data without making progress. The CPU spins until timeout http-request closes the connection, and an attacker opening many such connections can sustain high CPU usage.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-114577",
-      "published": "2026-10-22T02:16:55.650",
-      "description": "A vulnerability was found in oretnom23 php-travel-agency-system. This vulnerability affects unknown code of the file admin/insert.php of the component Insertion Handler. The manipulation of the argument costomer_id/payment_type/amount/description/user/uploadimage/full_name/visa_no results in sql injection. The attack may be launched remotely. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "id": "CVE-2026-110354",
+      "published": "2026-10-22T03:16:31.427",
+      "description": "HAProxy 3 before 3.4.6 allows a remote unauthenticated attacker to cause a denial of service (persistent worker-thread CPU exhaustion) via an HTTP/1.1 chunked request. Although the H1 multiplexer drains the request before closing the stream, the parser repeatedly re-processes the same bytes without making progress. The affected thread stays busy at 100% CPU after timeouts expire and after the client disconnects, and repeated requests can consume all worker threads until the process is restarted.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-12664",
-      "published": "2026-10-22T01:16:59.070",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, could have allowed an authenticated user with a read_api-scoped token to retrieve a project's incoming email address and create work items, bypassing the token's restrictions, due to insufficient scope enforcement on a GraphQL field.",
+      "id": "CVE-2026-111958",
+      "published": "2026-10-22T06:17:14.113",
+      "description": "The Royal MCP  WordPress plugin before 1.5.7 does not limit a preview-link token to the single preview it was issued for, so any party that obtains a valid token is authenticated as the token's owning user, an administrator in the default configuration, across the entire REST API with no nonce, leading to full site takeover.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-114219",
+      "published": "2026-10-22T05:16:49.170",
+      "description": "NT OneAPP developed by NewType Infortech has a Hard-coded Credentials vulnerability. Unauthenticated remote attackers can obtain the hard-coded cryptographic key and decrypt login request contents, thereby obtaining users' plaintext account credentials and device information.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-114221",
+      "published": "2026-10-22T05:16:50.200",
+      "description": "NT OneAPP developed by NewType Infortech has a Credential Disclosure vulnerability. Unauthenticated remote attackers can trigger an HTTP Basic Authentication challenge from an unvalidated source in the WebView under specific conditions, thereby obtaining the NUP Portal passcode of a logged-in user.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-114730",
+      "published": "2026-10-22T03:16:38.217",
+      "description": "Roundcube Webmail 1.6.14 before 1.6.20 and 1.7.0 before 1.7.5 is affected by a server-side request forgery filter bypass. The network blocklist used by rcube_utils::is_local_url() omitted the RFC 6052 NAT64 prefix 64:ff9b::/96, the RFC 8215 local-use NAT64 prefix 64:ff9b:1::/48 and the unspecified address ::/128, so URLs such as http://[64:ff9b::7f00:1]/ passed the filter and reached loopback, link-local and cloud metadata addresses. Upstream fixed this in the commit “Fix SSRF filter (is_local_url()) bypass via NAT64 64:ff9b::/96”.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-109927",
+      "published": "2026-10-22T06:17:13.590",
+      "description": "The HIPAA Forms WordPress plugin before 3.3.2 does not perform a capability check when handling a request that rebuilds its own custom user role, allowing a user who already holds that role to grant it administrator-level capabilities and escalate their privileges.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-109987",
+      "published": "2026-10-22T06:17:13.800",
+      "description": "The PixelYourSite  WordPress plugin before 11.4.3, PixelYourSite Pro WordPress plugin before 12.6.8 do not sanitise and escape a cookie value before printing it into the page output, which, on a site running a full-page cache, allows unauthenticated attackers to store a Cross-Site Scripting payload in the cached page that is then served to other visitors.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-114732",
+      "published": "2026-10-22T03:16:38.510",
+      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by an improper authentication vulnerability in multi-host installations. When a user logs in with an alias address, rcube_user::query() matched the address against identity records without qualifying the lookup by IMAP host, so a login could be resolved to a user account belonging to a different IMAP host. Upstream fixed this in the commit “Fix bug where an alias login wasn’t qualified by IMAP host”.",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-114633",
-      "published": "2026-10-22T02:16:55.837",
-      "description": "WWBN AVideo before 29.4.0 contains an incorrect authorization vulnerability that allows delegated Users Admin accounts to delete or modify administrator accounts. Attackers can submit requests to confirmDeleteUser.json.php or userAddNew.json.php targeting administrators to delete their videos and accounts, or change and demote them.",
+      "id": "CVE-2026-111971",
+      "published": "2026-10-22T06:17:14.233",
+      "description": "The Photo Engine (Media Organizer & Lightroom) WordPress plugin before 6.5.8 does not sanitise and escape collection and gallery names before storing them and outputting them in an administrative dashboard, allowing authenticated users with the author role and above to perform Stored Cross-Site Scripting attacks.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-16255",
-      "published": "2026-10-22T01:16:59.613",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 12.0 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when the instance-wide SAML or LDAP membership lock was enabled, an authenticated user could have granted or accepted project and group membership outside the identity provider's control, due to incomplete enforcement of the membership lock on requests created before the lock was enabled.",
+      "id": "CVE-2026-114222",
+      "published": "2026-10-22T05:16:50.343",
+      "description": "NT OneAPP developed by NewType Infortech has an Authentication Bypass vulnerability. Unauthenticated local attackers can bypass the App PIN lock mechanism via a Deep Link, thereby accessing protected resources of a logged-in user.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-114714",
-      "published": "2026-10-22T01:16:58.717",
-      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by a path traversal vulnerability in the squirrelmail_usercopy plugin. With the file based backend, the source path was built from the login name without rejecting path separators, so a login name containing a slash could cause files outside the configured squirrelmail_data_dir to be read and imported. Upstream fixed this in the commit “Fix unsafe use of a login name in SquirrelMail import file path”, which rejects login names containing a slash.",
+      "id": "CVE-2026-114223",
+      "published": "2026-10-22T05:16:50.483",
+      "description": "NT OneAPP developed by NewType Infortech has an Exposure of Sensitive Information vulnerability. Unauthenticated local attackers can extract plaintext usernames and passwords from backup data after obtaining ADB backup access authorization and user confirmation of the backup, resulting in sensitive information disclosure.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-114729",
+      "published": "2026-10-22T03:16:38.070",
+      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by a remote content blocking bypass. rcube_washtml inspected the SVG SMIL animation attributes `to`, `from` and values for URIs, but not `by`; so markup such as in an HTML message caused remote content to be loaded without the user's consent, disclosing the client IP address and confirming that the message was opened. Upstream fixed this in the commit “Fix remote-content blocker bypass via SVG SMIL `by` attribute”.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-105777",
-      "published": "2026-10-22T01:16:57.467",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.6.5 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, an unauthenticated user could have retrieved sensitive internal server credentials due to improper filtering of internal response headers.",
+      "id": "CVE-2026-114731",
+      "published": "2026-10-22T03:16:38.363",
+      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by an uncontrolled resource consumption vulnerability in the CSS proxy (the utils/modcss action). The fetched stylesheet was read into memory in full, with no size limit and no read timeout, so a stylesheet URL referencing an attacker-controlled host could be used to exhaust server memory. Upstream fixed this in the commit “Add a size limit to the CSS proxy content processing”, which caps the response at 5 MB, reads it as a stream and applies a read timeout.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-112378",
-      "published": "2026-10-22T01:16:58.000",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.8 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that under certain conditions could have allowed an authenticated user to access paid AI features without a valid subscription due to insufficient server-side validation in billing eligibility checks.",
+      "id": "CVE-2026-100142",
+      "published": "2026-10-22T06:17:12.237",
+      "description": "The FluentCart A New Era of eCommerce  WordPress plugin before 2.2.0 does not verify that a stored customer address selected during checkout belongs to the requester, allowing unauthenticated attackers to attach any customer's stored address to an order they place and read it back, disclosing customers' postal addresses, phone numbers and company details.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-114574",
-      "published": "2026-10-22T01:16:58.337",
-      "description": "A security vulnerability has been detected in massCodeIO massCode 5.10. Affected is an unknown function of the file src/main/api/index.ts of the component Local HTTP Service. Such manipulation leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. The name of the patch is d25d8fa3f5a1e34285c8634f18729650c0c05cda. It is advisable to implement a patch to correct this issue.",
+      "id": "CVE-2026-103234",
+      "published": "2026-10-22T06:17:13.477",
+      "description": "The WP Ultimate Review WordPress plugin before 2.4.5 does not neutralise shortcodes in all of the review fields submitted through its public review form, which is available to unauthenticated visitors, allowing them to execute arbitrary shortcodes when the affected field is displayed, provided user reviews and that field's display are enabled.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-13319",
-      "published": "2026-10-22T01:16:59.203",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.10 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, could have allowed an authenticated to read milestone metadata, including titles, descriptions, and full project paths, from arbitrary private projects across the instance without any project membership, due to missing authorization checks on a user-supplied project filter parameter in the group milestones API.",
+      "id": "CVE-2026-110010",
+      "published": "2026-10-22T06:17:13.910",
+      "description": "The MB Custom Post Types & Custom Taxonomies WordPress plugin before 2.12.3 does not perform any capability or authentication check before allowing an unauthenticated request to re-run a legacy data migration, letting anyone revert a custom post type or taxonomy definition on sites upgraded from a pre-2.0 release back to its pre-upgrade state. This discards configuration changes an administrator made after upgrading and, where those changes had restricted a definition's visibility, silently re-exposes the definition and its content to anonymous visitors.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.8
     },
     {
-      "id": "CVE-2026-114634",
-      "published": "2026-10-22T02:16:55.990",
-      "description": "WWBN AVideo before 29.4.0 contains a blind server-side request forgery vulnerability in getHeaderContentTypeFromURL() because get_headers() follows redirects without re-validating targets with isSSRFSafeURL(). Authenticated uploaders can store a videoLink pointing to a redirector, causing internal GET requests when visitors view the video, enabling internal port scanning via the embed-versus-video render oracle.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-114576",
-      "published": "2026-10-22T02:16:55.440",
-      "description": "A vulnerability has been found in Linksys RE6250 1.0.04.001. This affects the function strcmp of the component Web Management Interface. The manipulation of the argument session_id leads to insufficiently random values. The attack may be initiated remotely. The complexity of an attack is rather high. It is indicated that the exploitability is difficult. The exploit has been disclosed to the public and may be used.",
+      "id": "CVE-2026-109931",
+      "published": "2026-10-22T06:17:13.697",
+      "description": "The Infility Global WordPress plugin before 2.16.25 does not perform any authorisation or nonce check on an AJAX action available to unauthenticated users, allowing any visitor to overwrite a machine-translation configuration value belonging to a companion Infility Global WordPress plugin before 2.16.25.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-105711",
-      "published": "2026-10-22T01:16:57.340",
-      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.0 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when a merge request in a public project referenced a confidential issue from a private project, an authenticated user with no project membership could have read the confidential issue's title, due to a viewer-independent fragment cache key that incorrectly shared per-user-redacted rendered content across all users.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-112326",
-      "published": "2026-10-22T01:16:57.873",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.8 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, could have allowed an authenticated user with read-only permissions to permanently delete existing vulnerability records due to improper cleanup logic that failed to distinguish between pre-existing records from newly created ones during error handling.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-14288",
-      "published": "2026-10-22T01:16:59.340",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.4 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that under certain conditions could have allowed an authenticated to bypass a required merge request approval policy on a protected branch due to improper access control during approval rule synchronization.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-103515",
-      "published": "2026-10-22T01:16:57.197",
-      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.2 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when an instance administrator locked a group's Duo availability, an authenticated user with group Owner permissions could have re-enabled AI-backed data egress to a third-party service for that group and its descendant projects, due to insufficient granularity of the admin-lock enforcement controls.",
+      "id": "CVE-2026-110011",
+      "published": "2026-10-22T06:17:14.013",
+      "description": "The MB Custom Post Types & Custom Taxonomies WordPress plugin before 2.12.3 does not perform a capability check in its export feature, allowing users with a role as low as Contributor to read the configuration of admin-only custom post types and taxonomies, as well as the titles, dates, statuses and some stored content of other users' non-public posts and pages.",
       "severity": "LOW",
       "score": 2.7
     }
