@@ -1,143 +1,143 @@
 {
-  "totalResults": 3292,
+  "totalResults": 3547,
   "items": [
     {
-      "id": "CVE-2021-48014",
-      "published": "2026-10-22T11:17:04.390",
-      "description": "FineReport 9.0 contains a path traversal vulnerability in the /WebReport/ReportServer design_save_svg operation that allows unauthenticated attackers to write arbitrary files via the filePath parameter. Attackers can send a POST request with directory traversal sequences in filePath and a __CONTENT__ payload to write a JSP webshell and achieve remote code execution. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2021-48016",
-      "published": "2026-10-22T11:17:04.690",
-      "description": "DedeCMS through 5.8.1-beta contains a PHP code injection vulnerability in ShowMsg() where the HTTP Referer header is written into a DedeTemplate string and included. Unauthenticated attackers can send a crafted Referer to /plus/flink.php?dopost=save with an empty validate code to execute arbitrary PHP and system commands. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2022-51022",
-      "published": "2026-10-22T11:17:05.153",
-      "description": "YiShaAdmin 2.2 through 3.1, fixed in commit 025b062, contains an unauthenticated path traversal vulnerability in the /admin/File/DownloadFile endpoint that allows attackers to read and delete arbitrary files via the filePath parameter. Attackers can send crafted GET requests with directory traversal sequences in filePath and set the delete parameter to read or remove system files like etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "id": "CVE-2026-114607",
+      "published": "2026-10-22T17:16:58.577",
+      "description": "Better Auth is an authentication and authorization library for TypeScript. From 1.4.0-beta.18 until 1.7.7, deployments that enable Magic Link with storeToken set to plain, or with storeToken set to hashed and the global verification.storeIdentifier setting also set to hashed, enable a built-in social or Generic OAuth provider, and use account.storeStateStrategy set to database can accept an OAuth sign-in state value as a Magic Link token. These settings can cause Magic Link verification records and OAuth state to resolve to the same stored identifier, allowing an unauthenticated attacker to start OAuth sign-in for a known email address and redeem the returned state through Magic Link without controlling the mailbox or completing the provider callback. The attacker can obtain a normal session for an existing user, or create an account incorrectly marked as email verified when sign-up is enabled. This issue is fixed in version 1.7.7.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-112085",
-      "published": "2026-10-22T10:17:08.760",
-      "description": "webpack-dev-server is a development server that provides live reloading for webpack projects. In versions before 5.2.7 and in version 6.0.0, when a proxy entry is configured to forward WebSockets, the server forwards non-HMR WebSocket upgrade requests to the proxy target without validating the Host or Origin headers, so the allowedHosts protection does not apply to those proxied upgrades. A malicious web page visited by a developer can open a cross-origin WebSocket through the dev server and read from and write to the proxied backend, even when the server is bound to loopback. The issue is fixed in webpack-dev-server 5.2.7 and 6.1.0, where proxied WebSocket upgrades pass the same Host and Origin validation as the HMR WebSocket, and users should upgrade to one of those versions or later. As a workaround, omit WebSocket forwarding from proxy entries that do not need it and scope the proxy to specific paths.",
+      "id": "CVE-2026-115513",
+      "published": "2026-10-22T17:16:59.217",
+      "description": "OpenCATS before 0.12.0 contains a stored cross-site scripting vulnerability that allows a low-privileged authenticated user to inject HTML/JavaScript payloads by setting a Candidate, Company, Contact, Job Order, or List name/title field, which is stored unsanitized and later rendered unescaped in the 'Recent' (MRU) navigation panel displayed on nearly every page via lib/MRU.php's getFormatted() function. Attackers can exploit this by crafting a malicious record name that executes arbitrary JavaScript in the session of any other user, including Site Administrators, who views the record, enabling session/cookie theft and privilege escalation to full administrative control.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.7
     },
     {
-      "id": "CVE-2019-25778",
-      "published": "2026-10-22T11:17:03.777",
-      "description": "SeaCMS through 8.7 contains an unauthenticated SQL injection vulnerability that allows remote attackers to manipulate database queries by injecting SQL through the rlist[] array parameter. Attackers can send GET requests to /comment/api/index.php with crafted rlist[] values using backtick-quoted variables and extractvalue to extract database information via error messages. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "id": "CVE-2026-113874",
+      "published": "2026-10-22T18:17:27.237",
+      "description": "SmileCDR HAPI FHIR allows an untrusted bundle body to replace a partition identity previously established by a trusted source, and does not enforce storage partition entitlement by default. An attacker authorized for one tenant can read from or write to another tenant's partition.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.1
     },
     {
-      "id": "CVE-2022-51021",
-      "published": "2026-10-22T11:17:04.990",
-      "description": "NotificationX plugin for WordPress 2.0.0 before 2.3.12 contains an unauthenticated SQL injection vulnerability that allows remote attackers to manipulate database queries by supplying an array-form 'id' parameter to /wp-json/notificationx/v1/notification/{id}. Attackers can pass id[1] with crafted SQL, such as time-based SLEEP payloads, along with an api_key derived from md5(home_url()), which flows unsanitized into Database::get_where_query to extract database contents. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
+      "id": "CVE-2026-115416",
+      "published": "2026-10-22T17:16:58.913",
+      "description": "Incorrect authorization checks in Amazon Athena engine version 3 query processing could have allowed an authenticated user to read AWS account identifiers and SQL statement text query metadata from other AWS accounts. Query results, and data stored in Amazon S3 or other data sources, were not accessible through this issue.\n\n\n\nAWS remediated the issue on October 7, 2026. No customer action is required.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 7.7
     },
     {
-      "id": "CVE-2022-51023",
-      "published": "2026-10-22T11:17:05.300",
-      "description": "PHPOK 4.5.000 before 5.4.081 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate ORDER BY clauses via the sort parameter. Attackers can send GET requests to /api.php?c=project&f=index with extractvalue payloads in sort to extract database information through error messages. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2017-20287",
-      "published": "2026-10-22T11:17:01.823",
-      "description": "Javo Spot theme for WordPress before 3.0.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the fn parameter of the jvfrm_spot_get_json AJAX action. Attackers can send GET requests to /wp-admin/admin-ajax.php with fn set to ../../wp-config.php to retrieve database credentials and secret keys. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2026-114605",
+      "published": "2026-10-22T17:16:58.237",
+      "description": "dnspython is a DNS toolkit for Python. Prior to 2.9.0, dns.name.from_wire_parser follows attacker-controlled DNS compression pointer chains without a hop limit. A malicious DNS wire-format message can force excessive pointer traversal during name decompression, causing high CPU use, application degradation, or denial of service in applications that process untrusted DNS messages. This issue is fixed in version 2.9.0.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2017-20289",
-      "published": "2026-10-22T11:17:03.063",
-      "description": "Broadstreet Ad Widget plugin for WordPress 2.2.0 before 2.12.0 contains a local file inclusion vulnerability that allows authenticated users to execute attacker-chosen PHP files by passing unsanitized input to require in views/modal/index.php. Attackers can supply directory traversal sequences in the 'step' parameter, optionally with a null byte, to include local files and execute PHP code. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2026-75507",
+      "published": "2026-10-22T17:16:59.757",
+      "description": "GraphQL-core is a Python port of the GraphQL.js reference implementation. From 3.0.0 until 3.2.12 and 3.3.0rc1, the OverlappingFieldsCanBeMerged rule in specified_rules repeatedly compares fields that share response names and recursively re-compares flattened inline fragments during the validation phase. The prior named-fragment memoization does not cover this path, so nested repeated inline fragments can drive quadratic and worst-case O(n²·m²) CPU work before any resolver or AST-based depth or complexity control runs. An unauthenticated remote attacker can submit a shallow, highly compressible GraphQL query that pins a worker process and can saturate a multi-worker service. This issue is fixed in versions 3.2.12 and 3.3.0rc1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2018-25438",
-      "published": "2026-10-22T11:17:03.463",
-      "description": "Intermesh Group-Office 3.3.0 before 3.5.5 contains an unauthenticated path traversal vulnerability in compress.php that allows remote attackers to read arbitrary files by manipulating the 'file' parameter. Attackers can send GET requests to /compress.php with '../' sequences in the 'file' parameter, which is appended to the cache path and passed to readfile(), to read files such as /etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-21.",
+      "id": "CVE-2026-75508",
+      "published": "2026-10-22T17:16:59.933",
+      "description": "GraphQL-core is a Python port of the GraphQL.js reference implementation. From 3.2.3 until 3.2.12 and 3.3.0rc1, the parser's max_tokens limit in Parser.advance_lexer counts only non-comment tokens returned after Lexer.lookahead skips comments. Each skipped comment is still allocated as a Token and retained through token.next and token.prev, allowing a highly compressible comment-padded GraphQL document to pass a low token limit while consuming memory. An unauthenticated remote attacker can exhaust worker memory before AST-based depth or complexity controls run. This issue is fixed in versions 3.2.12 and 3.3.0rc1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2018-25439",
-      "published": "2026-10-22T11:17:03.620",
-      "description": "MetInfo CMS 6.0.0 before 6.1.1 contains a path traversal vulnerability in /include/thumb.php that allows unauthenticated attackers to read arbitrary files via the dir parameter. Attackers can send crafted requests with backslash sequences bypassing the str_replace filter to read files like config_db.php on Windows. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "id": "CVE-2026-113873",
+      "published": "2026-10-22T18:17:27.077",
+      "description": "SmileCDR HAPI FHIR does not properly handle highly compressed data, allowing an unauthenticated attacker to send compressed payloads that exhaust server heap or crash certain services when decompressed.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2019-25779",
-      "published": "2026-10-22T11:17:03.930",
-      "description": "WooThemes Diarise through 1.5.9 contains a file read vulnerability that allows unauthenticated attackers to read arbitrary files through the calendar parameter of download.php. Attackers can send GET requests with file:// scheme paths to the calendar parameter to disclose sensitive files like /etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2026-104068",
+      "published": "2026-10-22T17:16:56.720",
+      "description": "JetBackup plugin for WordPress before 3.1.24.10 contains a symlink-based arbitrary file write vulnerability that allows an authenticated WordPress administrator to write attacker-controlled file contents outside the intended restore destination during backup import and restore. Attackers can craft a backup archive containing a symbolic link that archive extraction follows without validating targets or enforcing destination containment, potentially leading to server-side code execution depending on the writable destination and server configuration.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2021-48013",
-      "published": "2026-10-22T11:17:04.250",
-      "description": "Weaver E-cology 8.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files through the fpath parameter of the /weaver/ln.FileDownload endpoint. Attackers can send crafted GET requests with directory traversal sequences in fpath to retrieve sensitive files such as WEB-INF/web.xml from the server. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2021-48015",
-      "published": "2026-10-22T11:17:04.537",
-      "description": "JeeWMS before commit 0a610e8 contains an unauthenticated path traversal vulnerability that allows remote attackers to read arbitrary files via the dbPath parameter. Attackers can send GET requests to /systemController/showOrDownByurl.do with ../ sequences in dbPath, which bypasses AuthInterceptor, to retrieve files like win.ini. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2021-48017",
-      "published": "2026-10-22T11:17:04.833",
-      "description": "OrbiTeam BSCW Server 5.x before 5.2.5 and 7.x before 7.4.4 contains an unauthenticated path traversal vulnerability in the style_name parameter of the theme operation. Attackers can send GET requests to /pub/bscw.cgi/<id>?op=theme with ../ sequences in style_name to read local files such as /etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-22.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2017-20288",
-      "published": "2026-10-22T11:17:02.913",
-      "description": "QCubed 2.2.0 through 3.1.1 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the installation_path parameter. Attackers can craft GET requests to /assets/php/_devtools/installer/step_2.php with malicious installation_path values echoed unescaped, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "id": "CVE-2026-114610",
+      "published": "2026-10-22T18:17:28.227",
+      "description": "fpdf2 is a PDF creation library for Python. From 2.5.0 until 2.8.8, fpdf2's SVGObject.build_xref() passes nested SVG <use> references to GraphicsContext.add_item(), whose default clone=True deep-copy behavior copies the complete referenced graphics tree during FPDF.image() processing. Repeating references at each nesting level makes the in-memory object count and processing work grow exponentially, allowing a small user-controlled SVG to consume excessive CPU and memory, raise MemoryError, fail PDF generation jobs, and reduce or exhaust worker capacity. ResourceAccessPolicy does not prevent the issue because the references are inline and require no external resource, XML entity, local file, or permissive network setting. This issue is fixed in version 2.8.8.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2017-20290",
-      "published": "2026-10-22T11:17:03.220",
-      "description": "Discourse 1.9.0.beta2 before 1.9.0.beta13 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the email parameter of /email/unsubscribed. Attackers can craft GET requests with SVG onload payloads, which unsubscribed.html.erb renders unescaped via html_safe, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
+      "id": "CVE-2026-108360",
+      "published": "2026-10-22T18:17:26.897",
+      "description": "PhpSpreadsheet is a pure PHP library for reading and writing spreadsheet files. Prior to 1.30.7, 2.1.19, 2.4.8, 3.10.8, and 5.10.0, Worksheet\\Drawing::setPath validates only the initial external-image URL with setIsWhitelisted when setAllowExternalImages is enabled. The HTTP stream context permits PHP to follow a redirect without applying the callback to the redirected URL, so a permitted image host can redirect the server to an internal address and cause a blind GET request. The response body is not returned to the attacker because the reader validates the downloaded content as an image and removes the temporary file, but internal GET-driven endpoints, network reachability, and cloud metadata endpoints may be reached. This issue is fixed in versions 1.30.7, 2.1.19, 2.4.8, 3.10.8, and 5.10.0.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.4
     },
     {
-      "id": "CVE-2020-37284",
-      "published": "2026-10-22T11:17:04.093",
-      "description": "Sickbeard through build-507 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the pattern parameter of /config/postProcessing/testNaming. Attackers can craft GET requests with malicious SVG onload payloads that the testNaming handler returns unescaped, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-22.",
+      "id": "CVE-2026-114609",
+      "published": "2026-10-22T18:17:28.060",
+      "description": "fpdf2 is a PDF creation library for Python. Prior to 2.8.8, fpdf2's shared image loader automatically dereferences attacker-controlled HTTP(S) URLs and raw local paths supplied through FPDF.image(), FPDF.write_html() HTML <img src> values, SVG <image href> or xlink:href values, and template image fields. This can cause outbound requests to attacker-selected internal or external services and local file open attempts, although local content is exposed only when it is a valid supported image or SVG resource. file:// URLs are not specially handled, so the local-path case requires a raw filesystem path. This issue is fixed in version 2.8.8.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.8
     },
     {
-      "id": "CVE-2026-114348",
-      "published": "2026-10-22T10:17:08.970",
-      "description": "webpack-dev-server is a development server that provides live reloading for webpack projects. In versions from 5.1.0 before 5.2.7 and in version 6.0.0, the unauthenticated open-editor endpoint validates the Host header with a regular expression meant for browser Origin schemes, so a Host value beginning with file: or with an extension scheme short-circuits the hostname and allowedHosts checks. A network peer that can reach the dev server can send a request with a malformed Host that passes validation and then causes the endpoint's URL construction to throw, and in the default non-production mode the server returns an HTTP 500 body containing the full exception stack trace, which discloses absolute filesystem paths, installed module locations, and internal source line numbers. The server keeps running, so there is no denial of service. The issue is fixed in webpack-dev-server 5.2.7 and 6.1.0, and users should upgrade to one of those versions or later.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-114606",
+      "published": "2026-10-22T17:16:58.413",
+      "description": "draw.io Desktop is the official Electron build of draw.io. Prior to 31.4.4, draw.io Desktop is vulnerable to arbitrary local-file disclosure through the Electron main process's read-side IPC handlers. The readFile, getFileDrafts, getBkpFile, fileStat, isFileWritable, checkFileExists, and watchFile actions operate on a renderer-chosen filesystem path with no blessed-path (assertWritablePath) authorization. The only gates are validateSender — a URL-prefix origin check — plus, for readFile alone, a content \"sniff\" and a lexical appBaseDir prefix block. The write-side handlers (saveFile, writeFile, saveDraft, deleteFile) are all protected by assertWritablePath; the read side is not. The result is a read/write authorization asymmetry: any frame executing in the app's file:// origin can read the contents of local files that the same origin is explicitly forbidden to write. This issue is fixed in version 31.4.4.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-106017",
-      "published": "2026-10-22T10:17:07.887",
-      "description": "Improper certificate validation in the OpenVPN 3 Core library version 3.4 through 3.11.7 allows attackers to circumvent extended key usage restrictions.",
+      "id": "CVE-2026-114608",
+      "published": "2026-10-22T17:16:58.750",
+      "description": "Pylint is a static code analyser for Python. From 0.15.2 until 4.0.9, Pylint stores module statistics in predictable files under PYLINT_HOME and loads those files with pickle.load on a later run. An attacker who can write to a shared, group-writable, or otherwise untrusted cache directory can replace a stats cache with crafted serialized data, causing arbitrary code to execute with the privileges of the user who next runs Pylint. The default per-user cache is not normally writable by another user. This issue is fixed in version 4.0.9.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-115502",
+      "published": "2026-10-22T17:16:59.083",
+      "description": "A missing authorization check allows anyone having access to a \"link without login\" for a DataApp to list and potentially access jobs of other users created by the same link in KNIME Business Hub prior to 1.19.0. As workaround remove all \"links without login\" to DataApps.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-67597",
+      "published": "2026-10-22T17:16:59.670",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-97631",
+      "published": "2026-10-22T17:17:02.027",
+      "description": "EDK2 contains a vulnerability in BIOS where a user may cause “Out-of-bounds\nWrite”, Classic\nBuffer Overflow, and “Incorrect Calculation of Buffer Size” by remote access. Successful exploitation of this vulnerability\ncan lead to arbitrary\ncode execution. It could also impact\nConfidentiality,\nIntegrity,\nand Availability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-108357",
+      "published": "2026-10-22T18:17:26.377",
+      "description": "PhpSpreadsheet is a pure PHP library for reading and writing spreadsheet files. From 3.3.0 until 3.10.8 and 5.10.0, Reader\\Xml passes stored SpreadsheetML XML through XmlScanner::scan in Xml::canRead and Xml::trySimpleXMLLoadStringPrivate, while Xml::unentity decodes numeric entities only after each DOCTYPE pattern check. A double-encoded less-than character is reduced by the first callback to another encoded character and by the second callback to a literal less-than sign, so SimpleXML receives an unchecked DOCTYPE and entity declaration. Processing attacker-controlled SpreadsheetML XML can cause entity-expansion denial of service and can permit local file access or SSRF on PHP before 8.0 or when LIBXML_NOENT is enabled. This issue is fixed in versions 3.10.8 and 5.10.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-108358",
+      "published": "2026-10-22T18:17:26.553",
+      "description": "PhpSpreadsheet is a pure PHP library for reading and writing spreadsheet files. Prior to 1.30.7, 2.1.19, 2.4.8, 3.10.8, and 5.10.0, XmlScanner::scan in src/PhpSpreadsheet/Reader/Security/XmlScanner.php uses a DOCTYPE detection pattern that accounts for NUL-byte interleaving but not ISO-2022 escape sequences in XLSX XML parts. The escape sequences prevent the scanner from matching the declaration, and XML charset normalization then removes the escape bytes before parsing, exposing a valid DOCTYPE and entity definitions. Processing an attacker-controlled XLSX can therefore cause entity-expansion denial of service on supported PHP versions and can permit local file access or SSRF on PHP before 8.0 or when LIBXML_NOENT is enabled. This issue is fixed in versions 1.30.7, 2.1.19, 2.4.8, 3.10.8, and 5.10.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-108359",
+      "published": "2026-10-22T18:17:26.740",
+      "description": "PhpSpreadsheet is a pure PHP library for reading and writing spreadsheet files. Prior to 1.30.7, 2.1.19, 2.4.8, 3.10.8, and 5.10.0, Ods::processTableRow in src/PhpSpreadsheet/Reader/Ods.php accepts an unbounded table:number-rows-repeated attribute from an ODS table row. When the row contains a value, the reader materializes a cell for every repetition without checking the spreadsheet row limit, so a small attacker-controlled ODS file can consume substantial CPU and memory and terminate the PHP worker. Column repetition is separately bounded and is not part of this vulnerability. This issue is fixed in versions 1.30.7, 2.1.19, 2.4.8, 3.10.8, and 5.10.0.",
       "severity": "UNKNOWN",
       "score": null
     }
