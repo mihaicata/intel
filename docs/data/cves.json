@@ -1,145 +1,145 @@
 {
-  "totalResults": 3304,
+  "totalResults": 3292,
   "items": [
     {
-      "id": "CVE-2026-114220",
-      "published": "2026-10-22T05:16:50.020",
-      "description": "NT OneAPP developed by NewType Infortech has an Improper Certificate Validation vulnerability. Unauthenticated network-adjacent attackers can perform a man-in-the-middle attack by failing to validate the server certificate and the hostname, thereby intercepting or modifying communications between the application and the server.",
+      "id": "CVE-2021-48014",
+      "published": "2026-10-22T11:17:04.390",
+      "description": "FineReport 9.0 contains a path traversal vulnerability in the /WebReport/ReportServer design_save_svg operation that allows unauthenticated attackers to write arbitrary files via the filePath parameter. Attackers can send a POST request with directory traversal sequences in filePath and a __CONTENT__ payload to write a JSP webshell and achieve remote code execution. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2021-48016",
+      "published": "2026-10-22T11:17:04.690",
+      "description": "DedeCMS through 5.8.1-beta contains a PHP code injection vulnerability in ShowMsg() where the HTTP Referer header is written into a DedeTemplate string and included. Unauthenticated attackers can send a crafted Referer to /plus/flink.php?dopost=save with an empty validate code to execute arbitrary PHP and system commands. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2022-51022",
+      "published": "2026-10-22T11:17:05.153",
+      "description": "YiShaAdmin 2.2 through 3.1, fixed in commit 025b062, contains an unauthenticated path traversal vulnerability in the /admin/File/DownloadFile endpoint that allows attackers to read and delete arbitrary files via the filePath parameter. Attackers can send crafted GET requests with directory traversal sequences in filePath and set the delete parameter to read or remove system files like etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-110353",
-      "published": "2026-10-22T03:16:31.270",
-      "description": "HAProxy 3.2 before 3.4.6 allows a remote unauthenticated attacker to cause a denial of service (worker-thread CPU exhaustion) via a truncated HTTP/2 PING frame. h2c_handle_ping in src/mux_h2.c does not check for a short read, unlike the other H2 frame handlers. Because the incomplete frame cannot be processed, its data is never consumed, and the H2 multiplexer tasklet is repeatedly woken by that pending data without making progress. The CPU spins until timeout http-request closes the connection, and an attacker opening many such connections can sustain high CPU usage.",
+      "id": "CVE-2026-112085",
+      "published": "2026-10-22T10:17:08.760",
+      "description": "webpack-dev-server is a development server that provides live reloading for webpack projects. In versions before 5.2.7 and in version 6.0.0, when a proxy entry is configured to forward WebSockets, the server forwards non-HMR WebSocket upgrade requests to the proxy target without validating the Host or Origin headers, so the allowedHosts protection does not apply to those proxied upgrades. A malicious web page visited by a developer can open a cross-origin WebSocket through the dev server and read from and write to the proxied backend, even when the server is bound to loopback. The issue is fixed in webpack-dev-server 5.2.7 and 6.1.0, where proxied WebSocket upgrades pass the same Host and Origin validation as the HMR WebSocket, and users should upgrade to one of those versions or later. As a workaround, omit WebSocket forwarding from proxy entries that do not need it and scope the proxy to specific paths.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2019-25778",
+      "published": "2026-10-22T11:17:03.777",
+      "description": "SeaCMS through 8.7 contains an unauthenticated SQL injection vulnerability that allows remote attackers to manipulate database queries by injecting SQL through the rlist[] array parameter. Attackers can send GET requests to /comment/api/index.php with crafted rlist[] values using backtick-quoted variables and extractvalue to extract database information via error messages. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2022-51021",
+      "published": "2026-10-22T11:17:04.990",
+      "description": "NotificationX plugin for WordPress 2.0.0 before 2.3.12 contains an unauthenticated SQL injection vulnerability that allows remote attackers to manipulate database queries by supplying an array-form 'id' parameter to /wp-json/notificationx/v1/notification/{id}. Attackers can pass id[1] with crafted SQL, such as time-based SLEEP payloads, along with an api_key derived from md5(home_url()), which flows unsanitized into Database::get_where_query to extract database contents. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2022-51023",
+      "published": "2026-10-22T11:17:05.300",
+      "description": "PHPOK 4.5.000 before 5.4.081 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate ORDER BY clauses via the sort parameter. Attackers can send GET requests to /api.php?c=project&f=index with extractvalue payloads in sort to extract database information through error messages. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2017-20287",
+      "published": "2026-10-22T11:17:01.823",
+      "description": "Javo Spot theme for WordPress before 3.0.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files via the fn parameter of the jvfrm_spot_get_json AJAX action. Attackers can send GET requests to /wp-admin/admin-ajax.php with fn set to ../../wp-config.php to retrieve database credentials and secret keys. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-110354",
-      "published": "2026-10-22T03:16:31.427",
-      "description": "HAProxy 3 before 3.4.6 allows a remote unauthenticated attacker to cause a denial of service (persistent worker-thread CPU exhaustion) via an HTTP/1.1 chunked request. Although the H1 multiplexer drains the request before closing the stream, the parser repeatedly re-processes the same bytes without making progress. The affected thread stays busy at 100% CPU after timeouts expire and after the client disconnects, and repeated requests can consume all worker threads until the process is restarted.",
+      "id": "CVE-2017-20289",
+      "published": "2026-10-22T11:17:03.063",
+      "description": "Broadstreet Ad Widget plugin for WordPress 2.2.0 before 2.12.0 contains a local file inclusion vulnerability that allows authenticated users to execute attacker-chosen PHP files by passing unsanitized input to require in views/modal/index.php. Attackers can supply directory traversal sequences in the 'step' parameter, optionally with a null byte, to include local files and execute PHP code. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-111958",
-      "published": "2026-10-22T06:17:14.113",
-      "description": "The Royal MCP  WordPress plugin before 1.5.7 does not limit a preview-link token to the single preview it was issued for, so any party that obtains a valid token is authenticated as the token's owning user, an administrator in the default configuration, across the entire REST API with no nonce, leading to full site takeover.",
+      "id": "CVE-2018-25438",
+      "published": "2026-10-22T11:17:03.463",
+      "description": "Intermesh Group-Office 3.3.0 before 3.5.5 contains an unauthenticated path traversal vulnerability in compress.php that allows remote attackers to read arbitrary files by manipulating the 'file' parameter. Attackers can send GET requests to /compress.php with '../' sequences in the 'file' parameter, which is appended to the cache path and passed to readfile(), to read files such as /etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-21.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-114219",
-      "published": "2026-10-22T05:16:49.170",
-      "description": "NT OneAPP developed by NewType Infortech has a Hard-coded Credentials vulnerability. Unauthenticated remote attackers can obtain the hard-coded cryptographic key and decrypt login request contents, thereby obtaining users' plaintext account credentials and device information.",
+      "id": "CVE-2018-25439",
+      "published": "2026-10-22T11:17:03.620",
+      "description": "MetInfo CMS 6.0.0 before 6.1.1 contains a path traversal vulnerability in /include/thumb.php that allows unauthenticated attackers to read arbitrary files via the dir parameter. Attackers can send crafted requests with backslash sequences bypassing the str_replace filter to read files like config_db.php on Windows. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-114221",
-      "published": "2026-10-22T05:16:50.200",
-      "description": "NT OneAPP developed by NewType Infortech has a Credential Disclosure vulnerability. Unauthenticated remote attackers can trigger an HTTP Basic Authentication challenge from an unvalidated source in the WebView under specific conditions, thereby obtaining the NUP Portal passcode of a logged-in user.",
+      "id": "CVE-2019-25779",
+      "published": "2026-10-22T11:17:03.930",
+      "description": "WooThemes Diarise through 1.5.9 contains a file read vulnerability that allows unauthenticated attackers to read arbitrary files through the calendar parameter of download.php. Attackers can send GET requests with file:// scheme paths to the calendar parameter to disclose sensitive files like /etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-114730",
-      "published": "2026-10-22T03:16:38.217",
-      "description": "Roundcube Webmail 1.6.14 before 1.6.20 and 1.7.0 before 1.7.5 is affected by a server-side request forgery filter bypass. The network blocklist used by rcube_utils::is_local_url() omitted the RFC 6052 NAT64 prefix 64:ff9b::/96, the RFC 8215 local-use NAT64 prefix 64:ff9b:1::/48 and the unspecified address ::/128, so URLs such as http://[64:ff9b::7f00:1]/ passed the filter and reached loopback, link-local and cloud metadata addresses. Upstream fixed this in the commit “Fix SSRF filter (is_local_url()) bypass via NAT64 64:ff9b::/96”.",
+      "id": "CVE-2021-48013",
+      "published": "2026-10-22T11:17:04.250",
+      "description": "Weaver E-cology 8.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files through the fpath parameter of the /weaver/ln.FileDownload endpoint. Attackers can send crafted GET requests with directory traversal sequences in fpath to retrieve sensitive files such as WEB-INF/web.xml from the server. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-18.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-109927",
-      "published": "2026-10-22T06:17:13.590",
-      "description": "The HIPAA Forms WordPress plugin before 3.3.2 does not perform a capability check when handling a request that rebuilds its own custom user role, allowing a user who already holds that role to grant it administrator-level capabilities and escalate their privileges.",
+      "id": "CVE-2021-48015",
+      "published": "2026-10-22T11:17:04.537",
+      "description": "JeeWMS before commit 0a610e8 contains an unauthenticated path traversal vulnerability that allows remote attackers to read arbitrary files via the dbPath parameter. Attackers can send GET requests to /systemController/showOrDownByurl.do with ../ sequences in dbPath, which bypasses AuthInterceptor, to retrieve files like win.ini. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-109987",
-      "published": "2026-10-22T06:17:13.800",
-      "description": "The PixelYourSite  WordPress plugin before 11.4.3, PixelYourSite Pro WordPress plugin before 12.6.8 do not sanitise and escape a cookie value before printing it into the page output, which, on a site running a full-page cache, allows unauthenticated attackers to store a Cross-Site Scripting payload in the cached page that is then served to other visitors.",
+      "id": "CVE-2021-48017",
+      "published": "2026-10-22T11:17:04.833",
+      "description": "OrbiTeam BSCW Server 5.x before 5.2.5 and 7.x before 7.4.4 contains an unauthenticated path traversal vulnerability in the style_name parameter of the theme operation. Attackers can send GET requests to /pub/bscw.cgi/<id>?op=theme with ../ sequences in style_name to read local files such as /etc/passwd. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-22.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-114732",
-      "published": "2026-10-22T03:16:38.510",
-      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by an improper authentication vulnerability in multi-host installations. When a user logs in with an alias address, rcube_user::query() matched the address against identity records without qualifying the lookup by IMAP host, so a login could be resolved to a user account belonging to a different IMAP host. Upstream fixed this in the commit “Fix bug where an alias login wasn’t qualified by IMAP host”.",
+      "id": "CVE-2017-20288",
+      "published": "2026-10-22T11:17:02.913",
+      "description": "QCubed 2.2.0 through 3.1.1 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the installation_path parameter. Attackers can craft GET requests to /assets/php/_devtools/installer/step_2.php with malicious installation_path values echoed unescaped, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-111971",
-      "published": "2026-10-22T06:17:14.233",
-      "description": "The Photo Engine (Media Organizer & Lightroom) WordPress plugin before 6.5.8 does not sanitise and escape collection and gallery names before storing them and outputting them in an administrative dashboard, allowing authenticated users with the author role and above to perform Stored Cross-Site Scripting attacks.",
+      "id": "CVE-2017-20290",
+      "published": "2026-10-22T11:17:03.220",
+      "description": "Discourse 1.9.0.beta2 before 1.9.0.beta13 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the email parameter of /email/unsubscribed. Attackers can craft GET requests with SVG onload payloads, which unsubscribed.html.erb renders unescaped via html_safe, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-114222",
-      "published": "2026-10-22T05:16:50.343",
-      "description": "NT OneAPP developed by NewType Infortech has an Authentication Bypass vulnerability. Unauthenticated local attackers can bypass the App PIN lock mechanism via a Deep Link, thereby accessing protected resources of a logged-in user.",
+      "id": "CVE-2020-37284",
+      "published": "2026-10-22T11:17:04.093",
+      "description": "Sickbeard through build-507 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the pattern parameter of /config/postProcessing/testNaming. Attackers can craft GET requests with malicious SVG onload payloads that the testNaming handler returns unescaped, executing JavaScript in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-22.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-114223",
-      "published": "2026-10-22T05:16:50.483",
-      "description": "NT OneAPP developed by NewType Infortech has an Exposure of Sensitive Information vulnerability. Unauthenticated local attackers can extract plaintext usernames and passwords from backup data after obtaining ADB backup access authorization and user confirmation of the backup, resulting in sensitive information disclosure.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-114729",
-      "published": "2026-10-22T03:16:38.070",
-      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by a remote content blocking bypass. rcube_washtml inspected the SVG SMIL animation attributes `to`, `from` and values for URIs, but not `by`; so markup such as in an HTML message caused remote content to be loaded without the user's consent, disclosing the client IP address and confirming that the message was opened. Upstream fixed this in the commit “Fix remote-content blocker bypass via SVG SMIL `by` attribute”.",
+      "id": "CVE-2026-114348",
+      "published": "2026-10-22T10:17:08.970",
+      "description": "webpack-dev-server is a development server that provides live reloading for webpack projects. In versions from 5.1.0 before 5.2.7 and in version 6.0.0, the unauthenticated open-editor endpoint validates the Host header with a regular expression meant for browser Origin schemes, so a Host value beginning with file: or with an extension scheme short-circuits the hostname and allowedHosts checks. A network peer that can reach the dev server can send a request with a malformed Host that passes validation and then causes the endpoint's URL construction to throw, and in the default non-production mode the server returns an HTTP 500 body containing the full exception stack trace, which discloses absolute filesystem paths, installed module locations, and internal source line numbers. The server keeps running, so there is no denial of service. The issue is fixed in webpack-dev-server 5.2.7 and 6.1.0, and users should upgrade to one of those versions or later.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-114731",
-      "published": "2026-10-22T03:16:38.363",
-      "description": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by an uncontrolled resource consumption vulnerability in the CSS proxy (the utils/modcss action). The fetched stylesheet was read into memory in full, with no size limit and no read timeout, so a stylesheet URL referencing an attacker-controlled host could be used to exhaust server memory. Upstream fixed this in the commit “Add a size limit to the CSS proxy content processing”, which caps the response at 5 MB, reads it as a stream and applies a read timeout.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-100142",
-      "published": "2026-10-22T06:17:12.237",
-      "description": "The FluentCart A New Era of eCommerce  WordPress plugin before 2.2.0 does not verify that a stored customer address selected during checkout belongs to the requester, allowing unauthenticated attackers to attach any customer's stored address to an order they place and read it back, disclosing customers' postal addresses, phone numbers and company details.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-103234",
-      "published": "2026-10-22T06:17:13.477",
-      "description": "The WP Ultimate Review WordPress plugin before 2.4.5 does not neutralise shortcodes in all of the review fields submitted through its public review form, which is available to unauthenticated visitors, allowing them to execute arbitrary shortcodes when the affected field is displayed, provided user reviews and that field's display are enabled.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-110010",
-      "published": "2026-10-22T06:17:13.910",
-      "description": "The MB Custom Post Types & Custom Taxonomies WordPress plugin before 2.12.3 does not perform any capability or authentication check before allowing an unauthenticated request to re-run a legacy data migration, letting anyone revert a custom post type or taxonomy definition on sites upgraded from a pre-2.0 release back to its pre-upgrade state. This discards configuration changes an administrator made after upgrading and, where those changes had restricted a definition's visibility, silently re-exposes the definition and its content to anonymous visitors.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-109931",
-      "published": "2026-10-22T06:17:13.697",
-      "description": "The Infility Global WordPress plugin before 2.16.25 does not perform any authorisation or nonce check on an AJAX action available to unauthenticated users, allowing any visitor to overwrite a machine-translation configuration value belonging to a companion Infility Global WordPress plugin before 2.16.25.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-110011",
-      "published": "2026-10-22T06:17:14.013",
-      "description": "The MB Custom Post Types & Custom Taxonomies WordPress plugin before 2.12.3 does not perform a capability check in its export feature, allowing users with a role as low as Contributor to read the configuration of admin-only custom post types and taxonomies, as well as the titles, dates, statuses and some stored content of other users' non-public posts and pages.",
-      "severity": "LOW",
-      "score": 2.7
+      "id": "CVE-2026-106017",
+      "published": "2026-10-22T10:17:07.887",
+      "description": "Improper certificate validation in the OpenVPN 3 Core library version 3.4 through 3.11.7 allows attackers to circumvent extended key usage restrictions.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
