@@ -1,143 +1,143 @@
 {
-  "totalResults": 3579,
+  "totalResults": 3386,
   "items": [
     {
-      "id": "CVE-2026-112862",
-      "published": "2026-10-23T09:17:06.393",
-      "description": "Deserialization of Untrusted Data vulnerability in xnau webdesign Participants Database participants-database allows Object Injection.This issue affects Participants Database: from n/a through 2.7.8.5.",
+      "id": "CVE-2026-53942",
+      "published": "2026-10-23T15:17:32.157",
+      "description": "Conda Organization Infrastructure is a centralized location for infrastructure codes. Prior to commit 9c0f238, a GitHub Actions Pwn Request vulnerability appears to remain present in conda/conda. The affected workflow is .github/workflows/update.yml. It is triggered by issue_comment events containing @conda-bot render or @conda-bot recreate. For the render path, the workflow obtains the pull request head repository and branch from the PR API, checks out that PR-controlled repository/ref using secrets.SYNC_TOKEN, and then runs conda/actions/template-files@7f6830b1428a9bd47f0b068892c77eae95207037. The external template-files action reads its default configuration and templates from the checked-out working directory. In the confirmed finding, that action uses an unsandboxed Jinja2 environment to render attacker-controlled template content. This creates a Pwn Request chain in which an untrusted PR/comment path can reach template rendering in a privileged token context. This issue has been patched via commit 9c0f238.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-46651",
+      "published": "2026-10-23T15:17:31.453",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. From version 24.03 to before version 26.05, the DownloadTaskEndpoint WebSocket endpoint (/tasks/download/monitor.socket) in goobi-viewer-core accepts download requests from unauthenticated users. This issue has been patched in version 26.05.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-112860",
-      "published": "2026-10-23T09:17:06.280",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in xnau webdesign Participants Database participants-database allows Blind SQL Injection.This issue affects Participants Database: from n/a through 2.7.8.5.",
+      "id": "CVE-2026-46652",
+      "published": "2026-10-23T15:17:31.593",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. From version 24.03 to before version 26.05, ExternalFilesDownloader.getFilename() extracts the destination filename from a server-supplied Content-Disposition response header and passes it directly to Path.resolve() without stripping directory components. This allows for a malicious HTTP server that the viewer fetches from to supply an absolute path or ../ traversal sequences as the filename, writing attacker-controlled content to an arbitrary path writable by the Tomcat process. When targeting the deployed web-application directory, this yields remote code execution as the tomcat OS user. This issue has been patched in version 26.05.",
       "severity": "CRITICAL",
-      "score": 9.3
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-112837",
-      "published": "2026-10-23T09:17:06.043",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Ruben Garcia GamiPress gamipress allows Blind SQL Injection.This issue affects GamiPress: from n/a through 8.0.7.",
-      "severity": "HIGH",
-      "score": 8.5
-    },
-    {
-      "id": "CVE-2026-112359",
-      "published": "2026-10-23T09:17:05.540",
-      "description": "Missing Authorization vulnerability in Amauri.IO WPMobile.App wpappninja allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WPMobile.App: from n/a through 11.86.",
+      "id": "CVE-2026-106763",
+      "published": "2026-10-23T15:17:23.063",
+      "description": "An issue in @justice8096/sagemath-mcp-server 1.0.1 allows a remote attacker to execute arbitrary code via the escapeShellString and sanitizeCode functions.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-112835",
-      "published": "2026-10-23T09:17:05.927",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in e4jvikwp VikRentCar vikrentcar allows Reflected XSS.This issue affects VikRentCar: from n/a through 1.4.8.",
+      "id": "CVE-2026-106764",
+      "published": "2026-10-23T15:17:23.203",
+      "description": "An issue in @rog0x/mcp-git-tools 1.0.1 allows a remote attacker to execute arbitrary code via the resolveBaseBranch function.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-112838",
-      "published": "2026-10-23T09:17:06.163",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in e4jvikwp VikRentCar vikrentcar allows Stored XSS.This issue affects VikRentCar: from n/a through 1.4.8.",
+      "id": "CVE-2026-106765",
+      "published": "2026-10-23T15:17:23.333",
+      "description": "An issue in @rog0x/mcp-docker-tools 1.0.1 allows a remote attacker to execute arbitrary code via the handleImageList function.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-112821",
-      "published": "2026-10-23T09:17:05.687",
-      "description": "Missing Authorization vulnerability in Knit Pay Knit Pay knit-pay allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Knit Pay: from n/a through 9.6.3.0.",
+      "id": "CVE-2026-55457",
+      "published": "2026-10-23T15:17:33.060",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. Prior to version 26.05, Configuration.getWebApiToken returns the empty string when webapi.authorization.token is not configured. AuthorizationFilter compares the supplied token against this default without first checking that the configured token is non-empty. A request to any @AuthorizationBinding-protected endpoint with an empty ?token= value is therefore accepted. This issue has been patched in version 26.05.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-39902",
+      "published": "2026-10-23T15:17:30.873",
+      "description": "Cacti is an open source performance and fault management framework. Prior to version 1.2.31, the prior blocklist ([;&| `$\\\\n\\r]) omitted single-quote, double-quote, redirect operators, subshell parens and braces. An authenticated admin could save an input_string` containing single-quote, redirect operator, or subshell parens, and pass the check. This issue has been patched in version 1.2.31.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-46347",
+      "published": "2026-10-23T15:17:31.180",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. Prior to version 26.05, when a password reset link is visited, the application generates a replacement password in a predictable way and emails it to the account holder. The insufficient entropy allows the password to be brute-forced by an attacker who can approximate the server-side generation time. Exploiting this finding in isolation requires the victim to have triggered the reset themselves and the attacker to infer the server time from network or email metadata. This issue has been patched in version 26.05.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-46346",
+      "published": "2026-10-23T15:17:31.030",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. Prior to version 26.05, the password reset token is predictably based on the time of the reset request. An attacker who knows the target's email address can request a reset and then brute-force the token. Exploiting this finding alone forces an unauthorized password reset on any account. This issue has been patched in version 26.05.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-112825",
-      "published": "2026-10-23T09:17:05.810",
-      "description": "Missing Authorization vulnerability in Magepeople inc. Car Rental Manager car-rental-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Car Rental Manager: from n/a through 1.5.3.",
+      "id": "CVE-2026-46531",
+      "published": "2026-10-23T15:17:31.317",
+      "description": "Cacti is an open source performance and fault management framework. From version 1.2.27 to before version 1.2.31, Cacti contains an authenticated stored second-order SQL injection in the automation tree rule item handler. A user holding the Automation realm (default General Administration role) can persist an arbitrary SQL fragment in the automation_tree_rule_items.field column. The fragment is later concatenated directly into a SELECT ... AS source FROM ... clause in lib/api_automation.php :: create_all_header_nodes() and executed when an administrator triggers automation via the standard graphs.php?action=actions&drp_action=8 (\"Apply Automation Rules\") bulk action. The result of the injected SELECT is written into graph_tree_items.title and rendered in the Cacti tree UI, providing a direct exfiltration channe. This issue has been patched in version 1.2.31.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2025-30043",
-      "published": "2026-10-23T09:17:03.300",
-      "description": "CGM CLININET is vulnerable to Missing Authentication for Critical Function in the /DocManagment path. The endpoint is accessible without authentication, allowing an unauthenticated attacker in the adjacent network to retrieve the list of patient documents and download those documents. \n\n\nThis issue was fixed in version 2026.MS3",
+      "id": "CVE-2026-112333",
+      "published": "2026-10-23T15:17:24.487",
+      "description": "GFI Archiver before 15.14 contains a stored cross-site scripting vulnerability in the MailInsights scheduled report configuration that allows authenticated attackers to inject arbitrary web script or HTML via the report name parameter to /Archiver/MailInsights.aspx. The injected payload is stored by ReportScheduling.btnSaveReport_Click() without output encoding and is executed in the browser of the user who created the scheduled report when they subsequently view the MailInsights page.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-49442",
+      "published": "2026-10-23T15:17:32.003",
+      "description": "Cacti is an open source performance and fault management framework. Prior to version 1.2.31, a User Enumeration vulnerability allows an attacker to identify valid usernames on the Cacti service. When a user attempts to log in, the application returns slightly different error messages depending on whether the provided username exists in the system. When username exists on Cacti, in the response, they see Access Denied! Login failed. When it does not exist on Cacti, they see Access Denied! Login Failed. The only difference between the responses is the capitalization of the letter \"f\" in the word failed. This issue has been patched in version 1.2.31.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-55442",
+      "published": "2026-10-23T15:17:32.730",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. From version 23.03 to before version 26.05, SolrTools.cleanUpQuery() strips Solr local-parameter syntax ({!...}) from user-supplied query strings before they reach Solr. Its regex can be bypassed by wrapping the local parameter in a second pair of curly braces ({{!...}}): the outer braces are stripped, the inner {!...} survives intact, and a valid Solr local parameter is forwarded. The flaw is in the shared sanitizer, so it affects any endpoint that routes user input through cleanUpQuery. The double-brace bypass applies from v23.10 (the greedy \\{(.+)\\} regex); a related bare-!join rewrap path is present. This issue has been patched in version 26.05.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-55444",
+      "published": "2026-10-23T15:17:32.910",
+      "description": "The Goobi viewer is a web application that allows digitised material to be displayed in a web browser. Prior to version 26.05, the legacy RSS servlet (RssResolver, GET /rss/) accepts the q and filterQuery parameters and concatenates them into Solr queries without validation. The servlet predates the REST API layer and lacks the input validation present in GET /api/v1/records/rss. q forms the main query body (wrapped only in literal parentheses); filterQuery is passed directly as a Solr fq. An unauthenticated attacker can inject Solr boolean operators to break out of the wrapping and render the trailing access-condition filter-query suffix optional, so that access-restricted records are included in the generated RSS feed. The q and filterQuery parameters are the same underlying vulnerability in the same servlet; q (the main query body) has the broader scope. This issue has been patched in version 26.05.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-55222",
+      "published": "2026-10-23T15:17:32.563",
+      "description": "Isar is an integration system for automated root filesystem generation. In versions 0.11 and newer, /etc/apt/trusted.gpg.d is created manually during bootstrap setup to be able to deploy local keys. By that, the directory is owned by the calling user (the one that executes Isar) instead of root. If the calling user's id is identical to one of an unprivileged user inside the image, this user is able to alter existing keys and deploy new ones, silently breaking the apt repo integrity protection. The issue is has no impact on those images that use an immutable rootfs, or if apt is never invoked. Changing only the keys does not trigger an exploit, it's just one step in a chain. An attacker would also have to manipulate a remote repo or intercept non-secure communication with it. This issue has been patched via commit 29e84ed.",
+      "severity": "MEDIUM",
+      "score": 5.1
+    },
+    {
+      "id": "CVE-2026-102786",
+      "published": "2026-10-23T15:17:22.807",
+      "description": "Joomla Extension - phoca.cz - Authenticated stored cross-site scripting through HTML attribute injection in Phoca Gallery 4.5.0 - 6.1.5",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-30045",
-      "published": "2026-10-23T09:17:04.327",
-      "description": "CGM CLININET is vulnerable to Code Injection in the ConvExpr function, which processes Perl expressions into RTF document content. Due to improper control of the code evaluated from these expressions, an authenticated, high-privileged attacker can cause arbitrary code to be executed with root privileges. \n\n\nThe vulnerability was confirmed to affect versions up to 2026.MS3 but later versions may also be vulnerable.",
+      "id": "CVE-2026-115477",
+      "published": "2026-10-23T15:17:29.840",
+      "description": "obsidian-tc is a governed, agent-ready Model Context Protocol server for Obsidian vaults. From 1.13.0 until 1.31.4, on a Streamable HTTP deployment with `auth.jwtSecret` configured and a 2026-07-28-era client declaring `elicitation.form` support, a dispatch-gated tool call offered an `inputRequired` confirmation could still complete after the human declined or cancelled, or the elicitation response was omitted or malformed, provided the client echoed the validly bound `requestState` on resubmission. The server trusted an authentic, call-bound state as proof of approval even though that state was minted before the `elicitation/create` leg was asked and proved only that the resubmission belonged to the same call. A client behaving incorrectly or under an attacker's control could therefore execute dispatch-gated destructive vault operations without the human's approval, while still requiring the caller's ordinary tool permissions. Only tools marked `destructive: true` or requiring a scope with a human-in-the-loop floor were reachable through this bypass. The sixteen handler-side conditionally gated tools, including `write_note` overwrite and `move_note`, did not read elicitation state on the modern wire and let neither approval nor decline through that path. Affected deployments using stdio or leaving `auth.jwtSecret` unset instead used the CLI `elicit_token` fallback and did not offer this `requestState` round trip. The fix does not prevent a malicious client from reporting a fabricated approval, because the server cannot verify that the client displayed the form or that a human saw it. This issue is fixed in version 1.31.4.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-30046",
-      "published": "2026-10-23T09:17:04.450",
-      "description": "In the CGM CLININET application server, multiple processes responsible for HL7 communication with external systems run with root privileges while processing untrusted data received from those external systems. An attacker in adjacent network able to send data to these HL7 communication processes can achieve remote code execution with root privileges. \n\n\nThe vulnerability was confirmed to affect versions up to 2026.MS3 but later versions may also be vulnerable.",
+      "id": "CVE-2026-115478",
+      "published": "2026-10-23T15:17:30.023",
+      "description": "obsidian-tc is a governed, agent-ready Model Context Protocol server for Obsidian vaults. From 1.0.1 until 1.31.4, `create_entity`, `link_entities`, `rename_entity`, `unlink_entities` and `delete_entity` regenerate memory notes from SQLite at the computed `memory/<type>/<name>.md` path without reliably preserving note ownership or the consistency of a failed lifecycle operation. During shared materialization, a hand-authored note or an orphan left by a different entity whose name sanitized to the same path could have its entire body overwritten on the next write naming that type and name, with non-owned frontmatter preserved. `rename_entity` also seeded the destination path with a direct atomic write without validating ownership and could overwrite a foreign note there. Separately, several tools mutated SQLite before fallible filesystem work: `create_entity` and `link_entities` inserted the row or relation before materialization; `rename_entity` updated the entity, including a retired status, before updating its note; `unlink_entities` removed a relation before rematerializing the source note; and `delete_entity`'s cascade removed the target and its relations before rematerializing neighbouring notes. A later filesystem failure could therefore leave a row or relation changed and the memory graph inconsistent with the notes on disk even when the operation failed. An authorized caller with the required memory-tool permissions could, without intending to, destroy the body of a vault note outside the entity being written; `delete_entity` additionally requires its deletion permission and destructive confirmation, which this memory flaw does not bypass. Snapshots-before-write through `restore_note` mitigate the overwrite only where snapshots are enabled and the note had previously been written through obsidian-tc. This issue is fixed in version 1.31.4.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-30047",
-      "published": "2026-10-23T09:17:04.573",
-      "description": "CGM CLININET is vulnerable to Remote Code Execution caused by deserialization of untrusted data. The server exposes an HTTP-based API, used by the administrative module, that exchanges data using Java object serialization. An attacker within the same local network is able to send requests to this API and transmit a crafted serialized object. When it is deserialized, it allows arbitrary code execution with root privileges on the server. \n\n\nThis issue was fixed in version 2026.MS3",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-30049",
-      "published": "2026-10-23T09:17:04.690",
-      "description": "The CGM CLININET application stores user passwords as unsalted MD5 hashes.\n\n\nThis issue was fixed in versions 2026.MS1 and 2026.MS3",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-30050",
-      "published": "2026-10-23T09:17:04.810",
-      "description": "CGM CLININET is vulnerable to Code Injection in the RunCGI.pm component, which dynamically imports the module specified as a query parameter and executes code from untrusted data provided by the user. An attacker from adjacent network can supply a crafted query parameter to have an attacker-controlled module imported which results in arbitrary code execution with root privileges.\n\n\nThis issue was fixed in version 2026.MS3",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-30051",
-      "published": "2026-10-23T09:17:04.923",
-      "description": "The CGM CLININET application stores the production database login and password, as well as RabbitMQ broker credentials, in the SysIO.pl configuration file. Insecure file permissions make this file readable by any local account. \n\n\nThis issue was fixed in version 2026.MS3",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-30052",
-      "published": "2026-10-23T09:17:05.040",
-      "description": "The rsyncd service of the CGM CLININET is vulnerable to Authentication Bypass via IP spoofing. Access is granted based solely on the client's source IP address. An attacker able to spoof an allowed IP address, can bypass this check and gain the ability to edit files on the affected system. \n\n\nThe vulnerability was confirmed to affect versions up to 2026.MS3 but later versions may also be vulnerable.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-30053",
-      "published": "2026-10-23T09:17:05.170",
-      "description": "The CGM CLININET application runs the cgm-updater process listening on an open network port without any authentication.\n\n\n\n\nThe vulnerability was confirmed to affect versions up to 2026.MS3. Version 2026.MS3 with the updater-upkg component in version 5.3.0 or higher is not affected by this vulnerability.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-30054",
-      "published": "2026-10-23T09:17:05.290",
-      "description": "CGM CLININET is vulnerable to local privilege escalation. The service that processes incoming HL7 messages runs with root privileges, but due to incorrect permissions, its scripts and configuration files can be modified by the uhcapache user. An attacker with uhcapache privileges can modify these files to execute arbitrary code as root.\n\n\nThe vulnerability was confirmed to affect versions up to 2026.MS3 but later versions may also be vulnerable.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-58403",
-      "published": "2026-10-23T09:17:05.417",
-      "description": "CGM CLININET is vulnerable to Reflected Cross-Site Scripting (XSS) due to improper neutralization of user-supplied data. A remote unauthenticated attacker can craft a malicious URL containing JavaScript or HTML code, which is executed in the victim's browser when the URL is visited, allowing the attacker to steal session cookies and perform actions on behalf of the victim within the application.\n\n\n\nThe vulnerability was confirmed to affect versions up to 2026.MS3 but later versions may also be vulnerable.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-115657",
-      "published": "2026-10-23T09:17:06.510",
-      "description": "When used as an executor in either KNIME Server or KNIME Business Hub, KNIME Analytics Platform LTS versions before 5.8.4 log configured credentials of proxies during startup. An attacker with access to log files can steal the credentials and use the proxy as the user who configured the proxy settings. The issue has been fixed in LTS versions 5.8.4 and 5.12.0 and later.",
+      "id": "CVE-2026-54668",
+      "published": "2026-10-23T15:17:32.427",
+      "description": "Kitodo.Production is a workflow management tool for mass digitization and is part of the Kitodo Digital Library Suite. Prior to version 3.9.2, org.kitodo.production.helper.XMLUtils exposes several XML parsing helpers that construct a JAXP parser with the default, non-secure configuration. The methods parseXMLString(String), getNumberOfEADElements(String, String) and checkIfXmlIsWellFormed(String) build a DocumentBuilderFactory / XMLInputFactory / SAXParserFactory via newInstance() and parse the attacker-supplied string without disabling DOCTYPE declarations or external entity resolution. These helpers sit directly on the EAD-import path: an authenticated user who uploads an EAD/XML file through the \"Create process\" file-upload dialog has the uploaded bytes parsed by these methods. A crafted document with an external entity therefore yields XML External Entity (XXE) injection: local file disclosure and outbound SSRF requests from the server. This issue has been patched in version 3.9.2.",
       "severity": "UNKNOWN",
       "score": null
     }
