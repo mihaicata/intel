@@ -1,143 +1,143 @@
 {
-  "totalResults": 3689,
+  "totalResults": 3673,
   "items": [
     {
-      "id": "CVE-2026-115932",
-      "published": "2026-10-24T13:16:37.217",
-      "description": "When a post is published, Postiz treats a media path that is not a web address as a file on the server's disk, but it does not check that the file lies inside the upload directory. A registered user can store a crafted media path with a post, get it past the checks that normally restrict it, and have the publishing worker read an arbitrary file and send it as an attachment to a Discord server the user controls.\n\nThe same unconfined reads can be reached through two further routes. One tells the caller whether a file exists and can exhaust the backend's memory, the other delivers the file the same way as the main route. Self-registration is open by default, so the attacker needs no existing account.",
+      "id": "CVE-2026-115995",
+      "published": "2026-10-24T23:16:58.323",
+      "description": "A security vulnerability has been detected in Unitree Robotics Unitree Go2 up to 1.1.11.4. The impacted element is the function set_volume of the file gpt_thread.py of the component chat_go. Such manipulation of the argument Value leads to os command injection. The attack can be launched remotely. Upgrading to version 1.1.11.5 is sufficient to resolve this issue. You should upgrade the affected component. The vendor confirmed early: \"Submission 990502 corresponds to our internal ticket #474 (Go2 chat_go set_volume OS command injection, CWE-78).\"",
       "severity": "CRITICAL",
       "score": 9.6
     },
     {
-      "id": "CVE-2026-110018",
-      "published": "2026-10-24T12:16:54.783",
-      "description": "The aBlocks – Gutenberg Blocks, User Dashboard Builder, Popup Builder, Form Builder & Animation Builder plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.17.0 via the `/ablocks/v1/form-builder/registration` REST endpoint. The vulnerability exists because the endpoint is registered with `permission_callback => __return_true` and the `register()` handler reads `roleSlug` directly from attacker-controlled block attributes in `post_content` without ever verifying that the block's `formType` is `registration` — a condition that `RegistrationFormSanitizer::verify()` imposes only at save-time, meaning a Contributor can preserve an arbitrary `roleSlug` by saving a block with `formType='login'` and then triggering the endpoint via a valid `wp_rest` nonce and post-ownership check. This makes it possible for authenticated attackers, with Contributor-level access and above, to escalate their WordPress role to Editor or any other non-administrator role and receive a fully authenticated session at the elevated privilege level via `WP_User::set_role()` and `wp_set_auth_cookie()`. Escalation is bounded below administrator-tier roles because `is_safe_registration_role()` rejects any role holding `manage_options`, `edit_users`, `delete_users`, `create_users`, `promote_users`, or `edit_theme_options`, meaning the highest practically reachable role on a standard WordPress installation is Editor.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-114820",
+      "published": "2026-10-24T19:17:04.413",
+      "description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: JSSE).  Supported versions that are affected are Oracle Java SE: 8u511-b32, 8u511-perf-b32, 11.0.33.0.2, 17.0.21.0.2, 21.0.13.0.2, 25.0.5.0.2, 27.0.1.0.2; Oracle GraalVM for JDK: 17.0.21.0.2 and  21.0.13.0.2; Oracle GraalVM Enterprise Edition: 21.3.20.0.2. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data as well as  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 9.1 (Confidentiality and Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N).",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-116009",
-      "published": "2026-10-24T12:16:56.640",
-      "description": "Camaleon CMS before 2.9.3 contains a path traversal vulnerability that allows users with only the media permission to write arbitrary files by supplying ../ sequences in the name parameter. Attackers can send a base64 data: URI to the crop_url media action to write an ERB template into a theme's views directory, which executes when rendered.",
+      "id": "CVE-2026-115970",
+      "published": "2026-10-24T18:16:48.367",
+      "description": "A vulnerability has been found in Travisun Opptrix 0.4.0. This impacts an unknown function of the file /api/system-update/import of the component Import Endpoint. Such manipulation leads to code injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The project has been completely taken offline and deprecated. The project maintainer explains: \"The mentioned security risk was a design flaw that manifested primarily in local environments during earlier stages of version development. We previously addressed and resolved this specific risk; however, because the project was restricted to a small learning scope and the main versions were intended to run exclusively on localhost, the security fix was only pushed directly to our GitHub repository before it went private.\" This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-116019",
-      "published": "2026-10-24T12:16:58.473",
-      "description": "Grav 2.0.15 before 2.2.13 contains an allowlist bypass vulnerability that allows page editors to invoke arbitrary public static methods by relocating data-*@ directives with unset-name@ or integer keys. Attackers with page-edit permission can embed crafted fields in Flex form overrides in page frontmatter to call methods like Folder::delete or Utils::download, deleting directories, overwriting files, or reading files outside the page tree.",
+      "id": "CVE-2026-115973",
+      "published": "2026-10-24T19:17:04.553",
+      "description": "A vulnerability was identified in FaveoSuite Faveo Helpdesk 2.0.3. Affected by this issue is the function ForgotPasswordController::sendResetLinkEmail/PasswordController::reset of the file app/Http/Controllers/Auth/ForgotPasswordController.php. The manipulation leads to weak password recovery. The attack may be initiated remotely. The vendor was contacted early about this disclosure.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-116014",
-      "published": "2026-10-24T12:16:57.607",
-      "description": "open62541 1.5.0 before 1.5.7 contains an integer overflow in UA_DataType_fromStructureDescription() that wraps the 16-bit memSize field for large custom structure definitions. A malicious OPC UA server can supply DataType definitions via UA_Client_getRemoteDataTypes(), causing decodeBinaryStructure() to overflow the heap, crashing clients or enabling code execution.",
+      "id": "CVE-2026-115999",
+      "published": "2026-10-25T02:16:26.913",
+      "description": "A vulnerability has been found in mansi-k Restaurant_IMS d7ad49f61ab7cc1ec6eb359ac2b5378bdbde0694. Affected is the function mysqli_connect of the file lsmodal.php. The manipulation of the argument login_id/epsw leads to sql injection. Remote exploitation of the attack is possible. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-116011",
-      "published": "2026-10-24T12:16:57.070",
-      "description": "Crow before 1.3.4 contains an uncontrolled recursion vulnerability in crow::json::load() that allows remote unauthenticated attackers to crash the server by sending deeply nested JSON. Attackers can send a request body with thousands of nested objects to exhaust the worker thread stack, terminating the process and dropping all connections.",
+      "id": "CVE-2026-116000",
+      "published": "2026-10-25T03:16:26.617",
+      "description": "A security flaw has been discovered in Zylon PrivateGPT 1.0.0/1.0.1. This vulnerability affects the function load_file_from_uri of the file private_gpt/server/ingest/uri_loader.py of the component URI Artifact Loader. Performing a manipulation of the argument Value results in server-side request forgery. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-114191",
-      "published": "2026-10-24T14:16:38.870",
-      "description": "Missing Authorization vulnerability in Knit Pay UPI QR Code Payment Gateway for WooCommerce upi-qr-code-payment-for-woocommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects UPI QR Code Payment Gateway for WooCommerce: from n/a through 1.6.3.",
+      "id": "CVE-2026-116006",
+      "published": "2026-10-25T04:17:34.083",
+      "description": "A vulnerability was detected in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.09. The affected element is an unknown function of the file AuthController.java of the component SMS Code Verification. The manipulation of the argument mobile/code results in improper authentication. The attack can be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-114704",
-      "published": "2026-10-24T14:16:39.313",
-      "description": "Deserialization of Untrusted Data vulnerability in Christoph Vielgrader Relevanssi  relevanssi allows Object Injection.This issue affects Relevanssi : from n/a through 4.28.4.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-116016",
-      "published": "2026-10-24T12:16:57.960",
-      "description": "yudao-cloud through 2026.09 contains an authorization bypass vulnerability that allows authenticated users to evade row-level data scope restrictions by sending a data-permission-enable header set to false. Attackers can add this header to /admin-api requests, which DataPermissionRpcWebFilter trusts, to read or modify other departments' and users' records within the same tenant.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-114192",
-      "published": "2026-10-24T14:16:39.040",
-      "description": "Missing Authorization vulnerability in Magepeople inc. WpEvently mage-eventpress allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WpEvently: from n/a through 5.7.8.",
+      "id": "CVE-2026-115997",
+      "published": "2026-10-25T00:16:45.047",
+      "description": "A flaw has been found in pig-mesh pig up to 4.1.0. This impacts the function orderItem.getColumn of the file pig-common/pig-common-data/src/main/java/com/pig4cloud/pig/common/data/resolver/SqlFilterArgumentResolver.java. Executing a manipulation of the argument ascs/descs can lead to sql injection. The attack may be launched remotely. The exploit has been published and may be used. Upgrading to version 4.1.1 will fix this issue. This patch is called 9b6311161e346d7626c81d993044072fed2dca07. It is suggested to upgrade the affected component. The vendor was contacted early about this disclosure.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-116020",
-      "published": "2026-10-24T12:16:58.660",
-      "description": "BookStack before 26.09.2 contains an incorrect authorization vulnerability in AttachmentController that allows authenticated users to access other users' draft page attachments by ID. Attackers with attachment permissions can enumerate sequential attachment IDs to download, rename, relink, or replace files on another user's unpublished draft pages.",
+      "id": "CVE-2026-115971",
+      "published": "2026-10-24T18:16:48.550",
+      "description": "A vulnerability was found in Travisun Opptrix 0.4.0. Affected is the function Buffer.concat of the file /api/channels/webhook/ of the component preParsing handler. Performing a manipulation results in denial of service. The attack can be initiated remotely. The exploit has been made public and could be used. The project has been completely taken offline and deprecated. The project maintainer explains: \"The mentioned security risk was a design flaw that manifested primarily in local environments during earlier stages of version development. We previously addressed and resolved this specific risk; however, because the project was restricted to a small learning scope and the main versions were intended to run exclusively on localhost, the security fix was only pushed directly to our GitHub repository before it went private.\" This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-116008",
-      "published": "2026-10-24T12:16:56.323",
-      "description": "DaybydayCRM through 2.2.1 contains a missing authorization vulnerability in ProjectsController::updateAssign() that allows any authenticated user to reassign projects without the can-assign-new-user-to-project permission. Low-privileged employees can send PATCH or POST requests to /projects/updateassign/{external_id} with a chosen user_assigned_id to redirect project ownership and notifications.",
+      "id": "CVE-2026-115972",
+      "published": "2026-10-24T18:16:48.730",
+      "description": "A vulnerability was determined in FaveoSuite Faveo Helpdesk up to 2.0.3. Affected by this vulnerability is the function UnAuthController.changeStatus/UnAuthController.close/UnAuthController.open/UnAuthController.resolve of the file app/Http/Controllers/Client/helpdesk/UnAuthController.php. Executing a manipulation of the argument id/status can lead to missing authorization. The attack can be launched remotely. The vendor was contacted early about this disclosure.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-116010",
-      "published": "2026-10-24T12:16:56.827",
-      "description": "RosarioSIS before 12.9.1 contains a missing authorization vulnerability that allows authenticated teachers to write records for students outside their course period by supplying arbitrary student IDs. Attackers can modify the st_arr, values, or attendance POST arrays in MakeReferral.php, EnterEligibility.php, InputFinalGrades.php, and TakeAttendance.php to create referrals, eligibility codes, attendance and final grades for any student in the school.",
+      "id": "CVE-2026-110285",
+      "published": "2026-10-25T06:16:31.020",
+      "description": "The WP Stripe Checkout WordPress plugin before 1.2.2.62 does not verify the Stripe webhook signature when no signing secret is configured, which is its default state, allowing unauthenticated attackers to forge a payment completion notification and create a completed order without paying.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-115982",
+      "published": "2026-10-24T22:16:27.647",
+      "description": "A vulnerability was detected in phpIPAM up to 1.8.3. Affected by this issue is the function create_rack_link of the file app/tools/racks/show-rack-popup.php of the component Rack Link Creation. Performing a manipulation of the argument deviceid results in cross site scripting. Remote exploitation of the attack is possible. The exploit is now public and may be used. The vendor was contacted early about this disclosure.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-116015",
-      "published": "2026-10-24T12:16:57.777",
-      "description": "yudao-cloud through 2026.09 contains an insecure direct object reference vulnerability in the mall trade module that allows authenticated members to read other members' after-sale operation logs by supplying arbitrary afterSaleId values. Attackers can enumerate sequential after-sale IDs against GET /app-api/trade/after-sale-log/list to expose refund amounts, status transitions and timestamps belonging to other members.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-116017",
-      "published": "2026-10-24T12:16:58.130",
-      "description": "Xiaozhi-esp32-server before 0.9.8 contains an insecure direct object reference vulnerability in the manager-api DeviceController.getAddressBook handler that allows authenticated users to read other users' device address books. Attackers with a normal or self-registered account can request /device/address-book/{macAddress} with another user's device MAC to obtain contact MACs, aliases, call permissions, and owner user IDs.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-116018",
-      "published": "2026-10-24T12:16:58.303",
-      "description": "ONEARMY community-platform before 2.165.2 contains an insecure direct object reference vulnerability that allows authenticated users to mark other users' notifications as read via POST /api/notifications/:id/read. Attackers can iterate sequential notification IDs to suppress unread indicators of users in the same tenant, causing them to miss replies, comments and new-content notices.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-116013",
-      "published": "2026-10-24T12:16:57.437",
-      "description": "OpenResty lua-resty-dns before 0.24 contains an improper input validation vulnerability in parse_section() and _decode_name() that fails to check resource record lengths against the received message. Attackers controlling or spoofing a queried nameserver can send truncated record headers or RDATA, raising uncaught Lua exceptions in resolver:query() that abort requests and break name resolution.",
+      "id": "CVE-2026-115996",
+      "published": "2026-10-24T23:16:58.907",
+      "description": "A vulnerability was detected in Unitree Robotics Unitree Go2 up to 1.1.13/1.1.14.1/1.1.15.1. This affects the function WebSocketClient.connect of the file websocket.py of the component chat_go. Performing a manipulation results in improper certificate validation. The attack may be initiated remotely. The attack's complexity is rated as high. The exploitability is reported as difficult. The vendor confirmed early: \"These issues were previously submitted by the researcher through our Security Response Center platform and are tracked internally as follows: Submission 990504 corresponds to our internal ticket #616 (Go2 chat_go WSS client disabled TLS server certificate validation, CWE-295).\"",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-116012",
-      "published": "2026-10-24T12:16:57.250",
-      "description": "Ghidra before 12.2 contains a numeric truncation vulnerability in PackedDecode::skipAttribute and skipAttributeRemaining in marshal.cc that stores 64-bit string lengths in 32-bit variables. Attackers can supply a crafted packed stream, such as a malicious .sla file, to inject attributes into the decompiler's input or crash the decompiler process.",
+      "id": "CVE-2026-116007",
+      "published": "2026-10-25T04:17:34.610",
+      "description": "A flaw has been found in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.09. The impacted element is the function SmsCodeServiceImpl.validateSmsCode0 of the file /service/sms/SmsCodeServiceImpl.java of the component SMS Code Verification. This manipulation causes improper restriction of excessive authentication attempts. The attack may be initiated remotely. The complexity of an attack is rather high. The exploitability is regarded as difficult. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
-      "score": 3.6
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-114629",
-      "published": "2026-10-24T14:16:39.187",
-      "description": "Web::Simple versions before 0.035 for Perl allocate a buffer sized by the Content-Length header for urlencoded body parameters.\n\nWeb::Dispatch::ParamParser::get_unpacked_body_from reads an application/x-www-form-urlencoded body using a single read call, with no cap and the return value ignored. Perl's read grows the buffer to the requested length before reading, so the declared Content-Length determines the allocation.\n\nAn attacker can trigger this through any route whose dispatch specification has a % body-parameter match, such as sub (POST + %name=), sending a Content-Length far larger than the body actually sent. No authentication is involved.",
+      "id": "CVE-2026-116004",
+      "published": "2026-10-25T03:16:27.717",
+      "description": "A security vulnerability has been detected in onyx-dot-app Onyx up to 5.0.0. Impacted is an unknown function of the file web/src/app/craft/components/output-panel/PreviewTab.tsx. The manipulation leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2025-15705",
+      "published": "2026-10-25T06:16:29.603",
+      "description": "The Contact Form by Supsystic  WordPress plugin before 1.8.0 does not sanitise and escape a form name, allowing users with access to the form editor to inject arbitrary web scripts that execute when another user views the form. On multisite installations, where administrators do not hold the unfiltered_html capability, this crosses a privilege boundary.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-115981",
+      "published": "2026-10-24T22:16:27.453",
+      "description": "A security vulnerability has been detected in phpIPAM up to 1.8.3. Affected by this vulnerability is an unknown functionality of the file upgrade/index.php. Such manipulation of the argument REQUEST_URI leads to cross site scripting. The attack may be launched remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure.",
+      "severity": "LOW",
+      "score": 2.4
+    },
+    {
+      "id": "CVE-2026-109111",
+      "published": "2026-10-24T23:16:57.663",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-115557",
-      "published": "2026-10-24T15:17:33.600",
-      "description": "Python has added a denylist for known compromised certificates to the \"ssl\" module to ensure user safety even without certificate revocation configured. Known compromised certificates will automatically be rejected regardless of the SSLContext policy configuration.",
+      "id": "CVE-2026-111326",
+      "published": "2026-10-24T23:16:58.260",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-89284",
+      "published": "2026-10-24T23:16:59.293",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "severity": "UNKNOWN",
       "score": null
     }
