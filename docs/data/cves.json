@@ -1,143 +1,143 @@
 {
-  "totalResults": 3707,
+  "totalResults": 3606,
   "items": [
     {
-      "id": "CVE-2026-116233",
-      "published": "2026-10-26T09:16:34.787",
-      "description": "A security vulnerability has been detected in Oray Pugongying X5 Pro 7.6.1. This impacts an unknown function of the component Dnsmasq. The manipulation of the argument rent_time leads to crlf injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-116234",
-      "published": "2026-10-26T09:16:34.953",
-      "description": "A vulnerability was detected in Oray Pugongying X5 Pro 7.6.1. Affected is an unknown function of the file /etc/ipsec.conf of the component IPsec Policy Handler. The manipulation of the argument secproto results in crlf injection. The attack can be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-116235",
-      "published": "2026-10-26T09:16:35.163",
-      "description": "A flaw has been found in Oray Pugongying X5 Pro 7.6.1. Affected by this vulnerability is an unknown functionality of the component L2TP Authentication. This manipulation of the argument Username causes crlf injection. The attack may be initiated remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-111841",
-      "published": "2026-10-26T09:16:34.207",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in Aman FunnelKit Automations wp-marketing-automations allows Cross Site Request Forgery.This issue affects FunnelKit Automations: from n/a through 3.8.5.2.",
+      "id": "CVE-2026-115924",
+      "published": "2026-10-26T20:17:52.250",
+      "description": "Rembg is a tool to remove images background. Prior to 2.0.82, the public /api/remove endpoint passes attacker-controlled extras.sam_model through rembg/commands/s_command.py to rembg/sessions/sam.py, where it is interpolated into SAM filenames and GitHub download URLs passed to pooch.retrieve() without a pinned hash. An unauthenticated attacker can supply a sam_model value combining path traversal with URL fragment syntax to exploit the HTTP request discarding the fragment while the local POSIX path retains it. The first request primes the attacker-selected path tree, and an identical repeated request downloads malicious ONNX encoder and decoder files beside a readable target file. The graphs can load the target through ONNX external data and encode its bytes into the returned PNG mask, disclosing complete files accessible to the rembg process and allowing arbitrary ONNX computation. This issue is fixed in version 2.0.82.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-82944",
-      "published": "2026-10-26T09:16:36.140",
-      "description": "SOEM version 2.0.0 and earlier contains a vulnerability in multi-segment data transfers where a malicious device can overflow memory buffers. The software checks the total size only once at the beginning, but doesn't track the cumulative size as multiple segments arrive. An attacker can declare a small initial size to pass validation, then send additional segments that exceed the allocated buffer. This allows the attacker to write controlled data beyond buffer boundaries, potentially enabling code execution.",
+      "id": "CVE-2026-104596",
+      "published": "2026-10-26T20:17:37.573",
+      "description": "libosmocore through 1.14.1 contains out-of-bounds reads in the GSM 04.80 supplementary-service component parsers in src/gsm/gsm0480.c. This allows a remote attacker to obtain sensitive information.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-70388",
-      "published": "2026-10-26T09:16:35.860",
-      "description": "SOEM version 2.0.0 and earlier contains vulnerabilities where a malicious device on the network can send specially crafted messages that cause the master to write data outside allocated memory boundaries. The software performs arithmetic on message length values without proper validation, allowing negative or extremely large values to bypass safety checks. This can corrupt memory and potentially allow an attacker to execute arbitrary code on the master system.",
+      "id": "CVE-2026-104597",
+      "published": "2026-10-26T20:17:37.780",
+      "description": "libosmocore through 1.14.1 contains an out-of-bounds read in iuup_rx_initialization() in src/gsm/iuup.c. This allows a remote attacker to obtain sensitive information.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-116236",
-      "published": "2026-10-26T09:16:35.370",
-      "description": "A vulnerability has been found in Oray Pugongying X5 Pro 7.6.1. Affected by this issue is the function plugin_init of the file /tmp/upload_files of the component PPPoE WAN Setting Handler. Such manipulation of the argument pppd_options leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-104598",
+      "published": "2026-10-26T20:17:37.893",
+      "description": "libosmo-sigtran through 2.2.1 contains an out-of-bounds read in the M3UA NOTIFY decoder in src/m3ua.c. This allows a remote attacker to obtain sensitive information.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-82947",
-      "published": "2026-10-26T09:16:36.473",
-      "description": "SOEM version 2.0.0 and earlier contains multiple vulnerabilities in frame processing where a malicious device can cause the master to read data outside allocated buffers. The software uses length and offset values from device messages without validating them against buffer sizes. This can cause the master to access invalid memory locations, potentially disclosing sensitive information or causing crashes.",
+      "id": "CVE-2014-125135",
+      "published": "2026-10-26T20:17:09.347",
+      "description": "A security vulnerability has been detected in OctoPrint 1.0.0/1.1.0. Affected is an unknown function of the component Flask Secret Key Handler. Such manipulation leads to use of hard-coded cryptographic key\r . The attack may be performed from remote. Upgrading to version 1.11.1 is able to address this issue. The name of the patch is b4699825d6ab92d5451e5b1e3a06dfb81f86e777. The affected component should be upgraded.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-113438",
-      "published": "2026-10-26T09:16:34.473",
-      "description": "Pleasanter provided fails to properly verify passwords in LDAP authentication when processing specially crafted requests under certain configurations.  If exploited, an attacker may bypass LDAP authentication by providing only a valid Login ID, without a password. As a result, an attacker may view, alter or delete information stored in the product with the privilege of the account used to log in.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-82943",
-      "published": "2026-10-26T09:16:36.023",
-      "description": "SOEM version 2.0.0 and earlier contains vulnerabilities where a malicious device can send messages that cause the master to read data from memory locations beyond the intended buffer. The software uses length values from device responses without validating them against actual buffer sizes. An attacker can exploit this to extract up to 64KB of data from the master's memory.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-82945",
-      "published": "2026-10-26T09:16:36.257",
-      "description": "SOEM version 2.0.0 and earlier contains a vulnerability during device configuration where a malicious device can cause memory corruption. The software writes configuration data to a fixed-size array without checking if the array index exceeds its maximum size of EC_MAXFMMU entries. A device presenting more than EC_MAXFMMU configuration blocks can force writes beyond the array boundary, corrupting adjacent memory structures and potentially disrupting subsequent operations.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-82946",
-      "published": "2026-10-26T09:16:36.363",
-      "description": "SOEM version 2.0.0 and earlier contains a vulnerability where a malicious device can crash the master system. When the software receives an error response, it clears an internal pointer but continues processing. If another message arrives before timeout, the software attempts to use the cleared pointer, causing a crash. An attacker can trigger this with a simple sequence of two messages.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-95628",
-      "published": "2026-10-26T09:16:36.587",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache Camel Docling component.\n\n\n\nThis issue affects Apache Camel: from 4.15.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nDoclingProducer builds the command line of the external docling tool and appends to it the custom arguments supplied in the CamelDoclingCustomArguments header, a list of strings whose flags the fix for CVE-2026-40047 restricted to an allowlist. That fix also introduced validatePathSafety to keep path-like argument values inside the intended directory, but the method only looked for relative traversal: it rejected a value containing a traversal sequence such as ../ and a value whose normalized form still held a .. element. It never checked whether a value was an absolute path, and an absolute path without traversal segments contains neither, so it passed unchanged. Every path-like value went through this check, whether it was a separate list element following its flag or was attached to the flag after an equals sign, so an absolute path was accepted in either form, for example as the directory given to the allowlisted --artifacts-path flag, which tells docling where to find its model artifacts. Such a value reached the docling command line as given, so a party able to choose the custom arguments could point the docling process at any directory the Camel process can access, outside the working directory that the check was meant to keep path values in, which is the outcome the CVE-2026-40047 fix set out to prevent. Only the CLI mode, which is the default, passes custom arguments to docling. The header belongs to the Camel header namespace, which consumers applying Camel's default header filtering, such as the JMS and Kafka consumers, remove from incoming messages, so the issue is reached where a route forwards externally influenced values into the header or where a consumer maps incoming headers without that filtering.\n\n\n\nUsers are recommended to upgrade to version 4.23.0, which fixes the issue. If users are on the 4.22.x releases stream, then they are suggested to upgrade to 4.22.2. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.5. The 4.15.x to 4.17.x and 4.19.x to 4.21.x release lines reached end of life before this issue was resolved and will not receive a fix, so deployments on them must move to a supported release. For deployments that cannot upgrade immediately, do not build the CamelDoclingCustomArguments header from values that originate outside the deployment, remove that header from messages that arrive from outside before they reach a docling endpoint, and make sure that consumers which map incoming message headers drop the Camel header namespace, so that only the route itself chooses the custom arguments.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-95629",
-      "published": "2026-10-26T09:16:36.800",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache Camel Docling component.\n\n\n\nThis issue affects Apache Camel: from 4.15.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nDoclingProducer runs the external docling tool in CLI mode, the default, and tells it where to write the converted document through the --output flag. When the CamelDoclingOutputFilePath header was set, addOutputDirectoryArguments handed its value to that flag verbatim: the value was not normalized, an absolute path or a path containing .. segments was accepted as given, and no endpoint option could confine it to a directory. The custom-argument validation added by the fix for CVE-2026-40047 refuses the --output and -o flags in the CamelDoclingCustomArguments header and tells callers to choose the output directory with this header instead, so the one value that decides where docling writes reached the command line without any of the checks applied to custom arguments. Docling writes the conversion result, as Markdown, HTML, JSON or text, into that directory, naming the file after the input file, and the producer afterwards removes only its own temporary directory, so the file is left in place. A party able to set the header could therefore have conversion output created in any directory the Camel process can write to. The content of such a file is the conversion of the document carried by the message, so it is shaped by whoever supplies that document without being written byte for byte, and when the document content arrives in the message body the producer stores it under a random temporary name, which the output file then carries. The header belongs to the Camel header namespace, which consumers applying Camel's default header filtering, such as the JMS and Kafka consumers, remove from incoming messages, so the issue is reached where a route forwards externally influenced values into the header or where a consumer maps incoming headers without that filtering. The docling-serve mode does not use the header.\n\n\n\nUsers are recommended to upgrade to version 4.23.0, which fixes the issue. If users are on the 4.22.x releases stream, then they are suggested to upgrade to 4.22.2. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.5. The fix adds an outputBaseDirectory endpoint option that is unset by default, so after upgrading, set it on every docling endpoint whose CamelDoclingOutputFilePath header can carry a value influenced from outside the deployment; without it the header is normalized but can still name any directory. The 4.15.x to 4.17.x and 4.19.x to 4.21.x release lines reached end of life before this issue was resolved and will not receive a fix, so deployments on them must move to a supported release. For deployments that cannot upgrade immediately, do not build the CamelDoclingOutputFilePath header from values that originate outside the deployment, remove that header from messages that arrive from outside before they reach a docling endpoint, and make sure that consumers which map incoming message headers drop the Camel header namespace, so that only the route itself chooses the output directory.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-101259",
-      "published": "2026-10-26T09:16:33.513",
-      "description": "Generation of Error Message Containing Sensitive Information vulnerability in Apache Camel CoAP component.\n\n\n\nThis issue affects Apache Camel: from 4.0.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nWhen the CoAP consumer could not build its response once the route had completed, CamelCoapResource caught the resulting exception and sent its message back to the CoAP client as the payload of a 5.00 Internal Server Error response. The typical case is a type conversion failure: the consumer converts the final message body to the byte[] payload, and the CamelCoapMaxAge and CamelCoapETag headers to their types, after the route has returned, and therefore outside the route's error handler. On the affected releases the message of such a failure names the class of the value being converted, carries the value's string form, and ends with the class name and message of the underlying cause, so a remote CoAP client could read internal detail about the deployment: class and package names, the string form of the value, such as the path of a file body, and whatever the cause carries, which in practice can include paths, host names and connection detail of a backend. The consumer had no option to suppress this, unlike the HTTP consumers, which offer a muteException option for that purpose. The exception raised by a failing route was not sent: the consumer did not check whether the exchange had failed, and answered a route failure with 2.05 Content and whatever body the message held at that point. Reaching the disclosure therefore requires a route whose completed response a remote client can make unconvertible, which depends on how the route is written.\n\n\n\nUsers are recommended to upgrade to version 4.23.0, which fixes the issue. If users are on the 4.22.x releases stream, then they are suggested to upgrade to 4.22.2. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.5. The 4.14.x releases stream and earlier, and the 4.15.x to 4.17.x and 4.19.x to 4.21.x release lines, reached end of life before this issue was resolved and will not receive a fix, so deployments on them must move to a supported release. The upgrade is enough on its own: the new muteException consumer option defaults to true on all three fixed release lines, so the error response carries no payload without any configuration change. For deployments that cannot upgrade immediately, make sure the response can always be built once the route has completed: convert the body to byte[] or String as the last step of each route that consumes from a coap endpoint, for example with convertBodyTo, give the CamelCoapMaxAge and CamelCoapETag headers only values of their own types, and add an onException handler that marks the failure as handled and sets the response body explicitly, so that a conversion failure is raised and replaced inside the route rather than in the consumer.",
+      "id": "CVE-2026-115927",
+      "published": "2026-10-26T20:17:52.397",
+      "description": "Tornado is a Python web framework and asynchronous networking library. Prior to 6.6.0, Tornado decodes HTTP/1.1 chunked transfer encoding by processing body data that has already arrived without yielding to the event loop. A remote unauthenticated peer can send millions of one-byte chunks to monopolize the process event loop and stall every other connection served by that process, while lowering max_body_size only limits the duration of each request. For handlers that do not use @stream_request_body, retaining each chunk as a separate object can consume roughly twenty times the received body size, and SimpleAsyncHTTPClient has the same event-loop behavior when reading a response from a malicious server. This issue is fixed in version 6.6.0.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-95663",
-      "published": "2026-10-26T09:16:37.003",
-      "description": "Insufficient Session Expiration vulnerability in Apache Camel Keycloak component.\n\n\n\nThis issue affects Apache Camel: from 4.16.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nWhen token introspection is enabled on the camel-keycloak KeycloakSecurityPolicy (useTokenIntrospection=true), the security processor validates the access token of a request by sending it to Keycloak's OAuth 2.0 token introspection endpoint, and accepts the token while the response reports it as active. The introspection endpoint reports a token as inactive once its exp (expiration) time has passed, so on this path the active flag is what enforces token expiry. Introspection results are cached by default (introspectionCacheEnabled=true, introspectionCacheTtl=60 seconds), and both cache implementations shipped with the component, ConcurrentMapTokenCache and CaffeineTokenCache, expired an entry a fixed time after it was inserted, without bounding that lifetime by the exp claim that the cached response already carried. KeycloakSecurityProcessor in turn checked only the active flag of the result, on every path that uses introspection, and never compared exp with the current time. A response cached shortly before the token expired was therefore served to later requests carrying the same token for up to the configured time-to-live after the token's expiry, and those requests were admitted with the roles and permissions the expired token had carried, although RFC 7662, which defines token introspection, states that a response containing exp must not be cached beyond that time. The access token is supplied by the caller with each request, typically as a bearer token in the Authorization header, so a caller holding a token that was valid moments earlier could keep using it after it expired, for as long as the cached entry lived. The window is bounded by introspectionCacheTtl, which is 60 seconds by default and 300 to 600 seconds where the documentation's recommendation for internal services was followed, and it opens only for a token that the same Camel process introspected and cached while the token was still active. The issue grants nothing beyond what the token already carried: it allows no token forgery and no privilege escalation, and token introspection is not enabled by default, which is why the severity is assessed medium. The local JWT verification path, used when introspection is disabled, is not affected by this issue.\n\n\n\nUsers are recommended to upgrade to version 4.23.0, which fixes the issue. If users are on the 4.22.x releases stream, then they are suggested to upgrade to 4.22.2. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.5. The 4.16.x, 4.17.x and 4.19.x to 4.21.x release lines reached end of life before this issue was resolved and will not receive a fix, so deployments on them must move to a supported release. For deployments that cannot upgrade immediately, set introspectionCacheEnabled=false on the KeycloakSecurityPolicy, so that every request is checked against the introspection endpoint, which reports an expired token as inactive, at the cost of one introspection call per request. Lowering introspectionCacheTtl only narrows the window and does not close it.",
+      "id": "CVE-2026-116478",
+      "published": "2026-10-26T20:17:55.080",
+      "description": "A vulnerability was detected in a2aproject a2a-go up to 2.4.0. This affects the function CreateExecutor of the file a2asrv/agentexec.go of the component Push Notification Handler. The manipulation results in information exposure through error message. It is possible to launch the attack remotely. Upgrading to version 2.5.0 mitigates this issue. The patch is identified as f4d588216b0c9520e94d571bab725c38ce23064c. It is recommended to upgrade the affected component.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-110376",
-      "published": "2026-10-26T09:16:34.077",
-      "description": "Missing Authorization vulnerability in VillaTheme DEPART depart-deposit-and-part-payment-for-woo allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects DEPART: from n/a through 1.0.10.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-112828",
-      "published": "2026-10-26T09:16:34.340",
-      "description": "Missing Authorization vulnerability in Meow Apps AI Engine ai-engine allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AI Engine: from n/a through 3.8.6.",
+      "id": "CVE-2026-116477",
+      "published": "2026-10-26T20:17:54.890",
+      "description": "A security vulnerability has been detected in a2aproject a2a-dotnet up to 1.0.0-preview2. The impacted element is the function A2AJsonRpcProcessor.ProcessRequestAsync of the file src/A2A.AspNetCore/A2AJsonRpcProcessor.cs of the component Parser. The manipulation leads to information exposure through error message. It is possible to initiate the attack remotely. Upgrading to version 1.0.0-preview3 is sufficient to resolve this issue. The identifier of the patch is ccbd12b6108a6a8f0fd5d8b4a9ece3c8a94ba1e4. Upgrading the affected component is recommended.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-115425",
-      "published": "2026-10-26T09:16:34.620",
-      "description": "Multiple cross site scripting (XSS) vulnerabilities affect OPNsense firewall vesrion 26.7.1_1 and earlier allows low privileged attacker to execute Javascript in the context of another user visiting a specific page or clicking on a specifically crafted link.",
+      "id": "CVE-2026-116479",
+      "published": "2026-10-26T20:17:55.253",
+      "description": "A flaw has been found in a2aproject a2a-java up to 1.2.0.Final. This impacts the function getMessage of the component JSON-RPC Error Handler. This manipulation causes information exposure through error message. The attack can be initiated remotely. Upgrading to version 1.3.0.Final will fix this issue. Patch name: bbee3369f3825d0fba2373d821f6dc6d4fc82ec0. Upgrading the affected component is advised.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-116482",
+      "published": "2026-10-26T20:17:55.453",
+      "description": "A vulnerability has been found in subhajitkhan online-clinic-management-system up to e9ee77a8827a1446220fa07ee693dc4d9a29a578. Affected is an unknown function of the file patientregistration.php. Such manipulation of the argument pat_name leads to cross site scripting. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-115533",
+      "published": "2026-10-26T20:17:51.053",
+      "description": "The LeRobot library is vulnerable to arbitrary code execution via unsafe dynamic class instantiation in the from_pretrained() method and related paths. When loading a policy's processor configuration from a repository,  the library uses the class field within the JSON configuration to dynamically resolve and instantiate Python classes using importlib.import_module() and getattr().",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-116372",
-      "published": "2026-10-26T09:16:35.580",
-      "description": "MISP mispguard is a security filtering proxy that inspects and blocks MISP feed responses based on configured rules. The process_feed_response method in src/mispguard.py was responsible for evaluating feed responses before they reached the MISP instance. The original logic only explicitly handled the case where the HTTP status code was not 200 by passing the response through without filtering, on the assumption that non-200 responses would not carry ingestible event data. However, HTTP 2xx status codes other than 200 (such as 201 Created, 203 Non-Authoritative Information, and 206 Partial Content) were also passed through unfiltered. Because MISP may still ingest content from these responses, a malicious or compromised feed host could return a 203 or 206 status code with arbitrary content, effectively bypassing all of mispguard's filtering rules. This allowed unfiltered or malicious feed data to be ingested into the MISP instance, undermining the security controls that mispguard is designed to enforce. The vulnerability requires the attacker to control or compromise a feed endpoint configured in the MISP instance. No authentication or user interaction is required beyond the feed polling mechanism already in place.",
+      "id": "CVE-2026-57184",
+      "published": "2026-10-26T20:17:56.517",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, insufficient bounds checking in the `chan_ooh323` `Q.931` `information-element parser` permits an `out-of-bounds read` that may allow an unauthenticated attacker to crash Asterisk using carefully crafted `setup packets`. The `chan_ooh323` addon channel driver must be explicitly compiled and installed, which is not the default, and its port must be publicly reachable. This issue is fixed in Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57187",
+      "published": "2026-10-26T20:17:56.700",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an authenticated attacker may cause a heap-use-after-free in `PJSIP TCP/SDP` handling by sending a `SIP INVITE` over a connection-oriented transport and disconnecting before Asterisk responds with the `200 OK`. So far, the crash has only been reproduced when Asterisk is built with `Address Sanitizer`, which detects the issue. `Address Sanitizer` is a development tool with significant performance overhead and, according to the maintainer, is not used in production systems. This issue is fixed in Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57193",
+      "published": "2026-10-26T20:17:56.877",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, the LDAP realtime driver `res_config_ldap` may permit `LDAP filter injection` through a `SIP username`, allowing an unauthenticated attacker to make arbitrary LDAP queries using carefully crafted SIP packets and disclose information. The `res_config_ldap` module must be loaded and configured to access an LDAP server, which is not the default. This issue is fixed in Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57196",
+      "published": "2026-10-26T20:17:57.047",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an unauthenticated attacker may use reflected cross-site scripting in `phone provisioning HTTP error pages` to retrieve an authorized user's `AMI session cookie` and impersonate that user when `res_phoneprov` is enabled. The Asterisk HTTP web server, Asterisk Manager Interface (AMI), and AMI access via HTTP must all be enabled; each is disabled by default. The attacker must be able to connect to the HTTP server, which binds only to `127.0.0.1` by default even when enabled, and must convince the authorized user to click a malicious link. This issue is fixed in Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65625",
+      "published": "2026-10-26T20:17:57.910",
+      "description": "The pure-Erlang AES-GCM fallback in jose_jwa_aes derives the number of verified authentication tag bits from the attacker-supplied tag itself. In the {aes_gcm, Bits} clause of block_decrypt/4, the incoming tag is guarded only by is_binary/1, with no check on its length. Verification in gcm_block_decrypt/6 then computes TBits = bit_size(T) and compares only those bits of the real 128-bit tag. An attacker who controls a JWE token can truncate the authentication tag to as little as 8 bits, so only 8 bits are ever checked. This reduces forgery resistance from 2^-128 to 2^-8, and a forged ciphertext is reliably accepted as authentic within 256 attempts without knowledge of the key (an authentication tag forgery and integrity bypass). Supplying a tag longer than 128 bits instead causes a badmatch that crashes the decrypting process. The fallback is reached through the public JWE decryption path whenever AES-GCM is not provided by a native crypto NIF, for example on FIPS or stripped or older OTP builds.\n\nThis issue affects jose: from 1.2.0 before 1.11.13.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65626",
+      "published": "2026-10-26T20:17:58.103",
+      "description": "The pure-Erlang RSAES-PKCS1-v1_5 decryption in the jose_jwa_pkcs1 module is a Bleichenbacher padding oracle. eme_pkcs1_decode/2 returns the recovered message when a decrypted block has valid PKCS#1 v1.5 padding (a leading 0x00 0x02, a padding string of at least eight non-zero bytes, and a 0x00 separator) and returns a distinct error result otherwise, and rsaes_pkcs1_decrypt/2 additionally returns {error, {badsize, _}} when the length check fails. The implementation applies no implicit-rejection countermeasure (RFC 8017 §7.2.2): it does not substitute a deterministic pseudo-random plaintext on a padding failure, so a one-bit padding-conformance signal leaks to the caller. Because the underlying modular exponentiation in dp/2 is a raw, non-blinded crypto:mod_pow/3, the padding check also stays distinguishable by timing even when an application normalizes every failure to a single error value.\n\nAn unauthenticated attacker who knows only the public RSA key and can submit ciphertexts to a decryption endpoint that unwraps RSA1_5 JWE keys (or otherwise calls decrypt_private/3 with rsa_pkcs1_padding) can use this oracle to recover the plaintext of intercepted ciphertexts, such as content-encryption keys and thus the protected message, or to forge signatures, through roughly 10^4 to 10^6 adaptive chosen-ciphertext queries.\n\nThis issue affects jose: from 1.3.0 before 1.11.13.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65627",
+      "published": "2026-10-26T20:17:58.290",
+      "description": "Improper Handling of Highly Compressed Data (Data Amplification) vulnerability in potatosalad jose (erlang-jose) allows a remote attacker to exhaust a node's memory with a small crafted JWE token.\n\nThe jose_jwe_zip:uncompress/2 function in src/jwe/jose_jwe_zip.erl decompresses the DEFLATE-compressed plaintext of a JWE that carries the optional zip: DEF header by calling zlib:inflate/2 on the entire attacker-controlled stream, with no bound on the output size or the inflation ratio. Raw DEFLATE reaches ratios around 1000:1 on highly repetitive input, so a few-kilobyte token inflates to hundreds of megabytes or gigabytes in a single call.\n\nDecompression runs automatically during decryption through jose_jwe:block_decrypt/2 (JOSE.JWE.block_decrypt/2 in Elixir), before the recipient can inspect or reject the payload. With the common asymmetric key-management algorithms (RSA-OAEP, ECDH-ES) an attacker needs only the recipient's public key to craft such a token, so no authentication or secret material is required. A single small token can exhaust the node's memory and crash the BEAM, denying service to all users.\n\nThis issue affects jose: from 1.0.0 before 1.11.13.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65628",
+      "published": "2026-10-26T20:17:58.473",
+      "description": "jose_jwk:shared_secret/2 (exposed in Elixir as JOSE.JWK.shared_secret/2) derives an ECDH shared secret from two JWKs. Its first function clause only matches when both JWKs carry the same key type (kty) module, and its fallback clause re-invokes itself as shared_secret(from(YourJWK), from(MyJWK)). Because from/1 returns an already-parsed jose_jwk record unchanged, passing two JWKs whose key types differ (for example an EC key and an RSA key) makes the fallback clause re-enter with identical arguments, producing an unbounded tail-recursive loop that never returns and never crashes.\n\nAn application that derives a shared secret from an externally supplied peer public key without first checking that the peer key's type and curve match its own key can be driven into this loop by an attacker-controlled JWK, pinning an Erlang scheduler at 100% CPU. Repeated requests exhaust the available schedulers, resulting in a denial of service.\n\nThis issue affects jose: from 1.5.0 before 1.11.13.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-65629",
+      "published": "2026-10-26T20:17:58.647",
+      "description": "Use of Password Hash With Insufficient Computational Effort in the jose library allows an attacker who obtains a password-encrypted private-key export to recover the private key through an offline password-cracking attack.\n\nWhen jose exports a password-encrypted private key with jose_jwk:to_der/2 (JOSE.JWK.to_der/2), the jose_jwk_der:to_binary/3 function in src/jwk/jose_jwk_der.erl serializes the key as a PKCS#8 EncryptedPrivateKeyInfo using the PBES2 scheme with hardcoded key-derivation parameters: PBKDF2-HMAC-SHA256 with an iteration count of 2048 and an 8-byte (64-bit) random salt. Neither value can be overridden by the caller.\n\nBoth values are far below current guidance (OWASP recommends on the order of 600,000 iterations for PBKDF2-HMAC-SHA256, and NIST recommends salts of at least 128 bits), so the key-stretching work factor is roughly 300 times lower than intended and the short salt reduces the cost of precomputation across keys. The symmetric encryption (AES-256-CBC with a 16-byte random IV) is not affected; the weakness is entirely in the derivation strength. An attacker who obtains one of these exported blobs (for example from a backup, configuration repository, object storage, or logs) can mount a cheap offline dictionary or brute-force attack against the export password, and success yields the full private key.\n\nThis issue affects jose: from 1.10.0 before 1.11.13.",
       "severity": "UNKNOWN",
       "score": null
     }
