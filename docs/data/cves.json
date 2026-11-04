@@ -1,145 +1,145 @@
 {
-  "totalResults": 3502,
+  "totalResults": 3140,
   "items": [
     {
-      "id": "CVE-2014-125138",
-      "published": "2026-10-28T03:17:08.043",
-      "description": "C97net qEngine CMS through 6.0.0, Kemana Directory through 1.5.6, and Cart Engine through 3.0.0 contain an unrestricted file upload vulnerability in administrative image fields. Editor-role users can upload PHP scripts via the page_image or cat_image parameters to the web-accessible /public/image directory and request them to execute code on the server.",
+      "id": "CVE-2026-114278",
+      "published": "2026-10-28T12:17:39.773",
+      "description": "The che-machine-exec service constructs a shell command by concatenating user-controlled input (the username and namespace fields from the /exec/init and /exec/config JSON endpoints) into a double-quoted sh -c \"echo \"...\" > ...\" invocation without any escaping. When che-machine-exec is run with authentication disabled (its default), any network-reachable attacker can achieve remote code execution in containers che-machine-exec is configured to access, via shell command substitution ($(...) or backticks).",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-118477",
+      "published": "2026-10-28T12:17:40.227",
+      "description": "The ei_git_repo_url parameter in the Git remote configuration endpoint of KaliFast is vulnerable to OS Command Injection. This OS Command Injection vulnerability allows an authenticated attacker (free registration available) to execute arbitrary commands on the KaliFast server with www-data privileges. Fixed in version 2026061802.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-115904",
+      "published": "2026-10-28T13:17:05.400",
+      "description": "Topluyo is a social networking platform. A vulnerability exists in Topluyo Desktop for Linux prior to version 2026.9.2410 where user-controlled URLs are unsafely processed, leading to OS Command Injection via the `openExternalLinks()` routine in `utils.js`. An attacker who controls a target URL can execute arbitrary operating system commands with the privileges of the user running the application upon opening the link. Version 2026.9.2410 patches the issue.",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-111411",
+      "published": "2026-10-28T13:17:04.167",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Aman FunnelKit Automations wp-marketing-automations allows Blind SQL Injection.This issue affects FunnelKit Automations: from n/a through 3.8.5.2.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-115607",
+      "published": "2026-10-28T13:17:04.993",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Crowd Favorite DXP ToolKit dxp-toolkit allows SQL Injection.This issue affects DXP ToolKit: from n/a through 2.0.1.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-116391",
+      "published": "2026-10-28T13:17:05.687",
+      "description": "Deserialization of Untrusted Data vulnerability in GS Plugins GS Logo Slider gs-logo-slider allows Object Injection.This issue affects GS Logo Slider: from n/a through 3.8.9.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2015-20129",
-      "published": "2026-10-28T03:17:08.223",
-      "description": "CrushFTP before 7.3.0 contains a cross-site request forgery vulnerability that allows attackers to perform administrative actions because CSRF protection is disabled by default. Attackers can lure an authenticated administrator to a malicious page that submits POST requests to commands like setUserItem, creating root-access users or changing server configuration.",
+      "id": "CVE-2026-111850",
+      "published": "2026-10-28T13:17:04.303",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in BuddyPress BuddyPress buddypress allows SQL Injection.This issue affects BuddyPress: from n/a through 14.5.2.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.5
     },
     {
-      "id": "CVE-2013-20007",
-      "published": "2026-10-28T03:17:07.210",
-      "description": "Linksys WAG200G through 1.01.06 contains an OS command injection vulnerability that allows authenticated attackers to execute commands by injecting backtick-delimited input into the timer_interval parameter. Attackers can send a crafted POST request to setup.cgi to start telnetd or download and run a backdoor, gaining full device control.",
+      "id": "CVE-2026-118485",
+      "published": "2026-10-28T12:17:40.370",
+      "description": "Axel Download Accelerator 2.17.14 and earlier performs URL percent-decoding (http_decode()) on the output filename after the URL has been parsed and the filename component extracted. This allows an attacker to embed %2e%2e%2f (URL-encoded ../) sequences in the URL path. These sequences survive the URL parser intact (they contain no literal / characters) but are decoded into directory traversal sequences before the output file is opened for writing. As a result, a crafted URL can cause axel to write downloaded content to arbitrary filesystem paths relative to the current working directory.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-109999",
-      "published": "2026-10-28T03:17:09.630",
-      "description": "The AI Marketing Expert — AI Email Marketing, AI Content Generator, SEO Analyzer, AI Workflow Automation, Social Media & Ai Chatbot plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'name' parameter in all versions up to, and including, 1.2.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires only that the chatbot module is active with at least one configured bot; the attacker stores the payload via three unauthenticated REST calls, and the JavaScript widget auto-poll then delivers it to any administrator who opens wp-admin/index.php.",
+      "id": "CVE-2026-115591",
+      "published": "2026-10-28T13:17:04.447",
+      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Supsystic Contact Form by Supsystic contact-form-by-supsystic allows Retrieve Embedded Sensitive Data.This issue affects Contact Form by Supsystic: from n/a through 1.10.5.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-111314",
-      "published": "2026-10-28T03:17:09.817",
-      "description": "The affiliate-toolkit – Multi-Network Affiliate & Amazon Product Display plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'atkp_product_producturl' parameter in all versions up to, and including, 3.9.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation by unauthenticated attackers requires that the plugin's AJAX loading / AJAX handler option is enabled (atkp_options::get_ajax_loading_enabled() || get_ajax_handler_enabled()) and the attacker knows a product id to render. On a default installation, where that is not configured, the vulnerability requires attackers with contributor-level access and above.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-117607",
-      "published": "2026-10-28T03:17:12.283",
-      "description": "Xerte Online Toolkits through 3.15.5 contains a remote code execution vulnerability that allows authenticated users with system permission to run PHP by importing a crafted language pack. Attackers can upload a ZIP via import_language.php containing a .inc file, then request it through the language parameter to execute code on the server.",
+      "id": "CVE-2026-116392",
+      "published": "2026-10-28T13:17:05.820",
+      "description": "Deserialization of Untrusted Data vulnerability in PickPlugins Accordion accordions allows Object Injection.This issue affects Accordion: from n/a through 2.3.25.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2013-20008",
-      "published": "2026-10-28T03:17:07.390",
-      "description": "Linksys WAG200G through 1.01.06 contains a weak password change mechanism that allows attackers to change the administrator password without supplying the current password. Attackers with access to an authenticated administrator browser session can set a new password to lock out the legitimate administrator and take persistent device control.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-115593",
+      "published": "2026-10-28T13:17:04.583",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Reflected XSS.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.24.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2014-125137",
-      "published": "2026-10-28T03:17:07.877",
-      "description": "C97net qEngine CMS through 6.0.0, Kemana Directory through 1.5.6, and Cart Engine through 3.0.0 contain a local file inclusion vulnerability in the run parameter of admin/task.php. Authenticated administrators can supply directory traversal sequences in the run parameter to include and disclose local files readable by the web server.",
+      "id": "CVE-2026-115596",
+      "published": "2026-10-28T13:17:04.720",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in impleCode eCommerce Product Catalog ecommerce-product-catalog allows Reflected XSS.This issue affects eCommerce Product Catalog: from n/a through 3.6.4.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-115606",
+      "published": "2026-10-28T13:17:04.857",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Crowd Favorite DXP ToolKit dxp-toolkit allows Stored XSS.This issue affects DXP ToolKit: from n/a through 2.0.1.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-115609",
+      "published": "2026-10-28T13:17:05.130",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Stiofan GetPaid invoicing allows Stored XSS.This issue affects GetPaid: from n/a through 2.8.62.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-115612",
+      "published": "2026-10-28T13:17:05.267",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in iova.mihai SliceWP slicewp allows Stored XSS.This issue affects SliceWP: from n/a through 1.2.13.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-115957",
+      "published": "2026-10-28T13:17:05.553",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Discussion Board WP Discussion Board wp-discussion-board allows Stored XSS.This issue affects WP Discussion Board: from n/a through 2.6.0.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-107625",
-      "published": "2026-10-28T03:17:08.890",
-      "description": "The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'user_url' parameter in all versions up to, and including, 2.14.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires a visitor to click the attacker's Website URL link on their public Ultimate Member profile, a condition that is trivially met since the redirect-confirmation onclick handler is enabled by default on all new installations.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-109209",
-      "published": "2026-10-28T03:17:09.183",
-      "description": "The All-in-One Video Gallery – Video Player & Galleries for YouTube, Vimeo & Self-Hosted Videos plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom_fields[embedcode]' parameter in all versions up to, and including, 4.9.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The sanitization bypass is possible because the save_meta_data() handler returns early when $_POST['post_type'] is absent — a condition always true during XML-RPC requests — and the plugin unconditionally grants Subscribers the publish_aiovg_videos capability, making this exploitable by any authenticated user via a single wp.newPost XML-RPC call.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-109974",
-      "published": "2026-10-28T03:17:09.490",
-      "description": "The All-in-One Video Gallery – Video Player & Galleries for YouTube, Vimeo & Self-Hosted Videos plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'more_link' parameter in all versions up to, and including, 4.9.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-117608",
-      "published": "2026-10-28T03:17:12.450",
-      "description": "Assimp through 6.0.5 contains an integer overflow vulnerability in MD2Importer::ValidateHeader() that allows attackers to bypass frame table bounds checks using crafted header fields. Attackers can supply a malicious .md2 file whose numFrames and numVertices values wrap the 32-bit size check, causing heap out-of-bounds reads that crash applications or expose adjacent heap memory.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2014-125136",
-      "published": "2026-10-28T03:17:07.707",
-      "description": "C97net qEngine CMS through 6.0.0, Kemana Directory through 1.5.6, and Cart Engine through 3.0.0 contain an information disclosure vulnerability that exposes database backups in the web-accessible /admin/backup directory. Unauthenticated attackers can list the directory or guess date-based names like 'Full Backup YYYYMMDD.sql' to download dumps containing user records and administrator password hashes.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-117606",
-      "published": "2026-10-28T03:17:12.100",
-      "description": "NexoPOS through 6.3.0 contains a missing authorization vulnerability that allows authenticated cashiers to manipulate other cashiers' register sessions because CashRegistersService never compares used_by with the user. Attackers holding the default nexopos.use.registers permission can submit closing, cash-in, or cash-out actions to POST /api/cash-registers/{action}/{register} to force-close sessions or alter balances.",
+      "id": "CVE-2026-116855",
+      "published": "2026-10-28T12:17:40.010",
+      "description": "Missing Authorization vulnerability in wphocus My auctions allegro my-auctions-allegro-free-edition allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects My auctions allegro: from n/a through 4.0.3.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-115624",
-      "published": "2026-10-28T03:17:11.780",
-      "description": "GROWI contains a missing authorization check vulnerability in its collaborative editing feature. By exploiting this vulnerability, a user with read-only permission, including a guest user, or a user in pending, suspended, or invited status may modify page drafts.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2013-20009",
-      "published": "2026-10-28T03:17:07.540",
-      "description": "Linksys WAG200G through 1.01.06 contains a stored cross-site scripting vulnerability that allows authenticated attackers to inject scripts via the policy_name parameter in setup.cgi. Attackers can save a malicious policy name from the AccessRes.htm page that executes in administrators' browsers when viewing the Status > Wireless page.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-117605",
-      "published": "2026-10-28T03:17:11.940",
-      "description": "nopCommerce before 5.00.0 contains a missing authorization vulnerability in the admin ProductController RelatedProductAddPopup, CrossSellProductAddPopup and AssociatedProductAddPopup handlers that fail to verify parent product ownership. Authenticated vendors can submit another vendor's product id as model.ProductId to inject their products into the victim's related-products, cross-sell and grouped-product listings.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105272",
-      "published": "2026-10-28T03:17:08.717",
-      "description": "GROWI contains an authorization bypass vulnerability in its page viewing and commenting functionality due to improper use of a user-controlled key. By exploiting this vulnerability, an authenticated attacker may obtain the contents and comments of pages without the required read permission.",
+      "id": "CVE-2026-81472",
+      "published": "2026-10-28T12:17:42.417",
+      "description": "Dell iDRAC Service Module (iSM) for Windows, Dell iDRAC Service Module (iSM) for Linux, and Dell iDRAC Service Module (iSM) for ESXi, versions prior to 6.1.1.0, contains an Improper Control of Generation of Code ('Code Injection') vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
       "severity": "MEDIUM",
       "score": 4.2
     },
     {
-      "id": "CVE-2026-107745",
-      "published": "2026-10-28T03:17:09.037",
-      "description": "The AI Engine – The Chatbot, AI Framework & MCP for WordPress plugin for WordPress is vulnerable to limited media file deletion due to insufficient file path validation in the upload_file function in all versions up to, and including, 3.8.4 This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary media files on the server. This requires the administrator to have enabled the Public API option, and exploitation depends on the hourly cleanup_files task running after the malicious upload.",
-      "severity": "MEDIUM",
-      "score": 4.2
+      "id": "CVE-2026-102790",
+      "published": "2026-10-28T12:17:39.513",
+      "description": "Joomla Extension - icagenda.com -  Stored XSS via url-type event Custom Field in iCagenda 3.2.1 to 4.0.16",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-109848",
-      "published": "2026-10-28T03:17:09.333",
-      "description": "GROWI contains an authorization bypass vulnerability in its tag update API and the page update API due to improper use of a user-controlled key. By exploiting this vulnerability, an attacker who can log in to the product may obtain the contents of pages without the required read permission and save them to pages that the attacker can edit.",
-      "severity": "MEDIUM",
-      "score": 4.2
+      "id": "CVE-2026-102799",
+      "published": "2026-10-28T12:17:39.650",
+      "description": "Joomla Extension - icagenda.com - CSV formula injection in the registrations export in iCagenda 3.5.0 to 4.0.16",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
