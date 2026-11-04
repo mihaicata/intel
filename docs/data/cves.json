@@ -1,143 +1,143 @@
 {
-  "totalResults": 3140,
+  "totalResults": 3033,
   "items": [
     {
-      "id": "CVE-2026-114278",
-      "published": "2026-10-28T12:17:39.773",
-      "description": "The che-machine-exec service constructs a shell command by concatenating user-controlled input (the username and namespace fields from the /exec/init and /exec/config JSON endpoints) into a double-quoted sh -c \"echo \"...\" > ...\" invocation without any escaping. When che-machine-exec is run with authentication disabled (its default), any network-reachable attacker can achieve remote code execution in containers che-machine-exec is configured to access, via shell command substitution ($(...) or backticks).",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-118477",
-      "published": "2026-10-28T12:17:40.227",
-      "description": "The ei_git_repo_url parameter in the Git remote configuration endpoint of KaliFast is vulnerable to OS Command Injection. This OS Command Injection vulnerability allows an authenticated attacker (free registration available) to execute arbitrary commands on the KaliFast server with www-data privileges. Fixed in version 2026061802.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-115904",
-      "published": "2026-10-28T13:17:05.400",
-      "description": "Topluyo is a social networking platform. A vulnerability exists in Topluyo Desktop for Linux prior to version 2026.9.2410 where user-controlled URLs are unsafely processed, leading to OS Command Injection via the `openExternalLinks()` routine in `utils.js`. An attacker who controls a target URL can execute arbitrary operating system commands with the privileges of the user running the application upon opening the link. Version 2026.9.2410 patches the issue.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-111411",
-      "published": "2026-10-28T13:17:04.167",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Aman FunnelKit Automations wp-marketing-automations allows Blind SQL Injection.This issue affects FunnelKit Automations: from n/a through 3.8.5.2.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-115607",
-      "published": "2026-10-28T13:17:04.993",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Crowd Favorite DXP ToolKit dxp-toolkit allows SQL Injection.This issue affects DXP ToolKit: from n/a through 2.0.1.",
-      "severity": "CRITICAL",
-      "score": 9.3
-    },
-    {
-      "id": "CVE-2026-116391",
-      "published": "2026-10-28T13:17:05.687",
-      "description": "Deserialization of Untrusted Data vulnerability in GS Plugins GS Logo Slider gs-logo-slider allows Object Injection.This issue affects GS Logo Slider: from n/a through 3.8.9.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-111850",
-      "published": "2026-10-28T13:17:04.303",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in BuddyPress BuddyPress buddypress allows SQL Injection.This issue affects BuddyPress: from n/a through 14.5.2.",
-      "severity": "HIGH",
-      "score": 8.5
-    },
-    {
-      "id": "CVE-2026-118485",
-      "published": "2026-10-28T12:17:40.370",
-      "description": "Axel Download Accelerator 2.17.14 and earlier performs URL percent-decoding (http_decode()) on the output filename after the URL has been parsed and the filename component extracted. This allows an attacker to embed %2e%2e%2f (URL-encoded ../) sequences in the URL path. These sequences survive the URL parser intact (they contain no literal / characters) but are decoded into directory traversal sequences before the output file is opened for writing. As a result, a crafted URL can cause axel to write downloaded content to arbitrary filesystem paths relative to the current working directory.",
+      "id": "CVE-2026-118633",
+      "published": "2026-10-28T19:17:31.537",
+      "description": "A path traversal vulnerability allows a remote unauthenticated attacker to execute arbitrary code as root in Sophos UTM (all versions) after winning a race condition by sustaining repeated attacks for a few minutes when the email proxy is used with scanning enabled. Sophos UTM is end-of-life and the patch must be installed manually.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-115591",
-      "published": "2026-10-28T13:17:04.447",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Supsystic Contact Form by Supsystic contact-form-by-supsystic allows Retrieve Embedded Sensitive Data.This issue affects Contact Form by Supsystic: from n/a through 1.10.5.",
+      "id": "CVE-2026-118641",
+      "published": "2026-10-28T19:17:31.897",
+      "description": "n8n before 1.123.85, 2.x before 2.43.5, and 2.44.x before 2.44.1 contains an OData $filter injection vulnerability in the Microsoft Outlook contact lookup and Microsoft SharePoint v1 item update nodes, which build $filter string literals from expression-bindable parameters without escaping. Attackers who supply untrusted input to such workflows can inject single quotes to dump the bound mailbox's entire contact list or redirect SharePoint writes onto unintended list items within the stored credential's scope.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-116392",
-      "published": "2026-10-28T13:17:05.820",
-      "description": "Deserialization of Untrusted Data vulnerability in PickPlugins Accordion accordions allows Object Injection.This issue affects Accordion: from n/a through 2.3.25.",
+      "id": "CVE-2026-118257",
+      "published": "2026-10-28T19:17:30.207",
+      "description": "Vue I18n is the internationalization plugin for Vue.js. From 11.1.10 until 11.4.14 and from 12.0.0-alpha.4 until 12.0.0-alpha.5, sanitizeTranslatedHtml() escapes markup and event-handler text inside an iframe srcdoc value but leaves the srcdoc attribute active. Browsers decode the character references and parse the value as a same-origin nested HTML document, allowing attacker-controlled parameters or translation content placed in srcdoc to execute script when applications enable escapeParameter and render translations as HTML through v-html. Versions 9.14.5 and 10.0.8 are also affected and are no longer supported, while i18n-t rendering is not affected. This issue is fixed in versions 11.4.14 and 12.0.0-alpha.5.",
       "severity": "HIGH",
       "score": 7.2
     },
     {
-      "id": "CVE-2026-115593",
-      "published": "2026-10-28T13:17:04.583",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Reflected XSS.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.24.",
+      "id": "CVE-2026-118642",
+      "published": "2026-10-28T19:17:32.070",
+      "description": "n8n before 1.123.85, 2.43.5, and 2.44.1 contains an authorization bypass vulnerability that allows authenticated members to use inaccessible credentials through inline sub-workflow nodes with non-boolean disabled values. Attackers knowing a credential id can run Execute Workflow nodes in inline JSON mode that skip the permission check and send decrypted credentials to attacker-controlled servers.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-115596",
-      "published": "2026-10-28T13:17:04.720",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in impleCode eCommerce Product Catalog ecommerce-product-catalog allows Reflected XSS.This issue affects eCommerce Product Catalog: from n/a through 3.6.4.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-115606",
-      "published": "2026-10-28T13:17:04.857",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Crowd Favorite DXP ToolKit dxp-toolkit allows Stored XSS.This issue affects DXP ToolKit: from n/a through 2.0.1.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-115609",
-      "published": "2026-10-28T13:17:05.130",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Stiofan GetPaid invoicing allows Stored XSS.This issue affects GetPaid: from n/a through 2.8.62.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-115612",
-      "published": "2026-10-28T13:17:05.267",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in iova.mihai SliceWP slicewp allows Stored XSS.This issue affects SliceWP: from n/a through 1.2.13.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-115957",
-      "published": "2026-10-28T13:17:05.553",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Discussion Board WP Discussion Board wp-discussion-board allows Stored XSS.This issue affects WP Discussion Board: from n/a through 2.6.0.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-116855",
-      "published": "2026-10-28T12:17:40.010",
-      "description": "Missing Authorization vulnerability in wphocus My auctions allegro my-auctions-allegro-free-edition allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects My auctions allegro: from n/a through 4.0.3.",
+      "id": "CVE-2026-118640",
+      "published": "2026-10-28T19:17:31.707",
+      "description": "n8n before 1.123.85, 2.43.5, and 2.44.1 contains an authorization bypass vulnerability in Chat Hub that allows chat-only users to register restricted tool types. Users with the global:chatUser role can add and run tools through chat to execute sandboxed code, access permitted files, and use instance workflows, Data Tables, and agents.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-81472",
-      "published": "2026-10-28T12:17:42.417",
-      "description": "Dell iDRAC Service Module (iSM) for Windows, Dell iDRAC Service Module (iSM) for Linux, and Dell iDRAC Service Module (iSM) for ESXi, versions prior to 6.1.1.0, contains an Improper Control of Generation of Code ('Code Injection') vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "id": "CVE-2026-118259",
+      "published": "2026-10-28T19:17:30.510",
+      "description": "opentelemetry-java is the Java implementation of the OpenTelemetry API for recording telemetry, and SDK for managing telemetry recorded by the API. Prior to 1.67.0, W3CTraceContextPropagator.extract() uses regex delimiter processing that can exhibit quadratic backtracking while parsing tracestate headers containing long runs of spaces or tabs without a following comma. An unauthenticated attacker whose headers reach extraction can repeatedly block request or event-loop threads and cause excessive CPU consumption, with practical impact bounded by ingress header-size limits, proxy configuration, and threading. This issue is fixed in version 1.67.0.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-102790",
-      "published": "2026-10-28T12:17:39.513",
-      "description": "Joomla Extension - icagenda.com -  Stored XSS via url-type event Custom Field in iCagenda 3.2.1 to 4.0.16",
+      "id": "CVE-2026-118265",
+      "published": "2026-10-28T19:17:31.377",
+      "description": "Echo is a Go web framework. From 5.0.0 until 5.4.1, Echo v5's ExtractIPFromRealIPHeader validates whether the client-supplied X-Real-IP value belongs to a trusted range instead of validating the direct network peer. A client reaching Echo directly, or through a proxy that preserves the header, can supply a loopback or private address and have Context.RealIP return that spoofed identity. Applications using the extractor for IP allowlists, rate limiting, audit logs, or forwarding headers can consequently trust an attacker-controlled address; the default direct extractor and Echo v4 are unaffected. This issue is fixed in 5.4.1.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-106484",
+      "published": "2026-10-28T19:17:21.860",
+      "description": "Insufficient policy enforcement in chrome-devtools-mcp in Google Chrome on Linux prior to 1.5.0 allowed a local attacker to perform arbitrary read/write via a malicious file. (Chromium security severity: Medium)",
+      "severity": "MEDIUM",
+      "score": 4.4
+    },
+    {
+      "id": "CVE-2026-118258",
+      "published": "2026-10-28T19:17:30.360",
+      "description": "i18next-http-backend is a backend layer for i18next that loads translation resources in Node.js, browsers, and Deno. Prior to 4.0.4, interpolateUrl inserts unencoded language and namespace values into loadPath or addPath templates without rejecting ampersand (&), equals (=), or semicolon (;) query separators. When a template places lng or ns in the query string and an attacker controls that value, the attacker can add or override parameters on browser or server-side translation requests, potentially exposing other namespaces or tenants or changing backend behavior through the application's network position and credentials. This vulnerability is the result of an incomplete fix for CVE-2026-41691. This issue is fixed in version 4.0.4.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-118251",
+      "published": "2026-10-28T19:17:29.340",
+      "description": "Highcharts JS is a JavaScript charting library based on SVG. Prior to 11.4.9, 12.6.1, and 13.1.0, Highcharts assigns credits.href to the window location when the credits label is clicked without checking the URL against the allowed-scheme list. An attacker who controls chart configuration can provide a javascript URL and run script in the origin of the hosting page when a user clicks the credits label. Highcharts Stock, Maps, and Gantt are included because they ship from the same package. This issue is fixed in 11.4.9, 12.6.1 and 13.1.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-102799",
-      "published": "2026-10-28T12:17:39.650",
-      "description": "Joomla Extension - icagenda.com - CSV formula injection in the registrations export in iCagenda 3.5.0 to 4.0.16",
+      "id": "CVE-2026-118252",
+      "published": "2026-10-28T19:17:29.483",
+      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.3, Highcharts Dashboards edit-mode sidebar parses component language strings as HTML rather than inserting them as text. An attacker who controls the Dashboards language configuration can provide markup containing event handlers, which execute in the hosting page origin when a user opens the edit-mode sidebar and the affected labels render. This issue is fixed in 4.2.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118253",
+      "published": "2026-10-28T19:17:29.627",
+      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.3, Highcharts Dashboards edit mode parses fullscreen language labels as HTML rather than inserting them as text. An attacker who controls Dashboards language options can supply markup with event handlers, which execute in the hosting page origin when the fullscreen control is rendered. The label is reachable only when edit mode is enabled and viewFullscreen is present in the context-menu items. This issue is fixed in 4.2.3.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118254",
+      "published": "2026-10-28T19:17:29.763",
+      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 2.0.0 until 3.2.0, Highcharts Grid writes pagination language strings into the DOM as markup instead of text. An attacker who controls the Grid language configuration can provide elements with event handlers, which execute in the hosting page origin when pagination controls render. Exploitation requires pagination to be enabled but does not require additional user interaction. This issue is fixed in 3.2.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118255",
+      "published": "2026-10-28T19:17:29.900",
+      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 2.0.0 until 3.2.0, Highcharts Grid applies credits.href to the credits link without validating the URL scheme. An attacker who controls Grid configuration can provide a javascript URL, and activating the credits link runs script in the origin of the hosting page with access to that application's data and session state.This issue is fixed in Grid Pro 3.2.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118256",
+      "published": "2026-10-28T19:17:30.060",
+      "description": "Vue I18n is the internationalization plugin for Vue.js. From 9.0.0-beta.5 until 11.4.14 and 12.0.0-alpha.5, enabling escapeParameter, called escapeParameterHtml in the Legacy API, does not escape named interpolation values when the same translation call supplies both list and named values because escapeParams() processes only the list branch. Applications that render translations as HTML and pass untrusted named values with a list can insert attacker-controlled markup, including phishing links, forms, and layout changes, and can permit script execution when combined with the srcdoc sanitizer bypass or on releases without the sanitizer. This issue is fixed in versions 11.4.14 and 12.0.0-alpha.5.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118260",
+      "published": "2026-10-28T19:17:30.663",
+      "description": "Echo is a Go web framework. From 4.0.0 until 4.16.1, Echo v4's opt-in BodyDump middleware reads complete request bodies into memory before handlers run and retains complete response bodies for the dump callback without capture limits. An unauthenticated client that can reach a route using BodyDump can submit large bodies or influence large responses, causing repeated or concurrent allocations that exhaust process memory. BodyDump is not enabled by default, and external request limits may reduce request-side exposure but do not bound response capture. This issue is fixed in 4.16.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118261",
+      "published": "2026-10-28T19:17:30.810",
+      "description": "Echo is a Go web framework. From 4.0.0 until 4.16.1, Echo v4's opt-in Decompress middleware exposes a gzip-decoded request stream without limiting its expanded size. A small compressed request can expand into a very large body when a handler reads or binds it, consuming excessive memory or CPU and allowing repeated or concurrent requests to cause denial of service. The middleware is not enabled by default, and limiting only the compressed request size does not bound the decoded size. This issue is fixed in 4.16.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118262",
+      "published": "2026-10-28T19:17:30.950",
+      "description": "Echo is a Go web framework. From 4.15.0 until 4.16.1 and 5.4.1, Echo's Proxy middleware can retain a handler, copy goroutines, and network connections after a WebSocket client disconnects when the upstream keeps its connection open. The raw proxy waits for both copy directions without reliably closing the peer connection when one direction ends, including when a rejected upgrade response uses HTTP keep-alive. Repeated connections can accumulate resources and cause denial of service, depending on proxy-route accessibility, upstream behavior, and connection deadlines. This issue is fixed in 4.16.1 and 5.4.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118263",
+      "published": "2026-10-28T19:17:31.097",
+      "description": "Echo is a Go web framework. From 5.0.0 until 5.4.1, Echo v5's BodyDump middleware can discard a BodyLimit overflow error for an unknown-length request when BodyDump's capture limit is below the BodyLimit threshold. BodyDump drains the remaining body while ignoring read errors and replaces it with the captured prefix, so an HTTP/1.1 chunked request can be truncated and processed successfully even though the original body exceeded the configured limit. Known-length requests rejected before BodyDump runs are unaffected, and the issue does not establish a general authentication bypass or denial of service. This issue is fixed in 5.4.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118264",
+      "published": "2026-10-28T19:17:31.237",
+      "description": "Echo is a Go web framework. From 4.0.0 until 4.16.1 and 5.4.1, Echo's Proxy middleware selects a raw tunnel from a client WebSocket upgrade request before verifying that the configured upstream accepted the upgrade. If the upstream rejects the upgrade with an ordinary keep-alive response, later HTTP requests on the connection are sent directly to that upstream without passing through Echo's router or route-specific middleware. This can bypass authentication or authorization enforced only by Echo routes, but requires an accessible proxy route, a cooperating rejected-upgrade response, and a target without independent upstream authorization. This issue is fixed in 4.16.1 and 5.4.1.",
       "severity": "UNKNOWN",
       "score": null
     }
