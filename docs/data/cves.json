@@ -1,143 +1,143 @@
 {
-  "totalResults": 3123,
+  "totalResults": 3050,
   "items": [
     {
-      "id": "CVE-2026-107743",
-      "published": "2026-10-29T10:17:02.580",
-      "description": "The Mapster WP Maps plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 2.0.5. This is due to the /wp-json/mapster-wp-maps/save-mapmaker REST route being registered with a permission_callback that unconditionally returns true (no capability check, no nonce), together with the mapster_write_config_to_acf() helper only sanitizing string config values with sanitize_text_field() — which strips HTML tags but leaves quote characters intact — and the mapster_wp_map shortcode renderer in mapster_wordpress_maps_shortcode_display() concatenating the stored loading_background_color value into a single-quoted inline style attribute without esc_attr(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-104339",
+      "published": "2026-10-29T16:17:44.403",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote attacker to execute arbitrary code due to improper neutralization of special elements used in an OS command.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-117548",
-      "published": "2026-10-29T07:16:44.363",
-      "description": "A NULL pointer dereference flaw was found in 389-ds-base. This flaw occurs when a ModifyDN (rename) operation uses an attribute's schema alias name (such as \"commonName\") instead of its canonical name (such as \"cn\") as the new relative distinguished name. An authenticated attacker with the ModifyDN (rename) permission on the affected entry can use this flaw to crash the directory server, causing a denial of service.",
+      "id": "CVE-2026-107027",
+      "published": "2026-10-29T16:17:48.503",
+      "description": "Insecure permissions in lz233 Tarnhelm v1.8.2 (versionCode 20250630) allows unauthorized attackers to invoke an exported component, leading to arbitrary data access and overwriting.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-101288",
+      "published": "2026-10-29T16:17:35.203",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary code due to improper neutralization of special elements used in code.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-104324",
+      "published": "2026-10-29T16:17:44.033",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary code due to deserialization of untrusted data.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-104328",
+      "published": "2026-10-29T16:17:44.153",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary code due to improper neutralization of special elements used in an OS command.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-103092",
+      "published": "2026-10-29T16:17:41.547",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary SQL commands due to improper access control.",
+      "severity": "HIGH",
+      "score": 8.5
+    },
+    {
+      "id": "CVE-2026-104317",
+      "published": "2026-10-29T16:17:43.907",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote attacker who could reach the message broker to execute arbitrary code on the system due to the deserialization of untrusted data.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-107025",
+      "published": "2026-10-29T16:17:48.277",
+      "description": "Insecure permissions in WikiAndPad alpha/beta v0.2alpha03 (versionCode 200300) allows unauthorized attackers to export the application's data.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-107026",
+      "published": "2026-10-29T16:17:48.383",
+      "description": "Insecure permissions in Share to Clipboard v1.14.1 (versionCode 32) allows unauthorized attackers to arbitrarily overwrite another user's clipboard content.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-104309",
+      "published": "2026-10-29T16:17:43.153",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to obtain sensitive information due to improper limitation of a pathname to a restricted directory.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-104727",
-      "published": "2026-10-29T10:17:02.133",
-      "description": "The Sequential Order Numbers for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'condition' Post Meta Array Keys in all versions up to, and including, 3.6.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-104314",
+      "published": "2026-10-29T16:17:43.527",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow an authenticated attacker with a read or share grant on a target flow to retrieve the flow owner's stored third-party credentials in cleartext from the API response.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-109215",
-      "published": "2026-10-29T10:17:02.727",
-      "description": "The LiteSpeed Cache plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'bbp_reply_content' parameter in all versions up to, and including, 7.9.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that an administrator has enabled Viewport Images (VPI) and configured a VPI filename that matches an image the attacker can embed in user-generated content — such as a bbPress topic where Subscriber-level Participants are permitted to post replies containing raw img tags.",
+      "id": "CVE-2026-104316",
+      "published": "2026-10-29T16:17:43.783",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow an authenticated attacker to cancel any victim's running background workflow job by sending a single HTTP request, resulting in loss of in-progress compute work with no flow-level permission check.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-117627",
-      "published": "2026-10-29T07:16:44.533",
-      "description": "A flaw was found in the JWT Authorization Grant implementation of the keycloak-services component. When an OIDC or Google identity provider is configured with specific login restrictions, such as claim filtering, these checks are correctly applied during standard browser logins but are skipped during the JWT-based grant flow. This allows an authenticated client to obtain access tokens for a user even if their identity provider claims should have blocked the login.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-117859",
-      "published": "2026-10-29T07:16:44.840",
-      "description": "A flaw was found in the Pushed Authorization Request PAR implementation of the keycloak-services component. The issue occurs when an authentication flow is restarted, which incorrectly clears the internal markers used to track PAR consumption while leaving the request active. This allows an attacker to reuse the same authorization request to obtain multiple access tokens, bypassing security requirements for single-use requests.",
+      "id": "CVE-2025-13050",
+      "published": "2026-10-29T16:17:32.127",
+      "description": "Broken Function Level Authorization allows execution of poller post-restart commands by authenticated user",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-103485",
-      "published": "2026-10-29T10:17:00.737",
-      "description": "The Extensions for Leaflet Map plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'feature.properties[<template-token>]' parameter in all versions up to, and including, 5.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that a site administrator has previously configured a public map using the [leaflet-map]+[leaflet-geojson]+[choropleth] shortcode combination whose GeoJSON src URL is one the attacker controls — for example, through compromise of an external data host, a subdomain takeover, or a site intentionally pointing at an attacker-hosted feed.",
+      "id": "CVE-2026-104331",
+      "published": "2026-10-29T16:17:44.280",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-107627",
-      "published": "2026-10-29T10:17:02.293",
-      "description": "The Greenshift – animation and page builder blocks plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 13.2.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires an administrator to have published a page containing a Text Animated block with Content set to Blocks, a Latest Comments block with excerpts enabled nested inside it, and at least one Animated Texts value configured — conditions that cause the gs-textanimate script to be enqueued and process the comment excerpts.",
+      "id": "CVE-2026-102590",
+      "published": "2026-10-29T16:17:39.683",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to obtain sensitive information due to a server-side request forgery vulnerability.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5
     },
     {
-      "id": "CVE-2026-107629",
-      "published": "2026-10-29T10:17:02.440",
-      "description": "The Greenshift – animation and page builder blocks plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 13.2.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the affected post page to include an Advanced HTML Element block with Split Text animation enabled wrapping a Latest Comments block that displays comment excerpts, as this configuration causes splittext.js to be enqueued and to process the comment content container.",
+      "id": "CVE-2026-104308",
+      "published": "2026-10-29T16:17:43.020",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to cause a denial of service due to improper neutralization of special elements used in an OS command.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-117688",
-      "published": "2026-10-29T07:16:44.690",
-      "description": "A flaw was found in the client registration component of Keycloak, an open-source identity and access management solution. When a vault provider is used to store sensitive information, an authenticated client owner can use a specially crafted reference to trick the system into revealing secrets. By updating a client secret to point to a vault entry and then requesting the client configuration, the owner can see the secret value in plain text. This could lead to the exposure of sensitive credentials that the user should not be able to access.",
+      "id": "CVE-2026-104310",
+      "published": "2026-10-29T16:17:43.277",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to obtain sensitive information due to a server-side request forgery (SSRF) vulnerability.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-103875",
-      "published": "2026-10-29T10:17:01.977",
-      "description": "The Media Library Assistant plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'search-string' parameter in all versions up to, and including, 3.42 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. Exploitation requires the targeted site to have a publicly accessible page containing an [mla_gallery] shortcode configured with a pagination output mode and an mla_link_href template that reflects a {+request:...+} token, along with enough attachments to trigger pagination.",
+      "id": "CVE-2026-104315",
+      "published": "2026-10-29T16:17:43.653",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-110707",
-      "published": "2026-10-29T10:17:02.877",
-      "description": "The RSS Aggregator by Feedzy – Feed to Post, Autoblogging, News & YouTube Video Feeds Aggregator plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'media:group/media:description (XML element in the imported feed)' parameter in all versions up to, and including, 5.2.12 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires an administrator to configure a Feed-to-Post import pointing at an attacker-controlled feed URL and trigger the import via the Run Now action or setup wizard, which is the plugin's standard configuration flow.",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-118030",
-      "published": "2026-10-29T07:16:44.990",
-      "description": "A flaw was found in the HOTP authentication mechanism of the keycloak-services component, which provides identity and access management services. The issue occurs because the system validates a one-time password and updates its internal counter in two separate steps without proper locking. An attacker with a users password could exploit this timing gap to use a single one-time code to log in multiple times simultaneously.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2026-115303",
-      "published": "2026-10-29T09:17:08.097",
-      "description": "The Contact Form by Supsystic WordPress plugin before 1.11.1 does not strip CR/LF characters or re-validate submitted field values before concatenating them into outgoing email headers when a form is configured to map a submitted field into its Reply-To, From or Cc header, allowing unauthenticated users to inject arbitrary email headers such as additional Bcc or Cc recipients into the notification email.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-85498",
-      "published": "2026-10-29T09:17:08.400",
-      "description": "A flaw was found in polkit. When processing input that begins with a null byte, an arithmetic error in the authentication agent helper causes an integer underflow during buffer length calculation, resulting in an out-of-bounds memory read. An attacker capable of supplying crafted input can trigger this flaw, potentially causing an application crash and resulting in a Denial of Service (DoS).",
+      "id": "CVE-2026-104312",
+      "published": "2026-10-29T16:17:43.400",
+      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow an authenticated attacker to produce a server-generated ZIP archive containing entry paths that traverse outside the intended extraction directory. Extraction of the archive by a victim using a non-sanitizing tool could result in arbitrary file write on the victim's host.",
       "severity": "LOW",
       "score": 3.5
     },
     {
-      "id": "CVE-2025-62839",
-      "published": "2026-10-29T08:16:59.863",
-      "description": "An use of hard-coded cryptographic key vulnerability has been reported to affect HBS 3 Hybrid Backup Sync and Hybrid Backup Sync. If exploited, the vulnerability could allow remote attackers to compromise the security of the system.\n\nWe have already fixed the vulnerability in the following version:\nHBS 3 Hybrid Backup Sync 26.4.0.521 and later\nHybrid Backup Sync 26.4.0.521 and later\nHybrid Backup Sync 26.4.1.563 and later",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-62841",
-      "published": "2026-10-29T08:17:00.057",
-      "description": "An use of hard-coded cryptographic key vulnerability has been reported to affect HBS 3 Hybrid Backup Sync and Hybrid Backup Sync. If exploited, the vulnerability could allow remote attackers to compromise the security of the system.\n\nWe have already fixed the vulnerability in the following version:\nHBS 3 Hybrid Backup Sync 26.4.0.521 and later\nHybrid Backup Sync 26.4.0.521 and later\nHybrid Backup Sync 26.4.1.563 and later",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-117174",
-      "published": "2026-10-29T08:17:00.210",
-      "description": "Rejected reason: VUL-2026-008368 為先回報之相同問題",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114358",
-      "published": "2026-10-29T09:17:07.910",
-      "description": "This\nvulnerability exists in the Radius\nXenia M2M Platform due to insufficient validation of user supplied input in\nthe password recovery functionality in the web management interface. An\nunauthenticated remote attacker could exploit this vulnerability by supplying\ncrafted SQL query through input fields to the targeted system. \n\n\n\nSuccessful exploitation of this vulnerability\ncould allow the attacker to gain unauthorized access to sensitive information,\nenumerate database structure or modify database records on the targeted system.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-7190",
-      "published": "2026-10-29T09:17:08.250",
-      "description": "A cross-site scripting (XSS) vulnerability in the ICTBroadcast software, which affects the demo environment. The vulnerability is found in the ‘login.php’ endpoint, where the ‘editForm[extension_username]’ parameter is reflected in the response without proper filtering. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary JavaScript code in the victim’s browser once the victim accesses the malicious URL.",
+      "id": "CVE-2026-106036",
+      "published": "2026-10-29T16:17:47.653",
+      "description": "Szafir accepts any client or server certificate without performing certificate and hostname validation, allowing HTTPS connections without authenticating the remote server. An attacker can provide an arbitrary SSL/TLS certificate and cause the application to download an update file from their server.\n\n\n\nThis issue was fixed in version 2.0 build 708.",
       "severity": "UNKNOWN",
       "score": null
     }
