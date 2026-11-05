@@ -1,143 +1,143 @@
 {
-  "totalResults": 3050,
+  "totalResults": 3180,
   "items": [
     {
-      "id": "CVE-2026-104339",
-      "published": "2026-10-29T16:17:44.403",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote attacker to execute arbitrary code due to improper neutralization of special elements used in an OS command.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-107027",
-      "published": "2026-10-29T16:17:48.503",
-      "description": "Insecure permissions in lz233 Tarnhelm v1.8.2 (versionCode 20250630) allows unauthorized attackers to invoke an exported component, leading to arbitrary data access and overwriting.",
+      "id": "CVE-2026-61645",
+      "published": "2026-10-29T22:17:04.963",
+      "description": "Docat is a tool for hosting versioned static documentation. In the affected implementation, an arbitrary file upload vulnerability in the `Upload API` arises because the API does not validate the `uploaded file path or type`. An attacker can overwrite sensitive configuration files or place malicious files on the Docat web server. Depending on deployment context, uploaded content can enable remote code execution or cross-site scripting intended to steal cookies or redirect users to malicious websites. Version 1.6.0 mitigates filename-based path traversal; remediation of unrestricted file types or deployment-dependent malicious-content effects is not established by the verified patch.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-101288",
-      "published": "2026-10-29T16:17:35.203",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary code due to improper neutralization of special elements used in code.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-61707",
+      "published": "2026-10-29T22:17:05.603",
+      "description": "SOCFortress CoPilot focuses on providing a single pane of glass for all your security operations needs. Prior to 0.1.76, in the reported deployment, case-report templates uploaded by `customer_user`, the lowest-privilege portal role, are later executed by non-sandboxed Jinja2 engines when an admin or analyst generates a report. The `/case-report-template/upload` route in `backend/app/incidents/routes/db_operations.py` validates only the filename-derived MIME type, not the template content. Templates share a global store without customer_code scoping, and `customer_user` can also list, download and delete them, allowing an attacker to replace a legitimate default template under the same name. In `backend/app/incidents/services/reports.py`, `render_document_with_context` uses `DocxTemplate` without a sandbox; in `backend/app/incidents/services/reports_pdf.py`, `render_html_template` uses a non-sandboxed `Environment` without autoescaping. Normal privileged requests to `POST /api/incidents/report/generate-report-docx` or `/generate-report-pdf` therefore evaluate attacker-controlled Jinja expressions as Python on the backend. The reported deployment executes commands as root, exposing all tenants' incident and SIEM data and stored connector credentials. The HTML/PDF wkhtmltopdf renderer additionally permits local-file reads and requests to internal services. This issue is fixed in version 0.1.76.",
+      "severity": "CRITICAL",
+      "score": 9
     },
     {
-      "id": "CVE-2026-104324",
-      "published": "2026-10-29T16:17:44.033",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary code due to deserialization of untrusted data.",
+      "id": "CVE-2026-61719",
+      "published": "2026-10-29T22:17:05.763",
+      "description": "WeGIA is a web manager for charitable institutions. Prior to 3.8.7, a stored cross-site scripting vulnerability in `saude/historico_prontuarios.php` arises because the `textoProntuario` field accepts arbitrary HTML or JavaScript without proper sanitization. An attacker able to create or access a patient's medical record can submit the field through `POST /controle/control.php` with `nomeClasse=SaudeControle`, `metodo=alterarProntuario`, and `id_fichamedica`. The stored content is rendered when another user accesses `/html/saude/historico_prontuarios.php` with `id_historico`, automatically executing attacker-controlled JavaScript in the victim's browser. The vulnerability permits session cookie theft and potential account compromise depending on the victim's privileges. This issue is fixed in version 3.8.7.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.9
     },
     {
-      "id": "CVE-2026-104328",
-      "published": "2026-10-29T16:17:44.153",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary code due to improper neutralization of special elements used in an OS command.",
+      "id": "CVE-2026-45049",
+      "published": "2026-10-29T22:17:02.400",
+      "description": "Open Access Management (OpenAM) is an access management solution. Prior to 16.1.1, the `Cross-Domain Single Sign-On` (`CDSSO`) servlet allows a logged-in user's raw OpenAM session token to be POSTed to an attacker-controlled URL. An attacker who induces an authenticated victim to visit a crafted URL can receive the session credential and potentially hijack the session. Deployments must have `CDSSO` enabled, as is common in multi-domain deployments, and exploitation is additionally gated on a non-default configuration being absent. This issue is fixed in version 16.1.1.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-103092",
-      "published": "2026-10-29T16:17:41.547",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to execute arbitrary SQL commands due to improper access control.",
-      "severity": "HIGH",
-      "score": 8.5
-    },
-    {
-      "id": "CVE-2026-104317",
-      "published": "2026-10-29T16:17:43.907",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote attacker who could reach the message broker to execute arbitrary code on the system due to the deserialization of untrusted data.",
+      "id": "CVE-2026-61671",
+      "published": "2026-10-29T22:17:05.273",
+      "description": "WeGIA is a web manager for charitable institutions. Prior to the advisory's stated patched version 3.8.7, the `/controle/control.php` dispatch endpoint accepts attacker-controlled `nomeClasse`, `metodo`, and record identifier parameters through `extract($_REQUEST)`, including id, `idatendido`, `idInterno`, and `id_funcionario`, while the affected Controle CRUD methods do not verify record ownership. Any authenticated user can view, modify, or delete another user's records, exposing CPF, RG, addresses, medical records, financial data, and employee records. `AtendidoControle` lacks ownership checks on alterar, excluir, `listarUm`, `alterarInfPessoal`, `alterarDocumentacao`, `alterarImagem`, `alterarEndereco`, and `alterarStatus`; `InternoControle` lacks them on incluir, alterar, excluir, `listarUm`, `listarTodos`, and `listarCpf`. `FuncionarioControle` lacks ownership checks on `alterarInfPessoal`, `alterarEndereco`, `alterarDocumentacao`, `alterarImagem`, `alterarCargaHoraria`, and excluir; `VoluntarioControle` lacks them on `alterarInfPessoal`, `alterarEndereco`, `alterarDetalhes`, `alterarImagem`, and excluir. `AtendidoControle` and `InternoControle` additionally lack CSRF validation, allowing a malicious page visited by an authenticated victim to perform state-changing operations using the victim's session. `FuncionarioControle` and `VoluntarioControle` have per-method CSRF checks, but those checks do not prevent the object-authorization bypass. The advisory identifies version 3.8.7 as patched.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-107025",
-      "published": "2026-10-29T16:17:48.277",
-      "description": "Insecure permissions in WikiAndPad alpha/beta v0.2alpha03 (versionCode 200300) allows unauthorized attackers to export the application's data.",
+      "id": "CVE-2026-119283",
+      "published": "2026-10-29T22:17:01.047",
+      "description": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. Prior to 1.7.5, joserfc.jwe.decrypt_json() accepts a JWE General JSON Serialization recipients array without a count limit and calls decrypt_cek() for every entry. An unauthenticated attacker who can submit a JWE to an endpoint using an RSA key-management algorithm can choose the number of private-key decryption operations performed by one request. The verify_all_recipients option does not reduce this work because the affected loop processes every recipient before consulting that setting, allowing repeated requests to exhaust service CPU without affecting confidentiality or integrity. This issue is fixed in version 1.7.5.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107026",
-      "published": "2026-10-29T16:17:48.383",
-      "description": "Insecure permissions in Share to Clipboard v1.14.1 (versionCode 32) allows unauthorized attackers to arbitrarily overwrite another user's clipboard content.",
+      "id": "CVE-2026-119286",
+      "published": "2026-10-29T22:17:01.517",
+      "description": "GraphQL-core is a Python port of the GraphQL.js reference implementation. From 3.3.0a3 until 3.3.1, validate() reuses a module-level ValidationAbortedError when a document exceeds max_errors. Python appends frames to the reused exception's traceback on every raise, retaining each document, validation context, and error set for the process lifetime. An unauthenticated client can repeatedly submit a small document with more than 100 validation errors to cause unbounded memory growth before query execution, eventually exhausting worker memory without disclosing or modifying data. This issue is fixed in version 3.3.1.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-104309",
-      "published": "2026-10-29T16:17:43.153",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to obtain sensitive information due to improper limitation of a pathname to a restricted directory.",
+      "id": "CVE-2026-119317",
+      "published": "2026-10-29T22:17:01.670",
+      "description": "On Linux, an authenticated, low-privileged Nessus user with scan-creation rights could read arbitrary text files on the scanner host with the privileges of the nessusd process by running a custom Unix compliance audit against the scanner itself.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-104314",
-      "published": "2026-10-29T16:17:43.527",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow an authenticated attacker with a read or share grant on a target flow to retrieve the flow owner's stored third-party credentials in cleartext from the API response.",
+      "id": "CVE-2026-119285",
+      "published": "2026-10-29T22:17:01.367",
+      "description": "Fiber is an Express inspired web framework written in Go. From 2.52.1 until 2.52.3, the CORS middleware's validateDomain wildcard matcher in middleware/cors/utils.go strips the scheme and checks only a host suffix without requiring a dot boundary. An application configured with a wildcard-subdomain AllowOrigins value and AllowCredentials enabled can reflect an unrelated attacker-controlled origin whose host merely ends with the configured base domain. A user who visits that origin can expose authenticated cross-origin responses to the attacker's page; empty-label origins and later comma-space parsing hardening are outside this advisory. This issue is fixed in version 2.52.3.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-104316",
-      "published": "2026-10-29T16:17:43.783",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow an authenticated attacker to cancel any victim's running background workflow job by sending a single HTTP request, resulting in loss of in-progress compute work with no flow-level permission check.",
+      "id": "CVE-2026-110133",
+      "published": "2026-10-30T01:16:43.730",
+      "description": "A flaw was found in Ghostscript. When processing a specially crafted TrueType font or document embedding one, an accounting error during font rendering can bypass buffer size checks, triggering a heap-based buffer overflow. A remote attacker could exploit this by enticing a victim or automated service to open the malicious content, potentially resulting in a Denial of Service (DoS) crash or arbitrary code execution.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.8
     },
     {
-      "id": "CVE-2025-13050",
-      "published": "2026-10-29T16:17:32.127",
-      "description": "Broken Function Level Authorization allows execution of poller post-restart commands by authenticated user",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-115943",
+      "published": "2026-10-29T22:17:00.767",
+      "description": "Spreadsheet::XLSX versions before 0.19 for Perl allow code execution via string eval of number format conditions in ExcelFmt.\n\nWhen a number format has a condition such as [>100], ExcelFmt chooses the format section by passing the condition and the cell value to a string eval. Both come from the workbook, and the eval runs while Spreadsheet::XLSX->new parses it.\n\nAn attacker who supplies an XLSX file can run arbitrary Perl code.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-104331",
-      "published": "2026-10-29T16:17:44.280",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-119282",
+      "published": "2026-10-29T22:17:00.887",
+      "description": "Nx is a monorepo solution for TypeScript and polyglot codebases. From 22.0.2 until 22.7.9 and 23.1.2 for @nx/maven, and from 21.0.0 until 22.7.9 and 23.1.2 for @nx/gradle, the plugins' project-graph analyzers launch through a shell and interpolate plugin options from nx.json into command arguments. The @nx/maven targetNamePrefix value and arbitrary @nx/gradle option names or values can therefore be interpreted as shell syntax whenever an nx command constructs the project graph. A user who runs Nx in an attacker-controlled repository or pull request can execute injected commands with the user's privileges, while workspaces that register neither affected plugin are not exposed to this path. Remediation requires upgrading both nx and each affected plugin to matching releases because the plugin fix depends on code in the nx package. This issue is fixed in versions 22.7.9 and 23.1.2.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-102590",
-      "published": "2026-10-29T16:17:39.683",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to obtain sensitive information due to a server-side request forgery vulnerability.",
-      "severity": "MEDIUM",
-      "score": 5
+      "id": "CVE-2026-119284",
+      "published": "2026-10-29T22:17:01.210",
+      "description": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. Prior to 1.7.6, joserfc compact JWS deserialization calls bytes.split() before enforcing the existing aggregate segment-size limits. When attacker-controlled compact serialization bytes reach deserialize_compact(), the split creates copies of the header, payload, and signature segments before ExceededSizeError rejects them, causing an additional allocation approximately proportional to the supplied token. Requests that exhaust available process memory can therefore cause an availability failure even though signature verification fails. This issue is fixed in version 1.7.6.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-104308",
-      "published": "2026-10-29T16:17:43.020",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to cause a denial of service due to improper neutralization of special elements used in an OS command.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-61654",
+      "published": "2026-10-29T22:17:05.110",
+      "description": "Lightdash is an open source business intelligence platform. In affected versions through 0.3213.0, the dbt Cloud webhook `POST /api/v1/projects/{projectUuid}/dbt-cloud/webhook` has no authentication middleware or signature validation. In `packages/backend/src/controllers/projectController.ts`, `testWebhook()` accepts `accountId` and `runId` from a `job.run.completed` request and passes them to `createPreviewWithExplores()` in `packages/backend/src/services/ProjectService/ProjectService.ts`. These unsanitized values are interpolated into the server-side dbt Cloud API URL, which is requested with the victim project's API key in the `Authorization` header. Path traversal through `accountId` changes the requested path on `cloud.getdbt.com` without changing its host, so the credential-bearing request reaches an attacker-influenced path on that fixed host. The advisory claims API-key theft, but the supplied evidence does not establish that the attacker can observe the `Authorization` header. The unauthenticated webhook also allows preview creation. The target must be a `dbt Cloud IDE` project and the attacker must know its `projectUuid`; the UUID is not enumerable but can be discovered in shared or multi-tenant contexts. Version 0.3214.0 fixes identifier path traversal and verifies webhook HMAC signatures only when a secret is configured; without a secret, unsigned webhooks continue to be processed.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-104310",
-      "published": "2026-10-29T16:17:43.277",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow a remote authenticated attacker to obtain sensitive information due to a server-side request forgery (SSRF) vulnerability.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-61673",
+      "published": "2026-10-29T22:17:05.447",
+      "description": "WeGIA is a web manager for charitable institutions. Prior to 3.8.7, a stored DOM cross-site scripting vulnerability in `web/html/memorando/listar_despachos.php` results from unsafe handling of the `texto` field. The affected flow spans `web/controle/memorando/DespachoControle.php` and `web/dao/memorando/DespachoDAO.php`: `FILTER_SANITIZE_SPECIAL_CHARS` is applied during storage, but `html_entity_decode()` later decodes the stored content and `jQuery .html()` inserts the result into the DOM. An attacker able to submit a memorandum dispatch through `/controle/control.php` using `DespachoControle` and `metodo=incluir` can store malicious HTML or JavaScript. The code executes automatically when another user views the memorandum thread through `/html/memorando/listar_despachos.php` with `id_memorando`. This permits arbitrary JavaScript execution, theft of administrator `PHPSESSID` session tokens, privileged session hijacking, account takeover, and unauthorized access to privileged or internal functionality. This issue is fixed in version 3.8.7.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-104315",
-      "published": "2026-10-29T16:17:43.653",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2023-22793",
+      "published": "2026-10-29T23:16:54.270",
+      "description": "A vulnerability allowing an unauthenticated attacker to perform remote code execution (RCE) on servers running the Veeam Virtualization Extensions service of Veeam Management Pack for Microsoft System Center.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-104312",
-      "published": "2026-10-29T16:17:43.400",
-      "description": "IBM Langflow OSS 1.0.0 through 1.12.3 could allow an authenticated attacker to produce a server-generated ZIP archive containing entry paths that traverse outside the intended extraction directory. Extraction of the archive by a victim using a non-sanitizing tool could result in arbitrary file write on the victim's host.",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-107238",
+      "published": "2026-10-29T23:16:54.760",
+      "description": "A vulnerability allowing an authenticated domain user to perform remote code execution (RCE) as the LocalSystem account on servers running the Veeam Management Pack for Microsoft System Center Collector service.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-106036",
-      "published": "2026-10-29T16:17:47.653",
-      "description": "Szafir accepts any client or server certificate without performing certificate and hostname validation, allowing HTTPS connections without authenticating the remote server. An attacker can provide an arbitrary SSL/TLS certificate and cause the application to download an update file from their server.\n\n\n\nThis issue was fixed in version 2.0 build 708.",
+      "id": "CVE-2026-107239",
+      "published": "2026-10-29T23:16:54.887",
+      "description": "A vulnerability allowing a member of the Veeam Virtualization Extensions Users group to perform remote code execution (RCE) on servers running the Veeam Management Pack for Microsoft System Center Collector service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-112211",
+      "published": "2026-10-29T23:16:55.143",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-92744",
+      "published": "2026-10-29T23:17:02.190",
+      "description": "Under certain conditions, privilege manager agent allows a remote unauthenticated attacker to execute\narbitrary code as LocalSystem.",
       "severity": "UNKNOWN",
       "score": null
     }
