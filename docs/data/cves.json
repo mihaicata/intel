@@ -1,143 +1,143 @@
 {
-  "totalResults": 3033,
+  "totalResults": 3069,
   "items": [
     {
-      "id": "CVE-2026-118633",
-      "published": "2026-10-28T19:17:31.537",
-      "description": "A path traversal vulnerability allows a remote unauthenticated attacker to execute arbitrary code as root in Sophos UTM (all versions) after winning a race condition by sustaining repeated attacks for a few minutes when the email proxy is used with scanning enabled. Sophos UTM is end-of-life and the patch must be installed manually.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-109516",
+      "published": "2026-10-29T04:18:22.763",
+      "description": "The Bot for Telegram on WooCommerce plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in all versions up to, and including, 1.3.0. The `/wp-json/woo-telegram/v1/main/` REST endpoint is registered with `permission_callback => '__return_true'` and performs no Telegram webhook signature verification, allowing an unauthenticated attacker to POST a forged bot update with a `message.chat.id` set to any WordPress login name; `bftow_get_user_system_id()` resolves this attacker-supplied value to the targeted account via `get_user_by('login', $tgId)` with no ownership proof, and writes a login token computed as `md5($_SERVER['HTTP_USER_AGENT'] . time())` — both inputs are fully attacker-controlled or bounded within seconds using the response's own `Date` header. The resulting token is redeemable at the unauthenticated, capability-check-free, and nonce-less `?action=bftow_create_order&bftow_token=` endpoint, which calls `wp_set_auth_cookie()` unconditionally via `login_user_by_id`, issuing a persistent authenticated session cookie for the targeted account to the attacker. This makes it possible for unauthenticated attackers to log in as any WordPress user, including administrators, given only that user's username.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-118641",
-      "published": "2026-10-28T19:17:31.897",
-      "description": "n8n before 1.123.85, 2.x before 2.43.5, and 2.44.x before 2.44.1 contains an OData $filter injection vulnerability in the Microsoft Outlook contact lookup and Microsoft SharePoint v1 item update nodes, which build $filter string literals from expression-bindable parameters without escaping. Attackers who supply untrusted input to such workflows can inject single quotes to dump the bound mailbox's entire contact list or redirect SharePoint writes onto unintended list items within the stored credential's scope.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-42922",
+      "published": "2026-10-29T04:18:36.777",
+      "description": "A authorization bypass vulnerability exists in the /nodered functionality of FUXA (version(s): 1.3.2-2809). A specially crafted HTTP request can lead to a arbitrary code execution. An attacker can make an unauthenticated HTTP request to trigger this vulnerability.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-118257",
-      "published": "2026-10-28T19:17:30.207",
-      "description": "Vue I18n is the internationalization plugin for Vue.js. From 11.1.10 until 11.4.14 and from 12.0.0-alpha.4 until 12.0.0-alpha.5, sanitizeTranslatedHtml() escapes markup and event-handler text inside an iframe srcdoc value but leaves the srcdoc attribute active. Browsers decode the character references and parse the value as a same-origin nested HTML document, allowing attacker-controlled parameters or translation content placed in srcdoc to execute script when applications enable escapeParameter and render translations as HTML through v-html. Versions 9.14.5 and 10.0.8 are also affected and are no longer supported, while i18n-t rendering is not affected. This issue is fixed in versions 11.4.14 and 12.0.0-alpha.5.",
+      "id": "CVE-2026-113387",
+      "published": "2026-10-29T02:16:49.937",
+      "description": "The Ortto plugin for WordPress before 1.0.25 did not authenticate configuration update requests, relying only on a secret exposed in public HTML. An unauthenticated threat actor could overwrite the plugin's configuration to serve arbitrary scripts.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 8.6
     },
     {
-      "id": "CVE-2026-118642",
-      "published": "2026-10-28T19:17:32.070",
-      "description": "n8n before 1.123.85, 2.43.5, and 2.44.1 contains an authorization bypass vulnerability that allows authenticated members to use inaccessible credentials through inline sub-workflow nodes with non-boolean disabled values. Attackers knowing a credential id can run Execute Workflow nodes in inline JSON mode that skip the permission check and send decrypted credentials to attacker-controlled servers.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-118640",
-      "published": "2026-10-28T19:17:31.707",
-      "description": "n8n before 1.123.85, 2.43.5, and 2.44.1 contains an authorization bypass vulnerability in Chat Hub that allows chat-only users to register restricted tool types. Users with the global:chatUser role can add and run tools through chat to execute sandboxed code, access permitted files, and use instance workflows, Data Tables, and agents.",
+      "id": "CVE-2026-113957",
+      "published": "2026-10-29T01:17:22.333",
+      "description": "An attacker who controls the registry, a mirror, or the network path to it may be able to serve arbitrary image content in response to a pull by digest, so that a user runs an image other than the one they pinned. The fix compares the returned digest to the pinned digest and fails the pull on a mismatch. Tag pulls are exempt, because a tag is mutable by design. The fix also verifies the hash of manifests and blobs when they are fetched. This vulnerability is addressed in container version 1.6.0 and containerization version 0.52.1.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-118259",
-      "published": "2026-10-28T19:17:30.510",
-      "description": "opentelemetry-java is the Java implementation of the OpenTelemetry API for recording telemetry, and SDK for managing telemetry recorded by the API. Prior to 1.67.0, W3CTraceContextPropagator.extract() uses regex delimiter processing that can exhibit quadratic backtracking while parsing tracestate headers containing long runs of spaces or tabs without a following comma. An unauthenticated attacker whose headers reach extraction can repeatedly block request or event-loop threads and cause excessive CPU consumption, with practical impact bounded by ingress header-size limits, proxy configuration, and threading. This issue is fixed in version 1.67.0.",
+      "id": "CVE-2026-42949",
+      "published": "2026-10-29T04:18:36.973",
+      "description": "A authorization bypass vulnerability exists in the /api/runscript functionality of FUXA (version(s): 1.3.2-2809). A specially crafted HTTP request can lead to execute priviledged operation. An attacker can make an unauthenticated HTTP request to trigger this vulnerability.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-118265",
-      "published": "2026-10-28T19:17:31.377",
-      "description": "Echo is a Go web framework. From 5.0.0 until 5.4.1, Echo v5's ExtractIPFromRealIPHeader validates whether the client-supplied X-Real-IP value belongs to a trusted range instead of validating the direct network peer. A client reaching Echo directly, or through a proxy that preserves the header, can supply a loopback or private address and have Context.RealIP return that spoofed identity. Applications using the extractor for IP allowlists, rate limiting, audit logs, or forwarding headers can consequently trust an attacker-controlled address; the default direct extractor and Echo v4 are unaffected. This issue is fixed in 5.4.1.",
+      "id": "CVE-2026-118586",
+      "published": "2026-10-29T00:17:26.123",
+      "description": "A security flaw has been discovered in dfm feedfinder2 up to 0.0.4. This issue affects the function find_feeds of the file feedfinder2.py. Performing a manipulation results in server-side request forgery. Remote exploitation of the attack is possible. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-106484",
-      "published": "2026-10-28T19:17:21.860",
-      "description": "Insufficient policy enforcement in chrome-devtools-mcp in Google Chrome on Linux prior to 1.5.0 allowed a local attacker to perform arbitrary read/write via a malicious file. (Chromium security severity: Medium)",
+      "id": "CVE-2026-118589",
+      "published": "2026-10-29T00:17:26.320",
+      "description": "A weakness has been identified in nschloe meshio up to 5.3.5. Impacted is an unknown function of the file meshio/_vtk_42.py of the component VTK Reader. Executing a manipulation of the argument DIMENSIONS can lead to uncontrolled memory allocation. The attack can be executed remotely. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-118258",
-      "published": "2026-10-28T19:17:30.360",
-      "description": "i18next-http-backend is a backend layer for i18next that loads translation resources in Node.js, browsers, and Deno. Prior to 4.0.4, interpolateUrl inserts unencoded language and namespace values into loadPath or addPath templates without rejecting ampersand (&), equals (=), or semicolon (;) query separators. When a template places lng or ns in the query string and an attacker controls that value, the attacker can add or override parameters on browser or server-side translation requests, potentially exposing other namespaces or tenants or changing backend behavior through the application's network position and credentials. This vulnerability is the result of an incomplete fix for CVE-2026-41691. This issue is fixed in version 4.0.4.",
+      "id": "CVE-2026-118590",
+      "published": "2026-10-29T01:17:22.900",
+      "description": "A security vulnerability has been detected in nipy nibabel up to 5.4.2. The affected element is the function array_from_file of the file nibabel/volumeutils.py of the component Header Handler. The manipulation leads to uncontrolled memory allocation. The attack is possible to be carried out remotely. The pull request to fix this issue awaits acceptance.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-114173",
+      "published": "2026-10-29T02:16:50.187",
+      "description": "The Ortto plugin for WordPress before 1.0.25 did not filter the WooCommerce product data it embedded in public storefront pages. An unauthenticated threat actor could read product passwords and private product metadata from an affected store.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-40063",
+      "published": "2026-10-29T04:18:36.300",
+      "description": "A information disclosure vulnerability exists in the /nodered/fuxa/scripts functionality of FUXA (version(s): 1.3.2-2809). A specially crafted HTTP request can lead to an information leak. An attacker can make an unauthenticated HTTP request to trigger this vulnerability.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-113409",
+      "published": "2026-10-29T02:16:50.070",
+      "description": "The Ortto plugin for WordPress before 1.0.25 did not escape stored settings on its admin settings page, leading to stored cross-site scripting. A threat actor able to modify the plugin's configuration could execute arbitrary JavaScript in an administrator's session when they visited the impacted page.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-118585",
+      "published": "2026-10-29T00:17:25.920",
+      "description": "A vulnerability was identified in configuroweb inventariobasico c9377cdba474deb3eb5a0704d197b5733af16b47/f9db0c0a04d79ad931c218140df4fb23809d4fab. This vulnerability affects unknown code of the file addlist.php of the component Add Product Page. Such manipulation of the argument product name leads to cross site scripting. The attack may be launched remotely. The exploit is publicly available and might be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-118251",
-      "published": "2026-10-28T19:17:29.340",
-      "description": "Highcharts JS is a JavaScript charting library based on SVG. Prior to 11.4.9, 12.6.1, and 13.1.0, Highcharts assigns credits.href to the window location when the credits label is clicked without checking the URL against the allowed-scheme list. An attacker who controls chart configuration can provide a javascript URL and run script in the origin of the hosting page when a user clicks the credits label. Highcharts Stock, Maps, and Gantt are included because they ship from the same package. This issue is fixed in 11.4.9, 12.6.1 and 13.1.0.",
+      "id": "CVE-2026-21157",
+      "published": "2026-10-29T01:17:23.187",
+      "description": "Improper input validation in Bixby prior to version 4.0.85.6 allows privileged local attackers to launch arbitrary activity.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118252",
-      "published": "2026-10-28T19:17:29.483",
-      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.3, Highcharts Dashboards edit-mode sidebar parses component language strings as HTML rather than inserting them as text. An attacker who controls the Dashboards language configuration can provide markup containing event handlers, which execute in the hosting page origin when a user opens the edit-mode sidebar and the affected labels render. This issue is fixed in 4.2.3.",
+      "id": "CVE-2026-16889",
+      "published": "2026-10-29T02:16:51.803",
+      "description": "In openEQUELLA before 2026.1, the pre-login notice image upload endpoint (PUT /api/preloginnotice/image/{name}) does not validate the type of uploaded files and serves them with a Content-Type derived from the supplied filename. A user holding the EDIT_SYSTEM_SETTINGS permission can upload an HTML file that is then served as text/html from the openEQUELLA origin, resulting in stored cross-site scripting. Unauthenticated exploitation is possible where EDIT_SYSTEM_SETTINGS has been granted to the guest user or everyone.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118253",
-      "published": "2026-10-28T19:17:29.627",
-      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.3, Highcharts Dashboards edit mode parses fullscreen language labels as HTML rather than inserting them as text. An attacker who controls Dashboards language options can supply markup with event handlers, which execute in the hosting page origin when the fullscreen control is rendered. The label is reachable only when edit mode is enabled and viewFullscreen is present in the context-menu items. This issue is fixed in 4.2.3.",
+      "id": "CVE-2026-66088",
+      "published": "2026-10-29T02:16:52.523",
+      "description": "In openEQUELLA before 2026.1, the system.execute() function available to the scripting engine runs supplied operating system commands without validation or an allow-list of permitted executables. A user able to create or edit scripts can use it to execute arbitrary commands with the privileges of the openEQUELLA service account.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118254",
-      "published": "2026-10-28T19:17:29.763",
-      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 2.0.0 until 3.2.0, Highcharts Grid writes pagination language strings into the DOM as markup instead of text. An attacker who controls the Grid language configuration can provide elements with event handlers, which execute in the hosting page origin when pagination controls render. Exploitation requires pagination to be enabled but does not require additional user interaction. This issue is fixed in 3.2.0.",
+      "id": "CVE-2026-66089",
+      "published": "2026-10-29T02:16:52.663",
+      "description": "In openEQUELLA before 2026.1, the SOAP API parses XML supplied in the stopEdit operation with a parser that resolves external entities. This allows an attacker to read arbitrary files accessible to the openEQUELLA service or cause the server to issue requests to attacker-specified locations (SSRF).",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118255",
-      "published": "2026-10-28T19:17:29.900",
-      "description": "Highcharts JS is a JavaScript charting library based on SVG. From 2.0.0 until 3.2.0, Highcharts Grid applies credits.href to the credits link without validating the URL scheme. An attacker who controls Grid configuration can provide a javascript URL, and activating the credits link runs script in the origin of the hosting page with access to that application's data and session state.This issue is fixed in Grid Pro 3.2.0.",
+      "id": "CVE-2026-66090",
+      "published": "2026-10-29T02:16:52.803",
+      "description": "In openEQUELLA before 2026.1, the XML parser used for item metadata does not disable external entity resolution. A user permitted to create items (CREATE_ITEM) can submit crafted XML to POST /api/item and cause the server to read arbitrary files accessible to the openEQUELLA service, or make requests to attacker-specified locations (SSRF), including cloud instance metadata services.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118256",
-      "published": "2026-10-28T19:17:30.060",
-      "description": "Vue I18n is the internationalization plugin for Vue.js. From 9.0.0-beta.5 until 11.4.14 and 12.0.0-alpha.5, enabling escapeParameter, called escapeParameterHtml in the Legacy API, does not escape named interpolation values when the same translation call supplies both list and named values because escapeParams() processes only the list branch. Applications that render translations as HTML and pass untrusted named values with a list can insert attacker-controlled markup, including phishing links, forms, and layout changes, and can permit script execution when combined with the srcdoc sanitizer bypass or on releases without the sanitizer. This issue is fixed in versions 11.4.14 and 12.0.0-alpha.5.",
+      "id": "CVE-2026-66091",
+      "published": "2026-10-29T02:16:52.933",
+      "description": "In openEQUELLA before 2026.1, the GET /api/userquery/userinfobackup endpoint performs no authentication or authorisation check. An unauthenticated attacker who supplies another user's uniqueId can retrieve that user's stored personal details (username, first name, last name and email address) within the same institution.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118260",
-      "published": "2026-10-28T19:17:30.663",
-      "description": "Echo is a Go web framework. From 4.0.0 until 4.16.1, Echo v4's opt-in BodyDump middleware reads complete request bodies into memory before handlers run and retains complete response bodies for the dump callback without capture limits. An unauthenticated client that can reach a route using BodyDump can submit large bodies or influence large responses, causing repeated or concurrent allocations that exhaust process memory. BodyDump is not enabled by default, and external request limits may reduce request-side exposure but do not bound response capture. This issue is fixed in 4.16.1.",
+      "id": "CVE-2026-66092",
+      "published": "2026-10-29T02:16:53.057",
+      "description": "In openEQUELLA before 2026.2, the pre-login notice is stored as HTML and rendered on the legacy logon page without encoding or sanitisation. A user holding the EDIT_SYSTEM_SETTINGS permission can set a notice containing an arbitrary script (PUT /api/preloginnotice), resulting in stored cross-site scripting on the login page. Unauthenticated exploitation is possible where EDIT_SYSTEM_SETTINGS has been granted to the guest user or Everyone",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-118261",
-      "published": "2026-10-28T19:17:30.810",
-      "description": "Echo is a Go web framework. From 4.0.0 until 4.16.1, Echo v4's opt-in Decompress middleware exposes a gzip-decoded request stream without limiting its expanded size. A small compressed request can expand into a very large body when a handler reads or binds it, consuming excessive memory or CPU and allowing repeated or concurrent requests to cause denial of service. The middleware is not enabled by default, and limiting only the compressed request size does not bound the decoded size. This issue is fixed in 4.16.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-118262",
-      "published": "2026-10-28T19:17:30.950",
-      "description": "Echo is a Go web framework. From 4.15.0 until 4.16.1 and 5.4.1, Echo's Proxy middleware can retain a handler, copy goroutines, and network connections after a WebSocket client disconnects when the upstream keeps its connection open. The raw proxy waits for both copy directions without reliably closing the peer connection when one direction ends, including when a rejected upgrade response uses HTTP keep-alive. Repeated connections can accumulate resources and cause denial of service, depending on proxy-route accessibility, upstream behavior, and connection deadlines. This issue is fixed in 4.16.1 and 5.4.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-118263",
-      "published": "2026-10-28T19:17:31.097",
-      "description": "Echo is a Go web framework. From 5.0.0 until 5.4.1, Echo v5's BodyDump middleware can discard a BodyLimit overflow error for an unknown-length request when BodyDump's capture limit is below the BodyLimit threshold. BodyDump drains the remaining body while ignoring read errors and replaces it with the captured prefix, so an HTTP/1.1 chunked request can be truncated and processed successfully even though the original body exceeded the configured limit. Known-length requests rejected before BodyDump runs are unaffected, and the issue does not establish a general authentication bypass or denial of service. This issue is fixed in 5.4.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-118264",
-      "published": "2026-10-28T19:17:31.237",
-      "description": "Echo is a Go web framework. From 4.0.0 until 4.16.1 and 5.4.1, Echo's Proxy middleware selects a raw tunnel from a client WebSocket upgrade request before verifying that the configured upstream accepted the upgrade. If the upstream rejects the upgrade with an ordinary keep-alive response, later HTTP requests on the connection are sent directly to that upstream without passing through Echo's router or route-specific middleware. This can bypass authentication or authorization enforced only by Echo routes, but requires an accessible proxy route, a cooperating rejected-upgrade response, and a target without independent upstream authorization. This issue is fixed in 4.16.1 and 5.4.1.",
+      "id": "CVE-2026-118426",
+      "published": "2026-10-29T04:18:35.260",
+      "description": "In affected versions of Octopus Server with the LDAP authentication provider enabled, any authenticated user could call the LDAP user search and LDAP group search.",
       "severity": "UNKNOWN",
       "score": null
     }
