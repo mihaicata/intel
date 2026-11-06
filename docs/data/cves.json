@@ -1,143 +1,143 @@
 {
-  "totalResults": 3180,
+  "totalResults": 3182,
   "items": [
     {
-      "id": "CVE-2026-61645",
-      "published": "2026-10-29T22:17:04.963",
-      "description": "Docat is a tool for hosting versioned static documentation. In the affected implementation, an arbitrary file upload vulnerability in the `Upload API` arises because the API does not validate the `uploaded file path or type`. An attacker can overwrite sensitive configuration files or place malicious files on the Docat web server. Depending on deployment context, uploaded content can enable remote code execution or cross-site scripting intended to steal cookies or redirect users to malicious websites. Version 1.6.0 mitigates filename-based path traversal; remediation of unrestricted file types or deployment-dependent malicious-content effects is not established by the verified patch.",
+      "id": "CVE-2026-74912",
+      "published": "2026-10-30T02:17:09.727",
+      "description": "On GPU systems with the security vulnerability fix for CVE-2026-49746 applied, the mapping range of graphics buffers is limited which causes errors when the mapping outside of that range.\n\nInteger truncation caused when mapping GPU buffer pages in the buffer’s range 0GB - 4GB, produces error and limits the functionality of the kernel mode driver.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-61707",
-      "published": "2026-10-29T22:17:05.603",
-      "description": "SOCFortress CoPilot focuses on providing a single pane of glass for all your security operations needs. Prior to 0.1.76, in the reported deployment, case-report templates uploaded by `customer_user`, the lowest-privilege portal role, are later executed by non-sandboxed Jinja2 engines when an admin or analyst generates a report. The `/case-report-template/upload` route in `backend/app/incidents/routes/db_operations.py` validates only the filename-derived MIME type, not the template content. Templates share a global store without customer_code scoping, and `customer_user` can also list, download and delete them, allowing an attacker to replace a legitimate default template under the same name. In `backend/app/incidents/services/reports.py`, `render_document_with_context` uses `DocxTemplate` without a sandbox; in `backend/app/incidents/services/reports_pdf.py`, `render_html_template` uses a non-sandboxed `Environment` without autoescaping. Normal privileged requests to `POST /api/incidents/report/generate-report-docx` or `/generate-report-pdf` therefore evaluate attacker-controlled Jinja expressions as Python on the backend. The reported deployment executes commands as root, exposing all tenants' incident and SIEM data and stored connector credentials. The HTML/PDF wkhtmltopdf renderer additionally permits local-file reads and requests to internal services. This issue is fixed in version 0.1.76.",
+      "id": "CVE-2026-107249",
+      "published": "2026-10-30T04:17:43.030",
+      "description": "Improperly Controlled Modification of Dynamically-Determined Object Attributes vulnerability in Drupal Block AJAX allows Object Injection. This issue affects Block AJAX versions: from 0.0.0 to 3.0.2.",
       "severity": "CRITICAL",
-      "score": 9
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-61719",
-      "published": "2026-10-29T22:17:05.763",
-      "description": "WeGIA is a web manager for charitable institutions. Prior to 3.8.7, a stored cross-site scripting vulnerability in `saude/historico_prontuarios.php` arises because the `textoProntuario` field accepts arbitrary HTML or JavaScript without proper sanitization. An attacker able to create or access a patient's medical record can submit the field through `POST /controle/control.php` with `nomeClasse=SaudeControle`, `metodo=alterarProntuario`, and `id_fichamedica`. The stored content is rendered when another user accesses `/html/saude/historico_prontuarios.php` with `id_historico`, automatically executing attacker-controlled JavaScript in the victim's browser. The vulnerability permits session cookie theft and potential account compromise depending on the victim's privileges. This issue is fixed in version 3.8.7.",
+      "id": "CVE-2026-74915",
+      "published": "2026-10-30T02:17:09.850",
+      "description": "A web page that contains unusual WebGPU content loaded into the GPU GLES render process can trigger a OOB read and/or write crash in the GPU GLES user-space shared library. On certain platforms, when the process executing graphics workload has system privileges this could enable further exploits on the device.",
       "severity": "HIGH",
-      "score": 8.9
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-45049",
-      "published": "2026-10-29T22:17:02.400",
-      "description": "Open Access Management (OpenAM) is an access management solution. Prior to 16.1.1, the `Cross-Domain Single Sign-On` (`CDSSO`) servlet allows a logged-in user's raw OpenAM session token to be POSTed to an attacker-controlled URL. An attacker who induces an authenticated victim to visit a crafted URL can receive the session credential and potentially hijack the session. Deployments must have `CDSSO` enabled, as is common in multi-domain deployments, and exploitation is additionally gated on a non-default configuration being absent. This issue is fixed in version 16.1.1.",
+      "id": "CVE-2026-65584",
+      "published": "2026-10-30T02:17:09.370",
+      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls causing a stack overflow in the kernel. The overflow occurs when processing resolved Linux/Android fence synchronization checkpoints, while user checkpoints are excluded from the stack array. Successful exploitation can cause kernel memory corruption and typically results in a denial-of-service condition through a kernel crash.\n\n\n\nThe code vulnerability is a buffer write beyond the allocated array on the stack caused by copying excessive data from an internal buffer.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-61671",
-      "published": "2026-10-29T22:17:05.273",
-      "description": "WeGIA is a web manager for charitable institutions. Prior to the advisory's stated patched version 3.8.7, the `/controle/control.php` dispatch endpoint accepts attacker-controlled `nomeClasse`, `metodo`, and record identifier parameters through `extract($_REQUEST)`, including id, `idatendido`, `idInterno`, and `id_funcionario`, while the affected Controle CRUD methods do not verify record ownership. Any authenticated user can view, modify, or delete another user's records, exposing CPF, RG, addresses, medical records, financial data, and employee records. `AtendidoControle` lacks ownership checks on alterar, excluir, `listarUm`, `alterarInfPessoal`, `alterarDocumentacao`, `alterarImagem`, `alterarEndereco`, and `alterarStatus`; `InternoControle` lacks them on incluir, alterar, excluir, `listarUm`, `listarTodos`, and `listarCpf`. `FuncionarioControle` lacks ownership checks on `alterarInfPessoal`, `alterarEndereco`, `alterarDocumentacao`, `alterarImagem`, `alterarCargaHoraria`, and excluir; `VoluntarioControle` lacks them on `alterarInfPessoal`, `alterarEndereco`, `alterarDetalhes`, `alterarImagem`, and excluir. `AtendidoControle` and `InternoControle` additionally lack CSRF validation, allowing a malicious page visited by an authenticated victim to perform state-changing operations using the victim's session. `FuncionarioControle` and `VoluntarioControle` have per-method CSRF checks, but those checks do not prevent the object-authorization bypass. The advisory identifies version 3.8.7 as patched.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-119283",
-      "published": "2026-10-29T22:17:01.047",
-      "description": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. Prior to 1.7.5, joserfc.jwe.decrypt_json() accepts a JWE General JSON Serialization recipients array without a count limit and calls decrypt_cek() for every entry. An unauthenticated attacker who can submit a JWE to an endpoint using an RSA key-management algorithm can choose the number of private-key decryption operations performed by one request. The verify_all_recipients option does not reduce this work because the affected loop processes every recipient before consulting that setting, allowing repeated requests to exhaust service CPU without affecting confidentiality or integrity. This issue is fixed in version 1.7.5.",
+      "id": "CVE-2026-18629",
+      "published": "2026-10-30T02:17:09.117",
+      "description": "A web page that contains unusual GPU shader code is loaded into the GPU compiler process and can lead memory allocation failure. If the allocation failure is not properly handled, the compiler may dereference a NULL pointer at a controlled offset, resulting in a crash of the compiler process. On certain platforms, when the compiler process has system privileges this could lead to crashes or enable further exploits on the device.\n\n\n\nThe weakness results from performing arithmetic operations on values derived from the shader program without properly preventing integer overflow. The overflow can cause incorrect memory size calculations, leading to memory allocation failures and subsequent invalid program behaviour. Integer overflow can produce unexpected values that affect memory allocation and other security-relevant operations.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-119286",
-      "published": "2026-10-29T22:17:01.517",
-      "description": "GraphQL-core is a Python port of the GraphQL.js reference implementation. From 3.3.0a3 until 3.3.1, validate() reuses a module-level ValidationAbortedError when a document exceeds max_errors. Python appends frames to the reused exception's traceback on every raise, retaining each document, validation context, and error set for the process lifetime. An unauthenticated client can repeatedly submit a small document with more than 100 validation errors to cause unbounded memory growth before query execution, eventually exhausting worker memory without disclosing or modifying data. This issue is fixed in version 3.3.1.",
+      "id": "CVE-2026-19199",
+      "published": "2026-10-30T02:17:09.237",
+      "description": "Software installed and run as a non-privileged user may conduct improper system calls to allocate physical memory. A 32-bit integer overflow in the KM driver during page-to-byte conversion of an allocation size can result in an undersized kernel buffer allocation. This may allow unallocated or previously allocated physical pages to be mapped into an attacker-controlled GPU MMU context, leading to disclosure of sensitive kernel data.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-119317",
-      "published": "2026-10-29T22:17:01.670",
-      "description": "On Linux, an authenticated, low-privileged Nessus user with scan-creation rights could read arbitrary text files on the scanner host with the privileges of the nessusd process by running a custom Unix compliance audit against the scanner itself.",
+      "id": "CVE-2026-65586",
+      "published": "2026-10-30T02:17:09.493",
+      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls to free memory in still in use, replace with another allocation and cause arbitrary memory reads or writes to physical memory pages.\n\n\n\nA memory buffer managed by a CPU thread of control (driver) and accessed by a GPU thread of control (firmware) can be freed while in use. Software installed and run as a non-privileged user may replace that buffer with another and replace a shared resource (memory page address list) managed by the CPU thread of control (driver) leading to the GPU accessing memory not managed by the CPU thread of control (driver).",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-15466",
+      "published": "2026-10-30T02:17:08.980",
+      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls to cause race condition in hardware performance counters buffer’s destruction path leading to read and/or write UAF.\n\n\n\nThe race condition in the destruction path could lead to reference counter being decremented in non-atomical way allowing other code paths using a freed object to read and/or write kernel heap memory.",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-91920",
+      "published": "2026-10-30T02:17:10.140",
+      "description": "A flaw was found in the ChunkReader component of the Undertow web server, which is used to handle chunked transfer encoding in HTTP requests. The issue occurs because a security check for the chunk size is performed before the value is shifted, allowing a specifically crafted 15-digit chunk size to bypass the limit and overflow into internal state flags. This can cause the server to terminate a request body prematurely and interpret the remaining data as a separate, smuggled request.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-119285",
-      "published": "2026-10-29T22:17:01.367",
-      "description": "Fiber is an Express inspired web framework written in Go. From 2.52.1 until 2.52.3, the CORS middleware's validateDomain wildcard matcher in middleware/cors/utils.go strips the scheme and checks only a host suffix without requiring a dot boundary. An application configured with a wildcard-subdomain AllowOrigins value and AllowCredentials enabled can reflect an unrelated attacker-controlled origin whose host merely ends with the configured base domain. A user who visits that origin can expose authenticated cross-origin responses to the attacker's page; empty-label origins and later comma-space parsing hardening are outside this advisory. This issue is fixed in version 2.52.3.",
+      "id": "CVE-2026-107251",
+      "published": "2026-10-30T04:17:45.453",
+      "description": "Incorrect Authorization vulnerability in Drupal Entity Reference Manager (Merge entities) allows Forceful Browsing. This issue affects Entity Reference Manager (Merge entities) versions: from 0.0.0 to 1.0.3.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-107257",
+      "published": "2026-10-30T04:17:53.833",
+      "description": "Incorrect Authorization vulnerability in Drupal Actstream allows Forceful Browsing. This issue affects Actstream versions: from 0.0.0 to 2.0.1, from 2.1.0 to 2.1.1.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-107250",
+      "published": "2026-10-30T04:17:45.330",
+      "description": "Vulnerability in Drupal ECA Helper. This issue affects ECA Helper versions: *.*.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-110133",
-      "published": "2026-10-30T01:16:43.730",
-      "description": "A flaw was found in Ghostscript. When processing a specially crafted TrueType font or document embedding one, an accounting error during font rendering can bypass buffer size checks, triggering a heap-based buffer overflow. A remote attacker could exploit this by enticing a victim or automated service to open the malicious content, potentially resulting in a Denial of Service (DoS) crash or arbitrary code execution.",
+      "id": "CVE-2026-107253",
+      "published": "2026-10-30T04:17:47.927",
+      "description": "Vulnerability in Drupal Orphans Media. This issue affects Orphans Media versions: *.*.",
       "severity": "MEDIUM",
-      "score": 5.8
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-115943",
-      "published": "2026-10-29T22:17:00.767",
-      "description": "Spreadsheet::XLSX versions before 0.19 for Perl allow code execution via string eval of number format conditions in ExcelFmt.\n\nWhen a number format has a condition such as [>100], ExcelFmt chooses the format section by passing the condition and the cell value to a string eval. Both come from the workbook, and the eval runs while Spreadsheet::XLSX->new parses it.\n\nAn attacker who supplies an XLSX file can run arbitrary Perl code.",
+      "id": "CVE-2026-65587",
+      "published": "2026-10-30T02:17:09.607",
+      "description": "A web page that contains unusual WebGPU content loaded into the GPU GLES render process can trigger an OOB write in the GPU user-space driver, leading to memory corruption and possible browser/GPU process crash.\n\n\n\nThe software writes data past the end of an intended memory offset. Writing outside the bounds of allocated memory can corrupt adjacent memory, crash the process, or cause undefined behaviour.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-107252",
+      "published": "2026-10-30T04:17:47.337",
+      "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal MathJax: LaTeX for Drupal allows Cross-Site Scripting (XSS). This issue affects MathJax: LaTeX for Drupal versions: from 0.0.0 to 4.1.2.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-107254",
+      "published": "2026-10-30T04:17:48.483",
+      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal Authenticator Login Plus (2FA) allows Authentication Bypass. This issue affects Authenticator Login Plus (2FA) versions: from 0.0.0 to 1.0.1.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-118475",
+      "published": "2026-10-30T02:17:08.583",
+      "description": "A flaw was found in Eye of GNOME. When parsing a specially crafted PNG image containing malformed color profile metadata, the application fails to validate chunk boundaries while searching for a null terminator. An attacker could trick a user into opening a malicious image, causing the application to read past the allocated buffer. This issue can lead to an application crash, resulting in a Denial of Service (DoS), or potentially expose sensitive memory contents.",
+      "severity": "LOW",
+      "score": 3.6
+    },
+    {
+      "id": "CVE-2026-112922",
+      "published": "2026-10-30T02:17:08.303",
+      "description": "A flaw was found in Ghostscript. A remote attacker could exploit this vulnerability by enticing a user to process a specially crafted PDF or PostScript document containing malicious mesh shading data. Due to improper bounds validation during the processing of indexed color values, Ghostscript triggers an out-of-bounds memory read. Successful exploitation can lead to a Denial of Service (DoS) through an application crash or result in limited information disclosure.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-107255",
+      "published": "2026-10-30T04:17:51.290",
+      "description": "Incorrect Authorization vulnerability in Drupal Restrict route by IP allows Forceful Browsing. This issue affects Restrict route by IP versions: from 0.0.0 to 1.3.1, from 2.0.0 to 2.0.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-119282",
-      "published": "2026-10-29T22:17:00.887",
-      "description": "Nx is a monorepo solution for TypeScript and polyglot codebases. From 22.0.2 until 22.7.9 and 23.1.2 for @nx/maven, and from 21.0.0 until 22.7.9 and 23.1.2 for @nx/gradle, the plugins' project-graph analyzers launch through a shell and interpolate plugin options from nx.json into command arguments. The @nx/maven targetNamePrefix value and arbitrary @nx/gradle option names or values can therefore be interpreted as shell syntax whenever an nx command constructs the project graph. A user who runs Nx in an attacker-controlled repository or pull request can execute injected commands with the user's privileges, while workspaces that register neither affected plugin are not exposed to this path. Remediation requires upgrading both nx and each affected plugin to matching releases because the plugin fix depends on code in the nx package. This issue is fixed in versions 22.7.9 and 23.1.2.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-119284",
-      "published": "2026-10-29T22:17:01.210",
-      "description": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. Prior to 1.7.6, joserfc compact JWS deserialization calls bytes.split() before enforcing the existing aggregate segment-size limits. When attacker-controlled compact serialization bytes reach deserialize_compact(), the split creates copies of the header, payload, and signature segments before ExceededSizeError rejects them, causing an additional allocation approximately proportional to the supplied token. Requests that exhaust available process memory can therefore cause an availability failure even though signature verification fails. This issue is fixed in version 1.7.6.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-61654",
-      "published": "2026-10-29T22:17:05.110",
-      "description": "Lightdash is an open source business intelligence platform. In affected versions through 0.3213.0, the dbt Cloud webhook `POST /api/v1/projects/{projectUuid}/dbt-cloud/webhook` has no authentication middleware or signature validation. In `packages/backend/src/controllers/projectController.ts`, `testWebhook()` accepts `accountId` and `runId` from a `job.run.completed` request and passes them to `createPreviewWithExplores()` in `packages/backend/src/services/ProjectService/ProjectService.ts`. These unsanitized values are interpolated into the server-side dbt Cloud API URL, which is requested with the victim project's API key in the `Authorization` header. Path traversal through `accountId` changes the requested path on `cloud.getdbt.com` without changing its host, so the credential-bearing request reaches an attacker-influenced path on that fixed host. The advisory claims API-key theft, but the supplied evidence does not establish that the attacker can observe the `Authorization` header. The unauthenticated webhook also allows preview creation. The target must be a `dbt Cloud IDE` project and the attacker must know its `projectUuid`; the UUID is not enumerable but can be discovered in shared or multi-tenant contexts. Version 0.3214.0 fixes identifier path traversal and verifies webhook HMAC signatures only when a secret is configured; without a secret, unsigned webhooks continue to be processed.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-61673",
-      "published": "2026-10-29T22:17:05.447",
-      "description": "WeGIA is a web manager for charitable institutions. Prior to 3.8.7, a stored DOM cross-site scripting vulnerability in `web/html/memorando/listar_despachos.php` results from unsafe handling of the `texto` field. The affected flow spans `web/controle/memorando/DespachoControle.php` and `web/dao/memorando/DespachoDAO.php`: `FILTER_SANITIZE_SPECIAL_CHARS` is applied during storage, but `html_entity_decode()` later decodes the stored content and `jQuery .html()` inserts the result into the DOM. An attacker able to submit a memorandum dispatch through `/controle/control.php` using `DespachoControle` and `metodo=incluir` can store malicious HTML or JavaScript. The code executes automatically when another user views the memorandum thread through `/html/memorando/listar_despachos.php` with `id_memorando`. This permits arbitrary JavaScript execution, theft of administrator `PHPSESSID` session tokens, privileged session hijacking, account takeover, and unauthorized access to privileged or internal functionality. This issue is fixed in version 3.8.7.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2023-22793",
-      "published": "2026-10-29T23:16:54.270",
-      "description": "A vulnerability allowing an unauthenticated attacker to perform remote code execution (RCE) on servers running the Veeam Virtualization Extensions service of Veeam Management Pack for Microsoft System Center.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107238",
-      "published": "2026-10-29T23:16:54.760",
-      "description": "A vulnerability allowing an authenticated domain user to perform remote code execution (RCE) as the LocalSystem account on servers running the Veeam Management Pack for Microsoft System Center Collector service.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-107239",
-      "published": "2026-10-29T23:16:54.887",
-      "description": "A vulnerability allowing a member of the Veeam Virtualization Extensions Users group to perform remote code execution (RCE) on servers running the Veeam Management Pack for Microsoft System Center Collector service.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-112211",
-      "published": "2026-10-29T23:16:55.143",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-92744",
-      "published": "2026-10-29T23:17:02.190",
-      "description": "Under certain conditions, privilege manager agent allows a remote unauthenticated attacker to execute\narbitrary code as LocalSystem.",
+      "id": "CVE-2026-107256",
+      "published": "2026-10-30T04:17:52.230",
+      "description": "Improper Restriction of Excessive Authentication Attempts vulnerability in Drupal Shield allows Brute Force. This issue affects Shield versions: from 0.0.0 to 1.9.0.",
       "severity": "UNKNOWN",
       "score": null
     }
