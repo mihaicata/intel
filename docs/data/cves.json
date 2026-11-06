@@ -1,143 +1,143 @@
 {
-  "totalResults": 3182,
+  "totalResults": 3103,
   "items": [
     {
-      "id": "CVE-2026-74912",
-      "published": "2026-10-30T02:17:09.727",
-      "description": "On GPU systems with the security vulnerability fix for CVE-2026-49746 applied, the mapping range of graphics buffers is limited which causes errors when the mapping outside of that range.\n\nInteger truncation caused when mapping GPU buffer pages in the buffer’s range 0GB - 4GB, produces error and limits the functionality of the kernel mode driver.",
+      "id": "CVE-2025-31704",
+      "published": "2026-10-30T11:17:31.450",
+      "description": "A vulnerability has been found in the Dahua Intelligent Connection Center. A remote attacker could send a specially crafted request to the affected system, allowing the attacker to execute arbitrary commands, resulting in remote code execution.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-107249",
-      "published": "2026-10-30T04:17:43.030",
-      "description": "Improperly Controlled Modification of Dynamically-Determined Object Attributes vulnerability in Drupal Block AJAX allows Object Injection. This issue affects Block AJAX versions: from 0.0.0 to 3.0.2.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-74915",
-      "published": "2026-10-30T02:17:09.850",
-      "description": "A web page that contains unusual WebGPU content loaded into the GPU GLES render process can trigger a OOB read and/or write crash in the GPU GLES user-space shared library. On certain platforms, when the process executing graphics workload has system privileges this could enable further exploits on the device.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-65584",
-      "published": "2026-10-30T02:17:09.370",
-      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls causing a stack overflow in the kernel. The overflow occurs when processing resolved Linux/Android fence synchronization checkpoints, while user checkpoints are excluded from the stack array. Successful exploitation can cause kernel memory corruption and typically results in a denial-of-service condition through a kernel crash.\n\n\n\nThe code vulnerability is a buffer write beyond the allocated array on the stack caused by copying excessive data from an internal buffer.",
+      "id": "CVE-2026-101213",
+      "published": "2026-10-30T12:16:34.130",
+      "description": "Dell OpenManage Enterprise, versions prior to 4.8.0, contains an Improper Privilege Management vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
       "severity": "HIGH",
       "score": 7.8
     },
     {
-      "id": "CVE-2026-18629",
-      "published": "2026-10-30T02:17:09.117",
-      "description": "A web page that contains unusual GPU shader code is loaded into the GPU compiler process and can lead memory allocation failure. If the allocation failure is not properly handled, the compiler may dereference a NULL pointer at a controlled offset, resulting in a crash of the compiler process. On certain platforms, when the compiler process has system privileges this could lead to crashes or enable further exploits on the device.\n\n\n\nThe weakness results from performing arithmetic operations on values derived from the shader program without properly preventing integer overflow. The overflow can cause incorrect memory size calculations, leading to memory allocation failures and subsequent invalid program behaviour. Integer overflow can produce unexpected values that affect memory allocation and other security-relevant operations.",
+      "id": "CVE-2026-101210",
+      "published": "2026-10-30T12:16:34.000",
+      "description": "Dell OpenManage Enterprise, versions prior to 4.8.0, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-19199",
-      "published": "2026-10-30T02:17:09.237",
-      "description": "Software installed and run as a non-privileged user may conduct improper system calls to allocate physical memory. A 32-bit integer overflow in the KM driver during page-to-byte conversion of an allocation size can result in an undersized kernel buffer allocation. This may allow unallocated or previously allocated physical pages to be mapped into an attacker-controlled GPU MMU context, leading to disclosure of sensitive kernel data.",
+      "id": "CVE-2026-101214",
+      "published": "2026-10-30T12:16:34.260",
+      "description": "Dell OpenManage Enterprise, versions prior to 4.8.0, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-65586",
-      "published": "2026-10-30T02:17:09.493",
-      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls to free memory in still in use, replace with another allocation and cause arbitrary memory reads or writes to physical memory pages.\n\n\n\nA memory buffer managed by a CPU thread of control (driver) and accessed by a GPU thread of control (firmware) can be freed while in use. Software installed and run as a non-privileged user may replace that buffer with another and replace a shared resource (memory page address list) managed by the CPU thread of control (driver) leading to the GPU accessing memory not managed by the CPU thread of control (driver).",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-15466",
-      "published": "2026-10-30T02:17:08.980",
-      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls to cause race condition in hardware performance counters buffer’s destruction path leading to read and/or write UAF.\n\n\n\nThe race condition in the destruction path could lead to reference counter being decremented in non-atomical way allowing other code paths using a freed object to read and/or write kernel heap memory.",
-      "severity": "HIGH",
-      "score": 7
-    },
-    {
-      "id": "CVE-2026-91920",
-      "published": "2026-10-30T02:17:10.140",
-      "description": "A flaw was found in the ChunkReader component of the Undertow web server, which is used to handle chunked transfer encoding in HTTP requests. The issue occurs because a security check for the chunk size is performed before the value is shifted, allowing a specifically crafted 15-digit chunk size to bypass the limit and overflow into internal state flags. This can cause the server to terminate a request body prematurely and interpret the remaining data as a separate, smuggled request.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-107251",
-      "published": "2026-10-30T04:17:45.453",
-      "description": "Incorrect Authorization vulnerability in Drupal Entity Reference Manager (Merge entities) allows Forceful Browsing. This issue affects Entity Reference Manager (Merge entities) versions: from 0.0.0 to 1.0.3.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-107257",
-      "published": "2026-10-30T04:17:53.833",
-      "description": "Incorrect Authorization vulnerability in Drupal Actstream allows Forceful Browsing. This issue affects Actstream versions: from 0.0.0 to 2.0.1, from 2.1.0 to 2.1.1.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-107250",
-      "published": "2026-10-30T04:17:45.330",
-      "description": "Vulnerability in Drupal ECA Helper. This issue affects ECA Helper versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-107253",
-      "published": "2026-10-30T04:17:47.927",
-      "description": "Vulnerability in Drupal Orphans Media. This issue affects Orphans Media versions: *.*.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-65587",
-      "published": "2026-10-30T02:17:09.607",
-      "description": "A web page that contains unusual WebGPU content loaded into the GPU GLES render process can trigger an OOB write in the GPU user-space driver, leading to memory corruption and possible browser/GPU process crash.\n\n\n\nThe software writes data past the end of an intended memory offset. Writing outside the bounds of allocated memory can corrupt adjacent memory, crash the process, or cause undefined behaviour.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-107252",
-      "published": "2026-10-30T04:17:47.337",
-      "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal MathJax: LaTeX for Drupal allows Cross-Site Scripting (XSS). This issue affects MathJax: LaTeX for Drupal versions: from 0.0.0 to 4.1.2.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-107254",
-      "published": "2026-10-30T04:17:48.483",
-      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal Authenticator Login Plus (2FA) allows Authentication Bypass. This issue affects Authenticator Login Plus (2FA) versions: from 0.0.0 to 1.0.1.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-118475",
-      "published": "2026-10-30T02:17:08.583",
-      "description": "A flaw was found in Eye of GNOME. When parsing a specially crafted PNG image containing malformed color profile metadata, the application fails to validate chunk boundaries while searching for a null terminator. An attacker could trick a user into opening a malicious image, causing the application to read past the allocated buffer. This issue can lead to an application crash, resulting in a Denial of Service (DoS), or potentially expose sensitive memory contents.",
+      "id": "CVE-2026-101209",
+      "published": "2026-10-30T12:16:33.867",
+      "description": "Dell OpenManage Enterprise, versions prior to 4.8.0, contains a Server-Side Request Forgery (SSRF) vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information exposure.",
       "severity": "LOW",
-      "score": 3.6
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-112922",
-      "published": "2026-10-30T02:17:08.303",
-      "description": "A flaw was found in Ghostscript. A remote attacker could exploit this vulnerability by enticing a user to process a specially crafted PDF or PostScript document containing malicious mesh shading data. Due to improper bounds validation during the processing of indexed color values, Ghostscript triggers an out-of-bounds memory read. Successful exploitation can lead to a Denial of Service (DoS) through an application crash or result in limited information disclosure.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-107255",
-      "published": "2026-10-30T04:17:51.290",
-      "description": "Incorrect Authorization vulnerability in Drupal Restrict route by IP allows Forceful Browsing. This issue affects Restrict route by IP versions: from 0.0.0 to 1.3.1, from 2.0.0 to 2.0.1.",
+      "id": "CVE-2026-14467",
+      "published": "2026-10-30T10:16:53.820",
+      "description": "An information disclosure vulnerability in the Forocoches comments editor that allows an attacker to obtain unauthorised user information by inserting an image containing a malicious external URL into a comment. When a victim views the discussion thread, their browser automatically sends an HTTP/HTTPS request to the server controlled by the attacker, who can then collect information such as the source IP address, the User-Agent header, the date and time of access, and other metadata derived from the request, thereby compromising the user’s privacy.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-107256",
-      "published": "2026-10-30T04:17:52.230",
-      "description": "Improper Restriction of Excessive Authentication Attempts vulnerability in Drupal Shield allows Brute Force. This issue affects Shield versions: from 0.0.0 to 1.9.0.",
+      "id": "CVE-2026-116366",
+      "published": "2026-10-30T11:17:32.540",
+      "description": "An issue has been discovered in ClickHouse Server that, under certain conditions, could allow an unauthenticated user with network access to execute arbitrary code on the ClickHouse Server.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-22105",
+      "published": "2026-10-30T11:17:32.700",
+      "description": "Delta UFC500 charging stations derive the default credentials of the Service account from character positions of the device serial number. An unauthenticated attacker with adjacent network access can reconstruct the resulting password, or exhaust the keyspace, and log in to read and change sensitive settings such as the OCPP backend.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-22109",
+      "published": "2026-10-30T11:17:32.860",
+      "description": "The shipped WebUI template database retains the factory default passwords for all five account types in cleartext. Defaults are identical across devices and were unchanged on the tested unit.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-22110",
+      "published": "2026-10-30T11:17:33.040",
+      "description": "The web server does not check authentication on POST or PUT. An unauthenticated attacker can reboot the charger; by brute-forcing the configid, they can also set the service password and then change any setting.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-22114",
+      "published": "2026-10-30T11:17:33.200",
+      "description": "HTTP basic auth enforces no retry limit or backoff. Combined with the default service password, the keyspace is exhaustible.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-85268",
+      "published": "2026-10-30T11:17:33.750",
+      "description": "A Cross-Site Scripting (XSS) (CWE-79) vulnerability in the auth/handler in Google Cloud Identity Platform and Firebase Authentication versions prior to 2026-08-14 on iOS allows an unauthenticated remote attacker to execute arbitrary JavaScript using a malicious iOS bundle ID.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-68391",
+      "published": "2026-10-30T12:16:32.063",
+      "description": "ARKETEAM Protectel modules PROTECTELMAJ and BDF are vulnerable to arbitrary file upload. Any user is able to upload arbitrary file and override existing files in a temporary folder. This vulnerability might lead to execution of embedded JavaScript scripts when an authenticated user tries to download the uploaded file. \nThis issue has been fixed in: PROTECTELMAJ v6.5.19 and BDF v6.4.67",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-68392",
+      "published": "2026-10-30T12:16:33.303",
+      "description": "ARKETEAM Protectel modules PROTECTELMAJ and BDF allow low privileged users to use some of the functionalities reserved for admin users by forging direct requests to a specific endpoint. \nThis issue has been fixed in: PROTECTELMAJ v6.5.19 and BDF v6.4.67",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-68393",
+      "published": "2026-10-30T12:16:33.447",
+      "description": "ARKETEAM Protectel modules PROTECTELMAJ and BDF are vulnerable to SQL injection vulnerability. Improper neutralization of input provided by a low privileged user into \"Utilisateur\" parameter allows for SQL Injection attacks.\nThis issue has been fixed in: PROTECTELMAJ v6.5.19 and BDF v6.4.67",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-68394",
+      "published": "2026-10-30T12:16:33.590",
+      "description": "ARKETEAM Protectel modules PROTECTELMAJ and BDF are vulnerable to SQL injection vulnerability. Improper neutralization of input provided by a low privileged user into \"profilInput\" parameter allows for SQL Injection attacks.\nThis issue has been fixed in: PROTECTELMAJ v6.5.19 and BDF v6.4.67",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-68395",
+      "published": "2026-10-30T12:16:33.727",
+      "description": "ARKETEAM Protectel modules PROTECTELMAJ and BDF  contain a note editor module vulnerable to Stored XSS. A low privileged attacker can inject arbitrary HTML and JS into notes, which will be rendered/executed when a user visits this module.\nThis issue has been fixed in: PROTECTELMAJ v6.5.19 and BDF v6.4.67",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-105924",
+      "published": "2026-10-30T12:16:34.390",
+      "description": "A NULL pointer dereference vulnerability in the Qt QCborValue to JSON conversion of the Qt Core module.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-110970",
+      "published": "2026-10-30T12:16:34.530",
+      "description": "Płatnik uses HTTP protocol to download updates, libraries and support files. It allows an attacker to conduct a Man-In-The-Middle attack, obtain transmitted data and replace the original files with their own.\n\n\n\n\nThis issue was fixed in metric 334 in version 10.02.002.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-110971",
+      "published": "2026-10-30T12:16:34.663",
+      "description": "Use of a weak password encoding algorithm in Płatnik software allows a user who obtains encoded password to easily decode it. \n\n\nThis issue was fixed in metric 334 in version 10.02.002.",
       "severity": "UNKNOWN",
       "score": null
     }
