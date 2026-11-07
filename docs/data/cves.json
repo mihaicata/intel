@@ -1,5 +1,5 @@
 {
-  "totalResults": 3354,
+  "totalResults": 3351,
   "items": [
     {
       "id": "CVE-2026-120189",
@@ -9,18 +9,18 @@
       "score": 10
     },
     {
-      "id": "CVE-2026-120201",
-      "published": "2026-10-31T18:17:07.890",
-      "description": "Jpom 2.10.0 through 2.11.12 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain super-administrator access by injecting query conditions into the JPOM-USER-TOKEN header. Attackers can send a value like 'is not null', which Hutool's Condition parser treats as an operator, then execute commands through Jpom's script features.",
+      "id": "CVE-2026-120195",
+      "published": "2026-11-01T04:18:46.687",
+      "description": "A security vulnerability has been detected in WAVLINK WL-WN579A3-A 2026-03-10-94f93d4. The impacted element is the function set_wzdgwMesh of the file /cgi-bin/adm.cgi of the component Initial Setup Wizard. The manipulation of the argument wlan_ssid leads to os command injection. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 10
     },
     {
-      "id": "CVE-2026-120209",
-      "published": "2026-10-31T18:17:09.263",
-      "description": "AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to forge valid Share-Tokens offline. Attackers can mint a token with reportCode 'dataSet' to access the testTransform endpoint, which passes scripts to GroovyClassLoader for unauthenticated remote code execution.",
+      "id": "CVE-2026-120196",
+      "published": "2026-11-01T04:18:46.943",
+      "description": "A vulnerability was detected in WAVLINK WN579X3-D V250402. This affects the function port_forward of the file /cgi-bin/wapi.cgi. The manipulation of the argument Name results in os command injection. The attack may be performed from remote. The exploit is now public and may be used. The vendor was contacted early about this disclosure.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.9
     },
     {
       "id": "CVE-2026-118636",
@@ -30,67 +30,88 @@
       "score": 9.8
     },
     {
-      "id": "CVE-2026-120203",
-      "published": "2026-10-31T18:17:08.237",
-      "description": "ShowDoc 2.8.14 before 3.9.6 contains a code injection vulnerability in its Mock feature that allows authenticated users to execute shell commands through mockjs templates. Attackers can store a template via MockController::add with escaped parentheses that mockjs evaluates with eval(), then trigger it through MockController::infoByKey to run commands, as root in the official Docker image.",
+      "id": "CVE-2026-120191",
+      "published": "2026-11-01T01:17:17.383",
+      "description": "A weakness has been identified in Presenton up to 0.9.11-beta. Affected by this issue is some unknown functionality of the component API. This manipulation causes missing authentication. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 0.9.12-beta can resolve this issue. Patch name: 44c8a61122b21f17642d717b0c4d6f2c54c0f180. You should upgrade the affected component.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-120205",
-      "published": "2026-10-31T18:17:08.570",
-      "description": "Thelia before 3.1.0 contains a stored cross-site scripting vulnerability in ForSomeCustomers::getSummary() that allows unauthenticated attackers to inject scripts via unescaped customer names. Attackers can register with a script payload as their name that executes when administrators view related coupons, stealing CSRF tokens to create administrator accounts.",
-      "severity": "HIGH",
-      "score": 8
-    },
-    {
-      "id": "CVE-2026-120208",
-      "published": "2026-10-31T18:17:09.083",
-      "description": "libheif 1.18.0 before 1.23.3 contains a heap-based buffer overflow vulnerability in unc_decoder_mixed_interleave::processTile() that allows attackers to write out of bounds by supplying chroma components with unequal bit depths. Attackers can craft a HEIF file declaring, for example, 16-bit Cb and 8-bit Cr to trigger file-controlled heap writes past the Cr plane, potentially achieving code execution in image-processing pipelines.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-118147",
-      "published": "2026-10-31T19:16:47.213",
-      "description": "Improper certificate validation in Visual Studio allows an unauthorized attacker to perform spoofing over a network.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-120207",
-      "published": "2026-10-31T18:17:08.920",
-      "description": "Thelia Page Module before 2.0.4 contains a cross-site request forgery vulnerability that allows remote attackers to delete page tags, documents and images by abusing back-office delete routes lacking CSRF tokens and permission checks. Attackers can lure a logged-in administrator into navigating to crafted GET requests that walk sequential ids, removing TheliaLibrary images, their files and variants across pages, products and categories.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-120202",
-      "published": "2026-10-31T18:17:08.080",
-      "description": "Highflame ramparts 0.8.1 through 0.8.10 contains a security scan bypass vulnerability that allows attackers to hide malicious payloads because collect_bundle_siblings and walk_bundle_subdir skip nested directories and .pyc files. Attackers can distribute a skill bundle with an unchecked-hash .pyc under scripts/<subdir>/__pycache__/ that ramparts silently ignores, while CPython executes it when the skill runs.",
+      "id": "CVE-2026-120249",
+      "published": "2026-11-01T01:17:18.683",
+      "description": "Thelia Back-office Default Twig Template before 1.1.1 contains a cross-site request forgery vulnerability in the /admin/product/combinations/update and /admin/product/default-price/update routes, which accept GET requests without anti-CSRF token checks. Attackers can lure a logged-in administrator into following a crafted link to rewrite product combination prices, stock, weight, EAN and sale flags, zeroing omitted prices.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-120206",
-      "published": "2026-10-31T18:17:08.747",
-      "description": "Thelia before 3.2.0 contains a cross-site request forgery vulnerability in the back office that allows attackers to forge administrative actions because per-session CSRF tokens leak via URL query strings. Attackers can reuse leaked tokens or target the unprotected setToggleVisibilityAction and updatePositionAction to make logged-in administrators delete, hide or reorder catalogue and configuration objects.",
+      "id": "CVE-2026-120243",
+      "published": "2026-11-01T01:17:17.593",
+      "description": "FFmpeg 2.0 through 9.0.2 contains a use of uninitialized variable vulnerability in the Go2Meeting decoder that allows attackers to leak stack memory through out-of-range palette indices. Attackers can craft a G2M3/G2M4 stream with a short Kempf palette so kempf_restore_buf() copies uninitialized stack bytes, including pointers or stack guards, into decoded output.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-120204",
-      "published": "2026-10-31T18:17:08.403",
-      "description": "DeepInfer through 0.1.0 contains a path traversal vulnerability in the unauthenticated /profile endpoint that allows remote attackers to create arbitrary directories via the output_dir parameter. Attackers, including cross-site GET requests from an operator's browser, can write chrome trace files to exhaust disk or inodes and use error messages as a filesystem oracle.",
+      "id": "CVE-2026-120244",
+      "published": "2026-11-01T01:17:17.787",
+      "description": "FFmpeg 2.1 through 9.0.2 contains a use of uninitialized resource vulnerability in the PCX decoder that allows attackers to leak heap memory through truncated RLE scanlines. Attackers can craft a PCX image whose RLE data ends early, causing pcx_decode_frame() to copy uninitialized av_malloc() buffer contents into visible decoded pixels.",
       "severity": "MEDIUM",
-      "score": 5.6
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-120200",
-      "published": "2026-10-31T18:17:07.713",
-      "description": "Nexterm through 1.2.2-BETA contains a missing authorization vulnerability that allows authenticated users to hibernate, resume, or terminate other users' remote sessions via session lifecycle routes. Attackers who obtain a session ID can call the hibernate, resume, or DELETE connection endpoints to disrupt live SSH, RDP, VNC, or SFTP sessions.",
+      "id": "CVE-2026-120245",
+      "published": "2026-11-01T01:17:17.960",
+      "description": "FFmpeg 0.10 through 9.0.2 contains a use of uninitialized resource vulnerability in sunrast_decode_frame() that leaks heap memory when decoding truncated 1-bit and 4-bit paletted Sun Raster images. Attackers can craft a truncated Sun Raster file so the uncleared temporary bitmap is expanded into PAL8 pixels, exposing stale heap contents such as allocator words in decoded output.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-120246",
+      "published": "2026-11-01T01:17:18.147",
+      "description": "FFmpeg 4.4 through 9.0.2 contains a use of uninitialized variable vulnerability in the CDXL decoder that leaks stack memory into decoded pixels via unfilled HAM palette entries. Attackers can craft a type-0 CDXL file whose HAM pixels select unfilled new_palette entries in cdxl_decode_ham8() or cdxl_decode_ham6(), exposing stack bytes and pointer fragments in the BGR24 output.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-120247",
+      "published": "2026-11-01T01:17:18.323",
+      "description": "FFmpeg 2.3 through 9.0.2 contains a use of uninitialized resource vulnerability in the Huffyuv decoder that allows attackers to leak heap memory into decoded pixels via short packed-BGR bitstreams. Attackers can craft a Huffyuv BGR24/BGRA video whose entropy data ends early, causing decode_slice() to add uninitialized s->temp[0] bytes into output frames, exposing heap contents.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-120251",
+      "published": "2026-11-01T01:17:19.110",
+      "description": "imagecodecs 2026.3.6 through 2026.10.10 contains an infinite loop vulnerability in ccitt_fax4_decode_size() that allows attackers to hang the calling process by supplying a crafted CCITT Group 4 stream. Attackers can provide an 8-byte G4 stream lacking EOFB to ccittfax4_decode() or the numcodecs Ccittfax4 codec, consuming full CPU until the process is killed.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-120252",
+      "published": "2026-11-01T01:17:19.287",
+      "description": "imagecodecs 2023.1.23 through 2026.10.10 contains a stack-based buffer overflow vulnerability in the lossless JPEG Define Huffman Table parser in decode_jpegsof3(). Attackers can supply a crafted lossless JPEG whose DHT symbol counts wrap an 8-bit sum, overflowing the 32-entry HufVal and HufSz stack arrays and crashing the calling process.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-120250",
+      "published": "2026-11-01T01:17:18.903",
+      "description": "OpenAlgo 1.0.0.29 before 2.0.3.1 contains an improper certificate validation vulnerability in utils/email_utils.py and utils/email_debug.py that disables TLS hostname and certificate checks for STARTTLS and SMTPS. Network-positioned attackers can present a forged certificate to intercept SMTP credentials and all later mail, including password-reset links.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-120192",
+      "published": "2026-11-01T02:16:59.980",
+      "description": "A security vulnerability has been detected in Presenton up to 0.9.11-beta. This affects an unknown part of the file /app_data of the component Desktop Authentication Middleware. Such manipulation leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. Upgrading to version 0.9.12-beta is able to mitigate this issue. The name of the patch is 44c8a61122b21f17642d717b0c4d6f2c54c0f180. The affected component should be upgraded.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-120248",
+      "published": "2026-11-01T01:17:18.493",
+      "description": "Thelia before 3.1.1 contains a stored cross-site scripting vulnerability that allows authenticated back-office administrators with store update permission to inject scripts by uploading unsanitized SVG logo_file or banner_file images. Attackers can upload an SVG with an onload payload served from /admin/store-media/logo or the public cache/images/store/ directory to execute scripts against visitors and higher-privileged administrators.",
+      "severity": "MEDIUM",
+      "score": 4.8
     },
     {
       "id": "CVE-2026-120185",
@@ -100,32 +121,11 @@
       "score": 4.7
     },
     {
-      "id": "CVE-2026-120199",
-      "published": "2026-10-31T18:17:07.010",
-      "description": "LearnHouse before 1.1.1 contains a missing authorization vulnerability in the assignment API that allows authenticated users to read other users' grades and submissions. Attackers can supply another user_id to the submissions grade endpoint or query submission read functions to view other students' work, grades and instructor feedback.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-120210",
-      "published": "2026-10-31T18:17:09.427",
-      "description": "FFmpeg 5.0 through 9.0.2 contains a path traversal vulnerability in the IMF demuxer that allows attackers to open files outside the package via unvalidated ASSETMAP Path elements. Attackers can supply a crafted IMF package with '..' or absolute paths to demux local MXF files, probe file existence and size, or trigger server-side requests.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
       "id": "CVE-2026-120190",
       "published": "2026-11-01T01:17:17.133",
       "description": "A security flaw has been discovered in PostyBirb Plus up to 3.1.75. Affected by this vulnerability is an unknown functionality of the file ui/src/views/submissions/submission-forms/form-components/DescriptionInput.tsx of the component Submission Description Editor. The manipulation results in cross site scripting. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. Upgrading to version 3.1.76 addresses this issue. The patch is identified as 6b11c2345ad98ae59fd5404a9f1024eb1d10c8a4. It is advisable to upgrade the affected component.",
       "severity": "LOW",
       "score": 3.5
-    },
-    {
-      "id": "CVE-2026-102212",
-      "published": "2026-10-31T16:16:52.553",
-      "description": "Heap-based buffer overflow in Opengear IM72XX, CM71XX, and ACM70XX firmware versions 4.8.0 through 5.5.2 on console server appliances allows an unauthenticated remote attacker to crash the index.cgi process via a crafted multipart/form-data POST request containing an overlong Content-Disposition name field.",
-      "severity": "UNKNOWN",
-      "score": null
     },
     {
       "id": "CVE-2026-120135",
