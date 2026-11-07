@@ -1,145 +1,145 @@
 {
-  "totalResults": 3217,
+  "totalResults": 3354,
   "items": [
     {
-      "id": "CVE-2026-118235",
-      "published": "2026-10-31T09:16:33.620",
-      "description": "The SimpleForm – Form Maker to Chat Apps with Quiz, Poll and Multi Lead Notifications plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 3.10.2 via the handle_upload function. This is due to missing server-side file key allowlist and pre-sanitization extension derivation that allows a trailing-dot filename to bypass all extension and MIME validation in handle_upload. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible. The only access control is a nonce that is printed into every public form's data-nonce attribute, making it trivially obtainable by any unauthenticated visitor on a page embedding the form shortcode.",
+      "id": "CVE-2026-120189",
+      "published": "2026-11-01T01:17:16.877",
+      "description": "A vulnerability was identified in D-Link DIR-505 1.10B02. Affected is the function save_upload_file/mp_upload_file of the file /usr/bin/tftpd of the component TFTP Upload Filename Handler. The manipulation leads to stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit is publicly available and might be used.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-120201",
+      "published": "2026-10-31T18:17:07.890",
+      "description": "Jpom 2.10.0 through 2.11.12 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain super-administrator access by injecting query conditions into the JPOM-USER-TOKEN header. Attackers can send a value like 'is not null', which Hutool's Condition parser treats as an operator, then execute commands through Jpom's script features.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-103882",
-      "published": "2026-10-31T09:16:32.510",
-      "description": "The Acadlix LMS – AI Quiz Maker, Online Exam & Course Plugin for WordPress plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the post_delete_assessment_file_by_id function in all versions up to, and including, 1.1.9. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The route's permission callback only verifies a generic wp_rest nonce that the plugin itself emits inside the public acadlixOptions JavaScript object on every frontend page, effectively reducing the authentication requirement to unauthenticated.",
+      "id": "CVE-2026-120209",
+      "published": "2026-10-31T18:17:09.263",
+      "description": "AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to forge valid Share-Tokens offline. Attackers can mint a token with reportCode 'dataSet' to access the testTransform endpoint, which passes scripts to GroovyClassLoader for unauthenticated remote code execution.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-116086",
-      "published": "2026-10-31T09:16:33.223",
-      "description": "A flaw was found in konflux-ci. An attacker with permission to trigger automated workflow runs can cause an information disclosure by providing crafted issue titles to workflow scripts. The affected script incorporates user-provided titles directly into data queries without adequate sanitization, allowing the attacker to inject malicious filter commands. As a result, sensitive information such as API credentials, deployment keys, and internal notes returned from repository queries may be exposed in workflow logs.",
+      "id": "CVE-2026-118636",
+      "published": "2026-10-31T21:16:53.203",
+      "description": "**UNSUPPORTED WHEN ASSIGNED** \n\nJavaNativeMessageDecoder in the MINA 3.0 codec module calls ObjectInputStream.readObject() on frame bytes with no class filter, so an\napplication that puts it in front of an untrusted peer is open to gadget-chain RCE.\n\nAs the 3.0.0 branch is inactive, we do not plan to release a version that fixes this issue. \n\nUsers are recommended to use the latest Apache MINA 2.2.X branch.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-120203",
+      "published": "2026-10-31T18:17:08.237",
+      "description": "ShowDoc 2.8.14 before 3.9.6 contains a code injection vulnerability in its Mock feature that allows authenticated users to execute shell commands through mockjs templates. Attackers can store a template via MockController::add with escaped parentheses that mockjs evaluates with eval(), then trigger it through MockController::infoByKey to run commands, as root in the official Docker image.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-114217",
-      "published": "2026-10-31T09:16:33.077",
-      "description": "A flaw was found in konflux-ci. Continuous Integration (CI) automation scripts store sensitive GitHub access tokens in plaintext on the runner without cleaning them up after execution. A local attacker with access to the CI environment can read these stored credentials to gain unauthorized repository access, potentially allowing them to modify source code or release artifacts.",
-      "severity": "HIGH",
-      "score": 8.6
-    },
-    {
-      "id": "CVE-2026-116964",
-      "published": "2026-10-31T09:16:33.357",
-      "description": "A flaw was found in konflux-ci. An attacker with repository write access can achieve arbitrary code execution within the Continuous Integration and Continuous Delivery (CI/CD) workflow environment. By injecting shell commands into environment export scripts, the attacker causes manifest synchronization scripts to dynamically evaluate unvalidated script output. Successful exploitation allows the attacker to compromise CI/CD pipelines, steal sensitive authentication tokens and deployment credentials, and gain unauthorized access to production systems.",
-      "severity": "HIGH",
-      "score": 8.4
-    },
-    {
-      "id": "CVE-2026-117681",
-      "published": "2026-10-31T09:16:33.487",
-      "description": "A flaw was found in konflux-ci. This vulnerability allows privilege escalation when the user interface proxy automatically disables Transport Layer Security (TLS) certificate verification for connections to internal backend services in environments lacking a default service certificate authority. Because the proxy attaches a cluster-scoped authentication token with user impersonation rights to these requests, an adjacent network attacker capable of intercepting traffic can capture the credentials to gain full administrative control of the cluster.",
+      "id": "CVE-2026-120205",
+      "published": "2026-10-31T18:17:08.570",
+      "description": "Thelia before 3.1.0 contains a stored cross-site scripting vulnerability in ForSomeCustomers::getSummary() that allows unauthenticated attackers to inject scripts via unescaped customer names. Attackers can register with a script payload as their name that executes when administrators view related coupons, stealing CSRF tokens to create administrator accounts.",
       "severity": "HIGH",
       "score": 8
     },
     {
-      "id": "CVE-2026-109197",
-      "published": "2026-10-31T10:16:37.507",
-      "description": "The WP Directory Kit plugin for WordPress is vulnerable to generic SQL Injection via the 'idfield' parameter in all versions up to, and including, 1.6.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "id": "CVE-2026-120208",
+      "published": "2026-10-31T18:17:09.083",
+      "description": "libheif 1.18.0 before 1.23.3 contains a heap-based buffer overflow vulnerability in unc_decoder_mixed_interleave::processTile() that allows attackers to write out of bounds by supplying chroma components with unequal bit depths. Attackers can craft a HEIF file declaring, for example, 16-bit Cb and 8-bit Cr to trigger file-controlled heap writes past the Cr plane, potentially achieving code execution in image-processing pipelines.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-110530",
-      "published": "2026-10-31T09:16:32.933",
-      "description": "The FeedWordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 2026.0517 via syndicated RSS/Atom feed content. The plugin's SyndicatedPost::sanitize_content() function only strips the 'target' attribute (the lines that would strip 'style' and 'on[a-z]+' event-handler attributes are commented out), and SyndicatedPost::insert_post() deliberately removes WordPress's wp_filter_kses and wp_filter_post_kses filters from content_save_pre before persisting imported feed items via wp_insert_post(). This makes it possible for unauthenticated attackers who control an external feed that a site has already subscribed to to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-118147",
+      "published": "2026-10-31T19:16:47.213",
+      "description": "Improper certificate validation in Visual Studio allows an unauthorized attacker to perform spoofing over a network.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-120075",
-      "published": "2026-10-31T09:16:33.897",
-      "description": "The WP Activity Log plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 5.6.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "id": "CVE-2026-120207",
+      "published": "2026-10-31T18:17:08.920",
+      "description": "Thelia Page Module before 2.0.4 contains a cross-site request forgery vulnerability that allows remote attackers to delete page tags, documents and images by abusing back-office delete routes lacking CSRF tokens and permission checks. Attackers can lure a logged-in administrator into navigating to crafted GET requests that walk sequential ids, removing TheliaLibrary images, their files and variants across pages, products and categories.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-118598",
-      "published": "2026-10-31T10:16:37.923",
-      "description": "A logic error in Epiphany's site permission handling can cause camera and microphone access to be granted when the user only approves a different permission.\n\nIn src/ephy-window.c, set_permission() stores the user's Allow/Deny choice after a WebKit permission dialog. Types CLIPBOARD and WEBSITE_DATA_ACCESS are not stored by ephy_permission_is_stored_by_permissions_manager(), so control fell into an else-if that was written as:\n\n  } else if (EPHY_PERMISSION_TYPE_ACCESS_WEBCAM_AND_MICROPHONE) {\n\nBecause that expression is a non-zero enum constant, the branch always ran for those types and wrote EPHY_PERMISSION_PERMIT for both ACCESS_WEBCAM and ACCESS_MICROPHONE for the site origin. The user only saw a Clipboard or Website Data Access dialog.\n\nA malicious site that obtains approval for clipboard or third-party storage access can afterwards use getUserMedia without a further camera/microphone prompt, exposing audiovisual confidentiality.\n\nRequirements: the victim must visit a malicious page and click Allow on a clipboard or website-data-access prompt.\n\nAffected: Epiphany >= 45.0 (bug present at least through 51.x).\nFixed: https://gitlab.gnome.org/GNOME/epiphany/-/merge_requests/2249 (commit 480c3648).\nUpstream: https://gitlab.gnome.org/GNOME/epiphany/-/work_items/2976\nReporter acknowledgment: Fernando Munoz",
+      "id": "CVE-2026-120202",
+      "published": "2026-10-31T18:17:08.080",
+      "description": "Highflame ramparts 0.8.1 through 0.8.10 contains a security scan bypass vulnerability that allows attackers to hide malicious payloads because collect_bundle_siblings and walk_bundle_subdir skip nested directories and .pyc files. Attackers can distribute a skill bundle with an unchecked-hash .pyc under scripts/<subdir>/__pycache__/ that ramparts silently ignores, while CPython executes it when the skill runs.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-119160",
-      "published": "2026-10-31T09:16:33.760",
-      "description": "The Smart Post – Post Grid, Post Carousel, Post Slider Gutenberg Blocks for Blog & News plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name' parameter in all versions up to, and including, 4.0.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the victim page to contain an Author Filter block alongside a grid or live-filter block, and execution is triggered by a visitor clicking the attacker's author entry in the dropdown — a standard filter interaction requiring no elevated privileges from the victim.",
+      "id": "CVE-2026-120206",
+      "published": "2026-10-31T18:17:08.747",
+      "description": "Thelia before 3.2.0 contains a cross-site request forgery vulnerability in the back office that allows attackers to forge administrative actions because per-session CSRF tokens leak via URL query strings. Attackers can reuse leaked tokens or target the unprotected setToggleVisibilityAction and updatePositionAction to make logged-in administrators delete, hide or reorder catalogue and configuration objects.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-107711",
-      "published": "2026-10-31T10:16:37.370",
-      "description": "The FlexStock – Product Stock Sync with Google Sheets for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'products[].post_content' parameter in all versions up to, and including, 3.17.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable by any Subscriber-level user because the plugin's admin_enqueue_scripts callback exposes the REST bearer token in the Dashboard page source via wp_localize_script() without a capability check, and the REST endpoint's permission_callback validates only that bearer token rather than performing a current_user_can() capability check.",
+      "id": "CVE-2026-120204",
+      "published": "2026-10-31T18:17:08.403",
+      "description": "DeepInfer through 0.1.0 contains a path traversal vulnerability in the unauthenticated /profile endpoint that allows remote attackers to create arbitrary directories via the output_dir parameter. Attackers, including cross-site GET requests from an operator's browser, can write chrome trace files to exhaust disk or inodes and use error messages as a filesystem oracle.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.6
     },
     {
-      "id": "CVE-2026-116752",
-      "published": "2026-10-31T10:16:37.793",
-      "description": "The GeoDirectory – WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_images' parameter in all versions up to, and including, 2.8.197 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload does not fire for the attacker directly; it executes in the browser of any Administrator or Editor who opens the pending listing's edit screen, making this a privilege-escalation-capable stored XSS chain triggered through normal editorial workflow.",
+      "id": "CVE-2026-120200",
+      "published": "2026-10-31T18:17:07.713",
+      "description": "Nexterm through 1.2.2-BETA contains a missing authorization vulnerability that allows authenticated users to hibernate, resume, or terminate other users' remote sessions via session lifecycle routes. Attackers who obtain a session ID can call the hibernate, resume, or DELETE connection endpoints to disrupt live SSH, RDP, VNC, or SFTP sessions.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-100151",
-      "published": "2026-10-31T10:16:29.037",
-      "description": "The Ninja Forms – Contact Form Builder with Calculators, Quizzes, Signatures & AI Form Builder plugin for WordPress is vulnerable to Reflected DOM-Based Cross-Site Scripting via 'querystring:<key>' URL Parameter in all versions up to, and including, 3.15.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. This bypass is triggered when an attacker supplies a matching field:&lt;key&gt; URL parameter that causes the server to fully resolve the {field:*} placeholder, forcing the client-side else-branch to abandon the server-sanitized value and reconstruct field content from the raw query string.",
+      "id": "CVE-2026-120185",
+      "published": "2026-10-31T23:17:11.423",
+      "description": "A security flaw has been discovered in ken678 YznCMS up to 2.2.0. The affected element is the function Backend of the file app/admin/controller/auth/Group.php of the component Auth Group Handler. Performing a manipulation results in improper privilege management. The attack can be initiated remotely. Upgrading to version 2.2.1 is sufficient to fix this issue. The patch is named ed16cd7f7f73e0316ffa8a148d. You should upgrade the affected component.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-104926",
-      "published": "2026-10-31T10:16:36.273",
-      "description": "The WooCommerce Extra Product Options Pro plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the '<fieldname>_start / <fieldname>_end' parameter in all versions up to, and including, 3.3.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. This vulnerability is only exploitable on product pages where a Date & Time Range Picker extra field is configured, though the required field name is visible in the product page source and requires no prior knowledge to discover.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-118599",
-      "published": "2026-10-31T10:16:38.060",
-      "description": "A file overwrite vulnerability exists in Epiphany when installing WebExtension packages from .xpi files.\n\nIn src/webextension/ephy-web-extension-manager.c, decompress_xpi_thread() used libarchive with archive_read_support_format_all() (and filters), so the installer did not require a real ZIP. A TAR file named *.xpi was extracted. TAR supports hard-link entry types; with Epiphany's archive_write_disk options (including ARCHIVE_EXTRACT_PERM), a crafted hard-link target can cause an attacker-chosen existing user-writable file to be truncated and overwritten with attacker-controlled content and mode bits, without a dedicated warning dialog, when the user installs or opens the crafted .xpi.\n\nThis is related to but separate from the ZIP-slip path traversal fixed as CVE-2026-77679 (#2922 / MR !2143).\n\nRequirements: the victim must install or open a malicious WebExtension (.xpi).\n\nAffected: Epiphany >= 47.0 (WebExtension XPI install path).\nFixed: https://gitlab.gnome.org/GNOME/epiphany/-/merge_requests/2248 (commit 0cc9ab55 — only enable ZIP format support).\nUpstream: https://gitlab.gnome.org/GNOME/epiphany/-/work_items/2988\nReporter acknowledgment: Fernando Munoz",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-101325",
-      "published": "2026-10-31T09:16:32.323",
-      "description": "The Newsletters plugin for WordPress is vulnerable to time-based SQL Injection via the 'id' parameter in all versions up to, and including, 4.18.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. An attacker can obtain the required nonce and subscriberauth cookie without a WordPress account by simply subscribing through the public newsletter form and opening the management link sent via email; the ownership check verifies only the subscriber_id field and does not validate that the injected id parameter belongs to the authenticated subscriber.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-103915",
-      "published": "2026-10-31T09:16:32.653",
-      "description": "The Booking for Appointments and Events Calendar – Amelia plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.4.12 via the 'page' parameter. This makes it possible for unauthenticated attackers to extract staff personally identifiable information — including full name, email address, phone number, gender, and timezone — as well as administrator-authored internal notes for every published event, all serialized into the JSON response because the raw providers array is never stripped before output.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-109367",
-      "published": "2026-10-31T09:16:32.793",
-      "description": "The All in One SEO – AI SEO Plugin to Boost SEO Rankings & Traffic (Schema, Local SEO, Sitemap & SEO Insights) plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 5.0.3 via the 's' parameter. This makes it possible for unauthenticated attackers to extract arbitrary non-public post meta values, including sensitive custom fields such as API keys and internal notes, emitted verbatim into the HTML title element and JSON-LD SearchResultsPage schema.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-109231",
-      "published": "2026-10-31T10:16:37.660",
-      "description": "The Germanized for WooCommerce plugin for WordPress is vulnerable to Unauthorized Access of Private Data via Activation Token Reuse in versions up to, and including, 4.1.4. This is due to the `on_user_email_changed` hook — which is responsible for rotating the activation token and recording a pending-email-change marker on an unactivated Customer account — only being registered inside the `is_double_opt_in_login_enabled()` branch when \"Disable login for unactivated customers\" is set to Yes, leaving the original `?activate=` token valid and entirely unbound to the email address it was issued for when that setting is No. This makes it possible for authenticated attackers, with Subscriber-level access and above, to change their account email to a victim's billing email via the standard `/my-account/edit-account/` form and then redeem their original activation token through `customer_account_activate()`, triggering `link_customer_past_orders()` to reassign any matching guest order to the attacker's account and exposing the original buyer's billing name, street address, phone number, and purchased items on the attacker's My Account order page. Exploitation requires the site to have double opt-in enabled with \"Disable login for unactivated customers\" explicitly set to No (a non-default configuration), public customer registration enabled, and the original activation token redeemed within its one-day expiry window.",
+      "id": "CVE-2026-120199",
+      "published": "2026-10-31T18:17:07.010",
+      "description": "LearnHouse before 1.1.1 contains a missing authorization vulnerability in the assignment API that allows authenticated users to read other users' grades and submissions. Attackers can supply another user_id to the submissions grade endpoint or query submission read functions to view other students' work, grades and instructor feedback.",
       "severity": "MEDIUM",
       "score": 4.3
+    },
+    {
+      "id": "CVE-2026-120210",
+      "published": "2026-10-31T18:17:09.427",
+      "description": "FFmpeg 5.0 through 9.0.2 contains a path traversal vulnerability in the IMF demuxer that allows attackers to open files outside the package via unvalidated ASSETMAP Path elements. Attackers can supply a crafted IMF package with '..' or absolute paths to demux local MXF files, probe file existence and size, or trigger server-side requests.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-120190",
+      "published": "2026-11-01T01:17:17.133",
+      "description": "A security flaw has been discovered in PostyBirb Plus up to 3.1.75. Affected by this vulnerability is an unknown functionality of the file ui/src/views/submissions/submission-forms/form-components/DescriptionInput.tsx of the component Submission Description Editor. The manipulation results in cross site scripting. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. Upgrading to version 3.1.76 addresses this issue. The patch is identified as 6b11c2345ad98ae59fd5404a9f1024eb1d10c8a4. It is advisable to upgrade the affected component.",
+      "severity": "LOW",
+      "score": 3.5
+    },
+    {
+      "id": "CVE-2026-102212",
+      "published": "2026-10-31T16:16:52.553",
+      "description": "Heap-based buffer overflow in Opengear IM72XX, CM71XX, and ACM70XX firmware versions 4.8.0 through 5.5.2 on console server appliances allows an unauthenticated remote attacker to crash the index.cgi process via a crafted multipart/form-data POST request containing an overlong Content-Disposition name field.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-120135",
+      "published": "2026-10-31T21:16:53.397",
+      "description": "Uncontrolled Recursion vulnerability in Apache Thrift Java bindings.\n\n\n\nThis issue affects Apache Thrift: before 0.24.0.\n\n\n\nUsers are recommended to upgrade to version 0.24.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-115946",
+      "published": "2026-11-01T00:16:34.437",
+      "description": "XS::libbrotli versions before 1.2.1.0 for Perl bundle a brotli library with an out-of-bounds write in the decoder.\n\nAffected versions compile a bundled brotli into static archives that dependent XS modules link against at build time, rather than using the system library. The bundled copy, 1.0.7 or 1.1.0 across the range, carries the decoder out-of-bounds write described in CVE-2026-111497. Version 1.2.1.0 updates it to brotli 1.2.1.\n\nXS::libbrotli has no Perl interface, so the decoder is reached through any dependent module that decompresses untrusted data with it. An attacker supplying a crafted brotli stream can corrupt decoder state, disclose memory, crash the process, or potentially execute arbitrary code. Upgrading the system brotli does not remediate this.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
