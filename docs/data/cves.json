@@ -1,143 +1,143 @@
 {
-  "totalResults": 3454,
+  "totalResults": 3452,
   "items": [
     {
-      "id": "CVE-2026-116289",
-      "published": "2026-11-01T10:18:34.873",
-      "description": "Gitea did not reject personal access tokens restricted to public resources (`public-only`) on the organization Actions runner registration-token endpoint, and the runner registered with the resulting token was not limited to public repositories. Holding only such a token with `write:organization` that belongs to an owner of a public organization, an attacker could register an organization-level runner and receive jobs of the organization's private repositories that have Actions enabled, including the workflow content, Actions secrets and variables, and a task token with access to the private repository. The issue widens what the restricted token can reach; it gives nothing beyond what the owner's full account can already do.",
+      "id": "CVE-2026-120338",
+      "published": "2026-11-01T16:18:14.970",
+      "description": "Prefab UI's Generative UI sandbox runs caller-supplied Python inside Pyodide, Python compiled to WebAssembly, in a Deno subprocess. The feature is documented as isolation for untrusted code, including LLM-written UI. From prefab-ui 0.14.0 through 0.20.2 the launcher starts Deno with unrestricted --allow-read, --allow-write, and --allow-net, and the runner leaves the Deno API on the JavaScript global object. Pyodide's js module proxies that global, so the Python can call Deno.readTextFileSync and Deno.writeTextFileSync. A caller who can supply the code can read and write files as the server OS user, and can persist code execution by writing a .pth file into the server virtualenv's site-packages. The usual remote path is FastMCP's GenerativeUI provider, which registers the MCP tool generate_prefab_ui and forwards that tool's code argument into this sandbox. On a FastMCP server with no authentication configured, any client who can reach the server can call the tool. With authentication, any client allowed to call tools can. Generative UI is opt-in, and the host must have Deno installed. Confirmed on prefab-ui 0.20.2. Fixed in 0.21.0: after the runtime and Prefab sources load, the runner revokes Deno read, write, and network permission before it accepts code, the process is started with --no-prompt so a permission request cannot grant them again, and bootstrap network access is limited to cdn.jsdelivr.net. The fix is commit 030f074 (pull request 538).",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-120227",
+      "published": "2026-11-01T13:18:00.643",
+      "description": "A vulnerability was detected in WAVLINK WN701AE M01AE_V260105. This affects the function del_staticrule of the file static_route_setting.sh of the component ioos Web Backend. Performing a manipulation of the argument rule_name results in os command injection. Remote exploitation of the attack is possible. The exploit is now public and may be used. The vendor was contacted early about this disclosure.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-120306",
+      "published": "2026-11-01T13:18:01.300",
+      "description": "Beta9 turns each shell command in a tenant image definition into a Dockerfile RUN line and executes it with Buildah on the build worker. The worker image sets BUILDAH_ISOLATION=chroot, and no buildah invocation passes --isolation, so the step only changes its filesystem root. It keeps the worker pod's PID, network, IPC, and user namespaces, runs as uid 0, and holds CAP_DAC_OVERRIDE. PID 1 in that procfs is the worker entrypoint, so /proc/1/root is the worker container's filesystem and is writable. That filesystem contains the runc, buildah, and runsc binaries the worker uses to start tenant containers, the worker's Kubernetes service account token, and the host directories mounted into the pod. Worker pods are privileged. Clip v2 layered builds are the default, so a tenant with a workspace token reaches this by submitting one image build. The read-only proof confirmed the shared namespaces, CAP_DAC_OVERRIDE, and that the worker's runc binary is visible at /proc/1/root. Fixed in worker 0.1.756: Buildah RUN steps, including the WORKDIR mkdir, use OCI isolation with private PID, IPC, and network namespaces, and tenant ARG values are passed only into the build container.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-120307",
+      "published": "2026-11-01T13:18:01.497",
+      "description": "The Beta9 worker serves the sandbox file API from outside the container. getHostPathFromContainerPath turns the tenant's container path into a worker path. If the unresolved path starts with a mount destination, including the default upload mount at /tmp/.beta9, the remainder is joined onto that mount's source with filepath.Join, which cleans parent-directory segments after the prefix check. A long enough run of those segments names any absolute path on the worker. A path that matches no mount is joined onto the container root and opened in the worker's own filesystem, so an absolute symbolic link such as /var/run pointing at /run is followed against the worker root. Upload, download, stat, list, find-in-files, replace-in-files, and delete-file all call this helper. A tenant with a workspace token and one running sandbox can read, write, list, and delete files on the hosting worker as root, including files of other tenants on that machine. A read-only proof downloaded the worker pod's Kubernetes service account token through the file API for a path that did not exist inside the sandbox. In the shipped remote-node manifests that service account is bound to cluster-admin. Fixed in worker 0.1.756: sandbox file operations and workspace sync open paths with os.OpenRoot, so parent-directory and symlink lookups stay inside the container root or the mount source.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-120308",
+      "published": "2026-11-01T13:18:01.670",
+      "description": "A Beta9 tenant can attach a volume when deploying a function, endpoint, or task queue. The gateway builds the host path by joining the shared volumes root, the workspace name, and the volume identifier from the stub configuration. Nothing checks that the identifier names a volume that workspace owns. Parent-directory segments in the identifier collapse the joined path to the worker's filesystem root, and the worker bind-mounts that path into the sandbox read-write unless the volume was explicitly marked read-only. A tenant with a workspace token can therefore read and write the worker's files, including other tenants' volumes stored on that machine. Confirmed against gateway 0.1.769 and worker 0.1.745. Fixed in gateway 0.1.776 and worker 0.1.756: volume identifiers and mount paths are validated before a mount is built, including for stubs saved before the check existed, and the gateway rejects a volume that does not exist or is not owned by the workspace.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-120228",
+      "published": "2026-11-01T14:18:52.883",
+      "description": "A flaw has been found in WAVLINK WN553X1-B V260403_2.0.0. This vulnerability affects the function sub_416D88 of the file /bin/ioos of the component ioos Service. Executing a manipulation of the argument group_id/group_name can lead to os command injection. The attack can be executed remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-120230",
+      "published": "2026-11-01T15:17:22.830",
+      "description": "A vulnerability was found in WAVLINK WN701AE 260105. Impacted is the function del_vlan_group of the component ioos Web Backend. The manipulation of the argument vlan_name results in os command injection. The attack may be performed from remote. The exploit has been made public and could be used. The vendor was contacted early about this disclosure.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-120231",
+      "published": "2026-11-01T15:17:23.053",
+      "description": "A vulnerability was determined in WAVLINK WN553X1-B V260403_2.0.0. The affected element is the function sub_416568 of the file /bin/ioos of the component OpenVPN CLI Handler. This manipulation of the argument file_id causes os command injection. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-74759",
+      "published": "2026-11-01T17:16:34.280",
+      "description": "Google::Auth versions 0.12 for Perl allow server side request forgery via unvalidated credential_source URLs in AWS external account credentials.\n\nAn external_account configuration with the AWS subject token type selects Google::Auth::ExternalAccountCredentials::Aws. Its retrieve_subject_token sends requests to the imdsv2_session_token_url, url and region_url fields of credential_source without the host check that the other credential classes apply.\n\nAny caller that builds credentials from a configuration it does not fully control issues GET and PUT requests to hosts the configuration names, including internal services and link-local metadata endpoints.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-62048",
+      "published": "2026-11-01T16:18:15.170",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Liquid Web / StellarWP BookIt bookit allows SQL Injection.This issue affects BookIt: from n/a through 2.6.0.6.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-120229",
+      "published": "2026-11-01T14:18:53.123",
+      "description": "A vulnerability has been found in WAVLINK WN553X1-B 260403_2.0.0. This issue affects the function sub_416B50 of the file /bin/ioos. The manipulation of the argument file_id leads to os command injection. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-117685",
-      "published": "2026-11-01T10:18:35.933",
-      "description": "The OCI registry's cross-repository blob mount checked the target package against the token's `public-only` restriction, but checked the source blob only against the full account permissions of the token owner. A `public-only` token with `write:package` scope, whose owner can read a private package and write to a public package namespace, could mount a blob of the private package into the public package. The private blob, such as a container layer, could then be downloaded by anyone through the public package.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-118395",
-      "published": "2026-11-01T10:18:36.370",
-      "description": "Gitea 1.27.3 stopped personal access tokens restricted to public resources (`public-only`) from creating repositories through `POST /api/v1/user/repos` and `POST /api/v1/repos/migrate`, but `POST /api/v1/org/{org}/repos`, `POST /api/v1/orgs/{org}/repos`, `POST /api/v1/orgs` and `POST /api/v1/repos/{owner}/{repo}/generate` still accepted such tokens. A holder of a public-only token with the needed write scopes could create private repositories in organizations where the token's owner may create repositories, create private organizations, and generate private repositories from templates. The token still could not read the private repositories it created.",
+      "id": "CVE-2026-120232",
+      "published": "2026-11-01T15:17:23.263",
+      "description": "A vulnerability was identified in Horizon DataSys Reboot Restore Standard up to 13.2. The impacted element is the function sub_23908 in the library shield.sys of the component Kernel Driver. Such manipulation leads to memory corruption. The attack can only be performed from a local environment. The exploit is publicly available and might be used. A fix is planned for the upcoming release.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-119441",
-      "published": "2026-11-01T10:18:36.643",
-      "description": "`DELETE /api/v1/orgs/{org}/repos` deletes all repositories of an organization, but it did not enforce the public-only restriction of access tokens: the route only checked that the organization itself was public. A public-only token of an owner of a public organization could therefore permanently delete the organization's private repositories, which such a token must not reach. Routes that require organization ownership now reject public-only tokens.",
+      "id": "CVE-2026-74760",
+      "published": "2026-11-01T17:16:34.420",
+      "description": "Google::Auth versions from 0.11 through 0.12 for Perl accept an authorization code from any local process because the gcloud-auth login callback does not check the OAuth state.\n\nThe gcloud-auth login and application-default login commands send a state parameter with the authorization request, then take the code from the first request to reach their loopback listener without comparing the returned state.\n\nA local attacker can submit an authorization code for their own Google account. The CLI exchanges it and stores the refresh token as the user's credentials, so the user's tools then act as the attacker's account.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-119533",
-      "published": "2026-11-01T10:18:36.787",
-      "description": "Repository and organization project boards listed the pull requests that reference each issue on the board without checking whether the viewer can read them. When a private pull request mentions an issue on a board the viewer can open, the board revealed the private repository's path and the pull request's number, title and state, to anonymous visitors in the case of a public board. The pull request body, diff and files were not exposed. Boards now skip linked pull requests in repositories where the viewer cannot read pull requests.",
+      "id": "CVE-2026-66570",
+      "published": "2026-11-01T16:18:15.323",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Nickboss WordPress File Upload wp-file-upload allows Stored XSS.This issue affects WordPress File Upload: from n/a through 5.2.1.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-116296",
-      "published": "2026-11-01T10:18:35.020",
-      "description": "The API routes for releases, release assets, milestones and repository labels did not reject changes to archived repositories. A user with write access to an archived repository, or a holder of such a user's write-scoped token, could replace or delete release assets while keeping their download URLs, delete releases and tags, and create, edit or delete milestones and labels of a repository that is meant to be read-only. Changing requests on these routes now return 423 Locked for archived repositories.",
+      "id": "CVE-2026-119480",
+      "published": "2026-11-01T16:18:13.513",
+      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Crocoblock JetFormBuilder jetformbuilder allows Path Traversal.This issue affects JetFormBuilder: from n/a through 3.6.7.1.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-116474",
-      "published": "2026-11-01T10:18:35.170",
-      "description": "The `GITEA_TOKEN` of a Gitea Actions job authenticates as the `gitea-actions` system user, and the `/api/v1/user` email and GPG key endpoints accepted that user, so a job could register an email address and a GPG key on it; without required email confirmation (the default) the address is stored as activated. Commit verification treats a key without a real owner as the instance signing key, so any user who can run a workflow job could make commits signed with their own key show as trusted and signed by the instance in every repository where they appear, including pull requests to repositories the user cannot write to. The impact is limited to the displayed signature status: enforcement such as required signed commits only checks that a signature is verified and is unaffected, and no access is gained. The `/api/v1/user` routes now reject system users.",
+      "id": "CVE-2026-120236",
+      "published": "2026-11-01T17:16:33.393",
+      "description": "A vulnerability was detected in ag-ui-protocol ag-ui up to 0.0.58. Affected by this vulnerability is an unknown functionality of the component Transport Decoder Handler. The manipulation results in improper input validation. The attack may be launched remotely. The exploit is now public and may be used. The patch is identified as 660182b973a44b8eda5484b14b88eb9cc251edc4. It is suggested to upgrade the affected component.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-117635",
-      "published": "2026-11-01T10:18:35.320",
-      "description": "The `/api/v1/admin` route group did not enforce the `public-only` restriction of personal access tokens. A public-only token with admin scope issued by a site administrator could therefore list private organizations and the email addresses of all users, create organizations, obtain runner registration tokens and create new site administrator accounts, the last of which persists after the token is revoked. Tokens of users who are not site administrators cannot reach these routes; public-only tokens are now rejected on the admin API.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-118386",
-      "published": "2026-11-01T10:18:36.073",
-      "description": "Workflows triggered by a pull request review were read from the commit named in the review's `commit_id`, while the fork restrictions were decided by the reviewed pull request, and the commit was not checked to belong to that pull request. A user with read access to a repository could place a commit of their own in it, through a fork pull request or an AGit push, and submit a review naming that commit on a pull request whose head branch is in the same repository. On instances with a runner serving the repository, the attacker's workflow then ran without approval, received the Actions secrets of the repository and its owner, and got a `GITEA_TOKEN` with write access to the repository. Review-triggered workflows now run on the pull request head.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-118504",
-      "published": "2026-11-01T10:18:36.507",
-      "description": "The web interface blocks issue and pull request changes on archived repositories, but several issue routes of the REST API did not check whether the repository is archived. A user allowed to change issues of an archived repository could use the API to edit, close or delete issues, change labels and deadlines, add or delete tracked time and stopwatches, add reactions, change issue blocks, and pin issues, altering data that archiving is meant to freeze. Gitea 28.2.0 added the check to the issue edit, delete and label routes; Gitea 28.3.0 applies it to all modifying repository API requests.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-113429",
-      "published": "2026-11-01T10:18:34.557",
-      "description": "Legacy (v1 to v3) Actions artifact uploads stored the request's `Content-Encoding` header unchecked in the column that is served as the artifact's `Content-Type` on download, and a value starting with `video/` or `audio/` also removed the sandboxing Content-Security-Policy. A user who can run an Actions job could upload an artifact that a browser renders as HTML on the Gitea origin when the direct artifact download URL is opened, and the URL is reachable anonymously on public repositories. A victim who opens the link runs the attacker's script with their own session, which for an administrator means control of the instance. Legacy uploads now store only the `gzip` marker, and the special serve headers are chosen only for valid media types.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-114199",
-      "published": "2026-11-01T10:18:34.710",
-      "description": "`GET /api/v1/users/{username}/heatmap` computed the contribution heatmap with the repository access of the token owner and ignored the public-only restriction of the access token, unlike the activity feed endpoints. A holder of a user's public-only token could read contribution counts and their 15-minute time buckets that stem from that user's activity in private repositories. Repository names and contents were not disclosed. For public-only tokens the heatmap now only counts activity visible to anonymous users.",
+      "id": "CVE-2026-120233",
+      "published": "2026-11-01T16:18:14.290",
+      "description": "A security flaw has been discovered in ag-ui-protocol ag-ui up to 0.0.58. This affects an unknown function of the file sdks/typescript/packages/client/src/agent/http.ts of the component HttpAgent. Performing a manipulation results in information disclosure. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. The pull request to fix this issue awaits acceptance.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-120217",
-      "published": "2026-11-01T07:17:14.487",
-      "description": "A vulnerability was detected in Delgan loguru 0.7.3. The affected element is the function AnsiParser.feed of the file loguru/_colorizer.py of the component ANSI Color-Markup Parser. Performing a manipulation results in inefficient regular expression complexity. The attack is possible to be carried out remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-120234",
+      "published": "2026-11-01T16:18:14.530",
+      "description": "A weakness has been identified in ag-ui-protocol ag-ui up to 0.0.58. This impacts the function e.text of the component HTTP Transport. Executing a manipulation can lead to resource consumption. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks. The pull request to fix this issue awaits acceptance.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-112887",
-      "published": "2026-11-01T10:18:33.457",
-      "description": "Gitea Actions task tokens authenticate to the REST API as a shared system user with a negative ID, which repository, organization, project and key filters treated as having no owner restriction, and the token carried no API scope to restrict user-scoped routes. A user who can run a workflow could use the job's token with `GET /api/v1/user/repos` to list every repository on the instance, including private repositories of other users and organizations, with their metadata. Repository contents remained protected by per-repository permission checks. System users now own nothing, and `/api/v1/user` routes other than `GET /api/v1/user` accept only individual and bot accounts.",
+      "id": "CVE-2026-120235",
+      "published": "2026-11-01T16:18:14.757",
+      "description": "A security vulnerability has been detected in ag-ui-protocol ag-ui up to 0.0.58. Affected is the function parseSSEStream of the file sdks/typescript/packages/client/src/transform/sse.ts of the component SSE Parser. The manipulation leads to resource consumption. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used. The identifier of the patch is 9e7b2b00bce215bbf731f1e6094f63812527c432. The affected component should be upgraded.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-117646",
-      "published": "2026-11-01T10:18:35.477",
-      "description": "The repositories, stars and watching tabs of user profiles and the repository list of organization home pages included private repositories for every signed-in request without checking whether the request used a personal access token restricted to public resources (`public-only`). A holder of such a token could list the private repositories visible to the token's owner, and that user's stars and watches of private repositories. The API and the profile activity tab already applied the restriction. The impact is disclosure of repository names and metadata, not of repository content.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-118394",
-      "published": "2026-11-01T10:18:36.227",
-      "description": "The OAuth2 userinfo endpoint (`/login/oauth/userinfo`) decided whether to limit the `groups` claim to public organizations by re-parsing the `Authorization` header as an OAuth2 access token instead of using the scope of the credential that authenticated the request. When a public-only OAuth2 token was sent as a query parameter or form field, or a public-only personal access token was used, that scope came back empty and the claim listed the token owner's private organizations, teams and concealed memberships. The disclosure is limited to the owner's organization and team names and memberships; no repository content is exposed. The endpoint now uses the scope of the authenticating token.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-119625",
-      "published": "2026-11-01T10:18:36.937",
-      "description": "The `/{username}` web route accepted personal access tokens over HTTP Basic authentication without checking their scope. A token confined to an unrelated scope, such as `read:issue`, could read its owner's private activity through the user RSS/Atom feed and the profile activity tab, and other members' activity in a private organization through the organization feed; a public-only token could list the owner's private repositories and organizations and render private profile READMEs. For a site administrator's token this applied to every account. Tokens are now accepted on this route only for feeds, which require `read:user` or `read:organization`.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-120218",
-      "published": "2026-11-01T07:17:26.813",
-      "description": "A flaw has been found in Typemill up to 2.26.0. The impacted element is the function ControllerApiImage::saveImage of the file system/typemill/Models/SvgSanitizer.php. Executing a manipulation can lead to cross site scripting. The attack may be performed from remote. The exploit has been published and may be used. Upgrading to version 2.27.0 is sufficient to resolve this issue. This patch is called 9ca43c4a7b6764c5a6ac11a2ccc099b036ee3cef. It is recommended to upgrade the affected component.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-117649",
-      "published": "2026-11-01T10:18:35.623",
-      "description": "The issue timeline API and the web issue page hid cross-reference events that point at issues the reader cannot access, but not \"dependency added\" and \"dependency removed\" events. When a readable issue had been linked as a dependency to an issue in a repository the reader cannot access, for example a private repository, any reader of the first issue, including anonymous users of a public repository, received the linked issue's current title, body, state, labels, poster and attachment names through the API, and its repository, number and title on the web page. Creating the link requires access to both issues; comments and attachment downloads of the linked issue stayed protected. Dependency events are now filtered with the same read permission check; a related exposure of unlinked attachment metadata through hidden dependency placeholders was already fixed in 28.2.0.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-117677",
-      "published": "2026-11-01T10:18:35.780",
-      "description": "When parsing an uploaded Helm chart, Gitea decompressed the archive and read every tar entry while looking for `Chart.yaml` without limiting the decompressed size, and did so before the package size quota was checked; the quota only considers the compressed upload size. A user with package write access to an owner, for example their own account on an instance with open registration, could repeatedly upload small, highly compressed archives that make the server spend CPU time proportional to the decompressed size, degrading the availability of the Gitea instance. The issue does not allow code execution or data access.",
+      "id": "CVE-2026-117680",
+      "published": "2026-11-01T14:18:51.500",
+      "description": "Improper Check for Unusual or Exceptional Conditions vulnerability in the pattern and patternProperties keywords in lud jsv allows an unauthenticated remote attacker to bypass schema validation via a string that matches a schema regex only after heavy backtracking. JSV.Helpers.RegexExt.bounded_match?/2 runs schema regexes with a backtracking budget but calls :re.run/3 without :report_errors, so a match that exhausts the budget returns the same :nomatch as a real non-match. A key that matches a patternProperties regex is then checked against additionalProperties or not at all, and a string that matches a not subschema with a pattern is accepted. Before the budget existed, Regex.match?/2 failed the same way at Erlang's default match limit.\n\nOnly schemas whose regex explores a catastrophic branch before the branch that matches are affected. The attacker controls the data, not the schema, and linear patterns never exhaust the budget.\n\nThis issue affects jsv: from 0.1.0 before 0.26.2.",
       "severity": "UNKNOWN",
       "score": null
     }
