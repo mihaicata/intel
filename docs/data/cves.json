@@ -1,145 +1,145 @@
 {
-  "totalResults": 3575,
+  "totalResults": 3532,
   "items": [
     {
-      "id": "CVE-2026-120322",
-      "published": "2026-11-02T02:18:47.550",
-      "description": "A vulnerability was identified in Termix-SSH Termix up to 2.9.2. This issue affects some unknown processing of the file /plugin-api/file-manager/transferToHost. The manipulation of the argument destPath leads to path traversal. The attack may be initiated remotely. The exploit is publicly available and might be used. The shortcut was removed in the standalone File Manager plugin v1.0.0 (transfer engine now always writes over SFTP) and in core v26.10.0. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-120213",
+      "published": "2026-11-02T11:17:31.137",
+      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP requests to an upstream server under a configured prefix. In versions 9.0.0 through 11.6.5, when an application uses parameterized prefix and rewritePrefix options to pin clients to a fixed upstream path, the plugin substitutes URL-decoded route parameters into rewritePrefix without re-encoding them. A parameter value that encodes a path separator together with a fragment or query delimiter therefore decodes into real separators and delimiters that inject extra upstream path segments and strip the mandatory suffix the rewritePrefix was meant to enforce, without using any dot-dot traversal. An unauthenticated remote attacker can use this to reach upstream locations outside the intended prefix, leading to path-restriction bypass and, depending on the upstream, server-side request forgery or authorization bypass in the proxied service. The issue is fixed in @fastify/http-proxy 11.6.6, and users should upgrade to 11.6.6 or later. There is no workaround other than upgrading.",
       "severity": "CRITICAL",
-      "score": 9.9
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-120311",
-      "published": "2026-11-02T03:17:28.663",
-      "description": "Network-AI from 5.13.4 before 5.15.5 contains a path traversal vulnerability in FileJobStore that allows attackers to read or delete arbitrary .json files by supplying traversal sequences in the job id. Attackers controlling the id passed to FileJobStore.get(), FileJobStore.delete(), or JobQueue.getJob() can disclose credentials and grant tokens or delete configuration files to weaken AuthGuardian authorization.",
+      "id": "CVE-2026-2613",
+      "published": "2026-11-02T11:17:31.963",
+      "description": "The Admin REST API accepts user-supplied input without adequately sanitizing it, allowing it to be included in the structure of SQL statements.\n\nA user with administrator privileges can exploit this by influencing the structure of executed SQL statements, enabling blind SQL injection to infer database information and potentially impact the availability of the database service.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-120312",
-      "published": "2026-11-02T03:17:28.863",
-      "description": "Network-AI from 5.13.4 before 5.15.5 contains a path traversal vulnerability in AgentVCR that allows attackers controlling the cassette name to read or write arbitrary .json files. Attackers can pass traversal sequences to load() or save() to disclose sensitive JSON data or overwrite policy files such as AuthGuardian trust-level configuration.",
+      "id": "CVE-2026-8923",
+      "published": "2026-11-02T11:17:33.380",
+      "description": "Zohocorp ManageEngine Eventlog Analyzer and ManageEngine Log360 versions before 13062 are vulnerable to Authenticated Remote Code Execution in Log Forward option.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-120315",
-      "published": "2026-11-02T03:17:29.457",
-      "description": "LobeHub Chat from 1.84.26 before 2.1.49 contains a path traversal vulnerability that allows authenticated users to write arbitrary files by supplying unsanitized file names to writeTempFile(). Attackers can create a file record via file.createFile with a traversal name, then trigger document parsing to overwrite application files like startServer.js for code execution or denial of service.",
+      "id": "CVE-2026-117518",
+      "published": "2026-11-02T11:17:30.660",
+      "description": "@fastify/reply-from is a Fastify plugin that forwards requests to an upstream HTTP server. In versions up to and including 12.8.0, the plugin validated proxy paths against forward-slash dot-segments only and then built the target with the WHATWG URL parser, which normalizes a backslash and its percent-encoded form to a forward slash on the http, https, ws, and wss schemes. A path that uses backslash dot-segments therefore bypasses the traversal check and resolves to a different upstream path, so an application that scopes proxying to an upstream prefix, or relies on route guards in front of the forwarding call, can have an unauthenticated request escape the intended prefix and reach other upstream endpoints. The resulting access to unintended upstream resources is primarily a confidentiality impact with limited integrity impact. The issue is fixed in @fastify/reply-from 12.8.1, where the path is normalized and any segment resolving to a single or double dot, along with control characters and ambiguous whitespace, is rejected before the URL is constructed, and users should upgrade to 12.8.1 or later. There is no workaround other than upgrading.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-120324",
-      "published": "2026-11-02T03:17:30.157",
-      "description": "A weakness has been identified in Aklivity Zilla up to 1.3.4/2.4.7/2.5.0-rc2. The affected element is the function Path.resolve of the file FileSystemServerFactory of the component http-filesystem Binding. This manipulation of the argument params causes path traversal. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. Upgrading to version 2.5.0-rc3 is sufficient to fix this issue. Patch name: 46a8b15cbea157f7ae8b7cb865809a02fd6b1988. You should upgrade the affected component.",
-      "severity": "HIGH",
-      "score": 8.3
-    },
-    {
-      "id": "CVE-2026-120313",
-      "published": "2026-11-02T03:17:29.053",
-      "description": "Network-AI before 5.15.5 contains a path traversal vulnerability in InputSanitizer.sanitizePath() that allows attackers to escape the base directory using sibling-directory paths. Attackers can supply paths whose directory name shares a string prefix with the base, bypassing the unanchored startsWith check to read, list, or write files outside the sandbox.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-20499",
-      "published": "2026-11-02T03:17:31.090",
-      "description": "In Modem, there is a possible out of bounds write due to a missing bounds check. This could lead to remote escalation of privilege, if a UE has connected to a rogue base station controlled by the attacker, with no additional execution privileges needed. User interaction is not needed for exploitation. Patch ID: MOLY01857954; Issue ID: MSV-8247.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-20545",
-      "published": "2026-11-02T03:17:31.257",
-      "description": "In Modem, there is a possible out of bounds write due to a missing bounds check. This could lead to remote escalation of privilege, if a UE has connected to a rogue base station controlled by the attacker, with no additional execution privileges needed. User interaction is not needed for exploitation. Patch ID: MOLY01879158 / MOLY01774038; Issue ID: MSV-9811.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-20546",
-      "published": "2026-11-02T03:17:31.390",
-      "description": "In Modem, there is a possible out of bounds write due to an incorrect bounds check. This could lead to remote escalation of privilege, if a UE has connected to a rogue base station controlled by the attacker, with no additional execution privileges needed. User interaction is not needed for exploitation. Patch ID: MOLY01876654 / MOLY01774038; Issue ID: MSV-9803.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-120314",
-      "published": "2026-11-02T03:17:29.260",
-      "description": "Network-AI from 5.14.0 before 5.15.5 contains a missing authentication vulnerability in the A2AServer class that allows unauthenticated attackers to access task operations when no secret is configured. Attackers can send JSON-RPC requests to tasks/send, tasks/get, and tasks/cancel without a Bearer token to execute tasks, read results, and cancel tasks.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-120319",
-      "published": "2026-11-02T02:18:47.090",
-      "description": "A vulnerability was found in Sanluan PublicCMS 4.x/5.x/6.x. This affects the function TradeRefundService.updateAmound of the file publiccms-parent/publiccms-trade/src/main/java/com/publiccms/logic/service/trade/TradeRefundService.java of the component publiccms-trade. Performing a manipulation of the argument refundId results in authorization bypass. The attack can be initiated remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-118871",
+      "published": "2026-11-02T10:17:11.123",
+      "description": "SQL injection vulnerability classified as an internal threat level.Attackers can steal database information via SQL injection while logged in.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-120325",
-      "published": "2026-11-02T03:17:30.410",
-      "description": "A security vulnerability has been detected in Webpro-nl Knip up to 6.44.0. The impacted element is the function writeFile of the file packages/knip/src/IssueFixer.ts of the component Workspace Handler. Such manipulation of the argument workspaces leads to path traversal. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-120316",
-      "published": "2026-11-02T03:17:29.760",
-      "description": "http4k before 6.62.0.0-ee contains a path traversal vulnerability in ThymeleafTemplates Caching and HotReload that allows unauthenticated attackers to read files outside baseTemplateDir by supplying ../ segments in ViewModel.template() values. Attackers can influence request-driven template selection so Thymeleaf's FileTemplateResolver resolves escaped paths without containment checks, disclosing any file readable by the server process.",
+      "id": "CVE-2026-117531",
+      "published": "2026-11-02T11:17:30.853",
+      "description": "@fastify/multipart is the multipart form-data and file upload plugin for the Fastify web framework. In versions 5.3.0 through 10.1.6, the plugin does not propagate a parser error to the file stream when a request body ends inside a file part with no closing boundary, even though the Content-Length is complete, the client does not abort, and no file size limit is exceeded. The plugin destroys the in-progress file stream without an error, so a handler that iterates the request parts and performs asynchronous work before consuming the file attaches to a stream that never emits an error or end event, and the request never responds while the connection stays open. An unauthenticated remote client can repeat these malformed uploads against such a route to accumulate pending connections and exhaust server resources, so the impact is availability only and exploitation depends on the application using a delayed file consumer. The issue is fixed in @fastify/multipart 10.1.7, where the parser error is propagated to the file stream so a delayed consumer settles with an error instead of hanging, and users should upgrade to 10.1.7 or later. There is no workaround other than upgrading.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-120317",
-      "published": "2026-11-02T03:17:29.957",
-      "description": "http4k from 4.9.10.0 before 6.60.0.0 contains a missing integrity check vulnerability because DigestEncoder computes the auth-int digest without hashing the request entity body. On-path attackers on non-TLS channels can rewrite the body of authenticated requests while keeping the Authorization header valid, executing state-changing actions as the victim.",
+      "id": "CVE-2026-120214",
+      "published": "2026-11-02T11:17:31.277",
+      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP requests to an upstream server under a configured prefix. In versions 11.6.0 through 11.6.2, the destination validation normalizes literal backslashes before it percent-decodes the request path, so a path that encodes its backslashes and dot-segments survives the dot-segment check and is only turned into backslash and double-dot sequences after that check has passed. When the upstream resolves on a platform that treats a backslash as a path separator, the forwarded request walks out of the configured proxy prefix and reaches a sibling location on the upstream. An unauthenticated remote attacker can use this to retrieve upstream resources outside the intended prefix, so the impact is confidentiality only, and exploitation depends on the upstream's path handling. The issue is fixed in @fastify/http-proxy 11.6.3, and users should upgrade to 11.6.3 or later. This is a follow-up to the earlier prefix-escape fix, which did not account for the encoded-backslash form.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-120335",
-      "published": "2026-11-02T03:17:30.873",
-      "description": "A vulnerability has been found in deepset-ai farm up to 0.8.0. Affected is the function WordEmbedding_LM.load of the file farm/modeling/language_model.py of the component Model Package Loader. The manipulation of the argument embeddings_filename leads to path traversal. An attack has to be approached locally. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-120216",
+      "published": "2026-11-02T11:17:31.553",
+      "description": "fastify is a web framework for Node.js. In versions 5.8.0 through 5.12.7, when the server is configured with a nonzero handlerTimeout and a route returns a streaming response, a request whose stream has already sent its headers but stays open past the timeout crashes the server. When the timeout fires, Fastify tries to send a new error response on a response that has already started, raising an uncaught ERR_HTTP_HEADERS_SENT that terminates the Node.js process and interrupts any other in-flight requests. An unauthenticated remote client can trigger this with a single request to an affected streaming endpoint, so the impact is availability only, and exploitation requires the non-default handlerTimeout to be set. The default handlerTimeout of 0 is not affected. The issue is fixed in fastify 5.12.8, and users should upgrade to 5.12.8 or later. As a workaround, set handlerTimeout to 0, which disables the affected timeout path.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2025-13647",
+      "published": "2026-11-02T10:17:10.707",
+      "description": "The affected component fails to enforce expected validation constraints on the `content-type` header when processing certain requests. This allows an attacker to submit a crafted request with a manipulated `content-type` header.\n\nSuccessful exploitation can lead to the unintended exposure of the file paths for certificate files. This information disclosure could potentially be leveraged in subsequent attacks or compromise the confidentiality of the system.",
+      "severity": "MEDIUM",
+      "score": 5.8
+    },
+    {
+      "id": "CVE-2024-2372",
+      "published": "2026-11-02T11:17:28.460",
+      "description": "The affected components accept user-supplied input for constructing redirection URLs without enforcing expected validation constraints. This allows an attacker to provide a crafted URL that can redirect users to an arbitrary external domain.\n\nBy leveraging this open redirection vulnerability, an attacker can craft a malicious link that, when clicked by a user, redirects them to an attacker-controlled page. This can be used in conjunction with social engineering techniques to execute phishing attacks, aiming to obtain sensitive information or cause other harm.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2024-9517",
+      "published": "2026-11-02T12:16:57.873",
+      "description": "The refresh token grant type in WSO2 products fails to re-validate account status before issuing new access tokens. This weakness allows an attacker to obtain valid access tokens for user accounts even after they have been blocked by the user store, bypassing account lockout mechanisms.\n\nThis vulnerability can lead to unauthorized access to user accounts and their associated resources. Attackers can leverage this to perform actions on behalf of blocked users, potentially leading to privilege escalation or data exfiltration depending on the permissions of the compromised account.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2025-12544",
+      "published": "2026-11-02T11:17:30.477",
+      "description": "The Publisher portal fails to enforce proper validation on uploaded SVG files, allowing users with the Publisher role to inject malicious scripts. This weakness can be exploited by uploading a crafted SVG file, which is then stored and rendered by the application.\n\nThe security consequences include the ability for a malicious actor to redirect the victim's browser to an arbitrary website, modify the web page's UI, or retrieve information from the browser. However, the impact is mitigated as session-related sensitive cookies are protected with the httpOnly flag, preventing session hijacking.",
       "severity": "MEDIUM",
       "score": 4.8
     },
     {
-      "id": "CVE-2026-120320",
-      "published": "2026-11-02T02:18:47.327",
-      "description": "A vulnerability was determined in jxxghp MoviePilot up to 3.1.2. This vulnerability affects the function WorkflowExecutor.restore_context of the file app/chain/workflow.py of the component Workflow Fork Endpoint. Executing a manipulation can lead to deserialization. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 3.1.3 is able to resolve this issue. This patch is called 6034dcc880c13079aeb398dbe32c346ebcd3a6d2. It is recommended to upgrade the affected component.",
+      "id": "CVE-2024-7075",
+      "published": "2026-11-02T10:17:10.470",
+      "description": "The user search function within the management console fails to properly encode user-supplied input before rendering it in the browser. This allows an attacker to inject malicious scripts that are then executed by the user's browser in the context of the management console.\n\nSuccessful exploitation enables an attacker to redirect the user's browser to a malicious website, modify the web page's user interface, or extract information from the browser. However, due to the use of the httpOnly flag on sensitive session cookies, session hijacking or similar attacks are prevented.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 4.6
     },
     {
-      "id": "CVE-2026-120323",
-      "published": "2026-11-02T02:18:47.757",
-      "description": "A security flaw has been discovered in samanhappy MCPHub up to 1.0.45/1.1.7. Impacted is an unknown function of the file src/utils/passthroughHeaders.ts. The manipulation of the argument passthroughHeaders results in information disclosure. The attack may be launched remotely. Upgrading to version 1.1.8 is recommended to address this issue. The patch is identified as 040f7b9ae004070bdfe5084cde6bc2c609f78e76. It is advisable to upgrade the affected component.",
+      "id": "CVE-2026-18800",
+      "published": "2026-11-02T10:17:11.293",
+      "description": "When an Event Publisher output adapter is configured with properties that are irrelevant to its function, the affected products log these irrelevant properties. This can inadvertently include sensitive user credentials or other confidential information depending on the nature of the misconfigured property.\n\nA malicious actor with access to the 'wso2carbon' log files could retrieve sensitive information logged by the system. This may potentially lead to unauthorized access if the logged data contains credentials or other critical secrets.",
+      "severity": "MEDIUM",
+      "score": 4.4
+    },
+    {
+      "id": "CVE-2024-12141",
+      "published": "2026-11-02T13:17:29.440",
+      "description": "The product fails to sufficiently validate callback URLs, allowing them to be manipulated with malicious payloads when processed through a weak regular expression or when validation is omitted.\n\nAn attacker can exploit this by crafting a link that appears legitimate but redirects users to an attacker-controlled page. This redirection facilitates phishing attacks, enabling the harvesting of sensitive user information, potentially leading to unauthorized access or data theft.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-120334",
-      "published": "2026-11-02T03:17:30.630",
-      "description": "A flaw has been found in deepset-ai farm up to 0.8.0. This impacts the function EmbeddingTokenizer.from_pretrained of the file farm/modeling/tokenization.py of the component Tokenizer Loader. Executing a manipulation of the argument vocab_filename can lead to path traversal. The attack may be performed from remote. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-117549",
+      "published": "2026-11-02T11:17:30.997",
+      "description": "@fastify/secure-session is a session plugin for Fastify that stores an encrypted session in a cookie. In versions 7.5.0 through 8.4.1, when the plugin is configured with the signed cookie option, it calls the cookie unsign routine but, when the signature check reports the value as invalid, still passes the original cookie value to the session decoder, so a session whose signature did not validate is decrypted anyway. The practical effect appears when an application supplies the cookie signing secret independently of the session encryption key and rotates only the signing secret to retire existing sessions while keeping the encryption key active, because a holder of an old session cookie can strip the now obsolete signature and keep using the session. The attacker must already possess an unexpired encrypted session cookie and needs neither secret, and cannot forge session data, extend expiry, or survive rotation of the encryption key. The issue is fixed in @fastify/secure-session 8.4.2, which no longer decodes the session when the signed cookie option is set and the signature check fails, and users should upgrade to 8.4.2 or later. As a workaround, rotate the session encryption key rather than relying on rotation of the cookie signing secret alone.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-120309",
-      "published": "2026-11-02T03:17:28.217",
-      "description": "Nuxt from 4.6.0 before 4.6.2 contains a route parameter confusion vulnerability in getRouterParam and getRouterParams that lets attackers return a parameter value different from the one h3 matched by sending paths containing an encoded question mark (%3F). Attackers can craft requests where authorization checks use the Nuxt helper value while resource selection uses event.context.params, allowing access to unauthorized resources.",
+      "id": "CVE-2026-120215",
+      "published": "2026-11-02T11:17:31.413",
+      "description": "@fastify/cors is the CORS plugin for the Fastify web framework. In versions 8.2.0 through 11.3.x, an application that registers the plugin with the non-default onSend hook option crashes on a CORS preflight. On an OPTIONS request that carries the Origin and Access-Control-Request-Method headers, the plugin calls reply.send from inside the onSend hook and re-enters the send pipeline, so a second write of the response headers throws an uncaught ERR_HTTP_HEADERS_SENT that can terminate the Node.js process when no process-level handler is installed. An unauthenticated remote client can trigger this with a single preflight request, so the impact is availability only, and exploitation requires the non-default onSend configuration. The issue is fixed in @fastify/cors 11.4.0, where onSend is no longer an accepted hook value and registration fails with a clear error instead of crashing at request time, and users should upgrade to 11.4.0 or later. As a workaround, use any other hook such as the default onRequest, or set preflight to false.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-120310",
-      "published": "2026-11-02T03:17:28.417",
-      "description": "Parse Server before 8.6.109 and 9.0.0 before 9.10.6-alpha.1 returns stored field values in object update responses without checking read access, so clients whose class-level permissions or object ACLs allow update but not read can see object data. Attackers can update such objects to read atomic operation results (Increment, Add, AddUnique, Remove), Cloud Code trigger-set values, and, for dot notation keys under certain conditions, the whole stored parent field.",
-      "severity": "LOW",
-      "score": 3.1
+      "id": "CVE-2026-100140",
+      "published": "2026-11-02T12:16:58.910",
+      "description": "An integer overflow vulnerability in the Qt XML parsing (Qt5Compat / QXmlSimpleReader) functionality of Qt.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-111560",
+      "published": "2026-11-02T13:17:35.190",
+      "description": "Improper neutralization of shell metacharacters in the timezone configuration field in certain Barracuda appliance products using common Barracuda code allows an authenticated administrator to inject OS commands that execute with root privileges when the crafted timezone value is subsequently processed.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-116606",
+      "published": "2026-11-02T13:17:37.017",
+      "description": "An authentication bypass in Barracuda Email Security Gateway versions earlier than 9.4.0.030 allows an unauthenticated remote attacker to invoke a configuration-import function and restore a crafted, compatible backup archive, resulting in unauthorized modification of the appliance’s global configuration.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
