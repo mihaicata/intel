@@ -1,143 +1,143 @@
 {
-  "totalResults": 3688,
+  "totalResults": 4904,
   "items": [
     {
-      "id": "CVE-2026-99246",
-      "published": "2026-11-03T12:17:31.030",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntipc: protect node reset trace dump with node lock\n\nThe tipc_node_reset_links trace event asks tipc_node_dump() to walk the\nnode's link entries. Unlike the other node events that request link data,\nthis event runs without the node lock.\n\nThis permits bearer teardown to free a link while the trace callback is\ndumping it:\n\n  CPU 0                                CPU 1\n  trace_tipc_node_reset_links()\n    tipc_node_dump()\n      l = n->links[0].link\n                                       tipc_node_write_lock()\n                                       kfree(l)\n                                       n->links[0].link = NULL\n                                       tipc_node_write_unlock()\n      tipc_link_dump(l)\n\ntipc_link_dump() then dereferences the stale pointer. KASAN reported:\n\n  BUG: KASAN: slab-use-after-free in tipc_link_dump\n  Read of size 4 by task poc/115\n  Call Trace:\n   tipc_link_dump+0x10cb/0x16b0\n   tipc_node_dump+0x4bb/0x740\n   trace_event_raw_event_tipc_node_class+0x258/0x360\n   tipc_node_reset_links+0x14d/0x1a0\n   tipc_rcv+0x13f5/0x3030\n   tipc_udp_recv+0x4e3/0x670\n  Allocated by task 0:\n   tipc_link_create+0x1e1/0x1020\n   tipc_node_check_dest+0x7d2/0x11a0\n   tipc_disc_rcv+0xdbf/0x1430\n  Freed by task 89:\n   kfree+0x131/0x3c0\n   tipc_node_link_down+0x267/0x4b0\n   tipc_node_delete_links+0xec/0x160\n   bearer_disable+0x107/0x260\n\nTake the node write lock around the trace event. This serializes the\ndump against tipc_node_link_down(delete=true), which frees the link\nunder the same write lock.",
+      "id": "CVE-2026-63395",
+      "published": "2026-11-03T20:18:14.917",
+      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git's git.checkout writes new child paths through symlinked leading directory components without checking them. A malicious repository can first place a directory symlink and later replace the tree state with a child file beneath that path; the usual trigger is a clone followed by a later pull, while a single clone can trigger the issue when a symlink already exists or the consuming application accesses the tree. With Node fs on Linux or macOS, the operating system can resolve the write outside the working tree, permitting arbitrary host file writes and possible code execution. Node fs on Windows usually blocks the symlink plant without additional privilege, and browser or in-memory providers limit impact to their virtual filesystem and are affected only when they implement symlink creation and following. This issue is fixed in version 1.38.6.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-54161",
+      "published": "2026-11-03T20:18:14.243",
+      "description": "Network UPS Tools is a collection of programs which provide a common interface for monitoring and administering UPS, PDU and SCD hardware. From 2.8.3 to 2.8.5, upsmon in clients/upsmon.c inserts the server-supplied ups.alarm value into shell commands executed by notify(), async_notify(), and wall(). When a monitored device reports an ALARM state and an operator has configured NOTIFYCMD with EXEC in NOTIFYFLAG ALARM, shell metacharacters in the alarm text are evaluated on POSIX or Windows and can execute arbitrary operating-system commands as the upsmon account, which is commonly root. An attacker can control the value through a malicious or compromised upsd, a man-in-the-middle on a plaintext upsd to upsmon connection, or a compromised UPS device whose driver supplies the alarm upstream of upsd; TLS between upsd and upsmon does not mitigate the compromised-device path. This vulnerability is fixed in 2.8.6.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-99243",
-      "published": "2026-11-03T12:17:30.553",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "id": "CVE-2026-63489",
+      "published": "2026-11-03T20:18:16.590",
+      "description": "Yeti bridges the gap between CTI and DFIR practitioners by providing a Forensics Intelligence platform and pipeline. In version 2.5.0 and earlier, YETI directly interpolates user-controlled sorting fields and filter_aliases attribute paths into ArangoDB AQL identifier and expression positions in core/database_arango.py. A low-privileged authenticated user can send crafted values to POST /api/v2/observables/search, POST /api/v2/entities/search, POST /api/v2/indicators/search, POST /api/v2/dfiq/search, POST /api/v2/search/, or POST /api/v2/graph/search, causing attacker-controlled AQL subexpressions to be parsed and evaluated. This can provide an error oracle, evaluate expressions against internal collections such as users, alter intended search logic, enumerate schema information, and consume excessive database resources. The verified injection points are read and search contexts, so arbitrary database writes are not established. No fixed version is available as of this review.",
+      "severity": "HIGH",
+      "score": 7.6
+    },
+    {
+      "id": "CVE-2026-63482",
+      "published": "2026-11-03T20:18:16.407",
+      "description": "Yeti bridges the gap between CTI and DFIR practitioners by providing a Forensics Intelligence platform and pipeline. Prior to 2.5.1, YETI registers the audit router without Depends(auth.get_current_active_user), and core/web/apiv2/audit.py does not perform a route-level authentication check for /api/v2/audit/timeline/{id}. An unauthenticated network attacker can use an empty, partial, or specific wildcard path to query TimelineLog records containing the actor, target_id, action, and details fields, including analyst usernames, object identifiers and values, and before-and-after object data. This exposes the operational history of threat-intelligence objects while other application routers require authentication. This issue is fixed in version 2.5.1.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-45146",
+      "published": "2026-11-03T20:18:13.943",
+      "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40 and 2.0.1, an authenticated administrator can call the get_sessions action in /main/inc/ajax/model.ajax.php with _search=true and a crafted JSON filters parameter whose groupOp field contains SQL syntax. Because groupOp is not restricted to the expected AND or OR operators before it is incorporated into query logic, attacker-controlled input is interpreted by the database and enables blind or time-based SQL injection. Successful exploitation can disclose sensitive user, course, session, configuration, password-reset, and administrative data, modify or delete records subject to database privileges, and cause denial of service through expensive delayed queries. This issue is fixed in versions 1.11.40 and 2.0.1.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-63433",
+      "published": "2026-11-03T20:18:15.097",
+      "description": "MyTube is a self-hosted downloader and player for several video websites. Prior to 1.10.6, shouldSkipCsrfProtection() in backend/src/middleware/csrfConfig.ts delegates to isApiKeyRequest(), which grants a CSRF exemption based only on the presence of an x-api-key header or an Authorization: ApiKey value rather than successful API-key validation. With a permissive CORS_ALLOWED_ORIGINS configuration, an unauthenticated attacker can lure an authenticated administrator to attacker-controlled content that sends a cross-origin state-changing request with an arbitrary API-key value. The victim's session cookie authenticates the request while CSRF token validation is skipped, allowing destructive or other administrator API operations such as deleting media, triggering downloads, or changing subscriptions. This issue is fixed in version 1.10.6.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2025-71451",
+      "published": "2026-11-03T20:18:05.470",
+      "description": "Vembu BDRSuite before 7.6.0 contains an unauthenticated cross-site scripting vulnerability in templates/progress/serverside/serverbackupprogress.sgp that allows remote attackers to inject arbitrary JavaScript by manipulating request parameters such as ClientName, BackupName, and grpName that are interpolated unsanitized into loadXMLDoc() calls and reflected in AbortBackup() POST requests to dodeleteclientbackup.sgp. Attackers can craft malicious links or requests to execute arbitrary JavaScript in a victim's browser session, enabling session hijacking or interface manipulation.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2025-71452",
+      "published": "2026-11-03T20:18:05.643",
+      "description": "Vembu BDRSuite before 7.6.0 contains an unauthenticated cross-site scripting vulnerability in templates/progress/clientside/restoreprogress.sgp that allows remote attackers to inject arbitrary JavaScript by manipulating request parameters such as mn, rnm, isRepliRestore, rusr, and rpwd that are reflected unsanitized into the HTML response. Attackers can craft malicious links to execute arbitrary JavaScript in a victim's browser session, enabling session hijacking or interface manipulation.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2026-120567",
+      "published": "2026-11-03T20:18:12.137",
+      "description": "The MongoDB Entity Framework Core provider does not neutralize special elements in values passed to SetProperty when an ExecuteUpdate call also contains a setter that reads the entity being updated. In that case the update is sent as an aggregation pipeline, and a caller-supplied string beginning with $ is evaluated as an expression rather than stored as data. A party who can influence such a value may modify or remove fields in the records being updated, or copy other fields of the same record into them.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-63478",
+      "published": "2026-11-03T20:18:16.240",
+      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git's tree parser in src/models/GitTree.js accepts a standalone .. tree-entry name because it rejects only path separators. During clone or checkout from a malicious or man-in-the-middle-controlled non-GitHub remote, nested .. entries can escape the working-tree root and write files at attacker-selected parent paths on any host-backed fs provider. The arbitrary file write can overwrite startup or configuration files and lead to code execution. GitHub-hosted trees are not a direct source because GitHub rejects .. entries during repository integrity checks. This issue is fixed in version 1.38.6.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-63434",
+      "published": "2026-11-03T20:18:15.257",
+      "description": "MyTube is a self-hosted downloader and player for several video websites. Prior to 1.10.6, when statisticsEnabled and statisticsTrackVisitorActivity are enabled, a visitor-role user can submit events to the statistics ingest endpoint handled by ingestEvents in backend/src/controllers/statisticsController.ts. The handler reads req.body.events and accepts the client-controlled platform, sourceKind, and sessionId fields without server-side derivation or validation before passing the events to the analytics persistence path. A visitor can therefore attribute fabricated events to arbitrary platforms, sources, and sessions, corrupting administrator-visible view counts, download counts, platform breakdowns, source attribution, and session analytics. The server-derived actorRole and surface fields are not forgeable through this issue. This issue is fixed in version 1.10.6.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-63475",
+      "published": "2026-11-03T20:18:15.903",
+      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git persists server-supplied circular symref= capabilities through updateRemoteRefs, and GitRefManager.resolve() follows the resulting loose symbolic references without a default depth limit or cycle detection. After a clone from a malicious or man-in-the-middle-controlled remote, operations such as log, status, checkout, and branch that resolve refs/remotes/origin/a or refs/remotes/origin/b do not terminate. The circular references remain on disk, leaving the repository unusable for the application and causing a persistent denial of service. This issue is fixed in version 1.38.6.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-63476",
+      "published": "2026-11-03T20:18:16.063",
+      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git reads a server-controlled targetSize while applying a packfile delta in src/utils/applyDelta.js and passes it without a bound to Buffer.alloc(targetSize). A malicious or man-in-the-middle-controlled remote can send one delta header that causes git.clone() or git.fetch() to allocate approximately 2 GB before validating the actual delta output. GitPackIndex.fromPack swallows the later size-mismatch error, so a host with sufficient memory may retain the resource waste without a visible failure, while containers, serverless functions, and small virtual machines may terminate. Node.js heap limits do not mitigate the off-heap Buffer allocation. This issue is fixed in version 1.38.6.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-105821",
+      "published": "2026-11-03T20:18:05.987",
+      "description": "The Tapo\nCloud MQTT broker contains a broken access control vulnerability in a proxy\ntopic used by authenticated Tapo devices to request service tokens. The broker\ndoes not verify that the device ID supplied in a proxy request belongs to the\nauthenticated device. An attacker who owns a Tapo device and knows another\ndevice's ID may obtain a device token scoped to the target device and use it to\nupload attacker-controlled content to the target user's Tapo Cloud storage. The\ncontent may then be presented in the Tapo app as a legitimate event.\n\n\n\n\n\nSuccessful\nexploitation may allow an attacker to upload attacker-controlled content that\nis presented to a target user as a legitimate Tapo event, retrieve internal\nservice information through crafted proxy requests, or abuse Tapo Cloud\noutbound request capability in activity that could affect service\navailability.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-99244",
-      "published": "2026-11-03T12:17:30.710",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npid_namespace: prevent TIF_NOTIFY_SIGNAL from interrupting the reaper\n\nSince commit 7fea700e04bd (\"zap_pid_ns_processes: clear\nTIF_NOTIFY_SIGNAL along with TIF_SIGPENDING\") zap_pid_ns_processes()\nclears TIF_NOTIFY_SIGNAL before every kernel_wait4() call. Otherwise\nkernel_wait4() doesn't sleep and returns -ERESTARTSYS if\nsignal_pending() is true and the reaper busy-waits.\n\nBut clearing TIF_NOTIFY_SIGNAL doesn't fix it. It can get raised again.\nFor example, klp_send_signals() sets it raw against any task that hasn't\ntransitioned yet. And it keeps sending it until the livepatch finishes.\n\nThe sleep loop waiting for pid_allocated to drop has the same problem\nand it doesn't even clear anything. So a schedule() in\nTASK_INTERRUPTIBLE returns immediately.\n\nUse a no_notify_signal guard. signal_pending() will ignore\nTIF_NOTIFY_SIGNAL and the pid namespace reaper sleeps until a child\nexits or free_pid() wakes it.",
+      "id": "CVE-2026-105822",
+      "published": "2026-11-03T20:18:06.143",
+      "description": "The Tapo\nCloud MQTT proxy contains a server-side request forgery (SSRF) vulnerability\nbecause it accepts a user-controlled host value without sufficient input\nvalidation. An attacker may exploit this vulnerability to cause the Tapo Cloud\nservice to send requests to an attacker-controlled server.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may cause the Tapo Cloud service to send a request to an\nattacker-controlled server, exposing the internal information and causing\npotential Distributed Denial-of-Service (DDoS).",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-99245",
-      "published": "2026-11-03T12:17:30.877",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nKEYS: Fix key_reject_and_link() race with keyring restriction\n\nThe restrict_link check in key_reject_and_link() is done before taking\nthe keyring semaphore, racing with a concurrent keyring_restrict()\nthat installs the restriction while holding the semaphore in write\nmode.\n\nMove the check to after __key_link_lock(), so it is done under the\nsemaphore, matching the pattern used in __key_create_or_update().",
+      "id": "CVE-2026-110826",
+      "published": "2026-11-03T20:18:06.307",
+      "description": "Improper Session Invalidation after Authentication Credential Change vulnerability in team-alembic ash_authentication allows an attacker holding a victim's session token to stay signed in after the victim resets or changes their password.\n\nWith apply_on_password_change? true, AshAuthentication.AddOn.LogOutEverywhere.Transformer adds OnPasswordChange to update actions as a global change guarded by where: changing(hashed_password). That condition is evaluated before the action's before_action hooks run, but AshAuthentication.Strategy.Password.HashPasswordChange sets the new hash in a before_action hook, so for every non-atomic password change the condition is false and the user's stored tokens are not revoked. The generated password reset action and the installer's change_password action are both non-atomic.\n\nThis issue affects ash_authentication: from 4.5.0 before 4.15.1 and from 5.0.0-rc.0 before 5.0.0-rc.16.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-99247",
-      "published": "2026-11-03T12:17:31.190",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntracing: Do not initialize tracefs work if tracing is disabled\n\nIf trace buffer allocation fails during early boot (e.g.  in\nearly_trace_init() -> allocate_trace_buffers()), tracing_disabled is\nleft set to 1 and the global trace array events list remains\nuninitialized.\n\nLater during boot, tracer_init_tracefs() (invoked via fs_initcall)\nqueues tracerfs_init_work asynchronously without checking if tracing was\ndisabled.  When tracer_init_tracefs_work_func() runs, it calls\nevent_trace_init() and init_tracer_tracefs(&global_trace, NULL)\nunconditionally.  This leads to __find_event_file() dereferencing an\nuninitialized tr->events list, causing an early boot NULL pointer\ndereference Oops:\n\n  BUG: Kernel NULL pointer dereference on read at 0x00000010\n  Faulting instruction address: 0xc000000000485be0\n  Oops: Kernel access of bad area, sig: 7 [#1]\n  ...\n  NIP [c000000000485be0] __find_event_file+0x70/0x3c0\n  LR  [c000000000448874] init_tracer_tracefs+0x274/0xc80\n  Call Trace:\n   init_tracer_tracefs+0x274/0xc80\n   tracer_init_tracefs_work_func+0x50/0x320\n   process_one_work+0x1e8/0x5c0\n   worker_thread+0x1dc/0x3d0\n   kthread+0x194/0x1b0\n   start_kernel_thread+0x14/0x18\n\nCheck tracing_disabled at the beginning of tracer_init_tracefs_work_func()\nand return immediately if tracing is disabled or failed to initialize,\npreventing the crash.",
+      "id": "CVE-2026-121577",
+      "published": "2026-11-03T20:18:13.290",
+      "description": "Inefficient Regular Expression Complexity (CWE-1333) in generate_regex() (whatstk/whatsapp/parser.py) in whatstk from 0.2.0 before 0.9.0 allows a party that supplies a chat export to consume the CPU of the process that parses it for an unbounded time, because the function builds the header regular expression by replacing each %x code with its named capture group and leaves every other character of the header format in the pattern unescaped. A header whose date separator is a regular expression metacharacter therefore alters the pattern instead of matching itself: a separator of + quantifies the preceding capture group, giving (?P<day>\\d{1,2})+(?P<month>\\d{1,2})+(?P<year>\\d{2,4}), and a run of digits that cannot complete the header then makes the engine try every way of partitioning that run. Header auto detection is enabled by default and derives the format from the text of the file, so the separator is taken from the export itself and no header format has to be passed by the caller. Separators of (, ) and \\ instead raise re.PatternError, separators of *, | and ? raise TypeError, and separators of ^ and $ raise KeyError, none of which the library catches. This results in the parse of a file of a few hundred bytes consuming CPU without completing, or in an uncaught exception in the calling program.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-99248",
-      "published": "2026-11-03T12:17:31.333",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ni2c: xiic: restore non-managed runtime PM to fix clk WARN flood\n\nThe devres conversion replaced manual pm_runtime_enable()/disable() with\ndevm_pm_runtime_set_active_enabled() and dropped the remove-time runtime\nPM teardown. The managed release tears runtime PM down in the wrong\norder: it calls pm_runtime_dont_use_autosuspend() before\npm_runtime_disable(), i.e. while runtime PM is still enabled, and devres\nis LIFO so the devm_clk_get_enabled() release runs afterwards.\n\nAt remove(), pm_runtime_put_sync() leaves the device active with the\nautosuspend timer armed. Clearing use_autosuspend then makes rpm_idle()\nsuspend immediately, and xiic_i2c_runtime_suspend() clk_disable()s the\nclock. The later devm_clk_get_enabled() release clk_disable_unprepare()s\nthe already-disabled clock, so clk_core_disable() WARNs (\"clkN already\ndisabled\") on every teardown.\n\nDrop the managed helper and restore the non-managed runtime PM setup and\nteardown, so runtime PM is enabled once in probe and disabled once in\nremove and the clock enable count stays balanced.\n\nOrder the remove teardown so runtime PM is disabled before the usage\ncount is dropped: pm_runtime_disable() followed by pm_runtime_put_noidle()\ninstead of pm_runtime_put_sync(). Dropping the count first with autosuspend\nstill enabled arms the autosuspend timer, and a preemption before\npm_runtime_disable() lets it expire, suspend the device and clk_disable()\nthe clock, which the devm release then disables again - the same WARN.\n\nRestore the non-managed IRQ request as well. The probe error paths now\nunwind runtime PM by hand via goto, and a devm-registered handler is only\nfreed later during devres unwind, so it would stay live across the manual\nteardown (and across any future failing step added after it). Request the\nIRQ with request_threaded_irq() and free it explicitly in the probe error\npath and in remove. The probe error path also clears use_autosuspend, to\nmatch the teardown in remove().",
+      "id": "CVE-2026-63469",
+      "published": "2026-11-03T20:18:15.420",
+      "description": "fastapi-code-generator creates FastAPI applications from OpenAPI files. Prior to 0.8.1, the generator inserts an additional response status-code key into the generated responses={...} route-decorator dictionary as a single-quoted Python string without escaping embedded quotes. A multi-response OpenAPI operation with an attacker-controlled or attacker-influenced second non-primary response key can close the dictionary-key literal and inject a valid Python expression. Syntax-breaking input only causes generation to fail, but syntactically valid generated code executes with the application's or CI process's privileges when the generated module is imported and its decorator arguments are evaluated. This additional-response-key sink is distinct from the project's separate route-path and operation-summary sinks. This issue is fixed in version 0.8.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-99249",
-      "published": "2026-11-03T12:17:31.460",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npid_namespace: make zap_pid_ns_processes() freezable\n\nWhen the init of a pid namespace exits, zap_pid_ns_processes() waits\nuntil all other pids in the namespace are freed. A tracer outside the\nnamespace that does not reap its traced zombies keeps those pids\nallocated, so this wait has no upper bound, and while it lasts every\nsuspend attempt fails:\n\n  Freezing user space processes failed after 20.006 seconds (2 tasks refusing to freeze, wq_busy=0):\n\nNeither wait is freezable. The first loop sleeps in do_wait(), which\nreturns -ERESTARTSYS on the freezer's fake signal; the loop then clears\nTIF_SIGPENDING and waits again without ever freezing. The final loop\nsleeps in TASK_INTERRUPTIBLE, and since nothing clears TIF_SIGPENDING\nthere, schedule() returns immediately after the first freeze attempt\nand the task spins until the wait ends.\n\nSleep in TASK_INTERRUPTIBLE | TASK_FREEZABLE in do_wait(), so that the\nfreezer can freeze tasks waiting there directly, and in TASK_IDLE |\nTASK_FREEZABLE in the final loop, like coredump_task_exit() does.\n\nThis was hit with Chromium-based browsers: crashpad ptrace-attaches the\nthreads of a crashed renderer, which is a pid namespace init, and does\nnot reap those killed during the dump.",
+      "id": "CVE-2026-63470",
+      "published": "2026-11-03T20:18:15.590",
+      "description": "fastapi-code-generator creates FastAPI applications from OpenAPI files. Prior to 0.8.1, the generator inserts Operation.summary into a generated route-handler docstring as a triple-double-quoted string without escaping embedded triple quotes. An attacker-controlled or attacker-influenced operation summary can close the docstring and inject a valid Python expression statement into the handler body. Syntax-breaking input only causes generation to fail, but syntactically valid generated code executes with the server process's privileges when the affected route handler is called. This call-time route-handler docstring sink is distinct from the project's separate import-time route-path and additional-response-key sinks. This issue is fixed in version 0.8.1.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-99250",
-      "published": "2026-11-03T12:17:31.603",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nprintk: Postpone kthread startup\n\nThere have been various bug reports related to SMP systems hanging\non boot. The reports vary but seem to have some overlap with regard\nto missed IPI's during SMP setup. The reports also show that\nreverting NBCON console usage allows the bugs to disappear.\n\nThe NBCON kthreads for console printing are started very early\nduring boot using early_initcall(). Since these kthreads are\nasynchronously enabling/disabling interrupts during early boot, they\nmay be interfering with early SMP setup on some hardware platforms.\n\nStarting the console printing kthreads later has shown to avoid the\nhanging on systems that could previously reproduce the issue.\n\nPostpone kthread starting until after all arch initcalls have\ncompleted.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99251",
-      "published": "2026-11-03T12:17:31.740",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: Avoid infinite retry loop in init_vp_index()\n\nThere is a retry loop in init_vp_index() where the CPUs from a certain\nnode are stripped out if they have already been in the allocated cpumask\nor not in HK_TYPE_MANAGED_IRQ housekeeping cpumask. If there is no\nCPU left, the allocated cpumask is ignored and the process is retried\nagain. However, if the HK_TYPE_MANAGED_IRQ housekeeping cpumask turns\nout not to contain any CPU in that particular node, that will become an\ninfinite retry loop.  This particular problem was reported by sashiko\n[1]. This should rarely happen, but we still need to guard against this.\n\nFix this infinite loop problem by also skipping NUMA node that has no\nhousekeeping CPU in the inner while loop of init_vp_index(). Also update\nthe early abort check to check for the absence of online housekeeping\nCPUs instead of just the emptiness of the cpumask. As the outer for\nloop will only be reached if the housekeeping cpumask has at least one\nonline CPU, a NUMA node with housekeeping CPUs will eventually be found.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99252",
-      "published": "2026-11-03T12:17:31.890",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99253",
-      "published": "2026-11-03T12:17:32.013",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring/cancel: rearm local work wake up before sleep\n\nio_uring_try_cancel_requests() sets ->cq_wait_nr to 1 so that the next\nio_req_local_work_add() wakes the cancelling task. The add that takes the\ncount to zero is the only one that wakes, later ones see a count <= 0 and\nreturn. io_uring_cancel_generic() however only becomes\nTASK_INTERRUPTIBLE much later, so the one wake up can be spent on a\nrunning task. That is fine as long as the entry of that add is still\nqueued, as the io_local_work_pending() check then skips the sleep. It is\nnot if the add was delayed after queueing its entry:\n\nCPU0 (submitter in exec or exit)      CPU1 (io_req_local_work_add)\n                                      mpscq_push(req A)\nio_uring_try_cancel_requests()\n  io_run_local_work()  // runs req A\nio_uring_try_cancel_requests()\n  atomic_set(&ctx->cq_wait_nr, 1)\n                                      atomic_read(&ctx->cq_wait_nr) == 1\n                                      count taken, wake_up_state()\n                                        // task is running, no-op\nprepare_to_wait(TASK_INTERRUPTIBLE)\nio_local_work_pending() == false\nschedule()\n                                      mpscq_push(req B)\n                                      cq_wait_nr <= 0, return\n\nOnly the sleeping task can run req B, so it is stuck in execve() until a\nsignal happens to wake it. An exiting task doesn't even get that.\n\nArm the count again once the task state is set and before the work list\nis checked, for the rings whose local work this task is the one to run.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99254",
-      "published": "2026-11-03T12:17:32.137",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring: don't flood a cancelling task with task_work\n\nio_ring_exit_work() asks each task which has used the ring to remove its\ntctx node, by task_work, and repeats that until the list is empty.\nio_tctx_exit_cb() doesn't touch the node while the task is in\nio_uring_cancel_generic(), which removes all the nodes at its end. So the\nwork item queues the callback again as soon as it has completed, for\nnothing.\n\nThat is more than a waste of time. task_work_run() only returns when it\nfinds the list empty. If the rings are released from inside the\ncancellation, because requests of other rings held the last references to\ntheir files, up to 64 work items keep sending callbacks to the one task\nwhich is running them. It never finds the list empty, never gets back to\nthe cancellation, the nodes stay, and so it goes on: a task with 60 pairs\nof rings which poll each other ran 280000 callbacks in 5 seconds, 20\nseconds after exit_group(). It ends when all the senders happen to be late\nat the same time. Until then the task keeps a CPU and the work items busy.\n\nAn exiting task can't be killed meanwhile. execve() cancels the requests in\nthe same way, so a live task can get stuck there as well, for minutes. If\nit takes more than five, the work items run into the\nWARN_ON_ONCE(time_after(jiffies, timeout)) of io_ring_exit_work(). No\nprivilege is needed for any of this.\n\nIf the callback has met a task in cancellation, wait a little before it is\nsent again. Nobody has to wake the work item up for that: either the node\nis gone by then, or it is the turn of the next round.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99255",
-      "published": "2026-11-03T12:17:32.290",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring/io-wq: don't hide a link from cancellations\n\nA task that exits cancels its tracked requests and waits until they are\ngone. io_uring_cancel_generic() looks everywhere a request can be, and\ngoes to sleep if it found nothing to cancel. It is woken up each time\none of the requests of the task is completed by task work or freed.\n\nWhen io-wq is done with a request that has a link, there is a time in which\nthe next request of the link can't be found:\n\n  io_worker_handle_work()\n    io_assign_current_work(worker, NULL)\n    io_wq_free_work(work)\n      io_req_find_next()           // takes the link off the request\n      io_free_req()                // task work for the task\n    io_assign_current_work(worker, linked)\n      io_run_task_work()\n      cond_resched()\n      worker->cur_work = linked\n\nIt is not pending, it is not the current work of a worker, and it is not\nyet on the list that it is about to be parked on. If the pass that the\nexiting task makes because of io_free_req() falls into that time, it finds\nnothing and the task goes to sleep. The worker then runs the link, which\nIO_WQ_BIT_EXIT doesn't prevent for bounded work. If that parks the request\nnothing is completed or freed, and nobody wakes up the task. If it is the\nprocess that exits it can't be killed any more either.\n\n  NOP, IOSQE_ASYNC | IOSQE_IO_LINK\n  FUTEX_WAIT, FUTEX2_PRIVATE\n  exit of the thread, or of the process, up to 63us later\n\nWith four of these per round 5 to 8 of 10,000 rounds hang (4 CPUs, KVM):\n\n  io_uring_cancel_generic\n  do_exit\n\nCommit f8b632e89a10 (\"io_uring: tighten task exit cancellations\") is about\nthe same gap, and makes the task look again for whatever happens before\nio_free_req().\n\nFree the request once the link is the current work of the worker, or\npending. Whoever is woken up by that can find the link, until it is parked\nwhere cancellations look as well. To do so split io_wq_free_work() in two.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99256",
-      "published": "2026-11-03T12:17:32.437",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndm cache: fix issue with background work locking\n\ndm cache used a rw_semaphore for background_work_lock. Write locks on\nrw_semaphores have strict owner semantics, but there was no guarantee\nthat the process that locked background_work_lock was the same process\nthat unlocked it. This can be easily seen using a kernel compiled with\nCONFIG_DEBUG_RWSEMS. Given a dm cache device <cache>, run: 'dmsetup\nsuspend <cache> && dmsetup resume <cache>'. This will trigger a kernel\nwarning:\n\nDEBUG_RWSEMS_WARN_ON((rwsem_owner(sem) != current) && !rwsem_test_oflags(sem, RWSEM_NONSPINNABLE))\n\ntriggered by cache_resume(). To fix this, switch from a rw_semaphore to\na spinlock and a wait queue. dm cache already has a wait queue and\nassociated counter, migration_wait and nr_allocated_migrations, that was\ngetting woken up when background work was getting completed, but wasn't\nactually used by anything. This is replaced by the background_work queue\nand counter.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99257",
-      "published": "2026-11-03T12:17:32.590",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpio: shared: gracefully handle no-device lookup of shared GPIOs\n\nWe use platform lookup tables for shared GPIOs. This mechanism needs a\nstruct device to work so fwnode-based lookup with no device associated\ncurrently causes a NULL-pointer deference.\n\nAdding this functionality will require a larger rework and it has never\nworked anyway so add a check that allows the kernel to gracefully handle\nthis situation with an error ahead of implementing that functionality as\na new feature.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99258",
-      "published": "2026-11-03T12:17:32.713",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nx86/hyperv: Avoid using per-cpu output page in hv_apicid_to_vp_index()\n\nhv_apicid_to_vp_index() currently uses the per-cpu hypercall input\nand output pages. This function is called when running in VTL2 and\nwhen running in an SEV-SNP CoCo VM with no paravisor. In the former\ncase, the output page is allocated, but in the latter case it is\nnot, so the hypervisor stores the output VP index in memory that has\nnot been allocated by the guest.\n\nFix this by using the input page for both input and output. The\nhypercall has very small input and output, so sharing the same\npage for both is straightforward. An alternative fix is to\nallocate the per-cpu output page when running in an SEV-SNP CoCo\nguest, but this uses significantly more memory, particularly\nwith larger vCPUs counts.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99259",
-      "published": "2026-11-03T12:17:32.847",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsoc/tegra: pmc: Fix uninitialised clock rate\n\nFor legacy 32-bit Tegra devices, the warning in the\ntegra_pmc_enter_suspend_mode() function is being triggered because the\nearly_pmc->rate variable is never configured and hence, always 0. This\nissue started occurring after updating the PMC driver to create the PMC\ncontext dynamically which causes the 'rate' to be set in the new dynamic\ncontext, but missed updating the rate in the early PMC context.\n\nFix this by initialising the early_pmc->rate variable for 32-bit Tegra\ndevices when the rate for the PMC context is initialised.\n\n[treding@nvidia.com: move assignment to existing #ifdef block]",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99260",
-      "published": "2026-11-03T12:17:32.970",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nntfs: fix resident conversion in ntfs_new_attr_flags\n\nWhen setting sparse/compressed flags on a resident attribute, the\nfunction skipped the resident-to-non-resident conversion and\nterminated.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99261",
-      "published": "2026-11-03T12:17:33.090",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdgpu: correct reservation fence slots for userq per-vm BOs eviction\n\nIt fixes both the move overflow and the eviction fence add for\nevicting these per-vm BOs.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-99262",
-      "published": "2026-11-03T12:17:33.210",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "id": "CVE-2026-63471",
+      "published": "2026-11-03T20:18:15.753",
+      "description": "fastapi-code-generator creates FastAPI applications from OpenAPI files. Prior to 0.8.1, the generator inserts an OpenAPI path into a generated @app.get(...) route decorator as a single-quoted generated route string without escaping embedded quotes. An attacker-controlled or attacker-influenced OpenAPI path can close the string and inject a valid Python expression into the decorator argument. Syntax-breaking input only causes generation to fail, but syntactically valid generated code executes with the application's or CI process's privileges when the generated module is imported and the decorator is evaluated. This OpenAPI path sink is distinct from the project's separate operation-summary docstring and additional-response-key sinks. This issue is fixed in version 0.8.1.",
       "severity": "UNKNOWN",
       "score": null
     }
