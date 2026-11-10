@@ -2,144 +2,144 @@
   "totalResults": 3688,
   "items": [
     {
-      "id": "CVE-2026-120534",
-      "published": "2026-11-03T05:18:31.987",
-      "description": "The Advanced Custom Fields: Extended PRO plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 0.9.2.6 via the render_field function. This is due to insufficient validation of form configuration parameters before merging into field settings and passing to call_user_func_array in the render_field method. This makes it possible for unauthenticated attackers to call arbitrary WordPress functions with controlled arguments. Method 1 requires the administrator to enable the non-default 'shortcode_preview' setting for the target form, while Method 2 requires the server environment to lack OpenSSL functions, causing ACF Pro's acf_decrypt to fall back to unverified base64 decoding.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-120518",
-      "published": "2026-11-03T05:18:31.380",
-      "description": "The BuddyPress XProfile Image Field plugin for WordPress is vulnerable to arbitrary file deletion in all versions up to, and including, 3.1.0. This is due to bpxp_image_field_update_on_user_activation() calling unlink() on a path built from visitor-supplied signup metadata with no realpath() resolution, no containment check against the profile-image directory and no extension allow-list. Submitting a zero-byte file with the 'field_N_hidden' parameter during registration makes the plugin store the raw value, which is then resolved against the document root when the pending signup is activated. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file (such as wp-config.php) is deleted. Requires open registration and an image-type profile field on the signup form.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-120538",
-      "published": "2026-11-03T05:18:32.193",
-      "description": "The Easy Digital Downloads plugin for WordPress is vulnerable to authentication bypass leading to administrator account takeover in all versions up to, and including, 3.7.2. During a PayPal guest checkout, the email address entered in the guest-checkout field is trusted as proof of identity: edd_get_purchase_form_user() binds the new guest order to an existing WordPress user purely on an email-address match, rewriting the order's user_id to that user's ID. The PayPal capture sink PurchaseUser::maybe_log_in_after_capture() then looked the user up by the order email (get_user_by( 'email', $order->email )) and, when $order->user_id equalled that user's ID (which the email-binding step guarantees), issued an authenticated session with wp_set_auth_cookie(). An unauthenticated attacker who starts a guest checkout using an administrator's email address (where that administrator has no existing EDD customer record) and completes the PayPal purchase flow therefore receives an authenticated session as that administrator — a full account takeover. The same sink is reachable through the standard PayPal checkout and the REST UnbrandedCard and Fastlane flows.",
+      "id": "CVE-2026-99246",
+      "published": "2026-11-03T12:17:31.030",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntipc: protect node reset trace dump with node lock\n\nThe tipc_node_reset_links trace event asks tipc_node_dump() to walk the\nnode's link entries. Unlike the other node events that request link data,\nthis event runs without the node lock.\n\nThis permits bearer teardown to free a link while the trace callback is\ndumping it:\n\n  CPU 0                                CPU 1\n  trace_tipc_node_reset_links()\n    tipc_node_dump()\n      l = n->links[0].link\n                                       tipc_node_write_lock()\n                                       kfree(l)\n                                       n->links[0].link = NULL\n                                       tipc_node_write_unlock()\n      tipc_link_dump(l)\n\ntipc_link_dump() then dereferences the stale pointer. KASAN reported:\n\n  BUG: KASAN: slab-use-after-free in tipc_link_dump\n  Read of size 4 by task poc/115\n  Call Trace:\n   tipc_link_dump+0x10cb/0x16b0\n   tipc_node_dump+0x4bb/0x740\n   trace_event_raw_event_tipc_node_class+0x258/0x360\n   tipc_node_reset_links+0x14d/0x1a0\n   tipc_rcv+0x13f5/0x3030\n   tipc_udp_recv+0x4e3/0x670\n  Allocated by task 0:\n   tipc_link_create+0x1e1/0x1020\n   tipc_node_check_dest+0x7d2/0x11a0\n   tipc_disc_rcv+0xdbf/0x1430\n  Freed by task 89:\n   kfree+0x131/0x3c0\n   tipc_node_link_down+0x267/0x4b0\n   tipc_node_delete_links+0xec/0x160\n   bearer_disable+0x107/0x260\n\nTake the node write lock around the trace event. This serializes the\ndump against tipc_node_link_down(delete=true), which frees the link\nunder the same write lock.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-120574",
-      "published": "2026-11-03T05:18:33.840",
-      "description": "The SureCart plugin for WordPress is vulnerable to unauthenticated account takeover in all versions up to, and including, 4.9.5. The passwordless one-time-code login REST route (VerificationCodeController::verify(), whose permission callback returns true) resolves an attacker-supplied login to any WordPress user, verifies a 6-digit code, and on success calls $user->login() → wp_set_auth_cookie() for a user of any role. In the affected versions this path has no per-account attempt counter, no persistent email/IP lockout or rate limit (the upstream CDN throttle is bypassable via IP rotation), and no restriction preventing high-privilege accounts from being logged in through it. An unauthenticated attacker can trigger a code for any user (including an administrator) via the companion unauthenticated endpoint and brute-force the 6-digit code to obtain an authenticated session as that user, resulting in a full administrator account takeover.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-99243",
+      "published": "2026-11-03T12:17:30.553",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120577",
-      "published": "2026-11-03T05:18:34.257",
-      "description": "The FluentCart A New Era of eCommerce – Faster, Lighter, and Simpler plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the deleteFile function in all versions up to, and including, 1.6.2. This makes it possible for authenticated attackers, with custom-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php).",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-99244",
+      "published": "2026-11-03T12:17:30.710",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npid_namespace: prevent TIF_NOTIFY_SIGNAL from interrupting the reaper\n\nSince commit 7fea700e04bd (\"zap_pid_ns_processes: clear\nTIF_NOTIFY_SIGNAL along with TIF_SIGPENDING\") zap_pid_ns_processes()\nclears TIF_NOTIFY_SIGNAL before every kernel_wait4() call. Otherwise\nkernel_wait4() doesn't sleep and returns -ERESTARTSYS if\nsignal_pending() is true and the reaper busy-waits.\n\nBut clearing TIF_NOTIFY_SIGNAL doesn't fix it. It can get raised again.\nFor example, klp_send_signals() sets it raw against any task that hasn't\ntransitioned yet. And it keeps sending it until the livepatch finishes.\n\nThe sleep loop waiting for pid_allocated to drop has the same problem\nand it doesn't even clear anything. So a schedule() in\nTASK_INTERRUPTIBLE returns immediately.\n\nUse a no_notify_signal guard. signal_pending() will ignore\nTIF_NOTIFY_SIGNAL and the pid namespace reaper sleeps until a child\nexits or free_pid() wakes it.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-77800",
-      "published": "2026-11-03T05:18:52.577",
-      "description": "ManageEngine Key Manager Plus versions before 7151 are vulnerable to a SAML authentication bypass that allows attackers to log in using SAML assertions meant for another service provider.",
-      "severity": "HIGH",
-      "score": 7.7
+      "id": "CVE-2026-99245",
+      "published": "2026-11-03T12:17:30.877",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nKEYS: Fix key_reject_and_link() race with keyring restriction\n\nThe restrict_link check in key_reject_and_link() is done before taking\nthe keyring semaphore, racing with a concurrent keyring_restrict()\nthat installs the restriction while holding the semaphore in write\nmode.\n\nMove the check to after __key_link_lock(), so it is done under the\nsemaphore, matching the pattern used in __key_create_or_update().",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120559",
-      "published": "2026-11-03T05:18:33.230",
-      "description": "The Contact Form Extender for Divi Builder plugin for WordPress is vulnerable to Arbitrary File Deletion due to insufficient file path validation in the cfefd_remove_uploaded_file() function in all versions up to, and including, 1.0.6. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The nonce protecting this AJAX action is rendered into the public page source via wp_localize_script and is therefore retrievable by any unauthenticated visitor.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-99247",
+      "published": "2026-11-03T12:17:31.190",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntracing: Do not initialize tracefs work if tracing is disabled\n\nIf trace buffer allocation fails during early boot (e.g.  in\nearly_trace_init() -> allocate_trace_buffers()), tracing_disabled is\nleft set to 1 and the global trace array events list remains\nuninitialized.\n\nLater during boot, tracer_init_tracefs() (invoked via fs_initcall)\nqueues tracerfs_init_work asynchronously without checking if tracing was\ndisabled.  When tracer_init_tracefs_work_func() runs, it calls\nevent_trace_init() and init_tracer_tracefs(&global_trace, NULL)\nunconditionally.  This leads to __find_event_file() dereferencing an\nuninitialized tr->events list, causing an early boot NULL pointer\ndereference Oops:\n\n  BUG: Kernel NULL pointer dereference on read at 0x00000010\n  Faulting instruction address: 0xc000000000485be0\n  Oops: Kernel access of bad area, sig: 7 [#1]\n  ...\n  NIP [c000000000485be0] __find_event_file+0x70/0x3c0\n  LR  [c000000000448874] init_tracer_tracefs+0x274/0xc80\n  Call Trace:\n   init_tracer_tracefs+0x274/0xc80\n   tracer_init_tracefs_work_func+0x50/0x320\n   process_one_work+0x1e8/0x5c0\n   worker_thread+0x1dc/0x3d0\n   kthread+0x194/0x1b0\n   start_kernel_thread+0x14/0x18\n\nCheck tracing_disabled at the beginning of tracer_init_tracefs_work_func()\nand return immediately if tracing is disabled or failed to initialize,\npreventing the crash.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-77799",
-      "published": "2026-11-03T05:18:52.380",
-      "description": "ManageEngine Key Manager Plus versions before 7150 are vulnerable to a Two-Factor Authentication bypass that allows attackers with valid credentials to log in without a verification code.",
-      "severity": "HIGH",
-      "score": 7.4
+      "id": "CVE-2026-99248",
+      "published": "2026-11-03T12:17:31.333",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ni2c: xiic: restore non-managed runtime PM to fix clk WARN flood\n\nThe devres conversion replaced manual pm_runtime_enable()/disable() with\ndevm_pm_runtime_set_active_enabled() and dropped the remove-time runtime\nPM teardown. The managed release tears runtime PM down in the wrong\norder: it calls pm_runtime_dont_use_autosuspend() before\npm_runtime_disable(), i.e. while runtime PM is still enabled, and devres\nis LIFO so the devm_clk_get_enabled() release runs afterwards.\n\nAt remove(), pm_runtime_put_sync() leaves the device active with the\nautosuspend timer armed. Clearing use_autosuspend then makes rpm_idle()\nsuspend immediately, and xiic_i2c_runtime_suspend() clk_disable()s the\nclock. The later devm_clk_get_enabled() release clk_disable_unprepare()s\nthe already-disabled clock, so clk_core_disable() WARNs (\"clkN already\ndisabled\") on every teardown.\n\nDrop the managed helper and restore the non-managed runtime PM setup and\nteardown, so runtime PM is enabled once in probe and disabled once in\nremove and the clock enable count stays balanced.\n\nOrder the remove teardown so runtime PM is disabled before the usage\ncount is dropped: pm_runtime_disable() followed by pm_runtime_put_noidle()\ninstead of pm_runtime_put_sync(). Dropping the count first with autosuspend\nstill enabled arms the autosuspend timer, and a preemption before\npm_runtime_disable() lets it expire, suspend the device and clk_disable()\nthe clock, which the devm release then disables again - the same WARN.\n\nRestore the non-managed IRQ request as well. The probe error paths now\nunwind runtime PM by hand via goto, and a devm-registered handler is only\nfreed later during devres unwind, so it would stay live across the manual\nteardown (and across any future failing step added after it). Request the\nIRQ with request_threaded_irq() and free it explicitly in the probe error\npath and in remove. The probe error path also clears use_autosuspend, to\nmatch the teardown in remove().",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120558",
-      "published": "2026-11-03T05:18:33.030",
-      "description": "The Advanced Shipment Tracking for WooCommerce plugin for WordPress is vulnerable to SQL Injection via the `tracking_provider` parameter of the `POST /wp-json/wc-ast/v3/orders/<order_id>/shipment-trackings` REST endpoint in all versions up to, and including, 3.9. This is due to insufficient escaping on the user-supplied parameter and lack of sufficient preparation on the existing SQL query in `WC_Advanced_Shipment_Tracking_Admin::get_provider_slug_from_name()` — the value is concatenated directly into the format string of `$wpdb->prepare()` rather than bound as a parameter, bypassing parameterised-query protections. This makes it possible for authenticated attackers, with Shop Manager-level access and above, to append additional SQL queries into the already-existing query that can be used to extract sensitive information from the database.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-99249",
+      "published": "2026-11-03T12:17:31.460",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npid_namespace: make zap_pid_ns_processes() freezable\n\nWhen the init of a pid namespace exits, zap_pid_ns_processes() waits\nuntil all other pids in the namespace are freed. A tracer outside the\nnamespace that does not reap its traced zombies keeps those pids\nallocated, so this wait has no upper bound, and while it lasts every\nsuspend attempt fails:\n\n  Freezing user space processes failed after 20.006 seconds (2 tasks refusing to freeze, wq_busy=0):\n\nNeither wait is freezable. The first loop sleeps in do_wait(), which\nreturns -ERESTARTSYS on the freezer's fake signal; the loop then clears\nTIF_SIGPENDING and waits again without ever freezing. The final loop\nsleeps in TASK_INTERRUPTIBLE, and since nothing clears TIF_SIGPENDING\nthere, schedule() returns immediately after the first freeze attempt\nand the task spins until the wait ends.\n\nSleep in TASK_INTERRUPTIBLE | TASK_FREEZABLE in do_wait(), so that the\nfreezer can freeze tasks waiting there directly, and in TASK_IDLE |\nTASK_FREEZABLE in the final loop, like coredump_task_exit() does.\n\nThis was hit with Chromium-based browsers: crashpad ptrace-attaches the\nthreads of a crashed renderer, which is a pid namespace init, and does\nnot reap those killed during the dump.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120524",
-      "published": "2026-11-03T05:18:31.760",
-      "description": "The News Kit Addons For Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'formData' parameter in all versions up to, and including, 1.4.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is possible because an operator-precedence bug in handle_scripts() causes the admin bundle — and its inlined nekit-admin-nonce — to be enqueued on every admin screen accessible to Subscribers (such as /wp-admin/profile.php), and because sanitize_text_field() is applied to the raw JSON string before json_decode(), allowing angle brackets encoded as \\u003c/\\u003e to survive sanitization and be restored to literal angle brackets, enabling overwrite of _elementor_data on any post.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-99250",
+      "published": "2026-11-03T12:17:31.603",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nprintk: Postpone kthread startup\n\nThere have been various bug reports related to SMP systems hanging\non boot. The reports vary but seem to have some overlap with regard\nto missed IPI's during SMP setup. The reports also show that\nreverting NBCON console usage allows the bugs to disappear.\n\nThe NBCON kthreads for console printing are started very early\nduring boot using early_initcall(). Since these kthreads are\nasynchronously enabling/disabling interrupts during early boot, they\nmay be interfering with early SMP setup on some hardware platforms.\n\nStarting the console printing kthreads later has shown to avoid the\nhanging on systems that could previously reproduce the issue.\n\nPostpone kthread starting until after all arch initcalls have\ncompleted.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120552",
-      "published": "2026-11-03T05:18:32.837",
-      "description": "The SEO Engine – Smart SEO with AI, Schema & Redirection for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'title' parameter in all versions up to, and including, 0.9.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. WordPress core's wp_filter_kses (applied via title_save_pre for Contributors and Authors) strips literal tag markup on save but leaves HTML-entity-encoded payloads intact in the database, meaning entity-encoded XSS payloads stored via the standard WordPress REST API (POST /wp-json/wp/v2/posts) are not neutralized before reaching the vulnerable sink.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-99251",
+      "published": "2026-11-03T12:17:31.740",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: Avoid infinite retry loop in init_vp_index()\n\nThere is a retry loop in init_vp_index() where the CPUs from a certain\nnode are stripped out if they have already been in the allocated cpumask\nor not in HK_TYPE_MANAGED_IRQ housekeeping cpumask. If there is no\nCPU left, the allocated cpumask is ignored and the process is retried\nagain. However, if the HK_TYPE_MANAGED_IRQ housekeeping cpumask turns\nout not to contain any CPU in that particular node, that will become an\ninfinite retry loop.  This particular problem was reported by sashiko\n[1]. This should rarely happen, but we still need to guard against this.\n\nFix this infinite loop problem by also skipping NUMA node that has no\nhousekeeping CPU in the inner while loop of init_vp_index(). Also update\nthe early abort check to check for the absence of online housekeeping\nCPUs instead of just the emptiness of the cpumask. As the outer for\nloop will only be reached if the housekeeping cpumask has at least one\nonline CPU, a NUMA node with housekeeping CPUs will eventually be found.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120575",
-      "published": "2026-11-03T05:18:34.060",
-      "description": "The Photo Engine (Media Organizer & Lightroom) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'hierarchy[].name' parameter in all versions up to, and including, 6.5.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable by Subscribers because the /?wplr-sync-api endpoint authenticates solely via wplr_auth_token usermeta with no capability check, and the current user's token is exposed on every admin page via localized script data due to a commented-out screen-condition guard.",
-      "severity": "MEDIUM",
-      "score": 6.4
+      "id": "CVE-2026-99252",
+      "published": "2026-11-03T12:17:31.890",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120551",
-      "published": "2026-11-03T05:18:32.637",
-      "description": "The WP Compress – Instant Performance & Speed Optimization plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 7.22.01. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to link the victim site to an attacker-controlled WP Compress account, overwrite plugin settings to an aggressive live-CDN preset, and gain the shared api_key that authenticates all nopriv HMAC-gated endpoints — enabling full control over cache purging, file deletion, opcode cache invalidation, and other privileged plugin operations. This vulnerability only affects fresh installations or lite/free-mode installs where no api_key is already stored, as the sole guard fails open when the stored key is absent.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-99253",
+      "published": "2026-11-03T12:17:32.013",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring/cancel: rearm local work wake up before sleep\n\nio_uring_try_cancel_requests() sets ->cq_wait_nr to 1 so that the next\nio_req_local_work_add() wakes the cancelling task. The add that takes the\ncount to zero is the only one that wakes, later ones see a count <= 0 and\nreturn. io_uring_cancel_generic() however only becomes\nTASK_INTERRUPTIBLE much later, so the one wake up can be spent on a\nrunning task. That is fine as long as the entry of that add is still\nqueued, as the io_local_work_pending() check then skips the sleep. It is\nnot if the add was delayed after queueing its entry:\n\nCPU0 (submitter in exec or exit)      CPU1 (io_req_local_work_add)\n                                      mpscq_push(req A)\nio_uring_try_cancel_requests()\n  io_run_local_work()  // runs req A\nio_uring_try_cancel_requests()\n  atomic_set(&ctx->cq_wait_nr, 1)\n                                      atomic_read(&ctx->cq_wait_nr) == 1\n                                      count taken, wake_up_state()\n                                        // task is running, no-op\nprepare_to_wait(TASK_INTERRUPTIBLE)\nio_local_work_pending() == false\nschedule()\n                                      mpscq_push(req B)\n                                      cq_wait_nr <= 0, return\n\nOnly the sleeping task can run req B, so it is stuck in execve() until a\nsignal happens to wake it. An exiting task doesn't even get that.\n\nArm the count again once the task state is set and before the work list\nis checked, for the rings whose local work this task is the one to run.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120561",
-      "published": "2026-11-03T05:18:33.447",
-      "description": "The JetFormBuilder — Dynamic Blocks Form Builder plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the 'do_action' function in the 'Update_Options' action class in all versions up to, and including, 3.6.2. This makes it possible for unauthenticated attackers to modify JetEngine Options Page values when an administrator has configured a form with the \"Update Options\" post-submission action. The vulnerability requires that both JetFormBuilder and JetEngine are installed and active, and that an administrator has specifically configured a form with the Update Options action.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-99254",
+      "published": "2026-11-03T12:17:32.137",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring: don't flood a cancelling task with task_work\n\nio_ring_exit_work() asks each task which has used the ring to remove its\ntctx node, by task_work, and repeats that until the list is empty.\nio_tctx_exit_cb() doesn't touch the node while the task is in\nio_uring_cancel_generic(), which removes all the nodes at its end. So the\nwork item queues the callback again as soon as it has completed, for\nnothing.\n\nThat is more than a waste of time. task_work_run() only returns when it\nfinds the list empty. If the rings are released from inside the\ncancellation, because requests of other rings held the last references to\ntheir files, up to 64 work items keep sending callbacks to the one task\nwhich is running them. It never finds the list empty, never gets back to\nthe cancellation, the nodes stay, and so it goes on: a task with 60 pairs\nof rings which poll each other ran 280000 callbacks in 5 seconds, 20\nseconds after exit_group(). It ends when all the senders happen to be late\nat the same time. Until then the task keeps a CPU and the work items busy.\n\nAn exiting task can't be killed meanwhile. execve() cancels the requests in\nthe same way, so a live task can get stuck there as well, for minutes. If\nit takes more than five, the work items run into the\nWARN_ON_ONCE(time_after(jiffies, timeout)) of io_ring_exit_work(). No\nprivilege is needed for any of this.\n\nIf the callback has met a task in cancellation, wait a little before it is\nsent again. Nobody has to wake the work item up for that: either the node\nis gone by then, or it is the turn of the next round.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120578",
-      "published": "2026-11-03T05:18:34.467",
-      "description": "The AI Alt Text Generator plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.7.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to modify the alt text, and optionally the title, caption, and description of arbitrary attachments owned by other users. Exploiting this vulnerability requires a Contributor-level account to retrieve the nonce from the page source of post.php, post-new.php, or upload.php; additionally, overwriting post_title, post_excerpt, and post_content requires the plugin's set_title, set_caption, or set_description options to be enabled.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-99255",
+      "published": "2026-11-03T12:17:32.290",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring/io-wq: don't hide a link from cancellations\n\nA task that exits cancels its tracked requests and waits until they are\ngone. io_uring_cancel_generic() looks everywhere a request can be, and\ngoes to sleep if it found nothing to cancel. It is woken up each time\none of the requests of the task is completed by task work or freed.\n\nWhen io-wq is done with a request that has a link, there is a time in which\nthe next request of the link can't be found:\n\n  io_worker_handle_work()\n    io_assign_current_work(worker, NULL)\n    io_wq_free_work(work)\n      io_req_find_next()           // takes the link off the request\n      io_free_req()                // task work for the task\n    io_assign_current_work(worker, linked)\n      io_run_task_work()\n      cond_resched()\n      worker->cur_work = linked\n\nIt is not pending, it is not the current work of a worker, and it is not\nyet on the list that it is about to be parked on. If the pass that the\nexiting task makes because of io_free_req() falls into that time, it finds\nnothing and the task goes to sleep. The worker then runs the link, which\nIO_WQ_BIT_EXIT doesn't prevent for bounded work. If that parks the request\nnothing is completed or freed, and nobody wakes up the task. If it is the\nprocess that exits it can't be killed any more either.\n\n  NOP, IOSQE_ASYNC | IOSQE_IO_LINK\n  FUTEX_WAIT, FUTEX2_PRIVATE\n  exit of the thread, or of the process, up to 63us later\n\nWith four of these per round 5 to 8 of 10,000 rounds hang (4 CPUs, KVM):\n\n  io_uring_cancel_generic\n  do_exit\n\nCommit f8b632e89a10 (\"io_uring: tighten task exit cancellations\") is about\nthe same gap, and makes the task look again for whatever happens before\nio_free_req().\n\nFree the request once the link is the current work of the worker, or\npending. Whoever is woken up by that can find the link, until it is parked\nwhere cancellations look as well. To do so split io_wq_free_work() in two.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120971",
-      "published": "2026-11-03T05:18:34.670",
-      "description": "A flaw was found in RESTEasy's default exception mapper. When an unhandled exception other than a WebApplicationException is not handled by an application exception mapper, RESTEasy returns the exception's localized message in the HTTP 500 response body. A remote unauthenticated attacker who can trigger such an exception may obtain information contained in that message. The behavior was reproduced with RESTEasy 7.0.2.Final.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-99256",
+      "published": "2026-11-03T12:17:32.437",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndm cache: fix issue with background work locking\n\ndm cache used a rw_semaphore for background_work_lock. Write locks on\nrw_semaphores have strict owner semantics, but there was no guarantee\nthat the process that locked background_work_lock was the same process\nthat unlocked it. This can be easily seen using a kernel compiled with\nCONFIG_DEBUG_RWSEMS. Given a dm cache device <cache>, run: 'dmsetup\nsuspend <cache> && dmsetup resume <cache>'. This will trigger a kernel\nwarning:\n\nDEBUG_RWSEMS_WARN_ON((rwsem_owner(sem) != current) && !rwsem_test_oflags(sem, RWSEM_NONSPINNABLE))\n\ntriggered by cache_resume(). To fix this, switch from a rw_semaphore to\na spinlock and a wait queue. dm cache already has a wait queue and\nassociated counter, migration_wait and nr_allocated_migrations, that was\ngetting woken up when background work was getting completed, but wasn't\nactually used by anything. This is replaced by the background_work queue\nand counter.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-103379",
-      "published": "2026-11-03T06:17:35.310",
-      "description": "The WATI Chat and Notification WordPress plugin through 1.1.8 does not require a valid, non-empty secret on a public endpoint that returns its stored API token, which an unauthenticated attacker can then present to a second public endpoint to obtain the order-received URL of any WooCommerce order and read the customer's name, address, phone number and email address. The endpoints are reachable in the WATI Chat and Notification WordPress plugin through 1.1.8's default state and are closed only once a WATI account is connected.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-99257",
+      "published": "2026-11-03T12:17:32.590",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpio: shared: gracefully handle no-device lookup of shared GPIOs\n\nWe use platform lookup tables for shared GPIOs. This mechanism needs a\nstruct device to work so fwnode-based lookup with no device associated\ncurrently causes a NULL-pointer deference.\n\nAdding this functionality will require a larger rework and it has never\nworked anyway so add a check that allows the kernel to gracefully handle\nthis situation with an error ahead of implementing that functionality as\na new feature.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120563",
-      "published": "2026-11-03T05:18:33.647",
-      "description": "The WooCommerce Multilingual & Multicurrency with WPML plugin for WordPress is vulnerable to SQL Injection in all versions up to, and including, 5.5.7. This is due to insufficient input validation on the currency exchange rate parameter in the save_currency() AJAX handler, which lacks capability checks and allows subscriber-level users to store malicious SQL payloads that are later concatenated directly into ORDER BY clauses without proper sanitization. This makes it possible for authenticated attackers, with Shop Manager-level access and above, to append additional SQL queries to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 4.9
+      "id": "CVE-2026-99258",
+      "published": "2026-11-03T12:17:32.713",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nx86/hyperv: Avoid using per-cpu output page in hv_apicid_to_vp_index()\n\nhv_apicid_to_vp_index() currently uses the per-cpu hypercall input\nand output pages. This function is called when running in VTL2 and\nwhen running in an SEV-SNP CoCo VM with no paravisor. In the former\ncase, the output page is allocated, but in the latter case it is\nnot, so the hypervisor stores the output VP index in memory that has\nnot been allocated by the guest.\n\nFix this by using the input page for both input and output. The\nhypercall has very small input and output, so sharing the same\npage for both is straightforward. An alternative fix is to\nallocate the per-cpu output page when running in an SEV-SNP CoCo\nguest, but this uses significantly more memory, particularly\nwith larger vCPUs counts.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-120544",
-      "published": "2026-11-03T05:18:32.427",
-      "description": "The Academy LMS – AI Course Builder, Quizzes, Certificates & eLearning plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.0.1 via the 'id' parameter. This makes it possible for authenticated attackers, with contributor-level access and above, to read the contents of arbitrary .html files on the server. The plugin appends a '.html' extension to the attacker-supplied path before reading it, so files with any other extension — including wp-config.php — are out of reach. The file's contents are returned in full in the REST JSON response's content field.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-99259",
+      "published": "2026-11-03T12:17:32.847",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsoc/tegra: pmc: Fix uninitialised clock rate\n\nFor legacy 32-bit Tegra devices, the warning in the\ntegra_pmc_enter_suspend_mode() function is being triggered because the\nearly_pmc->rate variable is never configured and hence, always 0. This\nissue started occurring after updating the PMC driver to create the PMC\ncontext dynamically which causes the 'rate' to be set in the new dynamic\ncontext, but missed updating the rate in the early PMC context.\n\nFix this by initialising the early_pmc->rate variable for 32-bit Tegra\ndevices when the rate for the PMC context is initialised.\n\n[treding@nvidia.com: move assignment to existing #ifdef block]",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-104647",
-      "published": "2026-11-03T06:17:37.123",
-      "description": "The weMail  WordPress plugin through 2.1.6 does not correctly verify user capabilities in its REST API permission checks, treating any user whose role is in the weMail  WordPress plugin through 2.1.6's allowed-roles list (Editor and above by default) as authorised for every action, which allows such users to perform administrator-level actions including enumerating all registered users with their email addresses and modifying the weMail  WordPress plugin through 2.1.6's own access-control configuration.",
-      "severity": "LOW",
-      "score": 3.8
+      "id": "CVE-2026-99260",
+      "published": "2026-11-03T12:17:32.970",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nntfs: fix resident conversion in ntfs_new_attr_flags\n\nWhen setting sparse/compressed flags on a resident attribute, the\nfunction skipped the resident-to-non-resident conversion and\nterminated.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-99261",
+      "published": "2026-11-03T12:17:33.090",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdgpu: correct reservation fence slots for userq per-vm BOs eviction\n\nIt fixes both the move overflow and the eviction fence add for\nevicting these per-vm BOs.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-99262",
+      "published": "2026-11-03T12:17:33.210",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
