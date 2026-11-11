@@ -1,143 +1,143 @@
 {
-  "totalResults": 5024,
+  "totalResults": 5133,
   "items": [
     {
-      "id": "CVE-2026-121952",
-      "published": "2026-11-04T16:17:47.530",
-      "description": "FreeRDP before 3.32.2 has an out-of-bounds write in the proxy because rdp_read_bitmap_cache_v2_capability_set rejects only numCellCaches values above 5, yet the bitmap cache v2 cell array is later accessed at fixed indices 0 through 4. A client connecting to the proxy can declare fewer than five cell caches in its Confirm Active, causing heap corruption, heap data leakage to the backend, or a crash.",
+      "id": "CVE-2026-54384",
+      "published": "2026-11-04T23:17:48.523",
+      "description": "VitaFit cloud API before 2026-10-30 contained an authentication bypass vulnerability that allows remote attackers to obtain a full session for a victim's account by submitting a linked Google or Facebook account identifier to the POST /front/login/sns/ endpoint without providing proof of ownership from the identity provider. Attackers can forge a login using an identifier exposed through account enumeration to read and modify the victim's profile and delete the account's authentication record, preventing the legitimate user from logging in.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-121953",
-      "published": "2026-11-04T16:17:47.717",
-      "description": "FreeRDP before 3.32.2 has a use-after-free in the client's rdpgfx dynamic virtual channel: a duplicate-name channel with a new ChannelId overwrites the listener's single callback slot, which rdpgfx_on_close frees without clearing. A malicious RDP server can open and close such a channel, then send a PDU on the original channel to crash the client or potentially execute code.",
+      "id": "CVE-2026-115770",
+      "published": "2026-11-04T23:17:18.767",
+      "description": "Pocket ID is an OIDC provider that allows users to authenticate with their passkeys to services. From 2.2.0 until 2.12.0, SendEmailVerification uses the token model in backend/internal/model/email_verification_token.go to bind an email-verification token only to the user's identifier, while UpdateUser can change the account email without invalidating the outstanding token and VerifyEmail marks the current address as verified. An ordinary user can request a token for an address they control, change the account to an arbitrary unused address, and redeem the old token so Pocket ID publishes the new address with email_verified set to true. The default affected configuration uses emailsVerified=false and allowOwnAccountEdit=true; the target address must not already belong to another Pocket ID user. A relying application that trusts a verified email for automatic account matching or provisioning can link the attacker's identity to another user's account, while applications that rely exclusively on the stable OIDC sub claim are not affected by that downstream consequence. This issue is fixed in version 2.12.0.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.6
     },
     {
-      "id": "CVE-2026-121958",
-      "published": "2026-11-04T16:17:48.610",
-      "description": "FreeRDP through 3.32.1 has a heap out-of-bounds write in the RDPGFX client because the delete_surface callback truncates surface hash keys to 16 bits, leaving the surface table inconsistent so HashTable_GetKeys writes past its allocated key array. A malicious or man-in-the-middle RDP server can exploit this by creating surfaceId 0xFFFF, closing the RDPGFX channel, sending repeated DELETESURFACE PDUs, and then sending ENDFRAME or RESETGRAPHICS.",
+      "id": "CVE-2026-122299",
+      "published": "2026-11-04T23:17:23.730",
+      "description": "Dulwich before 1.2.20 contains a commit object parsing vulnerability where the read path in _parse_commit resolves a duplicate tree header to the last occurrence instead of the first, diverging from core git's resolution behavior, while Poetry 2.5.1 ships this version and uses dulwich by default for git dependency installation. Attackers can craft a commit object with two tree headers so that reviewers and CI using git see a benign tree while Poetry's dulwich-based checkout resolves to a different attacker-controlled tree containing malicious build scripts such as setup.py, resulting in unreviewed code execution on the install or build host.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-121966",
-      "published": "2026-11-04T16:17:50.107",
-      "description": "Traefik 2.x before 2.11.60 and 3.x before 3.7.16 sends ForwardAuth subrequests (and, in 3.7, Ingress NGINX auth-url requests) through an auth-server connection pool shared by all clients, exposing connection-bound NTLM or Negotiate authentication. An unauthenticated attacker can reuse another user's authenticated connection, receiving the victim's identity via authResponseHeaders to access backends as that user.",
+      "id": "CVE-2026-54382",
+      "published": "2026-11-04T23:17:48.193",
+      "description": "VitaFit cloud API before 2026-10-30 contained an improper access control vulnerability in its Cognito-issued AWS role that allows authenticated attackers to perform s3:PutObject operations across the entire shared bucket instead of being restricted to their own folder. Attackers can overwrite other users' objects in the shared S3 bucket using credentials obtained via CVE-2026-54378, destroying original content without triggering deletion protections.",
       "severity": "HIGH",
-      "score": 8.7
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-121962",
-      "published": "2026-11-04T16:17:49.320",
-      "description": "FreeRDP before 3.32.2 contains a heap buffer overflow in transport_default_read_pdu when handling partial Early User Authorization reads during PROTOCOL_HYBRID_EX CredSSP. A malicious RDP server can split the four-byte EUA result into short reads that advance the stream pointer beyond the 16 KiB allocation, causing an out-of-bounds write and client denial of service.",
+      "id": "CVE-2026-62662",
+      "published": "2026-11-04T23:17:56.940",
+      "description": "Pocket ID is an OIDC provider that allows users to authenticate with their passkeys to services. From 1.11.0 until 2.10.0, createTokenFromClientCredentials in backend/internal/service/oidc_service.go accepts the client-controlled resource parameter and embeds it directly in the access token aud claim without validating that the audience is registered or that the requesting client may access it. Any authenticated OIDC client can therefore obtain a Pocket ID-signed token naming another client or an arbitrary audience. The /api/oidc/introspect endpoint cannot distinguish the unauthorized token because it treats a token as active when the introspecting client's identifier matches the attacker-selected audience. In deployments where resource servers trust Pocket ID access tokens for service-to-service authorization, this bypasses audience-based access controls and can permit unauthorized data access or actions; deployments that do not use these tokens for resource-server authorization have no immediate exploitable impact. This issue is fixed in version 2.10.0.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.7
     },
     {
-      "id": "CVE-2026-106554",
-      "published": "2026-11-04T16:17:32.640",
-      "description": "One CBOR-parsing issue in jackson-dataformats-binary's CBOR module: an unbounded run of CBOR tags drives quadratic-time TagList growth (CPU/GC-exhaustion DoS, PoC-proven).\n\n\n\nPoC executed against com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.18.2; present in current 2.x and 3.x (tools.jackson.dataformat.cbor) HEAD. Distinct from the Avro and Smile/Protobuf advisories for this repo.\n\n\n\nQuadratic CPU/GC DoS from an unbounded chain of CBOR tags (PoC-proven). File: cbor/src/main/java/.../cbor/CBORParser.java (tag handling -> TagList).\n\n\n\nCBOR permits a data item to be preceded by any number of semantic tags. The CBOR parser accumulates them in a TagList whose backing array grows by a fixed increment (+8), not by doubling, and re-scans/copies on each growth. An attacker sends a value preceded by a long run of tag bytes; the fixed-increment growth makes accumulating N tags O(N^2) in time (plus GC pressure), with no cap on the number of stacked tags.\n\n\n\nPoC (executed, JDK 17): feeding a CBOR stream consisting of a long run of tag bytes (e.g. tag 0xC0+) before a trivial value forces quadratic CPU/GC; parse time grows super-linearly with the tag count, pinning a request thread with no configurable limit.\n\n\n\nImpact. Algorithmic-complexity denial of service (CWE-407): a modest input of stacked tags consumes quadratic CPU/GC, pinning a request thread; concurrent requests exhaust the pool.\n\n\n\nFix. Grow TagList by doubling and/or cap the number of stacked tags (StreamReadConstraints-style).",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-121951",
-      "published": "2026-11-04T16:17:47.350",
-      "description": "FreeRDP 3.0.0 before 3.32.2 server-side RDP peer input parsing skips the six-byte body of a slow-path input event with an unknown message type without checking it lies within the packet's declared length, causing a WinPR stream assertion failure. A remote RDP client with an active session can send a truncated unknown input event to abort assertion-enabled server processes, causing denial of service.",
+      "id": "CVE-2026-54381",
+      "published": "2026-11-04T23:17:48.033",
+      "description": "VitaFit cloud API before 2026-10-30 contained a misconfigured cloud storage bucket vulnerability that allows unauthenticated attackers to list and download stored files without authentication. Attackers can enumerate the publicly accessible bucket containing 129,947 objects, including 126,881 user-uploaded profile images, to access sensitive personal data without credentials.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-121955",
-      "published": "2026-11-04T16:17:48.070",
-      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in Emulate_SCardReleaseContext that frees the emulated SCardContext before its worker thread is cancelled and joined. A malicious server can send ESTABLISHCONTEXT, a long-timeout GETSTATUSCHANGE, then RELEASECONTEXT smartcard IRPs to corrupt heap memory or crash clients using smartcard emulation.",
+      "id": "CVE-2026-122038",
+      "published": "2026-11-04T23:17:23.073",
+      "description": "A vulnerability was identified in krupalshah EmployeeRecruitmentSystem up to 922ff6d208278282e7c8e36d70d9ae356adec9fe. Affected by this issue is the function mysql_query of the file source/reqformprocessing.php of the component Requirement Board Update Handler. Such manipulation leads to sql injection. The attack can be launched remotely. The exploit is publicly available and might be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-121956",
-      "published": "2026-11-04T16:17:48.250",
-      "description": "FreeRDP before 3.32.2 contains a double free in the WinPR Kerberos SSPI retrieveSomeTgt function, which installs the krb5 default realm into a target principal that has an empty realm without taking ownership of it. Unauthenticated remote clients can send a crafted NLA/CredSSP u2u TGT request whose server-name component contains '@' to corrupt the heap and crash the server process.",
+      "id": "CVE-2026-122047",
+      "published": "2026-11-04T23:17:23.303",
+      "description": "A security vulnerability has been detected in Campcodes Complete Advance Loan Management System 1.0. This affects the function move_uploaded_file of the file /loan/application/banner.php. Such manipulation of the argument image leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed publicly and may be used.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-121957",
-      "published": "2026-11-04T16:17:48.423",
-      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability that allows malicious RDP servers to corrupt client memory by racing the RDPGFX ResetGraphics handler against the planar bitmap decoder. Attackers can send ResetGraphics while concurrently sending compressed bitmaps of 32 bpp or more to trigger heap use-after-free or out-of-bounds read/write on shared planar buffers.",
+      "id": "CVE-2026-122048",
+      "published": "2026-11-04T23:17:23.523",
+      "description": "A vulnerability was identified in Campcodes Division Regional Athletic Meet Game Result Matrix System up to 2.1. This affects an unknown function of the file /dipam/check-user.php. Such manipulation of the argument abbr leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-121960",
-      "published": "2026-11-04T16:17:48.970",
-      "description": "FreeRDP before 3.32.2 contains a denial of service vulnerability in the NLA-enabled shadow server when a CredSSP TSRequest omits negoTokens. Unauthenticated attackers can send a crafted seven-byte TSRequest containing only the version field to trigger a fatal WINPR_ASSERT and abort the server process.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-121964",
-      "published": "2026-11-04T16:17:49.683",
-      "description": "FreeRDP before 3.32.2 contains a heap-based buffer overflow in the RD Gateway RPC client, where rpc_client_recv_fragment writes BIND_ACK and ALTER_CONTEXT_RESP fragments into a persistent PDU stream after checking only total capacity rather than remaining capacity from the current stream position. A malicious or compromised RD Gateway can send crafted RPC fragments with manipulated alloc_hint and frag_length values to overwrite client heap memory with attacker-controlled data, causing a crash or potentially arbitrary code execution.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-121950",
-      "published": "2026-11-04T16:17:47.153",
-      "description": "FreeRDP before 3.32.2 does not check the product of surface dimensions in gdi_CreateSurface when handling an RDPGFX CREATE_SURFACE PDU, causing an integer wrap and heap buffer overflow on 32-bit builds and an approximately 4 GiB allocation on 64-bit builds. A malicious RDP server can send a CREATE_SURFACE PDU with width and height 32766 to a connecting client to corrupt heap memory or cause a denial of service.",
+      "id": "CVE-2026-54383",
+      "published": "2026-11-04T23:17:48.360",
+      "description": "VitaFit cloud API before 2026-10-30 contained an excessive data exposure vulnerability that allows any authenticated user to query the GET /front/relation/search/ endpoint and retrieve PII and health-related profile information for user records. Attackers can enumerate the user directory using overlapping alphanumeric search terms to harvest identifiers, emails, birthdays, gender, height, weight goals, phone numbers, and Firebase UIDs.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-121954",
-      "published": "2026-11-04T16:17:47.890",
-      "description": "FreeRDP before 3.32.2 has a heap out-of-bounds write in the planar codec because freerdp_bitmap_planar_context_reset commits new dimensions before buffer reallocation succeeds, and a failed ResetGraphics is only logged. A malicious RDP server can send an oversized ResetGraphics PDU, then a GFX PLANAR command, to corrupt client heap memory and crash the client.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-121959",
-      "published": "2026-11-04T16:17:48.793",
-      "description": "FreeRDP before 3.32.2 contains an infinite loop vulnerability in websocket_context_read that fails to handle a zero BIO result with payload outstanding. A malicious RD Gateway can send a truncated WebSocket frame followed by a TLS close_notify, causing a client thread to spin and consume CPU until killed.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-119746",
-      "published": "2026-11-04T16:17:45.100",
-      "description": "ProSoft Technology ICX35 devices (X35-HWC-A and ICX35-HWC-E) contain a login lockout bypass in the integrated module web page. The account lockout mechanism that restricts repeated failed authentication attempts is enforced in client-side JavaScript, so a remote attacker can reset the lockout and continue submitting password guesses by deleting the relevant browser cookies, defeating the brute-force protection. This vulnerability has been addressed in version 1.14.158.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-121961",
-      "published": "2026-11-04T16:17:49.147",
-      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in the freerdp-proxy DRDYNVC tracker when intercepting the drdynvc channel. A malicious target server can repeatedly send CREATE_REQUEST_PDU for an active channel id, racing front DATA handling to free a borrowed context and crash the proxy process.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-121963",
-      "published": "2026-11-04T16:17:49.500",
-      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in the asynchronous dynamic rdpsnd channel that allows malicious RDP servers to trigger freed callback access by closing the channel with queued audio PDUs. Attackers can send a training PDU then close the channel so the playback thread reads the freed callback in rdpsnd_virtual_channel_write, crashing the client.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-121965",
-      "published": "2026-11-04T16:17:49.883",
-      "description": "Parse Server before 8.6.113 and 9.0.0 before 9.10.6-alpha.5 contains a prototype pollution vulnerability when building objects for Cloud Code triggers and LiveQuery, where a dot notation key whose intermediate segment resolves through an inherited member writes onto a process-wide built-in. Clients with write access to an object in a class with a trigger or LiveQuery can corrupt a built-in function, making unrelated requests fail until restart and denying service to all clients and hosted applications.",
+      "id": "CVE-2026-62365",
+      "published": "2026-11-04T23:17:56.583",
+      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. DecodeWinevt in src/analysisd/decoders/winevtchannel.c accumulates unnamed Windows EventChannel Data element contents into the fixed 65,535-byte join_data heap buffer but passes the growing content length, rather than the OS_MAXSTR buffer capacity, as the snprintf size. An enrolled agent can submit an EventChannel message containing four maximum-sized unnamed Data elements, causing the fourth accumulation to write beyond join_data and corrupt adjacent heap metadata. The subsequent free of join_data2 causes the wazuh-analysisd process to terminate, stopping log ingestion for all agents handled by that manager. This vulnerability is fixed in 4.14.7.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-109518",
-      "published": "2026-11-04T16:17:33.010",
-      "description": "On Debian, Ubuntu, and derivative Linux distributions, an on-path attacker who can manipulate the HTTP traffic (including a malicious mirror or proxy) between an APT client and an archive server triggered by a package install can trick the client into installing an attacker-controlled unverified package and achieve remote code execution with root privileges.\n\n\n\nThe vulnerability is caused by the reuse of hard links and requires the client to follow redirects and retry the download of package files. It requires the client to have a non-zero Acquire::Retries configuration setting; the value 3 is the default starting with Debian 12 (bookworm) and Ubuntu 22.04 LTS (Jammy Jellyfish), so older releases are unaffected in a default configuration",
+      "id": "CVE-2026-122028",
+      "published": "2026-11-04T23:17:22.863",
+      "description": "A vulnerability has been found in NST Labs Tech Nstbrowser 1.21.0. Affected by this vulnerability is an unknown functionality of the file /agent/info of the component Local Agent API. Such manipulation leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-102337",
+      "published": "2026-11-04T23:17:17.873",
+      "description": "Webmin is a web-based system administration tool for Unix-like servers. Prior to 2.652, untrusted users with access to the File Manager or Upload and Download modules can direct Webmin's server-side URL download functionality to non-public network addresses because download destinations are not restricted by resolved IP address. This allows requests to unauthenticated intranet services or cloud-provider instance metadata endpoints that are inaccessible from the user's own system. This issue is fixed in 2.652.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-108387",
+      "published": "2026-11-04T23:17:18.320",
+      "description": "radare2 is a UNIX-like reverse engineering framework and command-line toolset. Prior to 6.2.2, attacker-controlled data from several binary format plugins could reach RBinInfo->bclass. Opening or analyzing a crafted Pebble or Sega Mega Drive binary could place a dbg:// URI in bclass, causing radare2 to reopen the input through the debug input/output plugin and ultimately pass attacker-controlled arguments to execvp(). This could execute commands with the privileges of the radare2 process without an explicit debugging command. This issue is fixed in version 6.2.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-47678",
+      "published": "2026-11-04T23:17:34.950",
+      "description": "GLPI is a free asset and IT management software package. From 9.4.0 until 10.0.26 and 11.0.8, any authenticated user can submit crafted values to the dropdown values fetching endpoint that are incorporated into a database query. This permits SQL injection through the dropdown endpoint. This issue is fixed in versions 11.0.8 and 10.0.26.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-52848",
+      "published": "2026-11-04T23:17:46.560",
+      "description": "GLPI is a free asset and IT management software package. From 11.0.0 until 11.0.8, during the login phase, an unauthenticated user could use a crafted URL to skip one-time-password verification, defeating two-factor authentication. This issue is fixed in version 11.0.8.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-53631",
+      "published": "2026-11-04T23:17:46.740",
+      "description": "GLPI is a free asset and IT management software package. From 0.83 until 10.0.27 and from 11.0.0 until 11.0.9, any authenticated user could submit a crafted request to change the visibility of knowledge base items, reminders, or RSS feeds and then access content that should remain restricted. This issue is fixed in versions 10.0.27 and 11.0.9.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-57152",
+      "published": "2026-11-04T23:17:52.163",
+      "description": "GLPI is a free asset and IT management software package. From 0.85 until 10.0.26 and from 11.0.0 until 11.0.8, under certain conditions, GLPI permission logic could grant a user access to a document without confirming that the document was linked to the targeted item. This could expose the file to a user who should not be able to view it. This issue is fixed in versions 10.0.26 and 11.0.8.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-76826",
+      "published": "2026-11-04T23:17:58.400",
+      "description": "tsParticles is a TypeScript library for creating highly customizable particle animations. From 4.0.0 until 4.3.2, the stable publish workflow interpolates steps.release.outputs.body directly into an echo command in Bash source before writing RAW_RELEASE.md. Contributor-controlled shell metacharacters in generated release-note text can therefore execute when a maintainer starts a stable release, allowing modification of generated artifacts or workspace scripts and affecting later release steps that hold GITHUB_TOKEN and write permissions. This issue is fixed in version 4.3.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-76892",
+      "published": "2026-11-04T23:17:58.557",
+      "description": "tsParticles is a TypeScript library for creating highly customizable particle animations. Prior to 4.3.1, the HTTP mode of @tsparticles/mcp-server calls JSON.parse outside a request-local error boundary in the POST /mcp handler in integrations/mcp-server/src/index.ts. A single unauthenticated malformed JSON body raises a SyntaxError that terminates the Node.js process, leaving the MCP service unavailable until an external supervisor restarts it. This issue is fixed in version 4.3.1.",
       "severity": "UNKNOWN",
       "score": null
     }
