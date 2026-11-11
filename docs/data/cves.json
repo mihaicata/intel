@@ -1,143 +1,143 @@
 {
-  "totalResults": 4949,
+  "totalResults": 5024,
   "items": [
     {
-      "id": "CVE-2026-110022",
-      "published": "2026-11-04T10:17:24.473",
-      "description": "The PFI plugin framework deploys executable assemblies (DLLs) from a signed plugin package into the local plugin repository and loads them via reflection, but the deployment routine processes archive entries that were never covered by the signature verification. An unauthenticated local attacker can replace an unsigned DLL outside the signed prefix in the archive passes verification and overwrites the legitimate signed assembly at the same destination path. The plugin loader then instantiates the attacker-supplied code without any additional integrity check resulting in a full compromise of the affected systems.",
-      "severity": "HIGH",
-      "score": 8.4
+      "id": "CVE-2026-121952",
+      "published": "2026-11-04T16:17:47.530",
+      "description": "FreeRDP before 3.32.2 has an out-of-bounds write in the proxy because rdp_read_bitmap_cache_v2_capability_set rejects only numCellCaches values above 5, yet the bitmap cache v2 cell array is later accessed at fixed indices 0 through 4. A client connecting to the proxy can declare fewer than five cell caches in its Confirm Active, causing heap corruption, heap data leakage to the backend, or a crash.",
+      "severity": "CRITICAL",
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-56065",
-      "published": "2026-11-04T08:17:17.093",
-      "description": "Insertion of Sensitive Information into Externally-Accessible File or Directory vulnerability in Doofinder Doofinder for WooCommerce doofinder-for-woocommerce allows Retrieve Embedded Sensitive Data.This issue affects Doofinder for WooCommerce: from n/a through 2.17.2.",
+      "id": "CVE-2026-121953",
+      "published": "2026-11-04T16:17:47.717",
+      "description": "FreeRDP before 3.32.2 has a use-after-free in the client's rdpgfx dynamic virtual channel: a duplicate-name channel with a new ChannelId overwrites the listener's single callback slot, which rdpgfx_on_close frees without clearing. A malicious RDP server can open and close such a channel, then send a PDU on the original channel to crash the client or potentially execute code.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-121958",
+      "published": "2026-11-04T16:17:48.610",
+      "description": "FreeRDP through 3.32.1 has a heap out-of-bounds write in the RDPGFX client because the delete_surface callback truncates surface hash keys to 16 bits, leaving the surface table inconsistent so HashTable_GetKeys writes past its allocated key array. A malicious or man-in-the-middle RDP server can exploit this by creating surfaceId 0xFFFF, closing the RDPGFX channel, sending repeated DELETESURFACE PDUs, and then sending ENDFRAME or RESETGRAPHICS.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-121966",
+      "published": "2026-11-04T16:17:50.107",
+      "description": "Traefik 2.x before 2.11.60 and 3.x before 3.7.16 sends ForwardAuth subrequests (and, in 3.7, Ingress NGINX auth-url requests) through an auth-server connection pool shared by all clients, exposing connection-bound NTLM or Negotiate authentication. An unauthenticated attacker can reuse another user's authenticated connection, receiving the victim's identity via authResponseHeaders to access backends as that user.",
+      "severity": "HIGH",
+      "score": 8.7
+    },
+    {
+      "id": "CVE-2026-121962",
+      "published": "2026-11-04T16:17:49.320",
+      "description": "FreeRDP before 3.32.2 contains a heap buffer overflow in transport_default_read_pdu when handling partial Early User Authorization reads during PROTOCOL_HYBRID_EX CredSSP. A malicious RDP server can split the four-byte EUA result into short reads that advance the stream pointer beyond the 16 KiB allocation, causing an out-of-bounds write and client denial of service.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-106554",
+      "published": "2026-11-04T16:17:32.640",
+      "description": "One CBOR-parsing issue in jackson-dataformats-binary's CBOR module: an unbounded run of CBOR tags drives quadratic-time TagList growth (CPU/GC-exhaustion DoS, PoC-proven).\n\n\n\nPoC executed against com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.18.2; present in current 2.x and 3.x (tools.jackson.dataformat.cbor) HEAD. Distinct from the Avro and Smile/Protobuf advisories for this repo.\n\n\n\nQuadratic CPU/GC DoS from an unbounded chain of CBOR tags (PoC-proven). File: cbor/src/main/java/.../cbor/CBORParser.java (tag handling -> TagList).\n\n\n\nCBOR permits a data item to be preceded by any number of semantic tags. The CBOR parser accumulates them in a TagList whose backing array grows by a fixed increment (+8), not by doubling, and re-scans/copies on each growth. An attacker sends a value preceded by a long run of tag bytes; the fixed-increment growth makes accumulating N tags O(N^2) in time (plus GC pressure), with no cap on the number of stacked tags.\n\n\n\nPoC (executed, JDK 17): feeding a CBOR stream consisting of a long run of tag bytes (e.g. tag 0xC0+) before a trivial value forces quadratic CPU/GC; parse time grows super-linearly with the tag count, pinning a request thread with no configurable limit.\n\n\n\nImpact. Algorithmic-complexity denial of service (CWE-407): a modest input of stacked tags consumes quadratic CPU/GC, pinning a request thread; concurrent requests exhaust the pool.\n\n\n\nFix. Grow TagList by doubling and/or cap the number of stacked tags (StreamReadConstraints-style).",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-62126",
-      "published": "2026-11-04T08:17:17.890",
-      "description": "Allocation of Resources Without Limits or Throttling vulnerability in miniOrange SAML SP Single Sign On miniorange-saml-20-single-sign-on allows HTTP DoS.This issue affects SAML SP Single Sign On: from n/a through 6.1.0.",
+      "id": "CVE-2026-121951",
+      "published": "2026-11-04T16:17:47.350",
+      "description": "FreeRDP 3.0.0 before 3.32.2 server-side RDP peer input parsing skips the six-byte body of a slow-path input event with an unknown message type without checking it lies within the packet's declared length, causing a WinPR stream assertion failure. A remote RDP client with an active session can send a truncated unknown input event to abort assertion-enabled server processes, causing denial of service.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-119366",
-      "published": "2026-11-04T08:17:16.523",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in AdvancedCoding wpDiscuz wpdiscuz allows Stored XSS.This issue affects wpDiscuz: from n/a through 7.6.73.",
+      "id": "CVE-2026-121955",
+      "published": "2026-11-04T16:17:48.070",
+      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in Emulate_SCardReleaseContext that frees the emulated SCardContext before its worker thread is cancelled and joined. A malicious server can send ESTABLISHCONTEXT, a long-timeout GETSTATUSCHANGE, then RELEASECONTEXT smartcard IRPs to corrupt heap memory or crash clients using smartcard emulation.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-119477",
-      "published": "2026-11-04T08:17:16.677",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Jacob N. Breetvelt WP Photo Album Plus wp-photo-album-plus allows Stored XSS.This issue affects WP Photo Album Plus: from n/a through 9.3.05.003.",
+      "id": "CVE-2026-121956",
+      "published": "2026-11-04T16:17:48.250",
+      "description": "FreeRDP before 3.32.2 contains a double free in the WinPR Kerberos SSPI retrieveSomeTgt function, which installs the krb5 default realm into a target principal that has an empty realm without taking ownership of it. Unauthenticated remote clients can send a crafted NLA/CredSSP u2u TGT request whose server-name component contains '@' to corrupt the heap and crash the server process.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-54861",
-      "published": "2026-11-04T08:17:16.940",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Aguila Technologies WP Customer Area customer-area allows Reflected XSS.This issue affects WP Customer Area: from n/a through 8.4.1.",
+      "id": "CVE-2026-121957",
+      "published": "2026-11-04T16:17:48.423",
+      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability that allows malicious RDP servers to corrupt client memory by racing the RDPGFX ResetGraphics handler against the planar bitmap decoder. Attackers can send ResetGraphics while concurrently sending compressed bitmaps of 32 bpp or more to trigger heap use-after-free or out-of-bounds read/write on shared planar buffers.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-57639",
-      "published": "2026-11-04T08:17:17.247",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Roland Murg WP Booking System wp-booking-system allows Reflected XSS.This issue affects WP Booking System: from n/a through 2.1.0.6.",
+      "id": "CVE-2026-121960",
+      "published": "2026-11-04T16:17:48.970",
+      "description": "FreeRDP before 3.32.2 contains a denial of service vulnerability in the NLA-enabled shadow server when a CredSSP TSRequest omits negoTokens. Unauthenticated attackers can send a crafted seven-byte TSRequest containing only the version field to trigger a fatal WINPR_ASSERT and abort the server process.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-57666",
-      "published": "2026-11-04T08:17:17.403",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Aguila Technologies WP Customer Area customer-area allows Reflected XSS.This issue affects WP Customer Area: from n/a through 8.4.1.",
+      "id": "CVE-2026-121964",
+      "published": "2026-11-04T16:17:49.683",
+      "description": "FreeRDP before 3.32.2 contains a heap-based buffer overflow in the RD Gateway RPC client, where rpc_client_recv_fragment writes BIND_ACK and ALTER_CONTEXT_RESP fragments into a persistent PDU stream after checking only total capacity rather than remaining capacity from the current stream position. A malicious or compromised RD Gateway can send crafted RPC fragments with manipulated alloc_hint and frag_length values to overwrite client heap memory with attacker-controlled data, causing a crash or potentially arbitrary code execution.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-62007",
-      "published": "2026-11-04T08:17:17.723",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Reflected XSS.This issue affects Unlimited Elements For Elementor (Free Widgets, Addons, Templates): from n/a through 2.0.26.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-108949",
-      "published": "2026-11-04T10:17:24.160",
-      "description": "Denial of Service via OOM vulnerability in Apache ActiveMQ, ActiveMQ Broker.\n\n\n\nAn authenticated OpenWire client that sends a ConsumerInfo for a temporary queue/topic owned by another connection is rejected with InvalidDestinationException, but the rejected Subscription is left behind in the region's subscriptions map. Repeating the request leaks broker heap until OOM because the broker does not clean up the rejected subscriptions in the map.\n\n\n\nThis issue affects Apache ActiveMQ: from 6.0.0 before 6.3.3, before 5.19.12; ActiveMQ Broker: from 6.0.0 before 6.3.3, before 5.19.12.\n\n\n\nUsers are recommended to upgrade to version 6.4.0, 6.3.3, or 5.19.12, which fixes the issue.",
+      "id": "CVE-2026-121950",
+      "published": "2026-11-04T16:17:47.153",
+      "description": "FreeRDP before 3.32.2 does not check the product of surface dimensions in gdi_CreateSurface when handling an RDPGFX CREATE_SURFACE PDU, causing an integer wrap and heap buffer overflow on 32-bit builds and an approximately 4 GiB allocation on 64-bit builds. A malicious RDP server can send a CREATE_SURFACE PDU with width and height 32766 to a connecting client to corrupt heap memory or cause a denial of service.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-110021",
-      "published": "2026-11-04T10:17:24.310",
-      "description": "PLCnext Engineer checks GSDX manifest reference digests but does not cryptographically verify the XML `SignatureValue` over canonicalized `SignedInfo`. An unauthenticated local attacker can modify signed GSDML content, update its manifest digest, retain the public certificate data, and leave an invalid nonempty `SignatureValue`. PLCnext Engineer prior to 2026.6 reports the package as `Valid` and selects the modified device description for import under the default policy.",
+      "id": "CVE-2026-121954",
+      "published": "2026-11-04T16:17:47.890",
+      "description": "FreeRDP before 3.32.2 has a heap out-of-bounds write in the planar codec because freerdp_bitmap_planar_context_reset commits new dimensions before buffer reallocation succeeds, and a failed ResetGraphics is only logged. A malicious RDP server can send an oversized ResetGraphics PDU, then a GFX PLANAR command, to corrupt client heap memory and crash the client.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-57775",
-      "published": "2026-11-04T08:17:17.560",
-      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in RelyWP Simple Cloudflare Turnstile simple-cloudflare-turnstile allows Authentication Abuse.This issue affects Simple Cloudflare Turnstile: from n/a through 1.44.1.",
+      "id": "CVE-2026-121959",
+      "published": "2026-11-04T16:17:48.793",
+      "description": "FreeRDP before 3.32.2 contains an infinite loop vulnerability in websocket_context_read that fails to handle a zero BIO result with payload outstanding. A malicious RD Gateway can send a truncated WebSocket frame followed by a TLS close_notify, causing a client thread to spin and consume CPU until killed.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-119746",
+      "published": "2026-11-04T16:17:45.100",
+      "description": "ProSoft Technology ICX35 devices (X35-HWC-A and ICX35-HWC-E) contain a login lockout bypass in the integrated module web page. The account lockout mechanism that restricts repeated failed authentication attempts is enforced in client-side JavaScript, so a remote attacker can reset the lockout and continue submitting password guesses by deleting the relevant browser cookies, defeating the brute-force protection. This vulnerability has been addressed in version 1.14.158.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-121961",
+      "published": "2026-11-04T16:17:49.147",
+      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in the freerdp-proxy DRDYNVC tracker when intercepting the drdynvc channel. A malicious target server can repeatedly send CREATE_REQUEST_PDU for an active channel id, racing front DATA handling to free a borrowed context and crash the proxy process.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-121963",
+      "published": "2026-11-04T16:17:49.500",
+      "description": "FreeRDP before 3.32.2 contains a use-after-free vulnerability in the asynchronous dynamic rdpsnd channel that allows malicious RDP servers to trigger freed callback access by closing the channel with queued audio PDUs. Attackers can send a training PDU then close the channel so the playback thread reads the freed callback in rdpsnd_virtual_channel_write, crashing the client.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-121965",
+      "published": "2026-11-04T16:17:49.883",
+      "description": "Parse Server before 8.6.113 and 9.0.0 before 9.10.6-alpha.5 contains a prototype pollution vulnerability when building objects for Cloud Code triggers and LiveQuery, where a dot notation key whose intermediate segment resolves through an inherited member writes onto a process-wide built-in. Clients with write access to an object in a class with a trigger or LiveQuery can corrupt a built-in function, making unrelated requests fail until restart and denying service to all clients and hosted applications.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-19721",
-      "published": "2026-11-04T09:17:42.110",
-      "description": "Improper restriction of XML external entity reference vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute İmzager allows Serialized Data External Linking.\n\nThis issue affects İmzager: from 2.10.5 before 2.10.7.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-19731",
-      "published": "2026-11-04T09:17:42.257",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute İmzager allows Path Traversal.\n\nThis issue affects İmzager: from 2.10.5 before 2.10.7.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-110944",
-      "published": "2026-11-04T08:17:15.313",
-      "description": "Resource exhaustion vulnerability in the HTTP request handling of the QHttpServer component of Qt HTTP Server.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114420",
-      "published": "2026-11-04T09:17:40.337",
-      "description": "SEPPmail Secure Email Gateway before 15.1.1 does not neutralize LDAP metacharacters in an unauthenticated account-selection input in its GINA web interface. A remote unauthenticated attacker can enumerate email addresses.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114421",
-      "published": "2026-11-04T09:17:41.553",
-      "description": "SEPPmail Secure Email Gateway before 15.1.1 permits password recovery for a created but unregistered GINA account whose initial password is empty without adequately verifying ownership. A remote unauthenticated attacker who identifies such an account can set a new password, authenticate as that account, and prevent the intended recipient from using it until recovery.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114424",
-      "published": "2026-11-04T09:17:41.693",
-      "description": "SEPPmail Secure Email Gateway before 15.1.1 can evaluate attacker-influenced replacement text as Perl code in sender or recipient replacement rules. An unauthenticated remote sender can execute operating-system commands in the mail-processing worker context when an active rule uses message-derived replacement data and its search condition matches. The validated worker context was root.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114425",
-      "published": "2026-11-04T09:17:41.833",
-      "description": "SEPPmail Secure Email Gateway before 15.1.1 trusts a file path supplied in externally provided Large File Transfer attachment metadata. An unauthenticated remote sender can cause the mail-processing worker to disclose, move, or delete an accessible regular file when LFT is enabled and the message reaches an affected secure-mail processing path. The validated workers ran as root.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114426",
-      "published": "2026-11-04T09:17:41.970",
-      "description": "SEPPmail Secure Email Gateway before 15.1.1 processes and writes v1 file-interface upload data before authenticating the caller and without an absolute request-size limit. An unauthenticated remote attacker can occupy workers and consume temporary storage with concurrent or slow requests, causing service unavailability.",
+      "id": "CVE-2026-109518",
+      "published": "2026-11-04T16:17:33.010",
+      "description": "On Debian, Ubuntu, and derivative Linux distributions, an on-path attacker who can manipulate the HTTP traffic (including a malicious mirror or proxy) between an APT client and an archive server triggered by a package install can trick the client into installing an attacker-controlled unverified package and achieve remote code execution with root privileges.\n\n\n\nThe vulnerability is caused by the reuse of hard links and requires the client to follow redirects and retry the download of package files. It requires the client to have a non-zero Acquire::Retries configuration setting; the value 3 is the default starting with Debian 12 (bookworm) and Ubuntu 22.04 LTS (Jammy Jellyfish), so older releases are unaffected in a default configuration",
       "severity": "UNKNOWN",
       "score": null
     }
