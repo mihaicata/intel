@@ -1,143 +1,143 @@
 {
-  "totalResults": 4904,
+  "totalResults": 4905,
   "items": [
     {
-      "id": "CVE-2026-63395",
-      "published": "2026-11-03T20:18:14.917",
-      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git's git.checkout writes new child paths through symlinked leading directory components without checking them. A malicious repository can first place a directory symlink and later replace the tree state with a child file beneath that path; the usual trigger is a clone followed by a later pull, while a single clone can trigger the issue when a symlink already exists or the consuming application accesses the tree. With Node fs on Linux or macOS, the operating system can resolve the write outside the working tree, permitting arbitrary host file writes and possible code execution. Node fs on Windows usually blocks the symlink plant without additional privilege, and browser or in-memory providers limit impact to their virtual filesystem and are affected only when they implement symlink creation and following. This issue is fixed in version 1.38.6.",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-121606",
+      "published": "2026-11-04T01:17:23.880",
+      "description": "A vulnerability has been found in Qihoo 360 D621-2, D603-2, D600-2, D619, D606-6 and D706 up to 6.4.9. Affected by this issue is the function verify_sign of the file fs2/bin/iscm of the component Firmware Signature Verification. Such manipulation of the argument sign leads to improper verification of cryptographic signature. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 10
     },
     {
-      "id": "CVE-2026-54161",
-      "published": "2026-11-03T20:18:14.243",
-      "description": "Network UPS Tools is a collection of programs which provide a common interface for monitoring and administering UPS, PDU and SCD hardware. From 2.8.3 to 2.8.5, upsmon in clients/upsmon.c inserts the server-supplied ups.alarm value into shell commands executed by notify(), async_notify(), and wall(). When a monitored device reports an ALARM state and an operator has configured NOTIFYCMD with EXEC in NOTIFYFLAG ALARM, shell metacharacters in the alarm text are evaluated on POSIX or Windows and can execute arbitrary operating-system commands as the upsmon account, which is commonly root. An attacker can control the value through a malicious or compromised upsd, a man-in-the-middle on a plaintext upsd to upsmon connection, or a compromised UPS device whose driver supplies the alarm upstream of upsd; TLS between upsd and upsmon does not mitigate the compromised-device path. This vulnerability is fixed in 2.8.6.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-121607",
+      "published": "2026-11-04T02:17:19.753",
+      "description": "A vulnerability was found in Qihoo 360 D603-2, D600-2, D606-6 and D706 up to 6.4.9. This affects the function testspeed_command of the file /fs2/bin/iscm. Performing a manipulation of the argument host results in os command injection. The attack may be initiated remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 10
     },
     {
-      "id": "CVE-2026-63489",
-      "published": "2026-11-03T20:18:16.590",
-      "description": "Yeti bridges the gap between CTI and DFIR practitioners by providing a Forensics Intelligence platform and pipeline. In version 2.5.0 and earlier, YETI directly interpolates user-controlled sorting fields and filter_aliases attribute paths into ArangoDB AQL identifier and expression positions in core/database_arango.py. A low-privileged authenticated user can send crafted values to POST /api/v2/observables/search, POST /api/v2/entities/search, POST /api/v2/indicators/search, POST /api/v2/dfiq/search, POST /api/v2/search/, or POST /api/v2/graph/search, causing attacker-controlled AQL subexpressions to be parsed and evaluated. This can provide an error oracle, evaluate expressions against internal collections such as users, alter intended search logic, enumerate schema information, and consume excessive database resources. The verified injection points are read and search contexts, so arbitrary database writes are not established. No fixed version is available as of this review.",
+      "id": "CVE-2026-121609",
+      "published": "2026-11-04T02:17:20.243",
+      "description": "A vulnerability was identified in Qihoo 360 Whole Home Router M5 4.0.17.1566. This issue affects the function Home of the file /etc/init.d/mpt of the component Boot Script. The manipulation leads to hard-coded credentials. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-121615",
+      "published": "2026-11-04T03:17:14.810",
+      "description": "A vulnerability was determined in Linksys E5600 1.1.0.26. Affected is an unknown function of the file /cgi-bin/mesh_login.cgi of the component Login Handler. Executing a manipulation can lead to improper authentication. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-121598",
+      "published": "2026-11-04T01:17:23.160",
+      "description": "A security vulnerability has been detected in TOTOLINK A950RG 4.1.2cu.5268_B20221104. This impacts the function strcpy of the file /cgi-bin/cstecgi.cgi of the component Basic Wireless Configuration Handler. The manipulation of the argument wepkey leads to stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-121599",
+      "published": "2026-11-04T01:17:23.413",
+      "description": "A vulnerability was detected in TOTOLINK A950RG 4.1.2cu.5268_B20221104. Affected is the function setWiFiMultipleConfig/delWiFiMultipleConfig of the file /cgi-bin/cstecgi.cgi of the component Multi-SSID Configuration. The manipulation of the argument wepkey2/wepkey3 results in stack-based buffer overflow. It is possible to launch the attack remotely. The exploit is now public and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-121600",
+      "published": "2026-11-04T01:17:23.647",
+      "description": "A flaw has been found in TOTOLINK A950RG 4.1.2cu.5268_B20221104. Affected by this vulnerability is the function setMacFilterRules of the file /cgi-bin/cstecgi.cgi of the component MAC Filter Handler. This manipulation of the argument addEffect causes stack-based buffer overflow. The attack can be initiated remotely. The exploit has been published and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-121802",
+      "published": "2026-11-04T03:17:15.730",
+      "description": "@better-auth/expo before 1.7.16 allows certain account-takeover outcomes (e.g., unauthenticated changes of any account's email address), because it signs a caller-supplied state value without checking whether that value had been issued by the server. NOTE: the application secret must be rotated after updating to a fixed version.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-80335",
+      "published": "2026-11-04T04:17:37.623",
+      "description": "Memory Corruption when processing firmware update data in Download mode due to a missing bounds check.",
       "severity": "HIGH",
       "score": 7.6
     },
     {
-      "id": "CVE-2026-63482",
-      "published": "2026-11-03T20:18:16.407",
-      "description": "Yeti bridges the gap between CTI and DFIR practitioners by providing a Forensics Intelligence platform and pipeline. Prior to 2.5.1, YETI registers the audit router without Depends(auth.get_current_active_user), and core/web/apiv2/audit.py does not perform a route-level authentication check for /api/v2/audit/timeline/{id}. An unauthenticated network attacker can use an empty, partial, or specific wildcard path to query TimelineLog records containing the actor, target_id, action, and details fields, including analyst usernames, object identifiers and values, and before-and-after object data. This exposes the operational history of threat-intelligence objects while other application routers require authentication. This issue is fixed in version 2.5.1.",
+      "id": "CVE-2026-121617",
+      "published": "2026-11-04T03:17:15.287",
+      "description": "A security flaw has been discovered in Linksys E5600 1.1.0.26. Affected by this issue is the function init_multipart of the file /cgi-bin/upload_fw.cgi of the component Header Parser. The manipulation results in out-of-bounds write. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-45146",
-      "published": "2026-11-03T20:18:13.943",
-      "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40 and 2.0.1, an authenticated administrator can call the get_sessions action in /main/inc/ajax/model.ajax.php with _search=true and a crafted JSON filters parameter whose groupOp field contains SQL syntax. Because groupOp is not restricted to the expected AND or OR operators before it is incorporated into query logic, attacker-controlled input is interpreted by the database and enables blind or time-based SQL injection. Successful exploitation can disclose sensitive user, course, session, configuration, password-reset, and administrative data, modify or delete records subject to database privileges, and cause denial of service through expensive delayed queries. This issue is fixed in versions 1.11.40 and 2.0.1.",
+      "id": "CVE-2026-79405",
+      "published": "2026-11-04T04:17:37.480",
+      "description": "Transient DOS when processing a malformed NR RRC configuration message due to improper input validation.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-63433",
-      "published": "2026-11-03T20:18:15.097",
-      "description": "MyTube is a self-hosted downloader and player for several video websites. Prior to 1.10.6, shouldSkipCsrfProtection() in backend/src/middleware/csrfConfig.ts delegates to isApiKeyRequest(), which grants a CSRF exemption based only on the presence of an x-api-key header or an Authorization: ApiKey value rather than successful API-key validation. With a permissive CORS_ALLOWED_ORIGINS configuration, an unauthenticated attacker can lure an authenticated administrator to attacker-controlled content that sends a cross-origin state-changing request with an arbitrary API-key value. The victim's session cookie authenticates the request while CSRF token validation is skipped, allowing destructive or other administrator API operations such as deleting media, triggering downloads, or changing subscriptions. This issue is fixed in version 1.10.6.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-121608",
+      "published": "2026-11-04T02:17:20.000",
+      "description": "A vulnerability was determined in Qihoo 360 D603-2, D600-2 and D606-6 up to 6.3.2. This vulnerability affects the function on_push_message of the file /fs2/bin/iscm of the component Timezone Push Handler. Executing a manipulation of the argument tz can lead to os command injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 6.4.0 is able to resolve this issue. Upgrading the affected component is advised. Firmware 6.4.0 gates the path with a new check_timezone_parameter validation (verified by VulDB vulnerability analysis team via disassembly).",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2025-71451",
-      "published": "2026-11-03T20:18:05.470",
-      "description": "Vembu BDRSuite before 7.6.0 contains an unauthenticated cross-site scripting vulnerability in templates/progress/serverside/serverbackupprogress.sgp that allows remote attackers to inject arbitrary JavaScript by manipulating request parameters such as ClientName, BackupName, and grpName that are interpolated unsanitized into loadXMLDoc() calls and reflected in AbortBackup() POST requests to dodeleteclientbackup.sgp. Attackers can craft malicious links or requests to execute arbitrary JavaScript in a victim's browser session, enabling session hijacking or interface manipulation.",
-      "severity": "MEDIUM",
-      "score": 6.1
+      "id": "CVE-2026-121610",
+      "published": "2026-11-04T02:17:20.470",
+      "description": "A security flaw has been discovered in funadmin 7.1.0. Impacted is the function Curd::selectList of the file /frontend/ajax/index of the component Frontend List Endpoint. The manipulation of the argument selectFields results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2025-71452",
-      "published": "2026-11-03T20:18:05.643",
-      "description": "Vembu BDRSuite before 7.6.0 contains an unauthenticated cross-site scripting vulnerability in templates/progress/clientside/restoreprogress.sgp that allows remote attackers to inject arbitrary JavaScript by manipulating request parameters such as mn, rnm, isRepliRestore, rusr, and rpwd that are reflected unsanitized into the HTML response. Attackers can craft malicious links to execute arbitrary JavaScript in a victim's browser session, enabling session hijacking or interface manipulation.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-120567",
-      "published": "2026-11-03T20:18:12.137",
-      "description": "The MongoDB Entity Framework Core provider does not neutralize special elements in values passed to SetProperty when an ExecuteUpdate call also contains a setter that reads the entity being updated. In that case the update is sent as an aggregation pipeline, and a caller-supplied string beginning with $ is evaluated as an expression rather than stored as data. A party who can influence such a value may modify or remove fields in the records being updated, or copy other fields of the same record into them.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-63478",
-      "published": "2026-11-03T20:18:16.240",
-      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git's tree parser in src/models/GitTree.js accepts a standalone .. tree-entry name because it rejects only path separators. During clone or checkout from a malicious or man-in-the-middle-controlled non-GitHub remote, nested .. entries can escape the working-tree root and write files at attacker-selected parent paths on any host-backed fs provider. The arbitrary file write can overwrite startup or configuration files and lead to code execution. GitHub-hosted trees are not a direct source because GitHub rejects .. entries during repository integrity checks. This issue is fixed in version 1.38.6.",
+      "id": "CVE-2026-121616",
+      "published": "2026-11-04T03:17:15.060",
+      "description": "A vulnerability was identified in Linksys E5600 1.1.0.26. Affected by this vulnerability is the function strcpy of the file /cgi-bin/mesh_login.cgi of the component JSON Request Parser. The manipulation of the argument username/password/token/source/cn/action leads to out-of-bounds write. The attack may be initiated remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-63434",
-      "published": "2026-11-03T20:18:15.257",
-      "description": "MyTube is a self-hosted downloader and player for several video websites. Prior to 1.10.6, when statisticsEnabled and statisticsTrackVisitorActivity are enabled, a visitor-role user can submit events to the statistics ingest endpoint handled by ingestEvents in backend/src/controllers/statisticsController.ts. The handler reads req.body.events and accepts the client-controlled platform, sourceKind, and sessionId fields without server-side derivation or validation before passing the events to the analytics persistence path. A visitor can therefore attribute fabricated events to arbitrary platforms, sources, and sessions, corrupting administrator-visible view counts, download counts, platform breakdowns, source attribution, and session analytics. The server-derived actorRole and surface fields are not forgeable through this issue. This issue is fixed in version 1.10.6.",
+      "id": "CVE-2026-121618",
+      "published": "2026-11-04T03:17:15.507",
+      "description": "A weakness has been identified in Linksys E5600 1.1.0.26. This affects an unknown part of the file /cgi-bin/fqc.cgi of the component Factory Quality Control. This manipulation causes information disclosure. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-63475",
-      "published": "2026-11-03T20:18:15.903",
-      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git persists server-supplied circular symref= capabilities through updateRemoteRefs, and GitRefManager.resolve() follows the resulting loose symbolic references without a default depth limit or cycle detection. After a clone from a malicious or man-in-the-middle-controlled remote, operations such as log, status, checkout, and branch that resolve refs/remotes/origin/a or refs/remotes/origin/b do not terminate. The circular references remain on disk, leaving the repository unusable for the application and causing a persistent denial of service. This issue is fixed in version 1.38.6.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-63476",
-      "published": "2026-11-03T20:18:16.063",
-      "description": "isomorphic-git is a pure JavaScript implementation of Git for Node.js and browsers. Prior to 1.38.6, isomorphic-git reads a server-controlled targetSize while applying a packfile delta in src/utils/applyDelta.js and passes it without a bound to Buffer.alloc(targetSize). A malicious or man-in-the-middle-controlled remote can send one delta header that causes git.clone() or git.fetch() to allocate approximately 2 GB before validating the actual delta output. GitPackIndex.fromPack swallows the later size-mismatch error, so a host with sufficient memory may retain the resource waste without a visible failure, while containers, serverless functions, and small virtual machines may terminate. Node.js heap limits do not mitigate the off-heap Buffer allocation. This issue is fixed in version 1.38.6.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-105821",
-      "published": "2026-11-03T20:18:05.987",
-      "description": "The Tapo\nCloud MQTT broker contains a broken access control vulnerability in a proxy\ntopic used by authenticated Tapo devices to request service tokens. The broker\ndoes not verify that the device ID supplied in a proxy request belongs to the\nauthenticated device. An attacker who owns a Tapo device and knows another\ndevice's ID may obtain a device token scoped to the target device and use it to\nupload attacker-controlled content to the target user's Tapo Cloud storage. The\ncontent may then be presented in the Tapo app as a legitimate event.\n\n\n\n\n\nSuccessful\nexploitation may allow an attacker to upload attacker-controlled content that\nis presented to a target user as a legitimate Tapo event, retrieve internal\nservice information through crafted proxy requests, or abuse Tapo Cloud\noutbound request capability in activity that could affect service\navailability.",
+      "id": "CVE-2026-110464",
+      "published": "2026-11-04T02:17:14.800",
+      "description": "Missing authorization in ASUS Armoury Crate allows a local attacker to write content into a specific file or registry location with Local System privileges, or to cause a recoverable system crash, via the service's exposed inter-process interface.\nRefer to the '\nSecurity Update for Armoury Crate App ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-105822",
-      "published": "2026-11-03T20:18:06.143",
-      "description": "The Tapo\nCloud MQTT proxy contains a server-side request forgery (SSRF) vulnerability\nbecause it accepts a user-controlled host value without sufficient input\nvalidation. An attacker may exploit this vulnerability to cause the Tapo Cloud\nservice to send requests to an attacker-controlled server.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may cause the Tapo Cloud service to send a request to an\nattacker-controlled server, exposing the internal information and causing\npotential Distributed Denial-of-Service (DDoS).",
+      "id": "CVE-2026-112116",
+      "published": "2026-11-04T02:17:14.953",
+      "description": "An exposed IOCTL with insufficient access control in ASUS System Control Interface allows a local, low-privileged user to read and write arbitrary physical memory through crafted device control requests, ultimately resulting in a complete compromise of the affected system.\nRefer to the ' Security Update for ASUS System Control Interface ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-110826",
-      "published": "2026-11-03T20:18:06.307",
-      "description": "Improper Session Invalidation after Authentication Credential Change vulnerability in team-alembic ash_authentication allows an attacker holding a victim's session token to stay signed in after the victim resets or changes their password.\n\nWith apply_on_password_change? true, AshAuthentication.AddOn.LogOutEverywhere.Transformer adds OnPasswordChange to update actions as a global change guarded by where: changing(hashed_password). That condition is evaluated before the action's before_action hooks run, but AshAuthentication.Strategy.Password.HashPasswordChange sets the new hash in a before_action hook, so for every non-atomic password change the condition is false and the user's stored tokens are not revoked. The generated password reset action and the installer's change_password action are both non-atomic.\n\nThis issue affects ash_authentication: from 4.5.0 before 4.15.1 and from 5.0.0-rc.0 before 5.0.0-rc.16.",
+      "id": "CVE-2026-84729",
+      "published": "2026-11-04T02:17:21.163",
+      "description": "Out-of-bounds write in certain ASUS Router firmware allow an unauthenticated nearby attacker to write data beyond the intended buffer or potentially cause a denial-of-service (DoS) via a crafted packet.\nRefer to the ' \nSecurity Update for ASUS Router Firmware  ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-121577",
-      "published": "2026-11-03T20:18:13.290",
-      "description": "Inefficient Regular Expression Complexity (CWE-1333) in generate_regex() (whatstk/whatsapp/parser.py) in whatstk from 0.2.0 before 0.9.0 allows a party that supplies a chat export to consume the CPU of the process that parses it for an unbounded time, because the function builds the header regular expression by replacing each %x code with its named capture group and leaves every other character of the header format in the pattern unescaped. A header whose date separator is a regular expression metacharacter therefore alters the pattern instead of matching itself: a separator of + quantifies the preceding capture group, giving (?P<day>\\d{1,2})+(?P<month>\\d{1,2})+(?P<year>\\d{2,4}), and a run of digits that cannot complete the header then makes the engine try every way of partitioning that run. Header auto detection is enabled by default and derives the format from the text of the file, so the separator is taken from the export itself and no header format has to be passed by the caller. Separators of (, ) and \\ instead raise re.PatternError, separators of *, | and ? raise TypeError, and separators of ^ and $ raise KeyError, none of which the library catches. This results in the parse of a file of a few hundred bytes consuming CPU without completing, or in an uncaught exception in the calling program.",
+      "id": "CVE-2026-84730",
+      "published": "2026-11-04T02:17:21.323",
+      "description": "Stack-based buffer overflow in certain ASUS Router firmware allows an unauthenticated nearby attacker to execute arbitrary commands with root privileges via a crafted device name.\nRefer to the '\nSecurity Update for ASUS Router AiCloud Feature ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-63469",
-      "published": "2026-11-03T20:18:15.420",
-      "description": "fastapi-code-generator creates FastAPI applications from OpenAPI files. Prior to 0.8.1, the generator inserts an additional response status-code key into the generated responses={...} route-decorator dictionary as a single-quoted Python string without escaping embedded quotes. A multi-response OpenAPI operation with an attacker-controlled or attacker-influenced second non-primary response key can close the dictionary-key literal and inject a valid Python expression. Syntax-breaking input only causes generation to fail, but syntactically valid generated code executes with the application's or CI process's privileges when the generated module is imported and its decorator arguments are evaluated. This additional-response-key sink is distinct from the project's separate route-path and operation-summary sinks. This issue is fixed in version 0.8.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-63470",
-      "published": "2026-11-03T20:18:15.590",
-      "description": "fastapi-code-generator creates FastAPI applications from OpenAPI files. Prior to 0.8.1, the generator inserts Operation.summary into a generated route-handler docstring as a triple-double-quoted string without escaping embedded triple quotes. An attacker-controlled or attacker-influenced operation summary can close the docstring and inject a valid Python expression statement into the handler body. Syntax-breaking input only causes generation to fail, but syntactically valid generated code executes with the server process's privileges when the affected route handler is called. This call-time route-handler docstring sink is distinct from the project's separate import-time route-path and additional-response-key sinks. This issue is fixed in version 0.8.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-63471",
-      "published": "2026-11-03T20:18:15.753",
-      "description": "fastapi-code-generator creates FastAPI applications from OpenAPI files. Prior to 0.8.1, the generator inserts an OpenAPI path into a generated @app.get(...) route decorator as a single-quoted generated route string without escaping embedded quotes. An attacker-controlled or attacker-influenced OpenAPI path can close the string and inject a valid Python expression into the decorator argument. Syntax-breaking input only causes generation to fail, but syntactically valid generated code executes with the application's or CI process's privileges when the generated module is imported and the decorator is evaluated. This OpenAPI path sink is distinct from the project's separate operation-summary docstring and additional-response-key sinks. This issue is fixed in version 0.8.1.",
+      "id": "CVE-2026-121803",
+      "published": "2026-11-04T04:17:33.973",
+      "description": "Rejected reason: This CVE ID is a duplicate of CVE-2026-80335 (VULN-002 dl_download_midst) and has been rejected.",
       "severity": "UNKNOWN",
       "score": null
     }
