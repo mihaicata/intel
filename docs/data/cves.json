@@ -1,143 +1,143 @@
 {
-  "totalResults": 5133,
+  "totalResults": 5162,
   "items": [
     {
-      "id": "CVE-2026-54384",
-      "published": "2026-11-04T23:17:48.523",
-      "description": "VitaFit cloud API before 2026-10-30 contained an authentication bypass vulnerability that allows remote attackers to obtain a full session for a victim's account by submitting a linked Google or Facebook account identifier to the POST /front/login/sns/ endpoint without providing proof of ownership from the identity provider. Attackers can forge a login using an identifier exposed through account enumeration to read and modify the victim's profile and delete the account's authentication record, preventing the legitimate user from logging in.",
+      "id": "CVE-2026-100144",
+      "published": "2026-11-05T06:17:06.640",
+      "description": "The IVPAY payments WordPress plugin through 1.0.8 does not sanitise a value from its payment callback before using it in a SQL statement, and treats an empty API key, which is its own default, as valid authentication, allowing unauthenticated attackers to read arbitrary data from the database.",
       "severity": "CRITICAL",
-      "score": 9.8
+      "score": 9.3
     },
     {
-      "id": "CVE-2026-115770",
-      "published": "2026-11-04T23:17:18.767",
-      "description": "Pocket ID is an OIDC provider that allows users to authenticate with their passkeys to services. From 2.2.0 until 2.12.0, SendEmailVerification uses the token model in backend/internal/model/email_verification_token.go to bind an email-verification token only to the user's identifier, while UpdateUser can change the account email without invalidating the outstanding token and VerifyEmail marks the current address as verified. An ordinary user can request a token for an address they control, change the account to an arbitrary unused address, and redeem the old token so Pocket ID publishes the new address with email_verified set to true. The default affected configuration uses emailsVerified=false and allowOwnAccountEdit=true; the target address must not already belong to another Pocket ID user. A relying application that trusts a verified email for automatic account matching or provisioning can link the attacker's identity to another user's account, while applications that rely exclusively on the stable OIDC sub claim are not affected by that downstream consequence. This issue is fixed in version 2.12.0.",
-      "severity": "CRITICAL",
-      "score": 9.6
-    },
-    {
-      "id": "CVE-2026-122299",
-      "published": "2026-11-04T23:17:23.730",
-      "description": "Dulwich before 1.2.20 contains a commit object parsing vulnerability where the read path in _parse_commit resolves a duplicate tree header to the last occurrence instead of the first, diverging from core git's resolution behavior, while Poetry 2.5.1 ships this version and uses dulwich by default for git dependency installation. Attackers can craft a commit object with two tree headers so that reviewers and CI using git see a benign tree while Poetry's dulwich-based checkout resolves to a different attacker-controlled tree containing malicious build scripts such as setup.py, resulting in unreviewed code execution on the install or build host.",
+      "id": "CVE-2026-118193",
+      "published": "2026-11-05T05:18:19.427",
+      "description": "The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.19.1 via the `donor_default_user_role` parameter. This is due to the `sanitize_option_donor_default_user_role()` function applying only a narrow literal check against the string `'administrator'` rather than enforcing the plugin's own `give_get_donor_safe_user_roles()` allowlist on save, and due to the `give_core_settings_import_callback()` AJAX handler writing imported JSON directly into the `give_settings` option via `update_option()` without invoking the sanitize filter at all. This makes it possible for authenticated attackers with the GiveWP Manager role (holding the `manage_give_settings` capability) and above to configure donor registration to assign privileged WordPress roles — up to and including Administrator via the import path — to every new donor account created through the platform. Via the settings save path, the Administrator role is blocked but any other elevated role (Editor, Author, etc.) is accepted; via the Tools › Import JSON path, the sanitize filter is bypassed entirely, allowing the Administrator role itself to be stored and subsequently applied to all newly registered donor accounts.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-54382",
-      "published": "2026-11-04T23:17:48.193",
-      "description": "VitaFit cloud API before 2026-10-30 contained an improper access control vulnerability in its Cognito-issued AWS role that allows authenticated attackers to perform s3:PutObject operations across the entire shared bucket instead of being restricted to their own folder. Attackers can overwrite other users' objects in the shared S3 bucket using credentials obtained via CVE-2026-54378, destroying original content without triggering deletion protections.",
+      "id": "CVE-2025-15702",
+      "published": "2026-11-05T06:17:06.507",
+      "description": "The Cloud Blocks WordPress plugin through 1.1.8 does not perform any authorisation or sanitisation when storing block asset URLs, allowing unauthenticated users to store malicious scripts that are executed in the browser of any privileged user, such as an administrator, who opens the block editor.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-62662",
-      "published": "2026-11-04T23:17:56.940",
-      "description": "Pocket ID is an OIDC provider that allows users to authenticate with their passkeys to services. From 1.11.0 until 2.10.0, createTokenFromClientCredentials in backend/internal/service/oidc_service.go accepts the client-controlled resource parameter and embeds it directly in the access token aud claim without validating that the audience is registered or that the requesting client may access it. Any authenticated OIDC client can therefore obtain a Pocket ID-signed token naming another client or an arbitrary audience. The /api/oidc/introspect endpoint cannot distinguish the unauthorized token because it treats a token as active when the introspecting client's identifier matches the attacker-selected audience. In deployments where resource servers trust Pocket ID access tokens for service-to-service authorization, this bypasses audience-based access controls and can permit unauthorized data access or actions; deployments that do not use these tokens for resource-server authorization have no immediate exploitable impact. This issue is fixed in version 2.10.0.",
+      "id": "CVE-2026-93389",
+      "published": "2026-11-05T05:18:40.127",
+      "description": "The LiteSpeed Cache plugin for WordPress is vulnerable to unauthenticated disclosure of sensitive WooCommerce customer data in all versions up to, and including, 7.9.1 With Cache REST enabled (the shipped default cache-rest=1), LiteSpeed stores WooCommerce Store API GET responses (/wc/store/v1/cart and /wc/store/v1/checkout) as PUBLIC cache objects and does not vary the cache on the Cart-Token or WooCommerce session. A shopper's personalized cart/checkout response is therefore served to any later, cookie-less and token-less client as an LSCache HIT. This makes it possible for unauthenticated attackers to read another shopper's billing and shipping details (name, company, street address, email, phone), cart contents and totals, and the shopper's live Cart-Token session JWT and nonce (enabling cart/checkout-session hijack), plus order_key on the checkout endpoint.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-54381",
-      "published": "2026-11-04T23:17:48.033",
-      "description": "VitaFit cloud API before 2026-10-30 contained a misconfigured cloud storage bucket vulnerability that allows unauthenticated attackers to list and download stored files without authentication. Attackers can enumerate the publicly accessible bucket containing 129,947 objects, including 126,881 user-uploaded profile images, to access sensitive personal data without credentials.",
+      "id": "CVE-2026-116617",
+      "published": "2026-11-05T05:18:19.240",
+      "description": "The Motors – Car Dealership & Classified Listings Plugin plugin for WordPress is vulnerable to File Deletion in all versions up to, and including, 1.4.128 The vulnerability exists because `stm_save_user_extra_fields()`, hooked to `personal_options_update`, writes the attacker-controlled `stm_dealer_logo_path` parameter directly to user meta without an ownership check binding the submitted path to the submitting user — unlike the `stm_payment_status` and `stm_lost_password_hash` fields, this field is not gated by a `manage_options` or `edit_users` capability check. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete image files belonging to other users under `wp-content/uploads` — including other users' avatars, dealer logos, and uploaded media — by storing a crafted path via their own profile and then triggering `unlink()` through the become-dealer form on their author page. Note that the two path guards (`stm_mvl_is_path_within_uploads` and `stm_mvl_is_allowed_image_file`) do restrict the attack surface to files with an image extension that resolve within the uploads basedir; files outside that directory, such as `wp-config.php` or plugin PHP files, cannot be reached.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-122038",
-      "published": "2026-11-04T23:17:23.073",
-      "description": "A vulnerability was identified in krupalshah EmployeeRecruitmentSystem up to 922ff6d208278282e7c8e36d70d9ae356adec9fe. Affected by this issue is the function mysql_query of the file source/reqformprocessing.php of the component Requirement Board Update Handler. Such manipulation leads to sql injection. The attack can be launched remotely. The exploit is publicly available and might be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-123010",
+      "published": "2026-11-05T05:18:36.383",
+      "description": "@twilio-labs/netlify-okta-auth through 1.0.2 relies on an unverified iss claim. This affects an outbound HTTP request to retrieve a public signing key. There may be other impacts in a misconfiguration where oktaUrl isn't set.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-122047",
-      "published": "2026-11-04T23:17:23.303",
-      "description": "A security vulnerability has been detected in Campcodes Complete Advance Loan Management System 1.0. This affects the function move_uploaded_file of the file /loan/application/banner.php. Such manipulation of the argument image leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed publicly and may be used.",
-      "severity": "HIGH",
-      "score": 7.3
+      "id": "CVE-2026-105259",
+      "published": "2026-11-05T06:17:06.760",
+      "description": "The Easy Social Icons WordPress plugin before 4.0.3 does not sanitise SVG files, which it adds to the list of file types that may be uploaded site-wide, allowing users with the Author role and above to upload a malicious SVG containing XSS payloads. Where another installed Easy Social Icons WordPress plugin before 4.0.3 exposes an upload route to unauthenticated visitors, the same issue can be triggered without an account.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-122048",
-      "published": "2026-11-04T23:17:23.523",
-      "description": "A vulnerability was identified in Campcodes Division Regional Athletic Meet Game Result Matrix System up to 2.1. This affects an unknown function of the file /dipam/check-user.php. Such manipulation of the argument abbr leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-54383",
-      "published": "2026-11-04T23:17:48.360",
-      "description": "VitaFit cloud API before 2026-10-30 contained an excessive data exposure vulnerability that allows any authenticated user to query the GET /front/relation/search/ endpoint and retrieve PII and health-related profile information for user records. Attackers can enumerate the user directory using overlapping alphanumeric search terms to harvest identifiers, emails, birthdays, gender, height, weight goals, phone numbers, and Firebase UIDs.",
+      "id": "CVE-2026-107773",
+      "published": "2026-11-05T06:17:06.990",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.3.3 does not correctly verify authorization when serving a single order and its order notes, allowing unauthenticated attackers to read customer and order information and to add or delete order notes for a subset of orders.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-62365",
-      "published": "2026-11-04T23:17:56.583",
-      "description": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. DecodeWinevt in src/analysisd/decoders/winevtchannel.c accumulates unnamed Windows EventChannel Data element contents into the fixed 65,535-byte join_data heap buffer but passes the growing content length, rather than the OS_MAXSTR buffer capacity, as the snprintf size. An enrolled agent can submit an EventChannel message containing four maximum-sized unnamed Data elements, causing the fourth accumulation to write beyond join_data and corrupt adjacent heap metadata. The subsequent free of join_data2 causes the wazuh-analysisd process to terminate, stopping log ingestion for all agents handled by that manager. This vulnerability is fixed in 4.14.7.",
+      "id": "CVE-2026-104812",
+      "published": "2026-11-05T05:18:18.550",
+      "description": "The Redux Framework plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'multi_media' Field Array Key in all versions due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The wp_kses_post sanitization applied at save time operates only on array leaf values, leaving array keys entirely unsanitized; the injected key is then rendered directly into an id=\"filelist-<KEY>\" HTML attribute without esc_attr() in Redux_Multi_Media::render(), allowing attribute breakout.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-120533",
+      "published": "2026-11-05T05:18:20.427",
+      "description": "The Redux Framework plugin for WordPress is vulnerable to Stored Cross-Site Scripting via theme_opts Parameter via User Profile in all versions up to, and including, 4.5.16 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires the host theme to have registered a Redux field of a CSS-emitting type (such as link_color, border, or typography) with an output CSS selector, as only the field types 'spinner', 'slider', 'color', and 'date' receive per-type value validation that would block the entity-encoded payload.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-120553",
+      "published": "2026-11-05T05:18:20.623",
+      "description": "The Customer Reviews for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'slides_to_show' parameter in all versions up to, and including, 5.126.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-122191",
+      "published": "2026-11-05T04:17:12.390",
+      "description": "A vulnerability was determined in itsourcecode Airline Reservation System 1.0. This affects an unknown function of the file /admin/manage_booked.php. Executing a manipulation of the argument ID can lead to sql injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-122236",
+      "published": "2026-11-05T04:17:12.663",
+      "description": "A vulnerability has been found in OpenHands up to 1.24.0. This impacts an unknown function of the component Landing Page. Such manipulation leads to missing authentication. The attack must be carried out from within the local network. The exploit has been disclosed to the public and may be used. Upgrading to version 1.25.0 will fix this issue. The name of the patch is c5efa3ae415def0a903c82d2b17b748e663b1995. Upgrading the affected component is recommended.",
+      "severity": "MEDIUM",
+      "score": 6.3
+    },
+    {
+      "id": "CVE-2026-105971",
+      "published": "2026-11-05T06:17:06.880",
+      "description": "The Car Dealer (Dealership) and Vehicle sales WordPress plugin through 4.73 does not restrict its unauthenticated single-listing AJAX action to published content, allowing an unauthenticated attacker to read the title, content and metadata of any private, draft, pending, future or trashed post by supplying its numeric id.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-122028",
-      "published": "2026-11-04T23:17:22.863",
-      "description": "A vulnerability has been found in NST Labs Tech Nstbrowser 1.21.0. Affected by this vulnerability is an unknown functionality of the file /agent/info of the component Local Agent API. Such manipulation leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-107774",
+      "published": "2026-11-05T06:17:07.107",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.3.3 does not use a trusted site-owned sender address when relaying its store contact form, instead placing the unauthenticated submitter's supplied address directly in the message's From header rather than a Reply-To, allowing unauthenticated attackers to make the site email its own vendors with the sender spoofed to an address at the site's own domain (such as its administrator), aligned with the domain's own SPF/DKIM.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-102337",
-      "published": "2026-11-04T23:17:17.873",
-      "description": "Webmin is a web-based system administration tool for Unix-like servers. Prior to 2.652, untrusted users with access to the File Manager or Upload and Download modules can direct Webmin's server-side URL download functionality to non-public network addresses because download destinations are not restricted by resolved IP address. This allows requests to unauthenticated intranet services or cloud-provider instance metadata endpoints that are inaccessible from the user's own system. This issue is fixed in 2.652.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-123011",
+      "published": "2026-11-05T05:18:36.587",
+      "description": "STMicroelectronics st-mems-android-linux-sensors-hal before 7bdf334 does not check whether the allowed number of channels is exceeded.",
+      "severity": "MEDIUM",
+      "score": 4.2
     },
     {
-      "id": "CVE-2026-108387",
-      "published": "2026-11-04T23:17:18.320",
-      "description": "radare2 is a UNIX-like reverse engineering framework and command-line toolset. Prior to 6.2.2, attacker-controlled data from several binary format plugins could reach RBinInfo->bclass. Opening or analyzing a crafted Pebble or Sega Mega Drive binary could place a dbg:// URI in bclass, causing radare2 to reopen the input through the debug input/output plugin and ultimately pass attacker-controlled arguments to execvp(). This could execute commands with the privileges of the radare2 process without an explicit debugging command. This issue is fixed in version 6.2.2.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2025-15701",
+      "published": "2026-11-05T06:17:04.997",
+      "description": "The Easy Social Icons WordPress plugin before 4.0.3 does not sanitise and escape some of its settings before outputting them on front-end pages, which could allow high-privilege users such as Administrators to perform Stored Cross-Site Scripting attacks when the unfiltered_html capability is disallowed, for example on a multisite network.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-47678",
-      "published": "2026-11-04T23:17:34.950",
-      "description": "GLPI is a free asset and IT management software package. From 9.4.0 until 10.0.26 and 11.0.8, any authenticated user can submit crafted values to the dropdown values fetching endpoint that are incorporated into a database query. This permits SQL injection through the dropdown endpoint. This issue is fixed in versions 11.0.8 and 10.0.26.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-107775",
+      "published": "2026-11-05T06:17:07.227",
+      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.3.3 does not verify that the acting administrator is authorized to manage each selected user before enabling that user's marketplace seller status, allowing a subsite Administrator on WordPress Multisite to enable selling for users outside their own site, including network-level users they cannot otherwise manage.",
+      "severity": "LOW",
+      "score": 2.7
     },
     {
-      "id": "CVE-2026-52848",
-      "published": "2026-11-04T23:17:46.560",
-      "description": "GLPI is a free asset and IT management software package. From 11.0.0 until 11.0.8, during the login phase, an unauthenticated user could use a crafted URL to skip one-time-password verification, defeating two-factor authentication. This issue is fixed in version 11.0.8.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-122190",
+      "published": "2026-11-05T04:17:12.170",
+      "description": "A vulnerability was found in SourceCodester Online Food Ordering System 1.0. The impacted element is an unknown function of the file admin/add_category.php of the component Category Management. Performing a manipulation of the argument category_title results in cross site scripting. The attack may be initiated remotely. The exploit has been made public and could be used.",
+      "severity": "LOW",
+      "score": 2.4
     },
     {
-      "id": "CVE-2026-53631",
-      "published": "2026-11-04T23:17:46.740",
-      "description": "GLPI is a free asset and IT management software package. From 0.83 until 10.0.27 and from 11.0.0 until 11.0.9, any authenticated user could submit a crafted request to change the visibility of knowledge base items, reminders, or RSS feeds and then access content that should remain restricted. This issue is fixed in versions 10.0.27 and 11.0.9.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-57152",
-      "published": "2026-11-04T23:17:52.163",
-      "description": "GLPI is a free asset and IT management software package. From 0.85 until 10.0.26 and from 11.0.0 until 11.0.8, under certain conditions, GLPI permission logic could grant a user access to a document without confirming that the document was linked to the targeted item. This could expose the file to a user who should not be able to view it. This issue is fixed in versions 10.0.26 and 11.0.8.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76826",
-      "published": "2026-11-04T23:17:58.400",
-      "description": "tsParticles is a TypeScript library for creating highly customizable particle animations. From 4.0.0 until 4.3.2, the stable publish workflow interpolates steps.release.outputs.body directly into an echo command in Bash source before writing RAW_RELEASE.md. Contributor-controlled shell metacharacters in generated release-note text can therefore execute when a maintainer starts a stable release, allowing modification of generated artifacts or workspace scripts and affecting later release steps that hold GITHUB_TOKEN and write permissions. This issue is fixed in version 4.3.2.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-76892",
-      "published": "2026-11-04T23:17:58.557",
-      "description": "tsParticles is a TypeScript library for creating highly customizable particle animations. Prior to 4.3.1, the HTTP mode of @tsparticles/mcp-server calls JSON.parse outside a request-local error boundary in the POST /mcp handler in integrations/mcp-server/src/index.ts. A single unauthenticated malformed JSON body raises a SyntaxError that terminates the Node.js process, leaving the MCP service unavailable until an external supervisor restarts it. This issue is fixed in version 4.3.1.",
+      "id": "CVE-2026-123012",
+      "published": "2026-11-05T05:18:36.790",
+      "description": "In Gogs 0.14.3, the Git Smart HTTP authorization layer in internal/route/repo/http.go allows a push when only read access was intended, a different vulnerability than CVE-2026-52810. This occurs because of a case-sensitivity desync between the authorization classifier and the request dispatcher: the gitHTTPIsPull function compares the Git action verb case-sensitively and defaults to pull (read access) for any unrecognized string, whereas the request dispatcher lowercases the same verb before routing it to the receive-pack handler. Capitalizing a single letter in the URL (e.g. info/Refs instead of info/refs, or git-receive-Pack instead of git-receive-pack) causes the classifier to misidentify a push as a pull, granting only read-level authorization, whereas the dispatcher routes it to the write handler. An authenticated read-only collaborator can exploit this to push to a private repository, creating, updating, or deleting refs.",
       "severity": "UNKNOWN",
       "score": null
     }
