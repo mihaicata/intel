@@ -1,143 +1,143 @@
 {
-  "totalResults": 5162,
+  "totalResults": 5198,
   "items": [
     {
-      "id": "CVE-2026-100144",
-      "published": "2026-11-05T06:17:06.640",
-      "description": "The IVPAY payments WordPress plugin through 1.0.8 does not sanitise a value from its payment callback before using it in a SQL statement, and treats an empty API key, which is its own default, as valid authentication, allowing unauthenticated attackers to read arbitrary data from the database.",
+      "id": "CVE-2026-105330",
+      "published": "2026-11-05T14:16:59.423",
+      "description": "Use of Hard-coded Cryptographic Key in JWT token authentication in Apache OFBiz 24.09.06 and 24.09.07 on all platforms allows an unauthenticated, network-reachable attacker to obtain full administrative access via a forged JWT signed with the factory-default security.token.key value that CVE-2026-31986 removed from newly generated configurations, on a deployment that upgraded from a release predating that fix while retaining its existing security.properties with security.internal.sso.enabled set to true. Users are recommended to upgrade to version 24.09.08. Upgrading alone does not replace an already-configured key: deployments that carried framework/security/config/security.properties forward from a release predating the CVE-2026-31986 fix must also run './gradlew rotateSecretKeys' after upgrading, since the existing generateSecretKeys task leaves an already-set value untouched.",
       "severity": "CRITICAL",
-      "score": 9.3
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-118193",
-      "published": "2026-11-05T05:18:19.427",
-      "description": "The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.19.1 via the `donor_default_user_role` parameter. This is due to the `sanitize_option_donor_default_user_role()` function applying only a narrow literal check against the string `'administrator'` rather than enforcing the plugin's own `give_get_donor_safe_user_roles()` allowlist on save, and due to the `give_core_settings_import_callback()` AJAX handler writing imported JSON directly into the `give_settings` option via `update_option()` without invoking the sanitize filter at all. This makes it possible for authenticated attackers with the GiveWP Manager role (holding the `manage_give_settings` capability) and above to configure donor registration to assign privileged WordPress roles — up to and including Administrator via the import path — to every new donor account created through the platform. Via the settings save path, the Administrator role is blocked but any other elevated role (Editor, Author, etc.) is accepted; via the Tools › Import JSON path, the sanitize filter is bypassed entirely, allowing the Administrator role itself to be stored and subsequently applied to all newly registered donor accounts.",
+      "id": "CVE-2026-107912",
+      "published": "2026-11-05T14:16:59.697",
+      "description": "A flaw was found in the management interface of the Quarkus framework, specifically within the quarkus-vertx-http component. The issue occurs when the framework incorrectly combines the management root path with specific permission rules, leading to a situation where security policies are applied to the wrong internal paths. As a result, an attacker can bypass intended authorization checks and gain unauthorized access to sensitive management endpoints.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.7
     },
     {
-      "id": "CVE-2025-15702",
-      "published": "2026-11-05T06:17:06.507",
-      "description": "The Cloud Blocks WordPress plugin through 1.1.8 does not perform any authorisation or sanitisation when storing block asset URLs, allowing unauthenticated users to store malicious scripts that are executed in the browser of any privileged user, such as an administrator, who opens the block editor.",
+      "id": "CVE-2026-103864",
+      "published": "2026-11-05T13:17:07.017",
+      "description": "Improper output neutralization for logs in Apache Sling Engine.\n\n\n\nThis issue affects Apache Sling Engine: before 3.0.4.\n\n\n\nUsers are recommended to upgrade to version 3.0.4, which fixes the issue.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-93389",
-      "published": "2026-11-05T05:18:40.127",
-      "description": "The LiteSpeed Cache plugin for WordPress is vulnerable to unauthenticated disclosure of sensitive WooCommerce customer data in all versions up to, and including, 7.9.1 With Cache REST enabled (the shipped default cache-rest=1), LiteSpeed stores WooCommerce Store API GET responses (/wc/store/v1/cart and /wc/store/v1/checkout) as PUBLIC cache objects and does not vary the cache on the Cart-Token or WooCommerce session. A shopper's personalized cart/checkout response is therefore served to any later, cookie-less and token-less client as an LSCache HIT. This makes it possible for unauthenticated attackers to read another shopper's billing and shipping details (name, company, street address, email, phone), cart contents and totals, and the shopper's live Cart-Token session JWT and nonce (enabling cart/checkout-session hijack), plus order_key on the checkout endpoint.",
+      "id": "CVE-2026-103866",
+      "published": "2026-11-05T13:17:07.143",
+      "description": "Inconsistent interpretation of HTTP requests ('HTTP Request/Response smuggling') vulnerability in Apache Sling Engine. The engine's query/form parser accepts non-standard percent-escapes, wrong charsets, and continues request processing on such errors.\n\n\n\nThis issue affects Apache Sling Engine: before 3.0.4.\n\n\n\nUsers are recommended to upgrade to version 3.0.4, which fixes the issue.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-116617",
-      "published": "2026-11-05T05:18:19.240",
-      "description": "The Motors – Car Dealership & Classified Listings Plugin plugin for WordPress is vulnerable to File Deletion in all versions up to, and including, 1.4.128 The vulnerability exists because `stm_save_user_extra_fields()`, hooked to `personal_options_update`, writes the attacker-controlled `stm_dealer_logo_path` parameter directly to user meta without an ownership check binding the submitted path to the submitting user — unlike the `stm_payment_status` and `stm_lost_password_hash` fields, this field is not gated by a `manage_options` or `edit_users` capability check. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete image files belonging to other users under `wp-content/uploads` — including other users' avatars, dealer logos, and uploaded media — by storing a crafted path via their own profile and then triggering `unlink()` through the become-dealer form on their author page. Note that the two path guards (`stm_mvl_is_path_within_uploads` and `stm_mvl_is_allowed_image_file`) do restrict the attack surface to files with an image extension that resolve within the uploads basedir; files outside that directory, such as `wp-config.php` or plugin PHP files, cannot be reached.",
+      "id": "CVE-2026-123047",
+      "published": "2026-11-05T13:17:07.493",
+      "description": "In Eclipse BaSyx Helm Charts versions 3.0.0-rc.1 to 3.12.1 of the `basyx` chart, deployments with the bundled Keycloak enabled store the passwords of the Keycloak users that the chart creates in cleartext in a Kubernetes ConfigMap.\n\n\n\nThe template `keycloak-init-config.yaml` rendered `keycloak.initialization.users`, including each user's `credentials[].value`, as `users.json` into the persistent ConfigMap `<release>-basyx-keycloak-init-config`. By default this includes the bootstrap administrator user. That user holds the `admin` role and has a non-temporary password. A principal that can read ConfigMaps but not Secrets in the release namespace, such as a holder of the built-in Kubernetes `view` ClusterRole, can read the password from the ConfigMap and log in to Keycloak as this user. The resulting token carries the `admin` role, which the default BaSyx ABAC rules map to full rights on all BaSyx APIs in the deployment.\n\n\n\nThe bundled Keycloak is disabled by default. The issue is fixed in version 3.12.2 of the `basyx` chart, which moves the initialization users to the Keycloak credentials Secret. Affected users should upgrade and change the passwords of users that were created through the chart.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-123010",
-      "published": "2026-11-05T05:18:36.383",
-      "description": "@twilio-labs/netlify-okta-auth through 1.0.2 relies on an unverified iss claim. This affects an outbound HTTP request to retrieve a public signing key. There may be other impacts in a misconfiguration where oktaUrl isn't set.",
+      "id": "CVE-2026-104720",
+      "published": "2026-11-05T14:16:59.003",
+      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Kobikom Telecommunications and Informatics Services Inc. Kobikom allows Path Traversal.\n\nThis issue affects Kobikom: before KobiPBX-FOP3-SEC-r1.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-105259",
-      "published": "2026-11-05T06:17:06.760",
-      "description": "The Easy Social Icons WordPress plugin before 4.0.3 does not sanitise SVG files, which it adds to the list of file types that may be uploaded site-wide, allowing users with the Author role and above to upload a malicious SVG containing XSS payloads. Where another installed Easy Social Icons WordPress plugin before 4.0.3 exposes an upload route to unauthenticated visitors, the same issue can be triggered without an account.",
+      "id": "CVE-2026-105321",
+      "published": "2026-11-05T14:16:59.153",
+      "description": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Kobikom Telecommunications and Informatics Services Inc. Kobikom allows SQL Injection.\n\nThis issue affects Kobikom: before KobiPBX-FOP3-SEC-r1.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-105325",
+      "published": "2026-11-05T14:16:59.297",
+      "description": "Missing check for  ACCOUNTING_UPDATE /  ACCOUNTING_CREATE in accounting in allows user with only ACCOUNTING_VIEW permission to update/create PaymentApplication.\n\nAffected versions before : 24.09.08\n\nUsers are recommended to upgrade to version 24.09.08 which fixes this issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-105461",
+      "published": "2026-11-05T14:16:59.570",
+      "description": "Missing check for  ORDERMGR_UPDATE in ordermgr allows user with only ORDERMGR_VIEW permission to update orders.\n\nAffected versions before : 24.09.08\n\nUsers are recommended to upgrade to version 24.09.08 which fixes this issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-109928",
+      "published": "2026-11-05T14:17:00.333",
+      "description": "Incorrect Implementation of Authentication Algorithm in the password-reset and login JWT validation in Apache OFBiz 24.09 before 24.09.08 on all platforms allows an attacker who has obtained a user's password-reset token (via email interception, log exposure, or a man-in-the-middle on the mail transport) to authenticate as that user and obtain a full, unrestricted session, including administrative access if the targeted account is an administrator, by submitting the token directly to the login endpoint instead of the intended password-change flow. Users are recommended to upgrade to version 24.09.08, which fixes this issue.",
+      "severity": "HIGH",
+      "score": 7.4
+    },
+    {
+      "id": "CVE-2026-95652",
+      "published": "2026-11-05T13:17:08.437",
+      "description": "Execution with unnecessary privileges vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute pardus-usb-formatter allows Privilege Abuse.\n\nThis issue affects pardus-usb-formatter: from 0.7.0 before 0.7.2.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.6
     },
     {
-      "id": "CVE-2026-107773",
-      "published": "2026-11-05T06:17:06.990",
-      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.3.3 does not correctly verify authorization when serving a single order and its order notes, allowing unauthenticated attackers to read customer and order information and to add or delete order notes for a subset of orders.",
+      "id": "CVE-2026-100168",
+      "published": "2026-11-05T14:16:58.733",
+      "description": "Direct Request ('Forced Browsing') in the Content Manager component in Apache OFBiz 24.09.07 on all platforms allows an authenticated user holding only view-only content permissions (OFBTOOLS_VIEW and CONTENTMGR_VIEW) to re-parent content associations they do not own or manage via a direct POST request to the moveContentJson endpoint, which performs no permission check, unlike the equivalent updateContent/createContentAssoc/removeContentAssoc services that require genericContentPermission UPDATE. Users are recommended to upgrade to version 24.09.08, which fixes this issue.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-104812",
-      "published": "2026-11-05T05:18:18.550",
-      "description": "The Redux Framework plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'multi_media' Field Array Key in all versions due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The wp_kses_post sanitization applied at save time operates only on array leaf values, leaving array keys entirely unsanitized; the injected key is then rendered directly into an id=\"filelist-<KEY>\" HTML attribute without esc_attr() in Redux_Multi_Media::render(), allowing attribute breakout.",
+      "id": "CVE-2026-100228",
+      "published": "2026-11-05T14:16:58.863",
+      "description": "Improper Input Validation in Order Returns in Apache OFBiz 24.09.07 on all platforms allows an authenticated user without the ORDERMGR_CREATE permission to persist an arbitrary price on a return item via the createReturnItem service, bypassing the intended server-computed price ceiling. Users are recommended to upgrade to version 24.09.08, which fixes this issue.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-120533",
-      "published": "2026-11-05T05:18:20.427",
-      "description": "The Redux Framework plugin for WordPress is vulnerable to Stored Cross-Site Scripting via theme_opts Parameter via User Profile in all versions up to, and including, 4.5.16 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires the host theme to have registered a Redux field of a CSS-emitting type (such as link_color, border, or typography) with an output CSS selector, as only the field types 'spinner', 'slider', 'color', and 'date' receive per-type value validation that would block the entity-encoded payload.",
+      "id": "CVE-2026-109856",
+      "published": "2026-11-05T14:17:00.200",
+      "description": "Direct Request ('Forced Browsing') to Financial Account services in Apache OFBiz 24.09 before 24.09.08 on all platforms allows an authenticated user with any valid low-privilege account to create, modify, and cancel financial account transactions and balances without appropriate permission via direct requests to the createFinAccount, updateFinAccount, deleteFinAccount, createFinAccountTrans, createFinAccountRole, createFinAccountAuth, setFinAccountTransStatus, and depositWithdrawPayments services.\n\nUsers are recommended to upgrade to version 24.09.08, which fixes this issue.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-120553",
-      "published": "2026-11-05T05:18:20.623",
-      "description": "The Customer Reviews for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'slides_to_show' parameter in all versions up to, and including, 5.126.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-122191",
-      "published": "2026-11-05T04:17:12.390",
-      "description": "A vulnerability was determined in itsourcecode Airline Reservation System 1.0. This affects an unknown function of the file /admin/manage_booked.php. Executing a manipulation of the argument ID can lead to sql injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
+      "id": "CVE-2026-123020",
+      "published": "2026-11-05T13:17:07.280",
+      "description": "A security vulnerability has been detected in eosphoros-ai DB-GPT up to 0.8.1. The affected element is the function FileBasedSkill.get_prompt of the file packages/dbgpt-core/src/dbgpt/agent/skill/claude_skill/__init__.py of the component Jinja2 Template Handler. The manipulation leads to improper neutralization of special elements used in a template engine. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used. Upgrading to version 0.8.2 is sufficient to fix this issue. The identifier of the patch is a9e7a3c026d114fcfb4ffe3eaf78851a636ded16. It is suggested to upgrade the affected component.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-122236",
-      "published": "2026-11-05T04:17:12.663",
-      "description": "A vulnerability has been found in OpenHands up to 1.24.0. This impacts an unknown function of the component Landing Page. Such manipulation leads to missing authentication. The attack must be carried out from within the local network. The exploit has been disclosed to the public and may be used. Upgrading to version 1.25.0 will fix this issue. The name of the patch is c5efa3ae415def0a903c82d2b17b748e663b1995. Upgrading the affected component is recommended.",
+      "id": "CVE-2026-114229",
+      "published": "2026-11-05T14:17:00.453",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in the Catalog image viewer in Apache OFBiz 24.09 before 24.09.08 on all platforms allows an unauthenticated attacker to execute arbitrary JavaScript in the browser session of a logged-in back-office user via a crafted viewImage URL that the user opens from within the application.\nUsers are recommended to upgrade to version 24.09.08, which fixes this issue.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-105971",
-      "published": "2026-11-05T06:17:06.880",
-      "description": "The Car Dealer (Dealership) and Vehicle sales WordPress plugin through 4.73 does not restrict its unauthenticated single-listing AJAX action to published content, allowing an unauthenticated attacker to read the title, content and metadata of any private, draft, pending, future or trashed post by supplying its numeric id.",
+      "id": "CVE-2026-103863",
+      "published": "2026-11-05T13:17:06.880",
+      "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Apache Sling Engine. Content-Type, charset, and redirect changes from an included component evade the  protectheaders / checkcontenttype  enforcement through setHeader(), repeated calls to setContentType(), the charset APIs, Servlet 6.1 redirect overloads, and stale config - enabling stored XSS despite enabled protections.\n\n\n\nThis issue affects Apache Sling Engine before 3.0.4.\n\n\n\nUsers are recommended to upgrade to version 3.0.4, which fixes the issue.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-107774",
-      "published": "2026-11-05T06:17:07.107",
-      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.3.3 does not use a trusted site-owned sender address when relaying its store contact form, instead placing the unauthenticated submitter's supplied address directly in the message's From header rather than a Reply-To, allowing unauthenticated attackers to make the site email its own vendors with the sender spoofed to an address at the site's own domain (such as its administrator), aligned with the domain's own SPF/DKIM.",
+      "id": "CVE-2026-109129",
+      "published": "2026-11-05T14:16:59.943",
+      "description": "Authorization Bypass Through User-Controlled Key in the Order Manager component in Apache OFBiz 24.09.07 on all platforms allows an authenticated user with only view-level order permissions to modify or create OrderPaymentPreference records belonging to orders outside their authorized scope via the updateOrderPaymentPreference service, by supplying an orderPaymentPreferenceId belonging to a different order.\nUsers are recommended to upgrade to version 24.09.08, which fixes this issue.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-123011",
-      "published": "2026-11-05T05:18:36.587",
-      "description": "STMicroelectronics st-mems-android-linux-sensors-hal before 7bdf334 does not check whether the allowed number of channels is exceeded.",
+      "id": "CVE-2026-109837",
+      "published": "2026-11-05T14:17:00.073",
+      "description": "Authorization Bypass Through User-Controlled Key in Order Returns in Apache OFBiz 24.09 before 24.09.08 on all platforms allows an authenticated user with low-privileged Order Manager access to associate another party's OrderItem with a ReturnItem on a ReturnHeader they control, via the createReturnItem service. Users are recommended to upgrade to version 24.09.08, which fixes this issue.",
       "severity": "MEDIUM",
-      "score": 4.2
+      "score": 5.4
     },
     {
-      "id": "CVE-2025-15701",
-      "published": "2026-11-05T06:17:04.997",
-      "description": "The Easy Social Icons WordPress plugin before 4.0.3 does not sanitise and escape some of its settings before outputting them on front-end pages, which could allow high-privilege users such as Administrators to perform Stored Cross-Site Scripting attacks when the unfiltered_html capability is disallowed, for example on a multisite network.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-107775",
-      "published": "2026-11-05T06:17:07.227",
-      "description": "The Dokan: AI Powered WooCommerce Multivendor Marketplace Solution  WordPress plugin before 5.3.3 does not verify that the acting administrator is authorized to manage each selected user before enabling that user's marketplace seller status, allowing a subsite Administrator on WordPress Multisite to enable selling for users outside their own site, including network-level users they cannot otherwise manage.",
-      "severity": "LOW",
-      "score": 2.7
-    },
-    {
-      "id": "CVE-2026-122190",
-      "published": "2026-11-05T04:17:12.170",
-      "description": "A vulnerability was found in SourceCodester Online Food Ordering System 1.0. The impacted element is an unknown function of the file admin/add_category.php of the component Category Management. Performing a manipulation of the argument category_title results in cross site scripting. The attack may be initiated remotely. The exploit has been made public and could be used.",
-      "severity": "LOW",
-      "score": 2.4
-    },
-    {
-      "id": "CVE-2026-123012",
-      "published": "2026-11-05T05:18:36.790",
-      "description": "In Gogs 0.14.3, the Git Smart HTTP authorization layer in internal/route/repo/http.go allows a push when only read access was intended, a different vulnerability than CVE-2026-52810. This occurs because of a case-sensitivity desync between the authorization classifier and the request dispatcher: the gitHTTPIsPull function compares the Git action verb case-sensitively and defaults to pull (read access) for any unrecognized string, whereas the request dispatcher lowercases the same verb before routing it to the receive-pack handler. Capitalizing a single letter in the URL (e.g. info/Refs instead of info/refs, or git-receive-Pack instead of git-receive-pack) causes the classifier to misidentify a push as a pull, granting only read-level authorization, whereas the dispatcher routes it to the write handler. An authenticated read-only collaborator can exploit this to push to a private repository, creating, updating, or deleting refs.",
+      "id": "CVE-2026-123119",
+      "published": "2026-11-05T13:17:07.640",
+      "description": "The Symfony HttpClient component NoPrivateNetworkHttpClient does not pin the checked IP address of cached hosts, allowing for DNS rebinding to bypass private network restrictions, resulting in enumeration of internal hosts and ports in Symfony versions prior to 5.4.56, 6.x prior to 6.4.50, 7.x prior to 7.4.23, and 8.x prior to 8.1.11.\n\nNoPrivateNetworkHttpClient resolves the host of each request and checks the IP before connecting. It caches the result per host, and passes the IP to the decorated client through the resolve option so that the client connects to the exact IP that was checked. The issue is that resolve was only passed on the first lookup of a host: on subsequent requests, the decorated client resolved the host again on its own.\n\nAn attacker who controls a host's DNS can exploit this with DNS rebinding by answering the first lookup with a public IP, and subsequent lookups with a private IP, so when an application sends several requests to that host through the same client, the later requests connect to the private IP. This happens, for example, when an application fetches several URLs of a repository provided by a user. The check of the primary_ip in the on_progress callback still aborts the request before anything is sent, but the connection is made, and the error differs depending on whether the port is open or closed. This allows enumerating internal hosts and ports, as in CVE-2024-50342.",
       "severity": "UNKNOWN",
       "score": null
     }
