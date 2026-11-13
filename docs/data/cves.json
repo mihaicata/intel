@@ -1,143 +1,143 @@
 {
-  "totalResults": 4911,
+  "totalResults": 4917,
   "items": [
     {
-      "id": "CVE-2026-110955",
-      "published": "2026-11-06T06:16:39.830",
-      "description": "The Wurdey WordPress plugin through 1.0.0 does not verify a request signature before logging a user in, allowing unauthenticated attackers to authenticate as an administrator knowing only the administrator's username.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-113584",
-      "published": "2026-11-06T06:16:39.943",
-      "description": "The placester WordPress plugin through 1.4.3 does not perform any capability, nonce or ownership check on an AJAX action that updates account details, allowing unauthenticated attackers to overwrite any user's email address, including an administrator's, and take over the account through the standard password-reset flow.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-113615",
-      "published": "2026-11-06T06:16:40.053",
-      "description": "The GS JWT Authentication for WP REST API WordPress plugin through 1.0.0 does not sanitize or parameterize a request value before using it in SQL queries on several unauthenticated REST routes, allowing unauthenticated attackers to perform SQL injection and obtain an administrator session.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-115230",
-      "published": "2026-11-06T06:16:40.270",
-      "description": "The WHIZZ WordPress plugin through 1.1.8 does not validate the password-reset key before updating a user's password, relying only on a nonce that is exposed to unauthenticated visitors, allowing attackers to set an arbitrary password for any user, including administrators, and fully take over their accounts.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-116533",
-      "published": "2026-11-06T06:16:40.480",
-      "description": "The Static Snapshot WordPress plugin through 0.2.1 does not sanitise shell metacharacters in a user-supplied value before concatenating it into operating-system commands run by the server, allowing unauthenticated attackers to execute arbitrary commands on the host.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-110525",
-      "published": "2026-11-06T06:16:39.460",
-      "description": "The MCB  WordPress plugin through 1.0.0 does not sanitise or escape request header values before storing them and later rendering them in the administrator statistics grid, allowing unauthenticated attackers to store malicious JavaScript that executes in an administrator's browser session when the statistics page is viewed.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-119432",
-      "published": "2026-11-06T05:18:20.830",
-      "description": "A stored cross-site scripting (XSS) vulnerability exists in the Foxit Workspace's file share preview functionality. An attacker could upload a crafted file and share it with a victim. When the victim opens or previews the file, the embedded script executes in the application's origin, potentially accessing locally stored credentials and enabling credential theft.",
-      "severity": "HIGH",
-      "score": 8.7
-    },
-    {
-      "id": "CVE-2026-118045",
-      "published": "2026-11-06T06:16:40.593",
-      "description": "The Ever Accounting  WordPress plugin before 2.3.3 does not restrict the file path supplied to its CSV import routine to an allowed directory, allowing users with its custom Accounting Manager role (which does not have administrator privileges) to delete arbitrary files on the server, such as wp-config.php, which takes the entire site offline.",
-      "severity": "HIGH",
-      "score": 8.7
-    },
-    {
-      "id": "CVE-2026-110532",
-      "published": "2026-11-06T06:16:39.597",
-      "description": "The Mail Mage WordPress plugin through 0.0.25 does not properly sanitise and escape a user-supplied value before using it in a SQL statement, allowing unauthenticated attackers to perform SQL injection attacks.",
-      "severity": "HIGH",
-      "score": 8.6
-    },
-    {
-      "id": "CVE-2026-119431",
-      "published": "2026-11-06T05:18:20.677",
-      "description": "A server-side request forgery (SSRF) vulnerability exists in Foxit Workspace's file-upload functionality. Insufficient validation of user-supplied links may allow a remote attacker to induce the server to access internal resources and return their contents, potentially resulting in sensitive information disclosure and unauthorized access to internal services.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-119433",
-      "published": "2026-11-06T05:18:20.970",
-      "description": "A server-side request forgery (SSRF) vulnerability exists in an undocumented API endpoint of Foxit Workspace due to insufficient validation of user-supplied URL and network parameters. A remote attacker could exploit this issue to induce the server to send requests to arbitrary internal or external resources, potentially enabling unauthorized access to internal services, network reconnaissance, and sensitive information disclosure.",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-77299",
-      "published": "2026-11-06T02:17:52.893",
-      "description": "Regexp2 is a feature-rich RegExp engine for Go. Prior to version 2.3.0, when regexp2 compiles and matches a pattern containing a large fixed-count quantifier applied to a zero-width subexpression — e.g. (?:){50000000} — the match engine executes the empty loop body m-1 times, pushing two integers onto the backtracking stack on every iteration. Because the parser accepts any repetition count up to math.MaxInt32 and the backtracking stack grows without bound, a pattern of fewer than 20 bytes matched against an empty input can force multi-gigabyte allocation and OOM-kill the process. MatchTimeout does not fully mitigate this because the memory is allocated faster than the 100 ms timeout clock can fire. This issue has been patched in version 2.3.0.",
+      "id": "CVE-2026-19877",
+      "published": "2026-11-06T09:17:01.700",
+      "description": "INFINITT ULite 5.0.2.1_BN48_20260528 and earlier protects image-share links with a low-entropy password and does not restrict repeated password attempts, allowing an unauthenticated remote attacker to brute-force the password within the link validity window and gain unauthorized access to shared medical images. Fixed in ULite 5.0.2.1 BN50.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-110813",
-      "published": "2026-11-06T06:16:39.717",
-      "description": "The Advanced Custom Fields (ACF®) WordPress plugin before 6.8.11 does not properly sanitize a stored field definition that can be modified through its comment handling, allowing unauthenticated users to inject a payload that is emitted as an HTML attribute name and executed as JavaScript in the browser of any visitor or administrator who views a page rendering the affected field.",
+      "id": "CVE-2026-116592",
+      "published": "2026-11-06T10:16:36.313",
+      "description": "undici is an HTTP client for Node.js. In versions 7.30.1 and 8.12.2 through 8.12.3, when an originless Agent composes the redirect and shared cache interceptors, undici decides whether to store the final response under the original request key by inspecting only the final redirect hop, which bypasses the earlier fix for CVE-2026-109829 that compared only the initial and final origins. A redirect that bounces through an untrusted origin and returns to the trusted origin is still cached under the trusted key, an intermediate hop's Vary is dropped so a response that varies on Authorization or Cookie can be served to a different user, and an intermediate hop's no-cache or default-uncacheable status is ignored so a non-storable redirect is laundered into a cacheable entry. An attacker who controls a redirect target from a trusted URL can poison the cached entry for that URL or have a private, per-user response served to a later caller. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, compose the interceptors as cache then redirect, use per-origin dispatchers and cache stores, or disable shared caching on redirect-capable requests.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-115673",
-      "published": "2026-11-06T06:16:40.373",
-      "description": "The Anti-Spam, Spam FireWall by CleanTalk WordPress plugin before 6.91 does not escape a commenter-supplied value before outputting it on an administrative spam-review screen, allowing unauthenticated users to inject arbitrary web scripts that execute in the browser of an administrator who reviews flagged comments.",
+      "id": "CVE-2026-110291",
+      "published": "2026-11-06T09:16:59.833",
+      "description": "The Graphina – Charts and Graphs For Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'iq_tree_chart_node_font_family (and any text control serialized into chart_data['settings'])' parameter in all versions up to, and including, 3.1.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Elementor's Utils::kses_post_deep() does not strip the attack payload on save because the payload contains no disallowed HTML tags — only a single quote and an event-handler fragment — allowing the malicious value to survive persistence.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-109081",
-      "published": "2026-11-06T06:16:39.290",
-      "description": "A flaw was found in Keycloak. The Dynamic Client Registration (DCR) endpoint does not properly validate authorization when processing the deprecated defaultRoles field. An authenticated attacker with client creation privileges or an Initial Access Token (IAT) can inject excessive roles into the realm's default roles configuration. This causes clients across the realm to generate bloated access tokens, resulting in performance and memory degradation that can lead to a Denial of Service (DoS).",
+      "id": "CVE-2026-110776",
+      "published": "2026-11-06T10:16:35.950",
+      "description": "The MDTF – Meta Data and Taxonomies Filter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'vars' parameter in all versions up to, and including, 1.4.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires that a published page or post on the target site contains the [meta_data_filter_results] shortcode, which is the primary output feature of the plugin.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-121794",
+      "published": "2026-11-06T09:17:00.653",
+      "description": "The Travelly – Tour & Travel Booking Manager for WooCommerce plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.3.11 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to view stored WooCommerce payment gateway credentials — including PayPal API username, password, and signature, as well as Stripe test and live secret keys — injected verbatim into the HTML response of the tour edit screen. The credentials are present in the raw HTTP response regardless of the modal's CSS visibility state, making them trivially accessible by viewing page source.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-114427",
-      "published": "2026-11-06T06:16:40.160",
-      "description": "The GutenKit  WordPress plugin before 2.5.5 does not properly sanitize custom CSS saved against a post before printing it inside an inline style block on the published page, allowing users with the Author role and above to break out of the style element and store JavaScript that executes in the browser of any visitor who views the post. Exploitation affects sites running WordPress below 7.0.",
+      "id": "CVE-2026-109994",
+      "published": "2026-11-06T10:16:35.767",
+      "description": "The Eventin – Events Calendar, Tickets, Registration, Booking & WooCommerce plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 4.1.29 via the 'id' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to extract the email address and phone number of any WordPress user, including administrators, by supplying their user id in a query-string parameter while placing the authenticated user's own id in the URL path.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-107124",
-      "published": "2026-11-06T06:16:37.437",
-      "description": "A flaw was found in the OIDC logout endpoint of the keycloak-services component, which handles user session termination in Red Hat Build of Keycloak. The issue occurs because the system sets a session cookie based on an unvalidated token hint before completing security checks. An attacker can use this flaw to fix a session ID in a victim's browser, allowing them to hijack the victim's subsequent login and gain full control over their account.",
+      "id": "CVE-2026-120474",
+      "published": "2026-11-06T10:16:36.913",
+      "description": "undici is an HTTP client for Node.js. In versions 7.0.0 through 7.30.1 and 8.0.0 through 8.12.3, when the redirect interceptor and a shared response cache are used together, an authenticated request that is redirected to a same-origin target has the final response stored under the original request's cache key. That key omits the credential and carries no Vary header, so a later anonymous or different user can be served the first user's private response body. This results in cross-user disclosure of cached private responses. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-118189",
+      "published": "2026-11-06T09:17:00.310",
+      "description": "The Posts Table with Search & Sort plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'date_format' parameter in all versions up to, and including, 1.4.14 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload bypasses wp_kses_post at save time because it contains no literal angle bracket characters; the malicious HTML tags are only reconstructed at render time, making this exploitable by Contributors who would ordinarily lack the unfiltered_html capability.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-89142",
-      "published": "2026-11-06T04:16:35.437",
-      "description": "In the Wi-Fi NPU FW, there is a possible out-of-bounds write due to an incorrect bounds check. This could lead to local denial of service with user execution privileges needed. User interaction is not needed for exploitation.",
+      "id": "CVE-2026-120671",
+      "published": "2026-11-06T09:17:00.483",
+      "description": "The UsersWP – Front-end login form, User Registration, User Profile & Members Directory plugin for WP plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'badge' parameter in all versions up to, and including, 1.2.80 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit is particularly effective against higher-privileged users — such as editors and administrators — who preview a Contributor's pending post containing the malicious shortcode.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-122222",
+      "published": "2026-11-06T09:17:00.910",
+      "description": "The Permalink Manager Lite plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'slug' parameter in all versions up to, and including, 2.6.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. An Author-level attacker can submit a percent-encoded HTML/JavaScript payload as a post slug via the REST API, which survives sanitization intact and executes in an administrator's browser session when the URI Editor admin page is loaded.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-108018",
+      "published": "2026-11-06T09:16:59.527",
+      "description": "The BigFix MCM admin portal is directly accessible from the internet without VPN or network restriction.  A client-side configuration file discloses non-sensitive environment details. Exposing the configuration file publicly increases the attack surface and the risk of unauthorized access attempts.",
       "severity": "MEDIUM",
       "score": 6.3
     },
     {
-      "id": "CVE-2026-118167",
-      "published": "2026-11-06T06:16:40.710",
-      "description": "The MC4WP: Mailchimp for WordPress plugin before 4.15.0 does not validate that the Mailchimp audience a sign-up form or bundled integration subscribes a visitor to matches the audience configured by the site owner, allowing unauthenticated visitors to subscribe arbitrary email addresses to any other audience in the site's connected Mailchimp account.",
+      "id": "CVE-2026-19876",
+      "published": "2026-11-06T09:17:01.557",
+      "description": "A reflected cross-site scripting (XSS) vulnerability in the login/SSO error page of INFINITT ULite 5.0.2.1_BN48_20260528 and earlier allows an unauthenticated remote attacker to execute arbitrary JavaScript in the browser of a victim who opens a crafted link. An unsanitized request parameter is reflected without output encoding. Fixed in ULite 5.0.2.1 BN50.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-114366",
-      "published": "2026-11-06T05:18:20.220",
-      "description": "An information disclosure vulnerability in the Qt Framework QWebSocket authentication handling of the Qt WebSockets module.",
+      "id": "CVE-2026-120222",
+      "published": "2026-11-06T10:16:36.497",
+      "description": "undici is an HTTP client for Node.js. In versions 7.0.0 through 7.30.1 and 8.0.0 through 8.12.3, when the cache interceptor is composed with a downstream handler that throws during response processing (such as the built-in dump interceptor exceeding its maxSize, or the decompress interceptor rejecting more than five Content-Encoding values), a throw raised asynchronously while a cached response is replayed escapes as an uncaught exception or unhandled promise rejection and terminates the Node.js process. A malicious or compromised HTTP server can crash any such client by serving a cacheable response that triggers the throw on replay, including on a 304 revalidation of a stale entry, so the impact is availability only. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, avoid composing the cache interceptor with a response handler that throws during response processing until upgrading.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-120415",
+      "published": "2026-11-06T10:16:36.633",
+      "description": "undici is an HTTP client for Node.js. In versions 7.0.0 through 7.30.1 and 8.0.0 through 8.12.3, the redirect interceptor strips sensitive headers such as Authorization, Cookie, Proxy-Authorization, and Host when a request is redirected to a different origin, but when request headers are supplied as an array of name and value tuples (a valid documented input, for example from Object.entries), the redirect handler misreads them as a flat list so the header names never match and the sensitive headers are not removed. If a header-normalizing interceptor such as cache or deduplicate is composed outside the redirect interceptor, it then serializes the retained headers onto the cross-origin request, disclosing the caller's origin-bound credentials to the unrelated redirect destination. This is a representation-dependent bypass of the cross-origin header stripping added in CVE-2024-30260. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, supply request headers as a plain object or a flat name and value array rather than an array of tuples, or compose the redirect interceptor outside the normalizing interceptor.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-120423",
+      "published": "2026-11-06T10:16:36.780",
+      "description": "undici is an HTTP client for Node.js. In versions 7.15.0 through 7.30.1 and 8.0.0 through 8.12.3, fetch verifies Subresource Integrity metadata by splitting the integrity string on a single space, but the SRI grammar separates metadata by ASCII whitespace, which also includes the horizontal tab. An integrity value whose digest is preceded by a tab or other ASCII whitespace is parsed as a single unrecognized token and skipped, and when no recognized algorithm remains undici treats the integrity list as empty and accepts the response, so a server returning a body different from the pinned digest passes the check. An application that pins a response with a valid but whitespace-surrounded SRI value receives attacker-controlled bytes with no integrity error, and the attacker needs only to control the response body, not the integrity metadata. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, supply SRI integrity metadata without surrounding whitespace, using a single space to separate multiple digests.",
+      "severity": "MEDIUM",
+      "score": 5.9
+    },
+    {
+      "id": "CVE-2026-109977",
+      "published": "2026-11-06T10:16:34.457",
+      "description": "The YaySMTP – WP Mail SMTP with Email Logs, Tracking & Reports plugin for WordPress is vulnerable to time-based SQL Injection via the 'params[searchKey]' parameter in all versions up to, and including, 2.7.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2026-115831",
+      "published": "2026-11-06T10:16:36.123",
+      "description": "The VOD Infomaniak plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.5.15. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to initiate unauthorized video imports using the site owner's Infomaniak API credentials, consume the site owner's VOD account quota, and insert arbitrary rows into the wp_vod_upload table causing public shortcodes to resolve to attacker-chosen video content. This action is explicitly reserved for Contributor-level and above by the plugin's own role-rights system, meaning subscriber access is intentionally forbidden by design — the AJAX handler simply omits the enforcement.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-103674",
+      "published": "2026-11-06T09:16:58.200",
+      "description": "Invocation of the NetApp ONTAP special agent with the login password in the command line in Checkmk version 2.5.0 before 2.5.0p16 allows a local user on the Checkmk server to read the NetApp login password from the process list while the special agent is running. This affects both explicitly configured passwords and passwords from the password store.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-103682",
+      "published": "2026-11-06T09:16:59.360",
+      "description": "Invocation of the Jolokia special agent with the login password in the command line in Checkmk versions 2.5.0 before 2.5.0p16 allows a local user on the Checkmk server to read the Jolokia login password from the process list while the special agent is running. This affects both explicitly configured passwords and passwords from the password store.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123660",
+      "published": "2026-11-06T09:17:01.367",
+      "description": "In Vulnerability-Lookup 5.5.1 up to but not including 6.4.1, a signed-in user could make the server allocate memory far out of proportion to their input through a webhook notification's payload template. Each placeholder's format specifier was passed unchanged to Python's string formatting, which builds the padded result before its size can be checked. A template of a few dozen bytes, such as {\"text\": \"{title:>999999999}\"}, therefore produced a string of about 1 GB when the notification form test-rendered it on save, and repeating such fields multiplied the cost. Templates that passed the save check could also repeat placeholders such as {text} thousands of times; the notification daemon rebuilt those on every webhook delivery. Deeply nested templates raised an unhandled recursion error (HTTP 500). An attacker needs only an account, which the default configuration lets anyone create after e-mail confirmation. They could exhaust the memory of web workers or the notification daemon, causing a denial of service. Version 6.4.1 caps every number in a format specifier at 256, limits a rendered template to 1,000,000 characters both on save and at delivery, and rejects templates nested deeper than 32 levels.",
       "severity": "UNKNOWN",
       "score": null
     }
