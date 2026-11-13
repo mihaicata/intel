@@ -1,143 +1,143 @@
 {
-  "totalResults": 4917,
+  "totalResults": 5225,
   "items": [
     {
-      "id": "CVE-2026-19877",
-      "published": "2026-11-06T09:17:01.700",
-      "description": "INFINITT ULite 5.0.2.1_BN48_20260528 and earlier protects image-share links with a low-entropy password and does not restrict repeated password attempts, allowing an unauthenticated remote attacker to brute-force the password within the link validity window and gain unauthorized access to shared medical images. Fixed in ULite 5.0.2.1 BN50.",
+      "id": "CVE-2026-122193",
+      "published": "2026-11-06T17:17:20.313",
+      "description": "OS command injection in the example SSM document provisioning script in Trusted Remote Execution (REX) before 2026-07-28 might allow an authenticated remote user who is permitted to invoke the Rex-RO or Rex-RW SSM document to execute arbitrary commands as root on the managed instance, bypassing Cedar policy enforcement.\n\n\n\nTo remediate this issue, users should delete any Rex-RO and Rex-RW SSM documents created from the example script, in each account and Region where it was run.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-123831",
+      "published": "2026-11-06T17:17:21.240",
+      "description": "In JetBrains CLion before 2026.2, \n2026.1.4 code execution was possible in Safe Mode via Meson project settings",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-123832",
+      "published": "2026-11-06T17:17:21.387",
+      "description": "In JetBrains CLion before 2026.2 code execution was possible in Safe Mode via JSON compilation database",
+      "severity": "CRITICAL",
+      "score": 9.6
+    },
+    {
+      "id": "CVE-2026-104657",
+      "published": "2026-11-06T17:17:11.353",
+      "description": "Missing integrity verification in the Progress Software Fiddler Download and Setup Skill on Linux, macOS, and Windows which allows an attacker to compromise or influence a release component and execute attacker-controlled code when a user runs the skill. On macOS, the skill stages the package at a predictable path and installs it with administrator privileges, which may allow code execution with root privileges after user approval. A local process may also replace the staged macOS package while the skill waits for approval.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-116592",
-      "published": "2026-11-06T10:16:36.313",
-      "description": "undici is an HTTP client for Node.js. In versions 7.30.1 and 8.12.2 through 8.12.3, when an originless Agent composes the redirect and shared cache interceptors, undici decides whether to store the final response under the original request key by inspecting only the final redirect hop, which bypasses the earlier fix for CVE-2026-109829 that compared only the initial and final origins. A redirect that bounces through an untrusted origin and returns to the trusted origin is still cached under the trusted key, an intermediate hop's Vary is dropped so a response that varies on Authorization or Cookie can be served to a different user, and an intermediate hop's no-cache or default-uncacheable status is ignored so a non-storable redirect is laundered into a cacheable entry. An attacker who controls a redirect target from a trusted URL can poison the cached entry for that URL or have a private, per-user response served to a later caller. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, compose the interceptors as cache then redirect, use per-origin dispatchers and cache stores, or disable shared caching on redirect-capable requests.",
+      "id": "CVE-2026-123834",
+      "published": "2026-11-06T17:17:21.680",
+      "description": "In JetBrains Datalore before 2026.4 improper scope validation in database tasks allowed using another workspace's service account",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-110291",
-      "published": "2026-11-06T09:16:59.833",
-      "description": "The Graphina – Charts and Graphs For Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'iq_tree_chart_node_font_family (and any text control serialized into chart_data['settings'])' parameter in all versions up to, and including, 3.1.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Elementor's Utils::kses_post_deep() does not strip the attack payload on save because the payload contains no disallowed HTML tags — only a single quote and an event-handler fragment — allowing the malicious value to survive persistence.",
+      "id": "CVE-2026-104656",
+      "published": "2026-11-06T17:17:11.210",
+      "description": "Improper neutralization of input in the sessions grid in Progress Telerik Fiddler Everywhere 8.3.0 and earlier allows an attacker to execute backend IPC commands by convincing a user to open a specially crafted SAZ file.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-110776",
-      "published": "2026-11-06T10:16:35.950",
-      "description": "The MDTF – Meta Data and Taxonomies Filter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'vars' parameter in all versions up to, and including, 1.4.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires that a published page or post on the target site contains the [meta_data_filter_results] shortcode, which is the primary output feature of the plugin.",
+      "id": "CVE-2026-103985",
+      "published": "2026-11-06T17:17:10.887",
+      "description": "FreeScout is a self-hosted help desk and shared mailbox. Prior to 1.8.231, the profile form exposes the only_assigned_tickets permission to its non-admin owner, and UsersController::profileSave() adds or removes User::PERM_ONLY_ASSIGNED_TICKETS without checking that the editor is an administrator. A restricted agent can uncheck the option, or submit an ordinary profile save that omits it, to remove the administrator-imposed restriction. The agent can then read and modify conversations assigned to other agents in every mailbox they already belong to. This issue is fixed in version 1.8.231.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-121794",
-      "published": "2026-11-06T09:17:00.653",
-      "description": "The Travelly – Tour & Travel Booking Manager for WooCommerce plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.3.11 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to view stored WooCommerce payment gateway credentials — including PayPal API username, password, and signature, as well as Stripe test and live secret keys — injected verbatim into the HTML response of the tour edit screen. The credentials are present in the raw HTTP response regardless of the modal's CSS visibility state, making them trivially accessible by viewing page source.",
+      "id": "CVE-2026-103984",
+      "published": "2026-11-06T17:17:10.710",
+      "description": "FreeScout is a self-hosted help desk and shared mailbox. Prior to 1.8.231, when limit_user_customer_visibility is enabled, the load_customer_info AJAX action performs a global lookup using an attacker-controlled customer email and checks only whether the agent can access a separately supplied mailbox. A non-admin agent can name an accessible mailbox and retrieve an unrelated customer's rendered profile without invoking CustomerPolicy::view(). The response can expose names, email addresses, phone numbers, company and job information, postal addresses, social profiles, websites, and confidential internal agent notes. This issue is fixed in version 1.8.231.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-109994",
-      "published": "2026-11-06T10:16:35.767",
-      "description": "The Eventin – Events Calendar, Tickets, Registration, Booking & WooCommerce plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 4.1.29 via the 'id' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to extract the email address and phone number of any WordPress user, including administrators, by supplying their user id in a query-string parameter while placing the authenticated user's own id in the URL path.",
+      "id": "CVE-2026-122053",
+      "published": "2026-11-06T17:17:20.123",
+      "description": "The Symfony Serializer component ObjectNormalizer treats any attribute name containing . (and, from Symfony 6.4, [) as a writable property path, allowing untrusted input to modify properties of nested objects and bypass their #[Ignore] metadata attribute in Symfony versions 5.4.41 prior to 5.4.56, 6.4.9 prior to 6.4.50, 7.0.9 prior to 7.1.0, 7.1.2 prior to 7.4.23, and 8.x prior to 8.1.11.\nObjectNormalizer::isAllowedAttribute() accepts such names, and setAttributeValue() hands the name straight to PropertyAccessor::setValue(), which parses it as a property path and traverses into the nested object. A payload key such as customer.admin writes to $order->customer->admin. The #[Ignore] metadata attribute is only consulted when the nested object is denormalized in its own right, never when it is reached through a path. #[Groups] restrictions are not bypassed: the path is only accepted when no groups are passed in the context, and then groups restrict nothing. When the root class carries neither #[Ignore] nor #[Groups], no allowlist applies and every key of the payload is let through. Because PropertyAccessor also resolves a path segment against public methods, a segment matching a public method name invokes that method with the attacker’s value.Applications that bind untrusted input to objects are affected, including controllers using #[MapRequestPayload] or #[MapQueryString], whose default normalizer is ObjectNormalizer. With OBJECT_TO_POPULATE, as used for partial updates, the traversal reaches an already hydrated entity graph, and the modified field may be persisted.\n\nThe fix accepts a property path only when the class metadata declares an attribute of that exact name. Declared paths keep working unchanged, and a path in the payload with no matching declaration is ignored.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-120474",
-      "published": "2026-11-06T10:16:36.913",
-      "description": "undici is an HTTP client for Node.js. In versions 7.0.0 through 7.30.1 and 8.0.0 through 8.12.3, when the redirect interceptor and a shared response cache are used together, an authenticated request that is redirected to a same-origin target has the final response stored under the original request's cache key. That key omits the credential and carries no Vary header, so a later anonymous or different user can be served the first user's private response body. This results in cross-user disclosure of cached private responses. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later.",
+      "id": "CVE-2026-106134",
+      "published": "2026-11-06T17:17:11.783",
+      "description": "Cross-Site Scripting (XSS) in the Menu component (@progress/kendo-react-layout) in Progress Software KendoReact versions 1.3.0 through 16.1.0 allows a low-privileged attacker who can influence the Menu item data to execute arbitrary JavaScript in the origin of the application via an unsafe URL in a Menu item, which runs when a user selects the item.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-118189",
-      "published": "2026-11-06T09:17:00.310",
-      "description": "The Posts Table with Search & Sort plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'date_format' parameter in all versions up to, and including, 1.4.14 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload bypasses wp_kses_post at save time because it contains no literal angle bracket characters; the malicious HTML tags are only reconstructed at render time, making this exploitable by Contributors who would ordinarily lack the unfiltered_html capability.",
+      "id": "CVE-2026-106135",
+      "published": "2026-11-06T17:17:11.930",
+      "description": "Cross-Site Scripting (XSS) in the Chat component (@progress/kendo-angular-conversational-ui) in Progress Software Kendo UI for Angular versions prior to 25.3.0 allows a low-privileged attacker who can supply Chat messages to execute arbitrary JavaScript in another user's browser via an unsafe URL in an openUrl quick action, which runs when the user clicks the action.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-120671",
-      "published": "2026-11-06T09:17:00.483",
-      "description": "The UsersWP – Front-end login form, User Registration, User Profile & Members Directory plugin for WP plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'badge' parameter in all versions up to, and including, 1.2.80 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit is particularly effective against higher-privileged users — such as editors and administrators — who preview a Contributor's pending post containing the malicious shortcode.",
+      "id": "CVE-2026-106136",
+      "published": "2026-11-06T17:17:12.077",
+      "description": "Cross-Site Scripting (XSS) in the Chat component (@progress/kendo-react-conversational-ui) in Progress Software KendoReact versions 0.6.0 through 16.1.0 allows a low-privileged attacker who can supply Chat messages to execute arbitrary JavaScript in the origin of the application via an unsafe URL in an openUrl quick action, which runs when a user clicks the action.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-122222",
-      "published": "2026-11-06T09:17:00.910",
-      "description": "The Permalink Manager Lite plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'slug' parameter in all versions up to, and including, 2.6.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. An Author-level attacker can submit a percent-encoded HTML/JavaScript payload as a post slug via the REST API, which survives sanitization intact and executes in an administrator's browser session when the URI Editor admin page is loaded.",
+      "id": "CVE-2026-106141",
+      "published": "2026-11-06T17:17:12.213",
+      "description": "Cross-Site Scripting (XSS) in the Editor component (@progress/kendo-angular-editor) in Progress Software Kendo UI for Angular versions prior to 25.3.0 allows a low-privileged attacker who can supply Editor content to execute arbitrary JavaScript in another user's browser via a link or image with an unsafe URL in the Editor content, which runs when the user interacts with it.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-108018",
-      "published": "2026-11-06T09:16:59.527",
-      "description": "The BigFix MCM admin portal is directly accessible from the internet without VPN or network restriction.  A client-side configuration file discloses non-sensitive environment details. Exposing the configuration file publicly increases the attack surface and the risk of unauthorized access attempts.",
+      "id": "CVE-2026-106142",
+      "published": "2026-11-06T17:17:12.367",
+      "description": "Cross-Site Scripting (XSS) in the Editor component (@progress/kendo-react-editor) in Progress Software KendoReact versions 2.7.0 through 16.1.0 allows a low-privileged attacker who can supply Editor content to execute arbitrary JavaScript in another user's browser via a link with an unsafe URL in the Editor content, which runs when the user clicks the link.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-19876",
-      "published": "2026-11-06T09:17:01.557",
-      "description": "A reflected cross-site scripting (XSS) vulnerability in the login/SSO error page of INFINITT ULite 5.0.2.1_BN48_20260528 and earlier allows an unauthenticated remote attacker to execute arbitrary JavaScript in the browser of a victim who opens a crafted link. An unsanitized request parameter is reflected without output encoding. Fixed in ULite 5.0.2.1 BN50.",
+      "id": "CVE-2026-106143",
+      "published": "2026-11-06T17:17:12.510",
+      "description": "Cross-Site Scripting (XSS) in the Editor component (@progress/kendo-vue-editor) in Progress Software Kendo UI for Vue versions 2.7.1 through 10.0.0 allows a low-privileged attacker who can supply Editor content to execute arbitrary JavaScript in another user's browser via an unsafe URL entered in the Insert Link or Insert Image dialog, which runs when the user clicks the resulting link.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-120222",
-      "published": "2026-11-06T10:16:36.497",
-      "description": "undici is an HTTP client for Node.js. In versions 7.0.0 through 7.30.1 and 8.0.0 through 8.12.3, when the cache interceptor is composed with a downstream handler that throws during response processing (such as the built-in dump interceptor exceeding its maxSize, or the decompress interceptor rejecting more than five Content-Encoding values), a throw raised asynchronously while a cached response is replayed escapes as an uncaught exception or unhandled promise rejection and terminates the Node.js process. A malicious or compromised HTTP server can crash any such client by serving a cacheable response that triggers the throw on replay, including on a 304 revalidation of a stale entry, so the impact is availability only. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, avoid composing the cache interceptor with a response handler that throws during response processing until upgrading.",
+      "id": "CVE-2026-106127",
+      "published": "2026-11-06T17:17:11.497",
+      "description": "Prototype Pollution in the setter utility (@progress/kendo-react-common) in Progress Software KendoReact versions 3.5.0 through 16.0.0 allows a high-privileged attacker who can control a field path passed to the utility, directly or through components such as the Form, Scheduler, and Gantt, to modify the prototype of built-in objects, resulting in a limited impact on confidentiality, integrity, and availability.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 4.1
     },
     {
-      "id": "CVE-2026-120415",
-      "published": "2026-11-06T10:16:36.633",
-      "description": "undici is an HTTP client for Node.js. In versions 7.0.0 through 7.30.1 and 8.0.0 through 8.12.3, the redirect interceptor strips sensitive headers such as Authorization, Cookie, Proxy-Authorization, and Host when a request is redirected to a different origin, but when request headers are supplied as an array of name and value tuples (a valid documented input, for example from Object.entries), the redirect handler misreads them as a flat list so the header names never match and the sensitive headers are not removed. If a header-normalizing interceptor such as cache or deduplicate is composed outside the redirect interceptor, it then serializes the retained headers onto the cross-origin request, disclosing the caller's origin-bound credentials to the unrelated redirect destination. This is a representation-dependent bypass of the cross-origin header stripping added in CVE-2024-30260. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, supply request headers as a plain object or a flat name and value array rather than an array of tuples, or compose the redirect interceptor outside the normalizing interceptor.",
+      "id": "CVE-2026-106128",
+      "published": "2026-11-06T17:17:11.640",
+      "description": "Prototype Pollution in @progress/kendo-vue-common in Progress Software Kendo UI for Vue versions 0.4.0 through 9.2.0 allows a high-privileged attacker who can control a field path processed by components such as the Scheduler to modify the prototype of built-in objects, resulting in a limited impact on confidentiality, integrity, and availability.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 4.1
     },
     {
-      "id": "CVE-2026-120423",
-      "published": "2026-11-06T10:16:36.780",
-      "description": "undici is an HTTP client for Node.js. In versions 7.15.0 through 7.30.1 and 8.0.0 through 8.12.3, fetch verifies Subresource Integrity metadata by splitting the integrity string on a single space, but the SRI grammar separates metadata by ASCII whitespace, which also includes the horizontal tab. An integrity value whose digest is preceded by a tab or other ASCII whitespace is parsed as a single unrecognized token and skipped, and when no recognized algorithm remains undici treats the integrity list as empty and accepts the response, so a server returning a body different from the pinned digest passes the check. An application that pins a response with a valid but whitespace-surrounded SRI value receives attacker-controlled bytes with no integrity error, and the attacker needs only to control the response body, not the integrity metadata. The issue is fixed in undici 7.30.2 and 8.12.4, and users should upgrade to one of those versions or later. As a workaround, supply SRI integrity metadata without surrounding whitespace, using a single space to separate multiple digests.",
+      "id": "CVE-2026-106144",
+      "published": "2026-11-06T17:17:12.650",
+      "description": "Prototype Pollution in the Scheduler component (@progress/kendo-angular-scheduler and @progress/kendo-angular-common) in Progress Software Kendo UI for Angular versions prior to 25.1.0 allows a high-privileged attacker who can control a field path processed by the Scheduler to modify the prototype of built-in objects, resulting in a limited impact on confidentiality, integrity, and availability.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 4.1
     },
     {
-      "id": "CVE-2026-109977",
-      "published": "2026-11-06T10:16:34.457",
-      "description": "The YaySMTP – WP Mail SMTP with Email Logs, Tracking & Reports plugin for WordPress is vulnerable to time-based SQL Injection via the 'params[searchKey]' parameter in all versions up to, and including, 2.7.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "severity": "MEDIUM",
-      "score": 4.9
+      "id": "CVE-2026-123833",
+      "published": "2026-11-06T17:17:21.533",
+      "description": "In JetBrains IntelliJ IDEA before 2026.3 database connections could be established in untrusted projects",
+      "severity": "LOW",
+      "score": 3.6
     },
     {
-      "id": "CVE-2026-115831",
-      "published": "2026-11-06T10:16:36.123",
-      "description": "The VOD Infomaniak plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.5.15. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to initiate unauthorized video imports using the site owner's Infomaniak API credentials, consume the site owner's VOD account quota, and insert arbitrary rows into the wp_vod_upload table causing public shortcodes to resolve to attacker-chosen video content. This action is explicitly reserved for Contributor-level and above by the plugin's own role-rights system, meaning subscriber access is intentionally forbidden by design — the AJAX handler simply omits the enforcement.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-103674",
-      "published": "2026-11-06T09:16:58.200",
-      "description": "Invocation of the NetApp ONTAP special agent with the login password in the command line in Checkmk version 2.5.0 before 2.5.0p16 allows a local user on the Checkmk server to read the NetApp login password from the process list while the special agent is running. This affects both explicitly configured passwords and passwords from the password store.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-103682",
-      "published": "2026-11-06T09:16:59.360",
-      "description": "Invocation of the Jolokia special agent with the login password in the command line in Checkmk versions 2.5.0 before 2.5.0p16 allows a local user on the Checkmk server to read the Jolokia login password from the process list while the special agent is running. This affects both explicitly configured passwords and passwords from the password store.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-123660",
-      "published": "2026-11-06T09:17:01.367",
-      "description": "In Vulnerability-Lookup 5.5.1 up to but not including 6.4.1, a signed-in user could make the server allocate memory far out of proportion to their input through a webhook notification's payload template. Each placeholder's format specifier was passed unchanged to Python's string formatting, which builds the padded result before its size can be checked. A template of a few dozen bytes, such as {\"text\": \"{title:>999999999}\"}, therefore produced a string of about 1 GB when the notification form test-rendered it on save, and repeating such fields multiplied the cost. Templates that passed the save check could also repeat placeholders such as {text} thousands of times; the notification daemon rebuilt those on every webhook delivery. Deeply nested templates raised an unhandled recursion error (HTTP 500). An attacker needs only an account, which the default configuration lets anyone create after e-mail confirmation. They could exhaust the memory of web workers or the notification daemon, causing a denial of service. Version 6.4.1 caps every number in a format specifier at 256, limits a rendered template to 1,000,000 characters both on save and at delivery, and rejects templates nested deeper than 32 levels.",
+      "id": "CVE-2026-118515",
+      "published": "2026-11-06T17:17:16.580",
+      "description": "The Symfony Serializer component DataUriNormalizer handles only the exact types SplFileInfo, SplFileObject, and File, so for a property typed with a subclass such as UploadedFile, ObjectNormalizer instantiates the object through its constructor from attacker-controlled data, including the file path. This allows an arbitrary file on the server to be treated as an uploaded file in Symfony versions prior to 5.4.56, 6.x prior to 6.4.50, 7.x prior to 7.4.23, and 8.x prior to 8.1.11.\n\nA request body such as {\"image\": {\"path\": \"/path/to/project/.env.local\", \"originalName\": \"a.png\", \"test\": true}} makes the application handle any file on the server as an upload, without the file being sent. With test: true, UploadedFile::isValid() skips is_uploaded_file() and move() falls back to rename(). Assert\\File does not prevent this because it validates the file at the attacker-chosen path, which exists on the server.\nAny code that deserializes untrusted data into a type that holds such a property is affected. That includes #[MapRequestPayload] on a DTO with an UploadedFile property, which is how uploads are mapped in Symfony 8.1; a single unauthenticated request with a JSON or form body is enough. Depending on what the application does with the upload, this can expose any file readable by PHP (for instance, when uploads are stored and served back), move any such file when move() is called, and reveal whether a path exists.\n\nA serializer built without DataUriNormalizer ahead of the object normalizer is not protected by the fix; the serializer configured by FrameworkBundle is.",
       "severity": "UNKNOWN",
       "score": null
     }
