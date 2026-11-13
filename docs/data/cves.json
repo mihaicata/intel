@@ -1,143 +1,143 @@
 {
-  "totalResults": 4923,
+  "totalResults": 4911,
   "items": [
     {
-      "id": "CVE-2026-48705",
-      "published": "2026-11-05T21:18:50.270",
-      "description": "MONAI (Medical Open Network for AI) is an AI toolkit for health care imaging. Prior to 1.6.1, PydicomReader._get_affine() trusts non-finite values in the DICOM PixelSpacing, ImagePositionPatient, and ImageOrientationPatient fields and composes them into an affine matrix without validation. An unauthenticated attacker who can upload a crafted DICOM to a default MONAILabel deployment can propagate NaN or infinity values through LoadImaged, Spacingd, model inference, and output writing, causing inference failures, persistent datastore poisoning, or geometrically corrupted results. This issue is fixed in version 1.6.1.",
+      "id": "CVE-2026-110955",
+      "published": "2026-11-06T06:16:39.830",
+      "description": "The Wurdey WordPress plugin through 1.0.0 does not verify a request signature before logging a user in, allowing unauthenticated attackers to authenticate as an administrator knowing only the administrator's username.",
       "severity": "CRITICAL",
-      "score": 9.3
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-112902",
-      "published": "2026-11-05T21:18:36.713",
-      "description": "Pillow is a Python imaging library. In versions through 12.3.0, the libtiff TIFF encoder can pass arguments to  TIFFSetField()  that do not match libtiff’s definition of the corresponding tag. When an application saves attacker-controlled image metadata through this encoder, crafted tag values can cause invalid memory reads, copying process memory into the encoded output or crashing the process. Applications that return the encoded output to an attacker can disclose that memory. The issue is reachable when re-saving compressed TIFF images and through certain conversions that preserve EXIF metadata into compressed TIFF output. This vulnerability is fixed in version 13.0.0.",
+      "id": "CVE-2026-113584",
+      "published": "2026-11-06T06:16:39.943",
+      "description": "The placester WordPress plugin through 1.4.3 does not perform any capability, nonce or ownership check on an AJAX action that updates account details, allowing unauthenticated attackers to overwrite any user's email address, including an administrator's, and take over the account through the standard password-reset flow.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-46350",
-      "published": "2026-11-05T21:18:50.110",
-      "description": "dcmjs is a JavaScript implementation of DICOM manipulation. Prior to 0.52.0, the DecimalString and IntegerString implementations in src/ValueRepresentation.js sanitize text with a permissive regular expression and pass the result to JavaScript's Number constructor without validating finiteness or the DICOM value-representation rules. Scientific notation overflow in a DS or IS field can produce positive or negative Infinity, while stripping alphabetic characters from signed infinity text can leave a sign-only string that converts to NaN. IntegerString also accepts exponent notation and values outside the DICOM signed 32-bit IS range. Applications that trust these parsed values can propagate invalid numbers into spatial geometry, display windowing, dose scaling, frame counts, rescaling, or volume reconstruction, causing incorrect calculations or disrupted processing. This issue is fixed in version 0.52.0.",
+      "id": "CVE-2026-113615",
+      "published": "2026-11-06T06:16:40.053",
+      "description": "The GS JWT Authentication for WP REST API WordPress plugin through 1.0.0 does not sanitize or parameterize a request value before using it in SQL queries on several unauthenticated REST routes, allowing unauthenticated attackers to perform SQL injection and obtain an administrator session.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-49272",
-      "published": "2026-11-05T21:18:50.447",
-      "description": "OAuthLib is an implementation of the OAuth request-signing logic for Python 3.6+. From 3.3.0 until 4.0.1, OAuthLib's RFC 8628 device workflow does not require DeviceCodeGrant.validate_token_request to check that the device_code parameter is present and valid. A caller whose client request is accepted by the configured validator and who knows a valid client ID enabled for the device workflow can submit a missing or bogus device code to the token endpoint and obtain a bearer token without completing device authorization. This issue is fixed in version 4.0.1.",
+      "id": "CVE-2026-115230",
+      "published": "2026-11-06T06:16:40.270",
+      "description": "The WHIZZ WordPress plugin through 1.1.8 does not validate the password-reset key before updating a user's password, relying only on a nonce that is exposed to unauthenticated visitors, allowing attackers to set an arbitrary password for any user, including administrators, and fully take over their accounts.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-116533",
+      "published": "2026-11-06T06:16:40.480",
+      "description": "The Static Snapshot WordPress plugin through 0.2.1 does not sanitise shell metacharacters in a user-supplied value before concatenating it into operating-system commands run by the server, allowing unauthenticated attackers to execute arbitrary commands on the host.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-110525",
+      "published": "2026-11-06T06:16:39.460",
+      "description": "The MCB  WordPress plugin through 1.0.0 does not sanitise or escape request header values before storing them and later rendering them in the administrator statistics grid, allowing unauthenticated attackers to store malicious JavaScript that executes in an administrator's browser session when the statistics page is viewed.",
       "severity": "HIGH",
-      "score": 8.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-111771",
-      "published": "2026-11-05T21:18:35.973",
-      "description": "The Model Context Protocol TypeScript SDK provides TypeScript client and server implementations of the Model Context Protocol. From 1.6.0 until 1.32.0 in @modelcontextprotocol/sdk, from 2.0.0 until 2.3.0 in @modelcontextprotocol/server, from 2.0.0 until 2.0.2 in @modelcontextprotocol/express, and from 2.0.0 until 2.3.1 in @modelcontextprotocol/server-legacy, server-side bearer authentication could accept a valid access token issued for a different service because the SDK did not enforce the token audience. The affected surface is server-side HTTP bearer authentication. The trigger is a valid token whose audience names another service. The authorization server must issue tokens for multiple services, and the application's verifyAccessToken() must not independently validate aud. Applications already validating aud inside verifyAccessToken() are not affected. An attacker with a token for another service could authenticate to the MCP server and obtain the confidentiality and integrity capabilities granted to an authenticated caller. Upgrading alone leaves the new audience validation disabled. Operators must enable audience validation and provide the token audience together. Enabling only the expected audience check causes every request to receive HTTP 401. This issue is fixed in @modelcontextprotocol/sdk 1.32.0, @modelcontextprotocol/server 2.3.0, @modelcontextprotocol/express 2.0.2, and @modelcontextprotocol/server-legacy 2.3.1.",
+      "id": "CVE-2026-119432",
+      "published": "2026-11-06T05:18:20.830",
+      "description": "A stored cross-site scripting (XSS) vulnerability exists in the Foxit Workspace's file share preview functionality. An attacker could upload a crafted file and share it with a victim. When the victim opens or previews the file, the embedded script executes in the application's origin, potentially accessing locally stored credentials and enabling credential theft.",
+      "severity": "HIGH",
+      "score": 8.7
+    },
+    {
+      "id": "CVE-2026-118045",
+      "published": "2026-11-06T06:16:40.593",
+      "description": "The Ever Accounting  WordPress plugin before 2.3.3 does not restrict the file path supplied to its CSV import routine to an allowed directory, allowing users with its custom Accounting Manager role (which does not have administrator privileges) to delete arbitrary files on the server, such as wp-config.php, which takes the entire site offline.",
+      "severity": "HIGH",
+      "score": 8.7
+    },
+    {
+      "id": "CVE-2026-110532",
+      "published": "2026-11-06T06:16:39.597",
+      "description": "The Mail Mage WordPress plugin through 0.0.25 does not properly sanitise and escape a user-supplied value before using it in a SQL statement, allowing unauthenticated attackers to perform SQL injection attacks.",
+      "severity": "HIGH",
+      "score": 8.6
+    },
+    {
+      "id": "CVE-2026-119431",
+      "published": "2026-11-06T05:18:20.677",
+      "description": "A server-side request forgery (SSRF) vulnerability exists in Foxit Workspace's file-upload functionality. Insufficient validation of user-supplied links may allow a remote attacker to induce the server to access internal resources and return their contents, potentially resulting in sensitive information disclosure and unauthorized access to internal services.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-119433",
+      "published": "2026-11-06T05:18:20.970",
+      "description": "A server-side request forgery (SSRF) vulnerability exists in an undocumented API endpoint of Foxit Workspace due to insufficient validation of user-supplied URL and network parameters. A remote attacker could exploit this issue to induce the server to send requests to arbitrary internal or external resources, potentially enabling unauthorized access to internal services, network reconnaissance, and sensitive information disclosure.",
+      "severity": "HIGH",
+      "score": 7.7
+    },
+    {
+      "id": "CVE-2026-77299",
+      "published": "2026-11-06T02:17:52.893",
+      "description": "Regexp2 is a feature-rich RegExp engine for Go. Prior to version 2.3.0, when regexp2 compiles and matches a pattern containing a large fixed-count quantifier applied to a zero-width subexpression — e.g. (?:){50000000} — the match engine executes the empty loop body m-1 times, pushing two integers onto the backtracking stack on every iteration. Because the parser accepts any repetition count up to math.MaxInt32 and the backtracking stack grows without bound, a pattern of fewer than 20 bytes matched against an empty input can force multi-gigabyte allocation and OOM-kill the process. MatchTimeout does not fully mitigate this because the memory is allocated faster than the 100 ms timeout clock can fire. This issue has been patched in version 2.3.0.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-110813",
+      "published": "2026-11-06T06:16:39.717",
+      "description": "The Advanced Custom Fields (ACF®) WordPress plugin before 6.8.11 does not properly sanitize a stored field definition that can be modified through its comment handling, allowing unauthenticated users to inject a payload that is emitted as an HTML attribute name and executed as JavaScript in the browser of any visitor or administrator who views a page rendering the affected field.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-115673",
+      "published": "2026-11-06T06:16:40.373",
+      "description": "The Anti-Spam, Spam FireWall by CleanTalk WordPress plugin before 6.91 does not escape a commenter-supplied value before outputting it on an administrative spam-review screen, allowing unauthenticated users to inject arbitrary web scripts that execute in the browser of an administrator who reviews flagged comments.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-109081",
+      "published": "2026-11-06T06:16:39.290",
+      "description": "A flaw was found in Keycloak. The Dynamic Client Registration (DCR) endpoint does not properly validate authorization when processing the deprecated defaultRoles field. An authenticated attacker with client creation privileges or an Initial Access Token (IAT) can inject excessive roles into the realm's default roles configuration. This causes clients across the realm to generate bloated access tokens, resulting in performance and memory degradation that can lead to a Denial of Service (DoS).",
       "severity": "MEDIUM",
       "score": 6.8
     },
     {
-      "id": "CVE-2026-77463",
-      "published": "2026-11-05T21:18:53.727",
-      "description": "Remark42 is a self-hosted comment engine for blogs, articles, or any other place where readers can add comments. From 1.0.0 until 1.16.2, Remark42 globally trusts True-Client-IP, X-Real-IP, and X-Forwarded-For without verifying that the direct peer is a trusted proxy, and middleware.RealIP overwrites r.RemoteAddr before per-IP controls run. In a directly reachable deployment, or a proxy that forwards attacker-controlled headers, a remote attacker can rotate spoofed forwarding headers to obtain fresh token buckets for rate-limited endpoints, bypass vote de-duplication when --votes-ip is enabled, mint anonymous identities, and poison stored comment IPs and request logs. The global concurrent-request throttle and per-request timeouts still limit availability impact. Mitigation support is available in version 1.16.2, but operators must configure --trusted-proxy for the deployment topology.",
+      "id": "CVE-2026-114427",
+      "published": "2026-11-06T06:16:40.160",
+      "description": "The GutenKit  WordPress plugin before 2.5.5 does not properly sanitize custom CSS saved against a post before printing it inside an inline style block on the published page, allowing users with the Author role and above to break out of the style element and store JavaScript that executes in the browser of any visitor who views the post. Exploitation affects sites running WordPress below 7.0.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-119434",
-      "published": "2026-11-05T21:18:41.210",
-      "description": "Improper Handling of Highly Compressed Data (Data Amplification) vulnerability in silviucpp ezstd allows an attacker who supplies a zstd frame to ezstd:decompress_using_ddict/2 to exhaust memory and terminate the Erlang VM via a small frame that declares a very large content size.\n\nzstd_nif_decompress_using_ddict in c_src/ezstd_nif.cc reads the frame's declared content size with ZSTD_getFrameContentSize and passes it directly to enif_make_new_binary, without the 1 GiB MAX_BUFFER_SIZE check that ezstd:decompress/1 applies before allocating. A valid 65,550-byte frame of RLE blocks declaring 2 GiB is rejected by ezstd:decompress/1 but is fully allocated and decompressed by the dictionary path. The allocation happens inside a NIF, so when it exceeds the memory available to the VM the operating system kills the whole node rather than the calling process.\n\nThis issue affects ezstd: from 1.0.5 before 1.2.5.",
+      "id": "CVE-2026-107124",
+      "published": "2026-11-06T06:16:37.437",
+      "description": "A flaw was found in the OIDC logout endpoint of the keycloak-services component, which handles user session termination in Red Hat Build of Keycloak. The issue occurs because the system sets a session cookie based on an unvalidated token hint before completing security checks. An attacker can use this flaw to fix a session ID in a victim's browser, allowing them to hijack the victim's subsequent login and gain full control over their account.",
       "severity": "MEDIUM",
-      "score": 6.2
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-110802",
-      "published": "2026-11-05T21:18:35.267",
-      "description": "Altair is a GraphQL client for all platforms. From 7.2.4 until 8.5.8, packages/altair-iframe-sandbox/src/main.ts reads plugin_sandbox_opts from the iframe-sandbox query string and passes attacker-controlled scriptUrls to injectScript() in packages/altair-core/src/utils/inject.ts, which creates script elements in the page. The intended parent iframe flow places the page in an iframe with sandbox allow-scripts and without allow-same-origin, but direct navigation to a crafted iframe-sandbox URL omits that isolation and executes the supplied script in the origin serving Altair. Exploitation requires a victim to open the crafted URL, and the resulting script can access script-readable storage and make same-origin requests according to the deployment's authentication and cookie controls. This issue is fixed in version 8.5.8.",
+      "id": "CVE-2026-89142",
+      "published": "2026-11-06T04:16:35.437",
+      "description": "In the Wi-Fi NPU FW, there is a possible out-of-bounds write due to an incorrect bounds check. This could lead to local denial of service with user execution privileges needed. User interaction is not needed for exploitation.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-112899",
-      "published": "2026-11-05T21:18:36.527",
-      "description": "Pillow is a Python imaging library. In versions 2.3.0 through 12.3.0, EPS rendering does not validate the scaled image dimensions before invoking Ghostscript. Applications that process untrusted EPS or PostScript files using an application-selected scale greater than one can incur excessive Ghostscript CPU and temporary disk consumption. In versions with decompression-bomb protection, the scaled output is checked only after Ghostscript has completed rendering, allowing resource consumption beyond the configured pixel limit. The amplification depends on the scale selected by the application, not an attacker-controlled scale value. This issue is fixed in version 13.0.0.",
+      "id": "CVE-2026-118167",
+      "published": "2026-11-06T06:16:40.710",
+      "description": "The MC4WP: Mailchimp for WordPress plugin before 4.15.0 does not validate that the Mailchimp audience a sign-up form or bundled integration subscribes a visitor to matches the audience configured by the site owner, allowing unauthenticated visitors to subscribe arbitrary email addresses to any other audience in the site's connected Mailchimp account.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-54442",
-      "published": "2026-11-05T21:18:51.240",
-      "description": "Emissary is a P2P based data-driven workflow engine. Prior to 8.51.0, the VALID_LINK validation in src/main/java/emissary/server/mvc/NavAction.java accepts protocol-relative URLs when processing configured navigation links. Browser URL normalization can interpret these accepted strings as external origins. The authoritative advisory attributes open redirect, server-side request forgery, and cloud metadata access to this bypass, but it identifies neither the server-side dereference path nor how navigation-link processing reaches that path. This issue is fixed in version 8.51.0.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-111062",
-      "published": "2026-11-05T21:18:35.607",
-      "description": "russh is a Rust SSH client and server library. From version 0.34.0-beta.1 until version 0.64.0, its SSH server does not require the signature algorithm in a public-key authentication signature to match the algorithm named in the authentication request. A client possessing an authorized RSA private key can announce  rsa-sha2-512  while supplying a valid  ssh-rsa  SHA-1 signature, bypassing restrictions or producing misleading audit records when applications rely on the requested algorithm. A valid private-key signature remains required, and russh clients are not affected. This issue is fixed in version 0.64.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-111753",
-      "published": "2026-11-05T21:18:35.800",
-      "description": "Angular is a development platform for building mobile and desktop web applications using TypeScript/JavaScript and other languages. Prior to 20.3.34 and 21.0.3, the @angular/common HttpClient function xsrfInterceptorFn uses a regular expression that does not normalize request URLs in the same way as the browser's WHATWG URL parser. With XSRF protection enabled, a mutating HTTP request to an attacker-controlled URL containing backslashes, stripped control characters or spaces, or removable ASCII whitespace can be misclassified as relative and same-origin, causing the interceptor to attach the X-XSRF-TOKEN header before the browser dispatches the request to a cross-origin host. With permissive CORS handling for the custom header, the attacker can obtain the victim's XSRF token and use it to perform cross-site request forgery against the victim session. This issue is fixed in versions 20.3.34 and 21.0.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114134",
-      "published": "2026-11-05T21:18:36.887",
-      "description": "Black is the uncompromising Python code formatter. Prior to 26.10.1, the Black GitHub Action with use_pyproject: true accepts tool.black.required-version from pyproject.toml without validating that it is a released Black version specifier. An attacker who can submit a pull request can change that field to a direct reference to attacker-controlled code, causing the workflow to install and execute the code in the victim repository's GitHub Actions context. This issue is fixed in version 26.10.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-114604",
-      "published": "2026-11-05T21:18:37.057",
-      "description": "GraphQL Tools provides utilities for building, stitching, and mocking GraphQL schemas. From 10.10.1 until 12.0.2, the @graphql-tools/utils mergeIncrementalResult helper passes incrementalResult.path segments to setObjectKeyPath without runtime primitive-type validation. A non-primitive segment can bypass strict comparisons against __proto__, constructor, and prototype, then be coerced during property access so a malicious or compromised upstream incremental GraphQL response writes attacker-controlled properties to Object.prototype in the consuming Node.js process. The affected implementation is packages/utils/src/mergeIncrementalResult.ts and is reachable when consumers merge untrusted @defer or @stream transport results. This issue is fixed in version 12.0.2.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-34157",
-      "published": "2026-11-05T21:18:47.300",
-      "description": "Wails is a framework for building desktop applications using Go and web technologies. From 2.0.0 until 2.13.0, BindingsAllowedOrigins in v2/internal/frontend/originvalidator/originValidator.go passes wildcard patterns to wildcardPatternToRegex, which expands every asterisk to an unrestricted regular-expression match. When an application configures a trailing or partial-label wildcard immediately after an allowed domain, an attacker-controlled lookalike origin can match the allowed suffix and invoke bound Go methods through IPC. A complete-component subdomain wildcard is an unaffected configuration. The resulting confidentiality, integrity, and availability impact depends on the file, database, command, credential, or other operations exposed by the application's bound methods. This issue is fixed in version 2.13.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-55458",
-      "published": "2026-11-05T21:18:51.413",
-      "description": "Caddy is an extensible server platform that uses TLS by default. Prior to 2.11.5, the reverse proxy's finalizeResponse method in modules/caddyhttp/reverseproxy/reverseproxy.go handles an upstream 101 Switching Protocols response before running removeConnectionHeaders and the hopHeaders deletion loop used for ordinary responses. The early return invokes handleUpgradeResponse, which copies the upstream headers to the client and normalizes only WebSocket-specific header names. An attacker who controls or compromises a proxied WebSocket upstream can therefore cause hop-by-hop headers such as Alt-Svc, Keep-Alive, and Proxy-Authenticate, as well as headers named by Connection, to cross the proxy boundary. For HTTP/2 or HTTP/3 extended CONNECT, the upstream 101 response may be represented to the client as an ordinary successful response, increasing the chance that leaked headers are processed. This issue is fixed in version 2.11.5.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-62268",
-      "published": "2026-11-05T21:18:52.133",
-      "description": "borgbackup is an opensource, deduplicating archiver with compression and authenticated encryption. Prior to 1.4.5 and 2.0.0b22, extracting a malicious archive can follow a symlinked parent path or resolve embedded dot-dot path components and delete or overwrite files outside the extraction directory. A crafted slave hardlink can also use an attacker-controlled hardlink source outside the extraction directory and hard-link that file into the restored tree, disclosing its contents. Creating the malicious archive requires repository access and, for encrypted or authenticated repositories, the Borg key and passphrase; a victim must then extract the archive. This issue is fixed in versions 1.4.5 and 2.0.0b22.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-69143",
-      "published": "2026-11-05T21:18:52.930",
-      "description": "Rejected reason: This CVE is a duplicate of another CVE.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-77622",
-      "published": "2026-11-05T21:18:53.890",
-      "description": "Sliver is a command and control framework. Prior to 1.7.6, an HTTP(S) listener using the PNG encoder accepts attacker-controlled PNG dimensions without an effective decoded-size or pixel limit in util/encoders/images.go, while the listener nonce space implemented in server/encoders/encoders.go is small enough to search remotely. An unauthenticated attacker who identifies a valid nonce can submit a highly compressed image to PNGEncoder.Decode, where it expands during png.Decode, exhausting server memory and causing a complete loss of availability. This vulnerability is fixed in 1.7.6.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-81190",
-      "published": "2026-11-05T21:18:54.053",
-      "description": "KurrentDB is a database engineered for modern software applications and event-driven architectures. In version 26.1.0, a user authorized to read the $all stream can use Secondary Indexing query capabilities to read arbitrary files accessible to the database process, enumerate directories, and issue HTTP GET requests from that process. The default configuration limits this privilege to administrators. The flaw does not permit file writes and does not expose environment variables. This issue is fixed in version 26.1.1.",
+      "id": "CVE-2026-114366",
+      "published": "2026-11-06T05:18:20.220",
+      "description": "An information disclosure vulnerability in the Qt Framework QWebSocket authentication handling of the Qt WebSockets module.",
       "severity": "UNKNOWN",
       "score": null
     }
