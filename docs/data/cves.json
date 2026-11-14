@@ -1,145 +1,145 @@
 {
-  "totalResults": 4930,
+  "totalResults": 4816,
   "items": [
     {
-      "id": "CVE-2026-103900",
-      "published": "2026-11-07T10:17:05.140",
-      "description": "The WPJAM Basic plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 7.1 This is due to the WPJAM_User_Signup::signup() function unpacking attacker-supplied `data[args]` from the AJAX POST body and merging it via PHP array union into the payload passed to WPJAM_User::create(), whose internal whitelist (wpjam_pick) explicitly preserves the `role` key before it is handed to wp_insert_user(). The endpoint is registered as wp_ajax_nopriv_{provider}-signup with a nonce that is emitted on the public login page. This makes it possible for unauthenticated attackers to elevate their privileges to Administrator by creating a new user with an attacker-chosen role, provided a social-login provider is registered and open registration is enabled.",
+      "id": "CVE-2026-124057",
+      "published": "2026-11-07T18:17:21.607",
+      "description": "A security flaw has been discovered in TOTOLINK CA300-PoE 6.2c.884. This impacts the function setWiFiMultipleConfig of the file /cgi-bin/cstecgi.cgi. Performing a manipulation of the argument Key1Str1 results in buffer overflow. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-124058",
+      "published": "2026-11-07T19:17:28.263",
+      "description": "A weakness has been identified in TOTOLINK CA300-PoE 6.2c.884. Affected is the function setWiFiRepeaterConfig of the file /cgi-bin/cstecgi.cgi. Executing a manipulation of the argument ApCliKeyStr can lead to buffer overflow. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-124059",
+      "published": "2026-11-07T19:17:28.480",
+      "description": "A security vulnerability has been detected in TOTOLINK CA300-PoE 6.2c.884. Affected by this vulnerability is the function setWiFiWdsAddConfig of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument ApCliKeyStr leads to buffer overflow. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-124060",
+      "published": "2026-11-07T21:17:00.150",
+      "description": "A vulnerability was detected in TOTOLINK CA300-PoE 6.2c.884. Affected by this issue is the function UploadCustomModule of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument File results in buffer overflow. The attack may be launched remotely. The exploit is now public and may be used.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-123990",
+      "published": "2026-11-07T17:16:34.163",
+      "description": "A security vulnerability has been detected in DataEase up to 2.10.27/3.1.0. Affected is the function ExtWhere2Str.extWhere2sqlOjb of the file engine/trans/ExtWhere2Str.java of the component Chart Data Handler. Such manipulation of the argument operator leads to sql injection. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. Upgrading to version 3.2.0 is able to address this issue. Upgrading the affected component is advised. The vendor confirms: \"The fix validates the complete compound operator and uses fixed AND / OR keywords instead of concatenating user-controlled logic into SQL.\"",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-107616",
-      "published": "2026-11-07T10:17:06.593",
-      "description": "The Amelia plugin for WordPress is vulnerable to unauthorized access of attendee data due to a missing authorization check on the GetEventAttendeesCommandHandler::handle() function in versions up to, and including, 9.9.1. The handler only enforces the broad `amelia_read_events` capability — which the plugin's own `wpamelia-customer` role possesses — and does not verify that the authenticated user is an organizer/provider of the event referenced by the client-supplied `id` query parameter. This makes it possible for authenticated attackers, with wpamelia-customer-level access and above, to export the full CSV of attendee personally identifiable information (first/last name, email, phone, date of birth, gender, private notes, payment amounts/methods, WooCommerce order IDs, custom-field values, and uploaded-file URLs) for any Amelia event on the site by directly invoking the `/report/event/attendees` endpoint with an arbitrary event ID.",
+      "id": "CVE-2026-123991",
+      "published": "2026-11-07T17:16:34.420",
+      "description": "A vulnerability was detected in DataEase up to 2.10.27. Affected by this vulnerability is the function WhitelistUtils.endsWithAny of the file WhitelistUtils.java of the component Authentication Filter. Performing a manipulation of the argument File results in unrestricted upload. It is possible to initiate the attack remotely. The exploit is now public and may be used. Upgrading to version 2.10.28 addresses this issue. It is advisable to upgrade the affected component. The vendor confirms: \"This issue has been addressed by enforcing authentication on the standalone static-resource upload endpoint independently of the URI suffix whitelist.\"",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-119155",
-      "published": "2026-11-07T10:17:07.150",
-      "description": "The wpForo Forum plugin for WordPress is vulnerable to time-based SQL Injection via the 'href[locale]' parameter in all versions up to, and including, 3.2.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The nonce required for exploitation is publicly issued to unauthenticated visitors on any forum page via the wpforo.nonces JavaScript object, meaning no account or prior interaction beyond a page load is required to obtain it.",
+      "id": "CVE-2026-120531",
+      "published": "2026-11-07T22:16:36.090",
+      "description": "The Subscribe2 – Form, Email Subscribers & Newsletters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘data[ip]’ parameter in all versions up to, and including, 10.47 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-119164",
-      "published": "2026-11-07T10:17:07.337",
-      "description": "The wpForo Forum plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.2.2 via the `data[secondary_groupids]` parameter of the `wpforo_action_profile_update` POST handler. This is due to a type-confusion flaw in the secondary_groupids authorization guard within the `Members::update()` function in `classes/Members.php`, where casting a scalar CSV string (e.g. `\"0,1\"`) with `(array)` before `array_map('intval', …)` and `array_filter()` produces an empty array — causing the guard's outer conditional, and the else-branch that would otherwise strip the field from the update, to be bypassed entirely — while `encode()`/`decode()` downstream correctly explodes the original CSV and persists the attacker-supplied group IDs to `wp_wpforo_profiles.secondary_groupids`. This makes it possible for authenticated attackers, with Subscriber-level access and above, to escalate their forum privileges to wpForo Administrator by injecting the privileged Admin group ID, granting access to the Forum Accesses editor and the ability to rewrite forum-wide capability policies for all members and edit arbitrary content owned by other users. Exploitation requires the attacker to have at least 3 approved wpForo posts to satisfy the plugin's default `min_number_posts_to_edit_account` antispam gate, along with a valid wpforo nonce obtained from their own account profile form.",
-      "severity": "HIGH",
-      "score": 7.5
+      "id": "CVE-2026-123497",
+      "published": "2026-11-08T02:16:37.160",
+      "description": "Vikunja veans before 2.7.1 contains a protocol downgrade vulnerability in serverCandidates that allows on-path attackers to force plain HTTP during veans init and login. Attackers can block HTTPS ports so discovery accepts an unverified HTTP response, capturing passwords, TOTP codes or bot tokens and persisting cleartext API traffic.",
+      "severity": "MEDIUM",
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-104992",
-      "published": "2026-11-07T10:17:06.407",
-      "description": "The Booking for Appointments and Events Calendar – Amelia plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 9.9.1. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to export a full CSV of booking records for any event on the site — including attendee names, email addresses, phone numbers, booking status, number of persons, price, payment status, payment amount, and coupon codes — regardless of whether they own or participate in those events.",
+      "id": "CVE-2026-120836",
+      "published": "2026-11-07T18:17:18.603",
+      "description": "Missing Authorization vulnerability in eLightUp Meta Box – WordPress Custom Fields Framework meta-box allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Meta Box – WordPress Custom Fields Framework: from n/a through 5.15.3.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-110004",
-      "published": "2026-11-07T10:17:06.780",
-      "description": "The wpForo Forum plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the theme_delete function in all versions up to, and including, 3.2.2 This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). This exploit chain is reachable only on sites where an administrator has created a custom wpForo secondary usergroup with a blank WordPress role and the 'mth' (Manage Themes) capability; on such sites, an attacker can self-register and claim that group via the unguarded wpforo_secondary_groupids[] POST field, bypassing the role-based group filter and gaining theme-management access as a Subscriber.",
+      "id": "CVE-2026-123472",
+      "published": "2026-11-07T18:17:21.077",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in eLightUp Meta Box – WordPress Custom Fields Framework meta-box allows Stored XSS.This issue affects Meta Box – WordPress Custom Fields Framework: from n/a through 5.15.3.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-119493",
-      "published": "2026-11-07T10:17:08.360",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Metaphor Creations, LLC Ditty ditty-news-ticker allows Stored XSS.This issue affects Ditty: from n/a through 3.1.71.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-119500",
-      "published": "2026-11-07T10:17:08.683",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Flash & HTML5 Video html5-video-player allows Stored XSS.This issue affects Flash & HTML5 Video: from n/a through 2.14.1.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-119520",
-      "published": "2026-11-07T10:17:09.343",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Brainstorm Force Spectra ultimate-addons-for-gutenberg allows Stored XSS.This issue affects Spectra: from n/a through 2.20.4.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-118784",
-      "published": "2026-11-07T10:17:06.970",
-      "description": "The WPSpeed plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 2.6.10 This is due to a combination of two issues in the LightImages HTML optimizer: (1) Dispatcher::runOptimize() decides whether the current request is the site's home page by comparing only the URL path from REQUEST_URI against the path of the home URL, so on a plain-permalinks install the author archive URL /?author=<ID> is treated as the home page and the LightImages optimizer runs on it; and (2) LightImages::optimize() calls html_entity_decode() across the entire serialized DOMDocument output under the default-enabled img_processing_entity_decode setting, converting any entity-encoded markup present as plain text in the page (including WordPress's rendered author title) into live HTML. This makes it possible for authenticated attackers, with Subscriber-level access and above, to store entity-encoded markup in their own nickname/display_name through the normal profile endpoint and have that markup rehydrated into executing script when any logged-out visitor loads their author archive.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-119484",
-      "published": "2026-11-07T10:17:07.860",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in Supsystic Photo Gallery by Supsystic gallery-by-supsystic allows Cross Site Request Forgery.This issue affects Photo Gallery by Supsystic: from n/a through 1.21.6.",
-      "severity": "MEDIUM",
-      "score": 6.3
-    },
-    {
-      "id": "CVE-2026-120514",
-      "published": "2026-11-07T10:17:09.513",
-      "description": "The Zephyr Project Manager plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'zpm_profile_picture' parameter in all versions up to, and including, 3.3.209 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is stored in the subscriber's own Zephyr profile and fires in any Administrator's browser session the first time the autocomplete mention lookup renders the avatar field, requiring no additional configuration beyond the plugin's default access_roles setting. Successful exploitation additionally requires an action by an administrator — the attacker cannot trigger the vulnerability on their own.",
+      "id": "CVE-2026-123493",
+      "published": "2026-11-08T02:16:36.183",
+      "description": "Vikunja from 2.4.0 before 2.7.1 contains an authentication bypass vulnerability that allows disabled or locked users to retain access through API tokens owned by their bot users. Because token validation only checks the bot's own status, attackers holding pre-minted bot tokens can keep reading and modifying shared projects via the HTTP API, CalDAV, MCP and feeds.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-119465",
-      "published": "2026-11-07T10:17:07.530",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in WPVibes Elementor Addon Elements addon-elements-for-elementor-page-builder allows Retrieve Embedded Sensitive Data.This issue affects Elementor Addon Elements: from n/a through 1.15.",
+      "id": "CVE-2026-119522",
+      "published": "2026-11-07T18:17:16.130",
+      "description": "Missing Authorization vulnerability in ThemeGrill User Registration user-registration allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects User Registration: from n/a through 5.3.1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-119494",
-      "published": "2026-11-07T10:17:08.523",
-      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Gemini Labs Site Reviews site-reviews allows Code Injection.This issue affects Site Reviews: from n/a through 8.3.6.",
+      "id": "CVE-2026-123461",
+      "published": "2026-11-07T18:17:20.810",
+      "description": "Missing Authorization vulnerability in PluginUs.Net FOX woocommerce-currency-switcher allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects FOX: from n/a through 1.5.6.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-119502",
-      "published": "2026-11-07T10:17:08.850",
-      "description": "Missing Authorization vulnerability in BdThemes Ultimate Store Kit Elementor Addons ultimate-store-kit allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Ultimate Store Kit Elementor Addons: from n/a through 4.0.1.",
+      "id": "CVE-2026-124258",
+      "published": "2026-11-07T18:17:21.830",
+      "description": "Missing Authorization vulnerability in ThemeGrill User Registration user-registration allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects User Registration: from n/a through 5.3.1.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-119507",
-      "published": "2026-11-07T10:17:09.017",
-      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in WPDeveloper NotificationX notificationx allows Code Injection.This issue affects NotificationX: from n/a through 3.3.6.",
+      "id": "CVE-2026-123495",
+      "published": "2026-11-08T02:16:36.800",
+      "description": "Vikunja 2.0.0 before 2.7.1 accepts form-encoded bodies on the /api/v2 login and OIDC callback endpoints without CSRF or Origin checks, enabling login cross-site request forgery. An attacker with an account can lure a victim to a page posting the attacker's credentials or OIDC code, switching the victim into the attacker's account and exposing data the victim then adds.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.6
     },
     {
-      "id": "CVE-2026-119511",
-      "published": "2026-11-07T10:17:09.183",
-      "description": "Missing Authorization vulnerability in Saeed MC Woocommerce Wishlist smart-wishlist-for-more-convert allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MC Woocommerce Wishlist: from n/a through 2.0.3.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-119473",
-      "published": "2026-11-07T10:17:07.693",
-      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in properfraction ProfilePress wp-user-avatar allows Code Injection.This issue affects ProfilePress: from n/a through 4.17.7.",
+      "id": "CVE-2026-123992",
+      "published": "2026-11-07T18:17:21.367",
+      "description": "A flaw has been found in DataEase up to 2.10.27. Affected by this issue is the function StaticResourceServer.validateSvgContent of the file core/core-backend/src/main/java/io/dataease/visualization/server/StaticResourceServer.java of the component SVG Handler. Executing a manipulation can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been published and may be used. Upgrading to version 2.10.28 can resolve this issue. This patch is called 0709fe98d6608c3507daee3e92cf433e7ff61370. You should upgrade the affected component. The vendor confirms: \"The reported tab/entity-based URL bypass is covered by our previously implemented SVG security hardening. The fix replaces the blacklist-based checks with namespace-aware element and attribute allowlists, restricts permitted references to document-local fragments, and applies a restrictive Content Security Policy to uploaded SVG responses.\"",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-119486",
-      "published": "2026-11-07T10:17:08.037",
-      "description": "Missing Authorization vulnerability in WP ManageNinja LLC FluentBoards fluent-boards allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects FluentBoards: from n/a through 2.2.2.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-123494",
+      "published": "2026-11-08T02:16:36.413",
+      "description": "Vikunja before 2.7.1 contains a cross-site request forgery vulnerability that allows attackers to import their data into a victim's account because the Todoist, Microsoft To Do, and Trello migration OAuth callbacks lack a bound state parameter. Attackers can authorize their own account, keep the unused callback code or token, and lure a logged-in victim to the migration callback route to auto-import attacker-chosen projects and tasks containing phishing links.",
+      "severity": "LOW",
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-119491",
-      "published": "2026-11-07T10:17:08.193",
-      "description": "Missing Authorization vulnerability in David Lingren Media LIbrary Assistant media-library-assistant allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Media LIbrary Assistant: from n/a through 3.43.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-123496",
+      "published": "2026-11-08T02:16:36.977",
+      "description": "Vikunja veans before 2.7.1 contains a symlink following vulnerability that allows attackers to make veans init write files outside the repository via crafted repo symlinks. Attackers can ship symlinked .veans.yml, .claude, or .opencode entries to overwrite user files like ~/.bashrc or install veans hooks and plugins globally.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-99283",
+      "published": "2026-11-07T21:17:00.477",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: conntrack: tcp: use UNACK timeout for non-closing RST packets\n\nCommit be0502a3f2e9 (\"netfilter: conntrack: tcp: only close if RST\nmatches exact sequence\") keeps an established conntrack entry in\nESTABLISHED when an in-window RST does not match the expected sequence\nnumber exactly, so the endpoint can validate the RST with a challenge\nACK.\n\nThe timeout selection nevertheless uses the CLOSE timeout for every RST\npacket.  The bug is that timeout selection is based on the packet type,\nnot on the state transition result: even when RST validation keeps\nnew_state in ESTABLISHED, the timeout is still forced to\nTCP_CONNTRACK_CLOSE.\n\nLinux TCP independently rate limits challenge ACKs per socket.  A second\nnon-exact RST can therefore arrive after the first challenge ACK has\nrestored the timeout but before the rate limit expires.  The second RST\nlowers the timeout to 10 seconds again while the endpoint suppresses the\nsecond challenge ACK, allowing the conntrack entry to expire while both\nTCP endpoints remain established.\n\nUsing the ESTABLISHED timeout for such RSTs would avoid this short\nexpiration window, but it could also retain stale entries for the\nfive-day default because conntrack cannot reliably match the endpoint's\nexact TCP state.\n\nUse the UNACK timeout for RST packets that leave the conntrack entry in\nTCP_CONNTRACK_ESTABLISHED.  Exact-match RSTs and accepted RST packet\ntrains still fall through to timeouts[new_state], which preserves the\nCLOSE timeout when conntrack accepts the RST as closing the flow.\n\nThis avoids the aggressive 10-second expiration window for non-exact\nRSTs while preserving the short timeout for RSTs that conntrack accepts\nas closing the flow.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-99284",
+      "published": "2026-11-07T21:17:00.603",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: skbuff: propagate shared-frag marker in skb_zerocopy()\n\nskb_zerocopy() moves frag descriptors from @from into @to and takes a\nreference on each frag, but it does not copy skb_shinfo(from)->flags into\nskb_shinfo(to)->flags.  A destination skb holding the same page-cache\nbacked frags as the source therefore reports skb_has_shared_frag() as\nfalse.\n\nThat breaks the invariant relied on by later in-place writers.  ESP input\nchecks skb_has_shared_frag() before deciding whether an uncloned\nnonlinear skb can skip skb_cow_data(); with the marker lost, an skb that\nskb_zerocopy() built for nfnetlink_queue or for an openvswitch upcall is\ndecrypted in place, letting an unprivileged user write into the page\ncache of a root-owned read-only file.\n\nPropagate SKBFL_SHARED_FRAG when frag descriptors are copied, as done for\nthe other frag-transfer helpers.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
