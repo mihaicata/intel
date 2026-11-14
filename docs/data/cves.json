@@ -1,145 +1,145 @@
 {
-  "totalResults": 5218,
+  "totalResults": 4930,
   "items": [
     {
-      "id": "CVE-2026-104913",
-      "published": "2026-11-07T03:16:59.167",
-      "description": "The Interactive Real Estate – Floor Plan & Building Visualizer plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.6.0 via the extract_zip_data function. This is due to missing capability check, nonce verification, and file extension or MIME type validation before copying attacker-supplied ZIP members to the uploads directory. This makes it possible for authenticated attackers, with subscriber-level access and above, to upload files that may be executable, which makes remote code execution possible. This vulnerability is only exploitable on sites where the plugin's Freemius Premium license or trial is active, as the sole gate in the handler is a site-level license check rather than a per-user capability check.",
+      "id": "CVE-2026-103900",
+      "published": "2026-11-07T10:17:05.140",
+      "description": "The WPJAM Basic plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 7.1 This is due to the WPJAM_User_Signup::signup() function unpacking attacker-supplied `data[args]` from the AJAX POST body and merging it via PHP array union into the payload passed to WPJAM_User::create(), whose internal whitelist (wpjam_pick) explicitly preserves the `role` key before it is handed to wp_insert_user(). The endpoint is registered as wp_ajax_nopriv_{provider}-signup with a nonce that is emitted on the public login page. This makes it possible for unauthenticated attackers to elevate their privileges to Administrator by creating a new user with an attacker-chosen role, provided a social-login provider is registered and open registration is enabled.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-119070",
-      "published": "2026-11-07T03:17:00.717",
-      "description": "The Optimole – Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 4.2.17 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit requires the plugin to be in its normal connected state (cdn_key and cdn_secret configured) with the image replacer enabled, which is the default post-setup configuration; the stored payload bypasses all WordPress comment sanitization filters because it contains no HTML metacharacters at storage time — the characters are produced only by Optimole's own decoder at render time.",
+      "id": "CVE-2026-107616",
+      "published": "2026-11-07T10:17:06.593",
+      "description": "The Amelia plugin for WordPress is vulnerable to unauthorized access of attendee data due to a missing authorization check on the GetEventAttendeesCommandHandler::handle() function in versions up to, and including, 9.9.1. The handler only enforces the broad `amelia_read_events` capability — which the plugin's own `wpamelia-customer` role possesses — and does not verify that the authenticated user is an organizer/provider of the event referenced by the client-supplied `id` query parameter. This makes it possible for authenticated attackers, with wpamelia-customer-level access and above, to export the full CSV of attendee personally identifiable information (first/last name, email, phone, date of birth, gender, private notes, payment amounts/methods, WooCommerce order IDs, custom-field values, and uploaded-file URLs) for any Amelia event on the site by directly invoking the `/report/event/attendees` endpoint with an arbitrary event ID.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-119175",
-      "published": "2026-11-07T03:17:01.443",
-      "description": "The Flying Images: Optimize and Lazy Load Images for Faster Page Speed plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 2.4.15 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. A first-time commenter's submission requires a single administrator approval under the default comment_previously_approved setting; however, once approved, all subsequent comments from the same name and email pair bypass moderation, and the injected script executes for every visitor — including administrators viewing the post from the front end.",
+      "id": "CVE-2026-119155",
+      "published": "2026-11-07T10:17:07.150",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to time-based SQL Injection via the 'href[locale]' parameter in all versions up to, and including, 3.2.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The nonce required for exploitation is publicly issued to unauthenticated visitors on any forum page via the wpforo.nonces JavaScript object, meaning no account or prior interaction beyond a page load is required to obtain it.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-120082",
-      "published": "2026-11-07T03:17:02.673",
-      "description": "The GeoDirectory – WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_content' parameter in all versions up to, and including, 2.8.200 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The nested shortcode payload ([gd_dynamic_conten[gd_tags]t ...]) defeats the plugin's geodir_strip_shortcodes() guard because WordPress's strip_shortcodes() performs only a single pass over registered tags, and HTML-entity-encoded attributes in the resulting shortcode survive wp_kses_post() because kses inspects HTML tags rather than shortcode attribute values.",
+      "id": "CVE-2026-119164",
+      "published": "2026-11-07T10:17:07.337",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.2.2 via the `data[secondary_groupids]` parameter of the `wpforo_action_profile_update` POST handler. This is due to a type-confusion flaw in the secondary_groupids authorization guard within the `Members::update()` function in `classes/Members.php`, where casting a scalar CSV string (e.g. `\"0,1\"`) with `(array)` before `array_map('intval', …)` and `array_filter()` produces an empty array — causing the guard's outer conditional, and the else-branch that would otherwise strip the field from the update, to be bypassed entirely — while `encode()`/`decode()` downstream correctly explodes the original CSV and persists the attacker-supplied group IDs to `wp_wpforo_profiles.secondary_groupids`. This makes it possible for authenticated attackers, with Subscriber-level access and above, to escalate their forum privileges to wpForo Administrator by injecting the privileged Admin group ID, granting access to the Forum Accesses editor and the ability to rewrite forum-wide capability policies for all members and edit arbitrary content owned by other users. Exploitation requires the attacker to have at least 3 approved wpForo posts to satisfy the plugin's default `min_number_posts_to_edit_account` antispam gate, along with a valid wpforo nonce obtained from their own account profile form.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-120512",
-      "published": "2026-11-07T03:17:03.210",
-      "description": "The Form Maker by 10Web – Mobile-Friendly Drag & Drop Contact Form Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'wdform_<n>_element<id> (Hidden Input field, name = user-defined, e.g. hidden_probe)' parameter in all versions up to, and including, 1.15.50 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires an administrator to open the Submissions screen and click the Show-on-Map link associated with the poisoned entry, at which point the attacker-controlled field_id value is echoed unescaped into a single-quoted JavaScript string in the FormMakerEditCountryinPopup popup — a step whose nonce and capability checks are automatically satisfied by the administrator's own session and the freshly minted fm_ajax_nonce embedded in the link.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-104992",
+      "published": "2026-11-07T10:17:06.407",
+      "description": "The Booking for Appointments and Events Calendar – Amelia plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 9.9.1. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to export a full CSV of booking records for any event on the site — including attendee names, email addresses, phone numbers, booking status, number of persons, price, payment status, payment amount, and coupon codes — regardless of whether they own or participate in those events.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-120540",
-      "published": "2026-11-07T03:17:03.690",
-      "description": "The iubenda | All-in-one Compliance for GDPR / CCPA Cookie Consent + more plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 3.13.6. This is due to the way iubendaParser::parse_comments() re-processes HTML inside IUB-COOKIE-BLOCK markers through the bundled simple_html_dom parser after WordPress has already KSES-filtered the saved comment: simple_html_dom's remove_noise() stores <code> bodies under a deterministic key ('___noise___ 1000') and restore_noise() later substitutes any matching substring back into attribute values WITHOUT re-escaping, allowing a quote-breaking payload stashed in an allowed <code> element to be injected into an allowed <abbr title=\"___noise___ 1000\"> attribute at render time. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page, after an administrator approves the first (otherwise moderated) comment under WordPress's default comment_previously_approved setting.",
-      "severity": "HIGH",
-      "score": 7.2
+      "id": "CVE-2026-110004",
+      "published": "2026-11-07T10:17:06.780",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the theme_delete function in all versions up to, and including, 3.2.2 This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). This exploit chain is reachable only on sites where an administrator has created a custom wpForo secondary usergroup with a blank WordPress role and the 'mth' (Manage Themes) capability; on such sites, an attacker can self-register and claim that group via the unguarded wpforo_secondary_groupids[] POST field, bypassing the role-based group filter and gaining theme-management access as a Subscriber.",
+      "severity": "MEDIUM",
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-115816",
-      "published": "2026-11-07T03:16:59.800",
-      "description": "The Kubio AI Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment (review body)' parameter in all versions up to, and including, 2.9.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires the attacker's review containing the payload to be approved, either automatically (due to a previously approved review from the same account) or manually by an administrator, and the active single-product template must use a Kubio-rendered wp:post-content block.",
+      "id": "CVE-2026-119493",
+      "published": "2026-11-07T10:17:08.360",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Metaphor Creations, LLC Ditty ditty-news-ticker allows Stored XSS.This issue affects Ditty: from n/a through 3.1.71.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-119500",
+      "published": "2026-11-07T10:17:08.683",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Flash & HTML5 Video html5-video-player allows Stored XSS.This issue affects Flash & HTML5 Video: from n/a through 2.14.1.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-119520",
+      "published": "2026-11-07T10:17:09.343",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Brainstorm Force Spectra ultimate-addons-for-gutenberg allows Stored XSS.This issue affects Spectra: from n/a through 2.20.4.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-118784",
+      "published": "2026-11-07T10:17:06.970",
+      "description": "The WPSpeed plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 2.6.10 This is due to a combination of two issues in the LightImages HTML optimizer: (1) Dispatcher::runOptimize() decides whether the current request is the site's home page by comparing only the URL path from REQUEST_URI against the path of the home URL, so on a plain-permalinks install the author archive URL /?author=<ID> is treated as the home page and the LightImages optimizer runs on it; and (2) LightImages::optimize() calls html_entity_decode() across the entire serialized DOMDocument output under the default-enabled img_processing_entity_decode setting, converting any entity-encoded markup present as plain text in the page (including WordPress's rendered author title) into live HTML. This makes it possible for authenticated attackers, with Subscriber-level access and above, to store entity-encoded markup in their own nickname/display_name through the normal profile endpoint and have that markup rehydrated into executing script when any logged-out visitor loads their author archive.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-116562",
-      "published": "2026-11-07T03:16:59.963",
-      "description": "The Motors – Car Dealership & Classified Listings Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'stm_f_s[make]' parameter in all versions up to, and including, 1.4.128 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the Free Listing Submission feature to be enabled, which is shipped on by default via the Setup Wizard demo configuration.",
+      "id": "CVE-2026-119484",
+      "published": "2026-11-07T10:17:07.860",
+      "description": "Cross-Site Request Forgery (CSRF) vulnerability in Supsystic Photo Gallery by Supsystic gallery-by-supsystic allows Cross Site Request Forgery.This issue affects Photo Gallery by Supsystic: from n/a through 1.21.6.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-118046",
-      "published": "2026-11-07T03:17:00.170",
-      "description": "The JS Help Desk – AI-Powered Support & Ticketing System plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'jsticket_message' parameter in all versions up to, and including, 5.0.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload fires specifically when an administrator or agent opens the affected ticket and the page initializes VenoBox, which reads the browser-decoded data-title attribute and passes it to jQuery .html(), making routine ticket review the trigger condition.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-118054",
-      "published": "2026-11-07T03:17:00.360",
-      "description": "The LearnPress – Course Review plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'review_title (inside `data.args.review_title`)' parameter in all versions up to, and including, 4.2.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload only executes after an administrator approves the submitted review, though sites with comment_previously_approved auto-approval configured may bypass manual moderation.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-119098",
-      "published": "2026-11-07T03:17:00.897",
-      "description": "The LifterLMS – WP LMS for eLearning, Online Courses, & Quizzes plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'answer[]' parameter in all versions up to, and including, 10.3.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacker to be enrolled as a student in a course containing a Content-type quiz question; the injected payload executes in the administrator's browser session during the normal grading workflow when 'Start a Review' is clicked on the affected attempt.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-119165",
-      "published": "2026-11-07T03:17:01.260",
-      "description": "The WPBakery Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name / nickname' parameter in all versions up to, and including, 9.0.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful execution requires that at least one public post attributed to the attacker's account be rendered through a Basic Grid using a Grid Builder template with the Post Author element configured to link to the post author; Author-level users can satisfy this precondition unassisted, while Subscribers depend on an administrator having assigned or published a post under their account.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-119616",
-      "published": "2026-11-07T03:17:02.170",
-      "description": "The Noptin – Newsletter, New Post Notifications & Email Automation plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 4.4.3 via the 'noptin_fields[first_name]' parameter parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included. The public Manage Preferences page issues a nonce to unauthenticated visitors, meaning there is no effective authorization barrier — an unauthenticated attacker can store the malicious payload as their first_name and have it executed the next time any newsletter is sent by the site operator. Successful exploitation additionally requires an action by an administrator — the attacker cannot trigger the vulnerability on their own.",
-      "severity": "MEDIUM",
-      "score": 5.9
-    },
-    {
-      "id": "CVE-2026-118067",
-      "published": "2026-11-07T03:17:00.533",
-      "description": "The Form Maker by 10Web – Mobile-Friendly Drag & Drop Contact Form Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'wdform_<field_id>_element<form_id> (payload) + disabled_fields<form_id> (pivot)' parameter in all versions up to, and including, 1.15.50 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the targeted form to contain a File Upload field, as the attacker must suppress that field's storage row via the disabled_fields parameter to shift a controlled text-field value into the positional slot where escaping is skipped; execution occurs when an administrator opens the Submissions page for the affected form.",
+      "id": "CVE-2026-120514",
+      "published": "2026-11-07T10:17:09.513",
+      "description": "The Zephyr Project Manager plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'zpm_profile_picture' parameter in all versions up to, and including, 3.3.209 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is stored in the subscriber's own Zephyr profile and fires in any Administrator's browser session the first time the autocomplete mention lookup renders the avatar field, requiring no additional configuration beyond the plugin's default access_roles setting. Successful exploitation additionally requires an action by an administrator — the attacker cannot trigger the vulnerability on their own.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-119152",
-      "published": "2026-11-07T03:17:01.080",
-      "description": "The Appointment Booking Plugin – LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'customer[email] (inside params)' parameter in all versions up to, and including, 5.7.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. An unauthenticated visitor can exploit this by registering as a LatePoint customer via the public booking form — receiving an active customer session with no WordPress account — and then submitting a quoted local-part email address containing an HTML payload (e.g. a tag with no spaces) that passes FILTER_VALIDATE_EMAIL but is stored and rendered unescaped.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-119218",
-      "published": "2026-11-07T03:17:01.790",
-      "description": "The Greenshift – animation and page builder blocks plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'url (comment_author_url)' parameter in all versions up to, and including, 13.2.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the affected page to be configured with a GreenShift Interaction Layer attach-attribute action that copies a comment-author anchor's href into a Counter block's data-prefix or data-postfix attribute; given that configuration, the payload executes for every visitor who loads the Counter into the viewport once the comment is published.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-119219",
-      "published": "2026-11-07T03:17:02.000",
-      "description": "The Jupiter X Core plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'fields[<custom_meta_field_id>]' parameter in all versions up to, and including, 4.62.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Execution requires that the attacker-registered account be assigned as the post_author of a page or post whose template includes the Raven Author Box widget, a fixture an administrator can create by reassigning authorship to any user including newly registered Subscribers.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-120520",
-      "published": "2026-11-07T03:17:03.517",
-      "description": "The Greenshift – animation and page builder blocks plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 13.2.2 via the 'img (or any key the publisher references in {{GET:key}})' parameter. This makes it possible for unauthenticated attackers to extract authenticated users' HttpOnly WordPress session cookies, specifically wordpress_logged_in_* tokens, by injecting a nested {{COOKIE:}} placeholder via a GET parameter that causes the victim's browser to transmit the cookie value to an attacker-controlled host as an image src URL. Exploitation requires that a site publisher has configured a public GreenShift Element image block whose src attribute contains a {{GET:}} placeholder, and that a logged-in user can be induced to open the attacker's crafted link — neither condition is part of the plugin's default state.",
+      "id": "CVE-2026-119465",
+      "published": "2026-11-07T10:17:07.530",
+      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in WPVibes Elementor Addon Elements addon-elements-for-elementor-page-builder allows Retrieve Embedded Sensitive Data.This issue affects Elementor Addon Elements: from n/a through 1.15.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-120555",
-      "published": "2026-11-07T03:17:04.010",
-      "description": "The Jupiter X Core plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.62.0 via the 'file' parameter parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. The path confinement check introduced in the CVE-2023-3813 fix (strpos + realpath) is present and working, so reads are confined to wp-content/uploads/ and cannot reach wp-config.php or other files outside that directory.",
+      "id": "CVE-2026-119494",
+      "published": "2026-11-07T10:17:08.523",
+      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Gemini Labs Site Reviews site-reviews allows Code Injection.This issue affects Site Reviews: from n/a through 8.3.6.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-119213",
-      "published": "2026-11-07T03:17:01.620",
-      "description": "The Fluent Support – Helpdesk & Customer Support Ticket System plugin for WordPress is vulnerable to unauthenticated modification of a linked customer's stored profile fields in versions up to, and including, 2.4.7 Its first-party Fluent Forms integration (FeedIntegration::notify()) opens a ticket from each public form submission and, for a logged-out submitter, resolves the submitted email to an existing WordPress account via get_user_by('email', ...) without verifying the submitter controls that address, then passes the attacker-supplied data to Customer::maybeCreateCustomer(). This makes it possible for unauthenticated attackers to overwrite a limited set of a registered customer's stored profile fields where an administrator has enabled a FluentSupport feed on a public form. The email address, role and status are never changed; first and last name are overwritten only when the target user has no name set in user meta; and other fields (title, address, city, state, zip, country) are writable only where an administrator has mapped them in the feed.",
-      "severity": "LOW",
-      "score": 3.7
+      "id": "CVE-2026-119502",
+      "published": "2026-11-07T10:17:08.850",
+      "description": "Missing Authorization vulnerability in BdThemes Ultimate Store Kit Elementor Addons ultimate-store-kit allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Ultimate Store Kit Elementor Addons: from n/a through 4.0.1.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-119507",
+      "published": "2026-11-07T10:17:09.017",
+      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in WPDeveloper NotificationX notificationx allows Code Injection.This issue affects NotificationX: from n/a through 3.3.6.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-119511",
+      "published": "2026-11-07T10:17:09.183",
+      "description": "Missing Authorization vulnerability in Saeed MC Woocommerce Wishlist smart-wishlist-for-more-convert allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MC Woocommerce Wishlist: from n/a through 2.0.3.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-119473",
+      "published": "2026-11-07T10:17:07.693",
+      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in properfraction ProfilePress wp-user-avatar allows Code Injection.This issue affects ProfilePress: from n/a through 4.17.7.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-119486",
+      "published": "2026-11-07T10:17:08.037",
+      "description": "Missing Authorization vulnerability in WP ManageNinja LLC FluentBoards fluent-boards allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects FluentBoards: from n/a through 2.2.2.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-119491",
+      "published": "2026-11-07T10:17:08.193",
+      "description": "Missing Authorization vulnerability in David Lingren Media LIbrary Assistant media-library-assistant allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Media LIbrary Assistant: from n/a through 3.43.",
+      "severity": "MEDIUM",
+      "score": 4.3
     }
   ]
 }
