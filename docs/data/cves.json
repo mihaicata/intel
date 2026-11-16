@@ -1,143 +1,143 @@
 {
-  "totalResults": 4557,
+  "totalResults": 4617,
   "items": [
     {
-      "id": "CVE-2026-124580",
-      "published": "2026-11-09T08:17:02.923",
-      "description": "A vulnerability was found in Chengdu Feiyuxing Technology VW2100 and VEC10GP 1.0 B-MB3W202-210825-r11775. This impacts the function handle_wechat_cn_wifi of the file var/html/webserver of the component Weixin Auth Endpoint. The manipulation of the argument extend results in os command injection. The attack can be executed remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 10
-    },
-    {
-      "id": "CVE-2026-124585",
-      "published": "2026-11-09T09:16:59.517",
-      "description": "A vulnerability was found in Chengdu Feiyuxing Technology VW2100 and VEC10GP 1.0 B-MB3W202-210825-r11775. This issue affects the function add_expmac of the file var/html/webserver of the component Web Administration Interface. The manipulation of the argument mac results in os command injection. The attack may be performed from remote. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-124577",
-      "published": "2026-11-09T08:17:02.350",
-      "description": "A weakness has been identified in Intelbras SG 2404 PoE L2+ 1.00.70/1.00.72. The affected element is an unknown function of the file /EXCU_SHELL of the component Web Management Interface. Executing a manipulation can lead to improper authentication. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 1.00.74 is sufficient to fix this issue. Upgrading the affected component is advised.",
+      "id": "CVE-2026-119756",
+      "published": "2026-11-09T18:17:22.320",
+      "description": "Tasmota through 16.0.0, fixed in commit e97e1e4, contains a heap out-of-bounds write vulnerability in SendReceiveDeviceGroupMessage() that allows unauthenticated attackers on the local network to corrupt heap memory by sending crafted Device Groups messages over UDP port 4447 that cause the log_remaining counter to go negative and writes to exceed the fixed 512-byte buffer. Attackers can exploit this flaw to crash the device or potentially achieve native code execution on ESP8266 and ESP32 platforms that lack ASLR and heap cookies.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-101031",
-      "published": "2026-11-09T10:17:02.313",
-      "description": "The `example_dag_decorator` example Dag shipped with Apache Airflow validated an IP address fetched over HTTP with Python's `ipaddress` module and then placed it into a shell command. `ipaddress` accepts IPv6 zone identifiers containing arbitrary characters, so when example Dags are loaded (`load_examples` enabled), a user who can trigger that Dag with a custom `url` parameter could point it at a server whose response injects shell commands run on the worker. This is an incomplete fix for CVE-2025-54941; users who upgraded for CVE-2025-54941 should upgrade again. Users are advised to upgrade to apache-airflow 3.4.0 or later, or to disable example Dags (`load_examples = False`), which is recommended for production.",
+      "id": "CVE-2026-123270",
+      "published": "2026-11-09T18:17:25.207",
+      "description": "Redpanda Connect versions 4.39 to 4.110 contain a missing authentication vulnerability that enables unauthenticated remote code execution (RCE). In streams mode, the management HTTP API is exposed on `0.0.0.0:4195`, but authentication is disabled by default and there is no authentication gate protecting the stream CRUD routes. An unauthenticated attacker with network access to TCP/4195 can `POST` a malicious pipeline definition to `/streams/{id}` that includes code-executing processors such as `command`, `subprocess`, `ffi`, or unsafe `sql_raw`, thereby achieving arbitrary RCE on the host with the permissions of the Redpanda Connect service account. Because pipelines can also return command output in-band via HTTP, this vulnerability enables full host compromise, credential theft, and data exfiltration with no user interaction or credentials required.  \r\n\r\nStarting with v4.111, the API endpoint was reconfigured as opt-in, so this and later versions are no longer vulnerable by default. However, RCE remains achievable on v4.111 and later if the management API is manually enabled via the `--bind-http` flag.",
       "severity": "CRITICAL",
-      "score": 9.1
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-111421",
-      "published": "2026-11-09T10:17:03.773",
-      "description": "Apache Airflow's Task Execution API stored XCom values written by a task without the reserved-key check applied elsewhere, so a Dag author's task could write an XCom that, when a user later viewed it through the API with deserialization enabled, made the API server instantiate classes from the `airflow.*` namespace with arguments the Dag author chose. This is an incomplete fix for CVE-2026-59242: users who applied that fix in apache-airflow 3.3.1 remain affected through this route and should upgrade to apache-airflow 3.4.0 or later.",
+      "id": "CVE-2026-19706",
+      "published": "2026-11-09T18:17:27.583",
+      "description": "During ABI bootstrap, the bootstrap node's approve-csr.service approves and signs every CSR without identity validation.\n\nAn attacker on the install network can retrieve the unauthenticated Ignition file (ports 22623/22624), extract a limited kubeconfig, submit a CSR for CN=system:admin, receive the signed certificate, and gain full cluster-admin access.\n\nExploitable only during the narrow bootstrap window.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-111395",
-      "published": "2026-11-09T10:17:02.980",
-      "description": "Apache Airflow did not reject reserved serialization keys inside a Dag run's `conf`. A user allowed to trigger a Dag that uses a deadline alert with an asynchronous callback could pass a `conf` that, once the deadline was missed, either crashed the scheduler repeatedly or was rebuilt into objects inside the Triggerer. Users are advised to upgrade to apache-airflow 3.4.0 or later.",
+      "id": "CVE-2026-119755",
+      "published": "2026-11-09T18:17:22.163",
+      "description": "Tasmota through 16.0.0, fixed in commit 1cb7ebc, contains a cross-site request forgery vulnerability that allows unauthenticated attackers to bypass Referer-based CSRF protection in HttpCheckPriviledgedAccess() by crafting a Referer header where the device hostname or IP appears as a substring immediately after http://.evil.com/. Attackers can lure an administrator on the device's network to a malicious page to issue arbitrary console commands and reconfigure Wi-Fi, MQTT, settings, or firmware on devices lacking a WebPassword.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-94249",
-      "published": "2026-11-09T09:16:59.927",
-      "description": "Missing Authorization vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute Liderahenk allows Privilege Abuse.\n\nThis issue affects Liderahenk: before 2.0.3.",
+      "id": "CVE-2026-123797",
+      "published": "2026-11-09T18:17:26.890",
+      "description": "SuperTokens Core is an open source authentication server. Prior to 11.3.6, 11.4.6, and 12.0.8, app-specific management requests using an unknown tenant path and an older supported cdi-version can bypass API-key and public-tenant enforcement. In src/main/java/io/supertokens/webserver/WebserverAPI.java, checkIPAccess and assertThatAPIKeyCheckPasses suppress TenantOrAppNotFoundException, while the later app-specific handler resolves app/public storage and the public-tenant guard applies only to CDI versions 5.0 and later. An unauthenticated caller able to reach the Core endpoint can therefore use PUT /ghosttenant/recipe/role and GET /ghosttenant/recipe/roles to create and enumerate application roles without a valid API key. This issue is fixed in versions 11.3.6, 11.4.6, and 12.0.8.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-124579",
-      "published": "2026-11-09T08:17:02.723",
-      "description": "A vulnerability was determined in aaPanel BillionMail up to 4.9. Affected by this issue is some unknown functionality of the file core/api/relay/v1/relay.go of the component Relay Configuration API. Executing a manipulation of the argument helo_name can lead to injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-112314",
+      "published": "2026-11-09T19:16:39.867",
+      "description": "clnttcp_call() in lib/rpc/clnt_tcp.c in MIT Kerberos 5 (aka krb5) does not free the RPC reply verifier between retries, which allows remote attackers to cause a denial of service (memory leak in GSS-RPC client programs) by injecting RPC replies with mismatched XIDs or by triggering authentication retries.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-123367",
+      "published": "2026-11-09T18:17:25.520",
+      "description": "Thor Vector Graphics (ThorVG) is a production-ready vector graphics engine. Prior to 1.1.2, the bundled jpgd JPEG decoder accepts duplicate component selectors in an SOS scan header, causing each duplicate to increase m_blocks_per_mcu without checking the buffers sized from the frame components. A crafted grayscale JPEG can repeat its component in the SOS header, causing decode paths in src/loaders/jpg/tvgJpgd.cpp to write beyond heap buffers sized for one component. The issue is reachable through direct JPEG decoding and through JPEG images embedded in Lottie content, and confirmed impact is memory corruption followed by a process crash. This issue is fixed in version 1.1.2.",
       "severity": "HIGH",
       "score": 7.4
     },
     {
-      "id": "CVE-2026-124581",
-      "published": "2026-11-09T09:16:58.833",
-      "description": "A vulnerability was determined in itsourcecode Airline Reservation System 1.0. Affected is an unknown function of the file /admin/manage_flight.php. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
-      "severity": "HIGH",
-      "score": 7.3
+      "id": "CVE-2026-84503",
+      "published": "2026-11-09T18:17:34.233",
+      "description": "A flaw was found in ansible-core's ansible.builtin.git module. The module\ninvokes git (ls-remote, clone, fetch) with the repository URL as a positional\nargument and without a \"--\" separator, so a repository URL that begins with a\ndash is interpreted by git as a command-line option. A caller that passes an\nattacker-controlled repository URL to the module can trigger argument\ninjection (for example --upload-pack/--exec), resulting in arbitrary command\nexecution on the host running the module.",
+      "severity": "MEDIUM",
+      "score": 6.7
     },
     {
-      "id": "CVE-2026-111403",
-      "published": "2026-11-09T10:17:03.140",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Inventory WP Inventory Manager wp-inventory-manager allows Reflected XSS.This issue affects WP Inventory Manager: from n/a through 2.5.9.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-107474",
-      "published": "2026-11-09T10:17:02.820",
-      "description": "The Apache Airflow connections API did not mask the apprise provider's `config` connection extra, which can embed notification-service credentials. A user with permission to read connections could retrieve it in cleartext, although Airflow 3 treats connection credentials as write-only.\n\nUsers are advised to upgrade to apache-airflow 3.4.0 or later. Airflow 2.x is also affected; Airflow 2 has reached end of life and will not receive a fix, so Airflow 2 users should upgrade to Apache Airflow 3.4.0 or later.",
+      "id": "CVE-2026-112316",
+      "published": "2026-11-09T19:16:40.243",
+      "description": "xdr_krb5_tl_data() in lib/kadm5/kadm_rpc_xdr.c in MIT Kerberos 5 (aka krb5) does not free partially decoded data on failure, which allows remote authenticated users to cause a denial of service (memory leak in kadmind) via crafted RPC requests that trigger a decode failure.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-92606",
-      "published": "2026-11-09T09:16:59.753",
-      "description": "Time-of-check time-of-use (TOCTOU) race condition vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute Pardus MyComputer allows Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions.\n\nThis issue affects Pardus MyComputer: from 0.8.0 before 0.8.1.",
+      "id": "CVE-2026-60117",
+      "published": "2026-11-09T18:17:29.517",
+      "description": "The Android implementation of the Flutter/Dart receive_sharing_intent package, versions 1.4.1 through 1.9.0, contains a path traversal vulnerability in FileDirectory.getDataColumn that allows a malicious co-resident application to write files outside the intended cache directory by supplying a crafted _display_name value from an untrusted ContentProvider. Attackers can use a path-shaped display name ../databases/proof.txt combined with a controlled content stream to write to arbitrary locations within the receiving application's private sandbox under its UID, achieving file overwrite without user interaction.",
       "severity": "MEDIUM",
-      "score": 6
+      "score": 6.2
     },
     {
-      "id": "CVE-2026-113437",
-      "published": "2026-11-09T08:17:02.063",
-      "description": "Path Traversal vulnerability exists in SS1/ SS1 Cloud provided by DOS Co., Ltd. and the ODM product rocoeyes provided by Rococo Co. Ltd. Arbitrary files may be deleted.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-124578",
-      "published": "2026-11-09T08:17:02.540",
-      "description": "A security vulnerability has been detected in Pantum BP5100DW 3.A.4.7. The impacted element is an unknown function of the file /shtml/omDB.shtml of the component Web Interface. The manipulation leads to missing authentication. The attack may be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-112315",
+      "published": "2026-11-09T19:16:40.077",
+      "description": "The RPCSEC_GSS authentication routines in lib/rpc/authgss_prot.c in MIT Kerberos 5 (aka krb5) 1.4 and later do not free partially decoded buffers on failure, which allows remote attackers to cause a denial of service (memory leak in kadmind) via crafted RPCSEC_GSS messages.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-124584",
-      "published": "2026-11-09T09:16:59.283",
-      "description": "A vulnerability has been found in wummel patool 4.1.0. This vulnerability affects the function extract_gzip of the file patoolib/fileutil.py of the component Gzip Extraction Handler. The manipulation leads to symlink following. Local access is required to approach this attack. The researcher claims to have submitted a GHSA on the repository of the project.",
+      "id": "CVE-2026-112317",
+      "published": "2026-11-09T19:16:40.407",
+      "description": "krb5_ktkdb_get_entry() in lib/kdb/keytab.c in MIT Kerberos 5 (aka krb5) 1.2.8 and later does not free decrypted key material when a post-decryption check fails, which allows remote attackers to cause a denial of service (memory leak in the KDC or kadmind) via requests that repeatedly trigger key decryption failures.",
       "severity": "MEDIUM",
-      "score": 4.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-120386",
-      "published": "2026-11-09T08:17:02.200",
-      "description": "Effekseer improperly validates \"effect\" files. When a crafted effect file is loaded to the affected runtime, the host process may be forced to crash.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-124582",
-      "published": "2026-11-09T09:16:59.053",
-      "description": "A vulnerability was identified in WebTorrent up to 2.8.5/3.0.21. Affected by this vulnerability is the function getFileModtimes of the file torrent.js of the component File Path Handler. Such manipulation of the argument file.path leads to path traversal. The attack may be performed from remote. The exploit is publicly available and might be used. The reported GitHub issue was closed with the label \"not planned\".",
+      "id": "CVE-2026-125063",
+      "published": "2026-11-09T18:17:27.053",
+      "description": "A flaw was found in the rrule validation of schedules in automation controller. Several non-anchored regular expressions with lazy wildcard prefixes are applied to the user-supplied rrule value; when the expected DTSTART/RRULE tokens are absent, validation time grows quadratically with the length of the value. An authenticated user can submit a large token-free rrule through the REST API, including the schedule preview endpoint, which requires no resource-level permissions; validation runs synchronously in the API web worker, so a single such request occupies a worker for an extended time and repeated requests can exhaust the web worker pool, denying access to the API and web UI while the attack is sustained. The impact is limited to availability.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-109582",
-      "published": "2026-11-09T08:17:00.860",
-      "description": "Insecure storage of sensitive information issue exists in SS1 provided by DOS Co., Ltd. Sensitive information used by the product may be obtained.",
-      "severity": "MEDIUM",
-      "score": 4
-    },
-    {
-      "id": "CVE-2026-116337",
-      "published": "2026-11-09T09:16:58.450",
-      "description": "Uncontrolled resource consumption vulnerability in the Qt Framework HTTP response handling functionality of the Qt Network module.",
+      "id": "CVE-2026-123368",
+      "published": "2026-11-09T18:17:25.683",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.22.0 until 0.31.0, compose-lint follows a sibling .env symbolic link outside the project without applying its normal containment check. From 0.28.0, the same gap also affects an include project_directory link outside the project. A pull request can reference a variable from the linked file, causing substitution to place runner file or process-environment data into finding messages written to logs, JSON, SARIF artifacts, and Code Scanning alerts. Reading /proc/self/environ can expose the remainder of the linter process environment because NUL-separated entries are treated as one value, although disclosure requires a workflow that processes untrusted changes with useful environment data and GitHub normally withholds secrets from fork pull requests. The pass or fail result is not changed. This issue is fixed in version 0.31.0.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-123870",
-      "published": "2026-11-09T09:16:58.653",
-      "description": "The otterdog webapp evaluates a format-string built from the incoming GitHub webhook JSON body using Python's eval(). When the GITHUB_WEBHOOK_SECRET configuration value is unset or empty (the code default is None), the HMAC signature check is skipped entirely, allowing an unauthenticated network client to reach the eval() sink with attacker-controlled input and execute arbitrary Python on the webapp host.",
+      "id": "CVE-2026-123369",
+      "published": "2026-11-09T18:17:25.843",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. Prior to 0.31.0, compose-lint prints attacker-controlled service names, environment keys, file lines, and other Compose text without neutralizing GitHub Actions and Azure Pipelines workflow-command openers. When a workflow processes a pull request, legacy ##[ commands or a line-leading double-colon command can create false annotations, hide log regions, mask selected strings, or invoke other commands recognized by the runner. The affected text report paths do not alter the compose-lint exit code or pass or fail result, but they can misrepresent the CI output presented to reviewers. This issue is fixed in version 0.31.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123370",
+      "published": "2026-11-09T18:17:25.997",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.9.0 until 0.18.0, compose-lint's YAML parser recognizes lone carriage returns and Unicode line separators U+0085, U+2028, and U+2029 as line breaks while fix position conversion counts only newline characters. A pull request can place one of these separators in a quoted value so fix --apply shifts each later edit and deletes the line after the selected target, including an unselected network or other security setting. The resulting Compose file can remain valid, post-edit checks can pass, and the command can report a successful fix even though the dry-run diff was the only place showing the extra deletion. This issue is fixed in version 0.18.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123371",
+      "published": "2026-11-09T18:17:26.160",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.2.0 until 0.32.0, compose-lint automatically follows a .compose-lint.yml policy-file symbolic link outside the project and includes part of the target line when that external file fails YAML parsing. A pull request can point the policy file at a runner credential file, causing about 30 characters around an attacker-uncontrolled parse position to appear in standard error, JSON errors, and SARIF tool execution notifications uploaded by the GitHub Action. The run exits with an error and the attacker cannot select the exact disclosed line, but public logs or Code Scanning output can reveal part of the target. This issue is fixed in version 0.32.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123372",
+      "published": "2026-11-09T18:17:26.320",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.22.0 until 0.32.0, compose-lint substitutes values from a sibling .env file into image fields and quotes the resolved value in CL-0004 and CL-0019 finding messages and fix text. In a workflow that writes secrets into that file and then lints untrusted pull-request content, an attacker can reference a secret variable so its whole value reaches the job log, JSON output, SARIF artifacts, and Code Scanning alerts. Fork pull requests normally lack secrets, so exploitation requires a secret-bearing workflow such as pull_request_target, same-repository branches, or a retained .env on a self-hosted runner, and the pass or fail result is unchanged. This issue is fixed in version 0.32.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123373",
+      "published": "2026-11-09T18:17:26.467",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.2.0 until 0.25.0, compose-lint follows a project-controlled symbolic link used as the Compose file outside the project. The same issue affects compose.override.yml and a COMPOSE_FILE entry from 0.22.0, and an env_file target from 0.23.0. If an external Compose-related target fails YAML parsing, the error quotes an attacker-uncontrolled line into standard error, JSON errors, and SARIF notifications, while an external env_file can expose credential-like key names through CL-0020 and CL-0021 findings. The attacker selects the target path but not the exact parser-failure line, values from env_file are not printed, and the pass or fail result is unchanged. This issue is fixed in version 0.25.0.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123796",
+      "published": "2026-11-09T18:17:26.733",
+      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.32.0 until 0.33.0, compose-lint's incomplete remediation for .env secret disclosure checks the 20,000-finding limit before replacing resolved values with their variable references. A pull request can combine a secret-referencing image field with aliased content that produces more than 20,000 findings, causing the early-stop path to emit already graded findings with the resolved secret value in text, JSON, SARIF, and Code Scanning output. Exploitation requires a workflow that writes secrets into the sibling .env and lints untrusted changes, and the run exits 2 unless --allow-partial-coverage is used. This issue is fixed in version 0.33.0.",
       "severity": "UNKNOWN",
       "score": null
     }
