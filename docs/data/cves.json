@@ -1,143 +1,143 @@
 {
-  "totalResults": 4597,
+  "totalResults": 4557,
   "items": [
     {
-      "id": "CVE-2026-124560",
-      "published": "2026-11-09T03:16:38.117",
-      "description": "A vulnerability was found in D-Link DIR-878 1.20B05. This affects the function GetCAPTCHAsetting of the file bin/prog.cgi of the component HNAP Handler. Performing a manipulation of the argument uid results in heap-based buffer overflow. The attack can be initiated remotely. The exploit has been made public and could be used. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-124580",
+      "published": "2026-11-09T08:17:02.923",
+      "description": "A vulnerability was found in Chengdu Feiyuxing Technology VW2100 and VEC10GP 1.0 B-MB3W202-210825-r11775. This impacts the function handle_wechat_cn_wifi of the file var/html/webserver of the component Weixin Auth Endpoint. The manipulation of the argument extend results in os command injection. The attack can be executed remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-124585",
+      "published": "2026-11-09T09:16:59.517",
+      "description": "A vulnerability was found in Chengdu Feiyuxing Technology VW2100 and VEC10GP 1.0 B-MB3W202-210825-r11775. This issue affects the function add_expmac of the file var/html/webserver of the component Web Administration Interface. The manipulation of the argument mac results in os command injection. The attack may be performed from remote. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-124577",
+      "published": "2026-11-09T08:17:02.350",
+      "description": "A weakness has been identified in Intelbras SG 2404 PoE L2+ 1.00.70/1.00.72. The affected element is an unknown function of the file /EXCU_SHELL of the component Web Management Interface. Executing a manipulation can lead to improper authentication. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 1.00.74 is sufficient to fix this issue. Upgrading the affected component is advised.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-119506",
-      "published": "2026-11-09T01:17:01.197",
-      "description": "Incorrect Privilege Assignment vulnerability in DynamiApps Frontend Admin by DynamiApps acf-frontend-form-element allows Privilege Escalation.This issue affects Frontend Admin by DynamiApps: from n/a through 3.30.1.",
+      "id": "CVE-2026-101031",
+      "published": "2026-11-09T10:17:02.313",
+      "description": "The `example_dag_decorator` example Dag shipped with Apache Airflow validated an IP address fetched over HTTP with Python's `ipaddress` module and then placed it into a shell command. `ipaddress` accepts IPv6 zone identifiers containing arbitrary characters, so when example Dags are loaded (`load_examples` enabled), a user who can trigger that Dag with a custom `url` parameter could point it at a server whose response injects shell commands run on the worker. This is an incomplete fix for CVE-2025-54941; users who upgraded for CVE-2025-54941 should upgrade again. Users are advised to upgrade to apache-airflow 3.4.0 or later, or to disable example Dags (`load_examples = False`), which is recommended for production.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-124561",
-      "published": "2026-11-09T04:17:06.317",
-      "description": "A vulnerability was determined in D-Link DIR-878 1.20B05. This impacts the function SetVLANSettings of the file prog.cgi of the component HNAP Handler. Executing a manipulation of the argument VID can lead to stack-based buffer overflow. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-111421",
+      "published": "2026-11-09T10:17:03.773",
+      "description": "Apache Airflow's Task Execution API stored XCom values written by a task without the reserved-key check applied elsewhere, so a Dag author's task could write an XCom that, when a user later viewed it through the API with deserialization enabled, made the API server instantiate classes from the `airflow.*` namespace with arguments the Dag author chose. This is an incomplete fix for CVE-2026-59242: users who applied that fix in apache-airflow 3.3.1 remain affected through this route and should upgrade to apache-airflow 3.4.0 or later.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-124562",
-      "published": "2026-11-09T04:17:06.560",
-      "description": "A vulnerability was identified in D-Link DIR-878 1.20B05. Affected is the function SetWanSettings of the component HNAP Handler. The manipulation of the argument ConfigDNS/Primary/ConfigDNS/Secondary leads to buffer overflow. The attack may be initiated remotely. The exploit is publicly available and might be used. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-111395",
+      "published": "2026-11-09T10:17:02.980",
+      "description": "Apache Airflow did not reject reserved serialization keys inside a Dag run's `conf`. A user allowed to trigger a Dag that uses a deadline alert with an asynchronous callback could pass a `conf` that, once the deadline was missed, either crashed the scheduler repeatedly or was rebuilt into objects inside the Triggerer. Users are advised to upgrade to apache-airflow 3.4.0 or later.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-124563",
-      "published": "2026-11-09T04:17:06.773",
-      "description": "A security flaw has been discovered in D-Link DIR-878 1.20B05. Affected by this vulnerability is the function SetWanSettings of the component HNAP Handler. The manipulation of the argument Primary/Secondary results in buffer overflow. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-94249",
+      "published": "2026-11-09T09:16:59.927",
+      "description": "Missing Authorization vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute Liderahenk allows Privilege Abuse.\n\nThis issue affects Liderahenk: before 2.0.3.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-124509",
-      "published": "2026-11-09T02:16:59.243",
-      "description": "A vulnerability was identified in floci-io Floci up to 2.1.0. The affected element is the function S3Destination.bucketName of the file services/firehose/model/DeliveryStreamDescription.java of the component S3 Destination Configuration Handler. Such manipulation of the argument BucketARN leads to path traversal. The attack can be launched remotely. The exploit is publicly available and might be used. Upgrading to version 2.2.0 is sufficient to fix this issue. The name of the patch is b986b95074ef524019be7af51e1df172e48faa4b. You should upgrade the affected component.",
+      "id": "CVE-2026-124579",
+      "published": "2026-11-09T08:17:02.723",
+      "description": "A vulnerability was determined in aaPanel BillionMail up to 4.9. Affected by this issue is some unknown functionality of the file core/api/relay/v1/relay.go of the component Relay Configuration API. Executing a manipulation of the argument helo_name can lead to injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-124554",
-      "published": "2026-11-09T02:16:59.480",
-      "description": "A security flaw has been discovered in JeecgBoot 3.9.5. This affects an unknown part of the file /jeecg-boot/drag/onlDragDatasetHead/getAllChartData of the component JimuBI. Performing a manipulation of the argument params results in sql injection. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-124557",
-      "published": "2026-11-09T03:16:37.600",
-      "description": "A vulnerability was detected in OtterMind Chat2DB up to 5.3.8. Impacted is the function DbMybatisGenerateServiceImpl.generateClass of the file DbMybatisGenerateServiceImpl.java of the component Class Generator. The manipulation of the argument tableName results in path traversal. The attack may be performed from remote. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-124581",
+      "published": "2026-11-09T09:16:58.833",
+      "description": "A vulnerability was determined in itsourcecode Airline Reservation System 1.0. Affected is an unknown function of the file /admin/manage_flight.php. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-124558",
-      "published": "2026-11-09T03:16:37.853",
-      "description": "A vulnerability has been found in DataLinkDC Dinky up to 1.2.5. The impacted element is the function SqlGateway.onOpen of the file SqlGateway.java of the component sql-gateway Endpoint. Such manipulation of the argument connectAddress leads to server-side request forgery. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The researcher claims to have submitted a GHSA on the repository of the project.",
+      "id": "CVE-2026-111403",
+      "published": "2026-11-09T10:17:03.140",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Inventory WP Inventory Manager wp-inventory-manager allows Reflected XSS.This issue affects WP Inventory Manager: from n/a through 2.5.9.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-124504",
-      "published": "2026-11-09T01:17:02.317",
-      "description": "A vulnerability was detected in erupts erupt up to 2.3.0. Affected by this issue is the function ReportService.queryBiData of the file ReportService.java. Performing a manipulation of the argument sort results in sql injection. The attack is possible to be carried out remotely. The exploit is now public and may be used. Upgrading to version 2.4.0 can resolve this issue. The patch is named 8d2eaffc79b977c9d11222b9d435a002dceaa062. It is suggested to upgrade the affected component.",
+      "id": "CVE-2026-107474",
+      "published": "2026-11-09T10:17:02.820",
+      "description": "The Apache Airflow connections API did not mask the apprise provider's `config` connection extra, which can embed notification-service credentials. A user with permission to read connections could retrieve it in cleartext, although Airflow 3 treats connection credentials as write-only.\n\nUsers are advised to upgrade to apache-airflow 3.4.0 or later. Airflow 2.x is also affected; Airflow 2 has reached end of life and will not receive a fix, so Airflow 2 users should upgrade to Apache Airflow 3.4.0 or later.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-124555",
-      "published": "2026-11-09T02:16:59.677",
-      "description": "A weakness has been identified in JeecgBoot 3.9.5. This vulnerability affects the function JimuFormApiService.getTableDictList of the file /jeecg-boot/jmreport/form/getTableDictList of the component Table Dictionary API. Executing a manipulation of the argument searchSql can lead to sql injection. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-92606",
+      "published": "2026-11-09T09:16:59.753",
+      "description": "Time-of-check time-of-use (TOCTOU) race condition vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute Pardus MyComputer allows Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions.\n\nThis issue affects Pardus MyComputer: from 0.8.0 before 0.8.1.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 6
     },
     {
-      "id": "CVE-2026-121825",
-      "published": "2026-11-09T03:16:36.240",
-      "description": "OpenAM (OpenAM Consortium Edition) 14.0.5 and earlier contains an open redirect vulnerability (CWE-601) in the Liberty ID-FF service provider single sign-on flow. The goto parameter of the /preLogin endpoint is stored as the RelayState of the Liberty ID-FF authentication request without validation, and after the user completes single sign-on at the identity provider, the assertion consumer service redirects the browser to that value. A remote unauthenticated attacker can induce a user to access a crafted URL and, after the user authenticates, redirect the user to an arbitrary website, which may be used for phishing. Only deployments in which a Liberty ID-FF hosted service provider is configured are affected; Liberty ID-FF is not configured by default. This issue is fixed in 14.0.6, which disables the legacy Liberty ID-FF endpoints.",
-      "severity": "MEDIUM",
-      "score": 6.1
-    },
-    {
-      "id": "CVE-2026-124507",
-      "published": "2026-11-09T01:17:03.003",
-      "description": "A vulnerability was found in conductor-oss conductor up to 3.32.4/3.33.0/3.34.0-rc3/4.0.0-alpha.1. This issue affects the function WorkflowSystemTask.start of the file PlannerContextFetchTask.java of the component PLANNER_CONTEXT_FETCH Task Handler. The manipulation of the argument url results in server-side request forgery. It is possible to launch the attack remotely. The exploit has been made public and could be used. The researcher claims to have submitted a GHSA on the repository of the project.",
+      "id": "CVE-2026-113437",
+      "published": "2026-11-09T08:17:02.063",
+      "description": "Path Traversal vulnerability exists in SS1/ SS1 Cloud provided by DOS Co., Ltd. and the ODM product rocoeyes provided by Rococo Co. Ltd. Arbitrary files may be deleted.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-124508",
-      "published": "2026-11-09T02:16:58.987",
-      "description": "A vulnerability was determined in floci-io Floci up to 2.4.0. Impacted is the function BuildspecParser.parseArtifacts of the file src/main/java/io/github/hectorvent/floci/services/codebuild/CodeBuildJsonHandler.java of the component Artifact Handler. This manipulation of the argument buildspecOverride.artifacts.base-directory causes path traversal. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-124578",
+      "published": "2026-11-09T08:17:02.540",
+      "description": "A security vulnerability has been detected in Pantum BP5100DW 3.A.4.7. The impacted element is an unknown function of the file /shtml/omDB.shtml of the component Web Interface. The manipulation leads to missing authentication. The attack may be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-124564",
-      "published": "2026-11-09T04:17:06.983",
-      "description": "A weakness has been identified in D-Link DIR-878 1.20B05. Affected by this issue is the function GetListDirectory of the file bin/prog.cgi of the component HNAP Handler. This manipulation of the argument ListDirectoryPath causes path traversal. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "id": "CVE-2026-124584",
+      "published": "2026-11-09T09:16:59.283",
+      "description": "A vulnerability has been found in wummel patool 4.1.0. This vulnerability affects the function extract_gzip of the file patoolib/fileutil.py of the component Gzip Extraction Handler. The manipulation leads to symlink following. Local access is required to approach this attack. The researcher claims to have submitted a GHSA on the repository of the project.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.4
     },
     {
-      "id": "CVE-2026-124505",
-      "published": "2026-11-09T01:17:02.600",
-      "description": "A flaw has been found in Dianping CAT 3.0.0/3.1.0/4.0-RC1. This affects the function Handler.redirect of the file Handler.java of the component Login/Logout. Executing a manipulation of the argument rtnUrl can lead to open redirect. The attack may be performed from remote. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-124506",
-      "published": "2026-11-09T01:17:02.810",
-      "description": "A vulnerability has been found in Dianping CAT 3.0.0/3.1.0/4.0-RC1. This vulnerability affects the function Model.getDomain of the file WEB-INF/tags/hourlyReport.tag of the component Report Handler. The manipulation of the argument domain leads to cross site scripting. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-120386",
+      "published": "2026-11-09T08:17:02.200",
+      "description": "Effekseer improperly validates \"effect\" files. When a crafted effect file is loaded to the affected runtime, the host process may be forced to crash.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-124556",
-      "published": "2026-11-09T03:16:37.333",
-      "description": "A security vulnerability has been detected in kekingcn kkFileView up to 5.0.3. This issue affects the function BaseUrlFilter.getBaseUrl of the file server/src/main/java/cn/keking/web/filter/BaseUrlFilter.java. The manipulation of the argument X-Base-Url leads to open redirect. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-124582",
+      "published": "2026-11-09T09:16:59.053",
+      "description": "A vulnerability was identified in WebTorrent up to 2.8.5/3.0.21. Affected by this vulnerability is the function getFileModtimes of the file torrent.js of the component File Path Handler. Such manipulation of the argument file.path leads to path traversal. The attack may be performed from remote. The exploit is publicly available and might be used. The reported GitHub issue was closed with the label \"not planned\".",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-113362",
-      "published": "2026-11-09T04:17:06.133",
-      "description": "Improper Access Control in the program installation folder in NEC Corporation WebSAM Winshare Ver 7.5.0 and earlier (excluding Ver 7.3.3), Ver 7.6.0 and Ver 7.7.0 through 7.7.1 on Windows allows a locally authenticated low-privileged attacker to execute arbitrary code with SYSTEM privileges via a crafted DLL file that is loaded by a SYSTEM-level process.",
+      "id": "CVE-2026-109582",
+      "published": "2026-11-09T08:17:00.860",
+      "description": "Insecure storage of sensitive information issue exists in SS1 provided by DOS Co., Ltd. Sensitive information used by the product may be obtained.",
+      "severity": "MEDIUM",
+      "score": 4
+    },
+    {
+      "id": "CVE-2026-116337",
+      "published": "2026-11-09T09:16:58.450",
+      "description": "Uncontrolled resource consumption vulnerability in the Qt Framework HTTP response handling functionality of the Qt Network module.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-124610",
-      "published": "2026-11-09T04:17:07.190",
-      "description": "Rejected reason: 依 VUL-2026-008441 判定為主",
+      "id": "CVE-2026-123870",
+      "published": "2026-11-09T09:16:58.653",
+      "description": "The otterdog webapp evaluates a format-string built from the incoming GitHub webhook JSON body using Python's eval(). When the GITHUB_WEBHOOK_SECRET configuration value is unset or empty (the code default is None), the HMAC signature check is skipped entirely, allowing an unauthenticated network client to reach the eval() sink with attacker-controlled input and execute arbitrary Python on the webapp host.",
       "severity": "UNKNOWN",
       "score": null
     }
