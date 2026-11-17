@@ -1,143 +1,143 @@
 {
-  "totalResults": 4411,
+  "totalResults": 3082,
   "items": [
     {
-      "id": "CVE-2026-112136",
-      "published": "2026-11-10T12:17:16.540",
-      "description": "A vulnerability has been identified in Mendix Studio Pro 11 (All versions >= V11.15.0 < V11.16.0), Mendix Studio Pro 11.12 (All versions >= V11.12.6 < V11.12.7). The affected products MCP Server does not properly restrict its HTTP listener to the loopback interface, leaving it potentially exposed to remote systems. This could allow an attacker with network access to interact with the MCP Server remotely.",
+      "id": "CVE-2026-102166",
+      "published": "2026-11-10T20:17:21.237",
+      "description": "Arista C-260 and C-250 access points ship with fleet-wide static cryptographic keys used for firmware image verification and SSLP authentication. An attacker who is able to access these keys would be able to create modified firmware that will pass verification checks. This vulnerability is specific to the C-260 and C-250 models; other access point models enforce digitally signed upgrade images with secure boot and are not affected by this issue.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-109097",
-      "published": "2026-11-10T12:17:16.223",
-      "description": "A vulnerability has been identified in ROS# (All versions < V2.3.1). Affected systems do not properly escape text of message definition files. This could allow an attacker that is able to pass a crafted message definition file to the user to inject arbitrary code into the generated program.",
+      "id": "CVE-2026-0169",
+      "published": "2026-11-10T20:17:20.403",
+      "description": "In multiple functions of Android.bp, there is a possible way to bind to a privileged debug overlay service due to test or debugging code. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-95646",
-      "published": "2026-11-10T11:16:43.757",
-      "description": "Zoho Corporation ManageEngine DDI Central versions 6500 and below are vulnerable to a Unicode-based command injection vulnerability in the Cisco IOS DHCP configuration functionality. This vulnerability could allow cluster-scoped operators to inject specially crafted Unicode characters, resulting in the execution of unintended device commands.",
+      "id": "CVE-2026-0175",
+      "published": "2026-11-10T20:17:20.517",
+      "description": "In multiple locations, there is a possible way to bypass key authorization policies during wrapped key import due to a logic error. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-125704",
-      "published": "2026-11-10T11:16:43.580",
-      "description": "A use-after-free flaw was found in GStreamer core buffer value deserialization. When serialized buffer text contains an invalid character, an error path frees a mapped buffer before unmapping it. Applications that parse untrusted caps or structure data can reach a freed-buffer read and may crash. A network-facing GStreamer Data Protocol receiver can process such caps data without user interaction; further impact has not been established.",
+      "id": "CVE-2025-61625",
+      "published": "2026-11-10T20:17:20.203",
+      "description": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiAnalyzer 7.6.0 through 7.6.4, FortiAnalyzer 7.4.0 through 7.4.7, FortiAnalyzer 7.2.0 through 7.2.11, FortiManager 7.6.0 through 7.6.4, FortiManager 7.4.0 through 7.4.7, FortiManager 7.2.0 through 7.2.11, FortiManager Cloud 7.6.0 through 7.6.4, FortiManager Cloud 7.4.1 through 7.4.7, FortiManager Cloud 7.2.1 through 7.2.10 may allow an authenticated attacker whose profile only has read permission to write and delete files from the underlying filesystem via crafted HTTP or HTTPs requests.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-0191",
+      "published": "2026-11-10T20:17:20.730",
+      "description": "In event_set_sub of acropora_event.c, there is a possible Logic error due to a logic error in the code. This could lead to local escalation of privilege with execution privileges needed. User interaction is for exploitation.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-115483",
+      "published": "2026-11-10T20:18:03.537",
+      "description": "The Everest Forms plugin for WordPress is vulnerable to Arbitrary File Read in all versions up to, and including, 3.6.3 via the attach_entry_files() function. This is due to the function attaching any entry field value whose meta key matches /signature_/ to the notification email after only a file_exists() check, without validating or restricting the path. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, such as wp-config.php, which can contain sensitive information. Successful exploitation requires a form whose email notification has the “Attach Files” setting enabled and that contains a field with a meta key matching /signature_/ (for example, a text field labelled “Signature”), with the notification routed to an attacker-supplied email address so the exfiltrated file is delivered to the attacker. Note: The Everest Forms Pro add-on is required to exploit this vulnerability, as it provides the signature field and the email file-attachment functionality (file-email-attachments) that the attack relies on.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-95651",
-      "published": "2026-11-10T11:16:43.903",
-      "description": "Zoho Corporation ManageEngine DDI Central versions 6500 and below are vulnerable to an unauthenticated GSS-TSIG keytab update vulnerability in the Linux Node Agent.",
+      "id": "CVE-2026-120804",
+      "published": "2026-11-10T20:18:50.593",
+      "description": "A flaw exists in the server-side SSPI Kerberos authentication handler on Windows Enterprise builds of MongoDB. When processing certain authentication requests, the server fails to properly release an underlying system resource due to an internal tracking error. An unauthenticated user can trigger this by repeatedly sending authentication requests using the Kerberos mechanism, eventually exhausting available resources and causing all subsequent Kerberos authentication attempts to fail. Server restart is required to recover.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-109830",
-      "published": "2026-11-10T12:17:16.387",
-      "description": "A vulnerability has been identified in meta-iot2050 (All versions >= V01.03.01). Affected devices take parts from a configuration file and execute them unchecked. This could allow an attacker which is able to manipulate the configuration file to make the user execute arbitrary code on the device.",
+      "id": "CVE-2026-120808",
+      "published": "2026-11-10T20:18:51.180",
+      "description": "An issue exists in MongoDB's macOS TLS client implementation where certificate chain-of-trust validation is bypassed for outbound connections to IPv6-addressed peers. When a MongoDB process using the Apple SecureTransport TLS backend connects to an IPv6 target, the trust evaluation result from SecTrustEvaluate is silently discarded, regardless of whether the peer's certificate is trusted. An on-path party could exploit this by presenting a self-signed certificate containing the target's IPv6 address in the Subject Alternative Name to intercept and modify encrypted inter-node or external service traffic. This issue only affects MongoDB processes running on macOS with the Apple SecureTransport TLS provider.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.4
     },
     {
-      "id": "CVE-2026-125672",
-      "published": "2026-11-10T11:16:43.203",
-      "description": "A flaw was found in cockpit-storaged. A Tang keyserver address read from a clevis token in a LUKS header is concatenated into curl's argument vector without a \"--\" separator. An address beginning with \"-\" is parsed by curl as an option instead of a hostname, allowing an attacker who can attach a crafted LUKS/clevis block device (for example, a local unprivileged user with an active console or desktop login session) to have an administratively-privileged Cockpit user unknowingly trigger curl option injection when editing the device's Tang keyserver settings. This can lead to arbitrary file read or write as the Cockpit session user.",
+      "id": "CVE-2026-120803",
+      "published": "2026-11-10T20:18:50.420",
+      "description": "A use-after-free issue exists in MongoDB’s SBE (Slot-Based Execution) implementation of a window function accumulator used by certain $setWindowFields aggregation pipelines. Under specific conditions, the accumulator can retain a dangling pointer to memory that has since been freed. When this stale pointer is later dereferenced during serialization of the carried-forward value, it can result in a heap out-of-bounds read that may expose adjacent heap contents and crash the mongod server. An authenticated user with readWrite privileges on a database can trigger this issue by crafting a specific aggregation pipeline.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-120809",
+      "published": "2026-11-10T20:18:51.323",
+      "description": "A use-after-free read issue exists in MongoDB’s SBE (Slot-Based Execution) engine when processing aggregation pipelines with $unwind on time-series collections. An internal error in state-preservation logic can cause a value still referenced by downstream stages to have its underlying memory freed prematurely. An authenticated user can craft an aggregation pipeline under specific conditions to trigger this condition, potentially reading recycled server heap memory in query results or crashing the server. This issue is only triggerable when a non-default server parameter related to the SBE engine is enabled.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-0178",
+      "published": "2026-11-10T20:17:20.623",
+      "description": "In multiple functions of arm-smmu-v3.c, there is a possible way to bypass direct memory access isolation via stale stream table entries due to a logic error. This could lead to local escalation of privilege with System execution privileges needed. User interaction is not needed for exploitation.",
+      "severity": "MEDIUM",
+      "score": 6.7
+    },
+    {
+      "id": "CVE-2026-120807",
+      "published": "2026-11-10T20:18:51.033",
+      "description": "A flaw in MongoDB’s X.509 cluster-membership authentication guard could allow a holder of a cluster-member certificate to gain elevated internal privileges when a specific deployment configuration is in use. An internal check, which prevents a certificate recognized as a cluster member from also being treated as a regular user, does not correctly distinguish between certain error conditions encountered during user lookup. Under certain timing conditions, this can cause the check to be bypassed, granting the connection full internal system privileges. Triggering this issue requires possession of a valid cluster-member TLS certificate, non-default X.509 cluster authentication configuration, and specific conditions during the user cache lookup process.",
       "severity": "MEDIUM",
       "score": 6.6
     },
     {
-      "id": "CVE-2026-125703",
-      "published": "2026-11-10T11:16:43.417",
-      "description": "A flaw was found in the GStreamer gst-plugins-bad MXF plugin. Insufficient bounds checks when parsing crafted VANC data can cause an out-of-bounds read in the demuxer, while an incorrect buffer size calculation when muxing multiple ancillary packets can cause an out-of-bounds write. Processing affected content may crash the application, resulting in a denial of service.",
+      "id": "CVE-2026-104060",
+      "published": "2026-11-10T20:17:23.897",
+      "description": "Worklenz before 3.3.0 contains an SQL injection vulnerability in the reporting members endpoints that allows authenticated attackers to read arbitrary database contents by injecting SQL through the projects and status parameters. Attackers can send crafted values to POST /api/v1/reporting/members/all or GET /api/v1/reporting/members/export, which are interpolated unparameterized into IN clauses in getTeamMemberInsightData, and use time-based blind techniques to extract data across tenants, including user password hashes.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-121191",
-      "published": "2026-11-10T12:17:17.240",
-      "description": "Missing Authorization vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute eta-remote allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects eta-remote: from 0.0.2 before 0.0.3.",
+      "id": "CVE-2026-120810",
+      "published": "2026-11-10T20:18:51.473",
+      "description": "An issue in MongoDB server’s aggregation framework allows an authenticated user with read privileges to cause a denial of service by sending specially crafted aggregate commands using an internal expression. Despite its internal naming, this expression is registered as accessible to any authenticated client. By supplying crafted input parameters across multiple concurrent connections, each evaluation triggers unbounded memory allocations with no per-expression memory limits enforced. This can exhaust available server memory and cause the mongod process to be terminated by the operating system’s out-of-memory killer.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-112137",
-      "published": "2026-11-10T12:17:16.697",
-      "description": "A vulnerability has been identified in Mendix Studio Pro 11 (All versions >= V11.15.0 < V11.16.0), Mendix Studio Pro 11.12 (All versions >= V11.12.6 < V11.12.7). The affected products MCP Server does not properly validate Content-Type and Origin headers on incoming HTTP requests, leaving it vulnerable to Cross-Site Request Forgery (CSRF). This could allow a malicious web page to trick a user's browser into sending unauthorized requests and executing unintended actions on the local MCP Server.",
+      "id": "CVE-2026-120806",
+      "published": "2026-11-10T20:18:50.880",
+      "description": "A flaw in MongoDB Server's user management commands may lead to incomplete cleanup of role authorization data when roles are dropped from a database. Due to incorrect internal query predicates, the drop operation removes role definitions but fails to remove stale references in user and role documents. If a role with the same name is subsequently recreated with different privileges, previously associated users may silently inherit the new role's privileges without an explicit grant or corresponding audit event. Exploitation requires authenticated access with database administrative privileges on the target database.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-119446",
-      "published": "2026-11-10T11:16:40.290",
-      "description": "Session Fixation vulnerability in the CLI login flow in nerves-hub nerves_hub_web allows an unauthenticated attacker to obtain an API token for another user's account via a crafted login link. Starting a CLI login with POST /api/auth/cli_session needs no authentication and returns a polling token, a confirmation URL that carries that token, and a confirmation code. When a signed-in user opens that URL and clicks Confirm, NervesHub.Accounts.verify_cli_session_token/2 creates an API token for the user's account and stores it on the login, and the next poll of GET /api/auth/cli_session/<token> returns it to whoever started the login.\n\nThe confirmation code is only displayed and is never compared with anything, so it cannot show that the person confirming is the one who started the login. The confirm form carries a CSRF token and the page cannot be framed, so the attacker has to persuade the user to open the link and click the button themselves.\n\nThis issue affects nerves_hub: from 2.5.0 before 2.5.3.",
+      "id": "CVE-2026-120805",
+      "published": "2026-11-10T20:18:50.740",
+      "description": "In MongoDB Server, an authenticated user with insert privileges on a collection could craft a command with specially constructed encryption-related parameters to redirect internal Queryable Encryption metadata writes to metadata belonging to other encrypted collections within the same database. The server’s authorization layer validated only the user-facing target collection namespace, while subsequent internal writes derived from client-supplied parameters were performed with elevated internal privileges, bypassing the original caller’s permission scope. This could allow unauthorized writes into another collection’s Queryable Encryption metadata, potentially corrupting encrypted index state and compaction operations.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-0195",
+      "published": "2026-11-10T20:17:20.940",
+      "description": "In fill of dma.rs, there is a possible way to trigger an out of bounds stack read during direct memory access fills due to a logic error. This could lead to local information disclosure with no additional execution privileges needed. User interaction is not needed for exploitation.",
+      "severity": "MEDIUM",
+      "score": 4
+    },
+    {
+      "id": "CVE-2026-0193",
+      "published": "2026-11-10T20:17:20.840",
+      "description": "In handle_rx_msg of tipc_virtio_dev, there is a possible Double Fetch TOCTOU due to Double Fetch. This could lead to local information disclosure with execution privileges needed. User interaction is for exploitation.",
+      "severity": "LOW",
+      "score": 3.3
+    },
+    {
+      "id": "CVE-2026-115538",
+      "published": "2026-11-10T20:18:03.747",
+      "description": "Moby's overlay network driver does not restore the iptables rules for encrypted overlay networks after firewalld deletes them. Unlike other Docker Engine networking components, the overlay driver does not handle firewalld reload or start signals over D-Bus. The missing rules cause outgoing VXLAN datagrams to bypass IPsec encryption and remove the protection against incoming cleartext VXLAN traffic. The condition is not logged by dockerd and persists until the encrypted network's last local endpoint is removed and another is added, or dockerd is restarted. Each further firewalld event repeats the condition.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-120286",
-      "published": "2026-11-10T11:16:41.647",
-      "description": "Missing Authorization vulnerability in the device and deployment group pages in nerves-hub nerves_hub_web allows an authenticated organization member with the view role to change devices and deployment groups via LiveView events reserved for the manage role. The event handlers that add and delete device certificates, add and remove tags, overwrite or clear a device's manual location, remove a device from its deployment group, move matched devices into a deployment group or remove unmatched ones, import devices from a CSV, and start, retry or delete firmware delta builds carry out the change without calling authorized!/2, and the pages render the controls to every member.\n\nA view member can add a certificate that lets whoever holds its key connect as the device, delete a certificate so the device can no longer authenticate with it, and change which deployment group, and so which firmware release, a device receives. Everything stays within the organizations the member belongs to.\n\nThis issue affects nerves_hub: from 1.0.0 before 2.5.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120295",
-      "published": "2026-11-10T11:16:41.960",
-      "description": "Incorrect Authorization vulnerability in the devices page bulk move in nerves-hub nerves_hub_web allows an authenticated user with the manage role in one organization and only the view role in another to move devices into the second organization's product via the \"Move device(s) to product\" action. The target-product event in NervesHubWeb.Live.Devices.Index looks the product up with NervesHub.Products.get_by_id/2, which checks that the user is a member of the product's organization at any role, and move-devices-product then changes each selected device's organization and product. The device API's move requires manage in the target organization, and an earlier fix added the check on the organization the devices leave but not on the one they enter.\n\nA moved device keeps its key and certificate, joins the target organization's matching deployment groups, and is sent their firmware with a download URL, which the view role cannot otherwise obtain. The user cannot change or control devices that already belong to the other organization.\n\nThis issue affects nerves_hub: from 1.0.0 before 2.5.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120730",
-      "published": "2026-11-10T11:16:42.230",
-      "description": "Improperly Controlled Modification of Dynamically-Determined Object Attributes vulnerability in the device API, device forms, signing key and product forms and JITP settings in nerves-hub nerves_hub_web allows an authenticated user who manages devices in any organization to write into other organizations via submitted org_id, product_id and deployment_id fields. The device API create and update actions and the dashboard device forms pass the request parameters to NervesHub.Devices.Device.changeset/2, which casts the organization, product, deployment group and update state as given. The signing key and product forms merge the session's organization into the submitted parameters so that a submitted org_id wins, and the JITP changeset accepts any product_id. Each request requires the manage role only in the user's own organization, and any account can create one.\n\nA device placed on another organization's deployment group, or moved into its product, is sent that organization's firmware with a download URL. The user cannot change or control devices that already belong to the other organization, and cannot upload firmware to it.\n\nThis issue affects nerves_hub: from 1.0.0 before 2.5.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120997",
-      "published": "2026-11-10T11:16:42.550",
-      "description": "Improper Session Invalidation vulnerability in the dashboard pages, device console and local shell channels in nerves-hub nerves_hub_web allows an organization member who is removed or given a lower role to keep acting at their old role through anything they had open at the time. The dashboard reads the member's role once when a page mounts, in the assign_org_to_scope hook of NervesHubWeb.Auth, and the console, local shell and device event stream channels check membership once at join. Removing a member or changing their role tells none of them, so open pages keep carrying out actions and open consoles keep running commands on the device until the page reloads or the socket disconnects.\n\nThe dashboard also opens consoles over NervesHubWeb.UserSocket with a token that holds only the user's id, is accepted for 24 hours, and is not revoked by signing out, which disconnects only the session's LiveViews. Whoever holds a token taken from a page can open consoles as that user, within the user's current membership, until it expires.\n\nThis issue affects nerves_hub: from 1.0.0 before 2.5.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120999",
-      "published": "2026-11-10T11:16:42.800",
-      "description": "Improper Authentication vulnerability in Google sign-in and email confirmation in nerves-hub nerves_hub_web allows an attacker who registers another person's email address to share that person's account once they sign in. NervesHub.Accounts.update_or_create_user_from_ueberauth/1 signs a Google user in to any account carrying the same email that is not yet linked to a Google account, links it and marks the email confirmed, without the account's owner ever having proved they own the address. NervesHubWeb.SessionController.confirm/2 likewise signs in whoever follows a confirmation link. An attacker registers the address from the sign-up form, changes their own account's email to it, or registers it as an organization admin from an invite link, and keeps the password; when the address's owner signs in with Google or follows the confirmation link, they land in that account.\n\nThe Google path also creates accounts with registrations closed and never checks Google's email_verified claim, and the API's password sign-in in NervesHubWeb.API.UserController issues tokens to accounts whose email was never confirmed. The attacker gains only what the victim is granted afterwards, and nothing on accounts whose owners never use either path.\n\nThis issue affects nerves_hub: from 2.3.0 before 2.5.3.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-101275",
-      "published": "2026-11-10T12:17:16.073",
-      "description": "Our payment integration with Adyen did not properly validate payment status responses. An attacker could use a successful payment status response from one payment and supply it to the system for a different payment, gaining access to multiple valid tickets with only one payment.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120326",
-      "published": "2026-11-10T12:17:16.837",
-      "description": "DownloadEvent.setFileName(String) in Vaadin Flow writes the download file name into the Content-Disposition header without escaping it. When the name is pure US-ASCII the header is built as attachment; filename=\"<name>\" with the name inserted verbatim, so a double quote in the name ends the quoted string early and the rest of the name is read by the browser as further header parameters. The inline(String) variant, present from Vaadin 25.0, builds the name the same way. An application that passes an untrusted file name to either method, for example when re-serving a file under the name it was uploaded with, lets an attacker add a filename* parameter. Browsers prefer filename* over filename, so the file is saved under a name and extension of the attacker's choosing, which defeats any file name or extension restriction the application enforces. The attacker cannot change the attachment or inline disposition itself and cannot split the header.\n\nUsers of affected versions should apply the following mitigation or upgrade. Releases that have fixed this issue include:\n\nProduct version\nVaadin 24.8.0 - 24.8.17\nVaadin 24.9.0 - 24.9.25\nVaadin 24.10.0 - 24.10.13\nVaadin 25.0.0 - 25.0.13\nVaadin 25.1.0 - 25.1.13\nVaadin 25.2.0 - 25.2.12\nVaadin 25.3.0 - 25.3.4\n\nMitigation\nNo fixed release on this line, upgrade to 24.9.26 or newer\nUpgrade to 24.9.26\nUpgrade to 24.10.14\nNo fixed release on this line, upgrade to 25.2.13 or newer\nNo fixed release on this line, upgrade to 25.2.13 or newer\nUpgrade to 25.2.13\nUpgrade to 25.3.5\n\nVaadin versions below 24.8 are not affected: the DownloadEvent API does not exist in them.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120350",
-      "published": "2026-11-10T12:17:17.050",
-      "description": "The Vaadin Rich Text Editor exports a video embed without escaping its value, and then parses the resulting HTML into live DOM. A value crafted to break out of the href attribute therefore runs script in the viewer's browser. An attacker who can edit shared content pastes a video embed carrying the payload, the delta is stored, and the script runs when any user opens the page, including in read only mode.\n\nOnly content persisted through asDelta() is affected. The default HTML value, set and read through setValue and getValue, is sanitized on the server with a safelist that has no iframe, so the embed does not survive that path. Vaadin 24 and older are not affected: they build the HTML value from the editor's own innerHTML, which the browser escapes.\n\nUsers of affected versions should apply the following mitigation or upgrade. Releases that have fixed this issue include:\n\nProduct version\nVaadin 25.0.0 - 25.0.13\nVaadin 25.1.0 - 25.1.13\nVaadin 25.2.0 - 25.2.12\nVaadin 25.3.0 - 25.3.4\n\nMitigation\nNo fixed release on this line, upgrade to 25.2.13 or newer\nNo fixed release on this line, upgrade to 25.2.13 or newer\nUpgrade to 25.2.13\nUpgrade to 25.3.5",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-123717",
-      "published": "2026-11-10T12:17:17.380",
-      "description": "OS command injection in the pass and bitwarden credential providers in Eclipse Foundation Eclipse Otterdog through 1.7.1 allows a user able to modify an organization configuration to execute arbitrary commands with the privileges of the operator running otterdog, including access to their credential vault, via a crafted secret reference (pass:<path> or bitwarden:<item>@<field>) or credential identifier that is resolved when otterdog apply is run.",
+      "id": "CVE-2026-115539",
+      "published": "2026-11-10T20:18:03.897",
+      "description": "SwarmKit's Cluster-API proxy can overwrite a forwarded client's TLS identity with an intermediary manager's identity. WithMetadataForwardTLSInfo replaces outgoing metadata with a copy of the incoming metadata, discarding the redirect guard's changes when built with grpc-go 1.39 or later. During a short window after a leader change, two proxy hops through managers with inconsistent views of the leader can allow an attacker possessing a valid worker node TLS certificate and private key to obtain a manager node certificate for the attacker's own key, escalating privileges from worker to manager. Applications built with an affected SwarmKit version and grpc-go 1.39 or later are impacted.",
       "severity": "UNKNOWN",
       "score": null
     }
