@@ -1,143 +1,143 @@
 {
-  "totalResults": 4617,
+  "totalResults": 4364,
   "items": [
     {
-      "id": "CVE-2026-119756",
-      "published": "2026-11-09T18:17:22.320",
-      "description": "Tasmota through 16.0.0, fixed in commit e97e1e4, contains a heap out-of-bounds write vulnerability in SendReceiveDeviceGroupMessage() that allows unauthenticated attackers on the local network to corrupt heap memory by sending crafted Device Groups messages over UDP port 4447 that cause the log_remaining counter to go negative and writes to exceed the fixed 512-byte buffer. Attackers can exploit this flaw to crash the device or potentially achieve native code execution on ESP8266 and ESP32 platforms that lack ASLR and heap cookies.",
+      "id": "CVE-2026-115646",
+      "published": "2026-11-10T05:17:48.627",
+      "description": "Partial String Comparison Vulnerability in HiRDB.\n\n\nThis issue affects HiRDB Server Version 10: from 10-00 before 10-12-01; HiRDB Server Version 9: from 09-50-06 through 09-66-22; HiRDB Server with Additional Function Version 9: from 09-50-/F through 09-66/V; HiRDB Server Version 9(32): from 09-50-06 through 09-66-22; HiRDB Server with Additional Function Version 9(32): from 09-50-/F through 09-66-/V.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-123270",
-      "published": "2026-11-09T18:17:25.207",
-      "description": "Redpanda Connect versions 4.39 to 4.110 contain a missing authentication vulnerability that enables unauthenticated remote code execution (RCE). In streams mode, the management HTTP API is exposed on `0.0.0.0:4195`, but authentication is disabled by default and there is no authentication gate protecting the stream CRUD routes. An unauthenticated attacker with network access to TCP/4195 can `POST` a malicious pipeline definition to `/streams/{id}` that includes code-executing processors such as `command`, `subprocess`, `ffi`, or unsafe `sql_raw`, thereby achieving arbitrary RCE on the host with the permissions of the Redpanda Connect service account. Because pipelines can also return command output in-band via HTTP, this vulnerability enables full host compromise, credential theft, and data exfiltration with no user interaction or credentials required.  \r\n\r\nStarting with v4.111, the API endpoint was reconfigured as opt-in, so this and later versions are no longer vulnerable by default. However, RCE remains achievable on v4.111 and later if the management API is manually enabled via the `--bind-http` flag.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-19706",
-      "published": "2026-11-09T18:17:27.583",
-      "description": "During ABI bootstrap, the bootstrap node's approve-csr.service approves and signs every CSR without identity validation.\n\nAn attacker on the install network can retrieve the unauthenticated Ignition file (ports 22623/22624), extract a limited kubeconfig, submit a CSR for CN=system:admin, receive the signed certificate, and gain full cluster-admin access.\n\nExploitable only during the narrow bootstrap window.",
+      "id": "CVE-2026-125612",
+      "published": "2026-11-10T03:16:42.547",
+      "description": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Deltaww DIAEnergie allows SQL Injection.\n\nThis issue affects DIAEnergie: before 1.11.01.032.",
       "severity": "HIGH",
-      "score": 8.3
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-119755",
-      "published": "2026-11-09T18:17:22.163",
-      "description": "Tasmota through 16.0.0, fixed in commit 1cb7ebc, contains a cross-site request forgery vulnerability that allows unauthenticated attackers to bypass Referer-based CSRF protection in HttpCheckPriviledgedAccess() by crafting a Referer header where the device hostname or IP appears as a substring immediately after http://.evil.com/. Attackers can lure an administrator on the device's network to a malicious page to issue arbitrary console commands and reconfigure Wi-Fi, MQTT, settings, or firmware on devices lacking a WebPassword.",
+      "id": "CVE-2026-86579",
+      "published": "2026-11-10T05:18:12.020",
+      "description": "Binary Planting Vulnerability in Hitachi Dynamic Link Manager for Windows.\n\nThis issue affects Hitachi Dynamic Link Manager for Windows: from 5.9.5-00 before 9.0.4-01.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-123797",
-      "published": "2026-11-09T18:17:26.890",
-      "description": "SuperTokens Core is an open source authentication server. Prior to 11.3.6, 11.4.6, and 12.0.8, app-specific management requests using an unknown tenant path and an older supported cdi-version can bypass API-key and public-tenant enforcement. In src/main/java/io/supertokens/webserver/WebserverAPI.java, checkIPAccess and assertThatAPIKeyCheckPasses suppress TenantOrAppNotFoundException, while the later app-specific handler resolves app/public storage and the public-tenant guard applies only to CDI versions 5.0 and later. An unauthenticated caller able to reach the Core endpoint can therefore use PUT /ghosttenant/recipe/role and GET /ghosttenant/recipe/roles to create and enumerate application roles without a valid API key. This issue is fixed in versions 11.3.6, 11.4.6, and 12.0.8.",
+      "id": "CVE-2026-91761",
+      "published": "2026-11-10T05:18:15.807",
+      "description": "UNIX Symbolic Link (Symlink) Following Vulnerability in Hitachi Dynamic Link Manager for Linux.\n\nThis issue affects Hitachi Dynamic Link Manager for Linux: from 8.6.2.-00 before 9.0.5-00.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-112314",
-      "published": "2026-11-09T19:16:39.867",
-      "description": "clnttcp_call() in lib/rpc/clnt_tcp.c in MIT Kerberos 5 (aka krb5) does not free the RPC reply verifier between retries, which allows remote attackers to cause a denial of service (memory leak in GSS-RPC client programs) by injecting RPC replies with mismatched XIDs or by triggering authentication retries.",
+      "id": "CVE-2026-91763",
+      "published": "2026-11-10T05:18:16.210",
+      "description": "UNIX Symbolic Link (Symlink) Following Vulnerability in Hitachi Dynamic Link Manager for Linux.\nThis issue affects Hitachi Dynamic Link Manager for Linux: from 8.6.2.-00 before 9.0.5-00.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-123367",
-      "published": "2026-11-09T18:17:25.520",
-      "description": "Thor Vector Graphics (ThorVG) is a production-ready vector graphics engine. Prior to 1.1.2, the bundled jpgd JPEG decoder accepts duplicate component selectors in an SOS scan header, causing each duplicate to increase m_blocks_per_mcu without checking the buffers sized from the frame components. A crafted grayscale JPEG can repeat its component in the SOS header, causing decode paths in src/loaders/jpg/tvgJpgd.cpp to write beyond heap buffers sized for one component. The issue is reachable through direct JPEG decoding and through JPEG images embedded in Lottie content, and confirmed impact is memory corruption followed by a process crash. This issue is fixed in version 1.1.2.",
+      "id": "CVE-2026-91754",
+      "published": "2026-11-10T05:18:12.973",
+      "description": "Stack-based Buffer Overflow Vulnerability in Hitachi Dynamic Link Manager for VMware.\n\nThis issue affects Hitachi Dynamic Link Manager for VMware: from 8.7.3-00 before 9.0.4-01.",
       "severity": "HIGH",
-      "score": 7.4
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-84503",
-      "published": "2026-11-09T18:17:34.233",
-      "description": "A flaw was found in ansible-core's ansible.builtin.git module. The module\ninvokes git (ls-remote, clone, fetch) with the repository URL as a positional\nargument and without a \"--\" separator, so a repository URL that begins with a\ndash is interpreted by git as a command-line option. A caller that passes an\nattacker-controlled repository URL to the module can trigger argument\ninjection (for example --upload-pack/--exec), resulting in arbitrary command\nexecution on the host running the module.",
-      "severity": "MEDIUM",
-      "score": 6.7
+      "id": "CVE-2026-91755",
+      "published": "2026-11-10T05:18:13.297",
+      "description": "Integer Overflow Vulnerability in Hitachi Dynamic Link Manager for VMware.\n\nThis issue affects Hitachi Dynamic Link Manager for VMware: from 8.7.3-00 before 9.0.4-01.",
+      "severity": "HIGH",
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-112316",
-      "published": "2026-11-09T19:16:40.243",
-      "description": "xdr_krb5_tl_data() in lib/kadm5/kadm_rpc_xdr.c in MIT Kerberos 5 (aka krb5) does not free partially decoded data on failure, which allows remote authenticated users to cause a denial of service (memory leak in kadmind) via crafted RPC requests that trigger a decode failure.",
-      "severity": "MEDIUM",
-      "score": 6.5
+      "id": "CVE-2026-91756",
+      "published": "2026-11-10T05:18:13.950",
+      "description": "OS Command Injection Vulnerability in Hitachi Dynamic Link Manager for VMware.\n\nThis issue affects Hitachi Dynamic Link Manager for VMware: from 8.7.3-00 before 9.0.4-01.",
+      "severity": "HIGH",
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-60117",
-      "published": "2026-11-09T18:17:29.517",
-      "description": "The Android implementation of the Flutter/Dart receive_sharing_intent package, versions 1.4.1 through 1.9.0, contains a path traversal vulnerability in FileDirectory.getDataColumn that allows a malicious co-resident application to write files outside the intended cache directory by supplying a crafted _display_name value from an untrusted ContentProvider. Attackers can use a path-shaped display name ../databases/proof.txt combined with a controlled content stream to write to arbitrary locations within the receiving application's private sandbox under its UID, achieving file overwrite without user interaction.",
-      "severity": "MEDIUM",
-      "score": 6.2
+      "id": "CVE-2026-91762",
+      "published": "2026-11-10T05:18:16.053",
+      "description": "UNIX Symbolic Link (Symlink) Following Vulnerability in Hitachi Dynamic Link Manager for Linux.\n\n\nThis issue affects Hitachi Dynamic Link Manager for Linux: from 8.5.3.-00 before 9.0.5-00.",
+      "severity": "HIGH",
+      "score": 7.9
     },
     {
-      "id": "CVE-2026-112315",
-      "published": "2026-11-09T19:16:40.077",
-      "description": "The RPCSEC_GSS authentication routines in lib/rpc/authgss_prot.c in MIT Kerberos 5 (aka krb5) 1.4 and later do not free partially decoded buffers on failure, which allows remote attackers to cause a denial of service (memory leak in kadmind) via crafted RPCSEC_GSS messages.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-91758",
+      "published": "2026-11-10T05:18:14.520",
+      "description": "Out-of-bounds Read and Write Vulnerability in Hitachi Dynamic Link Manager for Linux.\n\nThis issue affects Hitachi Dynamic Link Manager for Linux: from 7.5.0-00 before 9.0.5-00.",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-112317",
-      "published": "2026-11-09T19:16:40.407",
-      "description": "krb5_ktkdb_get_entry() in lib/kdb/keytab.c in MIT Kerberos 5 (aka krb5) 1.2.8 and later does not free decrypted key material when a post-decryption check fails, which allows remote attackers to cause a denial of service (memory leak in the KDC or kadmind) via requests that repeatedly trigger key decryption failures.",
-      "severity": "MEDIUM",
-      "score": 5.3
+      "id": "CVE-2026-91759",
+      "published": "2026-11-10T05:18:15.177",
+      "description": "Out-of-Bounds Write Vulnerability in Hitachi Dynamic Link Manager for Linux.\n\n\nThis issue affects Hitachi Dynamic Link Manager for Linux: from 7.5.0-00 before 9.0.5-00.",
+      "severity": "HIGH",
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-125063",
-      "published": "2026-11-09T18:17:27.053",
-      "description": "A flaw was found in the rrule validation of schedules in automation controller. Several non-anchored regular expressions with lazy wildcard prefixes are applied to the user-supplied rrule value; when the expected DTSTART/RRULE tokens are absent, validation time grows quadratically with the length of the value. An authenticated user can submit a large token-free rrule through the REST API, including the schedule preview endpoint, which requires no resource-level permissions; validation runs synchronously in the API web worker, so a single such request occupies a worker for an extended time and repeated requests can exhaust the web worker pool, denying access to the API and web UI while the attack is sustained. The impact is limited to availability.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-112125",
+      "published": "2026-11-10T05:17:42.290",
+      "description": "Incorrect Permission Assignment for Critical Resource Vulnerability in HA Monitor.\n\nThis issue affects HA Monitor: from 01-00 before 01-83-01.",
+      "severity": "HIGH",
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-123368",
-      "published": "2026-11-09T18:17:25.683",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.22.0 until 0.31.0, compose-lint follows a sibling .env symbolic link outside the project without applying its normal containment check. From 0.28.0, the same gap also affects an include project_directory link outside the project. A pull request can reference a variable from the linked file, causing substitution to place runner file or process-environment data into finding messages written to logs, JSON, SARIF artifacts, and Code Scanning alerts. Reading /proc/self/environ can expose the remainder of the linter process environment because NUL-separated entries are treated as one value, although disclosure requires a workflow that processes untrusted changes with useful environment data and GitHub normally withholds secrets from fork pull requests. The pass or fail result is not changed. This issue is fixed in version 0.31.0.",
+      "id": "CVE-2026-86578",
+      "published": "2026-11-10T05:18:11.813",
+      "description": "Link Following Vulnerability in Hitachi Dynamic Link Manager for Windows.\n\nThis issue affects Hitachi Dynamic Link Manager for Windows: from 5.0.0-03 before 9.0.4-01.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-91757",
+      "published": "2026-11-10T05:18:14.143",
+      "description": "OS Command Injection Vulnerability in Hitachi Dynamic Link Manager for VMware.\n\nThis issue affects Hitachi Dynamic Link Manager for VMware: from 7.3.0-00 before 9.0.4-01.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-91760",
+      "published": "2026-11-10T05:18:15.430",
+      "description": "Heap-based Buffer Overflow Vulnerability in Hitachi Dynamic Link Manager for Linux.\n\n\nThis issue affects Hitachi Dynamic Link Manager for Linux: from 7.5.0-00 before 9.0.5-00.",
+      "severity": "HIGH",
+      "score": 7
+    },
+    {
+      "id": "CVE-2026-88707",
+      "published": "2026-11-10T02:16:45.513",
+      "description": "An\nout-of-bounds write in certain ASUS Router firmware\nallows an unauthenticated nearby user to send an HTTP request containing\nparameters that exceed the buffer length, potentially overwriting other memory\nregions or causing the system to crash.\nRefer to the ' Security Update for ASUS Router Firmware ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-123369",
-      "published": "2026-11-09T18:17:25.843",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. Prior to 0.31.0, compose-lint prints attacker-controlled service names, environment keys, file lines, and other Compose text without neutralizing GitHub Actions and Azure Pipelines workflow-command openers. When a workflow processes a pull request, legacy ##[ commands or a line-leading double-colon command can create false annotations, hide log regions, mask selected strings, or invoke other commands recognized by the runner. The affected text report paths do not alter the compose-lint exit code or pass or fail result, but they can misrepresent the CI output presented to reviewers. This issue is fixed in version 0.31.0.",
+      "id": "CVE-2026-88708",
+      "published": "2026-11-10T02:16:45.680",
+      "description": "An\noff-by-one error in certain ASUS Router firmware\nallows\nan unauthenticated nearby user to send a packet with a specific header\nlength, potentially overwriting memory and causing the\naffected service to crash.\nRefer to the ' Security Update for ASUS Router Firmware ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-123370",
-      "published": "2026-11-09T18:17:25.997",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.9.0 until 0.18.0, compose-lint's YAML parser recognizes lone carriage returns and Unicode line separators U+0085, U+2028, and U+2029 as line breaks while fix position conversion counts only newline characters. A pull request can place one of these separators in a quoted value so fix --apply shifts each later edit and deletes the line after the selected target, including an unselected network or other security setting. The resulting Compose file can remain valid, post-edit checks can pass, and the command can report a successful fix even though the dry-run diff was the only place showing the extra deletion. This issue is fixed in version 0.18.0.",
+      "id": "CVE-2026-88709",
+      "published": "2026-11-10T02:16:45.827",
+      "description": "Improper\nneutralization of special elements used in an OS command in certain\nASUS Router firmware allows an user with physical access\nto\ninsert a USB device containing a specially crafted directory name, potentially\nexecuting arbitrary commands with root privileges.\nRefer to the ' Security Update for ASUS Router Firmware ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-123371",
-      "published": "2026-11-09T18:17:26.160",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.2.0 until 0.32.0, compose-lint automatically follows a .compose-lint.yml policy-file symbolic link outside the project and includes part of the target line when that external file fails YAML parsing. A pull request can point the policy file at a runner credential file, causing about 30 characters around an attacker-uncontrolled parse position to appear in standard error, JSON errors, and SARIF tool execution notifications uploaded by the GitHub Action. The run exits with an error and the attacker cannot select the exact disclosed line, but public logs or Code Scanning output can reveal part of the target. This issue is fixed in version 0.32.0.",
+      "id": "CVE-2026-88710",
+      "published": "2026-11-10T02:16:45.963",
+      "description": "Improper\nneutralization of special elements used in an OS command in certain\nASUS Router firmware\nallows an unauthenticated nearby user to trigger a chain of\nactions—unauthenticated queries, identifier guessing, credential overwriting,\nand command injection—resulting in the execution of arbitrary commands with\nroot privileges.\nRefer to the ' Security Update for ASUS Router Firmware ' section on the ASUS Security Advisory for more information.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-123372",
-      "published": "2026-11-09T18:17:26.320",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.22.0 until 0.32.0, compose-lint substitutes values from a sibling .env file into image fields and quotes the resolved value in CL-0004 and CL-0019 finding messages and fix text. In a workflow that writes secrets into that file and then lints untrusted pull-request content, an attacker can reference a secret variable so its whole value reaches the job log, JSON output, SARIF artifacts, and Code Scanning alerts. Fork pull requests normally lack secrets, so exploitation requires a secret-bearing workflow such as pull_request_target, same-repository branches, or a retained .env on a self-hosted runner, and the pass or fail result is unchanged. This issue is fixed in version 0.32.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-123373",
-      "published": "2026-11-09T18:17:26.467",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.2.0 until 0.25.0, compose-lint follows a project-controlled symbolic link used as the Compose file outside the project. The same issue affects compose.override.yml and a COMPOSE_FILE entry from 0.22.0, and an env_file target from 0.23.0. If an external Compose-related target fails YAML parsing, the error quotes an attacker-uncontrolled line into standard error, JSON errors, and SARIF notifications, while an external env_file can expose credential-like key names through CL-0020 and CL-0021 findings. The attacker selects the target path but not the exact parser-failure line, values from env_file are not printed, and the pass or fail result is unchanged. This issue is fixed in version 0.25.0.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-123796",
-      "published": "2026-11-09T18:17:26.733",
-      "description": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.32.0 until 0.33.0, compose-lint's incomplete remediation for .env secret disclosure checks the 20,000-finding limit before replacing resolved values with their variable references. A pull request can combine a secret-referencing image field with aliased content that produces more than 20,000 findings, causing the early-stop path to emit already graded findings with the resolved secret value in text, JSON, SARIF, and Code Scanning output. Exploitation requires a workflow that writes secrets into the sibling .env and lints untrusted changes, and the run exits 2 unless --allow-partial-coverage is used. This issue is fixed in version 0.33.0.",
+      "id": "CVE-2026-115640",
+      "published": "2026-11-10T05:17:47.300",
+      "description": "LimeSurvey Community Edition 7.7.0 contains a stored cross-site scripting vulnerability in the Central Participants Database blocklist control. An authenticated user with only global participantpanel:import permission can import a CSV participant_id containing HTML. The import flow persists that value without model validation. When a CPDB editor opens the participant list, LimeSurvey derives ButtonGroupWidget id and name attributes from participant_id and inserts them without HTML encoding, causing attacker-controlled markup to execute in the victim's authenticated LimeSurvey origin. Exploitation can access session-exposed data and issue same-origin requests with the victim's effective permissions.",
       "severity": "UNKNOWN",
       "score": null
     }
