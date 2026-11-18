@@ -1,143 +1,143 @@
 {
-  "totalResults": 3082,
+  "totalResults": 3620,
   "items": [
     {
-      "id": "CVE-2026-102166",
-      "published": "2026-11-10T20:17:21.237",
-      "description": "Arista C-260 and C-250 access points ship with fleet-wide static cryptographic keys used for firmware image verification and SSLP authentication. An attacker who is able to access these keys would be able to create modified firmware that will pass verification checks. This vulnerability is specific to the C-260 and C-250 models; other access point models enforce digitally signed upgrade images with secure boot and are not affected by this issue.",
-      "severity": "HIGH",
-      "score": 8.8
-    },
-    {
-      "id": "CVE-2026-0169",
-      "published": "2026-11-10T20:17:20.403",
-      "description": "In multiple functions of Android.bp, there is a possible way to bind to a privileged debug overlay service due to test or debugging code. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.",
-      "severity": "HIGH",
-      "score": 8.4
-    },
-    {
-      "id": "CVE-2026-0175",
-      "published": "2026-11-10T20:17:20.517",
-      "description": "In multiple locations, there is a possible way to bypass key authorization policies during wrapped key import due to a logic error. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.",
-      "severity": "HIGH",
-      "score": 8.4
-    },
-    {
-      "id": "CVE-2025-61625",
-      "published": "2026-11-10T20:17:20.203",
-      "description": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiAnalyzer 7.6.0 through 7.6.4, FortiAnalyzer 7.4.0 through 7.4.7, FortiAnalyzer 7.2.0 through 7.2.11, FortiManager 7.6.0 through 7.6.4, FortiManager 7.4.0 through 7.4.7, FortiManager 7.2.0 through 7.2.11, FortiManager Cloud 7.6.0 through 7.6.4, FortiManager Cloud 7.4.1 through 7.4.7, FortiManager Cloud 7.2.1 through 7.2.10 may allow an authenticated attacker whose profile only has read permission to write and delete files from the underlying filesystem via crafted HTTP or HTTPs requests.",
+      "id": "CVE-2026-63660",
+      "published": "2026-11-11T03:16:52.367",
+      "description": "node-fontnik is a library that delivers a range of glyphs rendered as SDFs (signed distance fields) in a protocol buffer. Prior to version 0.7.7, a crafted font could trigger a heap out-of-bounds write in RenderSDF (include/mapbox/glyph_foundry_impl.hpp). RenderSDF computed the SDF bitmap allocation size as buffered_width * buffered_height in 32-bit unsigned int. Glyph dimensions are derived from the uploaded font's outline bounding box with no upper bound, so a glyph large enough to make that product exceed 2³² wrapped to a small value. The buffer was then under-allocated while the render loop still wrote one byte per pixel, corrupting the heap (CWE-190 → CWE-787) and crashing the process. A 680-byte font is enough to drive FreeType to a 65536×65536 buffered glyph, wrapping the size to 0. This issue has been patched in version 0.7.7.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-0191",
-      "published": "2026-11-10T20:17:20.730",
-      "description": "In event_set_sub of acropora_event.c, there is a possible Logic error due to a logic error in the code. This could lead to local escalation of privilege with execution privileges needed. User interaction is for exploitation.",
+      "id": "CVE-2026-126570",
+      "published": "2026-11-11T03:16:51.627",
+      "description": "Padloc 4.0.0 before 4.3.1 contains a prototype pollution vulnerability that allows SCIM token holders to modify Object.prototype by sending crafted SCIM PATCH paths to ScimServer._handleScimUsersPatch(). Attackers can supply paths like __proto__.x or constructor.prototype.x passed to setPath() to pollute the shared server process, disrupting requests for all other organizations.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 7.6
     },
     {
-      "id": "CVE-2026-115483",
-      "published": "2026-11-10T20:18:03.537",
-      "description": "The Everest Forms plugin for WordPress is vulnerable to Arbitrary File Read in all versions up to, and including, 3.6.3 via the attach_entry_files() function. This is due to the function attaching any entry field value whose meta key matches /signature_/ to the notification email after only a file_exists() check, without validating or restricting the path. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, such as wp-config.php, which can contain sensitive information. Successful exploitation requires a form whose email notification has the “Attach Files” setting enabled and that contains a field with a meta key matching /signature_/ (for example, a text field labelled “Signature”), with the notification routed to an attacker-supplied email address so the exfiltrated file is delivered to the attacker. Note: The Everest Forms Pro add-on is required to exploit this vulnerability, as it provides the signature field and the email file-attachment functionality (file-email-attachments) that the attack relies on.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-120804",
-      "published": "2026-11-10T20:18:50.593",
-      "description": "A flaw exists in the server-side SSPI Kerberos authentication handler on Windows Enterprise builds of MongoDB. When processing certain authentication requests, the server fails to properly release an underlying system resource due to an internal tracking error. An unauthenticated user can trigger this by repeatedly sending authentication requests using the Kerberos mechanism, eventually exhausting available resources and causing all subsequent Kerberos authentication attempts to fail. Server restart is required to recover.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-120808",
-      "published": "2026-11-10T20:18:51.180",
-      "description": "An issue exists in MongoDB's macOS TLS client implementation where certificate chain-of-trust validation is bypassed for outbound connections to IPv6-addressed peers. When a MongoDB process using the Apple SecureTransport TLS backend connects to an IPv6 target, the trust evaluation result from SecTrustEvaluate is silently discarded, regardless of whether the peer's certificate is trusted. An on-path party could exploit this by presenting a self-signed certificate containing the target's IPv6 address in the Subject Alternative Name to intercept and modify encrypted inter-node or external service traffic. This issue only affects MongoDB processes running on macOS with the Apple SecureTransport TLS provider.",
-      "severity": "HIGH",
-      "score": 7.4
-    },
-    {
-      "id": "CVE-2026-120803",
-      "published": "2026-11-10T20:18:50.420",
-      "description": "A use-after-free issue exists in MongoDB’s SBE (Slot-Based Execution) implementation of a window function accumulator used by certain $setWindowFields aggregation pipelines. Under specific conditions, the accumulator can retain a dangling pointer to memory that has since been freed. When this stale pointer is later dereferenced during serialization of the carried-forward value, it can result in a heap out-of-bounds read that may expose adjacent heap contents and crash the mongod server. An authenticated user with readWrite privileges on a database can trigger this issue by crafting a specific aggregation pipeline.",
+      "id": "CVE-2026-126561",
+      "published": "2026-11-11T03:16:50.217",
+      "description": "Semantic MediaWiki 2.5.0 before 7.4.1 contains a missing authorization vulnerability that allows editors without the edit-protection right to lock pages by adding an Is edit protected annotation. Attackers can add [[Is edit protected::true]] to pages or #set it in widely transcluded templates, so the TitleQuickPermissions hook blocks other editors and administrators from editing, moving or deleting them indefinitely.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-120809",
-      "published": "2026-11-10T20:18:51.323",
-      "description": "A use-after-free read issue exists in MongoDB’s SBE (Slot-Based Execution) engine when processing aggregation pipelines with $unwind on time-series collections. An internal error in state-preservation logic can cause a value still referenced by downstream stages to have its underlying memory freed prematurely. An authenticated user can craft an aggregation pipeline under specific conditions to trigger this condition, potentially reading recycled server heap memory in query results or crashing the server. This issue is only triggerable when a non-default server parameter related to the SBE engine is enabled.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-126566",
+      "published": "2026-11-11T03:16:51.057",
+      "description": "Semantic MediaWiki 7.3.1 before 7.4.1 contains an incorrect authorization vulnerability in EditProtectionUpdater::userMayChangeProtection() that checks protection changes against the page's latest revision author. Editors can add {{#set:Is edit protected=false}} to a transcluded template, removing administrator edit and move protection logged under the administrator's name.",
+      "severity": "HIGH",
+      "score": 7.1
     },
     {
-      "id": "CVE-2026-0178",
-      "published": "2026-11-10T20:17:20.623",
-      "description": "In multiple functions of arm-smmu-v3.c, there is a possible way to bypass direct memory access isolation via stale stream table entries due to a logic error. This could lead to local escalation of privilege with System execution privileges needed. User interaction is not needed for exploitation.",
+      "id": "CVE-2026-126563",
+      "published": "2026-11-11T03:16:50.567",
+      "description": "Semantic MediaWiki 2.4.0 before 7.4.1 contains a reflected cross-site scripting vulnerability in TimeValueFormatter::getCaptionFromFreeFormat(), which emits free-format date captions in HTML without escaping. Unauthenticated attackers can craft a Special:Ask URL with HTML markup in a date printout format (#-F[...]) to execute script in a logged-in victim's browser session.",
       "severity": "MEDIUM",
-      "score": 6.7
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-120807",
-      "published": "2026-11-10T20:18:51.033",
-      "description": "A flaw in MongoDB’s X.509 cluster-membership authentication guard could allow a holder of a cluster-member certificate to gain elevated internal privileges when a specific deployment configuration is in use. An internal check, which prevents a certificate recognized as a cluster member from also being treated as a regular user, does not correctly distinguish between certain error conditions encountered during user lookup. Under certain timing conditions, this can cause the check to be bypassed, granting the connection full internal system privileges. Triggering this issue requires possession of a valid cluster-member TLS certificate, non-default X.509 cluster authentication configuration, and specific conditions during the user cache lookup process.",
+      "id": "CVE-2026-126560",
+      "published": "2026-11-11T03:16:49.987",
+      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains a stored cross-site scripting vulnerability in the DataTables integration that initialises author-written smw-datatable tables unchanged. Users with page-edit rights can add HTML entity-encoded markup in data-search or data-filter cell attributes, executing script in viewers' browsers including administrators.",
       "severity": "MEDIUM",
-      "score": 6.6
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-104060",
-      "published": "2026-11-10T20:17:23.897",
-      "description": "Worklenz before 3.3.0 contains an SQL injection vulnerability in the reporting members endpoints that allows authenticated attackers to read arbitrary database contents by injecting SQL through the projects and status parameters. Attackers can send crafted values to POST /api/v1/reporting/members/all or GET /api/v1/reporting/members/export, which are interpolated unparameterized into IN clauses in getTeamMemberInsightData, and use time-based blind techniques to extract data across tenants, including user password hashes.",
+      "id": "CVE-2026-126564",
+      "published": "2026-11-11T03:16:50.723",
+      "description": "Semantic MediaWiki 2.5.0 before 7.4.1 contains a stored cross-site scripting vulnerability in ValueFormatter::getFormattedSubject() that renders property label segments after a literal &nbsp; as unescaped markup. Users with page-edit rights can set a preferred property label containing an img onerror payload that executes when anyone, including administrators, views Special:Browse or the smwbrowse API.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-120810",
-      "published": "2026-11-10T20:18:51.473",
-      "description": "An issue in MongoDB server’s aggregation framework allows an authenticated user with read privileges to cause a denial of service by sending specially crafted aggregate commands using an internal expression. Despite its internal naming, this expression is registered as accessible to any authenticated client. By supplying crafted input parameters across multiple concurrent connections, each evaluation triggers unbounded memory allocations with no per-expression memory limits enforced. This can exhaust available server memory and cause the mongod process to be terminated by the operating system’s out-of-memory killer.",
+      "id": "CVE-2026-126567",
+      "published": "2026-11-11T03:16:51.237",
+      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains a stored cross-site scripting vulnerability in Special:Ask with the ElasticStore backend, allowing users with edit rights to inject script through unescaped native_result and score_set output. Attackers can store markup in a Text property or subobject name, then lure victims including administrators to a crafted Special:Ask link to execute script in their session.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-120806",
-      "published": "2026-11-10T20:18:50.880",
-      "description": "A flaw in MongoDB Server's user management commands may lead to incomplete cleanup of role authorization data when roles are dropped from a database. Due to incorrect internal query predicates, the drop operation removes role definitions but fails to remove stale references in user and role documents. If a role with the same name is subsequently recreated with different privileges, previously associated users may silently inherit the new role's privileges without an explicit grant or corresponding audit event. Exploitation requires authenticated access with database administrative privileges on the target database.",
+      "id": "CVE-2026-126569",
+      "published": "2026-11-11T03:16:51.417",
+      "description": "Mbin 1.2.1 before 1.11.1 contains a stored cross-site scripting vulnerability in EmbedElement::buildDestructed() that renders nested Markdown image alt text and URL without HTML escaping. Authenticated users can embed HTML in the alt text of an image inside a link in entries, comments, posts, messages, or bios to run script in viewers' browsers.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 5.4
     },
     {
-      "id": "CVE-2026-120805",
-      "published": "2026-11-10T20:18:50.740",
-      "description": "In MongoDB Server, an authenticated user with insert privileges on a collection could craft a command with specially constructed encryption-related parameters to redirect internal Queryable Encryption metadata writes to metadata belonging to other encrypted collections within the same database. The server’s authorization layer validated only the user-facing target collection namespace, while subsequent internal writes derived from client-supplied parameters were performed with elevated internal privileges, bypassing the original caller’s permission scope. This could allow unauthorized writes into another collection’s Queryable Encryption metadata, potentially corrupting encrypted index state and compaction operations.",
+      "id": "CVE-2026-126559",
+      "published": "2026-11-11T03:16:49.797",
+      "description": "Semantic MediaWiki 4.2.0 before 7.4.1 contains a stored cross-site scripting vulnerability in OptionsBuilder::profiles() that allows users with the smw-schemaedit right to inject markup. Attackers can save FACETEDSEARCH_PROFILE_SCHEMA profile keys or labels that break out of option elements, executing scripts for every Special:FacetedSearch visitor including administrators.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-126571",
+      "published": "2026-11-11T03:16:51.817",
+      "description": "Padloc 4.0.0 before 4.3.1 contains an authentication bypass vulnerability in the legacy retrieveMFAToken handler that never counts wrong email verification codes toward the attempt limit. Unauthenticated attackers knowing a victim's email can brute force the 6-digit code to obtain verification tokens usable in signup, login and account recovery flows.",
+      "severity": "MEDIUM",
+      "score": 4.8
+    },
+    {
+      "id": "CVE-2026-126562",
+      "published": "2026-11-11T03:16:50.393",
+      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains an uncontrolled recursion vulnerability in the ElasticStore ConceptDescriptionInterpreter that only detects directly self-referencing concepts. Users with page-edit rights can create mutually referencing concept pages, causing concept page views, Special:Ask, or api.php action=ask queries to exhaust PHP memory or stack.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-0195",
-      "published": "2026-11-10T20:17:20.940",
-      "description": "In fill of dma.rs, there is a possible way to trigger an out of bounds stack read during direct memory access fills due to a logic error. This could lead to local information disclosure with no additional execution privileges needed. User interaction is not needed for exploitation.",
+      "id": "CVE-2026-126565",
+      "published": "2026-11-11T03:16:50.900",
+      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains a denial of service vulnerability in the ElasticStore and SPARQLStore ConceptDescriptionInterpreter classes, which re-expand concepts without memoization or an expansion budget. Users with page-edit rights can build acyclic chains of Concept: pages that fan out, so queries via concept page views, Special:Ask, or api.php action=ask exhaust CPU and memory.",
       "severity": "MEDIUM",
-      "score": 4
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-0193",
-      "published": "2026-11-10T20:17:20.840",
-      "description": "In handle_rx_msg of tipc_virtio_dev, there is a possible Double Fetch TOCTOU due to Double Fetch. This could lead to local information disclosure with execution privileges needed. User interaction is for exploitation.",
-      "severity": "LOW",
-      "score": 3.3
-    },
-    {
-      "id": "CVE-2026-115538",
-      "published": "2026-11-10T20:18:03.747",
-      "description": "Moby's overlay network driver does not restore the iptables rules for encrypted overlay networks after firewalld deletes them. Unlike other Docker Engine networking components, the overlay driver does not handle firewalld reload or start signals over D-Bus. The missing rules cause outgoing VXLAN datagrams to bypass IPsec encryption and remove the protection against incoming cleartext VXLAN traffic. The condition is not logged by dockerd and persists until the encrypted network's last local endpoint is removed and another is added, or dockerd is restarted. Each further firewalld event repeats the condition.",
+      "id": "CVE-2026-116645",
+      "published": "2026-11-11T03:16:48.630",
+      "description": "LimeSurvey Community Edition 7.8.0 contains an SQL injection vulnerability in the survey-archive participant import and SPSS-response export workflow. An authenticated user with global surveys.create permission can import a crafted .lsa archive whose participant XML creates an attacker-named attribute column. When the user exports responses from the imported non-anonymous survey, LimeSurvey passes the persisted name to Yii's select builder. Names containing parentheses are treated as SQL expressions instead of quoted identifiers, causing attacker-controlled SQL to execute with the application's database privileges.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-115539",
-      "published": "2026-11-10T20:18:03.897",
-      "description": "SwarmKit's Cluster-API proxy can overwrite a forwarded client's TLS identity with an intermediary manager's identity. WithMetadataForwardTLSInfo replaces outgoing metadata with a copy of the incoming metadata, discarding the redirect guard's changes when built with grpc-go 1.39 or later. During a short window after a leader change, two proxy hops through managers with inconsistent views of the leader can allow an attacker possessing a valid worker node TLS certificate and private key to obtain a manager node certificate for the attacker's own key, escalating privileges from worker to manager. Applications built with an affected SwarmKit version and grpc-go 1.39 or later are impacted.",
+      "id": "CVE-2026-63192",
+      "published": "2026-11-11T03:16:52.017",
+      "description": "OpenMRS module bahmnicore contains Core OpenMRS modules for Bahmni (including ERP & ELIS Atom Feed Clients). In version 0.93, an attacker with authenticated access could potentially exfiltrate sensitive data from the database. This issue has been patched in version 0.93.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-63194",
+      "published": "2026-11-11T03:16:52.200",
+      "description": "OpenMRS module bahmnicore contains Core OpenMRS modules for Bahmni (including ERP & ELIS Atom Feed Clients). In version 0.93, there is insufficient validation of input paths during the admin CSV import process, allowing for potential arbitrary file write. This issue has been patched in version 0.93.1.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-118368",
+      "published": "2026-11-11T05:19:27.373",
+      "description": "Akaunting 3.3.0 contains a stored cross-site scripting vulnerability in the XLSX item-import workflow. An authenticated Manager can import an item whose name contains HTML. When another authenticated user selects that item while creating a document, Akaunting places the stored name in an invoice or bill line item through Vue v-html, causing attacker-controlled markup to execute in the victim's Akaunting origin.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-59191",
+      "published": "2026-11-11T05:19:49.280",
+      "description": "TwigView plugin for CakePHP provides wrappers for common View operations and extensions that expose CakePHP functions and jasny/twig-extensions helpers. Prior to versions 1.3.3 and 2.1.2, if FileLoader::findTemplate() is supplied un-validated user controlled data, arbitrary files can be read. This issue has been patched in versions 1.3.3 and 2.1.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-59192",
+      "published": "2026-11-11T05:19:49.480",
+      "description": "TwigView plugin for CakePHP provides wrappers for common View operations and extensions that expose CakePHP functions and jasny/twig-extensions helpers. Prior to versions 1.3.3 and 2.1.2, the unserialize filter has no restriction on which classes are allowed. This can used as a deserialization remote-code-execution gadget. This issue has been patched in versions 1.3.3 and 2.1.2.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-61810",
+      "published": "2026-11-11T05:19:49.680",
+      "description": "libspdm is a sample implementation that follows the DMTF SPDM specifications. In version 1.4.0, both the FINISH request (Table 80) and the FINISH_RSP response (Table 81) gained two new fields, OpaqueDataLength and OpaqueData, placed before the trailing signed/authenticated field. The transcript definitions used to compute and verify the FINISH signature, the FINISH HMAC (RequesterVerifyData), and the FINISH_RSP HMAC (ResponderVerifyData) were not updated and still terminate with a step of the form. Per DSP0274, the \"SPDM Header Fields\" are only the four header bytes (SPDMVersion, RequestResponseCode, Param1, Param2). A literal reading therefore excludes OpaqueDataLength and OpaqueData, even though those fields are transmitted before the trailing signature/HMAC field. Because the signature/HMAC must cover every field transmitted before it to \"protect the entire handshake against manipulation by an active attacker,\" an active attacker could otherwise modify the opaque data in flight without invalidating the signature or HMAC. This issue has been patched in version 1.4.1.",
       "severity": "UNKNOWN",
       "score": null
     }
