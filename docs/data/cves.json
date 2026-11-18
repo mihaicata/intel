@@ -1,143 +1,143 @@
 {
-  "totalResults": 3574,
+  "totalResults": 3788,
   "items": [
     {
-      "id": "CVE-2026-78287",
-      "published": "2026-11-11T11:17:21.293",
-      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in Staggs STAGGS staggs allows Remote Code Inclusion.This issue affects STAGGS: from n/a through 3.3.0.",
+      "id": "CVE-2026-126797",
+      "published": "2026-11-11T21:16:43.027",
+      "description": "NextScan 1.1.0 through 1.2.0 contains an authentication bypass vulnerability in ns-admin that allows unauthenticated attackers to forge administrator tokens using a hardcoded JWT signing key. Attackers can sign an HS256 X-Access-Token carrying the public super administrator role ID to gain full access to user management, scan tasks and stored vulnerability results.",
       "severity": "CRITICAL",
-      "score": 10
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-103883",
-      "published": "2026-11-11T12:18:14.700",
-      "description": "The 6Storage Rentals plugin for WordPress is vulnerable to Authentication Bypass leading to Administrator Account Takeover in all versions up to, and including, 2.31.0. The vulnerability exists because the `six_storage_portal_registration()` AJAX handler — registered on `wp_ajax_six_storage_portal_plugin_registration` — performs no capability check and no nonce verification before writing the caller-supplied `six_storage_online_api_url` POST parameter to the site-wide option of the same name; the unauthenticated `six_storage_create_wp_user()` handler then redeems a transient seeded from that attacker-controlled URL's response and unconditionally calls `wp_set_current_user()` and `wp_set_auth_cookie()` with no ownership or credential verification. This makes it possible for authenticated attackers, with Subscriber-level access and above, to authenticate as any existing WordPress user — including any administrator whose email address is known or guessable — resulting in full site compromise. This issue represents an incomplete fix for a prior vulnerability: the 2.29.0 remediation moved the target email out of POST data into a server-side transient, but because any Subscriber can still overwrite the outbound API URL that populates that transient, the full authentication bypass chain remains exploitable in three AJAX requests.",
+      "id": "CVE-2026-100307",
+      "published": "2026-11-11T21:16:41.933",
+      "description": "Missing authorization in the external management API in Amazon mcp-gateway-registry 1.0.9 through 1.24.7 might allow an authenticated remote user to assign the registry administrator scope to their own identity group and obtain administrative control of every registered gateway asset via a crafted group import request.\n\n\n\nTo remediate this issue, users should upgrade to version 1.25.0.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-119615",
-      "published": "2026-11-11T12:19:15.223",
-      "description": "The Reset Database plugin for WordPress is vulnerable to privilege escalation in versions up to, and including, 1.1.3. This is due to the process_reset() function being registered on admin_init with no capability check, a computed-but-unused nonce, a gating condition that passes whenever no WordPress administrator literally named 'admin' exists (the default on modern installs), and an identity test that verifies the ATTACKER'S OWN password rather than an administrator's. This makes it possible for authenticated attackers, with subscriber-level access and above, to drop every prefixed database table, re-run wp_install() with their own credentials — making the attacker the sole site administrator — authenticate as that administrator via wp_set_auth_cookie(), and delete the uploads directory.",
+      "id": "CVE-2026-126800",
+      "published": "2026-11-11T21:16:43.507",
+      "description": "Hydro @hydrooj/ui-default before 4.59.1 contains a stored cross-site scripting vulnerability that allows registered users to inject script by placing double quotes in language- class tokens within markdown-it-xss.ts. Attackers can store a payload in their profile bio that executes when administrators or other users view it, stealing the non-httpOnly sid session cookie for session hijacking.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.7
     },
     {
-      "id": "CVE-2026-111792",
-      "published": "2026-11-11T11:17:11.147",
-      "description": "Uncontrolled Recursion vulnerability in Apache XML Graphics Batik.\n\n\n\nThis issue affects Apache XML Graphics Batik: through 1.19.\n\n\n\nUsers are recommended to upgrade to version 1.20, which fixes the issue.",
+      "id": "CVE-2026-125926",
+      "published": "2026-11-11T21:16:42.867",
+      "description": "Server-side request forgery (SSRF) in the server registration and update API in Amazon mcp-gateway-registry before 1.35.0 might allow an authenticated remote user to send requests from the gateway to internal network services and cloud instance metadata endpoints and read the responses via a crafted request.\n\n\n\nTo remediate this issue, users should upgrade to version 1.35.0.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.5
     },
     {
-      "id": "CVE-2026-124741",
-      "published": "2026-11-11T11:17:17.233",
-      "description": "A flaw was found in BusyBox. The udhcpc6 DHCPv6 client does not properly validate the size of network options sent by a server before copying them into memory. A malicious DHCPv6 server on the local network can exploit this flaw by sending a crafted reply, triggering a stack-based buffer overflow. This vulnerability could allow an attacker to achieve arbitrary code execution with root privileges or cause a denial of service (DoS) crash.",
+      "id": "CVE-2026-126815",
+      "published": "2026-11-11T20:17:07.540",
+      "description": "Pre-account hijacking in the authentication flow in Lagarto Chivato 0.4.1 and earlier on Web allows remote unauthenticated attackers to take over arbitrary accounts via a password planted on an unregistered email address that becomes valid upon the victim’s first passwordless login.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-122095",
+      "published": "2026-11-11T20:17:07.023",
+      "description": "AsiaInfo BSS Platform 9.2 before 9.2.38 has a stored cross-site scripting (XSS) vulnerability in the menu icon upload function. An authenticated user with ordinary application privileges can upload an SVG file containing embedded JavaScript, which is served from the application origin. Normal menu rendering uses an HTML <img> element and does not execute the SVG script; exploitation requires a victim to load the uploaded SVG as a document (by directly navigating to its URL, or via <object>/<iframe>), in which case the script executes under the application origin.",
       "severity": "HIGH",
       "score": 7.6
     },
     {
-      "id": "CVE-2026-124739",
-      "published": "2026-11-11T11:17:16.983",
-      "description": "A flaw was found in BusyBox. When the httpd web server processes subdirectory configuration files, an overly long index page name can trigger a stack-based buffer overflow. An attacker with permissions to write to a subdirectory configuration file could exploit this vulnerability to execute arbitrary code with elevated privileges or cause a denial of service (DoS) by crashing the server process.",
+      "id": "CVE-2026-126799",
+      "published": "2026-11-11T21:16:43.347",
+      "description": "Gotenberg 8.31.0 before 8.38.0 contains a server-side request forgery vulnerability in IsPublicIP() that allows unauthenticated attackers to bypass private-IP deny-list protections using IPv6 zone identifiers. Attackers can append a zone such as %25eth0 to the unspecified address or blocked IPv6 prefixes in downloadFrom, webhook, or Chromium/LibreOffice URLs to reach internal services and read responses in the returned PDF.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-90993",
-      "published": "2026-11-11T11:17:22.293",
-      "description": "XXE vulnerability in Apache XML Graphics Batik.\n\n\n\nThis issue affects Apache XML Graphics Batik: through 1.19.\n\n\n\nUsers are recommended to upgrade to version 1.20, which fixes the issue.",
+      "id": "CVE-2026-91151",
+      "published": "2026-11-11T20:17:10.557",
+      "description": "A flaw was found in Cockpit. A local authenticated user with control over a target account's home directory can exploit a privileged symlink dereference vulnerability in the `ssh-add-public-key.sh` helper. When this helper runs with elevated privileges, it can be tricked into following attacker-controlled symlinks within the `.ssh` or `authorized_keys` paths. This allows the attacker to arbitrarily change file ownership and modes, potentially leading to local privilege escalation and impacting the integrity, confidentiality, and availability of the system.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-123478",
-      "published": "2026-11-11T11:17:16.603",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Meow Apps AI Engine ai-engine allows Stored XSS.This issue affects AI Engine: from n/a through 3.9.1.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-124253",
-      "published": "2026-11-11T11:17:16.803",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in codepeople Calculated Fields Form calculated-fields-form allows DOM-Based XSS.This issue affects Calculated Fields Form: from n/a through 5.5.2.8.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-121773",
-      "published": "2026-11-11T12:19:35.417",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in GeneratePress GenerateBlocks generateblocks allows Stored XSS.This issue affects GenerateBlocks: from n/a through 2.5.0.",
+      "id": "CVE-2026-126798",
+      "published": "2026-11-11T21:16:43.190",
+      "description": "NextScan 1.1.0 through 1.2.0 contains a stored cross-site scripting vulnerability in the ns-admin URL asset detail dialog that renders crawled form request bodies (Asset_URL.data) via innerHTML without encoding. Attackers can host crafted forms on crawled sites to store JavaScript that executes when users view asset details, stealing localStorage access tokens to hijack sessions, including administrators.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-122671",
-      "published": "2026-11-11T12:19:39.553",
-      "description": "Missing Authorization vulnerability in E2Pdf.com e2pdf e2pdf allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects e2pdf: from n/a through 1.32.65.",
+      "id": "CVE-2026-126784",
+      "published": "2026-11-11T20:17:07.390",
+      "description": "Missing rate limiting, per-account submission quota and geographic validation in the publicar_aviso RPC function in Lagarto Chivato 0.4.1 and earlier on Web allows remote authenticated attackers to flood the moderation queue via unlimited submission of notices with arbitrary coordinates.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-119097",
-      "published": "2026-11-11T12:19:11.667",
-      "description": "The Author Image plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name' parameter in all versions up to, and including, 4.9.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "severity": "MEDIUM",
-      "score": 6.4
-    },
-    {
-      "id": "CVE-2026-121770",
-      "published": "2026-11-11T12:19:35.247",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in VillaTheme VISeek viseek-easy-custom-search allows Cross Site Request Forgery.This issue affects VISeek: from n/a through 1.0.5.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-115600",
-      "published": "2026-11-11T12:18:53.527",
-      "description": "Missing Authorization vulnerability in DEV Institute Restrict User Access – Membership Plugin with Force restrict-user-access allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Restrict User Access – Membership Plugin with Force: from n/a through 2.8.3.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-121014",
-      "published": "2026-11-11T12:19:32.950",
-      "description": "Missing Authorization vulnerability in Ahmad WP Job Portal wp-job-portal allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Job Portal: from n/a through 2.7.2.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-121028",
-      "published": "2026-11-11T12:19:33.110",
-      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in WP Chill Strong Testimonials strong-testimonials allows Code Injection.This issue affects Strong Testimonials: from n/a through 3.3.17.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-121574",
-      "published": "2026-11-11T12:19:33.630",
-      "description": "Missing Authorization vulnerability in WP Chill Passster content-protector allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Passster: from n/a through 4.3.20.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-118965",
-      "published": "2026-11-11T11:17:13.080",
-      "description": "Path traversal in the discovered host label synchronization in Checkmk <2.5.0p19, <2.4.0p40 and 2.3.0 (EOL) allows an attacker in control of a remote site in a distributed monitoring setup to write arbitrary files on the central site and thereby execute code as the central site user.",
+      "id": "CVE-2026-0323",
+      "published": "2026-11-11T20:16:59.227",
+      "description": "A server-side request forgery vulnerability in Palo Alto Networks Checkov by Prisma® Cloud enables a local unauthenticated user to make unauthorized network requests from host to internal services.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-120495",
-      "published": "2026-11-11T11:17:13.433",
-      "description": "Path traversal in the Synthetic Monitoring \"Robotmk\" test service of Checkmk <2.5.0p19, <2.4.0p40, and 2.3.0 (EOL) allows an attacker who controls the agent output of a monitored host's check output for a host to inject a crafted robot output to define the contents and location for the generated HTML log, leading to code execution as the site user.",
+      "id": "CVE-2026-0324",
+      "published": "2026-11-11T20:16:59.480",
+      "description": "An incorrect privilege management vulnerability in the OPSWAT MetaDefender Endpoint Security SDK used by the Palo Alto Networks GlobalProtect™ app on Windows devices allows a locally authenticated non-administrative Windows user to escalate their privileges to NT AUTHORITY\\SYSTEM.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-121374",
-      "published": "2026-11-11T11:17:14.377",
-      "description": "Argument injection in the Kubernetes special agent in Checkmk <2.5.0p19, <2.4.0p40, and 2.3.0 (EOL) allows a user with permission to edit rules in at least one folder to write files to arbitrary locations writable by the site user via crafted node roles in the \"Exclude nodes based on their role\" rule option, leading to code execution as the site user.",
+      "id": "CVE-2026-0325",
+      "published": "2026-11-11T20:17:01.563",
+      "description": "An authorization bypass vulnerability in the GlobalProtect gateway of Palo Alto Networks PAN-OS® software enables an authenticated attacker with valid GlobalProtect credentials to bypass IP address restrictions and circumvent network access controls that rely on source IP filtering.\n\nCloud NGFW is not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0326",
+      "published": "2026-11-11T20:17:01.890",
+      "description": "A buffer overflow vulnerability in Palo Alto Networks PAN-OS software enables an unauthenticated attacker to disrupt service processing by causing a service process crash or memory corruption.\n\n\n\nPanorama and Prisma® Access are not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0327",
+      "published": "2026-11-11T20:17:02.240",
+      "description": "A privilege escalation vulnerability in the GlobalProtect gateway of Palo Alto Networks PAN-OS® software enables an authenticated, lower-privileged user to obtain the privileges and configuration of a higher-privileged user.\n\n\n\nCloud NGFW and Panorama are not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0328",
+      "published": "2026-11-11T20:17:02.577",
+      "description": "Authentication bypass vulnerabilities in the GlobalProtect™ portal and gateway of Palo Alto Networks PAN-OS® software enables an unauthenticated user to bypass security restrictions and establish an unauthorized VPN connection. \n\n\n\nPanorama, Cloud NGFW, and Prisma® Access are not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0329",
+      "published": "2026-11-11T20:17:03.140",
+      "description": "A buffer overflow vulnerability in Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to cause a denial of service (DoS) condition by sending specially crafted network traffic to or through a dataplane interface.\n\n\n\nCloud NGFW and Panorama are not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0330",
+      "published": "2026-11-11T20:17:03.780",
+      "description": "A remote code execution (RCE) vulnerability in Palo Alto Networks PAN-OS® software on Panorama enables an authenticated administrator with network access to execute arbitrary code with root privileges.\n\n\n\nThe security risk posed by this issue is significantly minimized by restricting access to the management interface to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 .\n\n\n\nCloud NGFW, Prisma® Access, and standalone PAN-OS firewalls are not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-0331",
+      "published": "2026-11-11T20:17:04.380",
+      "description": "An information disclosure vulnerability in Palo Alto Networks PAN-OS® software enables an unauthenticated remote attacker with network access  to obtain sensitive firewall and session information by sending traffic to or through a dataplane interface.\n\n\n\nPanorama is not affected by this vulnerability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-103980",
+      "published": "2026-11-11T21:16:42.083",
+      "description": "ideon is a self-hosted visual workspace. Prior to version 0.9.6, the SSRF protection in safeFetch is bypassed by IPv6 transition addresses that embed private IPv4 addresses. The isPrivateIP function in src/app/lib/ssrf.ts checks only a narrow set of IPv6 ranges (loopback ::1, ULA fc/fd, link-local fe80) but does not recognize IPv4-mapped (::ffff:), NAT64 well-known (64:ff9b::/96, RFC 6052), NAT64 local-use (64:ff9b:1::/48, RFC 8215), 6to4 (2002::/16, RFC 3056), or Teredo (2001::/32, RFC 4380) encodings. An authenticated user can supply these addresses in link URLs to reach cloud metadata endpoints (169.254.169.254), localhost services, and RFC 1918 internal networks through the link preview metadata fetcher. This issue has been patched in version 0.9.6.",
       "severity": "UNKNOWN",
       "score": null
     }
