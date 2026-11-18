@@ -1,143 +1,143 @@
 {
-  "totalResults": 3620,
+  "totalResults": 3574,
   "items": [
     {
-      "id": "CVE-2026-63660",
-      "published": "2026-11-11T03:16:52.367",
-      "description": "node-fontnik is a library that delivers a range of glyphs rendered as SDFs (signed distance fields) in a protocol buffer. Prior to version 0.7.7, a crafted font could trigger a heap out-of-bounds write in RenderSDF (include/mapbox/glyph_foundry_impl.hpp). RenderSDF computed the SDF bitmap allocation size as buffered_width * buffered_height in 32-bit unsigned int. Glyph dimensions are derived from the uploaded font's outline bounding box with no upper bound, so a glyph large enough to make that product exceed 2³² wrapped to a small value. The buffer was then under-allocated while the render loop still wrote one byte per pixel, corrupting the heap (CWE-190 → CWE-787) and crashing the process. A 680-byte font is enough to drive FreeType to a 65536×65536 buffered glyph, wrapping the size to 0. This issue has been patched in version 0.7.7.",
-      "severity": "HIGH",
-      "score": 8.1
+      "id": "CVE-2026-78287",
+      "published": "2026-11-11T11:17:21.293",
+      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in Staggs STAGGS staggs allows Remote Code Inclusion.This issue affects STAGGS: from n/a through 3.3.0.",
+      "severity": "CRITICAL",
+      "score": 10
     },
     {
-      "id": "CVE-2026-126570",
-      "published": "2026-11-11T03:16:51.627",
-      "description": "Padloc 4.0.0 before 4.3.1 contains a prototype pollution vulnerability that allows SCIM token holders to modify Object.prototype by sending crafted SCIM PATCH paths to ScimServer._handleScimUsersPatch(). Attackers can supply paths like __proto__.x or constructor.prototype.x passed to setPath() to pollute the shared server process, disrupting requests for all other organizations.",
+      "id": "CVE-2026-103883",
+      "published": "2026-11-11T12:18:14.700",
+      "description": "The 6Storage Rentals plugin for WordPress is vulnerable to Authentication Bypass leading to Administrator Account Takeover in all versions up to, and including, 2.31.0. The vulnerability exists because the `six_storage_portal_registration()` AJAX handler — registered on `wp_ajax_six_storage_portal_plugin_registration` — performs no capability check and no nonce verification before writing the caller-supplied `six_storage_online_api_url` POST parameter to the site-wide option of the same name; the unauthenticated `six_storage_create_wp_user()` handler then redeems a transient seeded from that attacker-controlled URL's response and unconditionally calls `wp_set_current_user()` and `wp_set_auth_cookie()` with no ownership or credential verification. This makes it possible for authenticated attackers, with Subscriber-level access and above, to authenticate as any existing WordPress user — including any administrator whose email address is known or guessable — resulting in full site compromise. This issue represents an incomplete fix for a prior vulnerability: the 2.29.0 remediation moved the target email out of POST data into a server-side transient, but because any Subscriber can still overwrite the outbound API URL that populates that transient, the full authentication bypass chain remains exploitable in three AJAX requests.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-119615",
+      "published": "2026-11-11T12:19:15.223",
+      "description": "The Reset Database plugin for WordPress is vulnerable to privilege escalation in versions up to, and including, 1.1.3. This is due to the process_reset() function being registered on admin_init with no capability check, a computed-but-unused nonce, a gating condition that passes whenever no WordPress administrator literally named 'admin' exists (the default on modern installs), and an identity test that verifies the ATTACKER'S OWN password rather than an administrator's. This makes it possible for authenticated attackers, with subscriber-level access and above, to drop every prefixed database table, re-run wp_install() with their own credentials — making the attacker the sole site administrator — authenticate as that administrator via wp_set_auth_cookie(), and delete the uploads directory.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-111792",
+      "published": "2026-11-11T11:17:11.147",
+      "description": "Uncontrolled Recursion vulnerability in Apache XML Graphics Batik.\n\n\n\nThis issue affects Apache XML Graphics Batik: through 1.19.\n\n\n\nUsers are recommended to upgrade to version 1.20, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-124741",
+      "published": "2026-11-11T11:17:17.233",
+      "description": "A flaw was found in BusyBox. The udhcpc6 DHCPv6 client does not properly validate the size of network options sent by a server before copying them into memory. A malicious DHCPv6 server on the local network can exploit this flaw by sending a crafted reply, triggering a stack-based buffer overflow. This vulnerability could allow an attacker to achieve arbitrary code execution with root privileges or cause a denial of service (DoS) crash.",
       "severity": "HIGH",
       "score": 7.6
     },
     {
-      "id": "CVE-2026-126561",
-      "published": "2026-11-11T03:16:50.217",
-      "description": "Semantic MediaWiki 2.5.0 before 7.4.1 contains a missing authorization vulnerability that allows editors without the edit-protection right to lock pages by adding an Is edit protected annotation. Attackers can add [[Is edit protected::true]] to pages or #set it in widely transcluded templates, so the TitleQuickPermissions hook blocks other editors and administrators from editing, moving or deleting them indefinitely.",
+      "id": "CVE-2026-124739",
+      "published": "2026-11-11T11:17:16.983",
+      "description": "A flaw was found in BusyBox. When the httpd web server processes subdirectory configuration files, an overly long index page name can trigger a stack-based buffer overflow. An attacker with permissions to write to a subdirectory configuration file could exploit this vulnerability to execute arbitrary code with elevated privileges or cause a denial of service (DoS) by crashing the server process.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-90993",
+      "published": "2026-11-11T11:17:22.293",
+      "description": "XXE vulnerability in Apache XML Graphics Batik.\n\n\n\nThis issue affects Apache XML Graphics Batik: through 1.19.\n\n\n\nUsers are recommended to upgrade to version 1.20, which fixes the issue.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-123478",
+      "published": "2026-11-11T11:17:16.603",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Meow Apps AI Engine ai-engine allows Stored XSS.This issue affects AI Engine: from n/a through 3.9.1.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-126566",
-      "published": "2026-11-11T03:16:51.057",
-      "description": "Semantic MediaWiki 7.3.1 before 7.4.1 contains an incorrect authorization vulnerability in EditProtectionUpdater::userMayChangeProtection() that checks protection changes against the page's latest revision author. Editors can add {{#set:Is edit protected=false}} to a transcluded template, removing administrator edit and move protection logged under the administrator's name.",
+      "id": "CVE-2026-124253",
+      "published": "2026-11-11T11:17:16.803",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in codepeople Calculated Fields Form calculated-fields-form allows DOM-Based XSS.This issue affects Calculated Fields Form: from n/a through 5.5.2.8.",
       "severity": "HIGH",
       "score": 7.1
     },
     {
-      "id": "CVE-2026-126563",
-      "published": "2026-11-11T03:16:50.567",
-      "description": "Semantic MediaWiki 2.4.0 before 7.4.1 contains a reflected cross-site scripting vulnerability in TimeValueFormatter::getCaptionFromFreeFormat(), which emits free-format date captions in HTML without escaping. Unauthenticated attackers can craft a Special:Ask URL with HTML markup in a date printout format (#-F[...]) to execute script in a logged-in victim's browser session.",
+      "id": "CVE-2026-121773",
+      "published": "2026-11-11T12:19:35.417",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in GeneratePress GenerateBlocks generateblocks allows Stored XSS.This issue affects GenerateBlocks: from n/a through 2.5.0.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-126560",
-      "published": "2026-11-11T03:16:49.987",
-      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains a stored cross-site scripting vulnerability in the DataTables integration that initialises author-written smw-datatable tables unchanged. Users with page-edit rights can add HTML entity-encoded markup in data-search or data-filter cell attributes, executing script in viewers' browsers including administrators.",
+      "id": "CVE-2026-122671",
+      "published": "2026-11-11T12:19:39.553",
+      "description": "Missing Authorization vulnerability in E2Pdf.com e2pdf e2pdf allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects e2pdf: from n/a through 1.32.65.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-126564",
-      "published": "2026-11-11T03:16:50.723",
-      "description": "Semantic MediaWiki 2.5.0 before 7.4.1 contains a stored cross-site scripting vulnerability in ValueFormatter::getFormattedSubject() that renders property label segments after a literal &nbsp; as unescaped markup. Users with page-edit rights can set a preferred property label containing an img onerror payload that executes when anyone, including administrators, views Special:Browse or the smwbrowse API.",
+      "id": "CVE-2026-119097",
+      "published": "2026-11-11T12:19:11.667",
+      "description": "The Author Image plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name' parameter in all versions up to, and including, 4.9.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-126567",
-      "published": "2026-11-11T03:16:51.237",
-      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains a stored cross-site scripting vulnerability in Special:Ask with the ElasticStore backend, allowing users with edit rights to inject script through unescaped native_result and score_set output. Attackers can store markup in a Text property or subobject name, then lure victims including administrators to a crafted Special:Ask link to execute script in their session.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-126569",
-      "published": "2026-11-11T03:16:51.417",
-      "description": "Mbin 1.2.1 before 1.11.1 contains a stored cross-site scripting vulnerability in EmbedElement::buildDestructed() that renders nested Markdown image alt text and URL without HTML escaping. Authenticated users can embed HTML in the alt text of an image inside a link in entries, comments, posts, messages, or bios to run script in viewers' browsers.",
+      "id": "CVE-2026-121770",
+      "published": "2026-11-11T12:19:35.247",
+      "description": "Cross-Site Request Forgery (CSRF) vulnerability in VillaTheme VISeek viseek-easy-custom-search allows Cross Site Request Forgery.This issue affects VISeek: from n/a through 1.0.5.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-126559",
-      "published": "2026-11-11T03:16:49.797",
-      "description": "Semantic MediaWiki 4.2.0 before 7.4.1 contains a stored cross-site scripting vulnerability in OptionsBuilder::profiles() that allows users with the smw-schemaedit right to inject markup. Attackers can save FACETEDSEARCH_PROFILE_SCHEMA profile keys or labels that break out of option elements, executing scripts for every Special:FacetedSearch visitor including administrators.",
+      "id": "CVE-2026-115600",
+      "published": "2026-11-11T12:18:53.527",
+      "description": "Missing Authorization vulnerability in DEV Institute Restrict User Access – Membership Plugin with Force restrict-user-access allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Restrict User Access – Membership Plugin with Force: from n/a through 2.8.3.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-126571",
-      "published": "2026-11-11T03:16:51.817",
-      "description": "Padloc 4.0.0 before 4.3.1 contains an authentication bypass vulnerability in the legacy retrieveMFAToken handler that never counts wrong email verification codes toward the attempt limit. Unauthenticated attackers knowing a victim's email can brute force the 6-digit code to obtain verification tokens usable in signup, login and account recovery flows.",
+      "id": "CVE-2026-121014",
+      "published": "2026-11-11T12:19:32.950",
+      "description": "Missing Authorization vulnerability in Ahmad WP Job Portal wp-job-portal allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Job Portal: from n/a through 2.7.2.",
       "severity": "MEDIUM",
-      "score": 4.8
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-126562",
-      "published": "2026-11-11T03:16:50.393",
-      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains an uncontrolled recursion vulnerability in the ElasticStore ConceptDescriptionInterpreter that only detects directly self-referencing concepts. Users with page-edit rights can create mutually referencing concept pages, causing concept page views, Special:Ask, or api.php action=ask queries to exhaust PHP memory or stack.",
+      "id": "CVE-2026-121028",
+      "published": "2026-11-11T12:19:33.110",
+      "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in WP Chill Strong Testimonials strong-testimonials allows Code Injection.This issue affects Strong Testimonials: from n/a through 3.3.17.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-126565",
-      "published": "2026-11-11T03:16:50.900",
-      "description": "Semantic MediaWiki 3.0.0 before 7.4.1 contains a denial of service vulnerability in the ElasticStore and SPARQLStore ConceptDescriptionInterpreter classes, which re-expand concepts without memoization or an expansion budget. Users with page-edit rights can build acyclic chains of Concept: pages that fan out, so queries via concept page views, Special:Ask, or api.php action=ask exhaust CPU and memory.",
+      "id": "CVE-2026-121574",
+      "published": "2026-11-11T12:19:33.630",
+      "description": "Missing Authorization vulnerability in WP Chill Passster content-protector allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Passster: from n/a through 4.3.20.",
       "severity": "MEDIUM",
-      "score": 4.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-116645",
-      "published": "2026-11-11T03:16:48.630",
-      "description": "LimeSurvey Community Edition 7.8.0 contains an SQL injection vulnerability in the survey-archive participant import and SPSS-response export workflow. An authenticated user with global surveys.create permission can import a crafted .lsa archive whose participant XML creates an attacker-named attribute column. When the user exports responses from the imported non-anonymous survey, LimeSurvey passes the persisted name to Yii's select builder. Names containing parentheses are treated as SQL expressions instead of quoted identifiers, causing attacker-controlled SQL to execute with the application's database privileges.",
+      "id": "CVE-2026-118965",
+      "published": "2026-11-11T11:17:13.080",
+      "description": "Path traversal in the discovered host label synchronization in Checkmk <2.5.0p19, <2.4.0p40 and 2.3.0 (EOL) allows an attacker in control of a remote site in a distributed monitoring setup to write arbitrary files on the central site and thereby execute code as the central site user.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-63192",
-      "published": "2026-11-11T03:16:52.017",
-      "description": "OpenMRS module bahmnicore contains Core OpenMRS modules for Bahmni (including ERP & ELIS Atom Feed Clients). In version 0.93, an attacker with authenticated access could potentially exfiltrate sensitive data from the database. This issue has been patched in version 0.93.1.",
+      "id": "CVE-2026-120495",
+      "published": "2026-11-11T11:17:13.433",
+      "description": "Path traversal in the Synthetic Monitoring \"Robotmk\" test service of Checkmk <2.5.0p19, <2.4.0p40, and 2.3.0 (EOL) allows an attacker who controls the agent output of a monitored host's check output for a host to inject a crafted robot output to define the contents and location for the generated HTML log, leading to code execution as the site user.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-63194",
-      "published": "2026-11-11T03:16:52.200",
-      "description": "OpenMRS module bahmnicore contains Core OpenMRS modules for Bahmni (including ERP & ELIS Atom Feed Clients). In version 0.93, there is insufficient validation of input paths during the admin CSV import process, allowing for potential arbitrary file write. This issue has been patched in version 0.93.1.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-118368",
-      "published": "2026-11-11T05:19:27.373",
-      "description": "Akaunting 3.3.0 contains a stored cross-site scripting vulnerability in the XLSX item-import workflow. An authenticated Manager can import an item whose name contains HTML. When another authenticated user selects that item while creating a document, Akaunting places the stored name in an invoice or bill line item through Vue v-html, causing attacker-controlled markup to execute in the victim's Akaunting origin.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-59191",
-      "published": "2026-11-11T05:19:49.280",
-      "description": "TwigView plugin for CakePHP provides wrappers for common View operations and extensions that expose CakePHP functions and jasny/twig-extensions helpers. Prior to versions 1.3.3 and 2.1.2, if FileLoader::findTemplate() is supplied un-validated user controlled data, arbitrary files can be read. This issue has been patched in versions 1.3.3 and 2.1.2.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-59192",
-      "published": "2026-11-11T05:19:49.480",
-      "description": "TwigView plugin for CakePHP provides wrappers for common View operations and extensions that expose CakePHP functions and jasny/twig-extensions helpers. Prior to versions 1.3.3 and 2.1.2, the unserialize filter has no restriction on which classes are allowed. This can used as a deserialization remote-code-execution gadget. This issue has been patched in versions 1.3.3 and 2.1.2.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-61810",
-      "published": "2026-11-11T05:19:49.680",
-      "description": "libspdm is a sample implementation that follows the DMTF SPDM specifications. In version 1.4.0, both the FINISH request (Table 80) and the FINISH_RSP response (Table 81) gained two new fields, OpaqueDataLength and OpaqueData, placed before the trailing signed/authenticated field. The transcript definitions used to compute and verify the FINISH signature, the FINISH HMAC (RequesterVerifyData), and the FINISH_RSP HMAC (ResponderVerifyData) were not updated and still terminate with a step of the form. Per DSP0274, the \"SPDM Header Fields\" are only the four header bytes (SPDMVersion, RequestResponseCode, Param1, Param2). A literal reading therefore excludes OpaqueDataLength and OpaqueData, even though those fields are transmitted before the trailing signature/HMAC field. Because the signature/HMAC must cover every field transmitted before it to \"protect the entire handshake against manipulation by an active attacker,\" an active attacker could otherwise modify the opaque data in flight without invalidating the signature or HMAC. This issue has been patched in version 1.4.1.",
+      "id": "CVE-2026-121374",
+      "published": "2026-11-11T11:17:14.377",
+      "description": "Argument injection in the Kubernetes special agent in Checkmk <2.5.0p19, <2.4.0p40, and 2.3.0 (EOL) allows a user with permission to edit rules in at least one folder to write files to arbitrary locations writable by the site user via crafted node roles in the \"Exclude nodes based on their role\" rule option, leading to code execution as the site user.",
       "severity": "UNKNOWN",
       "score": null
     }
