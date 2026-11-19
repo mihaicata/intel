@@ -1,143 +1,143 @@
 {
-  "totalResults": 3628,
+  "totalResults": 4152,
   "items": [
     {
-      "id": "CVE-2026-124023",
-      "published": "2026-11-12T11:17:10.253",
-      "description": "Out-of-bounds Read vulnerability in the Guththila XML parser wrapper of Apache Axis2/C. On some malformed XML input the Guththila parser returned a raw input byte in place of an event code, and the AXIOM reader wrapper used that value as an index into a ten-entry lookup table without checking its range, reading heap memory past the end of the table. An unauthenticated client could trigger this by sending a crafted XML request to a server built with Guththila, the default parser, causing the request to be parsed incorrectly or, in some cases, the process to crash. The memory read is not returned to the client. This issue affects Apache Axis2/C: through 2.0.0. The fix is available in commits 23110287924e79d05a5b4712298c355d1f05c606 and f01683ec10e8fddb87279ec9351b3239021223e6 and will be included in the next release.",
-      "severity": "CRITICAL",
-      "score": 9.1
-    },
-    {
-      "id": "CVE-2026-124699",
-      "published": "2026-11-12T10:17:28.723",
-      "description": "In Telerik UI for WinForms, versions prior to 2026.4.1111, an improper control of code generation vulnerability exists that allows an attacker to supply a crafted expression and execute unauthorized code in the context of the affected application.",
+      "id": "CVE-2026-18379",
+      "published": "2026-11-12T19:17:04.040",
+      "description": "A flaw was found in yggdrasil-worker-package-manager. An authenticated attacker can exploit this issue to achieve arbitrary file modification or potential privilege escalation. The vulnerability exists because repository management operations fail to sanitize directory traversal sequences (such as '../') within repository names. By supplying a crafted repository name, an attacker can manipulate the root-level worker process into creating or deleting files outside the intended directory, compromising host system integrity.",
       "severity": "HIGH",
-      "score": 7.8
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-124701",
-      "published": "2026-11-12T11:17:10.473",
-      "description": "In Telerik UI for WinForms, versions prior to 2026.4.1111, a deserialization of untrusted data vulnerability exists that allows an attacker to perform unauthorized actions in the context of the affected application.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-124703",
-      "published": "2026-11-12T11:17:10.743",
-      "description": "In Telerik UI for WPF, versions prior to 2026.4.1110, an improper control of code generation vulnerability exists that allows an attacker to execute unauthorized code in the context of the affected application.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-124704",
-      "published": "2026-11-12T11:17:10.923",
-      "description": "In Telerik UI for WPF, versions prior to 2026.4.1110, a deserialization of untrusted data vulnerability exists that allows an attacker to perform unauthorized actions in the context of the affected application.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-124705",
-      "published": "2026-11-12T12:18:22.260",
-      "description": "In Progress® Telerik® UI for .NET MAUI prior to version 16.0.0, an untrusted URL redirection vulnerability in the RadRichTextEditor hyperlink handling and the RadPdfViewer link annotation handling allows an unauthenticated attacker to launch arbitrary operating system protocol handlers with attacker-controlled arguments via a crafted document or PDF link with a non-allowlisted URI scheme that the user opens.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-106140",
-      "published": "2026-11-12T10:17:26.987",
-      "description": "In Progress® Telerik® Reporting prior to version 20.3.26.1110, a deserialization of untrusted data vulnerability in the .NET Framework report designers allows a local attacker with low privileges to execute arbitrary code in the context of the designer process when the user performs certain editing operations.",
-      "severity": "HIGH",
-      "score": 7.3
-    },
-    {
-      "id": "CVE-2026-118975",
-      "published": "2026-11-12T10:17:28.230",
-      "description": "In Progress® Telerik® Reporting prior to version 20.3.26.1110, improper restriction of XML external entity references in the SVG processing engine allows an authenticated attacker with low privileges who can supply SVG content to a report to read local or UNC files, or trigger server-side network requests, from the report rendering host. External XML entities in SVG content were resolved without applying the configured strict resource resolver and report path validation. Disclosed content is limited by the permissions of the rendering process and by what the rendered report output exposes.",
+      "id": "CVE-2026-126203",
+      "published": "2026-11-12T19:16:56.517",
+      "description": "Loofah is a general library for manipulating and transforming HTML/XML documents and fragments, built on top of Nokogiri. From 2.21.0 until 2.25.3, Loofah's HTML5 APIs Loofah.html5_fragment, Loofah.html5_document, and the scrub_html5_* methods can emit sanitized output that a browser reparses as different markup when used with Nokogiri before 1.19.5, because those Nokogiri versions do not escape angle brackets in attribute values. MathML can place markup inside an allowed attribute so the reparsed output becomes live HTML. The :strip scrubber is affected in every browser, while :prune and :escape are affected in WebKit browsers. Loofah's HTML4 APIs, Loofah::Helpers.sanitize, :whitewash, rails-html-sanitizer's default configuration, and JRuby are not affected. This issue is fixed in version 2.25.3.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-126641",
-      "published": "2026-11-12T11:17:11.317",
-      "description": "A host key verification flaw was found in ansible-pylibssh and in the ansible.netcommon libssh connection plugin. When trust-on-first-use is enabled (host_key_auto_add on the libssh connection plugin, or AutoAddPolicy in ansible-pylibssh), a host that is already present in known_hosts but now presents a different key is accepted without warning. The pylibssh Session.verify_knownhost() method passes the SSH_KNOWN_HOSTS_CHANGED and SSH_KNOWN_HOSTS_OTHER states to the same missing_host_key() policy hook used for unknown hosts, and the bundled AutoAddPolicy/RejectPolicy classes (as well as ansible.netcommon's MyAddPolicy, which is modeled on paramiko's AutoAddPolicy) therefore add the changed key and continue the connection rather than aborting as paramiko's BadHostKeyException path would. As a result the controller authenticates to the substitute host, runs the play there, and appends the new key to known_hosts, which can disclose connection credentials to an attacker performing a machine-in-the-middle attack. Default configurations (host_key_checking enabled, host_key_auto_add unset) are not affected; non-interactive runs fail closed.",
+      "id": "CVE-2026-127235",
+      "published": "2026-11-12T19:17:03.583",
+      "description": "A reflected cross-site scripting vulnerability exists in the web user interface of multiple versions of OpenNMS Meridian and Horizon. Several web UI pages copy request parameter values into the HTML response without correct contextual output encoding. A remote attacker can craft a link that runs arbitrary JavaScript in the OpenNMS origin when an authenticated user opens it. The script runs in the victim's browser with the victim's session, so the attacker can read page data and send same-origin requests as the victim. The fix encodes the affected request values. On pages that use AngularJS, the fix also stops client-side template evaluation of the reflected values.\n\n\n\nThe solution is to upgrade to Meridian 2024.3.15, 2025.0.12, 2026.0.2 and Horizon 36.0.6 or newer. Meridian and Horizon installation instructions state that they are intended for installation within an organization's private networks and should not be directly accessible from the Internet.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-126643",
-      "published": "2026-11-12T11:17:11.583",
-      "description": "A cleartext storage flaw was found in the AAP Gateway Operator. When reconciling an AutomationController, the operator reads the protected resource-server Secret (Secret/<aap-name>-resource-server, key controller_resource_server_secret) and copies its plaintext value into the generated AutomationController custom resource under spec.extra_settings (RESOURCE_SERVER.SECRET_KEY). Although the operator uses no_log to keep the value out of its own logs, serializing it into the custom resource exposes it to any principal able to read the AutomationController CR without permission to read the backing Kubernetes Secret, breaking the expected OpenShift RBAC separation between the two resources. The value may also propagate into Kubernetes API/etcd storage, GitOps and Argo diffs and history, rendered manifests, support bundles, and audit data. The resource-server secret is intended for trusted Gateway-to-Controller service authentication, and its disclosure may allow a user to impersonate a trusted Controller service and reach privileged service-index APIs.",
+      "id": "CVE-2026-126838",
+      "published": "2026-11-12T19:17:01.570",
+      "description": "A MongoDB Rust Driver component that holds client-side field level encryption settings includes key management service credential material in its diagnostic formatting output without redaction. An application that records or displays this formatted output may place that material where a party with read access to the application's diagnostic output can see it, which may result in unintended disclosure of key material.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-123765",
-      "published": "2026-11-12T10:17:28.523",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Apache Sling XSS. xssAPI.getStyleToken() accepts markup in unquoted urls.\n\n\n\nThis issue affects Apache Sling XSS: before 2.4.14.\n\n\n\nUsers are recommended to upgrade to version 2.4.14, which fixes the issue.",
+      "id": "CVE-2026-127236",
+      "published": "2026-11-12T19:17:03.723",
+      "description": "An argument injection vulnerability exists in the ad-hoc RRD graph feature of multiple versions of OpenNMS Meridian and Horizon. The ad-hoc graph endpoint (GET /graph/graph.png?adhoc=true) copies request parameters into the rrdtool command line without validation. A low-privileged authenticated user (ROLE_USER or ROLE_DASHBOARD) can insert extra rrdtool arguments. An injected --daemon argument makes the server connect to an attacker-chosen address, which is a server-side request forgery. An injected DEF statement reads a local RRD file by absolute path. The command runs through exec with an argument array and no shell, so arbitrary operating system command execution is not possible. The fix validates the ad-hoc graph parameters against allowlists.\n\n\n\nThe solution is to upgrade to Meridian 2024.3.15, 2025.0.12, 2026.0.2 and Horizon 36.0.6 or newer. Meridian and Horizon installation instructions state that they are intended for installation within an organization's private networks and should not be directly accessible from the Internet.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-126644",
-      "published": "2026-11-12T11:17:11.770",
-      "description": "A link-following flaw was found in the authorized_key module of the ansible.posix collection, residual to the fix for CVE-2026-11837. That fix guards only the final path component (os.chown with follow_symlinks=False and O_NOFOLLOW in _safe_open_write()). When an unprivileged local user replaces their ~/.ssh directory with a symlink to a directory they do not own, and an operator subsequently runs the authorized_key task as root (a common provisioning pattern), the module resolves its path operations through the symlink: atomic_move() writes the temporary file in the symlink target and renames it to <target>/authorized_keys, creating or overwriting a file in the attacker-chosen directory, and os.chmod(sshdir, 0o700) follows the symlink and changes the target directory's permissions. The written file is chowned to the unprivileged user, so this is not a privilege escalation, but it allows an attacker to create or overwrite files (for example in /etc/apt/apt.conf.d/, which APT reads regardless of file ownership) to cause integrity and availability impacts.",
+      "id": "CVE-2026-127119",
+      "published": "2026-11-12T19:17:03.430",
+      "description": "Unverified ownership of the default cluster log location in the EMR module in AWS SDK for pandas (awswrangler) from 1.1.0 before 3.18.0 might allow remote actors to read Amazon EMR cluster logs, including job step output, via a pre-created S3 bucket.\n\n\n\nTo remediate this issue, users should upgrade to version 3.18.0 or later. Users who can't upgrade immediately should pass an explicit log location, or create the default EMR log bucket in their own account in each region they use.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-126204",
+      "published": "2026-11-12T19:16:56.713",
+      "description": "express-rate-limit is a basic rate-limiting middleware for Express. From 8.6.0 until 8.7.2, the built-in MemoryStore returns a Client whose mutable resetTime object is retained by middleware using skipFailedRequests or skipSuccessfulRequests. When a later request resets the client window, MemoryStore.resetClient mutates that same Date, so an earlier request that finishes or disconnects after the reset can pass the stale-window guard and decrement the current window's count. A client able to keep requests in flight across the boundary can obtain a bounded extra burst of up to one additional configured limit in the new window; the behavior does not increase the sustained rate. Stores that return a fresh Date are not affected. This issue is fixed in version 8.7.2.",
       "severity": "LOW",
-      "score": 3.9
+      "score": 3.7
     },
     {
-      "id": "CVE-2026-117474",
-      "published": "2026-11-12T10:17:28.020",
-      "description": "Rejected reason: This is rejected.",
+      "id": "CVE-2024-21954",
+      "published": "2026-11-12T19:16:44.843",
+      "description": "Improper exception handling in IOMMU could allow an invalidate command to be sent to PCIe devices that do not support Address Translation Cache (ATC), potentially resulting in denial of service.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-117475",
-      "published": "2026-11-12T10:17:28.113",
-      "description": "Rejected reason: This is rejected.",
+      "id": "CVE-2025-54501",
+      "published": "2026-11-12T19:16:45.017",
+      "description": "Improper access control on an internal debug interface could allow a high privileged attacker to bypass memory access controls potentially resulting in a loss of SEV-SNP guest memory integrity.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-117476",
-      "published": "2026-11-12T10:17:28.170",
-      "description": "Rejected reason: This is rejected.",
+      "id": "CVE-2026-0004",
+      "published": "2026-11-12T19:16:45.160",
+      "description": "A transient execution vulnerability in some AMD processors may allow an attacker with the ability to execute code on the system to infer data in the L1D cache, potentially resulting in the leakage of sensitive information across privileged boundaries.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-124617",
-      "published": "2026-11-12T10:17:28.657",
-      "description": "Rejected reason: 歸類為 JSONCPP Open Source 之問題",
+      "id": "CVE-2026-0101",
+      "published": "2026-11-12T19:16:45.317",
+      "description": "Improper validation of specified quantities in input within AMD Power Management Firmware (PMFW) could allow a local attacker to pass unsanitized input, potentially resulting in a system crash or denial of service.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-127016",
-      "published": "2026-11-12T10:17:28.960",
-      "description": "The MISP Modules website component exposes external tool management endpoints (add, delete, change status, and change configuration) that did not enforce the optional administrator authentication policy. When ADMIN_PASSWORD was configured in the application environment, the module configuration endpoints correctly required an authenticated administrator session, but the external tools management handlers processed requests from anonymous users without any authorization check. An unauthenticated attacker with network access to the website could add arbitrary external tools, delete existing tools, toggle their active status, and modify their configurations including API keys and ingestion URLs. This inconsistency allowed bypass of the intended access control for the external tools management functionality. The vulnerability is conditional on ADMIN_PASSWORD being set; installations without an admin password intentionally permit open management access by design. The affected component is the external_tools Flask blueprint within the MISP Modules website application.",
+      "id": "CVE-2026-0436",
+      "published": "2026-11-12T19:16:45.467",
+      "description": "Insufficient parameter sanitization in the AMD Secure Processor (ASP) trusted execution environment (TEE) SPDM driver could allow an attacker to supply malicious input, potentially resulting in loss of platform integrity, memory leakage, or denial of service.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-76173",
-      "published": "2026-11-12T10:17:29.353",
-      "description": "Blind SQL injection vulnerability in the public endpoint `public/webhook/receiver.php` of the WhatsApp module for Dolibarr 1.9. The phone number value derived from the `data.key.remoteJid` parameter, received via a JSON request, is incorporated into an SQL query without escaping or parameterization. With the WHATSAPP_WEBHOOK_ALLOW option enabled, an unauthenticated remote attacker could manipulate this parameter to alter the query. Exploitation using a timing-based technique could allow an attacker to extract information from the database and cause service disruption.",
+      "id": "CVE-2026-117542",
+      "published": "2026-11-12T19:16:47.740",
+      "description": "Joomla Extension - jdownloads.com - Authenticated path traversal in jDownloads < 4.1.8 - A manipulated `update_file` form parameter could bypass the intended server-file selection restrictions and move files from outside the permitted selection directory or assign them to a download. This could expose file contents and remove source files from their original locations.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-114369",
-      "published": "2026-11-12T12:18:19.057",
-      "description": "Resource exhaustion vulnerability in the Qt Framework QWebSocket and QWebSocketServer classes of the Qt WebSockets module",
+      "id": "CVE-2026-117544",
+      "published": "2026-11-12T19:16:47.883",
+      "description": "Joomla Extension - jdownloads.com - IDOR allowing restricted file downloads in jDownloads < 4.1.8 - The `other_file_id` parameter could reference another download’s file without fully enforcing the target download’s access restrictions. This allowed files to be delivered to users who were not authorised to access the target download.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-127036",
-      "published": "2026-11-12T12:18:22.960",
-      "description": "Improper neutralization of CRLF sequences ('CRLF injection') vulnerability in ibi WebFOCUS.\n\nThis issue affects WebFOCUS: 9.1, from 9.2 through 7, and from 9.3 through 7.",
+      "id": "CVE-2026-120033",
+      "published": "2026-11-12T19:16:48.393",
+      "description": "In FRRouting, bgpd does not correctly close a BGP session when the Send Hold Timer (RFC 9687) expires, i.e. when a neighbor has stopped accepting data from the router for twice the hold time. The connection is closed, but bgpd still considers the session to be up. A BGP neighbor that keeps sending KEEPALIVEs but stops reading from its connection, at a time when the router has a large amount of data to send to it (for example while sending it a full routing table), can trigger this. If the neighbor announced Graceful Restart support, bgpd crashes shortly after the session is closed, taking down all BGP sessions on the router, and the neighbor can repeat this each time bgpd restarts. Otherwise, the session stays stuck in the Established state: the neighbor's routes stay installed and keep being advertised to other peers, and the neighbor cannot reconnect until an operator clears the session manually. The neighbor does not need to be malicious; an overloaded or stuck peer can trigger the same behavior. No special configuration is required: any established BGP neighbor can trigger the issue, and Graceful Restart helper mode, which leads to the crash, is enabled by default.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-120467",
+      "published": "2026-11-12T19:16:48.553",
+      "description": "Joomla / WordPress Extension - acymailing.com - Subscriber identity not bound to the record acted upon in AcyMailing 1.0.0 - 11.1.1 - An authenticated user of any privilege level can subscribe or unsubscribe any other subscriber to or from any mailing list of the site.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-121619",
+      "published": "2026-11-12T19:16:48.840",
+      "description": "The Symfony FrameworkBundle framework.trusted_proxies option and the HttpFoundation Request::setTrustedProxies() method trust remote clients as reverse proxies when the private_ranges shortcut is used, allowing remote attackers to spoof the client IP address, host and scheme in Symfony FrameworkBundle versions 7.1 prior to 7.4.23 and 8.x prior to 8.1.11, and HttpFoundation versions 7.2 prior to 7.4.23 and 8.x prior to 8.1.11. The private_ranges and PRIVATE_SUBNETS keywords resolved to IpUtils::PRIVATE_SUBNETS, the deny list of NoPrivateNetworkHttpClient, which lists the private and special-purpose prefixes a server must not connect to. Since the fix for CVE-2026-48736 (7.4.13 and 8.0.13), this list also covers the IPv6 prefixes that embed an IPv4 address: IPv4-mapped (::ffff:0:0/96), IPv4-compatible (::/96), 6to4 (2002::/16), Teredo (2001::/32) and NAT64 (64:ff9b::/96). The IPv4-mapped entry has been in the list since the private_ranges shortcut was introduced, in 7.1 for framework.trusted_proxies and in 7.2 for Request::setTrustedProxies(). Over-blocking is safe for a deny list, but when the same entries are used as the allow list of trusted proxies, they trust remote clients. A client whose connection arrives with such a source address is treated as a reverse proxy, and the X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Proto, X-Forwarded-Port and X-Forwarded-Prefix headers it sends are honoured. For example, with Request::setTrustedProxies(['private_ranges'], ...), a request with REMOTE_ADDR set to ::ffff:203.0.113.7 and the headers X-Forwarded-For: 10.0.0.9, X-Forwarded-Host: evil.example.com and X-Forwarded-Proto: https makes getClientIp() return 10.0.0.9, getHost() return evil.example.com and isSecure() return true. Two kinds of deployments are exposed: a server listening on the IPv6 wildcard address without IPV6_V6ONLY reports every IPv4 client in the IPv4-mapped form, so every client is trusted, and a server reachable over IPv6 trusts any client sourcing from 6to4 or Teredo space, which is globally routed, whatever its listener. A spoofed client address defeats IP allow lists, rate limiting and audit logs; a spoofed host poisons the URLs written into password reset and login link e-mails and into shared caches; a spoofed scheme satisfies requires_channel: https over plain HTTP. Symfony 6.4 does not point any trusted proxy setting at IpUtils::PRIVATE_SUBNETS and is not affected by default, but an application that passes that constant to Request::setTrustedProxies() itself could be exposed in the same way on any version. This issue is fixed in 7.4.23 and 8.1.11.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2024-21963",
+      "published": "2026-11-12T20:18:09.523",
+      "description": "An out-of-bounds read vulnerability in the IOMMU could allow a malicious guest to corrupt hypervisor (HV) pages and potentially cause a host crash leading to loss of availability.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2024-36344",
+      "published": "2026-11-12T20:18:12.150",
+      "description": "Insufficient parameter sanitization in AMD Secure Processor (ASP) TEE DrvSys could allow an attacker with local access to the Trusted Execution Environment (TEE) interface or Trusted Application (TA) to cause an out-of-bounds write, potentially resulting in a loss of platform integrity or denial of service.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2025-0043",
+      "published": "2026-11-12T20:18:13.827",
+      "description": "Incorrect directory permissions within AMD Vivado™ Lab Solutions could allow a local user-privileged attacker to escalate their privileges, potentially resulting in arbitrary code execution.",
       "severity": "UNKNOWN",
       "score": null
     }
