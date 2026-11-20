@@ -1,143 +1,143 @@
 {
-  "totalResults": 4598,
+  "totalResults": 4306,
   "items": [
     {
-      "id": "CVE-2026-116417",
-      "published": "2026-11-13T09:17:32.160",
-      "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains a Weak Password Requirements vulnerability. An unauthenticated attacker with adjacent network access could potentially exploit this vulnerability, leading to Information disclosure and Unauthorized access.",
+      "id": "CVE-2026-123965",
+      "published": "2026-11-13T18:17:30.933",
+      "description": "A prompt injection vulnerability in all versions of Jet Admin Cloud Platform allows a remote attacker with a free account to expose sensitive .env configuration files and exfiltrate critical credentials. Mitigated via sandbox component around October 29, 2026.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-123177",
+      "published": "2026-11-13T18:17:30.780",
+      "description": "A flaw was found in dnf5daemon-server. Unauthenticated D-Bus methods pass caller-controlled URL or .rpm path patterns into a root-privileged cmdline package loader that may store fetched content in a world-readable cache without size limits, or open local paths as root, allowing a local attacker to disclose privileged content and to deny service via disk exhaustion.",
       "severity": "HIGH",
-      "score": 8.1
+      "score": 8.4
     },
     {
-      "id": "CVE-2026-116419",
-      "published": "2026-11-13T09:17:32.290",
-      "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, containsan Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-126091",
+      "published": "2026-11-13T18:17:32.630",
+      "description": "Dental practice sites hosted with iDentalSoft send a JSON response to any user who loads certain pages containing sensitive information, including OAuth credentials, password hashes, and PII. Fixed in iDentalSoft 14.0.3.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-124041",
+      "published": "2026-11-13T18:17:31.117",
+      "description": "Catalis/Patriot Properties WebPro 5.0 allows a remote unauthenticated attacker to execute arbitrary SQL queries against the underlying MSSQL database, enabling exfiltration of sensitive property and  taxpayer information.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-116420",
-      "published": "2026-11-13T09:17:32.420",
-      "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, containsan Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-128071",
+      "published": "2026-11-13T18:17:35.073",
+      "description": "Nuxt is an open-source web development framework for Vue.js. Nuxt from 3.0.0 until 4.6.4, @nuxt/nitro-server from 3.20.0 until 4.6.4, and @nuxt/vite-server from 4.6.0 until 4.6.4, routeRules matching leaves an encoded slash (%2F) in the request path while a catch-all page such as app/pages/[...slug].vue or a custom multi-segment page route decodes it into a route parameter. The getRouteRules result is therefore incomplete, and an unauthenticated request can render the page without the redirect, headers, proxy, SSR, noScripts, appMiddleware, or appLayout rules configured for the decoded path. Protected content is resolved only when the page interprets the decoded parameter accordingly: a custom multi-segment parameter can contain the decoded path, while a repeatable catch-all must join the slash-containing array element; route.path remains encoded and does not resolve that resource. Static pages, single-segment parameters, server/api handlers, and server/routes handlers are not affected because they do not have the same encoded-path mismatch. This issue is fixed in version 4.6.4.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-116421",
-      "published": "2026-11-13T09:17:32.540",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
+      "id": "CVE-2026-128070",
+      "published": "2026-11-13T18:17:34.900",
+      "description": "Nuxt is an open-source web development framework for Vue.js. From 3.5.0 until 4.6.4, Nuxt can choose a parent directory as the default workspaceDir in either of two cases: a stray parent lockfile when the project is outside a Git repository and has no workspace file above it, or a parent pnpm or Deno settings file that does not declare packages or a workspace, including when the project is inside a Git repository. When the development server is reachable from an untrusted network, Vite permits /_nuxt/@fs/ requests beneath that widened directory, allowing unauthenticated clients to read files such as credentials and SSH keys. The issue affects the development server only; production builds and projects whose parent directories contain no qualifying files are unaffected. This issue is fixed in version 4.6.4.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.9
     },
     {
-      "id": "CVE-2026-116422",
-      "published": "2026-11-13T09:17:32.670",
-      "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure and Information exposure.",
+      "id": "CVE-2026-128068",
+      "published": "2026-11-13T18:17:34.577",
+      "description": "rails-html-sanitizer is responsible for sanitizing HTML fragments in Rails applications. From 1.0.3 through 1.7.1, Rails::HTML::PermitScrubber checks SVG href and xlink:href local references with a pattern whose line-start anchor and whitespace class cause an all-whitespace value to be rescanned from each line start. An attacker who supplies HTML can cause quadratic CPU consumption when an application customizes its allowed tags to include an SVG reference element such as use and permits href or xlink:href. The default allowed tag configuration is not affected. CRuby 3.2 and later uses linear-time regular expression matching for this pattern, while CRuby 3.1 and earlier and JRuby are affected. This issue is fixed in version 1.7.2.",
       "severity": "MEDIUM",
-      "score": 6.3
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-116423",
-      "published": "2026-11-13T09:17:32.797",
-      "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains an Improper Verification of Cryptographic Signature vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges and Information tampering.",
+      "id": "CVE-2026-128075",
+      "published": "2026-11-13T18:17:36.843",
+      "description": "Nuxt is an open-source web development framework for Vue.js. From 3.0.0 until 4.6.4, Nuxt wraps non-HTTP errors thrown during server rendering with createError and incorrectly treats the result as an error deliberately exposed by the application. In production, the error page payload (__NUXT_DATA__) and JSON error response can therefore disclose the original message and data, including an upstream $fetch URL, query-string secrets, response bodies, database hosts, or similar sensitive details, regardless of what a custom error.vue renders. Errors deliberately created with createError or showError, errors returned by useFetch or useAsyncData, and server/api routes are not affected because their client-visible behavior is intentional or follows a different path. This issue is fixed in version 4.6.4.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.3
     },
     {
-      "id": "CVE-2026-116424",
-      "published": "2026-11-13T09:17:32.920",
-      "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains Unauthorized access vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering and Unauthorized access.",
+      "id": "CVE-2026-128069",
+      "published": "2026-11-13T18:17:34.757",
+      "description": "rails-html-sanitizer is responsible for sanitizing HTML fragments in Rails applications. Before 1.7.2, the HTML4 and HTML5 variants of Rails::HTML::SafeListSanitizer reuse one Rails::HTML::PermitScrubber across calls and mutate its tags and attributes without synchronization. In a multithreaded process, concurrent sanitize calls using different tags: or attributes: options can interleave and cause one call to use the other call's allowlist. If a permissive call admits a script element or event-handler attribute, output expected to be sanitized under a stricter policy can retain it and cause cross-site scripting when rendered. Applications that are single-threaded, use one identical allowlist everywhere, or provide a separate scrubber: are not affected. This issue is fixed in version 1.7.2.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-116425",
-      "published": "2026-11-13T09:17:33.053",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains unauthorized access vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering and Unauthorized access.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-128072",
+      "published": "2026-11-13T18:17:35.243",
+      "description": "Nuxt is an open-source web development framework for Vue.js. From @nuxt/webpack-builder 3.0.0 and @nuxt/rspack-builder 3.12.2 until 4.6.4, the development middleware trusts Origin, Referer, or Sec-Fetch-Site when the Host header names the same attacker-controlled hostname. After DNS rebinding changes that hostname to a loopback address, a malicious page opened by a developer can read /_nuxt/*.js client chunks and inline source maps, exposing compiled application source, local filesystem paths, and developer-controlled values embedded in the client bundle. The attacker must know or guess the development-server port and induce the developer to open the malicious page; Chrome 142 and later and other Chromium-based browsers that enforce Local Network Access restrictions prompt before a public page can reach the loopback address. The default Vite builder and production builds are unaffected. This issue is fixed in version 4.6.4.",
+      "severity": "LOW",
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-116427",
-      "published": "2026-11-13T09:17:33.297",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "severity": "MEDIUM",
-      "score": 5.4
+      "id": "CVE-2026-128076",
+      "published": "2026-11-13T18:17:37.003",
+      "description": "Nuxt is an open-source web development framework for Vue.js. From 3.21.6 to before 4.0.0 and from 4.4.6 until 4.6.4, the /__nuxt_island path hash uses ohash serialization that does not escape quotes in string values or delimiters in object keys, allowing different island-prop tuples to produce the same path. For prerendering, substituted content is written into the generated page only if the crawler reaches a colliding URL before rendering the page with the legitimate props. Separately, a CDN or reverse proxy that keys island responses by path alone can be primed with the colliding response. If the substituted prop reaches v-html, innerHTML, or another unsafe HTML sink, the response can execute script in the application origin; otherwise the impact is content substitution. Applications that do not use server components or NuxtIsland, islands without attacker-influenced string props, and responses not cached by path alone are unaffected. This issue is fixed in version 4.6.4.",
+      "severity": "LOW",
+      "score": 3.1
     },
     {
-      "id": "CVE-2026-116438",
-      "published": "2026-11-13T09:17:33.807",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0 , contains a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-116453",
-      "published": "2026-11-13T09:17:33.930",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering and Unauthorized access.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-128824",
-      "published": "2026-11-13T09:17:34.560",
-      "description": "A flaw was found in Red Hat Quay. The v1 registry API error handler reflects the attacker-supplied image_id path segment in a response served as text/html, allowing a reflected cross-site scripting (XSS) attack. By tricking a user into visiting a specially crafted URL, a remote attacker can execute arbitrary JavaScript in the victim's browser within the Quay origin, potentially compromising the user's session.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-116426",
-      "published": "2026-11-13T09:17:33.173",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information exposure.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-116430",
-      "published": "2026-11-13T09:17:33.427",
-      "description": "Dell PowerScale InsightIQ, Version 6.4.0, contain an Insufficient Verification of Data Authenticity vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-116431",
-      "published": "2026-11-13T09:17:33.557",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains a Cleartext Storage of Sensitive Information vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-116436",
-      "published": "2026-11-13T09:17:33.680",
-      "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-120864",
-      "published": "2026-11-13T09:17:34.057",
-      "description": "Memory overflow in ICA proxy can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
+      "id": "CVE-2026-107398",
+      "published": "2026-11-13T18:17:26.153",
+      "description": "Indico is a feature-rich event management system. Prior to version 3.3.14, due to a path traversal vulnerability when building an \"offline copy\" of an event, a malicious event manager has the ability to retrieve the content of any local file that's readable by the user running Indico on the server. This issue has been patched in version 3.3.14.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-120865",
-      "published": "2026-11-13T09:17:34.190",
-      "description": "Memory overflow in HTTP/3 (QUIC) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
+      "id": "CVE-2026-124666",
+      "published": "2026-11-13T18:17:31.260",
+      "description": "Authentication bypass by spoofing vulnerability in Apache APISIX.\n\n\n\nOn a route where multi-auth falls back from wolf-rbac to another successful authenticator, client-supplied Wolf identity headers can remain in the request. A downstream service that relies on those documented headers may therefore receive an identity that was not established by the successful authenticator.\n\n\n\nThis issue affects Apache APISIX: from 3.8.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-120866",
-      "published": "2026-11-13T09:17:34.313",
-      "description": "Memory overflow / improper handling in BGP dynamic routing can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
+      "id": "CVE-2026-124679",
+      "published": "2026-11-13T18:17:31.393",
+      "description": "Authentication bypass by spoofing vulnerability in Apache APISIX.\n\n\n\nOn routes using jwe-decrypt with strict: false and a\nforward_header distinct from the token header an unauthenticated\nclient can supply the value the upstream treats as gateway-decrypted\nplaintext. Similar can happen when forward-auth is configured with allow_degradation: true, and the auth service is unavailable.\n\n\n\nThis issue affects Apache APISIX: from 3.18.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-120867",
-      "published": "2026-11-13T09:17:34.437",
-      "description": "Memory overflow in SSL/TLS/DTLS can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
+      "id": "CVE-2026-124680",
+      "published": "2026-11-13T18:17:31.533",
+      "description": "Interpretation Conflict, resulting in (Incorrect Authorization) vulnerability in Apache APISIX.\n\n\n\nAn unauthenticated client can reach upstream paths protected\nby a route-level auth plugin when a route without auth exists on the\nsame upstream and the upstream does not collapse encoded dot segments.\n\n\n\nThis issue affects Apache APISIX: from 0.9 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-124716",
+      "published": "2026-11-13T18:17:31.670",
+      "description": "Incorrect Authorization vulnerability in Apache APISIX.\n\n\n\nAn authenticated user who holds any one of a route's required permissions or scopes can reach the protected upstream without the others, including HTTP methods the authorization server denied.\n\n\n\nThis issue affects Apache APISIX: from 1.4.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-124719",
+      "published": "2026-11-13T18:17:31.803",
+      "description": "Authentication bypass by spoofing vulnerability in Apache APISIX.\n\n\n\nWhen a Route's configured headers carry a caller identity and the OpenAPI document declares\nthe same header, a caller can act as another identity against the\nupstream API. This issue affects Apache APISIX: from 3.19.0 before 3.20.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-124723",
+      "published": "2026-11-13T18:17:31.930",
+      "description": "Interpretation Conflict, leading to Incorrect Authorization vulnerability in Apache APISIX.\n\n\n\nWith match_uri_encoded_slash enabled and skip_mtls_uri_regex\nconfigured, a client without a certificate can reach an upstream\nbehind a route that requires one, limited to request paths that decode\nto an exempted URI. This issue affects Apache APISIX: from 3.18.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-124726",
+      "published": "2026-11-13T18:17:32.050",
+      "description": "Relative Path Traversal, with Unintended Proxy vulnerability in Apache APISIX.\n\n\n\nA caller of the MCP endpoint can invoke endpoints the OpenAPI document\nnever declared, under the declared tool's HTTP method, using the credentials the\nRoute adds. This issue affects Apache APISIX: from 3.19.0 before 3.20.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-128074",
+      "published": "2026-11-13T18:17:36.690",
+      "description": "Nuxt is an open-source web development framework for Vue.js. From 4.6.0 until 4.6.4, _payload.json URL generation and the experimental early-404 path use a trailing-slash regular expression whose work grows quadratically with a long run of slash characters. An unauthenticated request can synchronously occupy the Node.js event loop and delay other requests when server-side rendering uses isr, swr, or cache route rules, or when experimental.early404 is enabled. Applications without those route rules and without experimental.early404, fully prerendered applications, and client-only applications are unaffected; the impact is limited to availability. This issue is fixed in version 4.6.4.",
       "severity": "UNKNOWN",
       "score": null
     }
