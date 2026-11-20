@@ -1,145 +1,145 @@
 {
-  "totalResults": 4306,
+  "totalResults": 4313,
   "items": [
     {
-      "id": "CVE-2026-123965",
-      "published": "2026-11-13T18:17:30.933",
-      "description": "A prompt injection vulnerability in all versions of Jet Admin Cloud Platform allows a remote attacker with a free account to expose sensitive .env configuration files and exfiltrate critical credentials. Mitigated via sandbox component around October 29, 2026.",
+      "id": "CVE-2026-126173",
+      "published": "2026-11-14T05:18:37.750",
+      "description": "The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in all versions up to, and including, 1.4.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to reset the password of any WordPress account, including administrators, resulting in full account takeover. This is only exploitable when an administrator has configured an automation pairing a Receive Webhook trigger — with an 'Is the user ID' field — to an Update-User action whose User ID field is left blank and whose Password field is mapped to the webhook password tag, which is a documented, supported plugin configuration.",
       "severity": "CRITICAL",
-      "score": 9.9
+      "score": 9.8
     },
     {
-      "id": "CVE-2026-123177",
-      "published": "2026-11-13T18:17:30.780",
-      "description": "A flaw was found in dnf5daemon-server. Unauthenticated D-Bus methods pass caller-controlled URL or .rpm path patterns into a root-privileged cmdline package loader that may store fetched content in a world-readable cache without size limits, or open local paths as root, allowing a local attacker to disclose privileged content and to deny service via disk exhaustion.",
+      "id": "CVE-2026-116528",
+      "published": "2026-11-14T07:17:17.223",
+      "description": "The Chargely Free Subscriptions For Woocommernce WordPress plugin through 1.0 does not perform any authorization check on a REST API route that returns its stored configuration, allowing unauthenticated attackers to retrieve the live WooCommerce REST API consumer key and secret it holds, which grant read and write access to the whole store.",
+      "severity": "CRITICAL",
+      "score": 9.1
+    },
+    {
+      "id": "CVE-2026-123046",
+      "published": "2026-11-14T07:17:19.350",
+      "description": "The SEOJuice WordPress plugin before 2.12.0 does not correctly restrict a REST API authentication filter, disabling WordPress's REST nonce protection for the whole site and allowing unauthenticated attackers to perform any cookie-authenticated REST action, including creating a new administrator account, by tricking a logged-in administrator into opening a crafted page (CSRF).",
       "severity": "HIGH",
-      "score": 8.4
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-126091",
-      "published": "2026-11-13T18:17:32.630",
-      "description": "Dental practice sites hosted with iDentalSoft send a JSON response to any user who loads certain pages containing sensitive information, including OAuth credentials, password hashes, and PII. Fixed in iDentalSoft 14.0.3.",
+      "id": "CVE-2026-123122",
+      "published": "2026-11-14T07:17:19.513",
+      "description": "The Checkout Files Upload for WooCommerce WordPress plugin before 2.4.1 does not verify that a file uploaded at checkout is really one of its allowed image types, and serves stored uploads inline using their detected content type, allowing unauthenticated users to upload an HTML file disguised as an image that executes JavaScript in the browser of a shop manager or administrator who opens it from the order screen.\nThis is a regression of CVE-2025-4212, reintroduced in 2.4.0.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-119258",
+      "published": "2026-11-14T07:17:19.140",
+      "description": "The Swipe WordPress plugin through 1.4 does not properly authenticate a login request before issuing a WordPress session cookie, allowing unauthenticated attackers to log in as an existing user, including an administrator, when that user has an active app session.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-124649",
+      "published": "2026-11-14T07:17:19.700",
+      "description": "The Lightbox with PhotoSwipe WordPress plugin before 5.19.0 does not properly sanitise link titles and other caption sources before inserting them as HTML into the image lightbox caption, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks via comments.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-124041",
-      "published": "2026-11-13T18:17:31.117",
-      "description": "Catalis/Patriot Properties WebPro 5.0 allows a remote unauthenticated attacker to execute arbitrary SQL queries against the underlying MSSQL database, enabling exfiltration of sensitive property and  taxpayer information.",
+      "id": "CVE-2026-124969",
+      "published": "2026-11-14T05:18:32.480",
+      "description": "The Optimole – Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the replace_urls_in_value function in all versions up to, and including, 4.2.19. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Successful exploitation requires PEAR's Archive_Tar library to be present and loadable on the host (common in official WordPress Docker images and many PHP distributions), and an administrator must subsequently use the plugin's Rename control on any attachment after the attacker has staged a malicious payload in a comment. Successful exploitation additionally requires an action by an administrator — the attacker cannot trigger the vulnerability on their own.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-111033",
+      "published": "2026-11-14T07:17:16.417",
+      "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not perform authorization or nonce checks when saving countdown data on post save, and its output-sanitization allowlist permits script tags, allowing users with Author-level access and above to store arbitrary web scripts that execute when the affected content is viewed on the front end or in an administrator session.",
+      "severity": "MEDIUM",
+      "score": 6.8
+    },
+    {
+      "id": "CVE-2026-105983",
+      "published": "2026-11-14T07:17:12.540",
+      "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions and REST routes, allowing unauthenticated users to disclose the Email Marketing 4Dem WordPress plugin through 2.0.5's stored configuration and data and to modify its stored settings.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-128071",
-      "published": "2026-11-13T18:17:35.073",
-      "description": "Nuxt is an open-source web development framework for Vue.js. Nuxt from 3.0.0 until 4.6.4, @nuxt/nitro-server from 3.20.0 until 4.6.4, and @nuxt/vite-server from 4.6.0 until 4.6.4, routeRules matching leaves an encoded slash (%2F) in the request path while a catch-all page such as app/pages/[...slug].vue or a custom multi-segment page route decodes it into a route parameter. The getRouteRules result is therefore incomplete, and an unauthenticated request can render the page without the redirect, headers, proxy, SSR, noScripts, appMiddleware, or appLayout rules configured for the decoded path. Protected content is resolved only when the page interprets the decoded parameter accordingly: a custom multi-segment parameter can contain the decoded path, while a repeatable catch-all must join the slash-containing array element; route.path remains encoded and does not resolve that resource. Static pages, single-segment parameters, server/api handlers, and server/routes handlers are not affected because they do not have the same encoded-path mismatch. This issue is fixed in version 4.6.4.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-128070",
-      "published": "2026-11-13T18:17:34.900",
-      "description": "Nuxt is an open-source web development framework for Vue.js. From 3.5.0 until 4.6.4, Nuxt can choose a parent directory as the default workspaceDir in either of two cases: a stray parent lockfile when the project is outside a Git repository and has no workspace file above it, or a parent pnpm or Deno settings file that does not declare packages or a workspace, including when the project is inside a Git repository. When the development server is reachable from an untrusted network, Vite permits /_nuxt/@fs/ requests beneath that widened directory, allowing unauthenticated clients to read files such as credentials and SSH keys. The issue affects the development server only; production builds and projects whose parent directories contain no qualifying files are unaffected. This issue is fixed in version 4.6.4.",
+      "id": "CVE-2026-129319",
+      "published": "2026-11-14T07:17:21.370",
+      "description": "create-ecdh is a browserifiable implementation of Node.js crypto.createECDH. In versions 4.0.4 and below, the JavaScript implementation (browser.js, used by browser bundlers and on Node.js versions without a working native crypto.createECDH) did not validate peer public keys in ECDH.prototype.computeSecret or ECDH.prototype.setPublicKey. The peer point was multiplied by the local private key without checking that it was on the configured curve or in its prime-order subgroup. An attacker who can submit public keys to a party that reuses a static private key can perform an invalid-curve or small-subgroup attack and recover the private key modulo small factors, eventually recovering the full key via the Chinese Remainder Theorem. For the ed25519 and curve25519 curves, low-order points were also accepted, which could force a predictable shared secret. On modern Node.js, create-ecdh re-exports the native implementation, which is not affected. This issue is fixed in version 4.0.5.",
       "severity": "MEDIUM",
       "score": 5.9
     },
     {
-      "id": "CVE-2026-128068",
-      "published": "2026-11-13T18:17:34.577",
-      "description": "rails-html-sanitizer is responsible for sanitizing HTML fragments in Rails applications. From 1.0.3 through 1.7.1, Rails::HTML::PermitScrubber checks SVG href and xlink:href local references with a pattern whose line-start anchor and whitespace class cause an all-whitespace value to be rescanned from each line start. An attacker who supplies HTML can cause quadratic CPU consumption when an application customizes its allowed tags to include an SVG reference element such as use and permits href or xlink:href. The default allowed tag configuration is not affected. CRuby 3.2 and later uses linear-time regular expression matching for this pattern, while CRuby 3.1 and earlier and JRuby are affected. This issue is fixed in version 1.7.2.",
+      "id": "CVE-2026-126697",
+      "published": "2026-11-14T07:17:21.043",
+      "description": "The Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 was distributed with a hidden update mechanism that fetched Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 updates from its author's own server instead of WordPress.org, which was used to push a backdoored build to sites, allowing the attacker controlling that server to inject arbitrary content into pages and to deliver arbitrary code to affected sites.\n\nVersion 5.2.1, as published on WordPress.org, bundled the Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 Update Checker library (updater/ directory) configured to poll https://anadnet.com/updates/?action=get_metadata&slug=quick-pagepost-redirect-Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4. In March 2021 that server delivered a modified 5.2.3 build, different from the 5.2.3 later published on WordPress.org, which kept the update channel and added a the_content filter that, for logged-out visitors on single posts and pages, fetched content from https://w.anadnet.com/bro/3/ (passing the site host, request URI and visitor User-Agent) and prepended the response to the post (observed serving SEO spam links to search engine crawlers). Because the version string matched a later WordPress.org release, affected sites were not offered a clean update until 5.2.4.\n\nIndicators of compromise:\n- Outbound requests to anadnet.com or w.anadnet.com\n- An updater/ directory (Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 Update Checker, Puc v4p10) inside wp-content/Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4/quick-pagepost-redirect-Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4/\n- The strings filter_the_content_in_the_main_loop, ppr_pro, QQQEND or w.anadnet.com in page_post_redirect_Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4.php\n- page_post_redirect_Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4.php with MD5 ad717da18cf8a2b69899c0d7dafee05a (tampered 5.2.3)\n\nRemediation: remove the Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 (it has been closed on WordPress.org), or at minimum reinstall the clean 5.2.4 from WordPress.org, delete any leftover updater/ directory, verify the files with \"wp Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 verify-checksums quick-pagepost-redirect-Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4\", clear the opcode cache, and treat any site that ran the tampered build as potentially compromised.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-105984",
+      "published": "2026-11-14T07:17:16.137",
+      "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions, allowing unauthenticated users to destroy its stored configuration and delete its records.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-128075",
-      "published": "2026-11-13T18:17:36.843",
-      "description": "Nuxt is an open-source web development framework for Vue.js. From 3.0.0 until 4.6.4, Nuxt wraps non-HTTP errors thrown during server rendering with createError and incorrectly treats the result as an error deliberately exposed by the application. In production, the error page payload (__NUXT_DATA__) and JSON error response can therefore disclose the original message and data, including an upstream $fetch URL, query-string secrets, response bodies, database hosts, or similar sensitive details, regardless of what a custom error.vue renders. Errors deliberately created with createError or showError, errors returned by useFetch or useAsyncData, and server/api routes are not affected because their client-visible behavior is intentional or follows a different path. This issue is fixed in version 4.6.4.",
+      "id": "CVE-2026-117487",
+      "published": "2026-11-14T07:17:17.850",
+      "description": "The Flatsome WordPress theme before 3.20.13 does not perform a capability or nonce check on an AJAX action available to unauthenticated users, and does not restrict the status of the posts it returns by ID, allowing unauthenticated users to disclose the content of unpublished (draft and pending) posts.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-128069",
-      "published": "2026-11-13T18:17:34.757",
-      "description": "rails-html-sanitizer is responsible for sanitizing HTML fragments in Rails applications. Before 1.7.2, the HTML4 and HTML5 variants of Rails::HTML::SafeListSanitizer reuse one Rails::HTML::PermitScrubber across calls and mutate its tags and attributes without synchronization. In a multithreaded process, concurrent sanitize calls using different tags: or attributes: options can interleave and cause one call to use the other call's allowlist. If a permissive call admits a script element or event-handler attribute, output expected to be sanitized under a stricter policy can retain it and cause cross-site scripting when rendered. Applications that are single-threaded, use one identical allowlist everywhere, or provide a separate scrubber: are not affected. This issue is fixed in version 1.7.2.",
+      "id": "CVE-2026-126640",
+      "published": "2026-11-14T07:17:20.820",
+      "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.3 does not escape values from imported files before using them in SQL queries when importing LifterLMS content, allowing high privilege users such as admin, including the administrator of a single site on a multisite network, to perform SQL injection attacks.",
       "severity": "MEDIUM",
-      "score": 4.7
+      "score": 4.9
     },
     {
-      "id": "CVE-2026-128072",
-      "published": "2026-11-13T18:17:35.243",
-      "description": "Nuxt is an open-source web development framework for Vue.js. From @nuxt/webpack-builder 3.0.0 and @nuxt/rspack-builder 3.12.2 until 4.6.4, the development middleware trusts Origin, Referer, or Sec-Fetch-Site when the Host header names the same attacker-controlled hostname. After DNS rebinding changes that hostname to a loopback address, a malicious page opened by a developer can read /_nuxt/*.js client chunks and inline source maps, exposing compiled application source, local filesystem paths, and developer-controlled values embedded in the client bundle. The attacker must know or guess the development-server port and induce the developer to open the malicious page; Chrome 142 and later and other Chromium-based browsers that enforce Local Network Access restrictions prompt before a public page can reach the loopback address. The default Vite builder and production builds are unaffected. This issue is fixed in version 4.6.4.",
+      "id": "CVE-2026-118182",
+      "published": "2026-11-14T07:17:18.530",
+      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check that a user duplicating a post is allowed to edit it, which, when the slug takeover option is enabled, allows users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributor, to move any readable post off its permalink and publish their copy at that address.",
+      "severity": "MEDIUM",
+      "score": 4.4
+    },
+    {
+      "id": "CVE-2026-118183",
+      "published": "2026-11-14T07:17:18.760",
+      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check whether a user may publish posts when duplicating one, allowing users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributors, to create published posts, including posts attributed to other users.",
+      "severity": "MEDIUM",
+      "score": 4.4
+    },
+    {
+      "id": "CVE-2026-111034",
+      "published": "2026-11-14T07:17:17.023",
+      "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not check that the user is allowed to browse content before returning post titles from one of its AJAX actions, allowing any authenticated user, such as a subscriber, to list the titles of published entries of any post type, including types that WordPress does not expose to them. Draft, private and pending content is not returned; only published entries are disclosed.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-126639",
+      "published": "2026-11-14T07:17:20.567",
+      "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.2, WP Ultimate CSV Importer Pro WordPress plugin before 9.0.7 do not protect the files created by their single post export feature, writing them to a publicly accessible location under a predictable name, allowing unauthenticated attackers to download the content and custom fields of any exported post, including non-public content.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-118181",
+      "published": "2026-11-14T07:17:18.333",
+      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not perform a capability check when saving its global settings, relying only on its own role-access list, which allows users of any role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, as low as Subscriber, to overwrite those settings, including the role-access list itself.",
       "severity": "LOW",
       "score": 3.1
     },
     {
-      "id": "CVE-2026-128076",
-      "published": "2026-11-13T18:17:37.003",
-      "description": "Nuxt is an open-source web development framework for Vue.js. From 3.21.6 to before 4.0.0 and from 4.4.6 until 4.6.4, the /__nuxt_island path hash uses ohash serialization that does not escape quotes in string values or delimiters in object keys, allowing different island-prop tuples to produce the same path. For prerendering, substituted content is written into the generated page only if the crawler reaches a colliding URL before rendering the page with the legitimate props. Separately, a CDN or reverse proxy that keys island responses by path alone can be primed with the colliding response. If the substituted prop reaches v-html, innerHTML, or another unsafe HTML sink, the response can execute script in the application origin; otherwise the impact is content substitution. Applications that do not use server components or NuxtIsland, islands without attacker-influenced string props, and responses not cached by path alone are unaffected. This issue is fixed in version 4.6.4.",
+      "id": "CVE-2026-117490",
+      "published": "2026-11-14T07:17:18.140",
+      "description": "The Flatsome WordPress theme before 3.20.13 does not enforce the acting user's publish and post-type restrictions on an AJAX save action, allowing users with a role as low as Contributor to publish their own content and change its post type (for example to a product) without holding the required capabilities.",
       "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-107398",
-      "published": "2026-11-13T18:17:26.153",
-      "description": "Indico is a feature-rich event management system. Prior to version 3.3.14, due to a path traversal vulnerability when building an \"offline copy\" of an event, a malicious event manager has the ability to retrieve the content of any local file that's readable by the user running Indico on the server. This issue has been patched in version 3.3.14.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124666",
-      "published": "2026-11-13T18:17:31.260",
-      "description": "Authentication bypass by spoofing vulnerability in Apache APISIX.\n\n\n\nOn a route where multi-auth falls back from wolf-rbac to another successful authenticator, client-supplied Wolf identity headers can remain in the request. A downstream service that relies on those documented headers may therefore receive an identity that was not established by the successful authenticator.\n\n\n\nThis issue affects Apache APISIX: from 3.8.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124679",
-      "published": "2026-11-13T18:17:31.393",
-      "description": "Authentication bypass by spoofing vulnerability in Apache APISIX.\n\n\n\nOn routes using jwe-decrypt with strict: false and a\nforward_header distinct from the token header an unauthenticated\nclient can supply the value the upstream treats as gateway-decrypted\nplaintext. Similar can happen when forward-auth is configured with allow_degradation: true, and the auth service is unavailable.\n\n\n\nThis issue affects Apache APISIX: from 3.18.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124680",
-      "published": "2026-11-13T18:17:31.533",
-      "description": "Interpretation Conflict, resulting in (Incorrect Authorization) vulnerability in Apache APISIX.\n\n\n\nAn unauthenticated client can reach upstream paths protected\nby a route-level auth plugin when a route without auth exists on the\nsame upstream and the upstream does not collapse encoded dot segments.\n\n\n\nThis issue affects Apache APISIX: from 0.9 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124716",
-      "published": "2026-11-13T18:17:31.670",
-      "description": "Incorrect Authorization vulnerability in Apache APISIX.\n\n\n\nAn authenticated user who holds any one of a route's required permissions or scopes can reach the protected upstream without the others, including HTTP methods the authorization server denied.\n\n\n\nThis issue affects Apache APISIX: from 1.4.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124719",
-      "published": "2026-11-13T18:17:31.803",
-      "description": "Authentication bypass by spoofing vulnerability in Apache APISIX.\n\n\n\nWhen a Route's configured headers carry a caller identity and the OpenAPI document declares\nthe same header, a caller can act as another identity against the\nupstream API. This issue affects Apache APISIX: from 3.19.0 before 3.20.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124723",
-      "published": "2026-11-13T18:17:31.930",
-      "description": "Interpretation Conflict, leading to Incorrect Authorization vulnerability in Apache APISIX.\n\n\n\nWith match_uri_encoded_slash enabled and skip_mtls_uri_regex\nconfigured, a client without a certificate can reach an upstream\nbehind a route that requires one, limited to request paths that decode\nto an exempted URI. This issue affects Apache APISIX: from 3.18.0 through 3.19.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124726",
-      "published": "2026-11-13T18:17:32.050",
-      "description": "Relative Path Traversal, with Unintended Proxy vulnerability in Apache APISIX.\n\n\n\nA caller of the MCP endpoint can invoke endpoints the OpenAPI document\nnever declared, under the declared tool's HTTP method, using the credentials the\nRoute adds. This issue affects Apache APISIX: from 3.19.0 before 3.20.0.\n\n\n\nUsers are recommended to upgrade to version 3.20.0, which fixes the issue.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-128074",
-      "published": "2026-11-13T18:17:36.690",
-      "description": "Nuxt is an open-source web development framework for Vue.js. From 4.6.0 until 4.6.4, _payload.json URL generation and the experimental early-404 path use a trailing-slash regular expression whose work grows quadratically with a long run of slash characters. An unauthenticated request can synchronously occupy the Node.js event loop and delay other requests when server-side rendering uses isr, swr, or cache route rules, or when experimental.early404 is enabled. Applications without those route rules and without experimental.early404, fully prerendered applications, and client-only applications are unaffected; the impact is limited to availability. This issue is fixed in version 4.6.4.",
-      "severity": "UNKNOWN",
-      "score": null
+      "score": 2.7
     }
   ]
 }
