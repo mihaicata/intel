@@ -1,143 +1,143 @@
 {
-  "totalResults": 4152,
+  "totalResults": 4319,
   "items": [
     {
-      "id": "CVE-2026-18379",
-      "published": "2026-11-12T19:17:04.040",
-      "description": "A flaw was found in yggdrasil-worker-package-manager. An authenticated attacker can exploit this issue to achieve arbitrary file modification or potential privilege escalation. The vulnerability exists because repository management operations fail to sanitize directory traversal sequences (such as '../') within repository names. By supplying a crafted repository name, an attacker can manipulate the root-level worker process into creating or deleting files outside the intended directory, compromising host system integrity.",
+      "id": "CVE-2026-127277",
+      "published": "2026-11-13T02:18:54.520",
+      "description": "A security flaw has been discovered in Linksys EA8100 1.0.3.216940. The affected element is an unknown function of the file etc/init.d/service_smbd.sh of the component SMB Service. Performing a manipulation of the argument ANON_ACCESS results in improper initialization. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-128321",
+      "published": "2026-11-13T02:18:56.493",
+      "description": "Tight JPEG decoding in TightVNC and UltraVNC viewers contains a heap-based buffer overflow because an attacker-controlled framebuffer rectangle width is not validated against a fixed-size decoding buffer. A malicious VNC server can cause an out-of-bounds heap write when a user connects, resulting in application crash and potentially other memory-corruption impacts.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 7.8
     },
     {
-      "id": "CVE-2026-126203",
-      "published": "2026-11-12T19:16:56.517",
-      "description": "Loofah is a general library for manipulating and transforming HTML/XML documents and fragments, built on top of Nokogiri. From 2.21.0 until 2.25.3, Loofah's HTML5 APIs Loofah.html5_fragment, Loofah.html5_document, and the scrub_html5_* methods can emit sanitized output that a browser reparses as different markup when used with Nokogiri before 1.19.5, because those Nokogiri versions do not escape angle brackets in attribute values. MathML can place markup inside an allowed attribute so the reparsed output becomes live HTML. The :strip scrubber is affected in every browser, while :prune and :escape are affected in WebKit browsers. Loofah's HTML4 APIs, Loofah::Helpers.sanitize, :whitewash, rails-html-sanitizer's default configuration, and JRuby are not affected. This issue is fixed in version 2.25.3.",
+      "id": "CVE-2026-15465",
+      "published": "2026-11-13T02:18:56.620",
+      "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls through the DDK kernel module interface. Under unsupported use of the interface, a use-after-free condition may occur that can lead to kernel memory corruption, platform instability, or system reboot.\n\n\n\nThe weakness occurs when software references memory after it has been released. Accessing memory after free may result in corruption of valid data structures, unexpected program behaviour, process crashes, or execution of unintended operations.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-127278",
+      "published": "2026-11-13T02:18:54.713",
+      "description": "A weakness has been identified in AIP-PUB ACPs-community up to 2.2.0. The impacted element is the function send_verification_code of the file registry-server/app/account/service_auth.py of the component verify-code Endpoint. Executing a manipulation of the argument phone can lead to improper authentication. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks. The reported GitHub issue was closed with the reason \"completed\". However, it was not possible to determine the PR or commit which could have fixed this issue.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-127279",
+      "published": "2026-11-13T02:18:54.907",
+      "description": "A vulnerability was detected in AIP-PUB ACPs-community up to 2.2.0. This impacts an unknown function of the file discovery-server/app/main.py of the component Discovery Server. The manipulation results in missing authentication. The attack may be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-127281",
+      "published": "2026-11-13T02:18:55.103",
+      "description": "A vulnerability was found in lanyulei ferry 1.0.0-beta.1/1.0.0. Affected is an unknown function of the file middleware/auth.go of the component JWT Validation. The manipulation results in improper authentication. The attack can be executed remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-127283",
+      "published": "2026-11-13T02:18:55.487",
+      "description": "A vulnerability was identified in SourceCodester Food Ordering System 1.0. Affected by this issue is some unknown functionality of the file admin/update_food.php of the component Admin Image Handler. Such manipulation of the argument cmd leads to unrestricted upload. The attack may be performed from remote. The exploit is publicly available and might be used.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-127284",
+      "published": "2026-11-13T02:18:55.677",
+      "description": "A security flaw has been discovered in SourceCodester Food Ordering System 1.0. This affects an unknown part of the file admin/add_category.php of the component Admin Write Handler. Performing a manipulation of the argument title/description/price/current_image/featured/active/id results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-127282",
+      "published": "2026-11-13T02:18:55.297",
+      "description": "A vulnerability was determined in SourceCodester Smart Attendance System with QR Code Scanner 1.0. Affected by this vulnerability is an unknown functionality of the file reset_password.php. This manipulation of the argument Username causes cross site scripting. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-127235",
-      "published": "2026-11-12T19:17:03.583",
-      "description": "A reflected cross-site scripting vulnerability exists in the web user interface of multiple versions of OpenNMS Meridian and Horizon. Several web UI pages copy request parameter values into the HTML response without correct contextual output encoding. A remote attacker can craft a link that runs arbitrary JavaScript in the OpenNMS origin when an authenticated user opens it. The script runs in the victim's browser with the victim's session, so the attacker can read page data and send same-origin requests as the victim. The fix encodes the affected request values. On pages that use AngularJS, the fix also stops client-side template evaluation of the reflected values.\n\n\n\nThe solution is to upgrade to Meridian 2024.3.15, 2025.0.12, 2026.0.2 and Horizon 36.0.6 or newer. Meridian and Horizon installation instructions state that they are intended for installation within an organization's private networks and should not be directly accessible from the Internet.",
+      "id": "CVE-2026-16659",
+      "published": "2026-11-13T02:18:56.880",
+      "description": "MCUboot's serial-recovery image-upload handler bs_upload() in boot/boot_serial/src/boot_serial.c declares const struct flash_area *fap = NULL and assigns it only via flash_area_open() part-way through the function. Two early validation failures (goto out_invalid_data) — a CBOR map that fails to decode, or an upload packet missing the off/data members — branch past the open while fap is still NULL, then fall into the shared epilogue. In MCUBOOT_ENC_IMAGES builds that epilogue unconditionally calls boot_handle_enc_fw(fap), which reaches boot_image_load_header() and flash_area_read() and dereferences the NULL flash_area.\n\nThe defect is reachable pre-authentication: the trigger is the very first serial-recovery upload command carrying a malformed payload. The guarding conditions are default-true on a fresh recovery session — img_num, curr_off and img_size are zero-initialized statics, so curr_off == img_size and the primary-slot test both hold. It requires a non-default build: encrypted images (MCUBOOT_ENC_IMAGES / Zephyr CONFIG_BOOT_ENCRYPT_IMAGE) together with an active serial-recovery transport, on the Zephyr or Mynewt port (the two that build both boot/boot_serial/src/boot_serial.c and boot_serial_encryption.c with MCUBOOT_ENC_IMAGES).\n\nThe impact is a transient denial of service of the bootloader during recovery. fap is a hard NULL rather than an attacker-controlled value, so there is no memory-corruption or information-leak primitive and image authentication is unaffected. Whether the dereference faults is platform-dependent — on targets where address 0x0 is mapped readable flash the read merely returns an error and execution continues, while targets that trap NULL (MPU / null-pointer-exception detection) take a hard fault. Because serial recovery is unauthenticated by design and already permits the console attacker to write the secondary slot, the added capability is only a low-value transient crash.\n\nThe related unconditional flash_area_close(fap) call in the same epilogue is a safe no-op on the ports that reach it, so it does not contribute to the dereference.\n\nThe affected ports are the Zephyr port — boot/zephyr/CMakeLists.txt compiles boot_serial.c under CONFIG_MCUBOOT_SERIAL and boot_serial_encryption.c under CONFIG_BOOT_ENCRYPT_IMAGE — and the Mynewt port, whose mcuboot_config.h defines MCUBOOT_SERIAL unconditionally and MCUBOOT_ENC_IMAGES under any BOOTUTIL_ENCRYPT_ syscfg, with boot/boot_serial/pkg.yml declaring no explicit source list so the whole directory is built. The Espressif port is not affected**: it compiles boot_serial.c but not boot_serial_encryption.c, and defines no MCUBOOT_ENC_IMAGES, so the #ifdef MCUBOOT_ENC_IMAGES block containing the call is preprocessed away. The NuttX, Cypress and Mbed ports do not build boot_serial.c at all.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 4
     },
     {
-      "id": "CVE-2026-126838",
-      "published": "2026-11-12T19:17:01.570",
-      "description": "A MongoDB Rust Driver component that holds client-side field level encryption settings includes key management service credential material in its diagnostic formatting output without redaction. An application that records or displays this formatted output may place that material where a party with read access to the application's diagnostic output can see it, which may result in unintended disclosure of key material.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-127236",
-      "published": "2026-11-12T19:17:03.723",
-      "description": "An argument injection vulnerability exists in the ad-hoc RRD graph feature of multiple versions of OpenNMS Meridian and Horizon. The ad-hoc graph endpoint (GET /graph/graph.png?adhoc=true) copies request parameters into the rrdtool command line without validation. A low-privileged authenticated user (ROLE_USER or ROLE_DASHBOARD) can insert extra rrdtool arguments. An injected --daemon argument makes the server connect to an attacker-chosen address, which is a server-side request forgery. An injected DEF statement reads a local RRD file by absolute path. The command runs through exec with an argument array and no shell, so arbitrary operating system command execution is not possible. The fix validates the ad-hoc graph parameters against allowlists.\n\n\n\nThe solution is to upgrade to Meridian 2024.3.15, 2025.0.12, 2026.0.2 and Horizon 36.0.6 or newer. Meridian and Horizon installation instructions state that they are intended for installation within an organization's private networks and should not be directly accessible from the Internet.",
-      "severity": "MEDIUM",
-      "score": 5.4
-    },
-    {
-      "id": "CVE-2026-127119",
-      "published": "2026-11-12T19:17:03.430",
-      "description": "Unverified ownership of the default cluster log location in the EMR module in AWS SDK for pandas (awswrangler) from 1.1.0 before 3.18.0 might allow remote actors to read Amazon EMR cluster logs, including job step output, via a pre-created S3 bucket.\n\n\n\nTo remediate this issue, users should upgrade to version 3.18.0 or later. Users who can't upgrade immediately should pass an explicit log location, or create the default EMR log bucket in their own account in each region they use.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-126204",
-      "published": "2026-11-12T19:16:56.713",
-      "description": "express-rate-limit is a basic rate-limiting middleware for Express. From 8.6.0 until 8.7.2, the built-in MemoryStore returns a Client whose mutable resetTime object is retained by middleware using skipFailedRequests or skipSuccessfulRequests. When a later request resets the client window, MemoryStore.resetClient mutates that same Date, so an earlier request that finishes or disconnects after the reset can pass the stale-window guard and decrement the current window's count. A client able to keep requests in flight across the boundary can obtain a bounded extra burst of up to one additional configured limit in the new window; the behavior does not increase the sustained rate. Stores that return a fresh Date are not affected. This issue is fixed in version 8.7.2.",
+      "id": "CVE-2026-127276",
+      "published": "2026-11-13T02:18:54.317",
+      "description": "A vulnerability was identified in Linksys EA8100 1.0.3.216940. Impacted is an unknown function of the component Web UI. Such manipulation leads to cookie without 'httponly' flag. It is possible to launch the attack remotely. This attack is characterized by high complexity. The exploitability is considered difficult. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2024-21954",
-      "published": "2026-11-12T19:16:44.843",
-      "description": "Improper exception handling in IOMMU could allow an invalidate command to be sent to PCIe devices that do not support Address Translation Cache (ATC), potentially resulting in denial of service.",
+      "id": "CVE-2026-127916",
+      "published": "2026-11-13T02:18:55.997",
+      "description": "bootutil_img_hash() computes the image digest over ih_hdr_size + ih_img_size + ih_protect_tlv_size bytes, all three taken from the candidate image's header, and reads that span out of the slot without checking that it fits in the flash area. The three sizes are also summed without an overflow check. Nothing earlier on the validation path bounds the whole span either: bootutil_img_validate() compares the image size against bootutil_max_image_size() only after the hash has been computed.\n\nThe callers bound part of the span, or none of it:\n\nOn the swap and overwrite upgrade path, boot_validate_slot() first runs the image header check (boot_is_header_valid(), later boot_check_header_valid()). Before MCUboot 2.2.0 that check covered only ih_hdr_size + ih_img_size, so for every image the protected-TLV area (ih_protect_tlv_size, a uint16_t, up to 65535 bytes) was hashed without being bounded. From 2.2.0 the check includes ih_protect_tlv_size, except for a compressed image in the secondary slot when MCUBOOT_DECOMPRESS_IMAGES (CONFIG_BOOT_DECOMPRESSION) is enabled, which leaves the same gap of up to 64 KB.\nZephyr's single-slot and firmware loaders (boot/zephyr/single_loader.c, boot/zephyr/firmware_loader.c) read the header with boot_image_load_header(), which bounds ih_hdr_size + ih_img_size against the flash area. Before MCUboot 2.4.0 that bound did not include ih_protect_tlv_size, which leaves the same gap of up to 64 KB. From 2.4.0 these loaders bound the whole span.\nThe serial recovery image-list and image-state handlers (bs_list() and bs_set() in boot/boot_serial/src/boot_serial.c) call bootutil_img_validate() with no header check at all, so on those paths ih_img_size is unbounded as well.\n\nThe image is hashed before its signature is checked, so anyone who can place an image in a slot (an OTA or SMP update delivered through the application, or serial recovery) reaches this read before authentication.\n\nWhether a malformed header produces an actual read beyond the area depends on the flash backend:\n\nBackends whose flash_area_read() bounds-checks the request (Zephyr, Espressif, NuttX, Mbed) return an error once the chunked read crosses the end of the area. Validation fails and the image is rejected, with no over-read.\nWith MCUBOOT_HASH_STORAGE_DIRECTLY (Zephyr CONFIG_BOOT_IMG_HASH_DIRECTLY_ON_STORAGE, available from 2.2.0, not enabled by default) the span is hashed through a single direct pointer into memory-mapped flash, with no bounds check.\nThe Cypress PSoC6 port's flash_area_read() (boot/cypress/cy_flash_pal/cy_flash_map.c, from 1.6.0) does not bound the read: its assert()s compare against the area's absolute offset rather than its size, and it copies with memcpy().\n\nThe bytes read past the area feed only the digest, which is compared internally and never returned, so nothing is disclosed. The realistic effect is a read fault during image validation: up to 64 KB past the slot on the upgrade path and, before 2.4.0, on the Zephyr loaders, and potentially much further on the serial recovery handlers, which skip the header check. Where validation is repeated at every boot (a pending upgrade, or, before 2.4.0, the single-slot loader checking its image), the fault can recur on each reset and keep the device from booting.\n\nThe fix makes bootutil_img_hash() add the three sizes with boot_u32_safe_add() and reject an image whose span, including the sector offset used in swap-using-offset mode, does not fit in the flash area, before any of it is hashed. Because the bound is applied where the bytes are read, it covers every caller.",
+      "severity": "LOW",
+      "score": 2.9
+    },
+    {
+      "id": "CVE-2026-16662",
+      "published": "2026-11-13T02:18:57.027",
+      "description": "boot_save_boot_status() in boot/bootutil/src/boot_record.c reads the image's EXPECTED_HASH_TLV into a stack buffer image_hash[IMAGE_HASH_SIZE] that is never zero-initialised. The TLV handler validates only the upper bound (len > sizeof(image_hash)) and then reads exactly len bytes, so a TLV shorter than IMAGE_HASH_SIZE leaves the tail of image_hash holding stale stack content. The subsequent copy into the boot record, memcpy(buf + offset, image_hash, sizeof(image_hash)), uses the fixed buffer size rather than len, so up to IMAGE_HASH_SIZE - 1 bytes of uninitialised bootloader stack are written into the measured-boot record.\n\nThe defect is reachable only under MCUBOOT_MEASURED_BOOT, and only when nothing has checked the length of the hash TLV before boot_save_boot_status() reads it. bootutil_img_validate() rejects a hash TLV whose length is not exactly sizeof(hash) (boot/bootutil/src/image_validate.c:345), and primary-slot validation is on by default (Zephyr's CONFIG_BOOT_VALIDATE_SLOT0 defaults to y), so in a default build the malformed image never reaches this code. Two kinds of build let a short TLV through:\n\nBuilds that use pure signatures (MCUBOOT_SIGN_PURE, Zephyr CONFIG_BOOT_SIGNATURE_TYPE_PURE). The signature covers the image itself, so the hash-TLV check in bootutil_img_validate() is compiled out, and a pure-signed image normally carries no hash TLV. A hash TLV is still allowed in the unprotected TLV area, which the signature does not cover, so a short one can be added to a correctly signed image without invalidating it. This applies with every upgrade strategy, including direct-XIP and RAM-load, and the modified image can be delivered through any path that accepts a signed image.\nBuilds with primary-slot validation turned off: the swap and overwrite loader built without MCUBOOT_VALIDATE_PRIMARY_SLOT, which checks only the image magic before calling boot_add_shared_data(), and the Zephyr single-slot loader (boot/zephyr/single_loader.c) built without it, including the MCUBOOT_VALIDATE_PRIMARY_SLOT_ONCE variant, which skips validation once the trailer records an earlier successful one. Placing the crafted image requires physical or flash-write access to the device; in a single-slot build with serial recovery enabled, the serial-recovery upload writes the primary slot directly and can place it as well. Outside pure-signature builds, the direct-XIP and RAM-load strategies in boot/bootutil/src/loader.c validate the selected slot unconditionally and are not affected.\n\nIt is also reachable through a time-of-check/time-of-use change to tamperable external flash between validation and the boot-record read.\n\nIn these configurations the boot record's measurement is already not trustworthy: the hash copied into the record is the image's own EXPECTED_HASH_TLV, which nothing has verified and which the attacker chooses. The defect therefore does not weaken attestation integrity any further. What it adds is a path for bootloader memory to leave the device: up to 63 bytes (IMAGE_HASH_SIZE - 1) of uninitialised bootloader stack are embedded in the measurement field that a downstream attestation service sends to a remote verifier. In the configurations analysed the residue is bootloader internal state (TLV offsets and lengths, flash addresses, loop state), not key material, but what occupies that stack region depends on configuration and on which code ran before boot_save_boot_status(). It is reported as a low-severity, defense-in-depth disclosure with no integrity or availability impact.\n\nThis is distinct from the already-fixed record_len integer underflow in the same routine (GHSA-8hrv-4cp5-4rg3). The fix rejects any EXPECTED_HASH_TLV whose length is not exactly IMAGE_HASH_SIZE.",
+      "severity": "LOW",
+      "score": 2.4
+    },
+    {
+      "id": "CVE-2026-127915",
+      "published": "2026-11-13T02:18:55.863",
+      "description": "The MCUboot TLV iterator bootutil_tlv_iter_next() in boot/bootutil/src/tlv.c walks image trailer TLVs with a single loop guard (it->tlv_off < it->tlv_end) and advances by sizeof(struct image_tlv) + tlv.it_len using the attacker-controlled it_len field, without validating that the entry's header or payload stays within it->tlv_end. As a result the 4-byte header read can extend up to 3 bytes past the declared TLV area, and the returned (off, len) can describe a payload that runs past it.\n\nThe path is pre-authentication: TLVs are parsed during bootutil_img_validate() before the signature is verified, and a crafted image can be presented through DFU / serial-recovery / OTA. However the impact is contained by surrounding guards: bootutil_img_validate() first rejects a TLV area larger than bootutil_max_image_size(), the default LOAD_IMAGE_DATA sink is flash_area_read() which bounds-checks against the flash partition and fails an out-of-partition read, and every payload consumer (EXPECTED_HASH_TLV, EXPECTED_KEY_TLV, EXPECTED_SIG_TLV, IMAGE_TLV_SEC_CNT) clamps len against a fixed buffer before copying.\n\nThe residual effect in a default flash build is therefore an out-of-region read confined to the attacker's own slot partition whose result is never observable, yielding at worst a clean validation failure rather than memory corruption or information disclosure. A genuine (though still bounded) out-of-bounds read remains under the non-default MCUBOOT_RAM_LOAD configuration, where LOAD_IMAGE_DATA is an unchecked memcpy. The fix is to validate each entry's header and payload against it->tlv_end inside the iterator.",
+      "severity": "LOW",
+      "score": 2
+    },
+    {
+      "id": "CVE-2026-127928",
+      "published": "2026-11-13T02:18:56.133",
+      "description": "In MCUboot's serial-recovery encrypted-image support (boot/boot_serial/src/boot_serial_encryption.c), decrypt_image_inplace() and boot_image_validate_encrypted() each keep a stack-local struct boot_status. boot_enc_load() writes the plaintext per-image AES key into its enckey[] field. Neither function cleared this structure before returning. In addition, a decrypt failure inside the per-sector loop of decrypt_image_inplace() returned early and skipped the total_out: cleanup, which left the expanded AES key context (enc_data) on the stack as well. The error paths of boot_image_validate_encrypted() similarly skipped boot_enc_zeroize().\n\nThe affected code is built when encrypted images (MCUBOOT_ENC_IMAGES, Zephyr CONFIG_BOOT_ENCRYPT_IMAGE) are combined with serial recovery. It runs when an encrypted image is uploaded to the primary slot over the recovery protocol, and when the image list or state is queried while an encrypted image is in the secondary slot. After these functions return, the image's AES content key remains in dead stack memory. An attacker who can later read device RAM, for example through a debug port or retained RAM, can recover it.\n\nThis weakens the confidentiality of image-encryption keys within the bootloader trust boundary. A recovered key exposes the plaintext of the encrypted firmware image it protects. The device's long-term private decryption key is not exposed. No remote or recovery-protocol channel that returns this memory is known, so exploitation requires a separate memory-read capability.",
+      "severity": "LOW",
+      "score": 2
+    },
+    {
+      "id": "CVE-2026-128091",
+      "published": "2026-11-13T02:18:56.370",
+      "description": "When MCUboot is built with the TinyCrypt crypto backend (MCUBOOT_USE_TINYCRYPT), bootutil_aes_ctr_drop() in boot/bootutil/include/bootutil/crypto/aes_ctr_tinycrypt.h was an empty stub. The AES-CTR context for this backend is the fully expanded AES-128 key schedule (struct tc_aes_key_sched_struct). Generic code relies on this hook to release and clear key state, so with TinyCrypt nothing was cleared. The mbedTLS and PSA backends do free or destroy their key state here.\n\nAs a result, boot_state_clear(), which boot_go() calls before handing off to the application, left the image's AES content-encryption key schedule in the static boot_data state. This is the case after an encrypted upgrade in single-image builds, where boot_enc_zeroize() is not called. boot_decrypt_key() likewise left the ECIES-derived key-encryption key schedule on the stack. The affected build uses MCUBOOT_ENC_IMAGES with TinyCrypt, which is the default ECDSA and Ed25519 backend in the Zephyr port.\n\nThe first AES-128 round key equals the cipher key, so anyone who can read the leftover bootloader RAM after boot can recover the image content key and decrypt that encrypted image. That includes a physical attacker with debug or RAM access, or code later running on the device. This weakens image-encryption key confidentiality (and so the confidentiality of the encrypted image's plaintext). The device's long-term private decryption key is not exposed, and image authenticity is not affected. The fix wipes the context with bootutil_wipe_memory().",
+      "severity": "LOW",
+      "score": 2
+    },
+    {
+      "id": "CVE-2026-107407",
+      "published": "2026-11-13T02:18:49.613",
+      "description": "Memory overflow in SMPP traffic can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2025-54501",
-      "published": "2026-11-12T19:16:45.017",
-      "description": "Improper access control on an internal debug interface could allow a high privileged attacker to bypass memory access controls potentially resulting in a loss of SEV-SNP guest memory integrity.",
+      "id": "CVE-2026-107408",
+      "published": "2026-11-13T02:18:49.740",
+      "description": "Memory corruption in DNS / DNS-over-HTTPS (DoH) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-0004",
-      "published": "2026-11-12T19:16:45.160",
-      "description": "A transient execution vulnerability in some AMD processors may allow an attacker with the ability to execute code on the system to infer data in the L1D cache, potentially resulting in the leakage of sensitive information across privileged boundaries.",
+      "id": "CVE-2026-107409",
+      "published": "2026-11-13T02:18:49.863",
+      "description": "Memory corruption in DNS-over-HTTPS (DoH) can lead to unpredictable or erroneous behavior or a Denial of Service in Citrix NetScaler",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-0101",
-      "published": "2026-11-12T19:16:45.317",
-      "description": "Improper validation of specified quantities in input within AMD Power Management Firmware (PMFW) could allow a local attacker to pass unsanitized input, potentially resulting in a system crash or denial of service.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-0436",
-      "published": "2026-11-12T19:16:45.467",
-      "description": "Insufficient parameter sanitization in the AMD Secure Processor (ASP) trusted execution environment (TEE) SPDM driver could allow an attacker to supply malicious input, potentially resulting in loss of platform integrity, memory leakage, or denial of service.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-117542",
-      "published": "2026-11-12T19:16:47.740",
-      "description": "Joomla Extension - jdownloads.com - Authenticated path traversal in jDownloads < 4.1.8 - A manipulated `update_file` form parameter could bypass the intended server-file selection restrictions and move files from outside the permitted selection directory or assign them to a download. This could expose file contents and remove source files from their original locations.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-117544",
-      "published": "2026-11-12T19:16:47.883",
-      "description": "Joomla Extension - jdownloads.com - IDOR allowing restricted file downloads in jDownloads < 4.1.8 - The `other_file_id` parameter could reference another download’s file without fully enforcing the target download’s access restrictions. This allowed files to be delivered to users who were not authorised to access the target download.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120033",
-      "published": "2026-11-12T19:16:48.393",
-      "description": "In FRRouting, bgpd does not correctly close a BGP session when the Send Hold Timer (RFC 9687) expires, i.e. when a neighbor has stopped accepting data from the router for twice the hold time. The connection is closed, but bgpd still considers the session to be up. A BGP neighbor that keeps sending KEEPALIVEs but stops reading from its connection, at a time when the router has a large amount of data to send to it (for example while sending it a full routing table), can trigger this. If the neighbor announced Graceful Restart support, bgpd crashes shortly after the session is closed, taking down all BGP sessions on the router, and the neighbor can repeat this each time bgpd restarts. Otherwise, the session stays stuck in the Established state: the neighbor's routes stay installed and keep being advertised to other peers, and the neighbor cannot reconnect until an operator clears the session manually. The neighbor does not need to be malicious; an overloaded or stuck peer can trigger the same behavior. No special configuration is required: any established BGP neighbor can trigger the issue, and Graceful Restart helper mode, which leads to the crash, is enabled by default.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-120467",
-      "published": "2026-11-12T19:16:48.553",
-      "description": "Joomla / WordPress Extension - acymailing.com - Subscriber identity not bound to the record acted upon in AcyMailing 1.0.0 - 11.1.1 - An authenticated user of any privilege level can subscribe or unsubscribe any other subscriber to or from any mailing list of the site.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-121619",
-      "published": "2026-11-12T19:16:48.840",
-      "description": "The Symfony FrameworkBundle framework.trusted_proxies option and the HttpFoundation Request::setTrustedProxies() method trust remote clients as reverse proxies when the private_ranges shortcut is used, allowing remote attackers to spoof the client IP address, host and scheme in Symfony FrameworkBundle versions 7.1 prior to 7.4.23 and 8.x prior to 8.1.11, and HttpFoundation versions 7.2 prior to 7.4.23 and 8.x prior to 8.1.11. The private_ranges and PRIVATE_SUBNETS keywords resolved to IpUtils::PRIVATE_SUBNETS, the deny list of NoPrivateNetworkHttpClient, which lists the private and special-purpose prefixes a server must not connect to. Since the fix for CVE-2026-48736 (7.4.13 and 8.0.13), this list also covers the IPv6 prefixes that embed an IPv4 address: IPv4-mapped (::ffff:0:0/96), IPv4-compatible (::/96), 6to4 (2002::/16), Teredo (2001::/32) and NAT64 (64:ff9b::/96). The IPv4-mapped entry has been in the list since the private_ranges shortcut was introduced, in 7.1 for framework.trusted_proxies and in 7.2 for Request::setTrustedProxies(). Over-blocking is safe for a deny list, but when the same entries are used as the allow list of trusted proxies, they trust remote clients. A client whose connection arrives with such a source address is treated as a reverse proxy, and the X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Proto, X-Forwarded-Port and X-Forwarded-Prefix headers it sends are honoured. For example, with Request::setTrustedProxies(['private_ranges'], ...), a request with REMOTE_ADDR set to ::ffff:203.0.113.7 and the headers X-Forwarded-For: 10.0.0.9, X-Forwarded-Host: evil.example.com and X-Forwarded-Proto: https makes getClientIp() return 10.0.0.9, getHost() return evil.example.com and isSecure() return true. Two kinds of deployments are exposed: a server listening on the IPv6 wildcard address without IPV6_V6ONLY reports every IPv4 client in the IPv4-mapped form, so every client is trusted, and a server reachable over IPv6 trusts any client sourcing from 6to4 or Teredo space, which is globally routed, whatever its listener. A spoofed client address defeats IP allow lists, rate limiting and audit logs; a spoofed host poisons the URLs written into password reset and login link e-mails and into shared caches; a spoofed scheme satisfies requires_channel: https over plain HTTP. Symfony 6.4 does not point any trusted proxy setting at IpUtils::PRIVATE_SUBNETS and is not affected by default, but an application that passes that constant to Request::setTrustedProxies() itself could be exposed in the same way on any version. This issue is fixed in 7.4.23 and 8.1.11.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2024-21963",
-      "published": "2026-11-12T20:18:09.523",
-      "description": "An out-of-bounds read vulnerability in the IOMMU could allow a malicious guest to corrupt hypervisor (HV) pages and potentially cause a host crash leading to loss of availability.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2024-36344",
-      "published": "2026-11-12T20:18:12.150",
-      "description": "Insufficient parameter sanitization in AMD Secure Processor (ASP) TEE DrvSys could allow an attacker with local access to the Trusted Execution Environment (TEE) interface or Trusted Application (TA) to cause an out-of-bounds write, potentially resulting in a loss of platform integrity or denial of service.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2025-0043",
-      "published": "2026-11-12T20:18:13.827",
-      "description": "Incorrect directory permissions within AMD Vivado™ Lab Solutions could allow a local user-privileged attacker to escalate their privileges, potentially resulting in arbitrary code execution.",
+      "id": "CVE-2026-107410",
+      "published": "2026-11-13T02:18:49.997",
+      "description": "Memory overflow in NetScaler Push can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
       "severity": "UNKNOWN",
       "score": null
     }
