@@ -1,13 +1,6 @@
 {
-  "totalResults": 4313,
+  "totalResults": 4367,
   "items": [
-    {
-      "id": "CVE-2026-126173",
-      "published": "2026-11-14T05:18:37.750",
-      "description": "The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in all versions up to, and including, 1.4.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to reset the password of any WordPress account, including administrators, resulting in full account takeover. This is only exploitable when an administrator has configured an automation pairing a Receive Webhook trigger — with an 'Is the user ID' field — to an Update-User action whose User ID field is left blank and whose Password field is mapped to the webhook password tag, which is a documented, supported plugin configuration.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
     {
       "id": "CVE-2026-116528",
       "published": "2026-11-14T07:17:17.223",
@@ -44,11 +37,11 @@
       "score": 7.5
     },
     {
-      "id": "CVE-2026-124969",
-      "published": "2026-11-14T05:18:32.480",
-      "description": "The Optimole – Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the replace_urls_in_value function in all versions up to, and including, 4.2.19. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Successful exploitation requires PEAR's Archive_Tar library to be present and loadable on the host (common in official WordPress Docker images and many PHP distributions), and an administrator must subsequently use the plugin's Rename control on any attachment after the attacker has staged a malicious payload in a comment. Successful exploitation additionally requires an action by an administrator — the attacker cannot trigger the vulnerability on their own.",
+      "id": "CVE-2026-129181",
+      "published": "2026-11-14T08:17:18.090",
+      "description": "A vulnerability has been found in projectworlds Visitor Management System 1.0. This issue affects the function mysqli_query of the file /img/user%20page.php of the component Login Endpoint. Such manipulation of the argument Username leads to sql injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.3
     },
     {
       "id": "CVE-2026-111033",
@@ -63,6 +56,13 @@
       "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions and REST routes, allowing unauthenticated users to disclose the Email Marketing 4Dem WordPress plugin through 2.0.5's stored configuration and data and to modify its stored settings.",
       "severity": "MEDIUM",
       "score": 6.5
+    },
+    {
+      "id": "CVE-2026-18742",
+      "published": "2026-11-14T09:16:47.910",
+      "description": "The Flatsome theme for WordPress is vulnerable to Stored Cross-Site Scripting via 'data-text-sec', 'data-title', and 'title' Attributes via Custom HTML Block in all versions up to, and including, 3.20.12 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload survives server-side sanitization because wp_kses_post permits data-* attributes globally via _wp_add_global_attributes, allowing attacker-controlled values in data-text-sec, data-title, and title attributes to persist in saved post content and be later interpreted as HTML by the ux-countdown, scroll-to, and lightbox-gallery JavaScript behaviors.",
+      "severity": "MEDIUM",
+      "score": 6.4
     },
     {
       "id": "CVE-2026-129319",
