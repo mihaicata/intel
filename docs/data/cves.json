@@ -1,145 +1,145 @@
 {
-  "totalResults": 4367,
+  "totalResults": 4416,
   "items": [
     {
-      "id": "CVE-2026-116528",
-      "published": "2026-11-14T07:17:17.223",
-      "description": "The Chargely Free Subscriptions For Woocommernce WordPress plugin through 1.0 does not perform any authorization check on a REST API route that returns its stored configuration, allowing unauthenticated attackers to retrieve the live WooCommerce REST API consumer key and secret it holds, which grant read and write access to the whole store.",
+      "id": "CVE-2026-129351",
+      "published": "2026-11-14T23:16:47.753",
+      "description": "A security vulnerability has been detected in TRENDnet TEW-657BRM 1.00.1. This vulnerability affects the function sprintf of the file /setup.cgi of the component mini_httpd. Such manipulation leads to out-of-bounds write. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The vendor explains: \"\"I am not able to confirm if such vulnerability exists as the product has been EOL for more than 15 years. We will send out an announcement letting customers know.\" This vulnerability only affects products that are no longer supported by the maintainer.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-129353",
+      "published": "2026-11-15T00:16:51.120",
+      "description": "A vulnerability was detected in D-Link DIR-600L 2.17/2.17b02. Affected by this vulnerability is the function authenticationcgi_main of the file authentication.cgi. Performing a manipulation of the argument id/password results in stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit is now public and may be used.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2026-129354",
+      "published": "2026-11-15T01:18:03.043",
+      "description": "A flaw has been found in D-Link DIR-600L 2.17b02. Affected by this issue is the function hnap_main of the file htdocs/cgibin of the component HNAP Handler. Executing a manipulation can lead to stack-based buffer overflow. The attack can be executed remotely. The exploit has been published and may be used.",
+      "severity": "CRITICAL",
+      "score": 10
+    },
+    {
+      "id": "CVE-2015-10149",
+      "published": "2026-11-14T20:17:39.203",
+      "description": "Dancer versions before 1.3400 for Perl pass unvalidated session ids from the session cookie to the session engine.\n\nread_session_id returns the cookie value as the session id without checking its characters, and Dancer hands it to the session engine to load the session.\n\nA remote attacker may cause path traversal or injection in a session engine that uses the id in a file path, cache command or query without checking it.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-129258",
+      "published": "2026-11-14T15:16:58.257",
+      "description": "A vulnerability was identified in Tenda AC18 15.03.05.05_multi/15.03.05.19 Build 6318. Affected by this vulnerability is an unknown functionality of the file /cgi-bin/upgrade of the component Firmware Upgrade Handler. Such manipulation of the argument upgradeFile leads to insufficient verification of data authenticity. The attack may be launched remotely. The exploit is publicly available and might be used.",
       "severity": "CRITICAL",
       "score": 9.1
     },
     {
-      "id": "CVE-2026-123046",
-      "published": "2026-11-14T07:17:19.350",
-      "description": "The SEOJuice WordPress plugin before 2.12.0 does not correctly restrict a REST API authentication filter, disabling WordPress's REST nonce protection for the whole site and allowing unauthenticated attackers to perform any cookie-authenticated REST action, including creating a new administrator account, by tricking a logged-in administrator into opening a crafted page (CSRF).",
-      "severity": "HIGH",
-      "score": 8.8
+      "id": "CVE-2026-129352",
+      "published": "2026-11-14T23:16:48.033",
+      "description": "A vulnerability was detected in TRENDnet TEW-657BRM 1.00.1. This issue affects some unknown processing of the file /usr/sbin/upgrade_flash.cgi. Performing a manipulation of the argument boundary results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit is now public and may be used. The vendor explains: \"\"I am not able to confirm if such vulnerability exists as the product has been EOL for more than 15 years. We will send out an announcement letting customers know.\"",
+      "severity": "CRITICAL",
+      "score": 9.1
     },
     {
-      "id": "CVE-2026-123122",
-      "published": "2026-11-14T07:17:19.513",
-      "description": "The Checkout Files Upload for WooCommerce WordPress plugin before 2.4.1 does not verify that a file uploaded at checkout is really one of its allowed image types, and serves stored uploads inline using their detected content type, allowing unauthenticated users to upload an HTML file disguised as an image that executes JavaScript in the browser of a shop manager or administrator who opens it from the order screen.\nThis is a regression of CVE-2025-4212, reintroduced in 2.4.0.",
+      "id": "CVE-2026-129261",
+      "published": "2026-11-14T16:17:04.517",
+      "description": "A vulnerability was found in Kingston FURY CTRL RGB Control Software up to 2.0.66.0. The impacted element is an unknown function in the library NTIOLib_X64.sys of the component IOCTL Handler. Performing a manipulation results in exposed ioctl with insufficient access control. The attack is only possible with local access.",
       "severity": "HIGH",
-      "score": 8.8
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-119258",
-      "published": "2026-11-14T07:17:19.140",
-      "description": "The Swipe WordPress plugin through 1.4 does not properly authenticate a login request before issuing a WordPress session cookie, allowing unauthenticated attackers to log in as an existing user, including an administrator, when that user has an active app session.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-124649",
-      "published": "2026-11-14T07:17:19.700",
-      "description": "The Lightbox with PhotoSwipe WordPress plugin before 5.19.0 does not properly sanitise link titles and other caption sources before inserting them as HTML into the image lightbox caption, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks via comments.",
-      "severity": "HIGH",
-      "score": 7.5
-    },
-    {
-      "id": "CVE-2026-129181",
-      "published": "2026-11-14T08:17:18.090",
-      "description": "A vulnerability has been found in projectworlds Visitor Management System 1.0. This issue affects the function mysqli_query of the file /img/user%20page.php of the component Login Endpoint. Such manipulation of the argument Username leads to sql injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "id": "CVE-2026-129262",
+      "published": "2026-11-14T17:16:52.833",
+      "description": "A weakness has been identified in Wuxi Wubang Security Software Wubang Five-in-One Safety Production Management Information System up to 3.5. Affected by this vulnerability is the function DiyFileUpload of the file /ws.asmx. This manipulation causes unrestricted upload. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-111033",
-      "published": "2026-11-14T07:17:16.417",
-      "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not perform authorization or nonce checks when saving countdown data on post save, and its output-sanitization allowlist permits script tags, allowing users with Author-level access and above to store arbitrary web scripts that execute when the affected content is viewed on the front end or in an administrator session.",
-      "severity": "MEDIUM",
-      "score": 6.8
+      "id": "CVE-2026-116753",
+      "published": "2026-11-14T16:17:03.793",
+      "description": "The Multi Step for Contact Form 7 plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'multipart field name (array key)' parameter in all versions up to, and including, 2.9.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires the target CF7 form to have the 'Save every step' option enabled and the Database for Contact Form 7 companion plugin to be active with its 'Expandable' table option enabled, both of which are disabled by default.",
+      "severity": "HIGH",
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-105983",
-      "published": "2026-11-14T07:17:12.540",
-      "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions and REST routes, allowing unauthenticated users to disclose the Email Marketing 4Dem WordPress plugin through 2.0.5's stored configuration and data and to modify its stored settings.",
+      "id": "CVE-2026-120687",
+      "published": "2026-11-14T16:17:03.957",
+      "description": "The Lightbox & Modal Popup WordPress Plugin – FooBox plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'img alt attribute inside .wp-caption container' parameter in all versions up to, and including, 2.8.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable by Subscriber-level users when bbPress is installed, as its bbp_filter_kses filter chain permits img and pre tags while preserving numeric character references inside attribute values, allowing encoded payloads to bypass save-time sanitization and reach the vulnerable sink fully intact. Exploitation by attackers with subscriber-level access and above requires that bbPress 2.6.20 is installed, a public forum exists, and either the first topic has already been approved or subsequent topics clear moderation. On a default installation, where that is not configured, the vulnerability requires attackers with contributor-level access and above.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-129260",
+      "published": "2026-11-14T16:17:04.297",
+      "description": "A security vulnerability has been detected in Mereithhh VanBlog up to 0.54.0. This vulnerability affects the function fs.readFileSync of the file local.provider.ts of the component Custom Page Handler. The manipulation of the argument path leads to path traversal. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. Upgrading to version test-20261013 is able to resolve this issue. The identifier of the patch is d63aa163f10b6dc1080e2368fe8e71aa95b765cb. Upgrading the affected component is advised.",
+      "severity": "MEDIUM",
+      "score": 6.6
+    },
+    {
+      "id": "CVE-2026-129355",
+      "published": "2026-11-15T01:18:03.237",
+      "description": "A vulnerability has been found in sigoden dufs up to 0.46.0. This affects an unknown part of the file src/server.rs of the component WebDAV COPY Operation Handler. The manipulation leads to incorrect authorization. The attack is possible to be carried out remotely. Upgrading to version 0.47.0 is able to mitigate this issue. The identifier of the patch is fba13dffb9c65b5e5e26419f64de709200277a04. It is advisable to upgrade the affected component.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-18742",
-      "published": "2026-11-14T09:16:47.910",
-      "description": "The Flatsome theme for WordPress is vulnerable to Stored Cross-Site Scripting via 'data-text-sec', 'data-title', and 'title' Attributes via Custom HTML Block in all versions up to, and including, 3.20.12 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload survives server-side sanitization because wp_kses_post permits data-* attributes globally via _wp_add_global_attributes, allowing attacker-controlled values in data-text-sec, data-title, and title attributes to persist in saved post content and be later interpreted as HTML by the ux-countdown, scroll-to, and lightbox-gallery JavaScript behaviors.",
+      "id": "CVE-2026-110531",
+      "published": "2026-11-14T16:17:02.753",
+      "description": "The FV Player 8 plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'fv_player_videos' parameter in all versions up to, and including, 8.1.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the administrator-controlled \"Allow visitors to upload videos to their profile\" setting to be enabled, without which the vulnerable save routine is inaccessible to Subscriber-level users.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-129319",
-      "published": "2026-11-14T07:17:21.370",
-      "description": "create-ecdh is a browserifiable implementation of Node.js crypto.createECDH. In versions 4.0.4 and below, the JavaScript implementation (browser.js, used by browser bundlers and on Node.js versions without a working native crypto.createECDH) did not validate peer public keys in ECDH.prototype.computeSecret or ECDH.prototype.setPublicKey. The peer point was multiplied by the local private key without checking that it was on the configured curve or in its prime-order subgroup. An attacker who can submit public keys to a party that reuses a static private key can perform an invalid-curve or small-subgroup attack and recover the private key modulo small factors, eventually recovering the full key via the Chinese Remainder Theorem. For the ed25519 and curve25519 curves, low-order points were also accepted, which could force a predictable shared secret. On modern Node.js, create-ecdh re-exports the native implementation, which is not affected. This issue is fixed in version 4.0.5.",
+      "id": "CVE-2026-129447",
+      "published": "2026-11-14T18:17:21.100",
+      "description": "Kroki before 0.36.0 contains a reflected cross-site scripting vulnerability in the /dbml/svg endpoint that allows unauthenticated attackers to inject javascript: hyperlinks by supplying crafted DBML table url, headercolor, or TableGroup color settings. Attackers can send a crafted SVG link that, when opened and the table header clicked, executes attacker JavaScript in the Kroki origin.",
       "severity": "MEDIUM",
-      "score": 5.9
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-126697",
-      "published": "2026-11-14T07:17:21.043",
-      "description": "The Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 was distributed with a hidden update mechanism that fetched Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 updates from its author's own server instead of WordPress.org, which was used to push a backdoored build to sites, allowing the attacker controlling that server to inject arbitrary content into pages and to deliver arbitrary code to affected sites.\n\nVersion 5.2.1, as published on WordPress.org, bundled the Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 Update Checker library (updater/ directory) configured to poll https://anadnet.com/updates/?action=get_metadata&slug=quick-pagepost-redirect-Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4. In March 2021 that server delivered a modified 5.2.3 build, different from the 5.2.3 later published on WordPress.org, which kept the update channel and added a the_content filter that, for logged-out visitors on single posts and pages, fetched content from https://w.anadnet.com/bro/3/ (passing the site host, request URI and visitor User-Agent) and prepended the response to the post (observed serving SEO spam links to search engine crawlers). Because the version string matched a later WordPress.org release, affected sites were not offered a clean update until 5.2.4.\n\nIndicators of compromise:\n- Outbound requests to anadnet.com or w.anadnet.com\n- An updater/ directory (Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 Update Checker, Puc v4p10) inside wp-content/Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4/quick-pagepost-redirect-Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4/\n- The strings filter_the_content_in_the_main_loop, ppr_pro, QQQEND or w.anadnet.com in page_post_redirect_Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4.php\n- page_post_redirect_Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4.php with MD5 ad717da18cf8a2b69899c0d7dafee05a (tampered 5.2.3)\n\nRemediation: remove the Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 (it has been closed on WordPress.org), or at minimum reinstall the clean 5.2.4 from WordPress.org, delete any leftover updater/ directory, verify the files with \"wp Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 verify-checksums quick-pagepost-redirect-Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4\", clear the opcode cache, and treat any site that ran the tampered build as potentially compromised.",
+      "id": "CVE-2026-129264",
+      "published": "2026-11-14T17:16:53.040",
+      "description": "A security vulnerability has been detected in sox_ng up to 14.8.1. Affected by this issue is the function read_samples_voc of the file src/voc.c of the component VOC Decoder. Such manipulation leads to out-of-bounds write. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The name of the patch is 0b40408b. A patch should be applied to remediate this issue. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "severity": "MEDIUM",
+      "score": 5.5
+    },
+    {
+      "id": "CVE-2026-127115",
+      "published": "2026-11-14T16:17:04.130",
+      "description": "The BuddyForms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'buddyforms_form_content' parameter in all versions up to, and including, 2.10.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable when a form configured with the public_submit option is published — a condition met by the plugin's bundled Post Simple template out of the box.",
       "severity": "MEDIUM",
       "score": 5.4
     },
     {
-      "id": "CVE-2026-105984",
-      "published": "2026-11-14T07:17:16.137",
-      "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions, allowing unauthenticated users to destroy its stored configuration and delete its records.",
+      "id": "CVE-2026-129356",
+      "published": "2026-11-15T02:17:20.967",
+      "description": "A vulnerability was found in vllm-project vllm 0.30.0/0.31.0. This vulnerability affects unknown code of the file single_type_kv_cache_manager.py of the component Common Prefix Handler. The manipulation results in race condition. The attack may be performed from remote. Attacks of this nature are highly complex. It is stated that the exploitability is difficult. The exploit has been made public and could be used. Upgrading to version 0.32.0 is able to resolve this issue. The patch is identified as e687a251bb056fa527846633f7a1b0a6c0f42374. You should upgrade the affected component.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 5
     },
     {
-      "id": "CVE-2026-117487",
-      "published": "2026-11-14T07:17:17.850",
-      "description": "The Flatsome WordPress theme before 3.20.13 does not perform a capability or nonce check on an AJAX action available to unauthenticated users, and does not restrict the status of the posts it returns by ID, allowing unauthenticated users to disclose the content of unpublished (draft and pending) posts.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-126640",
-      "published": "2026-11-14T07:17:20.820",
-      "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.3 does not escape values from imported files before using them in SQL queries when importing LifterLMS content, allowing high privilege users such as admin, including the administrator of a single site on a multisite network, to perform SQL injection attacks.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-118182",
-      "published": "2026-11-14T07:17:18.530",
-      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check that a user duplicating a post is allowed to edit it, which, when the slug takeover option is enabled, allows users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributor, to move any readable post off its permalink and publish their copy at that address.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-118183",
-      "published": "2026-11-14T07:17:18.760",
-      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check whether a user may publish posts when duplicating one, allowing users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributors, to create published posts, including posts attributed to other users.",
-      "severity": "MEDIUM",
-      "score": 4.4
-    },
-    {
-      "id": "CVE-2026-111034",
-      "published": "2026-11-14T07:17:17.023",
-      "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not check that the user is allowed to browse content before returning post titles from one of its AJAX actions, allowing any authenticated user, such as a subscriber, to list the titles of published entries of any post type, including types that WordPress does not expose to them. Draft, private and pending content is not returned; only published entries are disclosed.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-126639",
-      "published": "2026-11-14T07:17:20.567",
-      "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.2, WP Ultimate CSV Importer Pro WordPress plugin before 9.0.7 do not protect the files created by their single post export feature, writing them to a publicly accessible location under a predictable name, allowing unauthenticated attackers to download the content and custom fields of any exported post, including non-public content.",
+      "id": "CVE-2026-129259",
+      "published": "2026-11-14T15:16:58.480",
+      "description": "A weakness has been identified in Mereithhh VanBlog up to 0.54.0. This affects an unknown part of the file packages/server/src/types/access/access.ts of the component Image Upload Endpoint. Executing a manipulation can lead to cross site scripting. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
-      "score": 3.7
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-118181",
-      "published": "2026-11-14T07:17:18.333",
-      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not perform a capability check when saving its global settings, relying only on its own role-access list, which allows users of any role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, as low as Subscriber, to overwrite those settings, including the role-access list itself.",
+      "id": "CVE-2026-129267",
+      "published": "2026-11-14T18:17:20.077",
+      "description": "A vulnerability was found in sergix44 XBackBone up to 3.8.2. Impacted is the function MediaController::getRawById of the file app/Controllers/MediaController.php. The manipulation results in cross site scripting. It is possible to launch the attack remotely. The exploit has been made public and could be used. The pull request to fix this issue awaits acceptance.",
       "severity": "LOW",
-      "score": 3.1
+      "score": 3.5
     },
     {
-      "id": "CVE-2026-117490",
-      "published": "2026-11-14T07:17:18.140",
-      "description": "The Flatsome WordPress theme before 3.20.13 does not enforce the acting user's publish and post-type restrictions on an AJAX save action, allowing users with a role as low as Contributor to publish their own content and change its post type (for example to a product) without holding the required capabilities.",
-      "severity": "LOW",
-      "score": 2.7
+      "id": "CVE-2026-129456",
+      "published": "2026-11-14T20:17:40.060",
+      "description": "In FRRouting, bgpd frees the sub-TLV chain of a Tunnel Encapsulation attribute (type 23) while routes stored by bgpd still point to it, if the attribute is received from a neighbor that has \"soft-reconfiguration inbound\" configured. A cache added to speed up attribute interning while processing the prefixes of an UPDATE checks whether an interned attribute set may be reused by comparing the parsed attributes with themselves, so the check always succeeds. Interning the parsed attributes for the Adj-RIB-In removes the Tunnel Encapsulation sub-TLVs from them, and the copy that bgpd then interns for the route reuses the cached attribute set, which still holds the sub-TLVs, without taking a reference on them. When the route is later replaced, withdrawn or cleared, for example when the session goes down, the sub-TLV chain is freed while still in use, and bgpd then reads it, decrements a reference count inside it and frees it a second time. In the reporter's build without AddressSanitizer this ended in an assertion failure in bgpd's memory accounting, aborting bgpd and dropping all BGP sessions on the router, and the neighbor can repeat it each time bgpd restarts. Because freed heap memory is written to and freed again, consequences beyond a crash cannot be ruled out. An established BGP session is required, and the attribute does not need to be malformed. bgpd processes attribute 23 from every neighbor, including eBGP neighbors, unless it is explicitly discarded, although RFC 9012 requires it to be filtered on eBGP sessions by default. Neighbors without \"soft-reconfiguration inbound\" are not affected.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
