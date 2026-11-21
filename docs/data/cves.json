@@ -1,5 +1,5 @@
 {
-  "totalResults": 4416,
+  "totalResults": 4602,
   "items": [
     {
       "id": "CVE-2026-129351",
@@ -23,18 +23,11 @@
       "score": 10
     },
     {
-      "id": "CVE-2015-10149",
-      "published": "2026-11-14T20:17:39.203",
-      "description": "Dancer versions before 1.3400 for Perl pass unvalidated session ids from the session cookie to the session engine.\n\nread_session_id returns the cookie value as the session id without checking its characters, and Dancer hands it to the session engine to load the session.\n\nA remote attacker may cause path traversal or injection in a session engine that uses the id in a file path, cache command or query without checking it.",
+      "id": "CVE-2026-110960",
+      "published": "2026-11-15T07:16:53.477",
+      "description": "The Auth Armor  WordPress plugin through 1.0.3 does not require authentication on several handlers available to logged-out users, which leak the site's stored API credentials and allow an unauthenticated attacker to reset an administrator's enrollment and take over that administrator account.",
       "severity": "CRITICAL",
       "score": 9.8
-    },
-    {
-      "id": "CVE-2026-129258",
-      "published": "2026-11-14T15:16:58.257",
-      "description": "A vulnerability was identified in Tenda AC18 15.03.05.05_multi/15.03.05.19 Build 6318. Affected by this vulnerability is an unknown functionality of the file /cgi-bin/upgrade of the component Firmware Upgrade Handler. Such manipulation of the argument upgradeFile leads to insufficient verification of data authenticity. The attack may be launched remotely. The exploit is publicly available and might be used.",
-      "severity": "CRITICAL",
-      "score": 9.1
     },
     {
       "id": "CVE-2026-129352",
@@ -44,39 +37,39 @@
       "score": 9.1
     },
     {
-      "id": "CVE-2026-129261",
-      "published": "2026-11-14T16:17:04.517",
-      "description": "A vulnerability was found in Kingston FURY CTRL RGB Control Software up to 2.0.66.0. The impacted element is an unknown function in the library NTIOLib_X64.sys of the component IOCTL Handler. Performing a manipulation results in exposed ioctl with insufficient access control. The attack is only possible with local access.",
+      "id": "CVE-2026-129464",
+      "published": "2026-11-15T02:17:21.597",
+      "description": "Zr.Admin.NET commit 0ee1ab8 through commit eb9228a contains a path traversal vulnerability that allows any logged-in user to read arbitrary server files via the path parameter of /common/DownloadFile. Attackers can supply absolute paths or ../ sequences to read appsettings files and use the JwtSettings SecretKey to forge administrator tokens.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-129262",
-      "published": "2026-11-14T17:16:52.833",
-      "description": "A weakness has been identified in Wuxi Wubang Security Software Wubang Five-in-One Safety Production Management Information System up to 3.5. Affected by this vulnerability is the function DiyFileUpload of the file /ws.asmx. This manipulation causes unrestricted upload. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-129465",
+      "published": "2026-11-15T02:17:21.770",
+      "description": "Zr.Admin.NET commit af07ffc through commit eb9228a contains an insecure direct object reference vulnerability in SysProfileController.UpdateProfile that allows any authenticated user to modify other accounts via UserId. Attackers can set the administrator's phone number to one they control, request an SMS code via /checkMobile, and log in through /PhoneLogin to take over the administrator account.",
+      "severity": "HIGH",
+      "score": 8.8
+    },
+    {
+      "id": "CVE-2026-129359",
+      "published": "2026-11-15T03:16:51.997",
+      "description": "A security flaw has been discovered in Linux Foundation Magma up to 1.9.0. The affected element is an unknown function of the file orc8r/lib/go/registry/interceptors.go. Performing a manipulation results in hard-coded credentials. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
       "score": 7.3
     },
     {
-      "id": "CVE-2026-116753",
-      "published": "2026-11-14T16:17:03.793",
-      "description": "The Multi Step for Contact Form 7 plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'multipart field name (array key)' parameter in all versions up to, and including, 2.9.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires the target CF7 form to have the 'Save every step' option enabled and the Database for Contact Form 7 companion plugin to be active with its 'Expandable' table option enabled, both of which are disabled by default.",
+      "id": "CVE-2026-129360",
+      "published": "2026-11-15T04:16:45.090",
+      "description": "A weakness has been identified in Linux Foundation Magma up to 1.9.0. The impacted element is an unknown function of the file orc8r/cloud/go/services/obsidian/access/operator.go of the component Obsidian REST. Executing a manipulation of the argument X-Magma-Client-Cert-Serial can lead to authentication bypass by spoofing. The attack can be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-120687",
-      "published": "2026-11-14T16:17:03.957",
-      "description": "The Lightbox & Modal Popup WordPress Plugin – FooBox plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'img alt attribute inside .wp-caption container' parameter in all versions up to, and including, 2.8.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable by Subscriber-level users when bbPress is installed, as its bbp_filter_kses filter chain permits img and pre tags while preserving numeric character references inside attribute values, allowing encoded payloads to bypass save-time sanitization and reach the vulnerable sink fully intact. Exploitation by attackers with subscriber-level access and above requires that bbPress 2.6.20 is installed, a public forum exists, and either the first topic has already been approved or subsequent topics clear moderation. On a default installation, where that is not configured, the vulnerability requires attackers with contributor-level access and above.",
+      "id": "CVE-2026-110987",
+      "published": "2026-11-15T07:16:53.717",
+      "description": "The RegistrationMagic  WordPress plugin before 6.1.0.4 does not properly escape a user-supplied value before printing it inside an inline script block on several of its admin screens, allowing unauthenticated attackers to inject arbitrary JavaScript that executes in the session of an administrator who is tricked into opening a crafted link.",
       "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-129260",
-      "published": "2026-11-14T16:17:04.297",
-      "description": "A security vulnerability has been detected in Mereithhh VanBlog up to 0.54.0. This vulnerability affects the function fs.readFileSync of the file local.provider.ts of the component Custom Page Handler. The manipulation of the argument path leads to path traversal. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. Upgrading to version test-20261013 is able to resolve this issue. The identifier of the patch is d63aa163f10b6dc1080e2368fe8e71aa95b765cb. Upgrading the affected component is advised.",
-      "severity": "MEDIUM",
-      "score": 6.6
+      "score": 7.1
     },
     {
       "id": "CVE-2026-129355",
@@ -86,32 +79,39 @@
       "score": 6.5
     },
     {
-      "id": "CVE-2026-110531",
-      "published": "2026-11-14T16:17:02.753",
-      "description": "The FV Player 8 plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'fv_player_videos' parameter in all versions up to, and including, 8.1.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the administrator-controlled \"Allow visitors to upload videos to their profile\" setting to be enabled, without which the vulnerable save routine is inaccessible to Subscriber-level users.",
+      "id": "CVE-2026-129454",
+      "published": "2026-11-15T02:17:21.243",
+      "description": "Zr.Admin.NET commit 85cff6a through commit eb9228a contains an insecure direct object reference vulnerability in GET /workflow/instance/{instanceId} that lets logged-in users view others' workflow instances. Authenticated low-privilege attackers can enumerate sequential instance IDs to read other users' approval requests, including submitted form contents, applicant details and approval records.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-129447",
-      "published": "2026-11-14T18:17:21.100",
-      "description": "Kroki before 0.36.0 contains a reflected cross-site scripting vulnerability in the /dbml/svg endpoint that allows unauthenticated attackers to inject javascript: hyperlinks by supplying crafted DBML table url, headercolor, or TableGroup color settings. Attackers can send a crafted SVG link that, when opened and the table header clicked, executes attacker JavaScript in the Kroki origin.",
+      "id": "CVE-2026-129357",
+      "published": "2026-11-15T03:16:46.377",
+      "description": "A vulnerability was determined in Linux Foundation Magma up to 1.9.0. This issue affects the function hostOrgMiddleware of the file nms/server/host/middleware.ts of the component Host Middleware. This manipulation of the argument role causes missing authorization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 6.1
+      "score": 6.3
     },
     {
-      "id": "CVE-2026-129264",
-      "published": "2026-11-14T17:16:53.040",
-      "description": "A security vulnerability has been detected in sox_ng up to 14.8.1. Affected by this issue is the function read_samples_voc of the file src/voc.c of the component VOC Decoder. Such manipulation leads to out-of-bounds write. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The name of the patch is 0b40408b. A patch should be applied to remediate this issue. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-127115",
-      "published": "2026-11-14T16:17:04.130",
-      "description": "The BuddyForms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'buddyforms_form_content' parameter in all versions up to, and including, 2.10.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This is exploitable when a form configured with the public_submit option is published — a condition met by the plugin's bundled Post Simple template out of the box.",
+      "id": "CVE-2026-129455",
+      "published": "2026-11-15T02:17:21.420",
+      "description": "Zr.Admin.NET commit e6ceaf4 through commit eb9228a contains an insecure direct object reference vulnerability in FrontArticleController that allows authenticated users to change other users' article visibility and pin state. Attackers can send PUT /front/article/changePublic with their own UserId in the body to make private articles public, then read them anonymously via GET /front/article/{id}.",
       "severity": "MEDIUM",
       "score": 5.4
+    },
+    {
+      "id": "CVE-2026-103361",
+      "published": "2026-11-15T07:16:49.253",
+      "description": "The Payment Gateway via Valitor for WooCommerce WordPress plugin before 1.9.41 does not properly validate the authenticity of payment callbacks, relying on a verification secret that ships with a hard-coded default value used by every store that has not changed it, allowing unauthenticated attackers to forge a valid payment confirmation and mark arbitrary orders as paid.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-110989",
+      "published": "2026-11-15T07:16:53.827",
+      "description": "The RegistrationMagic  WordPress plugin before 6.1.0.4 does not verify ownership of the submitted email address before updating the associated WordPress user account, allowing unauthenticated attackers to overwrite the profile fields of arbitrary non-administrator users by submitting a public form that contains name and primary-email fields.",
+      "severity": "MEDIUM",
+      "score": 5.3
     },
     {
       "id": "CVE-2026-129356",
@@ -121,25 +121,25 @@
       "score": 5
     },
     {
-      "id": "CVE-2026-129259",
-      "published": "2026-11-14T15:16:58.480",
-      "description": "A weakness has been identified in Mereithhh VanBlog up to 0.54.0. This affects an unknown part of the file packages/server/src/types/access/access.ts of the component Image Upload Endpoint. Executing a manipulation can lead to cross site scripting. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-129466",
+      "published": "2026-11-15T02:17:21.943",
+      "description": "Zr.Admin.NET commit 1845017 through commit eb9228a contains a missing authorization vulnerability in TasksController.Get that allows any logged-in user to read scheduled task details without the monitor:job permission. Attackers can obtain task ids from the unprotected /monitor/jobLog/list endpoint and retrieve job parameters, API URLs, cron expressions, and stored SQL statements.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-129267",
-      "published": "2026-11-14T18:17:20.077",
-      "description": "A vulnerability was found in sergix44 XBackBone up to 3.8.2. Impacted is the function MediaController::getRawById of the file app/Controllers/MediaController.php. The manipulation results in cross site scripting. It is possible to launch the attack remotely. The exploit has been made public and could be used. The pull request to fix this issue awaits acceptance.",
-      "severity": "LOW",
-      "score": 3.5
+      "id": "CVE-2026-110984",
+      "published": "2026-11-15T07:16:53.600",
+      "description": "The RegistrationMagic  WordPress plugin before 6.1.0.4 does not sanitise and escape a parameter before using it in a SQL statement, which could allow high privilege users such as admin to perform SQL injection attacks.",
+      "severity": "MEDIUM",
+      "score": 4.1
     },
     {
-      "id": "CVE-2026-129456",
-      "published": "2026-11-14T20:17:40.060",
-      "description": "In FRRouting, bgpd frees the sub-TLV chain of a Tunnel Encapsulation attribute (type 23) while routes stored by bgpd still point to it, if the attribute is received from a neighbor that has \"soft-reconfiguration inbound\" configured. A cache added to speed up attribute interning while processing the prefixes of an UPDATE checks whether an interned attribute set may be reused by comparing the parsed attributes with themselves, so the check always succeeds. Interning the parsed attributes for the Adj-RIB-In removes the Tunnel Encapsulation sub-TLVs from them, and the copy that bgpd then interns for the route reuses the cached attribute set, which still holds the sub-TLVs, without taking a reference on them. When the route is later replaced, withdrawn or cleared, for example when the session goes down, the sub-TLV chain is freed while still in use, and bgpd then reads it, decrements a reference count inside it and frees it a second time. In the reporter's build without AddressSanitizer this ended in an assertion failure in bgpd's memory accounting, aborting bgpd and dropping all BGP sessions on the router, and the neighbor can repeat it each time bgpd restarts. Because freed heap memory is written to and freed again, consequences beyond a crash cannot be ruled out. An established BGP session is required, and the attribute does not need to be malformed. bgpd processes attribute 23 from every neighbor, including eBGP neighbors, unless it is explicitly discarded, although RFC 9012 requires it to be filtered on eBGP sessions by default. Neighbors without \"soft-reconfiguration inbound\" are not affected.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-129358",
+      "published": "2026-11-15T03:16:51.473",
+      "description": "A vulnerability was identified in Linux Foundation Magma up to 1.9.0. Impacted is the function handleReact of the file nms/server/main/routes.ts of the component NMS. Such manipulation leads to cross site scripting. It is possible to launch the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "LOW",
+      "score": 2.4
     }
   ]
 }
