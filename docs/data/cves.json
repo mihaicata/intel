@@ -1,145 +1,145 @@
 {
-  "totalResults": 4759,
+  "totalResults": 4766,
   "items": [
     {
-      "id": "CVE-2026-12487",
-      "published": "2026-11-17T02:17:13.527",
-      "description": "An incorrect authorization vulnerability in the SNMP parameter of Zyxel EE5301-00 customized firmware version 5.63(ACLD.2)b3_D0 could allow an unauthenticated attacker to cause a denial-of-service (DoS) condition on an affected device.",
+      "id": "CVE-2026-130587",
+      "published": "2026-11-17T14:17:45.317",
+      "description": "OpenFunction through 1.2.0 contains a privilege escalation vulnerability that allows namespace tenants to create privileged host-access pods by supplying unrestricted PodSpec templates in Function and Serving resources. Attackers with only Function or Serving create permissions can set privileged, hostNetwork, hostPID, or hostPath fields to mount the worker node's root filesystem and escalate to node access.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-130583",
+      "published": "2026-11-17T14:17:44.847",
+      "description": "Rootways Authorize.net CIM Pro extension for Magento 2 before 4.1.5 contains an unauthenticated server-side request forgery vulnerability in the Apple Pay merchant validation controller. Attackers can supply file://, gopher://, or dict:// URLs in the validationUrl parameter to read app/etc/env.php credentials and encryption keys or reach internal services and cloud metadata endpoints.",
+      "severity": "CRITICAL",
+      "score": 9.3
+    },
+    {
+      "id": "CVE-2026-12239",
+      "published": "2026-11-17T13:17:34.240",
+      "description": "The WP Abstracts plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.7.6. This is due to a missing capability check on the wpabs_save_regform AJAX action and the use of a static, frontend-exposed nonce that allows any authenticated user to persist attacker-controlled form schemas with arbitrary wpSync mappings that are later used as user meta keys in the wpabstracts_sync_wpfields function. This makes it possible for authenticated attackers, with subscriber-level access and above, to elevate their privileges to administrator.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-130351",
-      "published": "2026-11-17T02:17:16.963",
-      "description": "phpMyFAQ from 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in the multisite Redis configuration store that is not tenant-scoped. As a result, tenant administrators can read and overwrite the master instance's effective configuration. Attackers can save configuration through /admin/api/configuration, optionally resetting storage.redisPrefix, to redirect master SMTP, set a known API token, or alter authentication settings.",
+      "id": "CVE-2026-130584",
+      "published": "2026-11-17T14:17:45.013",
+      "description": "Xibo CMS before 4.5.3 contains an insecure direct object reference vulnerability that allows authenticated users to access other DataSets' RSS feeds by pairing their own DataSet id with a foreign RSS id. Attackers with dataset.modify permission can read, edit, or delete feeds and steal PSKs, then use the unauthenticated /rss/{psk} endpoint to exfiltrate victim DataSet rows.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-130341",
-      "published": "2026-11-17T02:17:15.200",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains a stored cross-site scripting vulnerability that allows registered users to inject javascript: links via FAQ comments. When the comment editor is enabled, Utils::parseUrl() strips https:// from sanitized hrefs, turning an allowed https://javascript:443/ link into executable script that runs on the shared admin origin when clicked.",
+      "id": "CVE-2026-130386",
+      "published": "2026-11-17T14:17:44.493",
+      "description": "Contiki-NG through 5.2 contains an out-of-bounds access vulnerability in buffer_reclaim() and domain_set_free() in mpl.c that iterate the seed_set array one element past its end. Remote attackers can flood MPL multicast messages to fill the buffered message set, triggering out-of-bounds reads and writes of adjacent static memory that cause memory corruption or a crash.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-130356",
-      "published": "2026-11-17T02:17:17.850",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass that lets category- or language-restricted editors rewrite visibility ACLs and tags of any FAQ. Attackers send faq/update requests with a target faqId and an untranslated lang to expose restricted FAQs, wipe tags, or overwrite orphaned FAQs.",
+      "id": "CVE-2026-130588",
+      "published": "2026-11-17T14:17:45.477",
+      "description": "OpenFunction through 1.2.0 contains a NULL pointer dereference vulnerability in getServingRun that allows users permitted to create Serving resources to crash the operator by omitting the triggers section. Attackers can submit a Serving with nil Spec.Triggers to crash-loop the controller-manager, halting Function and Serving reconciliation cluster-wide until the object is deleted.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 6.5
     },
     {
-      "id": "CVE-2026-130348",
-      "published": "2026-11-17T02:17:16.423",
-      "description": "phpMyFAQ 4.1.0 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains a missing authorization vulnerability that exposes restricted and inactive category metadata to unauthenticated visitors. Attackers can enumerate category IDs via /category/{id}/{slug}.html or query /api/v4.0/categories to read names, descriptions, images and FAQ counts of restricted categories.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-130352",
-      "published": "2026-11-17T02:17:17.153",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability that allows unauthenticated attackers to read editor-only Private Notes by querying the public FAQ list API. Attackers can page through GET /api/v4.0/faqs or /api/v3.1/faqs without credentials to retrieve the notes field of every anonymously readable FAQ, exposing internal remarks and ticket details.",
+      "id": "CVE-2026-130387",
+      "published": "2026-11-17T14:17:44.660",
+      "description": "Contiki-NG through 5.2 contains an out-of-bounds read vulnerability in coap_remove_observer_by_uri() that allows unauthenticated remote attackers to read past the supplied URI buffer. Attackers can send a CoAP GET Observe request with a Uri-Path shorter than an existing observer's URL, causing memcmp with strlen to read beyond the non-NUL-terminated buffer.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-130353",
-      "published": "2026-11-17T02:17:17.353",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability in its public FAQ REST API that exposes author names and e-mail addresses to unauthenticated callers. Attackers can query the faq and paginated faqs endpoints to bulk-harvest e-mails and de-anonymise users who opted out of GDPR author visibility.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-130354",
-      "published": "2026-11-17T02:17:17.510",
-      "description": "phpMyFAQ 4.1.0 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass vulnerability in POST /api/webauthn/prepare that creates accounts as active, bypassing manual activation and domain whitelisting. Anonymous attackers can obtain the freely issued CSRF token and register an activated account with an unverified email to access registered-user-only content and functions.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-130347",
-      "published": "2026-11-17T02:17:16.247",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass in password reset, letting external-identity accounts receive local passwords. Attackers with mailbox access can request reset tokens for OIDC, Keycloak, Entra ID, LDAP, SSO, or WebAuthn accounts and log in locally, skipping IdP MFA and deprovisioning.",
-      "severity": "MEDIUM",
-      "score": 4.8
-    },
-    {
-      "id": "CVE-2026-130338",
-      "published": "2026-11-17T02:17:14.600",
-      "description": "AdminNeo before 5.9.1 contains a stored sql injection vulnerability in the MySQL driver that allows database users with table creation rights to inject SQL through unescaped geometry column names in unconvert_field(). Attackers can craft a column name containing an SQL expression that executes with another AdminNeo user's privileges when they edit a row, save it, or export the table.",
-      "severity": "MEDIUM",
-      "score": 4.6
-    },
-    {
-      "id": "CVE-2026-130339",
-      "published": "2026-11-17T02:17:14.817",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability that allows authenticated low-privilege users to read unpublished FAQ titles via bookmark_action. Attackers can request FAQ detail pages with bookmark_action=add across sequential ids, then view /user/bookmarks to reveal draft and pending submission question text.",
+      "id": "CVE-2026-130384",
+      "published": "2026-11-17T13:17:34.410",
+      "description": "Zammad before 7.2.3 contains a missing authorization vulnerability that allows authenticated customers to delete agents' shared ticket drafts by supplying a shared_draft_id. Attackers can create tickets via POST /api/v1/tickets or reply to accessible tickets referencing a draft id, destroying draft text prepared by agents.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-130349",
-      "published": "2026-11-17T02:17:16.620",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability that allows category- or language-restricted editors to bypass scoped rights via public REST write endpoints. Attackers with a scoped right and the shared API token can use PUT faq/update, POST faq/create, and POST category to rewrite published FAQs and create root categories outside their scope.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-130355",
-      "published": "2026-11-17T02:17:17.683",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability in POST /admin/api/faq/import that lets FAQ_ADD users bypass the FAQ_PUBLISH right. Authenticated contributors can upload a CSV with column 8 set to true to publish unreviewed, optionally sticky FAQs such as phishing content.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-130342",
-      "published": "2026-11-17T02:17:15.367",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an improper reference counting flaw on multisite deployments, allowing editors to delete other instances' attachment files. Because linkedRecords() counts only the local faqattachment table, deleting an attachment with shared md5 content makes File::delete() unlink the shared blob, destroying another instance's files.",
-      "severity": "MEDIUM",
-      "score": 4.2
-    },
-    {
-      "id": "CVE-2026-130350",
-      "published": "2026-11-17T02:17:16.790",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an incorrect authorization vulnerability that allows delegated group or user admins to remove rights they do not hold by submitting empty rights lists. Attackers can send an empty rightIds or userRights array to group/permissions or user/update-rights to wipe all rights of more-privileged groups or administrators.",
-      "severity": "LOW",
-      "score": 3.8
-    },
-    {
-      "id": "CVE-2026-130343",
-      "published": "2026-11-17T02:17:15.543",
-      "description": "phpMyFAQ 3.2.5 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in the user/request-removal API endpoint that lets authenticated users file account removal requests as other users. The ownership check calls getUserById() with the attacker-supplied userId on the session user object, so it compares the input against the target's own record. Attackers who know a victim's login name and email can submit that userId, loginname, and email, sending administrators a spoofed Remove User Request email. This may lead an admin to delete the victim's account and data.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-130345",
-      "published": "2026-11-17T02:17:15.907",
-      "description": "phpMyFAQ 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability that allows authenticated frontend users to receive restricted FAQ titles by subscribing to Web Push notifications. When editors publish user/group-restricted FAQs, WebPushService::sendToAll() delivers the question, FAQ id, category, and slugified URL to every subscriber, bypassing the FAQ ACL.",
-      "severity": "LOW",
-      "score": 3.5
-    },
-    {
-      "id": "CVE-2026-130346",
-      "published": "2026-11-17T02:17:16.077",
-      "description": "AdminNeo before 5.9.1 contains an sql injection vulnerability in the ClickHouse driver because idf_escape() doubles backticks but does not escape backslashes in identifiers. Attackers can lure a logged-in user into opening a GET link with a column name ending in a backslash in columns, where, or order parameters, causing query text to be parsed as SQL.",
+      "id": "CVE-2026-130385",
+      "published": "2026-11-17T14:17:44.343",
+      "description": "Weblate 2026.11 through 2026.11.2 contains a time-of-check time-of-use race condition in the GET /api/tasks/{pk}/ endpoint that exposes unredacted repository error messages. Authenticated project members lacking vcs.view permission can poll failing repository tasks to obtain RepositoryCommandError text revealing upstream repository URLs, filesystem paths, and host names.",
       "severity": "LOW",
       "score": 3.1
     },
     {
-      "id": "CVE-2026-130340",
-      "published": "2026-11-17T02:17:15.000",
-      "description": "AdminNeo before 5.9.1 contains a stored HTML injection vulnerability that allows database users to inject markup into another user's session via column type names rendered with innerHTML. Attackers can create a PostgreSQL type or table with markup in its name to render live elements in the help popup, enabling content spoofing and requests to attacker servers.",
-      "severity": "LOW",
-      "score": 3
+      "id": "CVE-2026-124643",
+      "published": "2026-11-17T12:17:44.423",
+      "description": "This vulnerability exists in e-Sushrut HMIS due to insufficient authentication and session validation in the dashboard functionality. An unauthenticated remote attacker could exploit this vulnerability by sending specially crafted HTTP requests to the affected endpoint.\n\nSuccessful exploitation of this vulnerability could allow the attacker to gain unauthorized access to the dashboard information associated with the targeted healthcare organization.",
+      "severity": "UNKNOWN",
+      "score": null
     },
     {
-      "id": "CVE-2026-130344",
-      "published": "2026-11-17T02:17:15.727",
-      "description": "AdminNeo before 5.9.1 contains a stored cross-site scripting vulnerability in Admin::printTablePartitions() that allows authenticated users to inject HTML by placing markup in partition column names. Attackers with CREATE or ALTER privileges can create a partitioned table whose unescaped partition expression executes script when another user opens the table-structure page.",
-      "severity": "LOW",
-      "score": 3
+      "id": "CVE-2026-124644",
+      "published": "2026-11-17T12:17:44.570",
+      "description": "This vulnerability exists in e-Sushrut HMIS due to the exposure of internal hospital operational statistics through data structure embedded in the HTML response of the login page. An unauthenticated remote attacker could exploit this vulnerability by accessing the affected login page and extracting the returned HTML content.\n\nSuccessful exploitation of this vulnerability could allow the attacker to gain unauthorized access to internal hospital operational information associated with the targeted healthcare organization.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-124645",
+      "published": "2026-11-17T13:17:32.560",
+      "description": "This vulnerability exists in e-Sushrut HIMS due to the use of a static and predictable value in the client-side password hashing mechanism, which is embedded in the login page and accessible to unauthenticated users. An unauthenticated remote attacker could exploit this vulnerability by accessing the login page, extracting the embedded value and using it to reproduce the password hashing process.\n\nSuccessful exploitation of this vulnerability could weaken the security of the authentication mechanism and potentially facilitate authentication related attacks on the targeted healthcare organization.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-124646",
+      "published": "2026-11-17T13:17:32.703",
+      "description": "This vulnerability exists in e-Sushrut HMIS due to insufficient server side object level authorization validation in the API endpoint. An unauthenticated remote attacker could exploit this vulnerability by modifying the parameter value in the API request.\n\nSuccessful exploitation of this vulnerability could allow the attacker to enumerate and gain unauthorized access to sensitive information of patients on the targeted healthcare organization.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-127138",
+      "published": "2026-11-17T13:17:33.213",
+      "description": "pretix provides a mechanism where ticket QR codes are cryptographically signed and can be verified by our pretixSCAN apps in offline mode without any database of valid tickets. pretixSCAN checks the signature to verify that the ticket was issued by the correct pretix event and compares the QR code against a list of revoked QR codes. A QR code becomes revoked when the order is canceled, or the ticket is changed in a way that a new QR code needs to be generated.\n\n\n\n\nHowever, the parsing of the QR code in all of our pretixSCAN apps contained a faulty computation, rendering the check for the correct length of the contents faulty. This way, an attacker is able to craft multiple QR codes for the same ticket which have the same content, but look different and therefore do not match against the revocation list. This does not allow to fabricate entirely new tickets, but it does allow to enter the event with e.g. a canceled ticket. This attack requires pretixSCAN to be scanning in offline mode and the \"pretix signature scheme 1\" to be used for the event's QR codes.\n\n\n\n\nIf the attack is executed, the ticket unfortunately shows as valid (green) on the scanner but as invalid (red) on the server since the server later cannot match it to a ticket. We scanned the entire database of scans on pretix Hosted and could not find any traces of this being exploited in the past.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-127139",
+      "published": "2026-11-17T13:17:33.363",
+      "description": "pretixSCAN Proxy does not use a secure random generator to generate initialization tokens and API keys for the connection between pretixSCAN devices and the pretixSCAN Proxy. This could allow a skilled attacker with access to at least some of the tokens to predict the value of other tokens more easily.\n\n\n\n\npretixSCAN is usually used on local networks and the level of exposure heavily depends on the structure of that network. If you want to be extra careful, it might make sense to reconnect your devices to the proxy after the update.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-127140",
+      "published": "2026-11-17T13:17:33.503",
+      "description": "Our WordPress plugin for the pretix Widget performs HTTP calls to pre-fetch CSS and JS files into a local cache and stores them publicly on the WordPress instance. These HTTP calls are made with wp_remote_get, not wp_safe_remote_get, and therefore allow SSRF with body extraction. Exploiting this requires sufficient WordPress permissions to create or modify pages.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-127174",
+      "published": "2026-11-17T13:17:33.633",
+      "description": "When changing the settings of a scheduled export, no permission checks are done to see whether the user making the change has access to the exporter after the change. This way, an attacker with access to change organizer settings and e.g. access to all orders could change the export to refer to gift cards instead, even if they do not have access to gift cards.\n\n\n\n\nThe fix for this is technically a breaking API change, since changing the export type of existing scheduled exports is no longer allowed, but we don't expect this to affect any typical API usage.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-107190",
+      "published": "2026-11-17T14:17:32.053",
+      "description": "Bludit is vulnerable to Path Traversal in the page deletion functionality. An authenticated user with the Author role can set the UUID field of their own page to contain path traversal sequences (.. and path separators), which are saved without proper validation. When the page is deleted, Pages::delete() passes the path constructed from this UUID to Filesystem::deleteRecursive() without verifying that it still points to an allowed directory, allowing the attacker to delete any files, even not belonging to them. Critically, it is possible to delete admin pages and render the site unusable.\n\n\nBecause vendor contact attempts were unsuccessful, the vulnerability has only been confirmed in version 3.22.0 but may also affect other versions.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-130585",
+      "published": "2026-11-17T14:17:45.170",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-130586",
+      "published": "2026-11-17T14:17:45.250",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": "UNKNOWN",
+      "score": null
     }
   ]
 }
