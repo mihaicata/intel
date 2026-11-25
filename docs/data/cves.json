@@ -1,145 +1,145 @@
 {
-  "totalResults": 4405,
+  "totalResults": 4374,
   "items": [
     {
-      "id": "CVE-2026-127021",
-      "published": "2026-11-18T06:17:29.803",
-      "description": "The Flamix: Bitrix24 and WooCommerce Products Sync WordPress plugin before 1.7.0 does not restrict or validate an unauthenticated file-exchange request, allowing anyone to write a file with an attacker-chosen name, extension and path to a web-served location and thereby execute arbitrary PHP.",
+      "id": "CVE-2012-20007",
+      "published": "2026-11-18T16:17:47.560",
+      "description": "ThinkPHP 2.0 through 2.2 and 3.0 Lite mode contains an eval injection vulnerability in the Dispatcher PATH_INFO parsing, which uses preg_replace with the /e modifier and a double-quoted replacement. Unauthenticated attackers can send crafted requests to index.php with a malicious 's' parameter containing PHP expressions to execute arbitrary code on the server. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-128851",
-      "published": "2026-11-18T06:17:29.933",
-      "description": "The Probono Form Basic WordPress plugin before 1.3.3 does not validate the real type of files uploaded through its public form, trusting the client-declared MIME type instead, which could allow unauthenticated attackers to upload PHP files to a public directory and execute them before they are deleted, on servers that do not honour the Probono Form Basic WordPress plugin before 1.3.3's Apache-only access restriction.",
+      "id": "CVE-2018-25443",
+      "published": "2026-11-18T16:17:48.500",
+      "description": "Baidu UEditor 1.4.0 through 1.4.3.3 contains an unrestricted file upload vulnerability in the catchimage action of /ueditor/net/controller.ashx that only validates the Content-Type header. Unauthenticated attackers can supply a source[] URL like x.jpg?.aspx to retain a malicious extension and write an executable .aspx file for remote code execution. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-123132",
-      "published": "2026-11-18T06:17:29.190",
-      "description": "The Otter Blocks  WordPress plugin before 3.2.10 does not use URL-aware escaping when it resolves its dynamic data tags inside HTML attributes, which could allow unauthenticated users to post comments containing links that execute arbitrary JavaScript when clicked, for example by a logged-in administrator.",
+      "id": "CVE-2019-25782",
+      "published": "2026-11-18T16:17:48.667",
+      "description": "ThinkPHP 5.0.0 before 5.0.24 contains a code injection vulnerability that allows unauthenticated attackers to execute commands by setting _method=__construct in POST data to overwrite the Request filter property. Attackers can send POST requests to endpoints reached via ?s=captcha or ?s=index/index/index with filter[]=system and server[REQUEST_METHOD] values to execute arbitrary system commands. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2021-48023",
+      "published": "2026-11-18T16:17:50.763",
+      "description": "Weaver E-cology 9.0 contains an unrestricted file upload vulnerability in /page/exportImport/uploadOperation.jsp that allows unauthenticated attackers to upload arbitrary JSP files. Attackers can send a crafted multipart POST request with a JSP webshell written to /page/exportImport/fileTransfer/ to achieve remote code execution. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-20.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2021-48025",
+      "published": "2026-11-18T16:17:50.927",
+      "description": "OpenSNS 3.2.1 contains an unauthenticated code injection vulnerability in the shareBox method of ShareController that allows attackers to invoke arbitrary model methods via the query parameter. Attackers can send crafted GET requests to /index.php?s=weibo/Share/shareBox abusing parse_str and ShareModel::getInfo to reach Schedule::runSchedule and execute code through assert. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2012-20008",
+      "published": "2026-11-18T16:17:47.733",
+      "description": "openSIS 5.1 before 9.0 contains a local file inclusion vulnerability that allows authenticated users to include arbitrary files through the modname parameter of ajax.php. Attackers can prefix a payload with misc/ and use ../ directory traversal to read sensitive files like /etc/passwd or execute local scripts in the web server context. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-117520",
-      "published": "2026-11-18T06:17:28.670",
-      "description": "The Dynific Addons for Elementor (formerly Anywhere Elementor) WordPress plugin before 1.3.1 does not perform a capability check on an AJAX action that stores a configuration value, allowing any authenticated user, including Subscribers, to store a value that is later output without proper escaping in a quoted attribute on an administrator settings page, resulting in Stored Cross-Site Scripting that executes in the administrator's session.",
+      "id": "CVE-2018-25442",
+      "published": "2026-11-18T16:17:48.317",
+      "description": "Baidu UEditor 1.4.0 before 1.4.3.1 contains a server-side request forgery vulnerability that allows unauthenticated attackers to make arbitrary requests via the source[] parameter in /ueditor/jsp/controller.jsp?action=catchimage. Attackers can supply crafted URLs that the ImageHunter component fetches through url.openConnection() to reach internal services and bypass network restrictions. Exploitation evidence was first observed by the Shadowserver Foundation on 2024-07-03.",
       "severity": "HIGH",
-      "score": 8
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-126040",
-      "published": "2026-11-18T06:17:29.437",
-      "description": "The Hide My WP Ghost  WordPress plugin before 7.0.19 only enforces two-factor authentication on the interactive login flow and not on other authentication paths, allowing an attacker who already has a user's valid password to authenticate as that user without completing the second factor.",
+      "id": "CVE-2019-25784",
+      "published": "2026-11-18T16:17:49.010",
+      "description": "FineCMS versions 5.0.4 before 5.0.11 contain an unauthenticated SQL injection vulnerability in the data2 API action handled by list_tag in libraries/Template.php. Attackers can send GET requests to index.php?c=api&m=data2 with a valid auth hash and the param action=sql sql='...' to execute arbitrary SELECT queries and extract database information. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2021-48021",
+      "published": "2026-11-18T16:17:50.097",
+      "description": "Chamilo LMS 1.11.10 before 1.11.16 contains an unauthenticated SQL injection vulnerability in the searchOptionsFromTags function through the options parameter of extra_field.ajax.php. Attackers can send POST requests with a malicious JSON options array to inject SQL into the IN clause and extract database information. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2016-20105",
+      "published": "2026-11-18T16:17:47.940",
+      "description": "Lucee Server versions 5.0.0.0 before 5.3.4.46 contain an insecure default configuration that allows unauthenticated attackers to set the initial admin password via the first-run form on /lucee/admin/web.cfm and /lucee/admin/server.cfm. Attackers can access the 'New Password' set-password form before any password is configured to seize administrative control of the server. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-24.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2016-20106",
+      "published": "2026-11-18T16:17:48.120",
+      "description": "NUUO NVRmini 2 through 3.0.8 contains a file disclosure vulnerability that allows unauthenticated attackers to read web-root files by passing a filename to the 'css' parameter of css_parser.php. Attackers can retrieve PHP source files confined to the document root, exposing hardcoded credentials and sensitive application logic. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-17.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-107739",
-      "published": "2026-11-18T06:17:27.763",
-      "description": "The Search & Replace WordPress plugin before 3.2.4 does not correctly restrict which database tables an administrator of a single site may operate on in a multisite network, allowing subsite administrators to read and modify the tables of other sites and of the network, and to make themselves Super Admin.",
+      "id": "CVE-2019-25785",
+      "published": "2026-11-18T16:17:49.170",
+      "description": "FineReport 8.0 contains a path traversal vulnerability that allows unauthenticated attackers to read arbitrary files through the resourcepath parameter of the /WebReport/ReportServer endpoint. Attackers can send GET requests with op=chart and cmd=get_geo_json to read sensitive files like privilege.xml and extract admin credentials. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-107740",
-      "published": "2026-11-18T06:17:27.887",
-      "description": "The Search & Replace WordPress plugin before 3.2.4 does not restrict one of its database tools to network administrators on multisite installations, allowing administrators of a single subsite to run arbitrary SQL against the whole network's database and make themselves Super Admin.",
+      "id": "CVE-2021-48022",
+      "published": "2026-11-18T16:17:50.593",
+      "description": "Rocket.Chat versions 0.61.0 before 3.11.4, 3.12.x before 3.12.4 and 3.13.x before 3.13.2 contain a missing authorization vulnerability allowing unauthenticated attackers to read any room's messages via the livechat:loadHistory Meteor method. Attackers can mint a guest token through livechat:registerGuest and send POST requests to /api/v1/method.callAnon with a target rid parameter to retrieve message history without membership checks. Exploitation evidence was first observed by the Shadowserver Foundation on 2025-02-13.",
       "severity": "HIGH",
-      "score": 7.2
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-111825",
-      "published": "2026-11-18T06:17:28.000",
-      "description": "The Event Tickets with Ticket Scanner plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'code' parameter in all versions up to, and including, 3.3.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload persists through WooCommerce session data into order-item metadata and executes when rendered in the ticket scanner interface.",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-120390",
-      "published": "2026-11-18T06:17:28.817",
-      "description": "The WPvivid — Backup, Migration & Staging WordPress plugin before 0.9.140 does not limit its table prefix rewrite to table names when restoring a database backup, which corrupts the length of stored serialized values and allows users with a role as low as Subscriber to plant a PHP object that WordPress instantiates after an administrator restores a backup.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-120391",
-      "published": "2026-11-18T06:17:28.947",
-      "description": "The WPvivid — Backup, Migration & Staging WordPress plugin before 0.9.140 does not prevent serialized data it cannot safely unserialize from being re-serialized as a PHP object during a site migration, allowing users with a role as low as Subscriber to plant a PHP object that WordPress instantiates after an administrator restores a backup onto a different URL.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-117492",
-      "published": "2026-11-18T06:17:28.553",
-      "description": "The Flatsome WordPress theme before 3.20.13 does not sanitise post meta saved through an AJAX action, nor escape it when rendering the product page, allowing users with a role as low as Contributor (who lack the unfiltered_html capability) to store JavaScript that executes in the browser of anyone who views the product, including administrators.",
+      "id": "CVE-2010-20126",
+      "published": "2026-11-18T16:17:46.437",
+      "description": "Virtual Keyboard plugin for SquirrelMail through 0.9.1 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject script by supplying unsanitized input in the passformname parameter. Attackers can craft GET requests to /plugins/vkeyboard/vkeyboard.php with script payloads in passformname to execute code in victims' browsers and steal session cookies. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-127003",
-      "published": "2026-11-18T06:17:29.677",
-      "description": "The RSVP and Event Management WordPress plugin before 2.7.19 does not sanitise and escape attendee data imported from a spreadsheet before outputting it on the frontend RSVP form, which could allow users with the Author role and above to perform Stored Cross-Site Scripting attacks against anyone, including administrators, viewing the affected attendee, even when the unfiltered_html capability is disallowed.",
+      "id": "CVE-2019-25783",
+      "published": "2026-11-18T16:17:48.843",
+      "description": "Tiny Tiny RSS before commit c68ac04 (2019-03-03) contains an open redirect vulnerability that allows unauthenticated attackers to redirect users through the unvalidated 'return' parameter. Attackers can craft requests to /public.php?op=login with an absolute external URL in 'return', which is placed in the Location header to send victims to attacker-controlled sites. Exploitation evidence was first observed by the Shadowserver Foundation on 2026-02-26.",
       "severity": "MEDIUM",
-      "score": 6.8
+      "score": 6.1
     },
     {
-      "id": "CVE-2026-107099",
-      "published": "2026-11-18T06:17:27.640",
-      "description": "The Royal Addons for Elementor  WordPress plugin before 1.7.1071 does not restrict or validate the post meta keys used when counting or rendering a filtered grid, and does not reject private (hidden) meta keys, allowing unauthenticated users to disclose the value of arbitrary private post meta one value at a time from the filtered result count. This is an incomplete fix of CVE-2026-17585, whose 1.7.1067 patch covered only a separate search-based path and left the grid filtering path affected.",
+      "id": "CVE-2019-25786",
+      "published": "2026-11-18T16:17:49.333",
+      "description": "Gnuboard5 5.0.1 before 5.3.3.3 and 5.4.0.1 before 5.4.0.2 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts through the arr_ajax_msg parameter. Attackers can craft GET requests to /plugin/sms5/ajax.sms_emoticon.php, where common.php's @extract($_GET) injects the value into the echoed JSON output, executing script in victims' browsers. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2021-48027",
+      "published": "2026-11-18T16:17:51.247",
+      "description": "OTOBO 10.0.1 before 10.0.13 contains an open redirect vulnerability that allows unauthenticated attackers to redirect users by supplying arbitrary URLs to the ExternalURLJump action. Attackers can craft GET requests to /otobo/index.pl?Action=ExternalURLJump with a malicious URL parameter, which the ExternalURLJump.pm module redirects to without an allow-list check, enabling phishing attacks. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-23.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2021-48028",
+      "published": "2026-11-18T16:17:51.407",
+      "description": "Open Journal Systems 2.1.0 before 3.0.0 contains an open redirect vulnerability that allows unauthenticated attackers to redirect users to external domains by abusing the source parameter. Attackers can send GET requests to /index.php/index/user/setLocale/<locale> with a source value beginning with '@', which UserHandler.inc.php appends to the server host, redirecting victims to attacker-controlled sites for phishing. Exploitation evidence was first observed by the Shadowserver Foundation on 2024-12-05.",
+      "severity": "MEDIUM",
+      "score": 6.1
+    },
+    {
+      "id": "CVE-2020-37290",
+      "published": "2026-11-18T16:17:49.563",
+      "description": "Kiwi TCMS before 8.6 contains a missing authorization vulnerability in the User.filter JSON-RPC method that allows unauthenticated attackers to retrieve user account information. Attackers can send a POST request to /json-rpc/ invoking User.filter with a query parameter to disclose sensitive user data without authentication. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-19.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-126041",
-      "published": "2026-11-18T06:17:29.560",
-      "description": "The Hide My WP Ghost  WordPress plugin before 7.0.19 does not remove or restrict a debug branch in its output rewriting, allowing unauthenticated attackers to reveal the hidden login page, the hidden admin path and the renamed content folders the Hide My WP Ghost  WordPress plugin before 7.0.19 is meant to conceal.",
+      "id": "CVE-2021-48026",
+      "published": "2026-11-18T16:17:51.080",
+      "description": "Zhongqing Naboo Education Cloud Platform builds through 2021-07-09 contain a missing authentication vulnerability in the /api/TeacherQuery/SearchTeacherInSiteWithPagerRecords endpoint that allows unauthenticated attackers to access sensitive teacher data. Attackers can send unauthenticated GET requests to this endpoint to retrieve user names, login names, and admin ids from the JSON response. Exploitation evidence was first observed by the Shadowserver Foundation on 2023-11-15.",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-117491",
-      "published": "2026-11-18T06:17:28.427",
-      "description": "The Flatsome WordPress theme before 3.20.13 does not verify that the acting user is authorised to modify the target post when saving a template, allowing users with a role as low as Contributor to overwrite the content and type of an arbitrary post, including another user's published page, removing it from the front end.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-129434",
-      "published": "2026-11-18T06:17:30.060",
-      "description": "The OneLogin SAML SSO WordPress plugin before 3.7.1 does not validate a user-supplied parameter before using it to redirect an already-authenticated user, allowing unauthenticated attackers to redirect a logged-in user to an arbitrary external domain via a crafted link (e.g. for phishing).",
-      "severity": "MEDIUM",
-      "score": 4.7
-    },
-    {
-      "id": "CVE-2026-117489",
-      "published": "2026-11-18T06:17:28.293",
-      "description": "The Flatsome WordPress theme before 3.20.13 does not perform a capability or nonce check on an AJAX action available to authenticated users, allowing users with a role as low as Subscriber to disclose the name and content of non-public templates stored on the site.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-120406",
-      "published": "2026-11-18T06:17:29.070",
-      "description": "The Contact Form 7 WordPress plugin before 6.2.5 does not check that the post a form submission says it was sent from is publicly viewable before resolving post-related mail-tags, allowing unauthenticated users to obtain the title, URL, author name and author email of private, draft and trashed posts where such tags are used in an email or message returned to the submitter.",
-      "severity": "LOW",
-      "score": 3.7
-    },
-    {
-      "id": "CVE-2026-123662",
-      "published": "2026-11-18T06:17:29.317",
-      "description": "The ProfilePress  WordPress plugin before 4.18.1 does not atomically consume the source subscription when processing a membership plan change, allowing a customer to submit concurrent plan-change checkouts against a single paid subscription and obtain several active memberships for the price of one.",
-      "severity": "LOW",
-      "score": 3.1
-    },
-    {
-      "id": "CVE-2026-104683",
-      "published": "2026-11-18T06:17:27.097",
-      "description": "The Envira Gallery  WordPress plugin before 1.16.4 does not apply its own gallery-permission policy until an administrator first opens its permissions screen, instead copying gallery-management capabilities onto each role from that role's core post capabilities after activation, which lets Contributor accounts create, edit and delete galleries that the policy is meant to restrict to higher roles.",
-      "severity": "LOW",
-      "score": 2.7
     }
   ]
 }
