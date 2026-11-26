@@ -1,143 +1,143 @@
 {
-  "totalResults": 4308,
+  "totalResults": 3976,
   "items": [
     {
-      "id": "CVE-2026-14492",
-      "published": "2026-11-19T10:17:28.927",
-      "description": "The WP Duplicate – WordPress Migration Plugin plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.1.11 via the save_single_batch_file function. This is due to a PHP type-juggling authentication bypass via loose != comparison with no is_string() guard, combined with unsanitized base64-decoded path construction in save_single_batch_file() lacking any directory traversal containment. This makes it possible for authenticated attackers, with custom-level access and above, to execute code on the server. Exploitation requires that the site owner has completed the plugin's initial setup so that the site_type and prod_key_random_id options are non-empty, though any non-empty secret value is bypassable via the type-juggling flaw.",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-103035",
+      "published": "2026-11-19T19:17:16.583",
+      "description": "TeamPass is a self-hosted collaborative password manager. Prior to 3.2.1.2, the update_folder action in app/sources/folders.queries.php allowed an authenticated, non-read-only user to re-parent a folder without checking whether the target folder or submitted parentId belonged to the caller's user-accessible_folders set. Selecting a personal folder as the new parent passed the personal-folder guard and set personal_folder on the target, transferring the credential subtree into the attacker's accessible space after the next login and hiding it from the organization, including administrators. The change exposed credential labels, logins, URLs, email addresses, and descriptions, while sharekey-protected passwords remained protected; hiding the subtree also denied other users access. This issue is fixed in version 3.2.1.2.",
+      "severity": "HIGH",
+      "score": 8.3
     },
     {
-      "id": "CVE-2026-132891",
-      "published": "2026-11-19T11:16:55.263",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4, 2025.11.8 remote code execution was possible via external pull requests",
-      "severity": "CRITICAL",
-      "score": 9.8
+      "id": "CVE-2026-127064",
+      "published": "2026-11-19T19:17:19.370",
+      "description": "@fastify/reply-from is a Fastify plugin that forwards requests to an upstream HTTP server. In versions before 12.8.4, its buildURL function rejects parent-directory path segments by an exact string match, so a segment that carries a semicolon path parameter, such as a dot-dot segment followed by a semicolon and an optional parameter, is not equal to the plain dot-dot form and passes the traversal check, and the WHATWG URL parser keeps it as an ordinary segment so the base-prefix containment check also passes. Backends that strip semicolon path parameters before resolving dot-segments, such as Apache Tomcat, Jetty, WildFly, and Spring Boot, turn the segment back into a parent-directory reference and resolve it, so an unauthenticated client can escape the intended upstream prefix and reach internal paths such as admin or internal API endpoints, including with state-changing methods. Deployments that proxy to Node.js, nginx, or Express upstreams are not affected. The issue is fixed in @fastify/reply-from 12.8.4, and users should upgrade to 12.8.4 or later.",
+      "severity": "HIGH",
+      "score": 8.2
     },
     {
-      "id": "CVE-2026-132892",
-      "published": "2026-11-19T11:16:55.397",
-      "description": "In JetBrains TeamCity before 2026.2 privilege escalation was possible via the authorization flow",
+      "id": "CVE-2026-103026",
+      "published": "2026-11-19T19:17:16.410",
+      "description": "Paymenter is a free and open-source webshop solution for management of hosting services. Prior to 1.5.7, the HasConfirmation trait in app/Livewire/Traits/HasConfirmation.php, included by app/Livewire/Component.php across 36 client-facing Livewire components, exposed executeConfirmedAction as a public action that invoked any component method accepted by method_exists. The action could call inherited InteractsWithProperties::fill(), whose data_set() writes arbitrary public properties, including state marked with #[Locked] and dotted paths into hydrated Eloquent models. Depending on the methods and properties exposed by an individual component, an unauthenticated caller could use this path to bypass intended authorization and modify server-side state intended to be immutable or protected from client-side manipulation. This issue is fixed in version 1.5.7.",
       "severity": "HIGH",
       "score": 8.1
     },
     {
-      "id": "CVE-2026-132893",
-      "published": "2026-11-19T11:16:55.517",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4, 2025.11.8 an SSRF via pipeline repository branch listing was possible",
+      "id": "CVE-2026-104129",
+      "published": "2026-11-19T19:17:17.127",
+      "description": "pREST (PostgreSQL REST) is an API that delivers an application on top of a Postgres database. Prior to 2.4.0, the vulnerable parameter is _groupby, handled by GroupByClause in adapters/postgres/postgres.go. adapters/postgres/postgres.go uses the weaker isSafeSQLExpression check for this function-expression branch instead of the stricter single-field validator used for _select. That check validates only the outer function name against a 13-function allowlist and permits nested subqueries, trailing UNION syntax, and inner pg_ functions. controllers/crud.go concatenates the GROUP BY expression while parameterizing only WHERE values, allowing attacker-controlled SQL structure into the clause. Default configuration permits unauthenticated access; a restricted installation may require a low-privilege table reader. UNION-based extraction requires compatible column counts and types and was not verified end to end, but a delay-producing function can cause denial of service without that alignment. This issue is fixed in 2.4.0.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-132894",
-      "published": "2026-11-19T11:16:55.630",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4, 2025.11.8 an SSRF in AWS connection settings could expose server credentials",
+      "id": "CVE-2026-126088",
+      "published": "2026-11-19T19:17:18.967",
+      "description": "In Autonomy Logic OpenPLC Runtime versions 4.2.4 and prior, a race condition allows multiple concurrent requests to pass the existence check before any user is committed, resulting in several unauthenticated admin accounts being created.",
       "severity": "HIGH",
-      "score": 7.7
+      "score": 8.1
     },
     {
-      "id": "CVE-2026-132897",
-      "published": "2026-11-19T11:16:55.983",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4, 2025.11.8 improper authorization allowed access to credentials of other projects via build configuration settings",
-      "severity": "HIGH",
-      "score": 7.7
-    },
-    {
-      "id": "CVE-2026-14491",
-      "published": "2026-11-19T10:17:28.757",
-      "description": "The WP Duplicate – WordPress Migration Plugin plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 1.1.11 via the 'file_name' parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. The authentication bypass requires submitting the JSON boolean `true` as the `prod_key_random_id` value, which coerces against any non-empty stored secret so that the loose `!=` comparison evaluates to false, skipping the rejection branch entirely without knowledge of the secret.",
+      "id": "CVE-2026-129500",
+      "published": "2026-11-19T19:17:25.283",
+      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP and WebSocket traffic to an upstream server. In versions from 9.0.0 up to but not including 11.6.10, when the plugin is registered with websocket support enabled, it takes every upgraded socket and dispatches the request through the Fastify router before the WebSocket library takes ownership of the socket. Node.js removes its own error listener from the socket before emitting the upgrade event, and the plugin does not attach one of its own during routing, so a socket error such as a client connection reset that arrives before the WebSocket library takes over is unhandled and terminates the Node.js process. The error window is open whenever anything asynchronous runs between dispatch and the route handler, such as an async hook on the proxied route or any unrelated async route in the application. A single unauthenticated upgrade request followed by a connection reset is enough to crash the server, and it can be repeated to keep the process down. The issue is fixed in @fastify/http-proxy 11.6.10, and users should upgrade to 11.6.10 or later.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-85776",
-      "published": "2026-11-19T10:17:29.313",
-      "description": "The WP Duplicate – WordPress Migration Plugin plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 1.1.11. This is due to a missing capability check and missing nonce check on the start_zip_creation, start_zip_download, local_sync_get_init_root_files, and local_sync_get_files_by_key AJAX actions in the start_zip_creation_dev() and sibling functions. This makes it possible for authenticated attackers, with subscriber-level access and above, to overwrite the plugin's prod_site_url setting so it points at an attacker-controlled host and enumerate arbitrary server directories, which when combined with a subsequent administrator-triggered sync results in an unsigned attacker-supplied ZIP archive being fetched, extracted via a WordPress-independent bridge deployed under the web root, resulting in remote code execution on the affected site.",
+      "id": "CVE-2026-129502",
+      "published": "2026-11-19T19:17:25.407",
+      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP and WebSocket traffic to an upstream server. In versions from 9.4.0 up to but not including 11.6.10, when the plugin is registered with websocket support enabled, a WebSocket upgrade request whose path carries a URL fragment is matched by the router and answered with a successful upgrade before the upstream link is created. Building the upstream target then throws, the error is only logged, and the accepted client socket is left open with no error listener, so the next frame the client sends becomes an unhandled error and terminates the Node.js process. A request target that is not a valid URL reference reaching a parameterized prefix triggers the same path. A single unauthenticated upgrade request followed by one frame is enough to crash the server, and it can be repeated to keep the process down. The issue is fixed in @fastify/http-proxy 11.6.10, and users should upgrade to 11.6.10 or later.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-132895",
-      "published": "2026-11-19T11:16:55.750",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4, 2025.11.8 remote code execution was possible via Subversion VCS root settings",
+      "id": "CVE-2026-130157",
+      "published": "2026-11-19T19:17:25.527",
+      "description": "RepoManager is a self-hosted deb/rpm package repository. Prior to 5.13.3, an attacker who controls an upstream RPM repository mirrored by a RepoManager instance can provide a package filename through the primary.xml <location href> field; the mirror passes that filename into a shell-interpreted RPM query, allowing shell metacharacters to execute commands as the www-data service account. The target must mirror an upstream repository controlled by the attacker, and the default \"Check GPG signatures\" option triggers the vulnerable call. The command executes before a later signature-verification failure, so a valid signed package is not required. Fixed in 5.13.3.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-132896",
-      "published": "2026-11-19T11:16:55.867",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4 remote code execution was possible via Kubernetes Executor settings",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-132898",
-      "published": "2026-11-19T11:16:56.093",
-      "description": "In JetBrains TeamCity before 2026.2, 2026.1.4, 2025.11.8 arbitrary file write on the server was possible via Kotlin DSL settings",
-      "severity": "HIGH",
-      "score": 7.2
-    },
-    {
-      "id": "CVE-2026-126631",
-      "published": "2026-11-19T10:17:28.410",
-      "description": "A flaw was found in OpenSCAP. This vulnerability allows for information disclosure when performing offline scans of untrusted filesystem images, such as container images or virtual machine (VM) disks. Because the scanner does not properly restrict symbolic link (symlink) resolution to the target image's root directory, an attacker can supply a crafted image containing links pointing to files on the host system. When the scan runs, typically with elevated privileges, OpenSCAP follows these links to read sensitive host files and expose their contents in the scan report or manipulate compliance results.",
-      "severity": "HIGH",
-      "score": 7.1
-    },
-    {
-      "id": "CVE-2026-99320",
-      "published": "2026-11-19T09:18:18.910",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: raw: fix use-after-free in rawv6_send_hdrinc()\n\nrawv6_send_hdrinc() caches the route before handing the skb to\nl3mdev_ip6_out(). The VRF output path may replace skb->dst and release\nthe original route, leaving the cached pointer stale.\n\nThe function later dereferences that pointer for statistics accounting\nand as the output device passed to NF_HOOK(). Its RCU read-side critical\nsection starts after l3mdev_ip6_out(), so it cannot prevent the old route\nfrom being reclaimed in between.\n\nReload the route from the current skb destination after\nl3mdev_ip6_out() returns.\n\nKASAN reports a slab-use-after-free in rawv6_sendmsg(), with the route\nallocated by ip6_dst_alloc(), freed by dst_destroy() from rcu_core(), and\nthe related RCU callback queued from vrf_l3_out().",
-      "severity": "HIGH",
-      "score": 7
-    },
-    {
-      "id": "CVE-2026-101167",
-      "published": "2026-11-19T09:17:37.090",
-      "description": "Missing Authorization vulnerability in Dataprom Bilişim Teknolojileri LTD. ŞTİ. DataPer Access Control and Security Systems allows Privilege Escalation.\n\nThis issue affects DataPer Access Control and Security Systems: before v14.15(2026/11).",
+      "id": "CVE-2026-127060",
+      "published": "2026-11-19T19:17:19.247",
+      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP and WebSocket traffic to an upstream server. In versions before 11.6.10, it rejects destinations containing parent-directory path segments by an exact string match, so a segment that carries a semicolon path parameter, such as a dot-dot segment followed by a semicolon and an optional parameter, is not equal to the plain dot-dot form and passes the check, and the WHATWG URL parser keeps it as an ordinary segment so the rewrite-prefix containment check also passes. Servlet containers such as Apache Tomcat and Jetty strip semicolon path parameters from each segment before resolving dot-segments, so a request routed through the configured prefix is rewritten and reaches the upstream where it resolves above the intended subtree, escaping the path the proxy is meant to expose and, on some containers, crossing application contexts. Both the HTTP and WebSocket proxy paths are affected. The issue is fixed in @fastify/http-proxy 11.6.10, and users should upgrade to 11.6.10 or later.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-120404",
-      "published": "2026-11-19T11:16:53.887",
-      "description": "The built-in regular expression name finder for latitude and longitude coordinates uses a pattern that is vulnerable to excessive backtracking. An attacker who can supply text that an application analyzes with this name finder can cause high CPU consumption, leading to denial of service. Users are recommended to upgrade to version 2.5.13 or 3.0.0, which fix the issue.",
+      "id": "CVE-2026-115565",
+      "published": "2026-11-19T19:17:18.167",
+      "description": "storyblok-backup is an npx CLI tool to create backups of a Storyblok space and restore individual resources. Prior to 0.7.1, the writeJson function used the editable Storyblok component name field as a filename without path containment. A person with component-management access in a Storyblok space could store a component name containing path traversal sequences; when another user later ran a backup for that space, the stored name escaped the configured backup directory and caused a JSON file to be written outside it on the backup host. Depending on the path chosen and the backup process's permissions, this could overwrite existing files at attacker-chosen locations. The vulnerability is specific to components: stories and datasources use numeric identifiers, and asset names are reduced to a final path segment. This issue is fixed in version 0.7.1.",
       "severity": "MEDIUM",
-      "score": 6.4
+      "score": 5.7
     },
     {
-      "id": "CVE-2026-129517",
-      "published": "2026-11-19T11:16:55.120",
-      "description": "A cross-site scripting vulnerability exists in Win Bird JYUGYO SHIEN browser extensions for Google Chrome and Microsoft Edge, which allows an attacker to execute arbitrary script in the user's web browser.",
+      "id": "CVE-2026-128137",
+      "published": "2026-11-19T19:17:20.880",
+      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. From 3.9.4 until 3.10.4, NLTK corpus-reader path pointers and view methods validate a requested relative path without consistently resolving intermediate directory symlinks against the reader's scoped root. A local attacker who can place such a symlink can make abspaths or words reach a readable file outside the corpus root and disclose its contents. On releases with pathsec enforcement, the file must remain inside a global NLTK allowed root; version 3.9.4 has enforcement disabled and permits a broader escape. This issue is fixed in version 3.10.4.",
       "severity": "MEDIUM",
-      "score": 5.4
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-110728",
-      "published": "2026-11-19T10:17:26.953",
-      "description": "The AIKTP plugin for WordPress is vulnerable to Authorization Bypass via Predictable Token in all versions up to, and including, 5.0.7. The vulnerability exists because the plugin's sync token (`aiktpz_token`) is generated using PHP's non-cryptographic `uniqid()` function — producing a wall-clock-derived value with approximately one million microsecond candidates per uncertain generation second — while the unauthenticated, unthrottled REST endpoint `/wp-json/aiktp/checkToken` (registered with `permission_callback => __return_true`) acts as a public brute-force oracle for the token; simultaneously, the capability checks in `check_valid_token` and its wrappers (`verify_aiktp_token_with_edit_capability`, `verify_aiktp_token_with_upload_capability`) inspect only a server-side stored Administrator account (option `aiktp_author`) rather than the actual REST caller, meaning possession of the token alone grants Administrator-equivalent authority to any external request. This makes it possible for unauthenticated attackers to recover the sync token and then invoke `POST /wp-json/aiktp/createpost` to publish arbitrary posts attributed to a site Administrator, `POST /wp-json/aiktp/doUpdatePostWithImageURL` to overwrite the body content of any existing post, and `POST /wp-json/aiktp/doUploadImageToWP` to import remote media and attach it as the featured image of any post. Additionally, when the `aiktpz_token` option has never been initialized, the `checkToken` oracle returns success for an empty token submission due to a loose comparison in `check_valid_token`, providing a zero-effort bypass that requires no brute-forcing whatsoever.",
+      "id": "CVE-2026-129224",
+      "published": "2026-11-19T19:17:21.473",
+      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, the CCG lexicon parser's matchBrackets and augParseCategory functions recursively process nested parenthesized categories without a depth bound. An attacker-controlled lexicon string with excessive nesting can raise RecursionError through nltk.ccg.lexicon.fromstring and terminate the parse operation or request worker. This issue is fixed in version 3.10.4.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-132043",
-      "published": "2026-11-19T09:17:43.620",
-      "description": "In Eclipse Yasson versions 3.0 to 3.0.5, a race condition (CWE-362) exists in the handling of @JsonbNumberFormat. Yasson creates one java.text.NumberFormat instance per annotated property and shares it across all threads that use the same Jsonb instance. NumberFormat is not thread-safe, and the deserializer called parse() on it without synchronization. When multiple threads deserialize concurrently, a thread can receive a numeric value that belongs to another thread's input, receive an incorrect value, or fail with an exception. A remote attacker who can send concurrent requests to an application that deserializes untrusted JSON this way may cause incorrect data to be processed or cause another user's value to be returned. Exploitation requires that the application use @JsonbNumberFormat with a shared Jsonb instance and that the attacker win a timing race. This issue is fixed in version 3.0.6 by synchronizing access to the shared NumberFormat instances.",
+      "id": "CVE-2026-129228",
+      "published": "2026-11-19T19:17:21.840",
+      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, ToolboxSettings.parse builds a deeply nested attacker-controlled settings tree iteratively, but the later public helpers to_settings_string, remove_blanks, add_default_fields, sort_fields, and add_blank_lines recursively traverse that tree without a depth bound. Invoking any of those helpers on input nested beyond the interpreter recursion limit can raise RecursionError and abort the operation or request worker. This issue is fixed in version 3.10.4.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-126765",
+      "published": "2026-11-19T19:17:19.113",
+      "description": "The glob functions in the GNU C Library versions 2.44 and earlier may free the same heap block twice when a memory allocation fails while glob prepends the directory name to the names it matched.  The names already rewritten are freed, but their pointers stay in the result vector, and the error path frees them again with globfree.\n\nThe allocation must fail after at least one name has been rewritten, so the issue can only be reached when the process is already close to its memory limit, for example under an address space limit (RLIMIT_AS) or on a 32-bit system.  The attacker needs control to make the result large enough to make the program or service run out of memory, either by controlling the glob pattern and having knowledge of the filesystem layout or through other means.  This issue affects all architectures and ABIs supported by the GNU C Library.",
+      "severity": "LOW",
+      "score": 3.7
+    },
+    {
+      "id": "CVE-2026-103579",
+      "published": "2026-11-19T19:17:16.740",
+      "description": "A CRLF injection vulnerability in WatchGuard Dimension's outgoing email server configuration allows an authenticated Dimension Administrator to execute arbitrary operating system commands on the Dimension appliance with the privileges of the local mail-handling account.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-92613",
-      "published": "2026-11-19T10:17:29.493",
-      "description": "In Eclipse iceoryx-rs, versions 0.0.11 to 0.0.13 and 0.1.0 as well as on the latest main branch.\n\n\n\n`SampleReceiver::<T>::take()` and `Sample::<T>::deref()` are safe functions that hand the caller a `&T` pointing at a chunk written by another iceoryx process, but the subscriber path neither requires `T: ShmSend` nor verifies that the received chunk is at least `size_of::<T>()` bytes / `align_of::<T>()`-aligned. A peer process that publishes an undersized chunk, or any chunk at all when the subscriber chose a pointer-bearing `T`, drives a `#![forbid(unsafe_code)]` subscriber into out-of-bounds reads of adjacent shared-memory chunks or dereference of a publisher-controlled pointer.\n\n\n\nResolution:\n\n\n\nIt will not be fixed since this is a known limitation in iceoryx as it is the users responsibility to specify the same data type on sender and receiver side.\n\n\n\n[iceoryx2](https://github.com/eclipse-iceoryx/iceoryx2) is the successor of iceoryx-rs where the API is designed to prevent this by default.\n\n\n\nIt is strongly recommended to migrate to iceoryx2 which is actively maintained and receives security support.\n\n\n\nThe iceoryx-rs package has officially reached End-of-life and will not receive any features, bugfixes or security fixes.",
+      "id": "CVE-2026-103580",
+      "published": "2026-11-19T19:17:16.887",
+      "description": "An OS command injection vulnerability in WatchGuard Dimension's package update functionality allows an authenticated Dimension Administrator to execute arbitrary operating system commands as root by submitting a specially crafted package update request.",
       "severity": "UNKNOWN",
       "score": null
     },
     {
-      "id": "CVE-2026-112216",
-      "published": "2026-11-19T11:16:52.253",
-      "description": "Vulnerability involving the exposure of sensitive information in the URLs of the UOC Virtual Campus’s document upload feature. After completing a document upload, the application includes identifiers related to the active session—such as `apjsessionid`—and other internal parameters associated with requests and users in the HTTP GET request parameters. This data may be stored in the browser history and in server or proxy logs, or transmitted via the HTTP Referer header, depending on the configuration and browsing flow. Its inclusion in the URL could allow for the unauthorized disclosure of information to third parties with access to those logs or recipients.",
+      "id": "CVE-2026-126037",
+      "published": "2026-11-19T19:17:18.843",
+      "description": "A broken access control vulnerability in WatchGuard Dimension's Device Summary feature allows an authenticated, low-privileged user to retrieve a device's detailed summary data by bypassing restrictions that would otherwise hide this information.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-129418",
+      "published": "2026-11-19T19:17:24.877",
+      "description": "Joomla Extension - phoca.cz - Stored XSS through YouTube links in Phoca Gallery extension 4.2.0-6.1.6 - The YouTube upload feature did not validate the supplied video URL and embedded the derived video ID without escaping, allowing users with frontend upload permission to inject HTML attributes into the gallery detail view.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-129419",
+      "published": "2026-11-19T19:17:25.013",
+      "description": "Joomla Extension - akeeba.com - Account takeover through missing OAuth state validation in Akeeba SocialLogin extension 1.0.0-4.11.0 - The OAuth callback did not validate a session-bound state parameter, allowing an attacker to link their own social provider identity to the account of a logged-in user who opens a crafted callback link and subsequently log in as that user.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-129422",
+      "published": "2026-11-19T19:17:25.150",
+      "description": "Joomla Extension - joomlatools.com - Unauthenticated blind server-side request forgery in FILEman extension < 6.1.4 - The frontend file view did not restrict requested files to their container and passed URLs to the framework URL fetch, allowing unauthenticated attackers to make the server issue requests to arbitrary addresses, including internal network resources.",
       "severity": "UNKNOWN",
       "score": null
     }
