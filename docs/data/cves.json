@@ -1,143 +1,143 @@
 {
-  "totalResults": 3437,
+  "totalResults": 3391,
   "items": [
     {
-      "id": "CVE-2026-129086",
-      "published": "2026-11-20T11:18:30.750",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in weDevs Happy Addons for Elementor happy-elementor-addons allows Stored XSS.This issue affects Happy Addons for Elementor: from n/a through 3.51.3.",
+      "id": "CVE-2026-133680",
+      "published": "2026-11-20T20:17:35.750",
+      "description": "A vulnerability was found in D-Link DCS-935L 1.10.01. This affects the function loginRouter of the file web/cgi-bin/localrecording/setconf.cgi of the component Local Recording CGI. Performing a manipulation of the argument account/password results in os command injection. Remote exploitation of the attack is possible. The exploit has been made public and could be used.",
+      "severity": "CRITICAL",
+      "score": 9.9
+    },
+    {
+      "id": "CVE-2026-129175",
+      "published": "2026-11-20T20:17:21.980",
+      "description": "U.S Department of the Interior Unstable Slope Management Program allows an unauthenticated user to inject unauthorized SQL commands that allow the attacker to gain root access and complete control over the database. Fixed on or around 2026-10-19.",
+      "severity": "CRITICAL",
+      "score": 9.8
+    },
+    {
+      "id": "CVE-2026-129176",
+      "published": "2026-11-20T20:17:22.207",
+      "description": "U.S Department of the Interior Unstable Slope Management Program accepts a POST request from an unauthenticated user, with no cookie header, to a specific endpoint allowing for the deletion of specified users. Fixed on or around 2026-10-19.",
+      "severity": "HIGH",
+      "score": 8.2
+    },
+    {
+      "id": "CVE-2026-129179",
+      "published": "2026-11-20T20:17:22.727",
+      "description": "U.S Department of the Interior Unstable Slope Management Program allows attackers with valid local application credentials to establish an application session by sending JSON POST requests to the application's login endpoint without a Referrer header or completing the intended Keycloak flow. Fixed on or around 2026-10-19.",
+      "severity": "HIGH",
+      "score": 8.1
+    },
+    {
+      "id": "CVE-2026-114494",
+      "published": "2026-11-20T20:17:10.410",
+      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.0, the Cypher parser accepted an unbounded number of projection items in RETURN and WITH clauses while projection executors indexed fixed 32-element stack arrays using the parsed count. A query_graph query with more than 32 projection items could therefore write beyond those arrays, and a related result-column path could read uninitialized stack slots even when no node matched. Any caller of query_graph, including an agent whose query is influenced by untrusted content, could cause a reliable server crash and potentially compromise process confidentiality and integrity. This issue is fixed in version 0.9.0.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-114495",
+      "published": "2026-11-20T20:17:10.850",
+      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.0, automatic import of a repository's .codebase-memory/ artifact allocated a decompression buffer using the attacker-controlled 64-bit original_size value from artifact.json but truncated that value to int when passing the destination capacity to the Zstandard decompressor. A value with bit 31 set became negative and was sign-extended to a large size_t, allowing the decompressor to write frame content beyond the actual allocation. Indexing a malicious repository containing the crafted artifact could corrupt heap memory with attacker-controlled bytes, causing a reliable crash and potentially code execution. This issue is fixed in version 0.9.0.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-134035",
+      "published": "2026-11-20T20:17:37.310",
+      "description": "Krita JC2 File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe issue results from the use of a vulnerable version of openjpeg. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28646.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-134036",
+      "published": "2026-11-20T20:17:37.450",
+      "description": "Krita ABR File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of ABR files. The issue results from the lack of proper validation of the length of user-supplied data prior to copying it to a heap-based buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28785.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-134037",
+      "published": "2026-11-20T20:17:37.597",
+      "description": "Krita ASL File Parsing Integer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of ASL files. The issue results from the lack of proper validation of user-supplied data, which can result in an integer overflow before allocating a buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28906.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-134038",
+      "published": "2026-11-20T20:17:37.727",
+      "description": "Krita PSB File Parsing Integer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of PSB files. The issue results from the lack of proper validation of user-supplied data, which can result in an integer overflow before allocating a buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28905.",
+      "severity": "HIGH",
+      "score": 7.8
+    },
+    {
+      "id": "CVE-2026-129177",
+      "published": "2026-11-20T20:17:22.390",
+      "description": "U.S Department of the Interior Unstable Slope Management Program contains a vulnerable endpoint that allows an unauthenticated attacker, without a cookie header, to send a POST request resulting in the creation of a new user. Fixed on or around 2026-10-19.",
+      "severity": "HIGH",
+      "score": 7.5
+    },
+    {
+      "id": "CVE-2026-129998",
+      "published": "2026-11-20T20:17:23.157",
+      "description": "MaxKB is an open-source AI assistant for enterprise. Prior to 2.10.7-lts, custom Tool Init Param definitions accept attacker-controlled props_info.rules[].validator strings through POST /admin/api/workspace/{workspace_id}/tool and PUT /admin/api/workspace/{workspace_id}/tool/{tool_id}, store them without restriction, and pass them to eval() when the parameter form renders. An authenticated user with the default USER workspace role can store JavaScript and trigger execution by opening the tool's Debug screen before entering or submitting a parameter value. The same Init Param form is exposed to accounts with edit permission on the tool, but execution by a different account was not independently verified. The confirmed script runs in the MaxKB origin; access to another user's bearer token and authenticated account authority is plausible only if that user renders the malicious form. This issue is fixed in version 2.10.7-lts.",
+      "severity": "HIGH",
+      "score": 7.3
+    },
+    {
+      "id": "CVE-2026-129178",
+      "published": "2026-11-20T20:17:22.563",
+      "description": "U.S Department of the Interior Unstable Slope Management Program stores local user passwords as unsalted MD5 hashes. Fixed on or around 2026-10-19.",
       "severity": "MEDIUM",
       "score": 6.5
     },
     {
-      "id": "CVE-2026-130624",
-      "published": "2026-11-20T11:18:31.083",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPKoi WordPress Themes WPKoi Templates for Elementor wpkoi-templates-for-elementor allows Stored XSS.This issue affects WPKoi Templates for Elementor: from n/a through 3.7.5.",
+      "id": "CVE-2026-114496",
+      "published": "2026-11-20T20:17:11.240",
+      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.0, the detect_changes tool validated the base_branch argument for shell metacharacters but omitted the leading-dash check before placing the value in the revision position of a git diff command. Git therefore interpreted an option-shaped base_branch value, including --output, as a command option instead of a revision, allowing a caller to create or overwrite a caller-chosen file with Git diff output under the server process's permissions. Arbitrary code execution was not demonstrated. This issue is fixed in version 0.9.0.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-131738",
-      "published": "2026-11-20T11:18:31.680",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in BdThemes Element Pack Elementor Addons bdthemes-element-pack-lite allows Stored XSS.This issue affects Element Pack Elementor Addons: from n/a through 10.0.10.",
+      "id": "CVE-2026-114497",
+      "published": "2026-11-20T20:17:11.627",
+      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.1-rc.1, the optional graph UI's POST /api/process-kill route omitted the indexing-job ownership check on Windows while retaining that check on POSIX systems. A requester able to reach the optional UI could supply an arbitrary process identifier, causing TerminateProcess to stop any process that the server user was permitted to terminate. The flaw affects the Windows-specific process termination path and can cause a high availability impact without disclosing or modifying data. This issue is fixed in version 0.9.1-rc.1.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-131743",
-      "published": "2026-11-20T11:18:31.970",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in LeapWorx Premium Addons for Elementor premium-addons-for-elementor allows Stored XSS.This issue affects Premium Addons for Elementor: from n/a through 4.11.119.",
+      "id": "CVE-2026-114499",
+      "published": "2026-11-20T20:17:12.080",
+      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.10.0, the indexer's .gitignore matcher implemented * and ** through recursive backtracking without a work bound. A repository containing a pattern with repeated wildcard groups and a long path could make matching work grow exponentially, allowing a single ignore rule to stall discovery indefinitely and, before worker isolation, stall the server. The impact is limited to availability, and the bounded matcher does not claim that every expensive input is eliminated. This issue is fixed in version 0.10.0.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 5.5
     },
     {
-      "id": "CVE-2026-131752",
-      "published": "2026-11-20T11:18:32.410",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Brainstorm Force Spectra ultimate-addons-for-gutenberg allows Stored XSS.This issue affects Spectra: from n/a through 2.20.5.",
-      "severity": "MEDIUM",
-      "score": 6.5
-    },
-    {
-      "id": "CVE-2026-131728",
-      "published": "2026-11-20T11:18:31.237",
-      "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Nickboss WordPress File Upload wp-file-upload allows Retrieve Embedded Sensitive Data.This issue affects WordPress File Upload: from n/a through 5.2.4.",
+      "id": "CVE-2026-129174",
+      "published": "2026-11-20T20:17:21.377",
+      "description": "U.S Department of the Interior Unstable Slope Management Program allows a remote, unauthenticated attacker to access a vulnerable endpoint that returns a list of application users and their permissions in plaintext. Fixed on or around 2026-10-19.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-131737",
-      "published": "2026-11-20T11:18:31.530",
-      "description": "Missing Authorization vulnerability in Magepeople inc. Car Rental Manager car-rental-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Car Rental Manager: from n/a through 1.5.7.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-131739",
-      "published": "2026-11-20T11:18:31.830",
-      "description": "Missing Authorization vulnerability in WP Chill Passster content-protector allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Passster: from n/a through 4.3.23.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-131751",
-      "published": "2026-11-20T11:18:32.270",
-      "description": "Missing Authorization vulnerability in Magepeople inc. WpEvently mage-eventpress allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WpEvently: from n/a through 5.7.13.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-131756",
-      "published": "2026-11-20T11:18:32.560",
-      "description": "Missing Authorization vulnerability in EventPrime EventPrime eventprime-event-calendar-management allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects EventPrime: from n/a through 4.3.9.0.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-131759",
-      "published": "2026-11-20T11:18:32.703",
-      "description": "Missing Authorization vulnerability in LeapWorx Premium Blocks – Gutenberg Blocks for WordPress premium-blocks-for-gutenberg allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Premium Blocks – Gutenberg Blocks for WordPress: from n/a through 2.3.20.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-131730",
-      "published": "2026-11-20T11:18:31.380",
-      "description": "Missing Authorization vulnerability in PublishPress PublishPress Revisions revisionary allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects PublishPress Revisions: from n/a through 4.3.3.",
+      "id": "CVE-2026-133681",
+      "published": "2026-11-20T20:17:36.037",
+      "description": "A vulnerability was determined in Soar Cloud System Human Resources up to 7.3.2026.0112. This impacts an unknown function of the file /client.aspx. Executing a manipulation can lead to cross site scripting. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-131744",
-      "published": "2026-11-20T11:18:32.123",
-      "description": "Missing Authorization vulnerability in Andy Moyle Church Admin church-admin allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Church Admin: from n/a through 5.1.11.",
-      "severity": "MEDIUM",
-      "score": 4.3
+      "id": "CVE-2026-133693",
+      "published": "2026-11-20T20:17:36.297",
+      "description": "A weakness has been identified in continuedev continue 2.0.0/2.1.0. Affected is the function validateSearchAndReplaceFilepath of the file gui/src/util/clientTools/editImpl.ts of the component Edit Tool. Executing a manipulation can lead to path traversal. The attack requires local access. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "severity": "LOW",
+      "score": 3.3
     },
     {
-      "id": "CVE-2026-124768",
-      "published": "2026-11-20T11:18:29.863",
-      "description": "Authorization bypass via a user-controlled key in XOneManager 3.8.3.0. The 'ConvertBDToProject' operation selects the database based on 'databasename' without verifying the user’s permissions on it. An authenticated user can link a project to a database outside their scope and identify existing databases based on API responses.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124769",
-      "published": "2026-11-20T11:18:30.067",
-      "description": "Authorization omission in the 'users' POST operation at '/xmanagercore/api/services/' in XOneManager 3.8.3.0. The API checks project membership but fails to validate the role required to manage users. An authenticated user can view the list of users in the project, including their internal IDs, first names, and last names.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124770",
-      "published": "2026-11-20T11:18:30.210",
-      "description": "Authorization bypass in the ‘tablesData’ operation of the POST request to ‘/xmanagercore/api/services/’ in XOneManager 3.8.3.0. An authenticated project member can execute SQL queries using ‘filter’ without the server verifying their execution permissions. The queries use the service account’s permissions. During testing, databases outside the project were queried, including the authentication database.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124771",
-      "published": "2026-11-20T11:18:30.347",
-      "description": "Authorization omission in the 'admusers' operation of the POST request to '/xmanagercore/api/services/' in XOneManager 3.8.3.0. The API fails to verify the required role for querying the directory. An authenticated member of the project can obtain the list of platform accounts—including administrative accounts—along with details such as email addresses, roles, and associated companies.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-124772",
-      "published": "2026-11-20T11:18:30.480",
-      "description": "Authorization bypass in the publication of XOneManager 3.8.3.0 updates. During testing, the server accepted initial requests from an authenticated project member with read-only access without verifying publication permissions. If the workflow is completed, updates with modified content could be distributed to managed devices.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-127057",
-      "published": "2026-11-20T11:18:30.617",
-      "description": "The\nDanfoss legacy AK-SC 355 and AK-SM 800 Series are vulnerable to unauthorized\naccess when default credentials or known passwords are used for authentication.\nThese products were manufactured with default credentials documented in the\nproduct manual. All versions are affected.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-129713",
-      "published": "2026-11-20T11:18:30.953",
-      "description": "A stack-based buffer overflow in an unauthenticated CGI handler of the\nDanfoss AK-SM 8xxA Series controller allows remote attackers to send specially\ncrafted HTTP/S POST requests, leading to memory corruption, webserver restart\nand hypothetically potential arbitrary code execution with webserver privileges.\nAuthentication is not required to exploit this vulnerability.",
+      "id": "CVE-2026-121714",
+      "published": "2026-11-20T20:17:14.270",
+      "description": "RabbitMQ is a messaging and streaming broker. In the affected revision identified by the advisory, the AMQP 1.0 server_mode parser in deps/amqp10_common/src/amqp10_binary_parser.erl stops at the first body section and preserves the remaining bytes in bare_and_footer without validating message-section order. An authenticated publisher with write permission can place a properties section carrying a forged user-id after the body, causing rabbit_access_control:check_user_id/2 to see no user-id while permissive downstream AMQP 1.0 decoders or AMQP 0-9-1 conversion through classic and quorum queues expose the forged identity. Applications that rely on RabbitMQ-validated user-id metadata can therefore accept attacker-controlled publisher attribution. Strict consumers that reject out-of-order sections are not vulnerable to identity spoofing, and the issue does not bypass broker routing or destination authorization. This issue is fixed in version 4.3.5.",
       "severity": "UNKNOWN",
       "score": null
     }
