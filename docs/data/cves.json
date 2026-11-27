@@ -1,143 +1,143 @@
 {
-  "totalResults": 3976,
+  "totalResults": 3762,
   "items": [
     {
-      "id": "CVE-2026-103035",
-      "published": "2026-11-19T19:17:16.583",
-      "description": "TeamPass is a self-hosted collaborative password manager. Prior to 3.2.1.2, the update_folder action in app/sources/folders.queries.php allowed an authenticated, non-read-only user to re-parent a folder without checking whether the target folder or submitted parentId belonged to the caller's user-accessible_folders set. Selecting a personal folder as the new parent passed the personal-folder guard and set personal_folder on the target, transferring the credential subtree into the attacker's accessible space after the next login and hiding it from the organization, including administrators. The change exposed credential labels, logins, URLs, email addresses, and descriptions, while sharekey-protected passwords remained protected; hiding the subtree also denied other users access. This issue is fixed in version 3.2.1.2.",
-      "severity": "HIGH",
-      "score": 8.3
+      "id": "CVE-2026-65094",
+      "published": "2026-11-20T03:17:36.693",
+      "description": "NVIDIA VIRTIO-Net for Bluefield contains a vulnerability in Virtio-Net where a VM user may cause a Write-What-Where condition by crafted message. A successful exploit of this vulnerability may lead to Code Execution in Virtio-Net scope.",
+      "severity": "CRITICAL",
+      "score": 9
     },
     {
-      "id": "CVE-2026-127064",
-      "published": "2026-11-19T19:17:19.370",
-      "description": "@fastify/reply-from is a Fastify plugin that forwards requests to an upstream HTTP server. In versions before 12.8.4, its buildURL function rejects parent-directory path segments by an exact string match, so a segment that carries a semicolon path parameter, such as a dot-dot segment followed by a semicolon and an optional parameter, is not equal to the plain dot-dot form and passes the traversal check, and the WHATWG URL parser keeps it as an ordinary segment so the base-prefix containment check also passes. Backends that strip semicolon path parameters before resolving dot-segments, such as Apache Tomcat, Jetty, WildFly, and Spring Boot, turn the segment back into a parent-directory reference and resolve it, so an unauthenticated client can escape the intended upstream prefix and reach internal paths such as admin or internal API endpoints, including with state-changing methods. Deployments that proxy to Node.js, nginx, or Express upstreams are not affected. The issue is fixed in @fastify/reply-from 12.8.4, and users should upgrade to 12.8.4 or later.",
-      "severity": "HIGH",
-      "score": 8.2
-    },
-    {
-      "id": "CVE-2026-103026",
-      "published": "2026-11-19T19:17:16.410",
-      "description": "Paymenter is a free and open-source webshop solution for management of hosting services. Prior to 1.5.7, the HasConfirmation trait in app/Livewire/Traits/HasConfirmation.php, included by app/Livewire/Component.php across 36 client-facing Livewire components, exposed executeConfirmedAction as a public action that invoked any component method accepted by method_exists. The action could call inherited InteractsWithProperties::fill(), whose data_set() writes arbitrary public properties, including state marked with #[Locked] and dotted paths into hydrated Eloquent models. Depending on the methods and properties exposed by an individual component, an unauthenticated caller could use this path to bypass intended authorization and modify server-side state intended to be immutable or protected from client-side manipulation. This issue is fixed in version 1.5.7.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-104129",
-      "published": "2026-11-19T19:17:17.127",
-      "description": "pREST (PostgreSQL REST) is an API that delivers an application on top of a Postgres database. Prior to 2.4.0, the vulnerable parameter is _groupby, handled by GroupByClause in adapters/postgres/postgres.go. adapters/postgres/postgres.go uses the weaker isSafeSQLExpression check for this function-expression branch instead of the stricter single-field validator used for _select. That check validates only the outer function name against a 13-function allowlist and permits nested subqueries, trailing UNION syntax, and inner pg_ functions. controllers/crud.go concatenates the GROUP BY expression while parameterizing only WHERE values, allowing attacker-controlled SQL structure into the clause. Default configuration permits unauthenticated access; a restricted installation may require a low-privilege table reader. UNION-based extraction requires compatible column counts and types and was not verified end to end, but a delay-producing function can cause denial of service without that alignment. This issue is fixed in 2.4.0.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-126088",
-      "published": "2026-11-19T19:17:18.967",
-      "description": "In Autonomy Logic OpenPLC Runtime versions 4.2.4 and prior, a race condition allows multiple concurrent requests to pass the existence check before any user is committed, resulting in several unauthenticated admin accounts being created.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-129500",
-      "published": "2026-11-19T19:17:25.283",
-      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP and WebSocket traffic to an upstream server. In versions from 9.0.0 up to but not including 11.6.10, when the plugin is registered with websocket support enabled, it takes every upgraded socket and dispatches the request through the Fastify router before the WebSocket library takes ownership of the socket. Node.js removes its own error listener from the socket before emitting the upgrade event, and the plugin does not attach one of its own during routing, so a socket error such as a client connection reset that arrives before the WebSocket library takes over is unhandled and terminates the Node.js process. The error window is open whenever anything asynchronous runs between dispatch and the route handler, such as an async hook on the proxied route or any unrelated async route in the application. A single unauthenticated upgrade request followed by a connection reset is enough to crash the server, and it can be repeated to keep the process down. The issue is fixed in @fastify/http-proxy 11.6.10, and users should upgrade to 11.6.10 or later.",
+      "id": "CVE-2026-133534",
+      "published": "2026-11-20T03:17:35.377",
+      "description": "PowerLink developed by Neotroni Lighting has a SQL Injection vulnerability, allowing unauthenticated remote attackers to inject arbitrary SQL commands to read database contents.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-129502",
-      "published": "2026-11-19T19:17:25.407",
-      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP and WebSocket traffic to an upstream server. In versions from 9.4.0 up to but not including 11.6.10, when the plugin is registered with websocket support enabled, a WebSocket upgrade request whose path carries a URL fragment is matched by the router and answered with a successful upgrade before the upstream link is created. Building the upstream target then throws, the error is only logged, and the accepted client socket is left open with no error listener, so the next frame the client sends becomes an unhandled error and terminates the Node.js process. A request target that is not a valid URL reference reaching a parameterized prefix triggers the same path. A single unauthenticated upgrade request followed by one frame is enough to crash the server, and it can be repeated to keep the process down. The issue is fixed in @fastify/http-proxy 11.6.10, and users should upgrade to 11.6.10 or later.",
+      "id": "CVE-2026-133415",
+      "published": "2026-11-20T02:17:17.740",
+      "description": "A vulnerability has been found in sumiie24 School-Management-System up to d946d649c7c95e101fc5679ecd91999533bb10d7. The affected element is an unknown function of the file parent_Registration.php. Such manipulation of the argument student_reg leads to sql injection. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-130157",
-      "published": "2026-11-19T19:17:25.527",
-      "description": "RepoManager is a self-hosted deb/rpm package repository. Prior to 5.13.3, an attacker who controls an upstream RPM repository mirrored by a RepoManager instance can provide a package filename through the primary.xml <location href> field; the mirror passes that filename into a shell-interpreted RPM query, allowing shell metacharacters to execute commands as the www-data service account. The target must mirror an upstream repository controlled by the attacker, and the default \"Check GPG signatures\" option triggers the vulnerable call. The command executes before a later signature-verification failure, so a valid signed package is not required. Fixed in 5.13.3.",
+      "id": "CVE-2026-133478",
+      "published": "2026-11-20T03:17:34.977",
+      "description": "A security vulnerability has been detected in rajesh2211 Doctor-Appointment-System up to ee974dcf4c50da85e6ea026e27f4370e9468b3cc. Affected is an unknown function of the file AppointmentSystem/AppointmentSystem/Connectivity.php of the component Login. The manipulation of the argument User leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.3
     },
     {
-      "id": "CVE-2026-127060",
-      "published": "2026-11-19T19:17:19.247",
-      "description": "@fastify/http-proxy is a Fastify plugin that proxies HTTP and WebSocket traffic to an upstream server. In versions before 11.6.10, it rejects destinations containing parent-directory path segments by an exact string match, so a segment that carries a semicolon path parameter, such as a dot-dot segment followed by a semicolon and an optional parameter, is not equal to the plain dot-dot form and passes the check, and the WHATWG URL parser keeps it as an ordinary segment so the rewrite-prefix containment check also passes. Servlet containers such as Apache Tomcat and Jetty strip semicolon path parameters from each segment before resolving dot-segments, so a request routed through the configured prefix is rewritten and reaches the upstream where it resolves above the intended subtree, escaping the path the proxy is meant to expose and, on some containers, crossing application contexts. Both the HTTP and WebSocket proxy paths are affected. The issue is fixed in @fastify/http-proxy 11.6.10, and users should upgrade to 11.6.10 or later.",
+      "id": "CVE-2026-113347",
+      "published": "2026-11-20T04:17:09.277",
+      "description": "Multiple products produced by Ruijie Networks Co., Ltd. contain an OS command injection vulnerability that may lead to arbitrary OS commands being executed by an attacker with the administrative privilege.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-133228",
+      "published": "2026-11-20T02:17:17.127",
+      "description": "A flaw was found in Keycloak. When a client application enforces step-up authentication or multi-factor authentication (MFA) via a minimum authentication level, Keycloak fails to apply this requirement to login sessions initiated through the credential reset endpoint. An attacker who possesses a user's initial credentials (such as a password) can navigate from the reset interface back to the standard login form and authenticate without completing the required second factor. This flaw allows an attacker to obtain valid access tokens and gain unauthorized access to protected services without satisfying mandatory security controls.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-115565",
-      "published": "2026-11-19T19:17:18.167",
-      "description": "storyblok-backup is an npx CLI tool to create backups of a Storyblok space and restore individual resources. Prior to 0.7.1, the writeJson function used the editable Storyblok component name field as a filename without path containment. A person with component-management access in a Storyblok space could store a component name containing path traversal sequences; when another user later ran a backup for that space, the stored name escaped the configured backup directory and caused a JSON file to be written outside it on the backup host. Depending on the path chosen and the backup process's permissions, this could overwrite existing files at attacker-chosen locations. The vulnerability is specific to components: stories and datasources use numeric identifiers, and asset names are reduced to a final path segment. This issue is fixed in version 0.7.1.",
+      "id": "CVE-2026-133537",
+      "published": "2026-11-20T04:17:10.103",
+      "description": "A flaw was found in Keycloak. When evaluating access permissions, Keycloak Authorization Services improperly matches resource paths containing wildcard file extensions by evaluating only the file extension suffix and ignoring configured path prefixes. An authenticated remote attacker could exploit this vulnerability by requesting a restricted resource that shares a file extension with a more permissive resource, leading to an authorization bypass and unintended access to protected data.",
       "severity": "MEDIUM",
-      "score": 5.7
+      "score": 6.8
     },
     {
-      "id": "CVE-2026-128137",
-      "published": "2026-11-19T19:17:20.880",
-      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. From 3.9.4 until 3.10.4, NLTK corpus-reader path pointers and view methods validate a requested relative path without consistently resolving intermediate directory symlinks against the reader's scoped root. A local attacker who can place such a symlink can make abspaths or words reach a readable file outside the corpus root and disclose its contents. On releases with pathsec enforcement, the file must remain inside a global NLTK allowed root; version 3.9.4 has enforcement disabled and permits a broader escape. This issue is fixed in version 3.10.4.",
+      "id": "CVE-2026-24205",
+      "published": "2026-11-20T03:17:35.923",
+      "description": "NVIDIA TensorRT-LLM for any platform contains a vulnerability where a user may cause a race condition by running concurrent requests. A successful exploit of this vulnerability may lead to data tampering.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-129224",
-      "published": "2026-11-19T19:17:21.473",
-      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, the CCG lexicon parser's matchBrackets and augParseCategory functions recursively process nested parenthesized categories without a depth bound. An attacker-controlled lexicon string with excessive nesting can raise RecursionError through nltk.ccg.lexicon.fromstring and terminate the parse operation or request worker. This issue is fixed in version 3.10.4.",
+      "id": "CVE-2026-133224",
+      "published": "2026-11-20T02:17:16.640",
+      "description": "A flaw was found in Keycloak. When an administrator revokes tokens by setting a not-before revocation cutoff, Keycloak fails to enforce this boundary when processing User-Managed Access (UMA) grant requests using ID token claims. An authenticated remote user with an active session can submit a previously revoked ID token to receive a fresh Requesting Party Token (RPT). This flaw allows an attacker to bypass token revocation and retain unauthorized access to protected resources.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-133225",
+      "published": "2026-11-20T02:17:16.820",
+      "description": "A flaw was found in Keycloak. When processing token requests using the User-Managed Access (UMA) grant, Keycloak fails to verify whether a target client or resource server is enabled before issuing an authorization token. An authenticated remote user can exploit this flaw to obtain valid Requesting Party Tokens (RPTs) for disabled clients, bypassing administrative access controls and permissions restrictions.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-133414",
+      "published": "2026-11-20T02:17:17.533",
+      "description": "A security flaw has been discovered in sofastack sofa-bolt up to 1.6.12. Affected by this issue is the function HessianSerializer.deserialize of the file src/main/java/com/alipay/remoting/serialization/HessianSerializer.java of the component Hessian2 Deserialization. Performing a manipulation results in allocation of resources. The attack can be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-129228",
-      "published": "2026-11-19T19:17:21.840",
-      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, ToolboxSettings.parse builds a deeply nested attacker-controlled settings tree iteratively, but the later public helpers to_settings_string, remove_blanks, add_default_fields, sort_fields, and add_blank_lines recursively traverse that tree without a depth bound. Invoking any of those helpers on input nested beyond the interpreter recursion limit can raise RecursionError and abort the operation or request worker. This issue is fixed in version 3.10.4.",
+      "id": "CVE-2026-133479",
+      "published": "2026-11-20T03:17:35.177",
+      "description": "A vulnerability was detected in WebKul QloApps up to 1.8.0. Affected by this vulnerability is the function postProcessDownload/installTheme of the file controllers/admin/AdminModulesController.php of the component Archive Import. The manipulation results in path traversal. It is possible to launch the attack remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "MEDIUM",
-      "score": 5.3
+      "score": 4.7
     },
     {
-      "id": "CVE-2026-126765",
-      "published": "2026-11-19T19:17:19.113",
-      "description": "The glob functions in the GNU C Library versions 2.44 and earlier may free the same heap block twice when a memory allocation fails while glob prepends the directory name to the names it matched.  The names already rewritten are freed, but their pointers stay in the result vector, and the error path frees them again with globfree.\n\nThe allocation must fail after at least one name has been rewritten, so the issue can only be reached when the process is already close to its memory limit, for example under an address space limit (RLIMIT_AS) or on a 32-bit system.  The attacker needs control to make the result large enough to make the program or service run out of memory, either by controlling the glob pattern and having knowledge of the filesystem layout or through other means.  This issue affects all architectures and ABIs supported by the GNU C Library.",
+      "id": "CVE-2026-133226",
+      "published": "2026-11-20T02:17:16.973",
+      "description": "A flaw was found in Keycloak. The Account API endpoint for sharing resources fails to verify whether owner-managed access is enabled and accepts permission scopes not assigned to the resource. An authenticated user can exploit this vulnerability to generate pre-granted permission tickets, causing Keycloak to bypass policy evaluation and issue access tokens with unauthorized scopes.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-133535",
+      "published": "2026-11-20T03:17:35.533",
+      "description": "A flaw was found in Hawtio. An authenticated remote attacker can cause a Denial of Service (DoS) by sending a specially crafted request URI to monitored endpoints. The FlightRecordingDownloadFacade servlet filter uses an inefficient regular expression pattern that causes catastrophic backtracking when processing certain long requests. This issue leads to excessive CPU utilization, causing handling threads to hang and degrading service availability.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-133480",
+      "published": "2026-11-20T04:17:09.503",
+      "description": "A flaw has been found in hrshadhin CloudSchool up to 3.0.1. Affected by this issue is the function PublicController.checkSanity4Student of the file app/Http/Controllers/Backend/PublicController.php of the component Student Data Access Check. This manipulation of the argument student_id causes authorization bypass. The attack can be initiated remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-133536",
+      "published": "2026-11-20T04:17:09.957",
+      "description": "A flaw was found in Keycloak. The OpenID Connect (OIDC) logout endpoint continues to honor post-logout redirect rules for disabled clients rather than rejecting the requests. If a disabled client retains permissive redirect configurations, a remote attacker can exploit this issue by supplying an arbitrary redirection target in a logout request, leading to an open redirect that can be used in phishing attacks.",
+      "severity": "MEDIUM",
+      "score": 4.3
+    },
+    {
+      "id": "CVE-2026-133477",
+      "published": "2026-11-20T03:17:34.393",
+      "description": "A weakness has been identified in sofastack sofa-bolt up to 1.6.12. This impacts the function initSSLContext of the file src/main/java/com/alipay/remoting/connection/AbstractConnectionFactory.java of the component TLS Stack. Executing a manipulation can lead to certificate with host mismatch. The attack may be performed from remote. This attack is characterized by high complexity. The exploitability is said to be difficult. The vendor was contacted early about this disclosure but did not respond in any way.",
       "severity": "LOW",
       "score": 3.7
     },
     {
-      "id": "CVE-2026-103579",
-      "published": "2026-11-19T19:17:16.740",
-      "description": "A CRLF injection vulnerability in WatchGuard Dimension's outgoing email server configuration allows an authenticated Dimension Administrator to execute arbitrary operating system commands on the Dimension appliance with the privileges of the local mail-handling account.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-133413",
+      "published": "2026-11-20T02:17:17.290",
+      "description": "A vulnerability was detected in smartalock wireguard-lwip up to cfba91666590e86bd67842c71cedf9a423be823a. This affects the function wireguard_generate_unique_index of the file src/wireguard.c of the component Session Index Allocator. The manipulation of the argument receiver_index results in allocation of resources. The attack is only possible with local access. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 3.4
     },
     {
-      "id": "CVE-2026-103580",
-      "published": "2026-11-19T19:17:16.887",
-      "description": "An OS command injection vulnerability in WatchGuard Dimension's package update functionality allows an authenticated Dimension Administrator to execute arbitrary operating system commands as root by submitting a specially crafted package update request.",
-      "severity": "UNKNOWN",
-      "score": null
+      "id": "CVE-2026-133482",
+      "published": "2026-11-20T04:17:09.733",
+      "description": "A vulnerability has been found in hrshadhin CloudSchool up to 3.0.1. This affects the function EventController@store of the file app/Http/Controllers/Backend/EventController.php of the component Admin Content Management. Such manipulation of the argument data leads to cross site scripting. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "severity": "LOW",
+      "score": 2.4
     },
     {
-      "id": "CVE-2026-126037",
-      "published": "2026-11-19T19:17:18.843",
-      "description": "A broken access control vulnerability in WatchGuard Dimension's Device Summary feature allows an authenticated, low-privileged user to retrieve a device's detailed summary data by bypassing restrictions that would otherwise hide this information.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-129418",
-      "published": "2026-11-19T19:17:24.877",
-      "description": "Joomla Extension - phoca.cz - Stored XSS through YouTube links in Phoca Gallery extension 4.2.0-6.1.6 - The YouTube upload feature did not validate the supplied video URL and embedded the derived video ID without escaping, allowing users with frontend upload permission to inject HTML attributes into the gallery detail view.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-129419",
-      "published": "2026-11-19T19:17:25.013",
-      "description": "Joomla Extension - akeeba.com - Account takeover through missing OAuth state validation in Akeeba SocialLogin extension 1.0.0-4.11.0 - The OAuth callback did not validate a session-bound state parameter, allowing an attacker to link their own social provider identity to the account of a logged-in user who opens a crafted callback link and subsequently log in as that user.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-129422",
-      "published": "2026-11-19T19:17:25.150",
-      "description": "Joomla Extension - joomlatools.com - Unauthenticated blind server-side request forgery in FILEman extension < 6.1.4 - The frontend file view did not restrict requested files to their container and passed URLs to the framework URL fetch, allowing unauthenticated attackers to make the server issue requests to arbitrary addresses, including internal network resources.",
+      "id": "CVE-2026-102430",
+      "published": "2026-11-20T02:17:16.100",
+      "description": "An uncontrolled recursion vulnerability exists in the LINE iOS app prior to version 26.19.0.\n\nThe Flex Message processing component does not adequately validate the structure of externally supplied message content.\n\nAs a result, an attacker who is able to send a crafted message to a victim could cause the application to crash when the message is received or displayed.\n\nA server-side mitigation has been deployed that also protects existing iOS clients that have not been updated to version 26.19.0.",
       "severity": "UNKNOWN",
       "score": null
     }
