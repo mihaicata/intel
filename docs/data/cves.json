@@ -1,145 +1,145 @@
 {
-  "totalResults": 3330,
+  "totalResults": 3247,
   "items": [
     {
-      "id": "CVE-2026-120539",
-      "published": "2026-11-21T06:16:33.227",
-      "description": "The Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.5.4 This is due to the plugin splicing the attacker-controlled request URI into a PHP expression inside a double-quoted string and evaluating it with eval(). Because PHP interpolates double-quoted strings, a payload of the form {${...}} in the URL path is executed during interpolation, so no quote breakout is required and WordPress' slashing does not mitigate it. This makes it possible for unauthenticated attackers to execute arbitrary code on the server with a single GET request. The affected conditions ship enabled by default and are evaluated before any logged-in check, so no plugin configuration is needed; the site must have BuddyPress and Paid Memberships Pro active alongside this plugin.",
-      "severity": "CRITICAL",
-      "score": 9.8
-    },
-    {
-      "id": "CVE-2026-19793",
-      "published": "2026-11-21T04:17:20.800",
-      "description": "The WP Import Export Lite plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 3.9.32 via the 'comment' parameter. This is due to a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to be skipped when attacker-controlled comment content containing a malicious [wpie_function] shortcode is substituted at runtime. This makes it possible for unauthenticated attackers to inject arbitrary PHP callables on the server. Exploitation requires an Administrator to perform the standard Export With Settings For Import followed by a New Import migration workflow, which is a routine operational task; the attacker themselves requires no account or authentication, needing only the ability to submit a pending comment on any comments-open post.",
+      "id": "CVE-2026-129794",
+      "published": "2026-11-21T13:16:38.033",
+      "description": "The EoE fragment reassembly code uses a frame size from the wire as the bound for memcpy into the application receive buffer, without checking that the declared size fits in the actual buffer. A master can write up to 2016 bytes into a buffer the application may have sized much smaller.",
       "severity": "HIGH",
       "score": 8.8
     },
     {
-      "id": "CVE-2026-114434",
-      "published": "2026-11-21T06:16:32.417",
-      "description": "The Video Conferencing with Zoom WordPress plugin before 4.7.0 does not check that the requester is authorized to join a meeting before issuing a Zoom Meeting SDK signature for it, allowing unauthenticated users to obtain a valid signed join credential for an arbitrary meeting.",
+      "id": "CVE-2026-107654",
+      "published": "2026-11-21T12:16:38.173",
+      "description": "The One to one user Chat by WPGuppy plugin for WordPress is vulnerable to generic SQL Injection via the 'userId' parameter in all versions up to, and including, 1.1.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The plugin's permission callback is trivially bypassed because it validates a JWT that the plugin itself signs using an attacker-supplied value from the guppy_guest_account cookie, and the guest code path (userType=0) skips the get_userdata() check that would confirm the userId corresponds to a real WordPress user.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-121155",
-      "published": "2026-11-21T06:16:33.900",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not preserve the escaping of JSON-formatted database values when they rewrite the database during a restore to a new address or server, which could allow unauthenticated attackers to plant harmless-looking escaped markup, for example in a comment author name, that becomes Stored Cross-Site Scripting once an administrator performs such a restore.",
+      "id": "CVE-2026-116518",
+      "published": "2026-11-21T12:16:39.593",
+      "description": "The ElasticPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'orderby' parameter in all versions up to, and including, 5.3.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload is stored in the ep_query_log transient for up to 24 hours after a single unauthenticated frontend GET request, and only fires when an administrator subsequently opens the Status Report page and expands the Failed Queries panel.",
       "severity": "HIGH",
-      "score": 7.5
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-111067",
-      "published": "2026-11-21T06:16:31.253",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.10, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.10.26 does not guard all execution paths of its database restore process against second-order SQL injection, allowing a Subscriber-level user who has stored crafted content in their own account to escalate to administrator when an administrator later restores a backup.\nThis is due to an incomplete fix of CVE-2026-108761 in 1.26.9: the fix guards only one of the restore routine's execution paths, and a second path remains exploitable.",
+      "id": "CVE-2026-120736",
+      "published": "2026-11-21T12:16:40.053",
+      "description": "The AutomatorWP – No-Code Workflow Automation, Integration & Webhooks Plugin, now with AI plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message (any CF7 form field used in a form_field: tag)' parameter in all versions up to, and including, 6.0.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires an administrator to have configured a public 'Guest submits a form' automation whose Send-an-email action embeds a form_field tag, after which the payload fires the next time any user opens the affected automation's email log entry.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-121150",
-      "published": "2026-11-21T06:16:33.373",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not correctly handle comment-like content found in the middle of a long SQL statement when restoring a database backup, allowing users with a role as low as Subscriber who have stored crafted content in their own profile to have SQL executed when an administrator later restores a backup, and so escalate their account to administrator.\n\nThis is a different code path from the backup restore issue fixed in 1.26.10, and it does not depend on the database server's maximum packet size.",
+      "id": "CVE-2026-120745",
+      "published": "2026-11-21T12:16:40.203",
+      "description": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'reg_bio' parameter in all versions up to, and including, 4.18.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The reg_bio parameter is accepted by the registration handler's allowlist even when the rendered registration form does not include a biography field, meaning an unauthenticated attacker can supply the payload via a raw POST request without needing a visible biography input on the form.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-121151",
-      "published": "2026-11-21T06:16:33.480",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not preserve long database values byte-for-byte when restoring a database backup, allowing users with a role as low as Subscriber to plant a serialized value that becomes a PHP Object Injection once an administrator backs up and restores the database.\n\nNo gadget chain is known in the UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 or WordPress core, so the demonstrated effect is instantiation of an attacker-chosen class in the attacker's own requests. Exploitation requires the planted data to line up exactly with how the backup is read back, which depends on details of the attacker's row and the database dump format.",
+      "id": "CVE-2026-123830",
+      "published": "2026-11-21T12:16:40.657",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'data[display_name]' parameter in all versions up to, and including, 3.2.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires public user registration to be enabled (users_can_register=1) and a valid _wpfnonce fetched from the public sign-up page, but is otherwise fully unauthenticated.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-121153",
-      "published": "2026-11-21T06:16:33.690",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not keep a serialized value inert when their database search and replace reaches its recursion limit, allowing users with a role as low as Subscriber to plant data in their own user meta that is rewritten into a live PHP object when an administrator later runs a search and replace or a migration restore, and is then instantiated by WordPress on a later read.\n\nThis is distinct from CVE-2024-10957, whose fix restricted the unserialize call but left this path in place. No gadget chain is present in WordPress core or the UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 themselves; further impact depends on a suitable class from another installed UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 or .",
+      "id": "CVE-2026-124216",
+      "published": "2026-11-21T12:16:40.953",
+      "description": "The Orphans plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 3.4.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires a two-step comment chain: a benign first comment must be approved under a given name and email so that WordPress's comment_previously_approved mechanism auto-publishes the attacker's payload comment without moderation.",
       "severity": "HIGH",
-      "score": 7.1
+      "score": 7.2
     },
     {
-      "id": "CVE-2026-131651",
-      "published": "2026-11-21T04:17:20.330",
-      "description": "The rtMedia for WordPress, BuddyPress and bbPress plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'media_title' parameter in all versions up to, and including, 4.7.18 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability is only triggerable via the Backbone.js-rendered \"Load More\" pagination path; the server-side PHP gallery rendering correctly escapes media_title with esc_attr() and is not affected.",
+      "id": "CVE-2026-124976",
+      "published": "2026-11-21T12:16:41.260",
+      "description": "The Swift Performance Lite plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the '<attacker-chosen parameter name>' parameter in all versions up to, and including, 2.3.7.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires that an administrator has configured at least one Cacheable AJAX Action via the plugin's AJAX Cache feature, a condition attackers can confirm by probing for a swift-performance: HIT response header.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-130323",
+      "published": "2026-11-21T12:16:41.563",
+      "description": "The Accept Stripe Payments plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'href of any <a> element containing 'asp_action=show_pp&product_id='' parameter in all versions up to, and including, 2.1.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires that a user clicks the attacker-placed comment link to trigger the sink; however, if the non-default 'Prefetch Payment Popup Scripts' option is enabled, execution occurs on page load with no user interaction required.",
+      "severity": "HIGH",
+      "score": 7.2
+    },
+    {
+      "id": "CVE-2026-126705",
+      "published": "2026-11-21T12:16:41.407",
+      "description": "The WP Job Portal – AI-Powered Recruitment System for Company or Job Board website plugin for WordPress is vulnerable to time-based SQL Injection via the 'columns[<attacker-chosen key>]' parameter in all versions up to, and including, 2.8.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-129795",
+      "published": "2026-11-21T13:16:38.860",
+      "description": "When the last EoE fragment has the TIME_APPEND flag set, the handler subtracts 4 from rxframeoffset to strip the timestamp. There is no check that rxframeoffset is at least 4. A fragment carrying fewer than 4 bytes of payload that is also marked LAST causes rxframeoffset to wrap to 0xFFFFFFFC, which is then stored as the buffer length and handed to the TCP/IP stack.",
+      "severity": "MEDIUM",
+      "score": 6.5
+    },
+    {
+      "id": "CVE-2026-107747",
+      "published": "2026-11-21T12:16:39.120",
+      "description": "The WP Custom Admin Interface plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'first_name' parameter in all versions up to, and including, 7.43 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-125932",
-      "published": "2026-11-21T06:16:34.117",
-      "description": "The Coupon Creator plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'metavalue (with metakeyinput=cctor_expiration)' parameter in all versions up to, and including, 3.6.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit is possible because the cctor_coupon post type advertises 'custom-fields' support, enabling WordPress core's Custom Fields metabox for Contributors, and the unregistered cctor_expiration meta key causes sanitize_meta() to be a no-op, allowing raw HTML to be stored verbatim in the database via a single AJAX request.",
+      "id": "CVE-2026-109196",
+      "published": "2026-11-21T12:16:39.423",
+      "description": "The FV Player 8 plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'data.videos[].fv_wp_flowplayer_field_splash' parameter in all versions up to, and including, 8.1.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The wp_ajax_fv_player_db_save handler's ownership and capability check is conditional on the presence of the data.update field; omitting it bypasses authorization entirely, allowing a Subscriber-level attacker to overwrite any existing video record using an enumerable video ID — and the valid nonce required by the endpoint is issued to every logged-in visitor of any page hosting the publicly accessible [fvplayer_editor] shortcode.",
       "severity": "MEDIUM",
       "score": 6.4
     },
     {
-      "id": "CVE-2026-133958",
-      "published": "2026-11-21T05:18:22.503",
-      "description": "A flaw was found in Quay. Insufficient validation of repository notification webhook URLs allows an authenticated administrator to trigger Server-Side Request Forgery (SSRF). By specifying an internal URL or a redirect to an internal destination, an attacker can force the Quay worker to issue unauthorized HTTP requests to internal network locations and cloud metadata services.",
+      "id": "CVE-2026-119157",
+      "published": "2026-11-21T12:16:39.750",
+      "description": "The PublishPress Capabilities: User Role Access Control, Admin Area Permissions plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'page_elements' parameter in all versions up to, and including, 2.53.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires an administrator to open a Profile Features capture window and save at least one of the attacker-supplied rows on the Profile Features screen, which represents the ordinary documented use of the feature and leaves no visible indication to the administrator that malicious data was submitted.",
       "severity": "MEDIUM",
-      "score": 5.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-111975",
-      "published": "2026-11-21T06:16:32.293",
-      "description": "The GiveWP  WordPress plugin before 4.19.2.1 does not exclude donors who chose to give anonymously from one of its public REST API listings, allowing unauthenticated users to retrieve those donors' names.",
+      "id": "CVE-2026-122264",
+      "published": "2026-11-21T12:16:40.503",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'member[about]' parameter in all versions up to, and including, 3.2.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacking subscriber to have met the default antispam threshold of at least 3 forum posts before the account editing page becomes accessible.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-123970",
+      "published": "2026-11-21T12:16:40.810",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'thread[body]' parameter in all versions up to, and including, 3.2.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful execution of the injected script is limited to viewers whose forum access profile denies attachment viewing (va=0 or caa=0), meaning exploitation depends on an administrator having configured a custom forum access profile that permits reading but denies attachment viewing — this is not the default shipped configuration.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-107771",
+      "published": "2026-11-21T12:16:39.270",
+      "description": "The Speed Booster Pack ⚡ PageSpeed Optimization Suite plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'author' parameter in all versions up to, and including, 4.5.9.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that the plugin's Lazy load media option is enabled and that the attacker's comment is approved by a site administrator or via auto-approval.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-119177",
+      "published": "2026-11-21T12:16:39.900",
+      "description": "The Real Cookie Banner: GDPR & ePrivacy Cookie Consent plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 5.4.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that the cookie banner has been activated by the site administrator (the plugin's primary onboarding step) and that at least one prior comment from the same name and email identity has already been approved, after which WordPress core's comment_previously_approved default auto-approves subsequent comments without administrator action.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-124248",
+      "published": "2026-11-21T12:16:41.103",
+      "description": "The GPTranslate – Multilingual AI Translation Agent for WordPress: Translate Your Site with AI plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 2.34.17 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the plugin's non-default 'HTML DOM method' to be enabled for server-side translation, and a translation row for the target language-prefixed URL must exist to arm the output buffer that routes page content through the vulnerable Simple HTML DOM parser.",
+      "severity": "MEDIUM",
+      "score": 5.4
+    },
+    {
+      "id": "CVE-2026-122228",
+      "published": "2026-11-21T12:16:40.350",
+      "description": "The ProfilePress – Paid Membership, Online Courses (LMS), Ecommerce, User Registration & Login Form, User Profile & Restrict Content plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 4.18.0 via the 'sortby<form_id>, filter<form_id>' parameter. This makes it possible for unauthenticated attackers to extract reconstruct any listed member's full e-mail address one character at a time via a boolean LIKE oracle, and enumerate users holding arbitrary usermeta keys such as ppress_billing_phone. The e-mail address oracle is reachable on any default install that used the plugin's 'Create pages' onboarding notice, because pp_email_address is enabled as a search field by default and the resulting directory page is published with no capability or nonce gate.",
       "severity": "MEDIUM",
       "score": 5.3
-    },
-    {
-      "id": "CVE-2026-114435",
-      "published": "2026-11-21T06:16:32.520",
-      "description": "The Video Conferencing with Zoom WordPress plugin before 4.7.0 does not check authorization, or whether a meeting is restricted to logged-in users, password-protected or unpublished, before returning a meeting's join links, allowing unauthenticated users to obtain the passcode-embedded join links of any meeting, including meetings the site restricts.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-114436",
-      "published": "2026-11-21T06:16:32.620",
-      "description": "The Video Conferencing with Zoom WordPress plugin before 4.7.0 does not check that a requested Zoom meeting's recordings were published on the site before fetching them with the site's connected Zoom account, allowing unauthenticated users who know a meeting ID to retrieve that meeting's cloud recording details, including its topic, share link, passcode when returned by Zoom, and direct play and download links.",
-      "severity": "MEDIUM",
-      "score": 5.3
-    },
-    {
-      "id": "CVE-2026-119184",
-      "published": "2026-11-21T06:16:32.847",
-      "description": "The Mapster WP Maps — Mapbox, MapLibre & Google Maps for WordPress plugin before 2.0.7 does not perform any authorization check when saving edits made through its bundled photo-gallery library, allowing any authenticated user with at least Contributor-level access to overwrite the title and content of, and write arbitrary metadata onto, any post, page or media attachment on the site regardless of ownership.",
-      "severity": "MEDIUM",
-      "score": 4.9
-    },
-    {
-      "id": "CVE-2026-115226",
-      "published": "2026-11-21T06:16:32.727",
-      "description": "The GiveWP  WordPress plugin before 4.19.2.1 does not properly restrict access to sensitive donor information in one of its REST API endpoints, allowing any authenticated user who owns a donor record, such as a subscriber who has donated once, to retrieve the email address, phone number, name, postal address and company of all donors.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-119607",
-      "published": "2026-11-21T06:16:32.963",
-      "description": "The Salon Booking System – Appointment Booking for Salons, Barbershops & Spas plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 10.31.16. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to overwrite arbitrary users' user meta fields, including the _sln_phone and _sln_sms_prefix meta of administrator accounts, and create bookings attributed to arbitrary users. This is exploitable on default installations because reCAPTCHA is disabled by default, causing the booking endpoint's permission check to return true for any authenticated user without a meaningful authorization gate.",
-      "severity": "MEDIUM",
-      "score": 4.3
-    },
-    {
-      "id": "CVE-2026-121152",
-      "published": "2026-11-21T06:16:33.587",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not safely process the output of the external database dump tool when backing up large tables, allowing users with a role as low as Subscriber to store profile data that turns into SQL executed when an administrator later restores the backup, for example to grant themselves the administrator role.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-121154",
-      "published": "2026-11-21T06:16:33.793",
-      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not keep serialized string lengths consistent when their database search and replace processes certain serialized values, allowing users with a role as low as Subscriber to plant data that becomes an attacker-chosen PHP object after an administrator runs a URL-lengthening search and replace or a migration restore.\n\nWhen the replacement changes the length of the text, the declared string lengths inside the stored value no longer match and the corrupted value is written back, so when WordPress later reads it the trailing bytes are parsed as further serialized structure, including an object of a class the attacker named. No gadget chain is known in the UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 themselves; further impact depends on classes available from other installed code.",
-      "severity": "UNKNOWN",
-      "score": null
-    },
-    {
-      "id": "CVE-2026-123663",
-      "published": "2026-11-21T06:16:34.010",
-      "description": "The ProfilePress  WordPress plugin before 4.18.1 takes the role for an account registered through a combined login and registration form from the separate registration form that shares its numeric ID, allowing unauthenticated users to register with the elevated role, such as Editor, assigned by an unpublished registration form.",
-      "severity": "UNKNOWN",
-      "score": null
     }
   ]
 }
