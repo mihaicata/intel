@@ -1,143 +1,143 @@
 {
-  "totalResults": 3391,
+  "totalResults": 3330,
   "items": [
     {
-      "id": "CVE-2026-133680",
-      "published": "2026-11-20T20:17:35.750",
-      "description": "A vulnerability was found in D-Link DCS-935L 1.10.01. This affects the function loginRouter of the file web/cgi-bin/localrecording/setconf.cgi of the component Local Recording CGI. Performing a manipulation of the argument account/password results in os command injection. Remote exploitation of the attack is possible. The exploit has been made public and could be used.",
-      "severity": "CRITICAL",
-      "score": 9.9
-    },
-    {
-      "id": "CVE-2026-129175",
-      "published": "2026-11-20T20:17:21.980",
-      "description": "U.S Department of the Interior Unstable Slope Management Program allows an unauthenticated user to inject unauthorized SQL commands that allow the attacker to gain root access and complete control over the database. Fixed on or around 2026-10-19.",
+      "id": "CVE-2026-120539",
+      "published": "2026-11-21T06:16:33.227",
+      "description": "The Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.5.4 This is due to the plugin splicing the attacker-controlled request URI into a PHP expression inside a double-quoted string and evaluating it with eval(). Because PHP interpolates double-quoted strings, a payload of the form {${...}} in the URL path is executed during interpolation, so no quote breakout is required and WordPress' slashing does not mitigate it. This makes it possible for unauthenticated attackers to execute arbitrary code on the server with a single GET request. The affected conditions ship enabled by default and are evaluated before any logged-in check, so no plugin configuration is needed; the site must have BuddyPress and Paid Memberships Pro active alongside this plugin.",
       "severity": "CRITICAL",
       "score": 9.8
     },
     {
-      "id": "CVE-2026-129176",
-      "published": "2026-11-20T20:17:22.207",
-      "description": "U.S Department of the Interior Unstable Slope Management Program accepts a POST request from an unauthenticated user, with no cookie header, to a specific endpoint allowing for the deletion of specified users. Fixed on or around 2026-10-19.",
+      "id": "CVE-2026-19793",
+      "published": "2026-11-21T04:17:20.800",
+      "description": "The WP Import Export Lite plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 3.9.32 via the 'comment' parameter. This is due to a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to be skipped when attacker-controlled comment content containing a malicious [wpie_function] shortcode is substituted at runtime. This makes it possible for unauthenticated attackers to inject arbitrary PHP callables on the server. Exploitation requires an Administrator to perform the standard Export With Settings For Import followed by a New Import migration workflow, which is a routine operational task; the attacker themselves requires no account or authentication, needing only the ability to submit a pending comment on any comments-open post.",
       "severity": "HIGH",
-      "score": 8.2
+      "score": 8.8
     },
     {
-      "id": "CVE-2026-129179",
-      "published": "2026-11-20T20:17:22.727",
-      "description": "U.S Department of the Interior Unstable Slope Management Program allows attackers with valid local application credentials to establish an application session by sending JSON POST requests to the application's login endpoint without a Referrer header or completing the intended Keycloak flow. Fixed on or around 2026-10-19.",
-      "severity": "HIGH",
-      "score": 8.1
-    },
-    {
-      "id": "CVE-2026-114494",
-      "published": "2026-11-20T20:17:10.410",
-      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.0, the Cypher parser accepted an unbounded number of projection items in RETURN and WITH clauses while projection executors indexed fixed 32-element stack arrays using the parsed count. A query_graph query with more than 32 projection items could therefore write beyond those arrays, and a related result-column path could read uninitialized stack slots even when no node matched. Any caller of query_graph, including an agent whose query is influenced by untrusted content, could cause a reliable server crash and potentially compromise process confidentiality and integrity. This issue is fixed in version 0.9.0.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-114495",
-      "published": "2026-11-20T20:17:10.850",
-      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.0, automatic import of a repository's .codebase-memory/ artifact allocated a decompression buffer using the attacker-controlled 64-bit original_size value from artifact.json but truncated that value to int when passing the destination capacity to the Zstandard decompressor. A value with bit 31 set became negative and was sign-extended to a large size_t, allowing the decompressor to write frame content beyond the actual allocation. Indexing a malicious repository containing the crafted artifact could corrupt heap memory with attacker-controlled bytes, causing a reliable crash and potentially code execution. This issue is fixed in version 0.9.0.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-134035",
-      "published": "2026-11-20T20:17:37.310",
-      "description": "Krita JC2 File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe issue results from the use of a vulnerable version of openjpeg. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28646.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-134036",
-      "published": "2026-11-20T20:17:37.450",
-      "description": "Krita ABR File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of ABR files. The issue results from the lack of proper validation of the length of user-supplied data prior to copying it to a heap-based buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28785.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-134037",
-      "published": "2026-11-20T20:17:37.597",
-      "description": "Krita ASL File Parsing Integer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of ASL files. The issue results from the lack of proper validation of user-supplied data, which can result in an integer overflow before allocating a buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28906.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-134038",
-      "published": "2026-11-20T20:17:37.727",
-      "description": "Krita PSB File Parsing Integer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Krita. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of PSB files. The issue results from the lack of proper validation of user-supplied data, which can result in an integer overflow before allocating a buffer. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-28905.",
-      "severity": "HIGH",
-      "score": 7.8
-    },
-    {
-      "id": "CVE-2026-129177",
-      "published": "2026-11-20T20:17:22.390",
-      "description": "U.S Department of the Interior Unstable Slope Management Program contains a vulnerable endpoint that allows an unauthenticated attacker, without a cookie header, to send a POST request resulting in the creation of a new user. Fixed on or around 2026-10-19.",
+      "id": "CVE-2026-114434",
+      "published": "2026-11-21T06:16:32.417",
+      "description": "The Video Conferencing with Zoom WordPress plugin before 4.7.0 does not check that the requester is authorized to join a meeting before issuing a Zoom Meeting SDK signature for it, allowing unauthenticated users to obtain a valid signed join credential for an arbitrary meeting.",
       "severity": "HIGH",
       "score": 7.5
     },
     {
-      "id": "CVE-2026-129998",
-      "published": "2026-11-20T20:17:23.157",
-      "description": "MaxKB is an open-source AI assistant for enterprise. Prior to 2.10.7-lts, custom Tool Init Param definitions accept attacker-controlled props_info.rules[].validator strings through POST /admin/api/workspace/{workspace_id}/tool and PUT /admin/api/workspace/{workspace_id}/tool/{tool_id}, store them without restriction, and pass them to eval() when the parameter form renders. An authenticated user with the default USER workspace role can store JavaScript and trigger execution by opening the tool's Debug screen before entering or submitting a parameter value. The same Init Param form is exposed to accounts with edit permission on the tool, but execution by a different account was not independently verified. The confirmed script runs in the MaxKB origin; access to another user's bearer token and authenticated account authority is plausible only if that user renders the malicious form. This issue is fixed in version 2.10.7-lts.",
+      "id": "CVE-2026-121155",
+      "published": "2026-11-21T06:16:33.900",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not preserve the escaping of JSON-formatted database values when they rewrite the database during a restore to a new address or server, which could allow unauthenticated attackers to plant harmless-looking escaped markup, for example in a comment author name, that becomes Stored Cross-Site Scripting once an administrator performs such a restore.",
       "severity": "HIGH",
-      "score": 7.3
+      "score": 7.5
     },
     {
-      "id": "CVE-2026-129178",
-      "published": "2026-11-20T20:17:22.563",
-      "description": "U.S Department of the Interior Unstable Slope Management Program stores local user passwords as unsalted MD5 hashes. Fixed on or around 2026-10-19.",
+      "id": "CVE-2026-111067",
+      "published": "2026-11-21T06:16:31.253",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.10, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.10.26 does not guard all execution paths of its database restore process against second-order SQL injection, allowing a Subscriber-level user who has stored crafted content in their own account to escalate to administrator when an administrator later restores a backup.\nThis is due to an incomplete fix of CVE-2026-108761 in 1.26.9: the fix guards only one of the restore routine's execution paths, and a second path remains exploitable.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-121150",
+      "published": "2026-11-21T06:16:33.373",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not correctly handle comment-like content found in the middle of a long SQL statement when restoring a database backup, allowing users with a role as low as Subscriber who have stored crafted content in their own profile to have SQL executed when an administrator later restores a backup, and so escalate their account to administrator.\n\nThis is a different code path from the backup restore issue fixed in 1.26.10, and it does not depend on the database server's maximum packet size.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-121151",
+      "published": "2026-11-21T06:16:33.480",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not preserve long database values byte-for-byte when restoring a database backup, allowing users with a role as low as Subscriber to plant a serialized value that becomes a PHP Object Injection once an administrator backs up and restores the database.\n\nNo gadget chain is known in the UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 or WordPress core, so the demonstrated effect is instantiation of an attacker-chosen class in the attacker's own requests. Exploitation requires the planted data to line up exactly with how the backup is read back, which depends on details of the attacker's row and the database dump format.",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-121153",
+      "published": "2026-11-21T06:16:33.690",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not keep a serialized value inert when their database search and replace reaches its recursion limit, allowing users with a role as low as Subscriber to plant data in their own user meta that is rewritten into a live PHP object when an administrator later runs a search and replace or a migration restore, and is then instantiated by WordPress on a later read.\n\nThis is distinct from CVE-2024-10957, whose fix restricted the unserialize call but left this path in place. No gadget chain is present in WordPress core or the UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 themselves; further impact depends on a suitable class from another installed UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 or .",
+      "severity": "HIGH",
+      "score": 7.1
+    },
+    {
+      "id": "CVE-2026-131651",
+      "published": "2026-11-21T04:17:20.330",
+      "description": "The rtMedia for WordPress, BuddyPress and bbPress plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'media_title' parameter in all versions up to, and including, 4.7.18 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability is only triggerable via the Backbone.js-rendered \"Load More\" pagination path; the server-side PHP gallery rendering correctly escapes media_title with esc_attr() and is not affected.",
       "severity": "MEDIUM",
-      "score": 6.5
+      "score": 6.4
     },
     {
-      "id": "CVE-2026-114496",
-      "published": "2026-11-20T20:17:11.240",
-      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.0, the detect_changes tool validated the base_branch argument for shell metacharacters but omitted the leading-dash check before placing the value in the revision position of a git diff command. Git therefore interpreted an option-shaped base_branch value, including --output, as a command option instead of a revision, allowing a caller to create or overwrite a caller-chosen file with Git diff output under the server process's permissions. Arbitrary code execution was not demonstrated. This issue is fixed in version 0.9.0.",
+      "id": "CVE-2026-125932",
+      "published": "2026-11-21T06:16:34.117",
+      "description": "The Coupon Creator plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'metavalue (with metakeyinput=cctor_expiration)' parameter in all versions up to, and including, 3.6.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit is possible because the cctor_coupon post type advertises 'custom-fields' support, enabling WordPress core's Custom Fields metabox for Contributors, and the unregistered cctor_expiration meta key causes sanitize_meta() to be a no-op, allowing raw HTML to be stored verbatim in the database via a single AJAX request.",
+      "severity": "MEDIUM",
+      "score": 6.4
+    },
+    {
+      "id": "CVE-2026-133958",
+      "published": "2026-11-21T05:18:22.503",
+      "description": "A flaw was found in Quay. Insufficient validation of repository notification webhook URLs allows an authenticated administrator to trigger Server-Side Request Forgery (SSRF). By specifying an internal URL or a redirect to an internal destination, an attacker can force the Quay worker to issue unauthorized HTTP requests to internal network locations and cloud metadata services.",
       "severity": "MEDIUM",
       "score": 5.5
     },
     {
-      "id": "CVE-2026-114497",
-      "published": "2026-11-20T20:17:11.627",
-      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.9.1-rc.1, the optional graph UI's POST /api/process-kill route omitted the indexing-job ownership check on Windows while retaining that check on POSIX systems. A requester able to reach the optional UI could supply an arbitrary process identifier, causing TerminateProcess to stop any process that the server user was permitted to terminate. The flaw affects the Windows-specific process termination path and can cause a high availability impact without disclosing or modifying data. This issue is fixed in version 0.9.1-rc.1.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-114499",
-      "published": "2026-11-20T20:17:12.080",
-      "description": "codebase-memory-mcp provides local code intelligence for developers and AI agents through a persistent graph and MCP tools. Prior to 0.10.0, the indexer's .gitignore matcher implemented * and ** through recursive backtracking without a work bound. A repository containing a pattern with repeated wildcard groups and a long path could make matching work grow exponentially, allowing a single ignore rule to stall discovery indefinitely and, before worker isolation, stall the server. The impact is limited to availability, and the bounded matcher does not claim that every expensive input is eliminated. This issue is fixed in version 0.10.0.",
-      "severity": "MEDIUM",
-      "score": 5.5
-    },
-    {
-      "id": "CVE-2026-129174",
-      "published": "2026-11-20T20:17:21.377",
-      "description": "U.S Department of the Interior Unstable Slope Management Program allows a remote, unauthenticated attacker to access a vulnerable endpoint that returns a list of application users and their permissions in plaintext. Fixed on or around 2026-10-19.",
+      "id": "CVE-2026-111975",
+      "published": "2026-11-21T06:16:32.293",
+      "description": "The GiveWP  WordPress plugin before 4.19.2.1 does not exclude donors who chose to give anonymously from one of its public REST API listings, allowing unauthenticated users to retrieve those donors' names.",
       "severity": "MEDIUM",
       "score": 5.3
     },
     {
-      "id": "CVE-2026-133681",
-      "published": "2026-11-20T20:17:36.037",
-      "description": "A vulnerability was determined in Soar Cloud System Human Resources up to 7.3.2026.0112. This impacts an unknown function of the file /client.aspx. Executing a manipulation can lead to cross site scripting. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "id": "CVE-2026-114435",
+      "published": "2026-11-21T06:16:32.520",
+      "description": "The Video Conferencing with Zoom WordPress plugin before 4.7.0 does not check authorization, or whether a meeting is restricted to logged-in users, password-protected or unpublished, before returning a meeting's join links, allowing unauthenticated users to obtain the passcode-embedded join links of any meeting, including meetings the site restricts.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-114436",
+      "published": "2026-11-21T06:16:32.620",
+      "description": "The Video Conferencing with Zoom WordPress plugin before 4.7.0 does not check that a requested Zoom meeting's recordings were published on the site before fetching them with the site's connected Zoom account, allowing unauthenticated users who know a meeting ID to retrieve that meeting's cloud recording details, including its topic, share link, passcode when returned by Zoom, and direct play and download links.",
+      "severity": "MEDIUM",
+      "score": 5.3
+    },
+    {
+      "id": "CVE-2026-119184",
+      "published": "2026-11-21T06:16:32.847",
+      "description": "The Mapster WP Maps — Mapbox, MapLibre & Google Maps for WordPress plugin before 2.0.7 does not perform any authorization check when saving edits made through its bundled photo-gallery library, allowing any authenticated user with at least Contributor-level access to overwrite the title and content of, and write arbitrary metadata onto, any post, page or media attachment on the site regardless of ownership.",
+      "severity": "MEDIUM",
+      "score": 4.9
+    },
+    {
+      "id": "CVE-2026-115226",
+      "published": "2026-11-21T06:16:32.727",
+      "description": "The GiveWP  WordPress plugin before 4.19.2.1 does not properly restrict access to sensitive donor information in one of its REST API endpoints, allowing any authenticated user who owns a donor record, such as a subscriber who has donated once, to retrieve the email address, phone number, name, postal address and company of all donors.",
       "severity": "MEDIUM",
       "score": 4.3
     },
     {
-      "id": "CVE-2026-133693",
-      "published": "2026-11-20T20:17:36.297",
-      "description": "A weakness has been identified in continuedev continue 2.0.0/2.1.0. Affected is the function validateSearchAndReplaceFilepath of the file gui/src/util/clientTools/editImpl.ts of the component Edit Tool. Executing a manipulation can lead to path traversal. The attack requires local access. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "severity": "LOW",
-      "score": 3.3
+      "id": "CVE-2026-119607",
+      "published": "2026-11-21T06:16:32.963",
+      "description": "The Salon Booking System – Appointment Booking for Salons, Barbershops & Spas plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 10.31.16. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to overwrite arbitrary users' user meta fields, including the _sln_phone and _sln_sms_prefix meta of administrator accounts, and create bookings attributed to arbitrary users. This is exploitable on default installations because reCAPTCHA is disabled by default, causing the booking endpoint's permission check to return true for any authenticated user without a meaningful authorization gate.",
+      "severity": "MEDIUM",
+      "score": 4.3
     },
     {
-      "id": "CVE-2026-121714",
-      "published": "2026-11-20T20:17:14.270",
-      "description": "RabbitMQ is a messaging and streaming broker. In the affected revision identified by the advisory, the AMQP 1.0 server_mode parser in deps/amqp10_common/src/amqp10_binary_parser.erl stops at the first body section and preserves the remaining bytes in bare_and_footer without validating message-section order. An authenticated publisher with write permission can place a properties section carrying a forged user-id after the body, causing rabbit_access_control:check_user_id/2 to see no user-id while permissive downstream AMQP 1.0 decoders or AMQP 0-9-1 conversion through classic and quorum queues expose the forged identity. Applications that rely on RabbitMQ-validated user-id metadata can therefore accept attacker-controlled publisher attribution. Strict consumers that reject out-of-order sections are not vulnerable to identity spoofing, and the issue does not bypass broker routing or destination authorization. This issue is fixed in version 4.3.5.",
+      "id": "CVE-2026-121152",
+      "published": "2026-11-21T06:16:33.587",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not safely process the output of the external database dump tool when backing up large tables, allowing users with a role as low as Subscriber to store profile data that turns into SQL executed when an administrator later restores the backup, for example to grant themselves the administrator role.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-121154",
+      "published": "2026-11-21T06:16:33.793",
+      "description": "The UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 do not keep serialized string lengths consistent when their database search and replace processes certain serialized values, allowing users with a role as low as Subscriber to plant data that becomes an attacker-chosen PHP object after an administrator runs a URL-lengthening search and replace or a migration restore.\n\nWhen the replacement changes the length of the text, the declared string lengths inside the stored value no longer match and the corrupted value is written back, so when WordPress later reads it the trailing bytes are parsed as further serialized structure, including an object of a class the attacker named. No gadget chain is known in the UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 2.26.16.26, UpdraftPlus: WP Backup & Migration Plugin WordPress plugin before 1.26.16 themselves; further impact depends on classes available from other installed code.",
+      "severity": "UNKNOWN",
+      "score": null
+    },
+    {
+      "id": "CVE-2026-123663",
+      "published": "2026-11-21T06:16:34.010",
+      "description": "The ProfilePress  WordPress plugin before 4.18.1 takes the role for an account registered through a combined login and registration form from the separate registration form that shares its numeric ID, allowing unauthenticated users to register with the elevated role, such as Editor, assigned by an unpublished registration form.",
       "severity": "UNKNOWN",
       "score": null
     }
